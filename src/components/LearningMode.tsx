@@ -111,14 +111,16 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
     }
   };
 
-  const stripArabicDiacritics = (text: string): string => {
+  const normalizeArabic = (text: string): string => {
     // Remove Unicode diacritics U+064B-U+065F, U+0670 (superscript alif)
-    let stripped = text.replace(/[\u064B-\u065F\u0670]/g, '');
+    let s = text.replace(/[\u064B-\u065F\u0670]/g, '');
     // Normalize hamza carriers to base letters
-    stripped = stripped.replace(/[أإآ]/g, 'ا').replace(/ؤ/g, 'و').replace(/ئ/g, 'ي');
+    s = s.replace(/[أإآ]/g, 'ا').replace(/ؤ/g, 'و').replace(/ئ/g, 'ي');
+    // Strip punctuation
+    s = s.replace(/[.,،؛;!?\/\(\)\-]/g, '');
     // Collapse multiple spaces and trim
-    stripped = stripped.replace(/\s+/g, ' ').trim();
-    return stripped;
+    s = s.replace(/\s+/g, ' ').trim();
+    return s;
   };
 
   const handleTypingCheck = () => {
@@ -126,10 +128,12 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
     const userAnswer = typingInput.trim();
     onUpdateCard(currentCard.id, { stage2Attempts: currentCard.stage2Attempts + 1 });
 
-    const strippedUser = stripArabicDiacritics(userAnswer);
-    const strippedCorrect = stripArabicDiacritics(correct);
+    const normalizedUser = normalizeArabic(userAnswer);
+    // Split correct answer by / - ؛ ; into variants
+    const variants = correct.split(/[\/\-؛;]/).map((v) => normalizeArabic(v));
+    const isMatch = variants.some((v) => v === normalizedUser);
 
-    if (strippedUser === strippedCorrect) {
+    if (isMatch) {
       const graduated = graduateCard(currentCard);
       onUpdateCard(currentCard.id, {
         learningStage: graduated.learningStage,
