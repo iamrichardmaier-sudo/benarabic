@@ -1,5 +1,5 @@
-import { useState, useEffect, useCallback } from 'react';
-import { BookOpen, Plus, Layers, List, BookText, GraduationCap } from 'lucide-react';
+import { useState, useCallback } from 'react';
+import { BookOpen, Plus, Layers, List, BookText, GraduationCap, LogOut } from 'lucide-react';
 import AddWords from '@/components/AddWords';
 import Flashcard from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
@@ -7,35 +7,21 @@ import DeckList from '@/components/DeckList';
 import ReadingPractice from '@/components/ReadingPractice';
 import LearningMode from '@/components/LearningMode';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
-import { loadCards, saveCards } from '@/lib/storage';
+import { useFlashcards } from '@/hooks/useFlashcards';
+import { useAuth } from '@/hooks/useAuth';
 import { searchUnsplashImage } from '@/lib/unsplash';
 import { useToast } from '@/hooks/use-toast';
 
 type View = 'home' | 'add' | 'review' | 'deck' | 'practice' | 'learn';
 
 const Index = () => {
-  const [cards, setCards] = useState<FlashCard[]>([]);
+  const { cards, loading, addCards, updateCard, deleteCard } = useFlashcards();
+  const { signOut } = useAuth();
   const [view, setView] = useState<View>('home');
   const [dueCards, setDueCards] = useState<FlashCard[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
-
-  useEffect(() => {
-    const loaded = loadCards().map((c: FlashCard) => ({
-      ...c,
-      learningStage: c.learningStage || 'graduated',
-      stage1Attempts: c.stage1Attempts || 0,
-      stage2Attempts: c.stage2Attempts || 0,
-    }));
-    setCards(loaded);
-    setDueCards(getDueCards(loaded));
-  }, []);
-
-  const persist = useCallback((updated: FlashCard[]) => {
-    setCards(updated);
-    saveCards(updated);
-  }, []);
 
   const handleAddWords = async (lines: string[]) => {
     setIsLoading(true);
@@ -48,9 +34,7 @@ const Index = () => {
         const imageUrl = await searchUnsplashImage(searchQuery);
         newCards.push(createCard(arabic, english, imageUrl));
       }
-      const updated = [...cards, ...newCards];
-      persist(updated);
-      setDueCards(getDueCards(updated));
+      await addCards(newCards);
       toast({
         title: `Added ${newCards.length} word${newCards.length > 1 ? 's' : ''}`,
         description: `${newCards.filter((c) => c.imageUrl).length} images found`,
@@ -71,30 +55,36 @@ const Index = () => {
     setView('review');
   };
 
-  const handleRate = (rating: Rating) => {
+  const handleRate = async (rating: Rating) => {
     const current = dueCards[currentIndex];
     const reviewed = reviewCard(current, rating);
-    const updated = cards.map((c) => (c.id === reviewed.id ? reviewed : c));
-    persist(updated);
+    await updateCard(reviewed.id, {
+      intervalDays: reviewed.intervalDays,
+      easeFactor: reviewed.easeFactor,
+      nextReviewDate: reviewed.nextReviewDate,
+    });
     setCurrentIndex((i) => i + 1);
   };
 
-  const handleDelete = (id: string) => {
-    const updated = cards.filter((c) => c.id !== id);
-    persist(updated);
-    setDueCards(getDueCards(updated));
+  const handleDelete = async (id: string) => {
+    await deleteCard(id);
   };
 
-  const handleUpdateCard = (id: string, updates: Partial<FlashCard>) => {
-    const updated = cards.map((c) =>
-      c.id === id ? { ...c, ...updates } : c
-    );
-    persist(updated);
+  const handleUpdateCard = async (id: string, updates: Partial<FlashCard>) => {
+    await updateCard(id, updates);
   };
 
   const dueCount = getDueCards(cards).length;
   const learnCount = getLearnableCards(cards).length;
   const reviewDone = view === 'review' && currentIndex >= dueCards.length;
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center text-muted-foreground">
+        Loading your flashcards...
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
@@ -104,13 +94,22 @@ const Index = () => {
             <BookOpen className="w-5 h-5 text-primary" />
             <span className="font-bold text-lg">بطاقات</span>
           </button>
-          <button
-            onClick={() => setView('deck')}
-            className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-          >
-            <Layers className="w-4 h-4" />
-            <span>{cards.length} words</span>
-          </button>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setView('deck')}
+              className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              <Layers className="w-4 h-4" />
+              <span>{cards.length} words</span>
+            </button>
+            <button
+              onClick={signOut}
+              className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              title="Sign out"
+            >
+              <LogOut className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </header>
 
