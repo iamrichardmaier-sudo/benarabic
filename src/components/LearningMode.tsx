@@ -155,24 +155,32 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Use refs so the global keydown handler always calls the latest versions
   const handleCloseEnoughRef = useRef(handleCloseEnough);
   handleCloseEnoughRef.current = handleCloseEnough;
   const handleTryAgainRef = useRef(handleTryAgain);
   handleTryAgainRef.current = handleTryAgain;
+  const advanceToNextRef = useRef(advanceToNext);
+  advanceToNextRef.current = advanceToNext;
   const answerTypeRef = useRef(answerState.type);
   answerTypeRef.current = answerState.type;
 
-  // Keyboard shortcuts for manual override screen only
+  // Global keyboard shortcuts
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
-      if (answerTypeRef.current !== 'compare') return;
-      if (e.code === 'Space') {
-        e.preventDefault();
-        handleCloseEnoughRef.current();
-      } else if (e.key === 'Enter') {
-        e.preventDefault();
-        handleTryAgainRef.current();
+      const state = answerTypeRef.current;
+      if (state === 'correct' || state === 'wrong') {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          advanceToNextRef.current();
+        }
+      } else if (state === 'compare') {
+        if (e.code === 'Space') {
+          e.preventDefault();
+          handleCloseEnoughRef.current();
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          handleTryAgainRef.current();
+        }
       }
     };
     window.addEventListener('keydown', handler);
