@@ -2,6 +2,7 @@ import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { FlashCard, graduateCard } from '@/lib/spaced-repetition';
 import { Progress } from '@/components/ui/progress';
 import { ArrowLeft, Check, X, Sparkles } from 'lucide-react';
+import { Input } from '@/components/ui/input';
 
 interface LearningModeProps {
   cards: FlashCard[];
@@ -149,21 +150,49 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
     setAnswerState({ type: 'unanswered' });
     setTypingInput('');
     setCurrentIndex((i) => i + 1);
+    setTimeout(() => inputRef.current?.focus(), 50);
   };
 
-  // Prompt display: image or English word
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // Keyboard shortcuts for manual override screen
+  useEffect(() => {
+    if (answerState.type !== 'compare') return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        handleCloseEnough();
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        handleTryAgain();
+      }
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [answerState]);
+
+  // Prompt display: image + English together, or English only
   const PromptDisplay = ({ card }: { card: FlashCard }) => (
-    <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-6 flex items-center justify-center min-h-[200px]">
-      {card.imageUrl ? (
+    <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-6 flex flex-col items-center justify-center min-h-[200px] gap-3">
+      {card.imageUrl && (
         <img
           src={card.imageUrl}
           alt={card.english || card.word}
           className="max-w-[400px] w-full rounded-xl object-cover aspect-video"
         />
-      ) : (
-        <p className="text-[48px] font-bold text-muted-foreground leading-relaxed">
-          {card.english || '—'}
+      )}
+      {card.english && (
+        <p
+          className={card.imageUrl
+            ? "text-2xl text-muted-foreground"
+            : "text-[48px] font-bold text-muted-foreground"
+          }
+        >
+          {card.english}
         </p>
+      )}
+      {!card.imageUrl && !card.english && (
+        <p className="text-[48px] font-bold text-muted-foreground">—</p>
       )}
     </div>
   );
@@ -255,6 +284,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
         <div className="space-y-3">
           <label className="text-sm text-muted-foreground font-medium">Type the Arabic word:</label>
           <input
+            ref={inputRef}
             type="text"
             value={typingInput}
             onChange={(e) => setTypingInput(e.target.value)}
@@ -333,18 +363,19 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
               <span className="font-arabic text-xl font-semibold text-foreground" dir="rtl">{answerState.correctAnswer}</span>
             </div>
           </div>
+          <p className="text-xs text-center text-muted-foreground">Press Space if close enough, Enter to retry</p>
           <div className="grid grid-cols-2 gap-3">
             <button
               onClick={handleCloseEnough}
               className="py-3 rounded-xl bg-success text-success-foreground font-semibold transition-all active:scale-95"
             >
-              ✓ I was close enough
+              ✓ I was close enough (Space)
             </button>
             <button
               onClick={handleTryAgain}
               className="py-3 rounded-xl bg-warning text-warning-foreground font-semibold transition-all active:scale-95"
             >
-              ✗ Try again
+              ✗ Try again (Enter)
             </button>
           </div>
         </div>
