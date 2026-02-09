@@ -26,7 +26,7 @@ const Flashcard = ({ card, onRate }: FlashcardProps) => {
     <div className="w-full max-w-md mx-auto space-y-6">
       <button
         onClick={() => setFlipped(!flipped)}
-        className="w-full min-h-[280px] rounded-2xl bg-card flashcard-shadow hover:flashcard-shadow-hover transition-all duration-300 flex flex-col items-center justify-center p-8 cursor-pointer border border-border/50 active:scale-[0.98]"
+        className="w-full min-h-[320px] rounded-2xl bg-card flashcard-shadow hover:flashcard-shadow-hover transition-all duration-300 flex flex-col items-center justify-center p-8 cursor-pointer border border-border/50 active:scale-[0.98]"
       >
         {!flipped ? (
           <div className="space-y-4 text-center">
@@ -39,12 +39,21 @@ const Flashcard = ({ card, onRate }: FlashcardProps) => {
             </p>
           </div>
         ) : (
-          <div className="space-y-4 text-center">
-            <p className="font-arabic text-3xl text-muted-foreground" dir="rtl">
+          <div className="space-y-4 text-center w-full">
+            <p className="font-arabic text-2xl text-muted-foreground" dir="rtl">
               {card.word}
             </p>
             <div className="w-full h-px bg-border" />
-            <p className="text-lg text-muted-foreground italic">[Image will go here]</p>
+            {card.imageUrl ? (
+              <img
+                src={card.imageUrl}
+                alt={card.word}
+                className="w-full max-w-[400px] mx-auto rounded-xl object-cover aspect-video"
+                loading="lazy"
+              />
+            ) : (
+              <div className="text-6xl py-4">📖</div>
+            )}
           </div>
         )}
       </button>
