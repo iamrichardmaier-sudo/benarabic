@@ -111,13 +111,25 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
     }
   };
 
+  const stripArabicDiacritics = (text: string): string => {
+    // Remove Unicode diacritics U+064B-U+065F, U+0670 (superscript alif)
+    let stripped = text.replace(/[\u064B-\u065F\u0670]/g, '');
+    // Normalize hamza carriers to base letters
+    stripped = stripped.replace(/[أإآ]/g, 'ا').replace(/ؤ/g, 'و').replace(/ئ/g, 'ي');
+    // Collapse multiple spaces and trim
+    stripped = stripped.replace(/\s+/g, ' ').trim();
+    return stripped;
+  };
+
   const handleTypingCheck = () => {
     const correct = currentCard.word.trim();
     const userAnswer = typingInput.trim();
     onUpdateCard(currentCard.id, { stage2Attempts: currentCard.stage2Attempts + 1 });
 
-    if (userAnswer === correct) {
-      // Exact match
+    const strippedUser = stripArabicDiacritics(userAnswer);
+    const strippedCorrect = stripArabicDiacritics(correct);
+
+    if (strippedUser === strippedCorrect) {
       const graduated = graduateCard(currentCard);
       onUpdateCard(currentCard.id, {
         learningStage: graduated.learningStage,
@@ -128,7 +140,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
       setCompletedStage2((n) => n + 1);
       setAnswerState({ type: 'correct' });
     } else {
-      // Always show manual override
+      // Show manual override with original (non-stripped) versions
       setAnswerState({ type: 'compare', userAnswer, correctAnswer: correct });
     }
   };
