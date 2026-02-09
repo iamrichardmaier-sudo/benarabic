@@ -1,7 +1,8 @@
 export interface FlashCard {
   id: string;
   word: string;
-  nextReviewDate: string; // ISO date string
+  imageUrl: string | null;
+  nextReviewDate: string;
   intervalDays: number;
   easeFactor: number;
 }
@@ -51,10 +52,11 @@ export function getDueCards(cards: FlashCard[]): FlashCard[] {
   return cards.filter((c) => c.nextReviewDate <= today);
 }
 
-export function createCard(word: string): FlashCard {
+export function createCard(word: string, imageUrl: string | null = null): FlashCard {
   return {
     id: crypto.randomUUID(),
     word: word.trim(),
+    imageUrl,
     nextReviewDate: new Date().toISOString().split('T')[0],
     intervalDays: 1,
     easeFactor: 2.5,

@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { Plus } from 'lucide-react';
+import { Plus, Loader2 } from 'lucide-react';
 
 interface AddWordsProps {
   onAdd: (words: string[]) => void;
+  isLoading?: boolean;
 }
 
-const AddWords = ({ onAdd }: AddWordsProps) => {
+const AddWords = ({ onAdd, isLoading }: AddWordsProps) => {
   const [text, setText] = useState('');
 
   const handleAdd = () => {
@@ -29,10 +30,20 @@ const AddWords = ({ onAdd }: AddWordsProps) => {
         placeholder="أدخل الكلمات هنا، كلمة واحدة في كل سطر..."
         value={text}
         onChange={(e) => setText(e.target.value)}
+        disabled={isLoading}
       />
-      <Button onClick={handleAdd} className="w-full gap-2" size="lg">
-        <Plus className="w-4 h-4" />
-        Add Words
+      <Button onClick={handleAdd} className="w-full gap-2" size="lg" disabled={isLoading}>
+        {isLoading ? (
+          <>
+            <Loader2 className="w-4 h-4 animate-spin" />
+            Fetching images...
+          </>
+        ) : (
+          <>
+            <Plus className="w-4 h-4" />
+            Add Words
+          </>
+        )}
       </Button>
     </div>
   );
