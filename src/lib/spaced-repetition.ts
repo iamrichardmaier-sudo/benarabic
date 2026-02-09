@@ -1,3 +1,5 @@
+export type LearningStage = 'new' | 'stage1' | 'stage2' | 'graduated';
+
 export interface FlashCard {
   id: string;
   word: string;
@@ -6,6 +8,9 @@ export interface FlashCard {
   nextReviewDate: string;
   intervalDays: number;
   easeFactor: number;
+  learningStage: LearningStage;
+  stage1Attempts: number;
+  stage2Attempts: number;
 }
 
 export type Rating = 'again' | 'hard' | 'good' | 'easy';
@@ -50,7 +55,23 @@ export function reviewCard(card: FlashCard, rating: Rating): FlashCard {
 
 export function getDueCards(cards: FlashCard[]): FlashCard[] {
   const today = new Date().toISOString().split('T')[0];
-  return cards.filter((c) => c.nextReviewDate <= today);
+  return cards.filter((c) => c.learningStage === 'graduated' && c.nextReviewDate <= today);
+}
+
+export function getLearnableCards(cards: FlashCard[]): FlashCard[] {
+  return cards.filter((c) => c.learningStage !== 'graduated');
+}
+
+export function graduateCard(card: FlashCard): FlashCard {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  return {
+    ...card,
+    learningStage: 'graduated',
+    nextReviewDate: tomorrow.toISOString().split('T')[0],
+    intervalDays: 1,
+    easeFactor: 2.5,
+  };
 }
 
 export function createCard(word: string, english: string | null = null, imageUrl: string | null = null): FlashCard {
@@ -62,6 +83,9 @@ export function createCard(word: string, english: string | null = null, imageUrl
     nextReviewDate: new Date().toISOString().split('T')[0],
     intervalDays: 1,
     easeFactor: 2.5,
+    learningStage: 'new',
+    stage1Attempts: 0,
+    stage2Attempts: 0,
   };
 }
 

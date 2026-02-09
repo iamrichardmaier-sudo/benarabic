@@ -1,16 +1,17 @@
 import { useState, useEffect, useCallback } from 'react';
-import { BookOpen, Plus, Layers, List, BookText } from 'lucide-react';
+import { BookOpen, Plus, Layers, List, BookText, GraduationCap } from 'lucide-react';
 import AddWords from '@/components/AddWords';
 import Flashcard from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
 import DeckList from '@/components/DeckList';
 import ReadingPractice from '@/components/ReadingPractice';
-import { FlashCard, Rating, createCard, reviewCard, getDueCards, parseWordLine } from '@/lib/spaced-repetition';
+import LearningMode from '@/components/LearningMode';
+import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { loadCards, saveCards } from '@/lib/storage';
 import { searchUnsplashImage } from '@/lib/unsplash';
 import { useToast } from '@/hooks/use-toast';
 
-type View = 'home' | 'add' | 'review' | 'deck' | 'practice';
+type View = 'home' | 'add' | 'review' | 'deck' | 'practice' | 'learn';
 
 const Index = () => {
   const [cards, setCards] = useState<FlashCard[]>([]);
@@ -21,7 +22,12 @@ const Index = () => {
   const { toast } = useToast();
 
   useEffect(() => {
-    const loaded = loadCards();
+    const loaded = loadCards().map((c: FlashCard) => ({
+      ...c,
+      learningStage: c.learningStage || 'graduated',
+      stage1Attempts: c.stage1Attempts || 0,
+      stage2Attempts: c.stage2Attempts || 0,
+    }));
     setCards(loaded);
     setDueCards(getDueCards(loaded));
   }, []);
@@ -38,7 +44,6 @@ const Index = () => {
       for (const line of lines) {
         const { arabic, english } = parseWordLine(line);
         if (!arabic) continue;
-        // Prioritize English for image search
         const searchQuery = english || arabic;
         const imageUrl = await searchUnsplashImage(searchQuery);
         newCards.push(createCard(arabic, english, imageUrl));
@@ -80,7 +85,7 @@ const Index = () => {
     setDueCards(getDueCards(updated));
   };
 
-  const handleUpdateCard = (id: string, updates: Partial<Pick<FlashCard, 'imageUrl' | 'english'>>) => {
+  const handleUpdateCard = (id: string, updates: Partial<FlashCard>) => {
     const updated = cards.map((c) =>
       c.id === id ? { ...c, ...updates } : c
     );
@@ -88,6 +93,7 @@ const Index = () => {
   };
 
   const dueCount = getDueCards(cards).length;
+  const learnCount = getLearnableCards(cards).length;
   const reviewDone = view === 'review' && currentIndex >= dueCards.length;
 
   return (
@@ -111,19 +117,33 @@ const Index = () => {
       <main className="flex-1 max-w-lg mx-auto w-full px-4 py-8">
         {view === 'home' && (
           <div className="space-y-8">
-            <div className="rounded-2xl bg-card flashcard-shadow p-6 text-center space-y-2">
-              <p className="text-4xl font-bold text-foreground">{dueCount}</p>
-              <p className="text-muted-foreground">words due today</p>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="rounded-2xl bg-card flashcard-shadow p-5 text-center space-y-1">
+                <p className="text-3xl font-bold text-foreground">{learnCount}</p>
+                <p className="text-sm text-muted-foreground">words to learn</p>
+              </div>
+              <div className="rounded-2xl bg-card flashcard-shadow p-5 text-center space-y-1">
+                <p className="text-3xl font-bold text-foreground">{dueCount}</p>
+                <p className="text-sm text-muted-foreground">words to review</p>
+              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
+              <button
+                onClick={() => setView('learn')}
+                disabled={learnCount === 0}
+                className="flex flex-col items-center gap-2 rounded-xl bg-success text-success-foreground py-5 font-semibold transition-all active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
+              >
+                <GraduationCap className="w-5 h-5" />
+                Learn New Words
+              </button>
               <button
                 onClick={startReview}
                 disabled={dueCount === 0}
                 className="flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
               >
                 <BookOpen className="w-5 h-5" />
-                Review
+                Review Cards
               </button>
               <button
                 onClick={() => setView('add')}
@@ -141,7 +161,7 @@ const Index = () => {
               </button>
               <button
                 onClick={() => setView('deck')}
-                className="flex flex-col items-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-5 font-semibold transition-all active:scale-95"
+                className="col-span-2 flex flex-col items-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-5 font-semibold transition-all active:scale-95"
               >
                 <List className="w-5 h-5" />
                 My Deck
@@ -157,6 +177,15 @@ const Index = () => {
         )}
 
         {reviewDone && <ReviewComplete />}
+
+        {view === 'learn' && (
+          <LearningMode
+            cards={getLearnableCards(cards)}
+            allCards={cards}
+            onUpdateCard={(id, updates) => handleUpdateCard(id, updates)}
+            onBack={() => setView('home')}
+          />
+        )}
 
         {view === 'deck' && (
           <DeckList
