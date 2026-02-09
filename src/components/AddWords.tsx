@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Plus, Loader2 } from 'lucide-react';
 
 interface AddWordsProps {
-  onAdd: (words: string[]) => void;
+  onAdd: (lines: string[]) => void;
   isLoading?: boolean;
 }
 
@@ -12,18 +12,24 @@ const AddWords = ({ onAdd, isLoading }: AddWordsProps) => {
   const [text, setText] = useState('');
 
   const handleAdd = () => {
-    const words = text
+    const lines = text
       .split('\n')
       .map((w) => w.trim())
       .filter((w) => w.length > 0);
-    if (words.length > 0) {
-      onAdd(words);
+    if (lines.length > 0) {
+      onAdd(lines);
       setText('');
     }
   };
 
   return (
     <div className="w-full max-w-md mx-auto space-y-4">
+      <div className="rounded-xl bg-muted/50 border border-border/50 p-3 text-xs text-muted-foreground space-y-1">
+        <p className="font-medium text-foreground text-sm">Input formats:</p>
+        <p dir="rtl" className="font-arabic">كِتَاب</p>
+        <p dir="rtl" className="font-arabic">كِتَاب | book</p>
+        <p>Add English after a pipe (|) for better image results</p>
+      </div>
       <Textarea
         dir="rtl"
         className="min-h-[160px] font-arabic text-lg bg-card border-border resize-none focus:ring-2 focus:ring-primary/30"

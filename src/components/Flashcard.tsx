@@ -22,6 +22,29 @@ const Flashcard = ({ card, onRate }: FlashcardProps) => {
     onRate(rating);
   };
 
+  const renderBack = () => {
+    if (card.imageUrl) {
+      return (
+        <img
+          src={card.imageUrl}
+          alt={card.word}
+          className="w-full max-w-[400px] mx-auto rounded-xl object-cover aspect-video"
+          loading="lazy"
+        />
+      );
+    }
+    if (card.english) {
+      return (
+        <p className="text-[36px] text-muted-foreground text-center leading-snug">
+          {card.english}
+        </p>
+      );
+    }
+    return (
+      <p className="text-lg text-muted-foreground italic">Translation not available</p>
+    );
+  };
+
   return (
     <div className="w-full max-w-md mx-auto space-y-6">
       <button
@@ -44,16 +67,7 @@ const Flashcard = ({ card, onRate }: FlashcardProps) => {
               {card.word}
             </p>
             <div className="w-full h-px bg-border" />
-            {card.imageUrl ? (
-              <img
-                src={card.imageUrl}
-                alt={card.word}
-                className="w-full max-w-[400px] mx-auto rounded-xl object-cover aspect-video"
-                loading="lazy"
-              />
-            ) : (
-              <p className="text-lg text-muted-foreground italic py-4">Image not available yet</p>
-            )}
+            {renderBack()}
           </div>
         )}
       </button>

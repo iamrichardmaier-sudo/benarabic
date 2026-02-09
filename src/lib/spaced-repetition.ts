@@ -1,6 +1,7 @@
 export interface FlashCard {
   id: string;
   word: string;
+  english: string | null;
   imageUrl: string | null;
   nextReviewDate: string;
   intervalDays: number;
@@ -52,13 +53,27 @@ export function getDueCards(cards: FlashCard[]): FlashCard[] {
   return cards.filter((c) => c.nextReviewDate <= today);
 }
 
-export function createCard(word: string, imageUrl: string | null = null): FlashCard {
+export function createCard(word: string, english: string | null = null, imageUrl: string | null = null): FlashCard {
   return {
     id: crypto.randomUUID(),
     word: word.trim(),
+    english: english?.trim() || null,
     imageUrl,
     nextReviewDate: new Date().toISOString().split('T')[0],
     intervalDays: 1,
     easeFactor: 2.5,
   };
+}
+
+/** Parse input line: "كتاب | book" or just "كتاب" */
+export function parseWordLine(line: string): { arabic: string; english: string | null } {
+  const trimmed = line.trim();
+  if (!trimmed) return { arabic: '', english: null };
+
+  if (trimmed.includes('|')) {
+    const parts = trimmed.split('|').map((p) => p.trim());
+    return { arabic: parts[0], english: parts[1] || null };
+  }
+
+  return { arabic: trimmed, english: null };
 }

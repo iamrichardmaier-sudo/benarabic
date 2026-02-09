@@ -5,7 +5,7 @@ import Flashcard from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
 import DeckList from '@/components/DeckList';
 import ReadingPractice from '@/components/ReadingPractice';
-import { FlashCard, Rating, createCard, reviewCard, getDueCards } from '@/lib/spaced-repetition';
+import { FlashCard, Rating, createCard, reviewCard, getDueCards, parseWordLine } from '@/lib/spaced-repetition';
 import { loadCards, saveCards } from '@/lib/storage';
 import { searchUnsplashImage } from '@/lib/unsplash';
 import { useToast } from '@/hooks/use-toast';
@@ -31,13 +31,17 @@ const Index = () => {
     saveCards(updated);
   }, []);
 
-  const handleAddWords = async (words: string[]) => {
+  const handleAddWords = async (lines: string[]) => {
     setIsLoading(true);
     try {
       const newCards: FlashCard[] = [];
-      for (const word of words) {
-        const imageUrl = await searchUnsplashImage(word);
-        newCards.push(createCard(word, imageUrl));
+      for (const line of lines) {
+        const { arabic, english } = parseWordLine(line);
+        if (!arabic) continue;
+        // Prioritize English for image search
+        const searchQuery = english || arabic;
+        const imageUrl = await searchUnsplashImage(searchQuery);
+        newCards.push(createCard(arabic, english, imageUrl));
       }
       const updated = [...cards, ...newCards];
       persist(updated);
@@ -76,8 +80,10 @@ const Index = () => {
     setDueCards(getDueCards(updated));
   };
 
-  const handleUpdateImage = (id: string, imageUrl: string) => {
-    const updated = cards.map((c) => (c.id === id ? { ...c, imageUrl: imageUrl || null } : c));
+  const handleUpdateCard = (id: string, updates: Partial<Pick<FlashCard, 'imageUrl' | 'english'>>) => {
+    const updated = cards.map((c) =>
+      c.id === id ? { ...c, ...updates } : c
+    );
     persist(updated);
   };
 
@@ -156,7 +162,7 @@ const Index = () => {
           <DeckList
             cards={cards}
             onDelete={handleDelete}
-            onUpdateImage={handleUpdateImage}
+            onUpdateCard={handleUpdateCard}
             onBack={() => setView('home')}
           />
         )}
