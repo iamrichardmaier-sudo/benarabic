@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -45,7 +45,7 @@
 
     --radius: 0.75rem;
 
-    --font-arabic: 'Cairo', sans-serif;
+    --font-arabic: 'Arial', 'Times New Roman', sans-serif;
     --font-body: 'Inter', sans-serif;
 
     --card-shadow: 0 2px 8px -2px hsl(24 20% 20% / 0.08), 0 6px 20px -4px hsl(24 20% 20% / 0.06);

@@ -30,7 +30,7 @@ const Flashcard = ({ card, onRate }: FlashcardProps) => {
       >
         {!flipped ? (
           <div className="space-y-4 text-center">
-            <p className="font-arabic text-5xl font-bold text-foreground leading-relaxed" dir="rtl">
+            <p className="font-arabic text-[48px] font-bold text-foreground leading-relaxed" dir="rtl">
               {card.word}
             </p>
             <p className="text-sm text-muted-foreground flex items-center gap-1.5 justify-center">
@@ -52,7 +52,7 @@ const Flashcard = ({ card, onRate }: FlashcardProps) => {
                 loading="lazy"
               />
             ) : (
-              <div className="text-6xl py-4">📖</div>
+              <p className="text-lg text-muted-foreground italic py-4">Image not available yet</p>
             )}
           </div>
         )}

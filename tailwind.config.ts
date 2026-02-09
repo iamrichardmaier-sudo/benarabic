@@ -71,7 +71,7 @@ export default {
         },
       },
       fontFamily: {
-        arabic: ['Cairo', 'sans-serif'],
+        arabic: ['Arial', 'Times New Roman', 'sans-serif'],
         body: ['Inter', 'sans-serif'],
       },
       borderRadius: {
