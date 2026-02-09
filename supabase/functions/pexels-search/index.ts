@@ -18,30 +18,30 @@ Deno.serve(async (req) => {
       );
     }
 
-    const accessKey = Deno.env.get('UNSPLASH_ACCESS_KEY');
-    if (!accessKey) {
+    const apiKey = Deno.env.get('PEXELS_API_KEY');
+    if (!apiKey) {
       return new Response(
-        JSON.stringify({ success: false, error: 'Unsplash API key not configured' }),
+        JSON.stringify({ success: false, error: 'Pexels API key not configured' }),
         { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 
-    const url = `https://api.unsplash.com/search/photos?query=${encodeURIComponent(query)}&per_page=1&orientation=landscape`;
+    const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=1&orientation=landscape`;
 
     const response = await fetch(url, {
-      headers: { 'Authorization': `Client-ID ${accessKey}` },
+      headers: { 'Authorization': apiKey },
     });
 
     const data = await response.json();
 
     if (!response.ok) {
       return new Response(
-        JSON.stringify({ success: false, error: data.errors?.[0] || 'Unsplash API error' }),
+        JSON.stringify({ success: false, error: data.error || 'Pexels API error' }),
         { status: response.status, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     }
 
-    const imageUrl = data.results?.[0]?.urls?.small || null;
+    const imageUrl = data.photos?.[0]?.src?.medium || null;
 
     return new Response(
       JSON.stringify({ success: true, imageUrl }),
