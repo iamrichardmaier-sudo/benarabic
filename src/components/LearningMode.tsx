@@ -155,21 +155,29 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Keyboard shortcuts for manual override screen
+  // Use refs so the global keydown handler always calls the latest versions
+  const handleCloseEnoughRef = useRef(handleCloseEnough);
+  handleCloseEnoughRef.current = handleCloseEnough;
+  const handleTryAgainRef = useRef(handleTryAgain);
+  handleTryAgainRef.current = handleTryAgain;
+  const answerTypeRef = useRef(answerState.type);
+  answerTypeRef.current = answerState.type;
+
+  // Keyboard shortcuts for manual override screen only
   useEffect(() => {
-    if (answerState.type !== 'compare') return;
     const handler = (e: KeyboardEvent) => {
+      if (answerTypeRef.current !== 'compare') return;
       if (e.code === 'Space') {
         e.preventDefault();
-        handleCloseEnough();
+        handleCloseEnoughRef.current();
       } else if (e.key === 'Enter') {
         e.preventDefault();
-        handleTryAgain();
+        handleTryAgainRef.current();
       }
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [answerState]);
+  }, []);
 
   // Prompt display: image + English together, or English only
   const PromptDisplay = ({ card }: { card: FlashCard }) => (
@@ -289,7 +297,10 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
             value={typingInput}
             onChange={(e) => setTypingInput(e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === 'Enter' && typingInput.trim()) handleTypingCheck();
+              if (e.key === 'Enter' && typingInput.trim()) {
+                e.stopPropagation();
+                handleTypingCheck();
+              }
             }}
             placeholder="اكتب الكلمة العربية"
             dir="rtl"
