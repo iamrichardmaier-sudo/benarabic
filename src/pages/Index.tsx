@@ -1,15 +1,16 @@
 import { useState, useEffect, useCallback } from 'react';
-import { BookOpen, Plus, Layers, List } from 'lucide-react';
+import { BookOpen, Plus, Layers, List, BookText } from 'lucide-react';
 import AddWords from '@/components/AddWords';
 import Flashcard from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
 import DeckList from '@/components/DeckList';
+import ReadingPractice from '@/components/ReadingPractice';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards } from '@/lib/spaced-repetition';
 import { loadCards, saveCards } from '@/lib/storage';
 import { searchUnsplashImage } from '@/lib/unsplash';
 import { useToast } from '@/hooks/use-toast';
 
-type View = 'home' | 'add' | 'review' | 'deck';
+type View = 'home' | 'add' | 'review' | 'deck' | 'practice';
 
 const Index = () => {
   const [cards, setCards] = useState<FlashCard[]>([]);
@@ -109,7 +110,7 @@ const Index = () => {
               <p className="text-muted-foreground">words due today</p>
             </div>
 
-            <div className="grid grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 gap-3">
               <button
                 onClick={startReview}
                 disabled={dueCount === 0}
@@ -123,14 +124,21 @@ const Index = () => {
                 className="flex flex-col items-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-5 font-semibold transition-all active:scale-95"
               >
                 <Plus className="w-5 h-5" />
-                Add
+                Add Words
+              </button>
+              <button
+                onClick={() => setView('practice')}
+                className="flex flex-col items-center gap-2 rounded-xl bg-accent text-accent-foreground py-5 font-semibold transition-all active:scale-95"
+              >
+                <BookText className="w-5 h-5" />
+                Practice
               </button>
               <button
                 onClick={() => setView('deck')}
-                className="flex flex-col items-center gap-2 rounded-xl bg-accent text-accent-foreground py-5 font-semibold transition-all active:scale-95"
+                className="flex flex-col items-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-5 font-semibold transition-all active:scale-95"
               >
                 <List className="w-5 h-5" />
-                Deck
+                My Deck
               </button>
             </div>
           </div>
@@ -151,6 +159,10 @@ const Index = () => {
             onUpdateImage={handleUpdateImage}
             onBack={() => setView('home')}
           />
+        )}
+
+        {view === 'practice' && (
+          <ReadingPractice cards={cards} onBack={() => setView('home')} />
         )}
       </main>
     </div>
