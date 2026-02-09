@@ -14,7 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      flashcards: {
+        Row: {
+          created_at: string
+          ease_factor: number
+          english: string | null
+          id: string
+          image_url: string | null
+          interval_days: number
+          learning_stage: string
+          next_review_date: string
+          stage1_attempts: number
+          stage2_attempts: number
+          user_id: string
+          word: string
+        }
+        Insert: {
+          created_at?: string
+          ease_factor?: number
+          english?: string | null
+          id?: string
+          image_url?: string | null
+          interval_days?: number
+          learning_stage?: string
+          next_review_date?: string
+          stage1_attempts?: number
+          stage2_attempts?: number
+          user_id?: string
+          word: string
+        }
+        Update: {
+          created_at?: string
+          ease_factor?: number
+          english?: string | null
+          id?: string
+          image_url?: string | null
+          interval_days?: number
+          learning_stage?: string
+          next_review_date?: string
+          stage1_attempts?: number
+          stage2_attempts?: number
+          user_id?: string
+          word?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
