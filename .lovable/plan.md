@@ -1,57 +1,34 @@
 
+# Improve Review Flashcards
 
-# Move Flashcard Storage to the Cloud Database
+## Changes
 
-Currently your flashcards are stored in the browser's local storage, which means they disappear when the preview URL changes or the browser cache is cleared. This plan migrates everything to your Lovable Cloud database so your words are saved permanently and accessible from any device.
+### 1. Bidirectional review (Arabic-to-English AND English-to-Arabic)
+Currently, review only shows the Arabic word on the front and reveals the image/English on the back. We'll add a second direction so each due card produces two review prompts:
 
----
+- **Arabic to English**: Front shows the Arabic word, back shows the English + image
+- **English to Arabic**: Front shows the English word + image, back reveals the Arabic word
 
-## What You'll Get
+The due cards list will be shuffled with both directions intermixed so you don't just see the same card twice in a row.
 
-- Permanent storage of all your flashcards in the cloud
-- A simple sign-up/login page so your cards are tied to your account
-- Everything else (learning mode, review, deck list, etc.) works exactly the same
-
----
-
-## Steps
-
-### 1. Create the flashcards table in the database
-A `flashcards` table with all the fields your app already uses: word, english, image URL, review scheduling data, learning stage, and attempt counters. Each row is linked to the user who created it.
-
-Row-level security policies will ensure users can only see and modify their own cards.
-
-### 2. Add authentication (sign-up and login)
-A simple auth page with email and password sign-up/login. You'll need to verify your email before signing in. The app will redirect unauthenticated users to the login page.
-
-### 3. Update the app to read/write from the database instead of localStorage
-- Replace `loadCards()` (which reads localStorage) with a database query
-- Replace `saveCards()` with individual database insert/update/delete operations
-- The add words, review, learning mode, and deck list screens will all use the database automatically
-
-### 4. One-time localStorage migration
-On first login, if you have existing cards in localStorage, they'll be automatically imported into your database account so nothing is lost.
+### 2. Always show the English word alongside images
+Right now, if a card has an image, only the image is shown on the back (the English text is skipped). We'll update this so the English word is always displayed together with the image.
 
 ---
 
 ## Technical Details
 
-**Database migration SQL:**
-- Create `flashcards` table with columns: `id`, `user_id`, `word`, `english`, `image_url`, `next_review_date`, `interval_days`, `ease_factor`, `learning_stage`, `stage1_attempts`, `stage2_attempts`, `created_at`
-- Enable RLS with policies: users can only SELECT/INSERT/UPDATE/DELETE their own rows (where `user_id = auth.uid()`)
-- Default `user_id` to `auth.uid()` so inserts don't need to specify it explicitly
+**File: `src/components/Flashcard.tsx`**
 
-**New files:**
-- `src/pages/Auth.tsx` -- sign-up/login page
-- `src/hooks/useFlashcards.ts` -- React Query hook replacing localStorage calls
+- Add a `direction` prop: `'ar-to-en' | 'en-to-ar'` (default `'ar-to-en'`)
+- When direction is `ar-to-en`: front shows Arabic, back shows English + image
+- When direction is `en-to-ar`: front shows English + image, back shows Arabic
+- Update `renderBack()` to always show the English word below/above the image (instead of image-only)
 
-**Modified files:**
-- `src/lib/storage.ts` -- rewritten to use database queries via the client SDK
-- `src/pages/Index.tsx` -- use new database-backed hook instead of `loadCards`/`saveCards`
-- `src/App.tsx` -- add auth route and protected route wrapper
-- `src/components/AddWords.tsx`, `DeckList.tsx`, `LearningMode.tsx` -- minor adjustments for async save operations
+**File: `src/pages/Index.tsx`**
 
-**Auth configuration:**
-- Email + password authentication
-- Email confirmation required before sign-in
+- Update `startReview()` to create two entries per due card (one for each direction), then shuffle
+- Track direction alongside each review item
+- Pass the direction to the `Flashcard` component
 
+**No database or schema changes needed** -- this is purely a UI/logic change in how cards are presented during review.
