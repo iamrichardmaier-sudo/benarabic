@@ -1,34 +1,36 @@
 
-# Improve Review Flashcards
 
-## Changes
+# Make Learning Mode Stage 1 Bidirectional
 
-### 1. Bidirectional review (Arabic-to-English AND English-to-Arabic)
-Currently, review only shows the Arabic word on the front and reveals the image/English on the back. We'll add a second direction so each due card produces two review prompts:
+## Problem
+Stage 1 multiple choice currently only goes one direction: it shows the English word (+ image) and asks you to pick the correct Arabic word. You want it to also work the other way around.
 
-- **Arabic to English**: Front shows the Arabic word, back shows the English + image
-- **English to Arabic**: Front shows the English word + image, back reveals the Arabic word
+## Solution
+Randomly assign each Stage 1 card a direction when building the queue. Half the cards will show English and ask you to pick Arabic; the other half will show Arabic and ask you to pick English.
 
-The due cards list will be shuffled with both directions intermixed so you don't just see the same card twice in a row.
+## How It Will Work
 
-### 2. Always show the English word alongside images
-Right now, if a card has an image, only the image is shown on the back (the English text is skipped). We'll update this so the English word is always displayed together with the image.
-
----
+- **English prompt, Arabic answers**: Shows the English word + image on top, four Arabic word choices below (current behavior)
+- **Arabic prompt, English answers**: Shows the Arabic word on top, four English word choices below
 
 ## Technical Details
 
-**File: `src/components/Flashcard.tsx`**
+**File: `src/components/LearningMode.tsx`**
 
-- Add a `direction` prop: `'ar-to-en' | 'en-to-ar'` (default `'ar-to-en'`)
-- When direction is `ar-to-en`: front shows Arabic, back shows English + image
-- When direction is `en-to-ar`: front shows English + image, back shows Arabic
-- Update `renderBack()` to always show the English word below/above the image (instead of image-only)
+1. **Add a direction to each queued item** -- Instead of the queue being `FlashCard[]`, it becomes `{ card: FlashCard; direction: 'en-to-ar' | 'ar-to-en' }[]`. When building the initial queue, randomly assign a direction to each card.
 
-**File: `src/pages/Index.tsx`**
+2. **Update `mcOptions`** -- Based on the current item's direction:
+   - `en-to-ar`: Correct answer is `card.word` (Arabic), distractors are other Arabic words from `allCards` (current behavior)
+   - `ar-to-en`: Correct answer is `card.english`, distractors are other English words from `allCards`; add English fallbacks like "water", "house", "tree" instead of Arabic ones
 
-- Update `startReview()` to create two entries per due card (one for each direction), then shuffle
-- Track direction alongside each review item
-- Pass the direction to the `Flashcard` component
+3. **Update `PromptDisplay`** -- Based on direction:
+   - `en-to-ar`: Show English + Image (current behavior)
+   - `ar-to-en`: Show the Arabic word in large text
 
-**No database or schema changes needed** -- this is purely a UI/logic change in how cards are presented during review.
+4. **Update `handleMCAnswer`** -- Compare against the correct field based on direction (`card.word` for `en-to-ar`, `card.english` for `ar-to-en`)
+
+5. **Update MC button styling** -- Remove `dir="rtl"` and `font-arabic` when options are in English
+
+6. **Update feedback display** -- Show the correct answer in the appropriate language/script based on direction
+
+No changes to Stage 2 (typing), database, or spaced repetition logic needed.
