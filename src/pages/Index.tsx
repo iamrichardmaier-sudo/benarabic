@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { BookOpen, Plus, Layers, List, BookText, GraduationCap, LogOut } from 'lucide-react';
 import AddWords from '@/components/AddWords';
-import Flashcard from '@/components/Flashcard';
+import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
 import DeckList from '@/components/DeckList';
 import ReadingPractice from '@/components/ReadingPractice';
@@ -18,7 +18,7 @@ const Index = () => {
   const { cards, loading, addCards, updateCard, deleteCard } = useFlashcards();
   const { signOut } = useAuth();
   const [view, setView] = useState<View>('home');
-  const [dueCards, setDueCards] = useState<FlashCard[]>([]);
+  const [reviewItems, setReviewItems] = useState<{ card: FlashCard; direction: ReviewDirection }[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
@@ -50,13 +50,23 @@ const Index = () => {
 
   const startReview = () => {
     const due = getDueCards(cards);
-    setDueCards(due);
+    const items: { card: FlashCard; direction: ReviewDirection }[] = [];
+    for (const card of due) {
+      items.push({ card, direction: 'ar-to-en' });
+      items.push({ card, direction: 'en-to-ar' });
+    }
+    // Shuffle
+    for (let i = items.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [items[i], items[j]] = [items[j], items[i]];
+    }
+    setReviewItems(items);
     setCurrentIndex(0);
     setView('review');
   };
 
   const handleRate = async (rating: Rating) => {
-    const current = dueCards[currentIndex];
+    const current = reviewItems[currentIndex].card;
     const reviewed = reviewCard(current, rating);
     await updateCard(reviewed.id, {
       intervalDays: reviewed.intervalDays,
@@ -76,7 +86,7 @@ const Index = () => {
 
   const dueCount = getDueCards(cards).length;
   const learnCount = getLearnableCards(cards).length;
-  const reviewDone = view === 'review' && currentIndex >= dueCards.length;
+  const reviewDone = view === 'review' && currentIndex >= reviewItems.length;
 
   if (loading) {
     return (
@@ -171,8 +181,12 @@ const Index = () => {
 
         {view === 'add' && <AddWords onAdd={handleAddWords} isLoading={isLoading} />}
 
-        {view === 'review' && !reviewDone && dueCards[currentIndex] && (
-          <Flashcard card={dueCards[currentIndex]} onRate={handleRate} />
+        {view === 'review' && !reviewDone && reviewItems[currentIndex] && (
+          <Flashcard
+            card={reviewItems[currentIndex].card}
+            direction={reviewItems[currentIndex].direction}
+            onRate={handleRate}
+          />
         )}
 
         {reviewDone && <ReviewComplete />}
