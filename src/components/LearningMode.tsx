@@ -70,31 +70,42 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
     };
   }, []);
 
-  // Generate MC options (Arabic words) for stage 1
+  // Generate MC options — all in ONE language matching the answer direction
+  // en-to-ar: prompt is English, all options are Arabic
+  // ar-to-en: prompt is Arabic, all options are English
   const mcOptions = useMemo(() => {
     if (!currentCard || currentStage !== 1) return [];
-    if (currentDirection === 'en-to-ar') {
+
+    const isArabicOptions = currentDirection === 'en-to-ar';
+
+    if (isArabicOptions) {
+      // All options must be Arabic words
       const correct = currentCard.word;
-      const others = allCards.filter((c) => c.id !== currentCard.id && c.word).map((c) => c.word);
-      const shuffledOthers = shuffleArray(others).slice(0, 3);
+      const others = allCards
+        .filter((c) => c.id !== currentCard.id && c.word)
+        .map((c) => c.word);
+      const distractors = shuffleArray(others).slice(0, 3);
       const fallbacks = ['ماء', 'بيت', 'شجرة', 'شمس', 'طريق', 'طائر'];
-      while (shuffledOthers.length < 3) {
+      while (distractors.length < 3) {
         const fb = fallbacks.shift();
-        if (fb && fb !== correct) shuffledOthers.push(fb);
+        if (fb && fb !== correct && !distractors.includes(fb)) distractors.push(fb);
         else if (!fb) break;
       }
-      return shuffleArray([correct, ...shuffledOthers]);
+      return shuffleArray([correct, ...distractors]);
     } else {
+      // All options must be English words
       const correct = currentCard.english || '';
-      const others = allCards.filter((c) => c.id !== currentCard.id && c.english).map((c) => c.english!);
-      const shuffledOthers = shuffleArray(others).slice(0, 3);
+      const others = allCards
+        .filter((c) => c.id !== currentCard.id && c.english)
+        .map((c) => c.english!);
+      const distractors = shuffleArray(others).slice(0, 3);
       const fallbacks = ['water', 'house', 'tree', 'sun', 'road', 'bird'];
-      while (shuffledOthers.length < 3) {
+      while (distractors.length < 3) {
         const fb = fallbacks.shift();
-        if (fb && fb !== correct) shuffledOthers.push(fb);
+        if (fb && fb !== correct && !distractors.includes(fb)) distractors.push(fb);
         else if (!fb) break;
       }
-      return shuffleArray([correct, ...shuffledOthers]);
+      return shuffleArray([correct, ...distractors]);
     }
   }, [currentCard, currentStage, currentDirection, allCards]);
 
