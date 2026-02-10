@@ -1,36 +1,42 @@
 
 
-# Make Learning Mode Stage 1 Bidirectional
+# Fix Learning Mode Stage 1: Bidirectional MC with Consistent Languages
 
-## Problem
-Stage 1 multiple choice currently only goes one direction: it shows the English word (+ image) and asks you to pick the correct Arabic word. You want it to also work the other way around.
+## The Problem
+The last change reverted Stage 1 MC to one-direction only (English prompt, Arabic answers). Your original request was to have **bidirectional** MC where each question uses one consistent language for all options -- but that got lost when the "flexible validation" changes were applied. The bidirectional queue code was removed entirely, so nothing visibly changed.
 
-## Solution
-Randomly assign each Stage 1 card a direction when building the queue. Half the cards will show English and ask you to pick Arabic; the other half will show Arabic and ask you to pick English.
+## What Will Change
 
-## How It Will Work
+### Stage 1 Multiple Choice (Learning Mode) -- Restore Bidirectional
+Each card in Stage 1 will be randomly assigned a direction:
 
-- **English prompt, Arabic answers**: Shows the English word + image on top, four Arabic word choices below (current behavior)
-- **Arabic prompt, English answers**: Shows the Arabic word on top, four English word choices below
+- **English prompt, Arabic answers (~50%)**: Shows image + English word on top, four Arabic choices below (all Arabic)
+- **Arabic prompt, English answers (~50%)**: Shows Arabic word on top, four English choices below (all English)
+
+### Stage 2 Typing (Learning Mode) -- Keep as English to Arabic
+Stage 2 stays the same: show image + English, user types Arabic. The flexible validation (strip diacritics, handle slash-separated variants) is already implemented and will remain.
+
+### Review Mode -- Already Bidirectional
+The review flashcard mode already randomizes direction. No changes needed there.
 
 ## Technical Details
 
 **File: `src/components/LearningMode.tsx`**
 
-1. **Add a direction to each queued item** -- Instead of the queue being `FlashCard[]`, it becomes `{ card: FlashCard; direction: 'en-to-ar' | 'ar-to-en' }[]`. When building the initial queue, randomly assign a direction to each card.
+1. **Restore `MCDirection` type and `QueueItem` interface**: Change the queue from `FlashCard[]` back to `{ card: FlashCard; direction: MCDirection }[]` for Stage 1 only. Randomly assign `'en-to-ar'` or `'ar-to-en'` to each card.
 
-2. **Update `mcOptions`** -- Based on the current item's direction:
-   - `en-to-ar`: Correct answer is `card.word` (Arabic), distractors are other Arabic words from `allCards` (current behavior)
-   - `ar-to-en`: Correct answer is `card.english`, distractors are other English words from `allCards`; add English fallbacks like "water", "house", "tree" instead of Arabic ones
+2. **Update `mcOptions` generation**: Based on current item's direction:
+   - `en-to-ar`: correct = `card.word`, distractors from other cards' `.word` fields (Arabic), Arabic fallbacks
+   - `ar-to-en`: correct = `card.english`, distractors from other cards' `.english` fields (English), English fallbacks like "water", "house", "tree"
 
-3. **Update `PromptDisplay`** -- Based on direction:
-   - `en-to-ar`: Show English + Image (current behavior)
-   - `ar-to-en`: Show the Arabic word in large text
+3. **Update `PromptDisplay`**: Accept direction prop:
+   - `en-to-ar`: Show image + English (current)
+   - `ar-to-en`: Show Arabic word in large text
 
-4. **Update `handleMCAnswer`** -- Compare against the correct field based on direction (`card.word` for `en-to-ar`, `card.english` for `ar-to-en`)
+4. **Update `handleMCAnswer`**: Compare selected answer against correct field based on direction
 
-5. **Update MC button styling** -- Remove `dir="rtl"` and `font-arabic` when options are in English
+5. **Update MC button styling**: Remove `dir="rtl"` and `font-arabic` when options are English
 
-6. **Update feedback display** -- Show the correct answer in the appropriate language/script based on direction
+6. **Update feedback display**: Show correct answer in appropriate language/script
 
-No changes to Stage 2 (typing), database, or spaced repetition logic needed.
+7. **Keep Stage 2 unchanged**: Always English prompt, Arabic typing, with the flexible validation already in place
