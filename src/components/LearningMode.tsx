@@ -2,7 +2,6 @@ import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { FlashCard, graduateCard } from '@/lib/spaced-repetition';
 import { Progress } from '@/components/ui/progress';
 import { ArrowLeft, Check, X, Sparkles } from 'lucide-react';
-import { Input } from '@/components/ui/input';
 
 interface LearningModeProps {
   cards: FlashCard[];
@@ -11,12 +10,17 @@ interface LearningModeProps {
   onBack: () => void;
 }
 
+type MCDirection = 'en-to-ar' | 'ar-to-en';
 
+interface QueueItem {
+  card: FlashCard;
+  direction: MCDirection;
+}
 
 type AnswerState =
   | { type: 'unanswered' }
   | { type: 'correct' }
-  | { type: 'wrong'; correctAnswer: string }
+  | { type: 'wrong'; correctAnswer: string; isArabic: boolean }
   | { type: 'compare'; userAnswer: string; correctAnswer: string };
 
 function shuffleArray<T>(arr: T[]): T[] {
@@ -28,8 +32,13 @@ function shuffleArray<T>(arr: T[]): T[] {
   return copy;
 }
 
-function buildQueue(cards: FlashCard[]): FlashCard[] {
-  return shuffleArray([...cards]);
+function buildStage1Queue(cards: FlashCard[]): QueueItem[] {
+  return shuffleArray(
+    cards.map((card) => ({
+      card,
+      direction: (Math.random() < 0.5 ? 'en-to-ar' : 'ar-to-en') as MCDirection,
+    }))
+  );
 }
 
 const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModeProps) => {
@@ -37,8 +46,13 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
   const stage2Cards = useMemo(() => cards.filter((c) => c.learningStage === 'stage2'), [cards]);
 
   const [currentStage, setCurrentStage] = useState<1 | 2>(stage1Cards.length > 0 ? 1 : 2);
-  const [queue, setQueue] = useState<FlashCard[]>(() =>
-    stage1Cards.length > 0 ? buildQueue(stage1Cards) : shuffleArray([...stage2Cards])
+
+  // Stage 1 uses QueueItem[] (with direction), Stage 2 uses FlashCard[]
+  const [stage1Queue, setStage1Queue] = useState<QueueItem[]>(() =>
+    stage1Cards.length > 0 ? buildStage1Queue(stage1Cards) : []
+  );
+  const [stage2Queue, setStage2Queue] = useState<FlashCard[]>(() =>
+    stage1Cards.length > 0 ? [] : shuffleArray([...stage2Cards])
   );
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answerState, setAnswerState] = useState<AnswerState>({ type: 'unanswered' });
@@ -47,10 +61,14 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
   const [completedStage2, setCompletedStage2] = useState(0);
   const autoAdvanceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const currentCard = queue[currentIndex];
-  
+  const currentItem = currentStage === 1 ? stage1Queue[currentIndex] : undefined;
+  const currentCard = currentStage === 1 ? currentItem?.card : stage2Queue[currentIndex];
+  const currentDirection = currentItem?.direction ?? 'en-to-ar';
+
   const totalLearnable = cards.length;
-  const isComplete = !currentCard && (queue.length === 0 || currentIndex >= queue.length);
+  const isComplete = !currentCard && (currentStage === 1
+    ? currentIndex >= stage1Queue.length
+    : currentIndex >= stage2Queue.length);
   const allDone = isComplete && (currentStage === 2 || stage2Cards.length === 0);
 
   // Cleanup timer on unmount
@@ -60,38 +78,56 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
     };
   }, []);
 
-  // Generate MC options — always English prompt → Arabic answers
+  // Generate MC options based on direction
   const mcOptions = useMemo(() => {
     if (!currentCard || currentStage !== 1) return [];
-    const correct = currentCard.word;
-    const others = allCards
-      .filter((c) => c.id !== currentCard.id && c.word)
-      .map((c) => c.word);
-    const distractors = shuffleArray(others).slice(0, 3);
-    const fallbacks = ['ماء', 'بيت', 'شجرة', 'شمس', 'طريق', 'طائر'];
-    while (distractors.length < 3) {
-      const fb = fallbacks.shift();
-      if (fb && fb !== correct && !distractors.includes(fb)) distractors.push(fb);
-      else if (!fb) break;
+    const isArabicOptions = currentDirection === 'en-to-ar';
+
+    if (isArabicOptions) {
+      const correct = currentCard.word;
+      const others = allCards
+        .filter((c) => c.id !== currentCard.id && c.word)
+        .map((c) => c.word);
+      const distractors = shuffleArray(others).slice(0, 3);
+      const fallbacks = ['ماء', 'بيت', 'شجرة', 'شمس', 'طريق', 'طائر'];
+      while (distractors.length < 3) {
+        const fb = fallbacks.shift();
+        if (fb && fb !== correct && !distractors.includes(fb)) distractors.push(fb);
+        else if (!fb) break;
+      }
+      return shuffleArray([correct, ...distractors]);
+    } else {
+      const correct = currentCard.english || '';
+      const others = allCards
+        .filter((c) => c.id !== currentCard.id && c.english)
+        .map((c) => c.english!);
+      const distractors = shuffleArray(others).slice(0, 3);
+      const fallbacks = ['water', 'house', 'tree', 'sun', 'road', 'bird'];
+      while (distractors.length < 3) {
+        const fb = fallbacks.shift();
+        if (fb && fb !== correct && !distractors.includes(fb)) distractors.push(fb);
+        else if (!fb) break;
+      }
+      return shuffleArray([correct, ...distractors]);
     }
-    return shuffleArray([correct, ...distractors]);
-  }, [currentCard, currentStage, allCards]);
+  }, [currentCard, currentStage, currentDirection, allCards]);
 
   const advanceToNext = useCallback(() => {
     if (autoAdvanceTimer.current) clearTimeout(autoAdvanceTimer.current);
     setAnswerState({ type: 'unanswered' });
     setTypingInput('');
-    if (currentIndex + 1 < queue.length) {
+    const queueLen = currentStage === 1 ? stage1Queue.length : stage2Queue.length;
+    if (currentIndex + 1 < queueLen) {
       setCurrentIndex((i) => i + 1);
     } else if (currentStage === 1) {
       const newStage2 = cards.filter((c) => c.learningStage === 'stage2');
       if (newStage2.length > 0) {
         setCurrentStage(2);
-        setQueue(shuffleArray([...newStage2]));
+        setStage2Queue(shuffleArray([...newStage2]));
         setCurrentIndex(0);
       }
     }
-  }, [currentIndex, queue.length, currentStage, cards]);
+  }, [currentIndex, currentStage, stage1Queue.length, stage2Queue.length, cards]);
 
   const autoAdvance = useCallback((delayMs: number) => {
     if (autoAdvanceTimer.current) clearTimeout(autoAdvanceTimer.current);
@@ -101,44 +137,44 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
   }, [advanceToNext]);
 
   const handleMCAnswer = (selected: string) => {
-    const correct = currentCard.word;
+    if (!currentCard) return;
+    const isArabicOptions = currentDirection === 'en-to-ar';
+    const correct = isArabicOptions ? currentCard.word : (currentCard.english || '');
     const isCorrect = selected === correct;
+
     onUpdateCard(currentCard.id, {
       stage1Attempts: currentCard.stage1Attempts + 1,
       ...(isCorrect
         ? { learningStage: 'stage2' as const }
         : { learningStage: 'stage1' as const }),
     });
+
     if (isCorrect) {
       setCompletedStage1((n) => n + 1);
       setAnswerState({ type: 'correct' });
       autoAdvance(2000);
     } else {
-      setAnswerState({ type: 'wrong', correctAnswer: correct });
-      setQueue((q) => [...q, currentCard]);
+      setAnswerState({ type: 'wrong', correctAnswer: correct, isArabic: isArabicOptions });
+      setStage1Queue((q) => [...q, { card: currentCard, direction: currentDirection }]);
       autoAdvance(3000);
     }
   };
 
   const normalizeArabic = (text: string): string => {
-    // Remove Unicode diacritics U+064B-U+065F, U+0670 (superscript alif)
     let s = text.replace(/[\u064B-\u065F\u0670]/g, '');
-    // Normalize hamza carriers to base letters
     s = s.replace(/[أإآ]/g, 'ا').replace(/ؤ/g, 'و').replace(/ئ/g, 'ي');
-    // Strip punctuation
     s = s.replace(/[.,،؛;!?\/\(\)\-]/g, '');
-    // Collapse multiple spaces and trim
     s = s.replace(/\s+/g, ' ').trim();
     return s;
   };
 
   const handleTypingCheck = () => {
+    if (!currentCard) return;
     const correct = currentCard.word.trim();
     const userAnswer = typingInput.trim();
     onUpdateCard(currentCard.id, { stage2Attempts: currentCard.stage2Attempts + 1 });
 
     const normalizedUser = normalizeArabic(userAnswer);
-    // Split correct answer by / - ؛ ; into variants
     const variants = correct.split(/[\/\-؛;]/).map((v) => normalizeArabic(v));
     const isMatch = variants.some((v) => v === normalizedUser);
 
@@ -153,12 +189,12 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
       setCompletedStage2((n) => n + 1);
       setAnswerState({ type: 'correct' });
     } else {
-      // Show manual override with original (non-stripped) versions
       setAnswerState({ type: 'compare', userAnswer, correctAnswer: correct });
     }
   };
 
   const handleCloseEnough = () => {
+    if (!currentCard) return;
     const graduated = graduateCard(currentCard);
     onUpdateCard(currentCard.id, {
       learningStage: graduated.learningStage,
@@ -171,7 +207,8 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
   };
 
   const handleTryAgain = () => {
-    setQueue((q) => [...q, currentCard]);
+    if (!currentCard) return;
+    setStage2Queue((q) => [...q, currentCard]);
     setAnswerState({ type: 'unanswered' });
     setTypingInput('');
     setCurrentIndex((i) => i + 1);
@@ -212,20 +249,33 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
     return () => window.removeEventListener('keydown', handler);
   }, []);
 
-  // Prompt display: always show image + English
-  const PromptDisplay = ({ card }: { card: FlashCard }) => (
-    <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-6 flex flex-col items-center justify-center min-h-[200px] gap-3">
-      {card.imageUrl && (
-        <img src={card.imageUrl} alt={card.english || card.word} className="max-w-[400px] w-full rounded-xl object-cover aspect-video" />
-      )}
-      {card.english && (
-        <p className={card.imageUrl ? "text-2xl text-muted-foreground" : "text-[48px] font-bold text-muted-foreground"}>
-          {card.english}
-        </p>
-      )}
-      {!card.imageUrl && !card.english && <p className="text-[48px] font-bold text-muted-foreground">—</p>}
-    </div>
-  );
+  // Prompt display — direction-aware
+  const PromptDisplay = ({ card, direction }: { card: FlashCard; direction: MCDirection }) => {
+    if (currentStage === 1 && direction === 'ar-to-en') {
+      // Arabic prompt: show the Arabic word large
+      return (
+        <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-6 flex flex-col items-center justify-center min-h-[200px] gap-3">
+          <p className="text-[48px] font-bold text-foreground font-arabic" dir="rtl">
+            {card.word}
+          </p>
+        </div>
+      );
+    }
+    // Default: show image + English
+    return (
+      <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-6 flex flex-col items-center justify-center min-h-[200px] gap-3">
+        {card.imageUrl && (
+          <img src={card.imageUrl} alt={card.english || card.word} className="max-w-[400px] w-full rounded-xl object-cover aspect-video" />
+        )}
+        {card.english && (
+          <p className={card.imageUrl ? "text-2xl text-muted-foreground" : "text-[48px] font-bold text-muted-foreground"}>
+            {card.english}
+          </p>
+        )}
+        {!card.imageUrl && !card.english && <p className="text-[48px] font-bold text-muted-foreground">—</p>}
+      </div>
+    );
+  };
 
   // Completion screen
   if (allDone || (!currentCard && currentStage === 2)) {
@@ -254,7 +304,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
     if (newStage2.length > 0) {
       setTimeout(() => {
         setCurrentStage(2);
-        setQueue(shuffleArray([...newStage2]));
+        setStage2Queue(shuffleArray([...newStage2]));
         setCurrentIndex(0);
         setAnswerState({ type: 'unanswered' });
       }, 0);
@@ -264,6 +314,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
 
   if (!currentCard) return null;
 
+  const isArabicOptions = currentDirection === 'en-to-ar';
   const stageLabel = currentStage === 1 ? 'Stage 1: Multiple Choice' : 'Stage 2: Type in Arabic';
   const completed = currentStage === 1 ? completedStage1 : completedStage2;
   const stageTotal = currentStage === 1 ? stage1Cards.length : totalLearnable;
@@ -290,18 +341,18 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
         <p className="text-xs text-muted-foreground">{remaining} words left in this stage</p>
       </div>
 
-      {/* Prompt: show image or English */}
-      <PromptDisplay card={currentCard} />
+      {/* Prompt */}
+      <PromptDisplay card={currentCard} direction={currentDirection} />
 
-      {/* Stage 1: Multiple Choice (Arabic options) */}
+      {/* Stage 1: Multiple Choice */}
       {currentStage === 1 && answerState.type === 'unanswered' && (
         <div className="grid grid-cols-2 gap-3">
           {mcOptions.map((opt, i) => (
             <button
               key={i}
               onClick={() => handleMCAnswer(opt)}
-              className="py-4 px-3 rounded-xl bg-secondary text-secondary-foreground text-xl transition-all active:scale-95 hover:bg-secondary/80 font-arabic"
-              dir="rtl"
+              className={`py-4 px-3 rounded-xl bg-secondary text-secondary-foreground text-xl transition-all active:scale-95 hover:bg-secondary/80 ${isArabicOptions ? 'font-arabic' : ''}`}
+              dir={isArabicOptions ? 'rtl' : 'ltr'}
             >
               {opt}
             </button>
@@ -363,7 +414,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
         </div>
       )}
 
-      {/* Wrong feedback (Stage 1 only - auto-advances) */}
+      {/* Wrong feedback (Stage 1) */}
       {answerState.type === 'wrong' && (
         <div className="space-y-4">
           <div className="rounded-xl bg-warning/10 border border-warning/30 p-4 flex items-center gap-3">
@@ -371,7 +422,13 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
             <div>
               <span className="font-semibold text-warning">Incorrect</span>
               <p className="text-sm text-foreground mt-1">
-                Correct answer: <span className="text-lg font-semibold text-success font-arabic" dir="rtl">{answerState.correctAnswer}</span>
+                Correct answer:{' '}
+                <span
+                  className={`text-lg font-semibold text-success ${answerState.isArabic ? 'font-arabic' : ''}`}
+                  dir={answerState.isArabic ? 'rtl' : 'ltr'}
+                >
+                  {answerState.correctAnswer}
+                </span>
               </p>
             </div>
           </div>
