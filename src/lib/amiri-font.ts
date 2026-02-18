@@ -6,7 +6,7 @@ async function fetchAmiriFont(): Promise<string> {
   if (cachedBase64) return cachedBase64;
 
   const response = await fetch(
-    'https://fonts.gstatic.com/s/amiri/v27/J7aRnpd8CGxBHqUrtA.ttf'
+    'https://github.com/aliftype/amiri/releases/download/1.000/Amiri-Regular.ttf'
   );
   const buffer = await response.arrayBuffer();
   const bytes = new Uint8Array(buffer);
