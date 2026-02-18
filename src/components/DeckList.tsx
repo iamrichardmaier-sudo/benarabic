@@ -5,6 +5,7 @@ import { searchUnsplashImage } from '@/lib/unsplash';
 import { useToast } from '@/hooks/use-toast';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { registerAmiriFont } from '@/lib/amiri-font';
 
 interface DeckListProps {
   cards: FlashCard[];
@@ -37,6 +38,7 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack }: DeckListProps) => {
   const [editImageUrl, setEditImageUrl] = useState('');
   const [refreshingId, setRefreshingId] = useState<string | null>(null);
   const [swappedId, setSwappedId] = useState<string | null>(null);
+  const [exporting, setExporting] = useState(false);
   const { toast } = useToast();
 
   const startEdit = (card: FlashCard) => {
@@ -73,61 +75,73 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack }: DeckListProps) => {
     setTimeout(() => setSwappedId(null), 2000);
   };
 
-  const exportPDF = () => {
+  const exportPDF = async () => {
     if (cards.length === 0) {
       alert('Your deck is empty — nothing to export.');
       return;
     }
 
-    const doc = new jsPDF();
-    const today = new Date();
-    const dateStr = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-    const fileDate = today.toISOString().split('T')[0];
+    setExporting(true);
+    try {
+      const doc = new jsPDF();
+      await registerAmiriFont(doc);
 
-    doc.setFontSize(18);
-    doc.setFont('helvetica', 'bold');
-    doc.text('My Arabic Flashcard Deck', 14, 20);
+      const today = new Date();
+      const dateStr = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+      const fileDate = today.toISOString().split('T')[0];
 
-    doc.setFontSize(11);
-    doc.setFont('helvetica', 'normal');
-    doc.setTextColor(128, 128, 128);
-    doc.text(`Exported on ${dateStr}`, 14, 28);
-    doc.setTextColor(0, 0, 0);
+      doc.setFontSize(18);
+      doc.setFont('helvetica', 'bold');
+      doc.text('My Arabic Flashcard Deck', 14, 20);
 
-    const tableData = cards.map((card, i) => [
-      String(i + 1),
-      card.word,
-      card.english || '',
-      String(card.stage2Attempts),
-      formatDate(card.nextReviewDate),
-    ]);
+      doc.setFontSize(11);
+      doc.setFont('helvetica', 'normal');
+      doc.setTextColor(128, 128, 128);
+      doc.text(`Exported on ${dateStr}`, 14, 28);
+      doc.setTextColor(0, 0, 0);
 
-    autoTable(doc, {
-      startY: 35,
-      head: [['#', 'Arabic Word', 'English Translation', 'Times Reviewed', 'Next Review']],
-      body: tableData,
-      styles: { fontSize: 10, cellPadding: 3 },
-      headStyles: { fillColor: [60, 60, 60], textColor: 255, fontStyle: 'bold' },
-      columnStyles: {
-        1: { halign: 'right' },
-      },
-      alternateRowStyles: { fillColor: [249, 249, 249] },
-      didParseCell: (data) => {
-        if (data.section === 'body') {
-          const card = cards[data.row.index];
-          if (card) {
-            const color = getCardColor(card);
-            if (color === '#e5ffe8') {
-              data.cell.styles.fillColor = [229, 255, 232];
-            } else if (color === '#ffe5e5') {
-              data.cell.styles.fillColor = [255, 229, 229];
+      const tableData = cards.map((card, i) => [
+        String(i + 1),
+        card.word,
+        card.english || '',
+        String(card.stage2Attempts),
+        formatDate(card.nextReviewDate),
+      ]);
+
+      autoTable(doc, {
+        startY: 35,
+        head: [['#', 'Arabic Word', 'English Translation', 'Times Reviewed', 'Next Review']],
+        body: tableData,
+        styles: { fontSize: 10, cellPadding: 3 },
+        headStyles: { fillColor: [60, 60, 60], textColor: 255, fontStyle: 'bold' },
+        columnStyles: {
+          1: { halign: 'right', font: 'Amiri' },
+        },
+        alternateRowStyles: { fillColor: [249, 249, 249] },
+        didParseCell: (data) => {
+          if (data.section === 'body' && data.column.index === 1) {
+            data.cell.styles.font = 'Amiri';
+          }
+          if (data.section === 'body') {
+            const card = cards[data.row.index];
+            if (card) {
+              const color = getCardColor(card);
+              if (color === '#e5ffe8') {
+                data.cell.styles.fillColor = [229, 255, 232];
+              } else if (color === '#ffe5e5') {
+                data.cell.styles.fillColor = [255, 229, 229];
+              }
             }
           }
-        }
-      },
-    });
+        },
+      });
 
-    doc.save(`arabic-flashcards-${fileDate}.pdf`);
+      doc.save(`arabic-flashcards-${fileDate}.pdf`);
+    } catch {
+      toast({ title: 'Failed to generate PDF', variant: 'destructive' });
+    } finally {
+      setExporting(false);
+    }
   };
 
   return (
@@ -144,10 +158,11 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack }: DeckListProps) => {
         <h2 className="text-xl font-bold text-foreground">My Deck ({cards.length})</h2>
         <button
           onClick={exportPDF}
-          className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors font-medium"
+          disabled={exporting}
+          className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-lg bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors font-medium disabled:opacity-50"
         >
-          <FileDown className="w-4 h-4" />
-          Export PDF
+          {exporting ? <Loader2 className="w-4 h-4 animate-spin" /> : <FileDown className="w-4 h-4" />}
+          {exporting ? 'Exporting…' : 'Export PDF'}
         </button>
       </div>
 
