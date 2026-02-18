@@ -5,9 +5,7 @@ let cachedBase64: string | null = null;
 async function fetchAmiriFont(): Promise<string> {
   if (cachedBase64) return cachedBase64;
 
-  const response = await fetch(
-    'https://github.com/aliftype/amiri/releases/download/1.000/Amiri-Regular.ttf'
-  );
+  const response = await fetch('/fonts/Amiri-Regular.ttf');
   const buffer = await response.arrayBuffer();
   const bytes = new Uint8Array(buffer);
   let binary = '';
