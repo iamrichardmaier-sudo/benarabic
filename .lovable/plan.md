@@ -1,42 +1,84 @@
 
 
-# Fix Learning Mode Stage 1: Bidirectional MC with Consistent Languages
+# 4 New Features for Arabic Flashcard App
 
-## The Problem
-The last change reverted Stage 1 MC to one-direction only (English prompt, Arabic answers). Your original request was to have **bidirectional** MC where each question uses one consistent language for all options -- but that got lost when the "flexible validation" changes were applied. The bidirectional queue code was removed entirely, so nothing visibly changed.
+## Feature 1: Relearn Tool
 
-## What Will Change
+**What it does**: Adds a "Relearn Cards" button on the home screen. Opens a full-screen modal listing all cards with checkboxes. Selected cards get their SRS fields reset (easeFactor to 2.5, intervalDays to 0, learningStage to 'new', stage1Attempts/stage2Attempts to 0, nextReviewDate to today), then the user is sent into the Learn New Words flow.
 
-### Stage 1 Multiple Choice (Learning Mode) -- Restore Bidirectional
-Each card in Stage 1 will be randomly assigned a direction:
+**Files to change**:
+- `src/pages/Index.tsx` -- Add "Relearn Cards" button to the grid, add state for modal visibility, selected card IDs, and the relearn flow
+- Create `src/components/RelearnModal.tsx` -- Full-screen modal with:
+  - Header "Select Cards to Relearn"
+  - Select All / Deselect All toggle
+  - Scrollable card list (Arabic left, English right, checkbox)
+  - "Start Relearning (X cards)" button, disabled when 0 selected
+  - Close button
 
-- **English prompt, Arabic answers (~50%)**: Shows image + English word on top, four Arabic choices below (all Arabic)
-- **Arabic prompt, English answers (~50%)**: Shows Arabic word on top, four English choices below (all English)
+**Reset logic**: For each selected card, call `updateCard(id, { easeFactor: 2.5, intervalDays: 0, learningStage: 'new', stage1Attempts: 0, stage2Attempts: 0, nextReviewDate: today })`. Then navigate to the Learn view.
 
-### Stage 2 Typing (Learning Mode) -- Keep as English to Arabic
-Stage 2 stays the same: show image + English, user types Arabic. The flexible validation (strip diacritics, handle slash-separated variants) is already implemented and will remain.
+---
 
-### Review Mode -- Already Bidirectional
-The review flashcard mode already randomizes direction. No changes needed there.
+## Feature 2: Swap Arabic/English in My Deck
+
+**What it does**: Adds a swap button (ArrowLeftRight icon) to each card row in My Deck. Clicking swaps the `word` and `english` fields for that card.
+
+**Files to change**:
+- `src/components/DeckList.tsx` -- Add swap button to the action buttons group, implement `handleSwap` that calls `onUpdateCard(id, { word: card.english, english: card.word })`, show a temporary "Swapped!" badge that disappears after 2 seconds
+
+---
+
+## Feature 3: Color-coded Difficulty Shading in My Deck
+
+**What it does**: Each card row in My Deck gets a background color based on SRS data:
+- Light red `#ffe5e5`: easeFactor < 2.0, or (stage2Attempts >= 3 AND intervalDays <= 1) -- struggling
+- Light green `#e5ffe8`: easeFactor >= 2.5 AND stage2Attempts >= 3 AND intervalDays >= 7 -- well-known
+- Default (no color): everything else
+- Green takes priority if both conditions match
+
+**Files to change**:
+- `src/components/DeckList.tsx` -- Add a helper function `getCardColor(card)` that returns the appropriate background color, apply it as inline style on the card row container
+
+**Note on field mapping**: The user mentioned `repetitions` and `interval` -- in the actual codebase these map to `stage2Attempts` (closest to repetitions count) and `intervalDays`. The `ease` maps to `easeFactor`.
+
+---
+
+## Feature 4: Export Deck to PDF
+
+**What it does**: Adds an "Export PDF" button in the My Deck header. Generates and downloads a PDF with a table of all cards.
+
+**New dependencies**: `jspdf` and `jspdf-autotable`
+
+**Files to change**:
+- `src/components/DeckList.tsx` -- Add "Export PDF" button in header area, implement PDF generation function
+
+**PDF structure**:
+- Title: "My Arabic Flashcard Deck" (bold, 18px)
+- Subtitle: "Exported on [date]" (gray, 11px)
+- Table columns: #, Arabic Word, English Translation, Times Reviewed, Next Review
+- Alternating row shading (white / #f9f9f9)
+- Color-coded rows matching the difficulty shading logic
+- Filename: `arabic-flashcards-YYYY-MM-DD.pdf`
+- Empty deck shows `alert("Your deck is empty -- nothing to export.")`
+
+**Arabic font handling**: jsPDF doesn't natively support Arabic. I'll use the standard approach of embedding an Arabic-compatible font (Amiri or similar) as a base64 string, or use the built-in Helvetica with a note that Arabic rendering may be limited. The most reliable approach is to add the Arabic text as-is and rely on jspdf-autotable's text rendering.
+
+---
 
 ## Technical Details
 
-**File: `src/components/LearningMode.tsx`**
+```text
+Files created:
+  src/components/RelearnModal.tsx  (new)
 
-1. **Restore `MCDirection` type and `QueueItem` interface**: Change the queue from `FlashCard[]` back to `{ card: FlashCard; direction: MCDirection }[]` for Stage 1 only. Randomly assign `'en-to-ar'` or `'ar-to-en'` to each card.
+Files modified:
+  src/pages/Index.tsx              (add Relearn button + modal state + flow)
+  src/components/DeckList.tsx      (swap button, color shading, export PDF button)
 
-2. **Update `mcOptions` generation**: Based on current item's direction:
-   - `en-to-ar`: correct = `card.word`, distractors from other cards' `.word` fields (Arabic), Arabic fallbacks
-   - `ar-to-en`: correct = `card.english`, distractors from other cards' `.english` fields (English), English fallbacks like "water", "house", "tree"
+Dependencies added:
+  jspdf
+  jspdf-autotable
+```
 
-3. **Update `PromptDisplay`**: Accept direction prop:
-   - `en-to-ar`: Show image + English (current)
-   - `ar-to-en`: Show Arabic word in large text
+No changes to LearningMode.tsx, spaced-repetition.ts, or the review/SRS logic.
 
-4. **Update `handleMCAnswer`**: Compare selected answer against correct field based on direction
-
-5. **Update MC button styling**: Remove `dir="rtl"` and `font-arabic` when options are English
-
-6. **Update feedback display**: Show correct answer in appropriate language/script
-
-7. **Keep Stage 2 unchanged**: Always English prompt, Arabic typing, with the flexible validation already in place
