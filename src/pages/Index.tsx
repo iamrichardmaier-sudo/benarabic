@@ -1,11 +1,12 @@
 import { useState, useCallback } from 'react';
-import { BookOpen, Plus, Layers, List, BookText, GraduationCap, LogOut } from 'lucide-react';
+import { BookOpen, Plus, Layers, List, BookText, GraduationCap, LogOut, RefreshCw } from 'lucide-react';
 import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
 import DeckList from '@/components/DeckList';
 import ReadingPractice from '@/components/ReadingPractice';
 import LearningMode from '@/components/LearningMode';
+import RelearnModal from '@/components/RelearnModal';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
@@ -21,6 +22,7 @@ const Index = () => {
   const [reviewItems, setReviewItems] = useState<{ card: FlashCard; direction: ReviewDirection }[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+  const [showRelearnModal, setShowRelearnModal] = useState(false);
   const { toast } = useToast();
 
   const handleAddWords = async (lines: string[]) => {
@@ -55,7 +57,6 @@ const Index = () => {
       items.push({ card, direction: 'ar-to-en' });
       items.push({ card, direction: 'en-to-ar' });
     }
-    // Shuffle
     for (let i = items.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [items[i], items[j]] = [items[j], items[i]];
@@ -82,6 +83,23 @@ const Index = () => {
 
   const handleUpdateCard = async (id: string, updates: Partial<FlashCard>) => {
     await updateCard(id, updates);
+  };
+
+  const handleStartRelearn = async (cardIds: string[]) => {
+    const today = new Date().toISOString().split('T')[0];
+    for (const id of cardIds) {
+      await updateCard(id, {
+        easeFactor: 2.5,
+        intervalDays: 0,
+        learningStage: 'new',
+        stage1Attempts: 0,
+        stage2Attempts: 0,
+        nextReviewDate: today,
+      });
+    }
+    setShowRelearnModal(false);
+    toast({ title: `Reset ${cardIds.length} card${cardIds.length !== 1 ? 's' : ''} for relearning` });
+    setView('learn');
   };
 
   const dueCount = getDueCards(cards).length;
@@ -169,8 +187,16 @@ const Index = () => {
                 Practice
               </button>
               <button
+                onClick={() => setShowRelearnModal(true)}
+                disabled={cards.length === 0}
+                className="flex flex-col items-center gap-2 rounded-xl bg-accent text-accent-foreground py-5 font-semibold transition-all active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
+              >
+                <RefreshCw className="w-5 h-5" />
+                Relearn Cards
+              </button>
+              <button
                 onClick={() => setView('deck')}
-                className="col-span-2 flex flex-col items-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-5 font-semibold transition-all active:scale-95"
+                className="flex flex-col items-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-5 font-semibold transition-all active:scale-95"
               >
                 <List className="w-5 h-5" />
                 My Deck
@@ -213,6 +239,14 @@ const Index = () => {
           <ReadingPractice cards={cards} onBack={() => setView('home')} />
         )}
       </main>
+
+      {showRelearnModal && (
+        <RelearnModal
+          cards={cards}
+          onClose={() => setShowRelearnModal(false)}
+          onStartRelearn={handleStartRelearn}
+        />
+      )}
     </div>
   );
 };
