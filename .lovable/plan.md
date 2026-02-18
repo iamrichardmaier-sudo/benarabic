@@ -1,84 +1,42 @@
 
 
-# 4 New Features for Arabic Flashcard App
+# Fix Arabic Text in PDF Export
 
-## Feature 1: Relearn Tool
+## The Problem
+jsPDF uses Helvetica by default, which doesn't support Arabic characters. This causes the Arabic text to appear as garbled/disconnected characters in the exported PDF.
 
-**What it does**: Adds a "Relearn Cards" button on the home screen. Opens a full-screen modal listing all cards with checkboxes. Selected cards get their SRS fields reset (easeFactor to 2.5, intervalDays to 0, learningStage to 'new', stage1Attempts/stage2Attempts to 0, nextReviewDate to today), then the user is sent into the Learn New Words flow.
+## The Solution
+Embed an Arabic-compatible font (Amiri) as a base64 string and register it with jsPDF before generating the table. This is the standard approach recommended by jsPDF documentation and the community.
 
-**Files to change**:
-- `src/pages/Index.tsx` -- Add "Relearn Cards" button to the grid, add state for modal visibility, selected card IDs, and the relearn flow
-- Create `src/components/RelearnModal.tsx` -- Full-screen modal with:
-  - Header "Select Cards to Relearn"
-  - Select All / Deselect All toggle
-  - Scrollable card list (Arabic left, English right, checkbox)
-  - "Start Relearning (X cards)" button, disabled when 0 selected
-  - Close button
+## What Will Change
 
-**Reset logic**: For each selected card, call `updateCard(id, { easeFactor: 2.5, intervalDays: 0, learningStage: 'new', stage1Attempts: 0, stage2Attempts: 0, nextReviewDate: today })`. Then navigate to the Learn view.
+**File: `src/components/DeckList.tsx`**
 
----
+1. **Create a font loader**: Add a utility that fetches the Amiri font from Google Fonts CDN, converts it to base64, and registers it with jsPDF using `doc.addFileToVFS()` and `doc.addFont()`.
 
-## Feature 2: Swap Arabic/English in My Deck
+2. **Apply font to Arabic column**: Use jsPDF-autoTable's `didParseCell` callback to set the Amiri font specifically on the Arabic Word column (column index 1), while keeping Helvetica for everything else.
 
-**What it does**: Adds a swap button (ArrowLeftRight icon) to each card row in My Deck. Clicking swaps the `word` and `english` fields for that card.
+3. **Make export async**: Since loading the font from CDN is asynchronous, the `exportPDF` function will become `async` and show a brief loading state on the button while generating.
 
-**Files to change**:
-- `src/components/DeckList.tsx` -- Add swap button to the action buttons group, implement `handleSwap` that calls `onUpdateCard(id, { word: card.english, english: card.word })`, show a temporary "Swapped!" badge that disappears after 2 seconds
+**New file: `src/lib/amiri-font.ts`**
 
----
-
-## Feature 3: Color-coded Difficulty Shading in My Deck
-
-**What it does**: Each card row in My Deck gets a background color based on SRS data:
-- Light red `#ffe5e5`: easeFactor < 2.0, or (stage2Attempts >= 3 AND intervalDays <= 1) -- struggling
-- Light green `#e5ffe8`: easeFactor >= 2.5 AND stage2Attempts >= 3 AND intervalDays >= 7 -- well-known
-- Default (no color): everything else
-- Green takes priority if both conditions match
-
-**Files to change**:
-- `src/components/DeckList.tsx` -- Add a helper function `getCardColor(card)` that returns the appropriate background color, apply it as inline style on the card row container
-
-**Note on field mapping**: The user mentioned `repetitions` and `interval` -- in the actual codebase these map to `stage2Attempts` (closest to repetitions count) and `intervalDays`. The `ease` maps to `easeFactor`.
-
----
-
-## Feature 4: Export Deck to PDF
-
-**What it does**: Adds an "Export PDF" button in the My Deck header. Generates and downloads a PDF with a table of all cards.
-
-**New dependencies**: `jspdf` and `jspdf-autotable`
-
-**Files to change**:
-- `src/components/DeckList.tsx` -- Add "Export PDF" button in header area, implement PDF generation function
-
-**PDF structure**:
-- Title: "My Arabic Flashcard Deck" (bold, 18px)
-- Subtitle: "Exported on [date]" (gray, 11px)
-- Table columns: #, Arabic Word, English Translation, Times Reviewed, Next Review
-- Alternating row shading (white / #f9f9f9)
-- Color-coded rows matching the difficulty shading logic
-- Filename: `arabic-flashcards-YYYY-MM-DD.pdf`
-- Empty deck shows `alert("Your deck is empty -- nothing to export.")`
-
-**Arabic font handling**: jsPDF doesn't natively support Arabic. I'll use the standard approach of embedding an Arabic-compatible font (Amiri or similar) as a base64 string, or use the built-in Helvetica with a note that Arabic rendering may be limited. The most reliable approach is to add the Arabic text as-is and rely on jspdf-autotable's text rendering.
-
----
+A helper module that:
+- Fetches the Amiri Regular TTF from Google Fonts CDN (`https://fonts.gstatic.com/s/amiri/...`)
+- Converts the binary to a base64 string
+- Caches the result so subsequent exports don't re-download
+- Provides a function `registerAmiriFont(doc: jsPDF)` that registers the font on a jsPDF instance
 
 ## Technical Details
 
-```text
-Files created:
-  src/components/RelearnModal.tsx  (new)
+The key steps in code:
+1. Fetch the TTF file as an ArrayBuffer
+2. Convert to base64 string
+3. Call `doc.addFileToVFS("Amiri-Regular.ttf", base64String)`
+4. Call `doc.addFont("Amiri-Regular.ttf", "Amiri", "normal")`
+5. In autoTable's `didParseCell`, set `data.cell.styles.font = "Amiri"` for column 1
 
-Files modified:
-  src/pages/Index.tsx              (add Relearn button + modal state + flow)
-  src/components/DeckList.tsx      (swap button, color shading, export PDF button)
-
-Dependencies added:
-  jspdf
-  jspdf-autotable
-```
-
-No changes to LearningMode.tsx, spaced-repetition.ts, or the review/SRS logic.
+This approach:
+- Works entirely client-side (no backend needed)
+- Caches the font after first download for fast repeat exports
+- Only changes the PDF export code -- no impact on any other feature
 
