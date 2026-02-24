@@ -181,7 +181,13 @@ const QuizScreen = ({ words, difficulty, showTashkeel, onComplete, onCancel }: Q
             >
               {displaySingular(currentWord.singular)}
             </p>
-            <p className="text-sm text-muted-foreground mt-2">{currentWord.english}</p>
+            <p className="text-sm text-muted-foreground mt-2">
+              {currentWord.english}
+              {' '}
+              <span className="text-muted-foreground/70">
+                ({currentWord.dialect === 'fusha' ? 'فصحى' : currentWord.dialect === 'shaami' ? 'شامي' : 'فصحى / شامي'})
+              </span>
+            </p>
           </div>
 
           {/* Input or MC */}
