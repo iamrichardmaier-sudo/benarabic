@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { BookOpen, Plus, Layers, List, BookText, GraduationCap, LogOut, RefreshCw } from 'lucide-react';
+import { BookOpen, Plus, Layers, List, BookText, GraduationCap, LogOut, RefreshCw, Languages } from 'lucide-react';
 import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
@@ -7,13 +7,14 @@ import DeckList from '@/components/DeckList';
 import ReadingPractice from '@/components/ReadingPractice';
 import LearningMode from '@/components/LearningMode';
 import RelearnModal from '@/components/RelearnModal';
+import PluralDrill from '@/components/PluralDrill';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
 import { searchUnsplashImage } from '@/lib/unsplash';
 import { useToast } from '@/hooks/use-toast';
 
-type View = 'home' | 'add' | 'review' | 'deck' | 'practice' | 'learn';
+type View = 'home' | 'add' | 'review' | 'deck' | 'practice' | 'learn' | 'plurals';
 
 const Index = () => {
   const { cards, loading, addCards, updateCard, deleteCard } = useFlashcards();
@@ -195,6 +196,13 @@ const Index = () => {
                 Relearn Cards
               </button>
               <button
+                onClick={() => setView('plurals')}
+                className="flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95"
+              >
+                <Languages className="w-5 h-5" />
+                Drill Plurals
+              </button>
+              <button
                 onClick={() => setView('deck')}
                 className="flex flex-col items-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-5 font-semibold transition-all active:scale-95"
               >
@@ -237,6 +245,10 @@ const Index = () => {
 
         {view === 'practice' && (
           <ReadingPractice cards={cards} onBack={() => setView('home')} />
+        )}
+
+        {view === 'plurals' && (
+          <PluralDrill onBack={() => setView('home')} />
         )}
       </main>
 
