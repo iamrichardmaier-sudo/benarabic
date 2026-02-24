@@ -170,7 +170,7 @@ const QuizScreen = ({ words, difficulty, showTashkeel, onComplete, onCancel }: Q
       {/* Word card */}
       {!feedback && (
         <>
-          <div className="rounded-2xl bg-card border border-border p-8 text-center group relative">
+          <div className="rounded-2xl bg-card border border-border p-8 text-center">
             <p
               dir="rtl"
               className="text-foreground font-bold leading-relaxed"
@@ -181,15 +181,7 @@ const QuizScreen = ({ words, difficulty, showTashkeel, onComplete, onCancel }: Q
             >
               {displaySingular(currentWord.singular)}
             </p>
-            {/* Tooltip on hover */}
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-              <div className="bg-popover border border-border rounded-lg px-3 py-1.5 shadow-md text-sm">
-                <span className="text-muted-foreground">{currentWord.english}</span>
-                {currentWord.pattern !== 'suppletive' && (
-                  <span className="ml-2 text-xs text-muted-foreground/70">{currentWord.pattern}</span>
-                )}
-              </div>
-            </div>
+            <p className="text-sm text-muted-foreground mt-2">{currentWord.english}</p>
           </div>
 
           {/* Input or MC */}
