@@ -1,24 +1,34 @@
 
 
-# Fix PDF Export: Arabic Font Loading
+# Add Arabic TTS SpeakButton
 
-## The Problem
-The Amiri font URL from Google Fonts (`fonts.gstatic.com`) serves a compressed/subset version of the font that is missing the unicode cmap table. jsPDF requires a full, unmodified TTF file to register fonts properly, which causes the "No unicode cmap for font" error and the PDF export to fail entirely.
+## What we're building
+A speaker button next to Arabic words that uses browser SpeechSynthesis to pronounce them. Also auto-speaks the correct answer on quiz/review submission.
 
-## The Fix
-Change the font URL in `src/lib/amiri-font.ts` to point to the **full Amiri TTF** from the official GitHub repository, which includes all required font tables.
+## Steps
 
-**File: `src/lib/amiri-font.ts`**
+### 1. Create `src/components/SpeakButton.tsx`
+Small volume icon button. Calls `window.speechSynthesis.speak()` with `lang: 'ar-SA'`, `rate: 0.8`. Accepts `word: string` prop. Shows subtle visual feedback while speaking.
 
-Replace the Google Fonts URL:
-```
-https://fonts.gstatic.com/s/amiri/v27/J7aRnpd8CGxBHqUrtA.ttf
-```
+### 2. Add to Flashcard (`src/components/Flashcard.tsx`)
+- Speaker button next to the Arabic word on front and back
+- Auto-speak the Arabic word when card is flipped (revealed)
 
-With the full TTF from GitHub:
-```
-https://github.com/aliftype/amiri/releases/download/1.000/Amiri-Regular.ttf
-```
+### 3. Add to PluralDrill QuizScreen (`src/components/PluralDrill/QuizScreen.tsx`)
+- Speaker button next to the singular Arabic word in the quiz card
+- Auto-speak the correct plural when feedback is shown (on submit)
+- Speaker button next to the correct answer in feedback
 
-This is a one-line change. Everything else (the base64 conversion, caching, font registration, and the PDF table configuration in DeckList.tsx) stays exactly the same.
+### 4. Add to LearningMode (`src/components/LearningMode.tsx`)
+- Speaker button next to Arabic prompts
+- Auto-speak the correct answer on submit feedback
+
+### 5. Add to DeckList (`src/components/DeckList.tsx`)
+- Small speaker button next to each Arabic word in the list
+
+## Technical notes
+- Uses `SpeechSynthesisUtterance` with `lang: 'ar-SA'`, falls back to any `ar-*` voice
+- Rate 0.8 for clarity
+- No API keys needed
+- Quality varies by device/browser
 
