@@ -260,7 +260,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
             <p className="text-[48px] font-bold text-foreground font-arabic" dir="rtl">
               {card.word}
             </p>
-            <SpeakButton word={card.word} size={22} />
+            <SpeakButton word={card.word} size={22} autoSpeak />
           </div>
         </div>
       );
