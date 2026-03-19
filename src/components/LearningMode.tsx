@@ -404,9 +404,12 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
               <span className="font-semibold text-success">
                 {currentStage === 2 ? 'Perfect!' : 'Correct!'}
               </span>
-              <p className="text-lg text-foreground mt-1 font-arabic" dir="rtl">
-                {currentCard.word}
-              </p>
+              <div className="flex items-center gap-1.5 mt-1">
+                <p className="text-lg text-foreground font-arabic" dir="rtl">
+                  {currentCard.word}
+                </p>
+                <SpeakButton word={currentCard.word} size={16} autoSpeak />
+              </div>
             </div>
           </div>
           <button
