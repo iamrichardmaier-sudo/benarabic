@@ -460,7 +460,10 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
             <div className="border-t border-border" />
             <div className="flex justify-between items-center">
               <span className="text-sm text-muted-foreground">Correct is:</span>
-              <span className="font-arabic text-xl font-semibold text-foreground" dir="rtl">{answerState.correctAnswer}</span>
+              <div className="flex items-center gap-1.5">
+                <span className="font-arabic text-xl font-semibold text-foreground" dir="rtl">{answerState.correctAnswer}</span>
+                <SpeakButton word={answerState.correctAnswer} size={16} autoSpeak />
+              </div>
             </div>
           </div>
           <p className="text-xs text-center text-muted-foreground">Press Space if close enough, Enter to retry</p>

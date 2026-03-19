@@ -271,13 +271,16 @@ const QuizScreen = ({ words, difficulty, showTashkeel, onComplete, onCancel }: Q
             <p className="text-sm text-muted-foreground mb-1">
               {feedback.correct ? '' : 'Correct: '}
             </p>
-            <p
-              dir="rtl"
-              className="text-success font-bold"
-              style={{ fontFamily: "'Noto Naskh Arabic', Arial, serif", fontSize: '2rem' }}
-            >
-              {feedback.word.plural[0]}
-            </p>
+            <div className="flex items-center justify-center gap-2">
+              <p
+                dir="rtl"
+                className="text-success font-bold"
+                style={{ fontFamily: "'Noto Naskh Arabic', Arial, serif", fontSize: '2rem' }}
+              >
+                {feedback.word.plural[0]}
+              </p>
+              <SpeakButton word={feedback.word.plural[0]} size={18} />
+            </div>
             {feedback.word.plural.length > 1 && (
               <p
                 dir="rtl"

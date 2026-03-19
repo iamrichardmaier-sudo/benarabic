@@ -57,9 +57,12 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate }: FlashcardProps) => 
   );
 
   const renderArabic = () => (
-    <p className="font-arabic text-[48px] font-bold text-foreground leading-relaxed" dir="rtl">
-      {card.word}
-    </p>
+    <div className="flex items-center justify-center gap-2">
+      <p className="font-arabic text-[48px] font-bold text-foreground leading-relaxed" dir="rtl">
+        {card.word}
+      </p>
+      <SpeakButton word={card.word} size={22} />
+    </div>
   );
 
   const renderFront = () => {

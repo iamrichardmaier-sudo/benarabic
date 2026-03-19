@@ -194,6 +194,7 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack }: DeckListProps) => {
                   <p className="font-arabic text-lg font-semibold text-foreground truncate" dir="rtl">
                     {card.word}
                   </p>
+                  <SpeakButton word={card.word} size={16} />
                   {swappedId === card.id && (
                     <span className="text-xs font-medium text-green-600 animate-in fade-in">Swapped!</span>
                   )}
