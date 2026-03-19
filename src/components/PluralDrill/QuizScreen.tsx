@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { X, Flame } from 'lucide-react';
+import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import { Progress } from '@/components/ui/progress';
 import { PluralWord, CATEGORIES, shuffleArray } from '@/lib/plural-word-bank';
 import { normalizeArabic, checkPluralAnswer } from '@/lib/arabic-normalize';
