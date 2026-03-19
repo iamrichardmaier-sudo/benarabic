@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FlashCard } from '@/lib/spaced-repetition';
 import { Trash2, Pencil, Check, X, ArrowLeft, RefreshCw, Loader2, ArrowLeftRight, FileDown } from 'lucide-react';
+import SpeakButton from '@/components/SpeakButton';
 import { searchUnsplashImage } from '@/lib/unsplash';
 import { useToast } from '@/hooks/use-toast';
 import jsPDF from 'jspdf';
