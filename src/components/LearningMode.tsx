@@ -428,15 +428,16 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
             <X className="w-6 h-6 text-warning flex-shrink-0" />
             <div>
               <span className="font-semibold text-warning">Incorrect</span>
-              <p className="text-sm text-foreground mt-1">
-                Correct answer:{' '}
+              <div className="flex items-center gap-1.5 mt-1">
+                <span className="text-sm text-foreground">Correct answer:</span>
                 <span
                   className={`text-lg font-semibold text-success ${answerState.isArabic ? 'font-arabic' : ''}`}
                   dir={answerState.isArabic ? 'rtl' : 'ltr'}
                 >
                   {answerState.correctAnswer}
                 </span>
-              </p>
+                {answerState.isArabic && <SpeakButton word={answerState.correctAnswer} size={16} autoSpeak />}
+              </div>
             </div>
           </div>
           <button
