@@ -172,16 +172,19 @@ const QuizScreen = ({ words, difficulty, showTashkeel, onComplete, onCancel }: Q
       {!feedback && (
         <>
           <div className="rounded-2xl bg-card border border-border p-8 text-center">
-            <p
-              dir="rtl"
-              className="text-foreground font-bold leading-relaxed"
-              style={{
-                fontFamily: "'Noto Naskh Arabic', Arial, serif",
-                fontSize: '3.5rem',
-              }}
-            >
-              {displaySingular(currentWord.singular)}
-            </p>
+            <div className="flex items-center justify-center gap-2">
+              <p
+                dir="rtl"
+                className="text-foreground font-bold leading-relaxed"
+                style={{
+                  fontFamily: "'Noto Naskh Arabic', Arial, serif",
+                  fontSize: '3.5rem',
+                }}
+              >
+                {displaySingular(currentWord.singular)}
+              </p>
+              <SpeakButton word={currentWord.singular} size={22} />
+            </div>
             <p className="text-sm text-muted-foreground mt-2">
               {currentWord.english}
               {' '}
