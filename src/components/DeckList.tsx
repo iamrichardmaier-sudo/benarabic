@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FlashCard } from '@/lib/spaced-repetition';
 import { Trash2, Pencil, Check, X, ArrowLeft, RefreshCw, Loader2, ArrowLeftRight, FileDown } from 'lucide-react';
+import SpeakButton from '@/components/SpeakButton';
 import { searchUnsplashImage } from '@/lib/unsplash';
 import { useToast } from '@/hooks/use-toast';
 import jsPDF from 'jspdf';
@@ -193,6 +194,7 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack }: DeckListProps) => {
                   <p className="font-arabic text-lg font-semibold text-foreground truncate" dir="rtl">
                     {card.word}
                   </p>
+                  <SpeakButton word={card.word} size={16} />
                   {swappedId === card.id && (
                     <span className="text-xs font-medium text-green-600 animate-in fade-in">Swapped!</span>
                   )}

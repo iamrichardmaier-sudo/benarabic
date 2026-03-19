@@ -2,6 +2,7 @@ import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { FlashCard, graduateCard } from '@/lib/spaced-repetition';
 import { Progress } from '@/components/ui/progress';
 import { ArrowLeft, Check, X, Sparkles } from 'lucide-react';
+import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 
 interface LearningModeProps {
   cards: FlashCard[];
@@ -255,9 +256,12 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
       // Arabic prompt: show the Arabic word large
       return (
         <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-6 flex flex-col items-center justify-center min-h-[200px] gap-3">
-          <p className="text-[48px] font-bold text-foreground font-arabic" dir="rtl">
-            {card.word}
-          </p>
+          <div className="flex items-center gap-2">
+            <p className="text-[48px] font-bold text-foreground font-arabic" dir="rtl">
+              {card.word}
+            </p>
+            <SpeakButton word={card.word} size={22} />
+          </div>
         </div>
       );
     }
@@ -400,9 +404,12 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
               <span className="font-semibold text-success">
                 {currentStage === 2 ? 'Perfect!' : 'Correct!'}
               </span>
-              <p className="text-lg text-foreground mt-1 font-arabic" dir="rtl">
-                {currentCard.word}
-              </p>
+              <div className="flex items-center gap-1.5 mt-1">
+                <p className="text-lg text-foreground font-arabic" dir="rtl">
+                  {currentCard.word}
+                </p>
+                <SpeakButton word={currentCard.word} size={16} autoSpeak />
+              </div>
             </div>
           </div>
           <button
@@ -421,15 +428,16 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
             <X className="w-6 h-6 text-warning flex-shrink-0" />
             <div>
               <span className="font-semibold text-warning">Incorrect</span>
-              <p className="text-sm text-foreground mt-1">
-                Correct answer:{' '}
+              <div className="flex items-center gap-1.5 mt-1">
+                <span className="text-sm text-foreground">Correct answer:</span>
                 <span
                   className={`text-lg font-semibold text-success ${answerState.isArabic ? 'font-arabic' : ''}`}
                   dir={answerState.isArabic ? 'rtl' : 'ltr'}
                 >
                   {answerState.correctAnswer}
                 </span>
-              </p>
+                {answerState.isArabic && <SpeakButton word={answerState.correctAnswer} size={16} autoSpeak />}
+              </div>
             </div>
           </div>
           <button
@@ -452,7 +460,10 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
             <div className="border-t border-border" />
             <div className="flex justify-between items-center">
               <span className="text-sm text-muted-foreground">Correct is:</span>
-              <span className="font-arabic text-xl font-semibold text-foreground" dir="rtl">{answerState.correctAnswer}</span>
+              <div className="flex items-center gap-1.5">
+                <span className="font-arabic text-xl font-semibold text-foreground" dir="rtl">{answerState.correctAnswer}</span>
+                <SpeakButton word={answerState.correctAnswer} size={16} autoSpeak />
+              </div>
             </div>
           </div>
           <p className="text-xs text-center text-muted-foreground">Press Space if close enough, Enter to retry</p>

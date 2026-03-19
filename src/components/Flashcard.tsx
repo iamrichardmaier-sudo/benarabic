@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FlashCard, Rating } from '@/lib/spaced-repetition';
 import { RotateCcw } from 'lucide-react';
+import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 
 export type ReviewDirection = 'ar-to-en' | 'en-to-ar';
 
@@ -19,11 +20,20 @@ const ratingButtons: { rating: Rating; label: string; colorClass: string }[] = [
 
 const Flashcard = ({ card, direction = 'ar-to-en', onRate }: FlashcardProps) => {
   const [flipped, setFlipped] = useState(false);
+  const prevFlipped = useRef(false);
 
   const handleRate = (rating: Rating) => {
     setFlipped(false);
     onRate(rating);
   };
+
+  // Auto-speak Arabic when card is flipped to reveal
+  useEffect(() => {
+    if (flipped && !prevFlipped.current) {
+      speakArabic(card.word);
+    }
+    prevFlipped.current = flipped;
+  }, [flipped, card.word]);
 
   const renderImageAndEnglish = () => (
     <div className="space-y-3 w-full">
@@ -47,9 +57,12 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate }: FlashcardProps) => 
   );
 
   const renderArabic = () => (
-    <p className="font-arabic text-[48px] font-bold text-foreground leading-relaxed" dir="rtl">
-      {card.word}
-    </p>
+    <div className="flex items-center justify-center gap-2">
+      <p className="font-arabic text-[48px] font-bold text-foreground leading-relaxed" dir="rtl">
+        {card.word}
+      </p>
+      <SpeakButton word={card.word} size={22} />
+    </div>
   );
 
   const renderFront = () => {

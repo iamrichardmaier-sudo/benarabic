@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { X, Flame } from 'lucide-react';
+import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import { Progress } from '@/components/ui/progress';
 import { PluralWord, CATEGORIES, shuffleArray } from '@/lib/plural-word-bank';
 import { normalizeArabic, checkPluralAnswer } from '@/lib/arabic-normalize';
@@ -171,16 +172,19 @@ const QuizScreen = ({ words, difficulty, showTashkeel, onComplete, onCancel }: Q
       {!feedback && (
         <>
           <div className="rounded-2xl bg-card border border-border p-8 text-center">
-            <p
-              dir="rtl"
-              className="text-foreground font-bold leading-relaxed"
-              style={{
-                fontFamily: "'Noto Naskh Arabic', Arial, serif",
-                fontSize: '3.5rem',
-              }}
-            >
-              {displaySingular(currentWord.singular)}
-            </p>
+            <div className="flex items-center justify-center gap-2">
+              <p
+                dir="rtl"
+                className="text-foreground font-bold leading-relaxed"
+                style={{
+                  fontFamily: "'Noto Naskh Arabic', Arial, serif",
+                  fontSize: '3.5rem',
+                }}
+              >
+                {displaySingular(currentWord.singular)}
+              </p>
+              <SpeakButton word={currentWord.singular} size={22} />
+            </div>
             <p className="text-sm text-muted-foreground mt-2">
               {currentWord.english}
               {' '}
@@ -247,6 +251,7 @@ const QuizScreen = ({ words, difficulty, showTashkeel, onComplete, onCancel }: Q
           <div className={`text-center text-lg font-bold ${feedback.correct ? 'text-success' : 'text-primary'}`}>
             {feedback.correct ? '✅ Correct!' : '❌ Incorrect'}
           </div>
+          <SpeakButton word={feedback.word.plural[0]} autoSpeak className="mx-auto" />
 
           {!feedback.correct && (
             <div className="text-center space-y-1">
@@ -266,13 +271,16 @@ const QuizScreen = ({ words, difficulty, showTashkeel, onComplete, onCancel }: Q
             <p className="text-sm text-muted-foreground mb-1">
               {feedback.correct ? '' : 'Correct: '}
             </p>
-            <p
-              dir="rtl"
-              className="text-success font-bold"
-              style={{ fontFamily: "'Noto Naskh Arabic', Arial, serif", fontSize: '2rem' }}
-            >
-              {feedback.word.plural[0]}
-            </p>
+            <div className="flex items-center justify-center gap-2">
+              <p
+                dir="rtl"
+                className="text-success font-bold"
+                style={{ fontFamily: "'Noto Naskh Arabic', Arial, serif", fontSize: '2rem' }}
+              >
+                {feedback.word.plural[0]}
+              </p>
+              <SpeakButton word={feedback.word.plural[0]} size={18} />
+            </div>
             {feedback.word.plural.length > 1 && (
               <p
                 dir="rtl"
