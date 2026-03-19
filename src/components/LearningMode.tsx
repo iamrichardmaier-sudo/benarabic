@@ -256,9 +256,12 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
       // Arabic prompt: show the Arabic word large
       return (
         <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-6 flex flex-col items-center justify-center min-h-[200px] gap-3">
-          <p className="text-[48px] font-bold text-foreground font-arabic" dir="rtl">
-            {card.word}
-          </p>
+          <div className="flex items-center gap-2">
+            <p className="text-[48px] font-bold text-foreground font-arabic" dir="rtl">
+              {card.word}
+            </p>
+            <SpeakButton word={card.word} size={22} />
+          </div>
         </div>
       );
     }
