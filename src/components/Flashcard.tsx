@@ -20,11 +20,20 @@ const ratingButtons: { rating: Rating; label: string; colorClass: string }[] = [
 
 const Flashcard = ({ card, direction = 'ar-to-en', onRate }: FlashcardProps) => {
   const [flipped, setFlipped] = useState(false);
+  const prevFlipped = useRef(false);
 
   const handleRate = (rating: Rating) => {
     setFlipped(false);
     onRate(rating);
   };
+
+  // Auto-speak Arabic when card is flipped to reveal
+  useEffect(() => {
+    if (flipped && !prevFlipped.current) {
+      speakArabic(card.word);
+    }
+    prevFlipped.current = flipped;
+  }, [flipped, card.word]);
 
   const renderImageAndEnglish = () => (
     <div className="space-y-3 w-full">
