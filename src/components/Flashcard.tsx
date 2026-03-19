@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FlashCard, Rating } from '@/lib/spaced-repetition';
 import { RotateCcw } from 'lucide-react';
+import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 
 export type ReviewDirection = 'ar-to-en' | 'en-to-ar';
 
