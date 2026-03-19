@@ -61,7 +61,7 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate }: FlashcardProps) => 
       <p className="font-arabic text-[48px] font-bold text-foreground leading-relaxed" dir="rtl">
         {card.word}
       </p>
-      <SpeakButton word={card.word} size={22} />
+      <SpeakButton word={card.word} size={22} autoSpeak />
     </div>
   );
 

@@ -183,7 +183,7 @@ const QuizScreen = ({ words, difficulty, showTashkeel, onComplete, onCancel }: Q
               >
                 {displaySingular(currentWord.singular)}
               </p>
-              <SpeakButton word={currentWord.singular} size={22} />
+              <SpeakButton word={currentWord.singular} size={22} autoSpeak />
             </div>
             <p className="text-sm text-muted-foreground mt-2">
               {currentWord.english}
