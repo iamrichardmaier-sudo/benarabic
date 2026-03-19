@@ -2,6 +2,7 @@ import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { FlashCard, graduateCard } from '@/lib/spaced-repetition';
 import { Progress } from '@/components/ui/progress';
 import { ArrowLeft, Check, X, Sparkles } from 'lucide-react';
+import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 
 interface LearningModeProps {
   cards: FlashCard[];
