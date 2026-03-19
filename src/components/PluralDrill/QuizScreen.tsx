@@ -251,6 +251,7 @@ const QuizScreen = ({ words, difficulty, showTashkeel, onComplete, onCancel }: Q
           <div className={`text-center text-lg font-bold ${feedback.correct ? 'text-success' : 'text-primary'}`}>
             {feedback.correct ? '✅ Correct!' : '❌ Incorrect'}
           </div>
+          <SpeakButton word={feedback.word.plural[0]} autoSpeak className="mx-auto" />
 
           {!feedback.correct && (
             <div className="text-center space-y-1">
