@@ -258,6 +258,10 @@ const Index = () => {
         {view === 'plurals' && (
           <PluralDrill onBack={() => setView('home')} />
         )}
+
+        {view === 'verbs' && (
+          <VerbDrill onBack={() => setView('home')} />
+        )}
       </main>
 
       {showRelearnModal && (
