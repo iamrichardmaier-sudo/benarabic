@@ -1,0 +1,16 @@
+export const ARABIC_GLOSSARY: Record<string, string> = {
+  "رِسَالَةً": "a letter",
+  "المَدْرَسَةِ": "the school",
+  "الطَّعَامَ": "the food",
+  "المَاءَ": "the water",
+  "الكُرْسِيِّ": "the chair",
+  "الحَقِيقَةَ": "the truth",
+  "بِذَلِكَ": "with that",
+  "الكُرَةَ": "the ball",
+  "شَيْئًا": "something",
+  "أَمْسِ": "yesterday",
+  "الآنَ": "now",
+  "غَدًا": "tomorrow",
+  "إِلَى": "to",
+  "عَلَى": "on",
+};

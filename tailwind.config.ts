@@ -72,6 +72,7 @@ export default {
       },
       fontFamily: {
         arabic: ['Arial', 'Times New Roman', 'sans-serif'],
+        amiri: ['Amiri', 'serif'],
         body: ['Inter', 'sans-serif'],
       },
       borderRadius: {

@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { BookOpen, Plus, Layers, List, BookText, GraduationCap, LogOut, RefreshCw, Languages } from 'lucide-react';
+import { BookOpen, Plus, Layers, List, BookText, GraduationCap, LogOut, RefreshCw, Languages, PenTool } from 'lucide-react';
 import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
@@ -8,13 +8,14 @@ import ReadingPractice from '@/components/ReadingPractice';
 import LearningMode from '@/components/LearningMode';
 import RelearnModal from '@/components/RelearnModal';
 import PluralDrill from '@/components/PluralDrill';
+import VerbDrill from '@/features/verbDrill';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
 import { searchUnsplashImage } from '@/lib/unsplash';
 import { useToast } from '@/hooks/use-toast';
 
-type View = 'home' | 'add' | 'review' | 'deck' | 'practice' | 'learn' | 'plurals';
+type View = 'home' | 'add' | 'review' | 'deck' | 'practice' | 'learn' | 'plurals' | 'verbs';
 
 const Index = () => {
   const { cards, loading, addCards, updateCard, deleteCard } = useFlashcards();
@@ -204,10 +205,17 @@ const Index = () => {
               </button>
               <button
                 onClick={() => setView('plurals')}
-                className="col-span-2 flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95"
+                className="flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95"
               >
                 <Languages className="w-5 h-5" />
                 Drill Plurals
+              </button>
+              <button
+                onClick={() => setView('verbs')}
+                className="flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95"
+              >
+                <PenTool className="w-5 h-5" />
+                Drill Verbs
               </button>
             </div>
           </div>
@@ -249,6 +257,10 @@ const Index = () => {
 
         {view === 'plurals' && (
           <PluralDrill onBack={() => setView('home')} />
+        )}
+
+        {view === 'verbs' && (
+          <VerbDrill onBack={() => setView('home')} />
         )}
       </main>
 
