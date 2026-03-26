@@ -205,10 +205,17 @@ const Index = () => {
               </button>
               <button
                 onClick={() => setView('plurals')}
-                className="col-span-2 flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95"
+                className="flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95"
               >
                 <Languages className="w-5 h-5" />
                 Drill Plurals
+              </button>
+              <button
+                onClick={() => setView('verbs')}
+                className="flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95"
+              >
+                <PenTool className="w-5 h-5" />
+                Drill Verbs
               </button>
             </div>
           </div>
