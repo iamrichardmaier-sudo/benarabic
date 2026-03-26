@@ -8,6 +8,7 @@ import ReadingPractice from '@/components/ReadingPractice';
 import LearningMode from '@/components/LearningMode';
 import RelearnModal from '@/components/RelearnModal';
 import PluralDrill from '@/components/PluralDrill';
+import VerbDrill from '@/features/verbDrill';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
