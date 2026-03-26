@@ -15,7 +15,7 @@ import { useAuth } from '@/hooks/useAuth';
 import { searchUnsplashImage } from '@/lib/unsplash';
 import { useToast } from '@/hooks/use-toast';
 
-type View = 'home' | 'add' | 'review' | 'deck' | 'practice' | 'learn' | 'plurals';
+type View = 'home' | 'add' | 'review' | 'deck' | 'practice' | 'learn' | 'plurals' | 'verbs';
 
 const Index = () => {
   const { cards, loading, addCards, updateCard, deleteCard } = useFlashcards();
