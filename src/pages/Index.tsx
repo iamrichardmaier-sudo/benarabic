@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { BookOpen, Plus, Layers, List, BookText, GraduationCap, LogOut, RefreshCw, Languages } from 'lucide-react';
+import { BookOpen, Plus, Layers, List, BookText, GraduationCap, LogOut, RefreshCw, Languages, PenTool } from 'lucide-react';
 import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
