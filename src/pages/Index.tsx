@@ -19,7 +19,7 @@ import { useToast } from '@/hooks/use-toast';
 type View = 'home' | 'add' | 'review' | 'deck' | 'practice' | 'learn' | 'plurals' | 'verbs';
 
 const Index = () => {
-  const { cards, loading, addCards, updateCard, deleteCard } = useFlashcards();
+  const { cards, loading, addCards, updateCard, deleteCard, refetch } = useFlashcards();
   const { signOut } = useAuth();
   const [view, setView] = useState<View>('home');
   const [reviewItems, setReviewItems] = useState<{ card: FlashCard; direction: ReviewDirection }[]>([]);
