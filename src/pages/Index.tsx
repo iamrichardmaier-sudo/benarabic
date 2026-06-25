@@ -238,6 +238,14 @@ const Index = () => {
                 <PenTool className="w-5 h-5" />
                 Drill Verbs
               </button>
+              <button
+                onClick={handleAutoTag}
+                disabled={cards.length === 0 || isTagging}
+                className="flex flex-col items-center gap-2 rounded-xl bg-accent text-accent-foreground py-5 font-semibold transition-all active:scale-95 disabled:opacity-40 disabled:pointer-events-none col-span-2"
+              >
+                <Wand2 className="w-5 h-5" />
+                {isTagging ? 'Tagging…' : 'Auto-Tag Verb Forms'}
+              </button>
             </div>
           </div>
         )}
