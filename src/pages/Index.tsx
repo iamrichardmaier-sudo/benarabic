@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { BookOpen, Plus, Layers, List, BookText, GraduationCap, LogOut, RefreshCw, Languages, PenTool } from 'lucide-react';
+import { BookOpen, Plus, Layers, List, BookText, GraduationCap, LogOut, RefreshCw, Languages, PenTool, Wand2 } from 'lucide-react';
 import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
@@ -13,19 +13,40 @@ import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCar
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
 import { searchUnsplashImage } from '@/lib/unsplash';
+import { autoTagDeck } from '@/lib/auto-tag-deck';
 import { useToast } from '@/hooks/use-toast';
 
 type View = 'home' | 'add' | 'review' | 'deck' | 'practice' | 'learn' | 'plurals' | 'verbs';
 
 const Index = () => {
-  const { cards, loading, addCards, updateCard, deleteCard } = useFlashcards();
+  const { cards, loading, addCards, updateCard, deleteCard, refetch } = useFlashcards();
   const { signOut } = useAuth();
   const [view, setView] = useState<View>('home');
   const [reviewItems, setReviewItems] = useState<{ card: FlashCard; direction: ReviewDirection }[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [showRelearnModal, setShowRelearnModal] = useState(false);
+  const [isTagging, setIsTagging] = useState(false);
   const { toast } = useToast();
+
+  const handleAutoTag = async () => {
+    if (isTagging) return;
+    setIsTagging(true);
+    toast({ title: 'Tagging deck…', description: 'Analyzing verb forms.' });
+    try {
+      const summary = await autoTagDeck();
+      await refetch();
+      toast({
+        title: 'Deck tagged',
+        description: `${summary.verbs} verbs · ${summary.masdars} masdars · ${summary.pairs} paired · ${summary.needsReview} need review`,
+      });
+    } catch (err) {
+      console.error(err);
+      toast({ title: 'Auto-tag failed', variant: 'destructive' });
+    } finally {
+      setIsTagging(false);
+    }
+  };
 
   const handleAddWords = async (lines: string[]) => {
     setIsLoading(true);
@@ -216,6 +237,14 @@ const Index = () => {
               >
                 <PenTool className="w-5 h-5" />
                 Drill Verbs
+              </button>
+              <button
+                onClick={handleAutoTag}
+                disabled={cards.length === 0 || isTagging}
+                className="flex flex-col items-center gap-2 rounded-xl bg-accent text-accent-foreground py-5 font-semibold transition-all active:scale-95 disabled:opacity-40 disabled:pointer-events-none col-span-2"
+              >
+                <Wand2 className="w-5 h-5" />
+                {isTagging ? 'Tagging…' : 'Auto-Tag Verb Forms'}
               </button>
             </div>
           </div>

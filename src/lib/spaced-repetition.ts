@@ -1,4 +1,6 @@
 export type LearningStage = 'new' | 'stage1' | 'stage2' | 'graduated';
+export type WordType = 'verb' | 'masdar' | 'other';
+export type VerbForm = 'I' | 'II' | 'III' | 'IV' | 'V' | 'VI' | 'VII' | 'VIII' | 'IX' | 'X';
 
 export interface FlashCard {
   id: string;
@@ -11,6 +13,11 @@ export interface FlashCard {
   learningStage: LearningStage;
   stage1Attempts: number;
   stage2Attempts: number;
+  root?: string | null;
+  wordType?: WordType | null;
+  verbForm?: VerbForm | null;
+  pairedWordId?: string | null;
+  needsReview?: boolean;
 }
 
 export type Rating = 'again' | 'hard' | 'good' | 'easy';

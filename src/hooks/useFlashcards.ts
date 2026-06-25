@@ -17,6 +17,11 @@ interface DbRow {
   stage1_attempts: number;
   stage2_attempts: number;
   created_at: string;
+  root: string | null;
+  word_type: string | null;
+  verb_form: string | null;
+  paired_word_id: string | null;
+  needs_review: boolean;
 }
 
 function rowToCard(row: DbRow): FlashCard {
@@ -31,6 +36,11 @@ function rowToCard(row: DbRow): FlashCard {
     learningStage: row.learning_stage as FlashCard['learningStage'],
     stage1Attempts: row.stage1_attempts,
     stage2Attempts: row.stage2_attempts,
+    root: row.root,
+    wordType: row.word_type as FlashCard['wordType'],
+    verbForm: row.verb_form as FlashCard['verbForm'],
+    pairedWordId: row.paired_word_id,
+    needsReview: row.needs_review,
   };
 }
 
@@ -117,6 +127,11 @@ export function useFlashcards() {
     if (updates.learningStage !== undefined) dbUpdates.learning_stage = updates.learningStage;
     if (updates.stage1Attempts !== undefined) dbUpdates.stage1_attempts = updates.stage1Attempts;
     if (updates.stage2Attempts !== undefined) dbUpdates.stage2_attempts = updates.stage2Attempts;
+    if (updates.root !== undefined) dbUpdates.root = updates.root;
+    if (updates.wordType !== undefined) dbUpdates.word_type = updates.wordType;
+    if (updates.verbForm !== undefined) dbUpdates.verb_form = updates.verbForm;
+    if (updates.pairedWordId !== undefined) dbUpdates.paired_word_id = updates.pairedWordId;
+    if (updates.needsReview !== undefined) dbUpdates.needs_review = updates.needsReview;
 
     const { error } = await supabase.from('flashcards').update(dbUpdates).eq('id', id);
     if (error) {
