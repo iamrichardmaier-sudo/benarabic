@@ -23,11 +23,16 @@ export type Database = {
           image_url: string | null
           interval_days: number
           learning_stage: string
+          needs_review: boolean
           next_review_date: string
+          paired_word_id: string | null
+          root: string | null
           stage1_attempts: number
           stage2_attempts: number
           user_id: string
+          verb_form: string | null
           word: string
+          word_type: string | null
         }
         Insert: {
           created_at?: string
@@ -37,11 +42,16 @@ export type Database = {
           image_url?: string | null
           interval_days?: number
           learning_stage?: string
+          needs_review?: boolean
           next_review_date?: string
+          paired_word_id?: string | null
+          root?: string | null
           stage1_attempts?: number
           stage2_attempts?: number
           user_id?: string
+          verb_form?: string | null
           word: string
+          word_type?: string | null
         }
         Update: {
           created_at?: string
@@ -51,13 +61,26 @@ export type Database = {
           image_url?: string | null
           interval_days?: number
           learning_stage?: string
+          needs_review?: boolean
           next_review_date?: string
+          paired_word_id?: string | null
+          root?: string | null
           stage1_attempts?: number
           stage2_attempts?: number
           user_id?: string
+          verb_form?: string | null
           word?: string
+          word_type?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "flashcards_paired_word_id_fkey"
+            columns: ["paired_word_id"]
+            isOneToOne: false
+            referencedRelation: "flashcards"
+            referencedColumns: ["id"]
+          },
+        ]
       }
     }
     Views: {
