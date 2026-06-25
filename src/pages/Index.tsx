@@ -13,6 +13,7 @@ import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCar
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
 import { searchUnsplashImage } from '@/lib/unsplash';
+import { autoTagDeck } from '@/lib/auto-tag-deck';
 import { useToast } from '@/hooks/use-toast';
 
 type View = 'home' | 'add' | 'review' | 'deck' | 'practice' | 'learn' | 'plurals' | 'verbs';
