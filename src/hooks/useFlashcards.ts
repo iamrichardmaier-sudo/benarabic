@@ -17,6 +17,11 @@ interface DbRow {
   stage1_attempts: number;
   stage2_attempts: number;
   created_at: string;
+  root: string | null;
+  word_type: string | null;
+  verb_form: string | null;
+  paired_word_id: string | null;
+  needs_review: boolean;
 }
 
 function rowToCard(row: DbRow): FlashCard {
@@ -31,6 +36,11 @@ function rowToCard(row: DbRow): FlashCard {
     learningStage: row.learning_stage as FlashCard['learningStage'],
     stage1Attempts: row.stage1_attempts,
     stage2Attempts: row.stage2_attempts,
+    root: row.root,
+    wordType: row.word_type as FlashCard['wordType'],
+    verbForm: row.verb_form as FlashCard['verbForm'],
+    pairedWordId: row.paired_word_id,
+    needsReview: row.needs_review,
   };
 }
 
