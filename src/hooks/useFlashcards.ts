@@ -127,6 +127,11 @@ export function useFlashcards() {
     if (updates.learningStage !== undefined) dbUpdates.learning_stage = updates.learningStage;
     if (updates.stage1Attempts !== undefined) dbUpdates.stage1_attempts = updates.stage1Attempts;
     if (updates.stage2Attempts !== undefined) dbUpdates.stage2_attempts = updates.stage2Attempts;
+    if (updates.root !== undefined) dbUpdates.root = updates.root;
+    if (updates.wordType !== undefined) dbUpdates.word_type = updates.wordType;
+    if (updates.verbForm !== undefined) dbUpdates.verb_form = updates.verbForm;
+    if (updates.pairedWordId !== undefined) dbUpdates.paired_word_id = updates.pairedWordId;
+    if (updates.needsReview !== undefined) dbUpdates.needs_review = updates.needsReview;
 
     const { error } = await supabase.from('flashcards').update(dbUpdates).eq('id', id);
     if (error) {
