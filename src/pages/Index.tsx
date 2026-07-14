@@ -41,6 +41,9 @@ const Index = () => {
         title: 'Deck tagged',
         description: `${summary.verbs} verbs · ${summary.masdars} masdars · ${summary.pairs} paired · ${summary.needsReview} need review`,
       });
+      if (summary.pairs > 0) {
+        setView('verbMasdar');
+      }
     } catch (err) {
       console.error(err);
       toast({ title: 'Auto-tag failed', variant: 'destructive' });
