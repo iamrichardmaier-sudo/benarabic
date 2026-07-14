@@ -17,7 +17,7 @@ import { searchUnsplashImage } from '@/lib/unsplash';
 import { autoTagDeck } from '@/lib/auto-tag-deck';
 import { useToast } from '@/hooks/use-toast';
 
-type View = 'home' | 'add' | 'review' | 'deck' | 'practice' | 'learn' | 'plurals' | 'verbs';
+type View = 'home' | 'add' | 'review' | 'deck' | 'practice' | 'learn' | 'plurals' | 'verbs' | 'verbMasdar';
 
 const Index = () => {
   const { cards, loading, addCards, updateCard, deleteCard, refetch } = useFlashcards();
