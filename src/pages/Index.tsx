@@ -302,6 +302,10 @@ const Index = () => {
         {view === 'verbs' && (
           <VerbDrill onBack={() => setView('home')} />
         )}
+
+        {view === 'verbMasdar' && (
+          <VerbMasdarDrill cards={cards} onBack={() => setView('home')} />
+        )}
       </main>
 
       {showRelearnModal && (
