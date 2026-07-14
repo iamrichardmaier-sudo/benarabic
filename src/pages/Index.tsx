@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { BookOpen, Plus, Layers, List, BookText, GraduationCap, LogOut, RefreshCw, Languages, PenTool, Wand2 } from 'lucide-react';
+import { BookOpen, Plus, Layers, List, BookText, GraduationCap, LogOut, RefreshCw, Languages, PenTool, Wand2, Shuffle } from 'lucide-react';
 import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
@@ -9,6 +9,7 @@ import LearningMode from '@/components/LearningMode';
 import RelearnModal from '@/components/RelearnModal';
 import PluralDrill from '@/components/PluralDrill';
 import VerbDrill from '@/features/verbDrill';
+import VerbMasdarDrill from '@/components/VerbMasdarDrill';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
@@ -16,7 +17,7 @@ import { searchUnsplashImage } from '@/lib/unsplash';
 import { autoTagDeck } from '@/lib/auto-tag-deck';
 import { useToast } from '@/hooks/use-toast';
 
-type View = 'home' | 'add' | 'review' | 'deck' | 'practice' | 'learn' | 'plurals' | 'verbs';
+type View = 'home' | 'add' | 'review' | 'deck' | 'practice' | 'learn' | 'plurals' | 'verbs' | 'verbMasdar';
 
 const Index = () => {
   const { cards, loading, addCards, updateCard, deleteCard, refetch } = useFlashcards();
@@ -40,6 +41,9 @@ const Index = () => {
         title: 'Deck tagged',
         description: `${summary.verbs} verbs · ${summary.masdars} masdars · ${summary.pairs} paired · ${summary.needsReview} need review`,
       });
+      if (summary.pairs > 0) {
+        setView('verbMasdar');
+      }
     } catch (err) {
       console.error(err);
       toast({ title: 'Auto-tag failed', variant: 'destructive' });
@@ -239,6 +243,13 @@ const Index = () => {
                 Drill Verbs
               </button>
               <button
+                onClick={() => setView('verbMasdar')}
+                className="flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95"
+              >
+                <Shuffle className="w-5 h-5" />
+                Verb ↔ Masdar
+              </button>
+              <button
                 onClick={handleAutoTag}
                 disabled={cards.length === 0 || isTagging}
                 className="flex flex-col items-center gap-2 rounded-xl bg-accent text-accent-foreground py-5 font-semibold transition-all active:scale-95 disabled:opacity-40 disabled:pointer-events-none col-span-2"
@@ -290,6 +301,10 @@ const Index = () => {
 
         {view === 'verbs' && (
           <VerbDrill onBack={() => setView('home')} />
+        )}
+
+        {view === 'verbMasdar' && (
+          <VerbMasdarDrill cards={cards} onBack={() => setView('home')} />
         )}
       </main>
 
