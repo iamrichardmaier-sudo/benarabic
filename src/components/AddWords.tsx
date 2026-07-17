@@ -34,15 +34,18 @@ const AddWords = ({ onAdd, isLoading }: AddWordsProps) => {
   return (
     <div className="w-full max-w-md mx-auto space-y-4">
       <div className="rounded-xl bg-muted/50 border border-border/50 p-3 text-xs text-muted-foreground space-y-1.5">
-        <p className="font-medium text-foreground text-sm">Paste words in format: Arabic | English (one per line)</p>
-        <p className="font-arabic" dir="rtl">كِتَاب | book</p>
-        <p className="font-arabic" dir="rtl">مَدْرَسَة | school</p>
-        <p className="font-arabic" dir="rtl">بَاب | door</p>
+        <p className="font-medium text-foreground text-sm">Paste words in format: Fusha/Shaami | English (one per line)</p>
+        <p className="font-arabic" dir="rtl">فِطِر / فَطَرَ | to eat breakfast</p>
+        <p className="font-arabic" dir="rtl">مُفَضَّل/ة | favorite</p>
+        <p className="font-arabic" dir="rtl">نادي ج. نَوادي | club</p>
+        <p className="text-[11px] leading-snug">
+          "/" splits Fusha and Shaami, unless followed by ة (marks masc/fem). "ج." before a word marks it as the plural — it becomes its own card.
+        </p>
       </div>
       <Textarea
         dir="rtl"
         className="min-h-[160px] font-arabic text-lg bg-card border-border resize-none focus:ring-2 focus:ring-primary/30"
-        placeholder="كِتَاب | book&#10;مَدْرَسَة | school"
+        placeholder="فِطِر / فَطَرَ | to eat breakfast&#10;مُفَضَّل/ة | favorite"
         value={text}
         onChange={(e) => { setText(e.target.value); setError(''); }}
         disabled={isLoading}

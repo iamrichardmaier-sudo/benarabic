@@ -1,6 +1,11 @@
 export type LearningStage = 'new' | 'stage1' | 'stage2' | 'graduated';
-export type WordType = 'verb' | 'masdar' | 'other';
+export type WordType = 'verb' | 'masdar' | 'noun' | 'adjective' | 'participle' | 'other';
 export type VerbForm = 'I' | 'II' | 'III' | 'IV' | 'V' | 'VI' | 'VII' | 'VIII' | 'IX' | 'X';
+
+export interface CompanionForm {
+  form: string;
+  label: string;
+}
 
 export interface FlashCard {
   id: string;
@@ -18,6 +23,13 @@ export interface FlashCard {
   verbForm?: VerbForm | null;
   pairedWordId?: string | null;
   needsReview?: boolean;
+  shaami?: string | null;
+  wordVoweled?: string | null;
+  pastTense?: string | null;
+  presentTense?: string | null;
+  masdarForm?: string | null;
+  companionForms?: CompanionForm[] | null;
+  taggedAt?: string | null;
 }
 
 export type Rating = 'again' | 'hard' | 'good' | 'easy';
@@ -81,7 +93,12 @@ export function graduateCard(card: FlashCard): FlashCard {
   };
 }
 
-export function createCard(word: string, english: string | null = null, imageUrl: string | null = null): FlashCard {
+export function createCard(
+  word: string,
+  english: string | null = null,
+  imageUrl: string | null = null,
+  shaami: string | null = null,
+): FlashCard {
   return {
     id: crypto.randomUUID(),
     word: word.trim(),
@@ -93,18 +110,72 @@ export function createCard(word: string, english: string | null = null, imageUrl
     learningStage: 'new',
     stage1Attempts: 0,
     stage2Attempts: 0,
+    shaami: shaami?.trim() || null,
   };
 }
 
-/** Parse input line: "كتاب | book" or just "كتاب" */
-export function parseWordLine(line: string): { arabic: string; english: string | null } {
-  const trimmed = line.trim();
-  if (!trimmed) return { arabic: '', english: null };
+const TAA_MARBUTA = 'ة'; // ة
+const PLURAL_MARKER = /\s*ج\.\s*/; // ج.
 
-  if (trimmed.includes('|')) {
-    const parts = trimmed.split('|').map((p) => p.trim());
-    return { arabic: parts[0], english: parts[1] || null };
+export interface ParsedWordEntry {
+  fusha: string;
+  shaami: string | null;
+  english: string | null;
+}
+
+/**
+ * Splits "Fusha / Shaami" on the divider "/", except when "/" is
+ * immediately followed by ة (taa marbuta) — that marks a masc/fem
+ * variant of a single word (e.g. مُفَضَّل/ة), not a Shaami translation.
+ */
+function splitFushaShaami(expr: string): { fusha: string; shaami: string | null } {
+  const trimmed = expr.trim();
+  let dividerIdx = -1;
+  for (let i = 0; i < trimmed.length; i++) {
+    if (trimmed[i] === '/' && trimmed[i + 1] !== TAA_MARBUTA) {
+      dividerIdx = i;
+      break;
+    }
   }
+  if (dividerIdx === -1) return { fusha: trimmed, shaami: null };
+  return {
+    fusha: trimmed.slice(0, dividerIdx).trim(),
+    shaami: trimmed.slice(dividerIdx + 1).trim() || null,
+  };
+}
 
-  return { arabic: trimmed, english: null };
+/**
+ * Parse one line from the Add Words box: "Fusha/Shaami | English", where
+ * "ج." between two Arabic expressions marks the second as the plural of
+ * the first — that becomes a second, separate entry sharing the English gloss.
+ */
+export function parseWordLine(line: string): ParsedWordEntry[] {
+  const trimmed = line.trim();
+  if (!trimmed) return [];
+
+  const pipeIdx = trimmed.indexOf('|');
+  const arabicPart = pipeIdx === -1 ? trimmed : trimmed.slice(0, pipeIdx).trim();
+  const english = pipeIdx === -1 ? null : trimmed.slice(pipeIdx + 1).trim() || null;
+
+  const pluralSplit = arabicPart.split(PLURAL_MARKER);
+  const singularExpr = pluralSplit[0];
+  const pluralExpr = pluralSplit.length > 1 ? pluralSplit[1] : null;
+
+  const entries: ParsedWordEntry[] = [{ ...splitFushaShaami(singularExpr), english }];
+  if (pluralExpr) {
+    entries.push({ ...splitFushaShaami(pluralExpr), english });
+  }
+  return entries;
+}
+
+/**
+ * Expand a stored word into its accepted answer variants. A word is only
+ * ever stored with "/" left in it for the masc/fem marker (e.g. مُفَضَّل/ة) —
+ * every other "/" divider is split apart into fusha/shaami at add-time — so
+ * this always means "accept either the base or the ة-suffixed form".
+ */
+export function expandGenderVariants(word: string): string[] {
+  if (!word.includes(`/${TAA_MARBUTA}`)) return [word];
+  const marker = new RegExp(`/${TAA_MARBUTA}`, 'g');
+  return [word.replace(marker, ''), word.replace(marker, TAA_MARBUTA)];
 }

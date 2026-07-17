@@ -36,6 +36,15 @@ export function normalizeArabic(str: string): string {
 }
 
 /**
+ * Normalize orthographic variants only (alef/yaa/taa marbuta) but KEEP
+ * tashkeel — for drills that specifically grade whether the vowels were
+ * typed correctly (e.g. conjugation drilling).
+ */
+export function normalizeArabicKeepVowels(str: string): string {
+  return normalizeTaaMarbuuta(normalizeYaa(normalizeAlef(str))).trim().replace(/\s+/g, ' ');
+}
+
+/**
  * Check a user's plural answer against the list of accepted answers.
  * Returns true if any normalized answer matches.
  */

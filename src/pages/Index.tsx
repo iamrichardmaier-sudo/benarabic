@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react';
-import { BookOpen, Plus, Layers, List, GraduationCap, LogOut, RefreshCw, Shuffle } from 'lucide-react';
+import { useState, useCallback, useEffect, useRef } from 'react';
+import { BookOpen, Plus, Layers, List, GraduationCap, LogOut, RefreshCw, Shuffle, BookA } from 'lucide-react';
 import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
@@ -7,14 +7,15 @@ import DeckList from '@/components/DeckList';
 import LearningMode from '@/components/LearningMode';
 import RelearnModal from '@/components/RelearnModal';
 import VerbMasdarDrill from '@/components/VerbMasdarDrill';
+import ConjugationDrill from '@/components/ConjugationDrill';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
 import { searchUnsplashImage } from '@/lib/unsplash';
-import { autoTagDeck } from '@/lib/auto-tag-deck';
+import { tagCards, tagUntaggedDeck } from '@/lib/auto-tag-deck';
 import { useToast } from '@/hooks/use-toast';
 
-type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'verbMasdar';
+type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'verbMasdar' | 'conjugationDrill';
 
 const Index = () => {
   const { cards, loading, addCards, updateCard, deleteCard, refetch } = useFlashcards();
@@ -25,17 +26,31 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showRelearnModal, setShowRelearnModal] = useState(false);
   const { toast } = useToast();
+  const backfillRan = useRef(false);
+
+  // One-time background backfill: tag any pre-existing cards that predate auto-tagging.
+  useEffect(() => {
+    if (loading || backfillRan.current) return;
+    backfillRan.current = true;
+    tagUntaggedDeck()
+      .then((summary) => {
+        if (summary.tagged > 0) refetch();
+      })
+      .catch((err) => console.error('Deck backfill tagging failed:', err));
+  }, [loading, refetch]);
 
   const handleAddWords = async (lines: string[]) => {
     setIsLoading(true);
     try {
       const newCards: FlashCard[] = [];
       for (const line of lines) {
-        const { arabic, english } = parseWordLine(line);
-        if (!arabic) continue;
-        const searchQuery = english || arabic;
-        const imageUrl = await searchUnsplashImage(searchQuery);
-        newCards.push(createCard(arabic, english, imageUrl));
+        const entries = parseWordLine(line);
+        for (const { fusha, shaami, english } of entries) {
+          if (!fusha) continue;
+          const searchQuery = english || fusha;
+          const imageUrl = await searchUnsplashImage(searchQuery);
+          newCards.push(createCard(fusha, english, imageUrl, shaami));
+        }
       }
       await addCards(newCards);
       toast({
@@ -44,7 +59,7 @@ const Index = () => {
       });
       setView('home');
       try {
-        await autoTagDeck();
+        await tagCards(newCards.map((c) => ({ id: c.id, word: c.word, shaami: c.shaami })));
         await refetch();
       } catch (tagErr) {
         console.error('Auto-tag failed:', tagErr);
@@ -208,6 +223,13 @@ const Index = () => {
                 <Shuffle className="w-5 h-5" />
                 Verb ↔ Masdar
               </button>
+              <button
+                onClick={() => setView('conjugationDrill')}
+                className="flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95 col-span-2"
+              >
+                <BookA className="w-5 h-5" />
+                Drill Conjugations
+              </button>
             </div>
           </div>
         )}
@@ -244,6 +266,10 @@ const Index = () => {
 
         {view === 'verbMasdar' && (
           <VerbMasdarDrill cards={cards} onBack={() => setView('home')} />
+        )}
+
+        {view === 'conjugationDrill' && (
+          <ConjugationDrill cards={cards} onBack={() => setView('home')} />
         )}
       </main>
 

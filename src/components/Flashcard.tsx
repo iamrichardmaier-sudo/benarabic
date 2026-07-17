@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { FlashCard, Rating } from '@/lib/spaced-repetition';
 import { RotateCcw } from 'lucide-react';
 import SpeakButton, { speakArabic } from '@/components/SpeakButton';
+import WordInfoPopover from '@/components/WordInfoPopover';
 
 export type ReviewDirection = 'ar-to-en' | 'en-to-ar';
 
@@ -58,9 +59,11 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate }: FlashcardProps) => 
 
   const renderArabic = () => (
     <div className="flex items-center justify-center gap-2">
-      <p className="font-arabic text-[48px] font-bold text-foreground leading-relaxed" dir="rtl">
-        {card.word}
-      </p>
+      <WordInfoPopover card={card}>
+        <p className="font-arabic text-[48px] font-bold text-foreground leading-relaxed" dir="rtl">
+          {card.word}
+        </p>
+      </WordInfoPopover>
       <SpeakButton word={card.word} size={22} autoSpeak />
     </div>
   );

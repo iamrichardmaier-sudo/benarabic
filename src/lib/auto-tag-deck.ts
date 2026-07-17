@@ -1,108 +1,148 @@
-// Phase 2: Batch auto-tagger. Iterates the user's deck, fills root/wordType/
-// verbForm/needsReview, and pairs verbs with their matching masdars
-// (same root + same form). Idempotent: re-running re-computes everything.
+// LLM-driven auto-tagger. Sends each Fusha word to the tag-word edge function,
+// which returns root/form/grammar identity, voweled principal parts, and
+// companion forms. Runs automatically after adding words and as a background
+// backfill for any previously untagged cards.
 
 import { supabase } from '@/integrations/supabase/client';
-import { tagWord } from './verb-form-tagger';
-import type { FlashCard } from './spaced-repetition';
+import type { Json } from '@/integrations/supabase/types';
+import type { CompanionForm, WordType } from './spaced-repetition';
 
 export interface AutoTagSummary {
-  total: number;
-  verbs: number;
-  masdars: number;
-  other: number;
-  pairs: number;
-  needsReview: number;
+  tagged: number;
+  failed: number;
 }
 
 interface DbRow {
   id: string;
   word: string;
+  shaami: string | null;
 }
 
-export async function autoTagDeck(): Promise<AutoTagSummary> {
-  const { data, error } = await supabase
-    .from('flashcards')
-    .select('id, word');
+interface TagResult {
+  id: string;
+  root: string | null;
+  wordType: WordType;
+  verbForm: string | null;
+  wordVoweled: string;
+  pastTense: string | null;
+  presentTense: string | null;
+  masdarForm: string | null;
+  companionForms: CompanionForm[];
+}
+
+const BATCH_SIZE = 15;
+
+async function tagBatch(rows: DbRow[]): Promise<AutoTagSummary> {
+  const { data, error } = await supabase.functions.invoke('tag-word', {
+    body: { words: rows.map((r) => ({ id: r.id, fusha: r.word, shaami: r.shaami })) },
+  });
   if (error) throw error;
 
-  const rows = (data ?? []) as DbRow[];
+  const results = (data?.results ?? []) as TagResult[];
+  const now = new Date().toISOString();
 
-  // First pass: tag every word.
-  type Tagged = {
-    id: string;
-    root: string | null;
-    wordType: FlashCard['wordType'];
-    verbForm: FlashCard['verbForm'];
-    needsReview: boolean;
-  };
-  const tagged: Tagged[] = rows.map((r) => {
-    const t = tagWord(r.word);
-    return {
-      id: r.id,
-      root: t.root,
-      wordType: t.wordType,
-      verbForm: t.verbForm,
-      needsReview: t.needsReview,
-    };
-  });
+  let tagged = 0;
+  let failed = rows.length - results.length;
 
-  // Second pass: pair verb ↔ masdar where (root, verbForm) is shared by
-  // exactly one verb and one masdar. Ambiguous groups → mark needsReview.
-  const buckets = new Map<string, Tagged[]>();
-  for (const t of tagged) {
-    if (!t.root || !t.verbForm) continue;
-    const key = `${t.root}|${t.verbForm}`;
+  for (const r of results) {
+    const { error: updateError } = await supabase
+      .from('flashcards')
+      .update({
+        root: r.root,
+        word_type: r.wordType,
+        verb_form: r.verbForm,
+        word_voweled: r.wordVoweled,
+        past_tense: r.pastTense,
+        present_tense: r.presentTense,
+        masdar_form: r.masdarForm,
+        companion_forms: r.companionForms as unknown as Json,
+        tagged_at: now,
+      })
+      .eq('id', r.id);
+    if (updateError) failed++;
+    else tagged++;
+  }
+
+  return { tagged, failed };
+}
+
+async function tagRows(rows: DbRow[]): Promise<AutoTagSummary> {
+  let tagged = 0;
+  let failed = 0;
+  for (let i = 0; i < rows.length; i += BATCH_SIZE) {
+    const result = await tagBatch(rows.slice(i, i + BATCH_SIZE));
+    tagged += result.tagged;
+    failed += result.failed;
+  }
+  return { tagged, failed };
+}
+
+/**
+ * Re-derive verb↔masdar pairings across the whole deck: cards sharing the
+ * same (root, verbForm) where exactly one is a verb and one is a masdar
+ * get linked via paired_word_id; ambiguous groups are flagged needs_review.
+ */
+async function repairVerbMasdarPairs(): Promise<void> {
+  const { data, error } = await supabase
+    .from('flashcards')
+    .select('id, root, word_type, verb_form, paired_word_id, needs_review');
+  if (error) throw error;
+
+  type Row = { id: string; root: string | null; word_type: string | null; verb_form: string | null; paired_word_id: string | null; needs_review: boolean };
+  const rows = (data ?? []) as Row[];
+
+  const buckets = new Map<string, Row[]>();
+  for (const r of rows) {
+    if (!r.root || !r.verb_form) continue;
+    const key = `${r.root}|${r.verb_form}`;
     const arr = buckets.get(key) ?? [];
-    arr.push(t);
+    arr.push(r);
     buckets.set(key, arr);
   }
 
-  const pairOf = new Map<string, string | null>(); // id -> paired id (or null)
-  let pairs = 0;
+  const updates: { id: string; paired_word_id: string | null; needs_review: boolean }[] = [];
   for (const arr of buckets.values()) {
-    const verbs = arr.filter((x) => x.wordType === 'verb');
-    const masdars = arr.filter((x) => x.wordType === 'masdar');
+    const verbs = arr.filter((r) => r.word_type === 'verb');
+    const masdars = arr.filter((r) => r.word_type === 'masdar');
     if (verbs.length === 1 && masdars.length === 1) {
-      pairOf.set(verbs[0].id, masdars[0].id);
-      pairOf.set(masdars[0].id, verbs[0].id);
-      pairs++;
+      if (verbs[0].paired_word_id !== masdars[0].id) updates.push({ id: verbs[0].id, paired_word_id: masdars[0].id, needs_review: false });
+      if (masdars[0].paired_word_id !== verbs[0].id) updates.push({ id: masdars[0].id, paired_word_id: verbs[0].id, needs_review: false });
     } else if (arr.length > 1) {
-      // multiple verbs or multiple masdars sharing root+form — mark for review
-      for (const x of arr) x.needsReview = true;
+      for (const r of arr) {
+        if (!r.needs_review) updates.push({ id: r.id, paired_word_id: r.paired_word_id, needs_review: true });
+      }
     }
   }
 
-  // Write back. Use Promise.all in chunks to avoid hammering.
-  const updates = tagged.map((t) =>
-    supabase
+  for (const u of updates) {
+    await supabase
       .from('flashcards')
-      .update({
-        root: t.root,
-        word_type: t.wordType,
-        verb_form: t.verbForm,
-        paired_word_id: pairOf.get(t.id) ?? null,
-        needs_review: t.needsReview,
-      })
-      .eq('id', t.id),
-  );
-
-  // Run in batches of 25 for responsiveness.
-  const BATCH = 25;
-  for (let i = 0; i < updates.length; i += BATCH) {
-    const slice = updates.slice(i, i + BATCH);
-    const results = await Promise.all(slice);
-    for (const r of results) {
-      if (r.error) throw r.error;
-    }
+      .update({ paired_word_id: u.paired_word_id, needs_review: u.needs_review })
+      .eq('id', u.id);
   }
+}
 
-  return {
-    total: tagged.length,
-    verbs: tagged.filter((t) => t.wordType === 'verb').length,
-    masdars: tagged.filter((t) => t.wordType === 'masdar').length,
-    other: tagged.filter((t) => t.wordType === 'other').length,
-    pairs,
-    needsReview: tagged.filter((t) => t.needsReview).length,
-  };
+/** Tag specific cards (e.g. right after adding new words). */
+export async function tagCards(cards: { id: string; word: string; shaami?: string | null }[]): Promise<AutoTagSummary> {
+  if (cards.length === 0) return { tagged: 0, failed: 0 };
+  const rows: DbRow[] = cards.map((c) => ({ id: c.id, word: c.word, shaami: c.shaami ?? null }));
+  const summary = await tagRows(rows);
+  await repairVerbMasdarPairs();
+  return summary;
+}
+
+/** Backfill: tag every card in the user's deck that hasn't been tagged yet. */
+export async function tagUntaggedDeck(): Promise<AutoTagSummary> {
+  const { data, error } = await supabase
+    .from('flashcards')
+    .select('id, word, shaami')
+    .is('tagged_at', null);
+  if (error) throw error;
+
+  const rows = (data ?? []) as DbRow[];
+  if (rows.length === 0) return { tagged: 0, failed: 0 };
+
+  const summary = await tagRows(rows);
+  await repairVerbMasdarPairs();
+  return summary;
 }
