@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "sdk_version": "0.23.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "oauth",
+    "issuer": "https://qxkuahmykjsmbziazywg.supabase.co/auth/v1",
+    "accepted_audiences": [
+      "authenticated"
+    ]
+  },
+  "mcp": {
+    "server": {
+      "name": "arabic-flashcards-mcp",
+      "version": "0.1.0",
+      "title": "Arabic Flashcards"
+    },
+    "tools": [
+      {
+        "name": "list_flashcards",
+        "title": "List flashcards",
+        "description": "List the signed-in user's Arabic flashcards. Optionally filter by a substring match on the Arabic word or English translation.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "search": {
+              "description": "Optional case-insensitive substring to match against the Arabic word or English translation.",
+              "type": "string"
+            },
+            "limit": {
+              "description": "Maximum number of cards to return. Defaults to 100.",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 500
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_due_cards",
+        "title": "Get cards due for review",
+        "description": "List the flashcards that are due for spaced-repetition review today or earlier for the signed-in user.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "limit": {
+              "description": "Maximum number of cards to return. Defaults to 100.",
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 500
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "create_flashcard",
+        "title": "Create flashcard",
+        "description": "Create a new Arabic flashcard for the signed-in user with an Arabic word and its English translation.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": false,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "word": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The Arabic word."
+            },
+            "english": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The English translation."
+            },
+            "image_url": {
+              "description": "Optional image URL to display with the card.",
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "required": [
+            "word",
+            "english"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "delete_flashcard",
+        "title": "Delete flashcard",
+        "description": "Permanently delete one of the signed-in user's flashcards by id.",
+        "annotations": {
+          "readOnlyHint": false,
+          "destructiveHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
+              "description": "The flashcard id to delete."
+            }
+          },
+          "required": [
+            "id"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}

@@ -16,11 +16,15 @@ const Auth = () => {
     e.preventDefault();
     setLoading(true);
     try {
+      const search = new URLSearchParams(window.location.search);
+      const nextParam = search.get('next');
+      const safeNext = nextParam && nextParam.startsWith('/') && !nextParam.startsWith('//') ? nextParam : '/';
+      const returnUrl = window.location.origin + safeNext;
       if (isSignUp) {
         const { error } = await supabase.auth.signUp({
           email,
           password,
-          options: { emailRedirectTo: window.location.origin },
+          options: { emailRedirectTo: returnUrl },
         });
         if (error) throw error;
         toast({
