@@ -1,8 +1,9 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
-import { FlashCard, graduateCard } from '@/lib/spaced-repetition';
+import { FlashCard, graduateCard, expandGenderVariants } from '@/lib/spaced-repetition';
 import { Progress } from '@/components/ui/progress';
 import { ArrowLeft, Check, X, Sparkles } from 'lucide-react';
 import SpeakButton, { speakArabic } from '@/components/SpeakButton';
+import WordInfoPopover from '@/components/WordInfoPopover';
 
 interface LearningModeProps {
   cards: FlashCard[];
@@ -176,7 +177,9 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
     onUpdateCard(currentCard.id, { stage2Attempts: currentCard.stage2Attempts + 1 });
 
     const normalizedUser = normalizeArabic(userAnswer);
-    const variants = correct.split(/[\/\-؛;]/).map((v) => normalizeArabic(v));
+    const variants = expandGenderVariants(correct)
+      .flatMap((v) => v.split(/[\-؛;]/))
+      .map((v) => normalizeArabic(v));
     const isMatch = variants.some((v) => v === normalizedUser);
 
     if (isMatch) {
@@ -257,9 +260,11 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
       return (
         <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-6 flex flex-col items-center justify-center min-h-[200px] gap-3">
           <div className="flex items-center gap-2">
-            <p className="text-[48px] font-bold text-foreground font-arabic" dir="rtl">
-              {card.word}
-            </p>
+            <WordInfoPopover card={card}>
+              <p className="text-[48px] font-bold text-foreground font-arabic" dir="rtl">
+                {card.word}
+              </p>
+            </WordInfoPopover>
             <SpeakButton word={card.word} size={22} autoSpeak />
           </div>
         </div>

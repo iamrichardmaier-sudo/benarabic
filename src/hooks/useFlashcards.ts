@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
-import { FlashCard } from '@/lib/spaced-repetition';
+import { FlashCard, CompanionForm } from '@/lib/spaced-repetition';
 import { loadCards } from '@/lib/storage';
 import { useToast } from '@/hooks/use-toast';
 
@@ -22,6 +22,13 @@ interface DbRow {
   verb_form: string | null;
   paired_word_id: string | null;
   needs_review: boolean;
+  shaami: string | null;
+  word_voweled: string | null;
+  past_tense: string | null;
+  present_tense: string | null;
+  masdar_form: string | null;
+  companion_forms: CompanionForm[] | null;
+  tagged_at: string | null;
 }
 
 function rowToCard(row: DbRow): FlashCard {
@@ -41,6 +48,13 @@ function rowToCard(row: DbRow): FlashCard {
     verbForm: row.verb_form as FlashCard['verbForm'],
     pairedWordId: row.paired_word_id,
     needsReview: row.needs_review,
+    shaami: row.shaami,
+    wordVoweled: row.word_voweled,
+    pastTense: row.past_tense,
+    presentTense: row.present_tense,
+    masdarForm: row.masdar_form,
+    companionForms: row.companion_forms,
+    taggedAt: row.tagged_at,
   };
 }
 
@@ -56,6 +70,7 @@ function cardToRow(card: FlashCard) {
     learning_stage: card.learningStage,
     stage1_attempts: card.stage1Attempts,
     stage2_attempts: card.stage2Attempts,
+    shaami: card.shaami ?? null,
   };
 }
 
@@ -75,7 +90,7 @@ export function useFlashcards() {
       console.error('Error fetching cards:', error);
       return;
     }
-    setCards((data as DbRow[]).map(rowToCard));
+    setCards((data as unknown as DbRow[]).map(rowToCard));
   }, []);
 
   // Initial load + localStorage migration
@@ -132,6 +147,13 @@ export function useFlashcards() {
     if (updates.verbForm !== undefined) dbUpdates.verb_form = updates.verbForm;
     if (updates.pairedWordId !== undefined) dbUpdates.paired_word_id = updates.pairedWordId;
     if (updates.needsReview !== undefined) dbUpdates.needs_review = updates.needsReview;
+    if (updates.shaami !== undefined) dbUpdates.shaami = updates.shaami;
+    if (updates.wordVoweled !== undefined) dbUpdates.word_voweled = updates.wordVoweled;
+    if (updates.pastTense !== undefined) dbUpdates.past_tense = updates.pastTense;
+    if (updates.presentTense !== undefined) dbUpdates.present_tense = updates.presentTense;
+    if (updates.masdarForm !== undefined) dbUpdates.masdar_form = updates.masdarForm;
+    if (updates.companionForms !== undefined) dbUpdates.companion_forms = updates.companionForms;
+    if (updates.taggedAt !== undefined) dbUpdates.tagged_at = updates.taggedAt;
 
     const { error } = await supabase.from('flashcards').update(dbUpdates).eq('id', id);
     if (error) {
