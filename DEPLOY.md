@@ -9,7 +9,7 @@ matching step below needs to be run manually.
 ```sh
 npm install -g supabase
 supabase login
-supabase link --project-ref qxkuahmykjsmbziazywg
+supabase link --project-ref fphpcfecgnfoogfaeihu
 ```
 
 `supabase login` opens a browser to authenticate with your Supabase account
