@@ -16,7 +16,6 @@ export type Database = {
     Tables: {
       flashcards: {
         Row: {
-          companion_forms: Json | null
           created_at: string
           ease_factor: number
           english: string | null
@@ -24,25 +23,18 @@ export type Database = {
           image_url: string | null
           interval_days: number
           learning_stage: string
-          masdar_form: string | null
           needs_review: boolean
           next_review_date: string
           paired_word_id: string | null
-          past_tense: string | null
-          present_tense: string | null
           root: string | null
-          shaami: string | null
           stage1_attempts: number
           stage2_attempts: number
-          tagged_at: string | null
           user_id: string
           verb_form: string | null
           word: string
           word_type: string | null
-          word_voweled: string | null
         }
         Insert: {
-          companion_forms?: Json | null
           created_at?: string
           ease_factor?: number
           english?: string | null
@@ -50,25 +42,18 @@ export type Database = {
           image_url?: string | null
           interval_days?: number
           learning_stage?: string
-          masdar_form?: string | null
           needs_review?: boolean
           next_review_date?: string
           paired_word_id?: string | null
-          past_tense?: string | null
-          present_tense?: string | null
           root?: string | null
-          shaami?: string | null
           stage1_attempts?: number
           stage2_attempts?: number
-          tagged_at?: string | null
           user_id?: string
           verb_form?: string | null
           word: string
           word_type?: string | null
-          word_voweled?: string | null
         }
         Update: {
-          companion_forms?: Json | null
           created_at?: string
           ease_factor?: number
           english?: string | null
@@ -76,22 +61,16 @@ export type Database = {
           image_url?: string | null
           interval_days?: number
           learning_stage?: string
-          masdar_form?: string | null
           needs_review?: boolean
           next_review_date?: string
           paired_word_id?: string | null
-          past_tense?: string | null
-          present_tense?: string | null
           root?: string | null
-          shaami?: string | null
           stage1_attempts?: number
           stage2_attempts?: number
-          tagged_at?: string | null
           user_id?: string
           verb_form?: string | null
           word?: string
           word_type?: string | null
-          word_voweled?: string | null
         }
         Relationships: [
           {
