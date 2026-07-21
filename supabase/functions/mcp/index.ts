@@ -140,7 +140,7 @@ var delete_flashcard_default = defineTool4({
 });
 
 // src/lib/mcp/index.ts
-var projectRef = "qxkuahmykjsmbziazywg";
+var projectRef = "fphpcfecgnfoogfaeihu";
 var mcp_default = defineMcp({
   name: "arabic-flashcards-mcp",
   title: "Arabic Flashcards",

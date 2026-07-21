@@ -1,11 +1,12 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { BookOpen, Plus, Layers, List, GraduationCap, LogOut, RefreshCw, Shuffle, BookA } from 'lucide-react';
+import { BookOpen, Plus, Layers, List, GraduationCap, LogOut, RefreshCw, Shuffle, BookA, Sparkles } from 'lucide-react';
 import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
 import DeckList from '@/components/DeckList';
 import LearningMode from '@/components/LearningMode';
 import RelearnModal from '@/components/RelearnModal';
+import TagDeckModal from '@/components/TagDeckModal';
 import VerbMasdarDrill from '@/components/VerbMasdarDrill';
 import ConjugationDrill from '@/components/ConjugationDrill';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
@@ -25,6 +26,7 @@ const Index = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [showRelearnModal, setShowRelearnModal] = useState(false);
+  const [showTagModal, setShowTagModal] = useState(false);
   const { toast } = useToast();
   const backfillRan = useRef(false);
 
@@ -225,10 +227,18 @@ const Index = () => {
               </button>
               <button
                 onClick={() => setView('conjugationDrill')}
-                className="flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95 col-span-2"
+                className="flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95"
               >
                 <BookA className="w-5 h-5" />
                 Drill Conjugations
+              </button>
+              <button
+                onClick={() => setShowTagModal(true)}
+                disabled={cards.length === 0}
+                className="flex flex-col items-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-5 font-semibold transition-all active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
+              >
+                <Sparkles className="w-5 h-5" />
+                Tag Words
               </button>
             </div>
           </div>
@@ -278,6 +288,14 @@ const Index = () => {
           cards={cards}
           onClose={() => setShowRelearnModal(false)}
           onStartRelearn={handleStartRelearn}
+        />
+      )}
+
+      {showTagModal && (
+        <TagDeckModal
+          totalCards={cards.length}
+          onClose={() => setShowTagModal(false)}
+          onDone={refetch}
         />
       )}
     </div>

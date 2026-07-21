@@ -32,6 +32,9 @@ interface TagResult {
 
 const BATCH_SIZE = 15;
 
+/** Reports how many cards have finished (tagged or failed) out of the total. */
+export type TagProgress = (done: number, total: number) => void;
+
 async function tagBatch(rows: DbRow[]): Promise<AutoTagSummary> {
   const { data, error } = await supabase.functions.invoke('tag-word', {
     body: { words: rows.map((r) => ({ id: r.id, fusha: r.word, shaami: r.shaami })) },
@@ -66,13 +69,14 @@ async function tagBatch(rows: DbRow[]): Promise<AutoTagSummary> {
   return { tagged, failed };
 }
 
-async function tagRows(rows: DbRow[]): Promise<AutoTagSummary> {
+async function tagRows(rows: DbRow[], onProgress?: TagProgress): Promise<AutoTagSummary> {
   let tagged = 0;
   let failed = 0;
   for (let i = 0; i < rows.length; i += BATCH_SIZE) {
     const result = await tagBatch(rows.slice(i, i + BATCH_SIZE));
     tagged += result.tagged;
     failed += result.failed;
+    onProgress?.(Math.min(i + BATCH_SIZE, rows.length), rows.length);
   }
   return { tagged, failed };
 }
@@ -132,7 +136,7 @@ export async function tagCards(cards: { id: string; word: string; shaami?: strin
 }
 
 /** Backfill: tag every card in the user's deck that hasn't been tagged yet. */
-export async function tagUntaggedDeck(): Promise<AutoTagSummary> {
+export async function tagUntaggedDeck(onProgress?: TagProgress): Promise<AutoTagSummary> {
   const { data, error } = await supabase
     .from('flashcards')
     .select('id, word, shaami')
@@ -142,7 +146,36 @@ export async function tagUntaggedDeck(): Promise<AutoTagSummary> {
   const rows = (data ?? []) as DbRow[];
   if (rows.length === 0) return { tagged: 0, failed: 0 };
 
-  const summary = await tagRows(rows);
+  const summary = await tagRows(rows, onProgress);
+  await repairVerbMasdarPairs();
+  return summary;
+}
+
+/** How many cards still need tagging (tagged_at is null). */
+export async function countUntaggedCards(): Promise<number> {
+  const { count, error } = await supabase
+    .from('flashcards')
+    .select('id', { count: 'exact', head: true })
+    .is('tagged_at', null);
+  if (error) throw error;
+  return count ?? 0;
+}
+
+/**
+ * Re-tag the entire deck from scratch, regardless of whether cards were
+ * already tagged. Use for a full refresh (e.g. after switching the tagging
+ * backend). Costs one AI call per BATCH_SIZE cards.
+ */
+export async function retagEntireDeck(onProgress?: TagProgress): Promise<AutoTagSummary> {
+  const { data, error } = await supabase
+    .from('flashcards')
+    .select('id, word, shaami');
+  if (error) throw error;
+
+  const rows = (data ?? []) as DbRow[];
+  if (rows.length === 0) return { tagged: 0, failed: 0 };
+
+  const summary = await tagRows(rows, onProgress);
   await repairVerbMasdarPairs();
   return summary;
 }
