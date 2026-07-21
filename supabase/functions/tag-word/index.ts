@@ -24,27 +24,52 @@ interface TagResult {
 }
 
 const SYSTEM_PROMPT = `You are an expert in Arabic morphology and lexicography, with knowledge equivalent to the Hans Wehr Dictionary of Modern Written Arabic. For each Modern Standard Arabic (Fusha) word you are given, return:
-- root: the triliteral/quadriliteral root, letters joined by "-" (e.g. "ك-ت-ب"), or null if it has no derivable root (e.g. a loanword or particle).
+- root: the triliteral/quadriliteral root, letters joined by "-" (e.g. "ك-ت-ب"), or "" (empty string) if it has no derivable root (e.g. a loanword or particle).
 - wordType: one of "verb", "masdar", "noun", "adjective", "participle", "other".
-- verbForm: the Form as a Roman numeral "I".."X" if the word is a verb (or is derived from a specific verb form), else null.
+- verbForm: the Form as a Roman numeral "I".."X" if the word is a verb (or is derived from a specific verb form), else "" (empty string).
 - wordVoweled: the word fully voweled with harakat (tashkeel), reflecting its most common reading.
-- pastTense, presentTense, masdarForm: fully voweled 3rd-person-masculine-singular past, present (indicative), and verbal noun, ONLY if this word is a verb or a form directly tied to one verb (else null for all three).
+- pastTense, presentTense, masdarForm: fully voweled 3rd-person-masculine-singular past, present (indicative), and verbal noun, ONLY if this word is a verb or a form directly tied to one verb (else "" for all three).
 - companionForms: an array of the up to 4 MOST COMMON other words sharing the same root (other derived forms, whether other verb forms, participles, or nouns) that a learner would benefit from seeing alongside this word. Each entry has "form" (fully voweled Arabic) and "label" (a short grammatical description, e.g. "Form II verb (past)", "Active participle", "Verbal noun", "Elative/comparative"). Return fewer than 4 if fewer genuinely common forms exist — do not invent rare or contrived forms.
 
-Respond with ONLY a JSON array (no prose, no markdown code fences), one object per input word, each shaped exactly as:
-{"id": "<same id as input>", "root": string|null, "wordType": string, "verbForm": string|null, "wordVoweled": string, "pastTense": string|null, "presentTense": string|null, "masdarForm": string|null, "companionForms": [{"form": string, "label": string}]}`;
+Return exactly one result per input word, in the same order, with matching "id" fields.`;
 
-function extractJsonArray(text: string): unknown[] {
-  const trimmed = text.trim();
-  const fenced = trimmed.match(/```(?:json)?\s*([\s\S]*?)```/i);
-  const candidate = fenced ? fenced[1].trim() : trimmed;
-  const start = candidate.indexOf("[");
-  const end = candidate.lastIndexOf("]");
-  if (start === -1 || end === -1 || end < start) {
-    throw new Error("No JSON array found in model response");
-  }
-  return JSON.parse(candidate.slice(start, end + 1));
-}
+const RESULT_JSON_SCHEMA = {
+  type: "object",
+  properties: {
+    results: {
+      type: "array",
+      items: {
+        type: "object",
+        properties: {
+          id: { type: "string" },
+          root: { type: "string" },
+          wordType: { type: "string", enum: ["verb", "masdar", "noun", "adjective", "participle", "other"] },
+          verbForm: { type: "string" },
+          wordVoweled: { type: "string" },
+          pastTense: { type: "string" },
+          presentTense: { type: "string" },
+          masdarForm: { type: "string" },
+          companionForms: {
+            type: "array",
+            items: {
+              type: "object",
+              properties: {
+                form: { type: "string" },
+                label: { type: "string" },
+              },
+              required: ["form", "label"],
+              additionalProperties: false,
+            },
+          },
+        },
+        required: ["id", "root", "wordType", "verbForm", "wordVoweled", "pastTense", "presentTense", "masdarForm", "companionForms"],
+        additionalProperties: false,
+      },
+    },
+  },
+  required: ["results"],
+  additionalProperties: false,
+};
 
 serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
@@ -59,8 +84,8 @@ serve(async (req) => {
       );
     }
 
-    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
-    if (!LOVABLE_API_KEY) {
+    const ANTHROPIC_API_KEY = Deno.env.get("ANTHROPIC_API_KEY");
+    if (!ANTHROPIC_API_KEY) {
       return new Response(
         JSON.stringify({ error: "AI service not configured" }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } },
@@ -73,18 +98,22 @@ serve(async (req) => {
       ...(w.shaami ? { shaamiNote: w.shaami } : {}),
     }));
 
-    const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
+    const response = await fetch("https://api.anthropic.com/v1/messages", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${LOVABLE_API_KEY}`,
+        "x-api-key": ANTHROPIC_API_KEY,
+        "anthropic-version": "2023-06-01",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "google/gemini-3-flash-preview",
-        messages: [
-          { role: "system", content: SYSTEM_PROMPT },
-          { role: "user", content: JSON.stringify(inputList) },
-        ],
+        model: "claude-opus-4-8",
+        max_tokens: 8000,
+        thinking: { type: "adaptive" },
+        system: SYSTEM_PROMPT,
+        output_config: {
+          format: { type: "json_schema", schema: RESULT_JSON_SCHEMA },
+        },
+        messages: [{ role: "user", content: JSON.stringify(inputList) }],
       }),
     });
 
@@ -95,14 +124,16 @@ serve(async (req) => {
           { status: 429, headers: { ...corsHeaders, "Content-Type": "application/json" } },
         );
       }
-      if (response.status === 402) {
+      if (response.status === 401 || response.status === 403) {
+        const t = await response.text();
+        console.error("Anthropic auth error:", response.status, t);
         return new Response(
-          JSON.stringify({ error: "AI credits exhausted. Please add credits in Settings → Workspace → Usage." }),
-          { status: 402, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+          JSON.stringify({ error: "AI service misconfigured (invalid API key)." }),
+          { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } },
         );
       }
       const t = await response.text();
-      console.error("AI gateway error:", response.status, t);
+      console.error("Anthropic API error:", response.status, t);
       return new Response(
         JSON.stringify({ error: "Failed to tag words" }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } },
@@ -110,13 +141,15 @@ serve(async (req) => {
     }
 
     const data = await response.json();
-    const content = data.choices?.[0]?.message?.content || "";
+    const textBlock = (data.content as Array<{ type: string; text?: string }> | undefined)
+      ?.find((b) => b.type === "text");
 
-    let parsed: unknown[];
+    let parsed: { results?: unknown[] };
     try {
-      parsed = extractJsonArray(content);
+      if (!textBlock?.text) throw new Error("No text content in model response");
+      parsed = JSON.parse(textBlock.text);
     } catch (e) {
-      console.error("tag-word: failed to parse model output:", content);
+      console.error("tag-word: failed to parse model output:", JSON.stringify(data));
       return new Response(
         JSON.stringify({ error: "Failed to parse AI response" }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } },
@@ -124,17 +157,19 @@ serve(async (req) => {
     }
 
     const byId = new Map(words.map((w) => [w.id, w]));
-    const results: TagResult[] = parsed
+    const nullify = (v: unknown): string | null => (typeof v === "string" && v.trim() !== "" ? v : null);
+
+    const results: TagResult[] = (parsed.results ?? [])
       .filter((r): r is Record<string, unknown> => !!r && typeof r === "object" && byId.has((r as Record<string, unknown>).id as string))
       .map((r) => ({
         id: r.id as string,
-        root: (r.root as string) ?? null,
-        wordType: ((r.wordType as string) ?? "other") as TagResult["wordType"],
-        verbForm: (r.verbForm as string) ?? null,
-        wordVoweled: (r.wordVoweled as string) ?? byId.get(r.id as string)!.fusha,
-        pastTense: (r.pastTense as string) ?? null,
-        presentTense: (r.presentTense as string) ?? null,
-        masdarForm: (r.masdarForm as string) ?? null,
+        root: nullify(r.root),
+        wordType: ((r.wordType as string) || "other") as TagResult["wordType"],
+        verbForm: nullify(r.verbForm),
+        wordVoweled: (r.wordVoweled as string) || byId.get(r.id as string)!.fusha,
+        pastTense: nullify(r.pastTense),
+        presentTense: nullify(r.presentTense),
+        masdarForm: nullify(r.masdarForm),
         companionForms: Array.isArray(r.companionForms) ? (r.companionForms as TagResult["companionForms"]).slice(0, 4) : [],
       }));
 

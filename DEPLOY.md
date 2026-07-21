@@ -46,10 +46,14 @@ Set these once under Supabase dashboard → your project → **Edge Functions**
 → **Manage secrets** (or `supabase secrets set KEY=value`):
 
 - `PEXELS_API_KEY` — used by `pexels-search` for the image lookup in Add Words.
-- `LOVABLE_API_KEY` — used by `tag-word` (auto-tagging) and `generate-sentences`.
-  This is Lovable's AI gateway key; if it stops working after cancelling your
-  Lovable membership, auto-tagging will fail until it's replaced with a
-  direct provider key (ask to have `tag-word` migrated off it if that happens).
+- `ANTHROPIC_API_KEY` — used by `tag-word` (auto-tagging), calling Claude
+  (`claude-opus-4-8`) directly via `https://api.anthropic.com/v1/messages`.
+  Get a key from https://console.anthropic.com/settings/keys — this is a
+  separate service from Supabase/Pexels and bills per API call.
+- `LOVABLE_API_KEY` — used only by `generate-sentences`. This is Lovable's AI
+  gateway key; if it stops working after cancelling your Lovable membership,
+  example-sentence generation will fail until that function is migrated off
+  it too (ask if you want that done).
 
 ## Deploying the frontend
 
