@@ -13,7 +13,8 @@ import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCar
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
 import { searchUnsplashImage } from '@/lib/unsplash';
-import { tagCards, tagUntaggedDeck } from '@/lib/auto-tag-deck';
+import { tagCards, tagUntaggedDeck, repairVerbMasdarPairs } from '@/lib/auto-tag-deck';
+import type { TaggedImportEntry } from '@/lib/import-tagged';
 import { useToast } from '@/hooks/use-toast';
 
 type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'verbMasdar' | 'conjugationDrill';
@@ -69,6 +70,42 @@ const Index = () => {
     } catch (err) {
       console.error(err);
       toast({ title: 'Error adding words', variant: 'destructive' });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleImportTagged = async (entries: TaggedImportEntry[]) => {
+    setIsLoading(true);
+    try {
+      const taggedAt = new Date().toISOString();
+      const newCards: FlashCard[] = [];
+      for (const e of entries) {
+        const imageUrl = await searchUnsplashImage(e.imageQuery || e.english);
+        newCards.push({
+          ...createCard(e.fusha, e.english, imageUrl, e.shaami),
+          root: e.root,
+          wordType: e.wordType,
+          verbForm: e.verbForm,
+          wordVoweled: e.wordVoweled,
+          pastTense: e.pastTense,
+          presentTense: e.presentTense,
+          masdarForm: e.masdarForm,
+          companionForms: e.companionForms,
+          taggedAt,
+        });
+      }
+      await addCards(newCards);
+      await repairVerbMasdarPairs();
+      await refetch();
+      toast({
+        title: `Imported ${newCards.length} tagged word${newCards.length > 1 ? 's' : ''}`,
+        description: `${newCards.filter((c) => c.imageUrl).length} images found`,
+      });
+      setView('home');
+    } catch (err) {
+      console.error(err);
+      toast({ title: 'Error importing words', variant: 'destructive' });
     } finally {
       setIsLoading(false);
     }
@@ -244,7 +281,7 @@ const Index = () => {
           </div>
         )}
 
-        {view === 'add' && <AddWords onAdd={handleAddWords} isLoading={isLoading} />}
+        {view === 'add' && <AddWords onAdd={handleAddWords} onImport={handleImportTagged} isLoading={isLoading} />}
 
         {view === 'review' && !reviewDone && reviewItems[currentIndex] && (
           <Flashcard

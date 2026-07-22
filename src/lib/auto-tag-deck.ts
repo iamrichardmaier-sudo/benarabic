@@ -86,7 +86,7 @@ async function tagRows(rows: DbRow[], onProgress?: TagProgress): Promise<AutoTag
  * same (root, verbForm) where exactly one is a verb and one is a masdar
  * get linked via paired_word_id; ambiguous groups are flagged needs_review.
  */
-async function repairVerbMasdarPairs(): Promise<void> {
+export async function repairVerbMasdarPairs(): Promise<void> {
   const { data, error } = await supabase
     .from('flashcards')
     .select('id, root, word_type, verb_form, paired_word_id, needs_review');
