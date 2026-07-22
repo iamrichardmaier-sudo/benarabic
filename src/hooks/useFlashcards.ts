@@ -71,6 +71,15 @@ function cardToRow(card: FlashCard) {
     stage1_attempts: card.stage1Attempts,
     stage2_attempts: card.stage2Attempts,
     shaami: card.shaami ?? null,
+    root: card.root ?? null,
+    word_type: card.wordType ?? null,
+    verb_form: card.verbForm ?? null,
+    word_voweled: card.wordVoweled ?? null,
+    past_tense: card.pastTense ?? null,
+    present_tense: card.presentTense ?? null,
+    masdar_form: card.masdarForm ?? null,
+    companion_forms: card.companionForms ?? null,
+    tagged_at: card.taggedAt ?? null,
   };
 }
 
