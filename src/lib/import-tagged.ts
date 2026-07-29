@@ -9,6 +9,8 @@ export interface TaggedImportEntry {
   fusha: string;
   english: string;
   shaami: string | null;
+  fushaPlural: string | null;
+  shaamiPlural: string | null;
   /** Optional override for the Pexels image search; defaults to `english`. */
   imageQuery?: string | null;
   root: string | null;
@@ -110,6 +112,8 @@ export function parseTaggedImport(text: string): ImportValidation {
       fusha,
       english,
       shaami: optionalString(o.shaami),
+      fushaPlural: optionalString(o.fushaPlural),
+      shaamiPlural: optionalString(o.shaamiPlural),
       imageQuery: optionalString(o.imageQuery),
       root: optionalString(o.root),
       wordType: wordTypeRaw as WordType,

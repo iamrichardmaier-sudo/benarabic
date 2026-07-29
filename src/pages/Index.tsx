@@ -84,6 +84,8 @@ const Index = () => {
         const imageUrl = await searchUnsplashImage(e.imageQuery || e.english);
         newCards.push({
           ...createCard(e.fusha, e.english, imageUrl, e.shaami),
+          fushaPlural: e.fushaPlural,
+          shaamiPlural: e.shaamiPlural,
           root: e.root,
           wordType: e.wordType,
           verbForm: e.verbForm,
