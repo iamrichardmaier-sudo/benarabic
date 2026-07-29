@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Plus, Loader2, FileJson } from 'lucide-react';
-import { parseTaggedImport, TaggedImportEntry } from '@/lib/import-tagged';
+import { parseTaggedImport, looksLikeJson, TaggedImportEntry } from '@/lib/import-tagged';
 
 interface AddWordsProps {
   onAdd: (lines: string[]) => void;
@@ -21,6 +21,13 @@ const AddWords = ({ onAdd, onImport, isLoading }: AddWordsProps) => {
 
   const handleAdd = () => {
     setError('');
+
+    if (looksLikeJson(text)) {
+      setJsonText(text);
+      setMode('json');
+      return;
+    }
+
     const lines = text
       .split('\n')
       .map((w) => w.trim())
