@@ -3,6 +3,7 @@ import { FlashCard, Rating } from '@/lib/spaced-repetition';
 import { RotateCcw } from 'lucide-react';
 import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import WordInfoPopover from '@/components/WordInfoPopover';
+import WordForms from '@/components/WordForms';
 
 export type ReviewDirection = 'ar-to-en' | 'en-to-ar';
 
@@ -58,13 +59,16 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate }: FlashcardProps) => 
   );
 
   const renderArabic = () => (
-    <div className="flex items-center justify-center gap-2">
-      <WordInfoPopover card={card}>
-        <p className="font-arabic text-[48px] font-bold text-foreground leading-relaxed" dir="rtl">
-          {card.word}
-        </p>
-      </WordInfoPopover>
-      <SpeakButton word={card.word} size={22} autoSpeak />
+    <div className="space-y-2">
+      <div className="flex items-center justify-center gap-2">
+        <WordInfoPopover card={card}>
+          <p className="font-arabic text-[48px] font-bold text-foreground leading-relaxed" dir="rtl">
+            {card.word}
+          </p>
+        </WordInfoPopover>
+        <SpeakButton word={card.word} size={22} autoSpeak />
+      </div>
+      <WordForms card={card} />
     </div>
   );
 
@@ -105,9 +109,12 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate }: FlashcardProps) => 
     }
     return (
       <div className="space-y-4 text-center w-full">
-        <p className="font-arabic text-2xl text-muted-foreground" dir="rtl">
-          {card.word}
-        </p>
+        <div className="space-y-1">
+          <p className="font-arabic text-2xl text-muted-foreground" dir="rtl">
+            {card.word}
+          </p>
+          <WordForms card={card} className="text-base" />
+        </div>
         <div className="w-full h-px bg-border" />
         {renderImageAndEnglish()}
       </div>

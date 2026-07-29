@@ -24,6 +24,8 @@ export interface FlashCard {
   pairedWordId?: string | null;
   needsReview?: boolean;
   shaami?: string | null;
+  fushaPlural?: string | null;
+  shaamiPlural?: string | null;
   wordVoweled?: string | null;
   pastTense?: string | null;
   presentTense?: string | null;
@@ -178,4 +180,26 @@ export function expandGenderVariants(word: string): string[] {
   if (!word.includes(`/${TAA_MARBUTA}`)) return [word];
   const marker = new RegExp(`/${TAA_MARBUTA}`, 'g');
   return [word.replace(marker, ''), word.replace(marker, TAA_MARBUTA)];
+}
+
+/**
+ * Every spelling that counts as a correct typed answer for a card: the Fusha
+ * and Shaami forms, each in singular and plural, and each further expanded
+ * into its masc/fem variants. Callers still normalize (strip harakat, unify
+ * alef/yaa) before comparing.
+ */
+export function acceptedAnswers(card: FlashCard): string[] {
+  const sources = [card.word, card.shaami, card.fushaPlural, card.shaamiPlural];
+  const out: string[] = [];
+  for (const source of sources) {
+    if (!source) continue;
+    // A single field may still hold several listed forms (e.g. "سِتّ، تيتة").
+    for (const piece of source.split(/[،,؛;]/)) {
+      for (const variant of expandGenderVariants(piece.trim())) {
+        const cleaned = variant.trim();
+        if (cleaned && !out.includes(cleaned)) out.push(cleaned);
+      }
+    }
+  }
+  return out;
 }

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { parseWordLine, expandGenderVariants } from './spaced-repetition';
+import { parseWordLine, expandGenderVariants, acceptedAnswers, createCard } from './spaced-repetition';
 
 describe('parseWordLine', () => {
   it('splits Fusha/Shaami on a real divider', () => {
@@ -37,5 +37,36 @@ describe('expandGenderVariants', () => {
 
   it('expands "/ة" into base and feminized variants', () => {
     expect(expandGenderVariants('مُفَضَّل/ة')).toEqual(['مُفَضَّل', 'مُفَضَّلة']);
+  });
+});
+
+describe('acceptedAnswers', () => {
+  const build = (over: Partial<ReturnType<typeof createCard>>) => ({
+    ...createCard('جَبَل', 'mountain'),
+    ...over,
+  });
+
+  it('accepts the singular alone when no other forms exist', () => {
+    expect(acceptedAnswers(build({}))).toEqual(['جَبَل']);
+  });
+
+  it('accepts Fusha and Shaami in both singular and plural', () => {
+    const card = build({ shaami: 'جبل', fushaPlural: 'جِبال', shaamiPlural: 'جبال' });
+    expect(acceptedAnswers(card)).toEqual(['جَبَل', 'جبل', 'جِبال', 'جبال']);
+  });
+
+  it('expands a masc/fem marker in every form it appears in', () => {
+    const card = build({ word: 'عاطِفيّ/ة', fushaPlural: 'عاطِفيّون' });
+    expect(acceptedAnswers(card)).toEqual(['عاطِفيّ', 'عاطِفيّة', 'عاطِفيّون']);
+  });
+
+  it('splits a field listing several alternatives', () => {
+    const card = build({ word: 'جَدّة', shaami: 'سِتّ، تيتة' });
+    expect(acceptedAnswers(card)).toEqual(['جَدّة', 'سِتّ', 'تيتة']);
+  });
+
+  it('drops duplicates when Fusha and Shaami coincide', () => {
+    const card = build({ word: 'بين', shaami: 'بين' });
+    expect(acceptedAnswers(card)).toEqual(['بين']);
   });
 });

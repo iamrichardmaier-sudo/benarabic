@@ -23,6 +23,8 @@ interface DbRow {
   paired_word_id: string | null;
   needs_review: boolean;
   shaami: string | null;
+  fusha_plural: string | null;
+  shaami_plural: string | null;
   word_voweled: string | null;
   past_tense: string | null;
   present_tense: string | null;
@@ -49,6 +51,8 @@ function rowToCard(row: DbRow): FlashCard {
     pairedWordId: row.paired_word_id,
     needsReview: row.needs_review,
     shaami: row.shaami,
+    fushaPlural: row.fusha_plural,
+    shaamiPlural: row.shaami_plural,
     wordVoweled: row.word_voweled,
     pastTense: row.past_tense,
     presentTense: row.present_tense,
@@ -71,6 +75,8 @@ function cardToRow(card: FlashCard) {
     stage1_attempts: card.stage1Attempts,
     stage2_attempts: card.stage2Attempts,
     shaami: card.shaami ?? null,
+    fusha_plural: card.fushaPlural ?? null,
+    shaami_plural: card.shaamiPlural ?? null,
     root: card.root ?? null,
     word_type: card.wordType ?? null,
     verb_form: card.verbForm ?? null,
@@ -157,6 +163,8 @@ export function useFlashcards() {
     if (updates.pairedWordId !== undefined) dbUpdates.paired_word_id = updates.pairedWordId;
     if (updates.needsReview !== undefined) dbUpdates.needs_review = updates.needsReview;
     if (updates.shaami !== undefined) dbUpdates.shaami = updates.shaami;
+    if (updates.fushaPlural !== undefined) dbUpdates.fusha_plural = updates.fushaPlural;
+    if (updates.shaamiPlural !== undefined) dbUpdates.shaami_plural = updates.shaamiPlural;
     if (updates.wordVoweled !== undefined) dbUpdates.word_voweled = updates.wordVoweled;
     if (updates.pastTense !== undefined) dbUpdates.past_tense = updates.pastTense;
     if (updates.presentTense !== undefined) dbUpdates.present_tense = updates.presentTense;

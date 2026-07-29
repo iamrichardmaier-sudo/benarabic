@@ -118,7 +118,8 @@ const AddWords = ({ onAdd, onImport, isLoading }: AddWordsProps) => {
             <p className="font-medium text-foreground text-sm">Paste a pre-tagged JSON dataset</p>
             <p className="text-[11px] leading-snug">
               A JSON array where each entry has <code>fusha</code>, <code>english</code>, and optionally{' '}
-              <code>shaami</code>, <code>root</code>, <code>wordType</code>, <code>verbForm</code>,{' '}
+              <code>shaami</code>, <code>fushaPlural</code>, <code>shaamiPlural</code>, <code>root</code>,{' '}
+              <code>wordType</code>, <code>verbForm</code>,{' '}
               <code>wordVoweled</code>, <code>pastTense</code>, <code>presentTense</code>, <code>masdarForm</code>,{' '}
               <code>companionForms</code>, <code>imageQuery</code>. Cards are created fully tagged — no AI call
               needed — and images are fetched automatically.
