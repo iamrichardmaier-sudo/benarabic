@@ -21,7 +21,7 @@ type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'verbMasdar' | 'conju
 
 const Index = () => {
   const { cards, loading, addCards, updateCard, deleteCard, refetch } = useFlashcards();
-  const { signOut } = useAuth();
+  const { signOut, user } = useAuth();
   const [view, setView] = useState<View>('home');
   const [reviewItems, setReviewItems] = useState<{ card: FlashCard; direction: ReviewDirection }[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -196,7 +196,7 @@ const Index = () => {
             <button
               onClick={signOut}
               className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-              title="Sign out"
+              title={user?.email ? `Signed in as ${user.email} — sign out` : 'Sign out'}
             >
               <LogOut className="w-4 h-4" />
             </button>
@@ -207,6 +207,15 @@ const Index = () => {
       <main className="flex-1 max-w-lg mx-auto w-full px-4 py-8">
         {view === 'home' && (
           <div className="space-y-8">
+            {cards.length === 0 && user?.email && (
+              <div className="rounded-xl border border-border/60 bg-muted/50 p-4 text-sm text-muted-foreground space-y-1">
+                <p className="text-foreground font-medium">This account has no cards yet.</p>
+                <p>
+                  You're signed in as <span className="text-foreground">{user.email}</span>. If your
+                  words are on a different account, sign out and sign in with that email.
+                </p>
+              </div>
+            )}
             <div className="grid grid-cols-2 gap-3">
               <div className="rounded-2xl bg-card flashcard-shadow p-5 text-center space-y-1">
                 <p className="text-3xl font-bold text-foreground">{learnCount}</p>

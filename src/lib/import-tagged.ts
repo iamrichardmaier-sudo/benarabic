@@ -28,6 +28,38 @@ export interface ImportValidation {
   errors: string[];
 }
 
+/**
+ * Copying JSON that contains Arabic out of a chat window or web page routinely
+ * introduces characters that are invisible on screen but fatal to JSON.parse:
+ * bidirectional control marks placed around RTL runs, non-breaking spaces from
+ * HTML rendering, smart quotes from rich-text editors, and a wrapping markdown
+ * code fence. Clean all of that up before parsing rather than making the user
+ * hunt for an invisible character.
+ */
+export function sanitizeJsonText(raw: string): string {
+  const cleaned = raw
+    // Bidi controls, zero-width characters and BOM.
+    .replace(/[​-‏؜‪-‮⁦-⁩﻿]/g, '')
+    // Every flavour of non-breaking / exotic space becomes a plain space.
+    .replace(/[   -   　]/g, ' ')
+    // Smart quotes back to the ASCII forms JSON requires.
+    .replace(/[“”„‟]/g, '"')
+    .replace(/[‘’‚‛]/g, "'");
+
+  // Ignore anything outside the outermost array, which also drops a markdown
+  // code fence or stray prose pasted along with the data.
+  const start = cleaned.indexOf('[');
+  const end = cleaned.lastIndexOf(']');
+  if (start !== -1 && end > start) return cleaned.slice(start, end + 1);
+  return cleaned.trim();
+}
+
+/** True when text is meant as a JSON dataset rather than a plain word list. */
+export function looksLikeJson(text: string): boolean {
+  const t = sanitizeJsonText(text);
+  return t.startsWith('[') && t.includes('"fusha"');
+}
+
 const WORD_TYPES: WordType[] = ['verb', 'masdar', 'noun', 'adjective', 'participle', 'other'];
 const VERB_FORMS: VerbForm[] = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
 
@@ -46,7 +78,7 @@ export function parseTaggedImport(text: string): ImportValidation {
 
   let raw: unknown;
   try {
-    raw = JSON.parse(text);
+    raw = JSON.parse(sanitizeJsonText(text));
   } catch {
     return { entries, errors: ['Not valid JSON. Paste the entire dataset, starting with [ and ending with ].'] };
   }
