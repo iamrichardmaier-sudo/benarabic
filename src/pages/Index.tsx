@@ -19,6 +19,14 @@ import { useToast } from '@/hooks/use-toast';
 
 type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'verbMasdar' | 'conjugationDrill';
 
+/** Supabase errors are plain objects, not Error instances — read .message off either. */
+function errorReason(err: unknown): string {
+  if (err && typeof err === 'object' && 'message' in err) {
+    return String((err as { message: unknown }).message);
+  }
+  return String(err);
+}
+
 const Index = () => {
   const { cards, loading, addCards, updateCard, deleteCard, refetch } = useFlashcards();
   const { signOut, user } = useAuth();
@@ -74,7 +82,7 @@ const Index = () => {
       }
     } catch (err) {
       console.error(err);
-      toast({ title: 'Error adding words', variant: 'destructive' });
+      toast({ title: 'Error adding words', description: errorReason(err), variant: 'destructive' });
     } finally {
       setIsLoading(false);
     }
@@ -105,8 +113,13 @@ const Index = () => {
         });
       }
       await addCards(newCards);
-      await repairVerbMasdarPairs();
-      await refetch();
+      // Post-insert housekeeping must never turn a successful import into an error.
+      try {
+        await repairVerbMasdarPairs();
+        await refetch();
+      } catch (repairErr) {
+        console.error('Post-import repair failed:', repairErr);
+      }
       const found = newCards.filter((c) => c.imageUrl).length;
       toast({
         title: `Imported ${newCards.length} tagged word${newCards.length > 1 ? 's' : ''}`,
@@ -117,7 +130,7 @@ const Index = () => {
       setView('home');
     } catch (err) {
       console.error(err);
-      toast({ title: 'Error importing words', variant: 'destructive' });
+      toast({ title: 'Error importing words', description: errorReason(err), variant: 'destructive' });
     } finally {
       setIsLoading(false);
     }
