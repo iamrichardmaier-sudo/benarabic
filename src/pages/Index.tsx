@@ -12,7 +12,7 @@ import ConjugationDrill from '@/components/ConjugationDrill';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
-import { searchUnsplashImage } from '@/lib/unsplash';
+import { searchImage } from '@/lib/unsplash';
 import { tagCards, tagUntaggedDeck, repairVerbMasdarPairs } from '@/lib/auto-tag-deck';
 import type { TaggedImportEntry } from '@/lib/import-tagged';
 import { useToast } from '@/hooks/use-toast';
@@ -46,19 +46,24 @@ const Index = () => {
     setIsLoading(true);
     try {
       const newCards: FlashCard[] = [];
+      let imageError: string | null = null;
       for (const line of lines) {
         const entries = parseWordLine(line);
         for (const { fusha, shaami, english } of entries) {
           if (!fusha) continue;
           const searchQuery = english || fusha;
-          const imageUrl = await searchUnsplashImage(searchQuery);
+          const { imageUrl, error } = await searchImage(searchQuery);
+          if (error && !imageError) imageError = error;
           newCards.push(createCard(fusha, english, imageUrl, shaami));
         }
       }
       await addCards(newCards);
       toast({
         title: `Added ${newCards.length} word${newCards.length > 1 ? 's' : ''}`,
-        description: `${newCards.filter((c) => c.imageUrl).length} images found`,
+        description: imageError
+          ? `No images — image lookup failed: ${imageError}`
+          : `${newCards.filter((c) => c.imageUrl).length} images found`,
+        variant: imageError ? 'destructive' : undefined,
       });
       setView('home');
       try {
@@ -80,8 +85,10 @@ const Index = () => {
     try {
       const taggedAt = new Date().toISOString();
       const newCards: FlashCard[] = [];
+      let imageError: string | null = null;
       for (const e of entries) {
-        const imageUrl = await searchUnsplashImage(e.imageQuery || e.english);
+        const { imageUrl, error } = await searchImage(e.imageQuery || e.english);
+        if (error && !imageError) imageError = error;
         newCards.push({
           ...createCard(e.fusha, e.english, imageUrl, e.shaami),
           fushaPlural: e.fushaPlural,
@@ -100,9 +107,13 @@ const Index = () => {
       await addCards(newCards);
       await repairVerbMasdarPairs();
       await refetch();
+      const found = newCards.filter((c) => c.imageUrl).length;
       toast({
         title: `Imported ${newCards.length} tagged word${newCards.length > 1 ? 's' : ''}`,
-        description: `${newCards.filter((c) => c.imageUrl).length} images found`,
+        description: imageError
+          ? `No images — image lookup failed: ${imageError}`
+          : `${found} images found`,
+        variant: imageError ? 'destructive' : undefined,
       });
       setView('home');
     } catch (err) {
