@@ -58,12 +58,12 @@ const Index = () => {
         }
       }
       await addCards(newCards);
+      const found = newCards.filter((c) => c.imageUrl).length;
       toast({
         title: `Added ${newCards.length} word${newCards.length > 1 ? 's' : ''}`,
         description: imageError
-          ? `No images — image lookup failed: ${imageError}`
-          : `${newCards.filter((c) => c.imageUrl).length} images found`,
-        variant: imageError ? 'destructive' : undefined,
+          ? `${found} images found — image lookup failed for the rest: ${imageError}`
+          : `${found} images found`,
       });
       setView('home');
       try {
@@ -111,9 +111,8 @@ const Index = () => {
       toast({
         title: `Imported ${newCards.length} tagged word${newCards.length > 1 ? 's' : ''}`,
         description: imageError
-          ? `No images — image lookup failed: ${imageError}`
+          ? `${found} images found — image lookup failed for the rest: ${imageError}`
           : `${found} images found`,
-        variant: imageError ? 'destructive' : undefined,
       });
       setView('home');
     } catch (err) {
