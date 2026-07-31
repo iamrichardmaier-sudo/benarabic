@@ -4,6 +4,7 @@
 // backfill for any previously untagged cards.
 
 import { supabase } from '@/integrations/supabase/client';
+import { isOnline } from '@/hooks/useOnlineStatus';
 import type { Json } from '@/integrations/supabase/types';
 import type { CompanionForm, WordType } from './spaced-repetition';
 
@@ -87,6 +88,7 @@ async function tagRows(rows: DbRow[], onProgress?: TagProgress): Promise<AutoTag
  * get linked via paired_word_id; ambiguous groups are flagged needs_review.
  */
 export async function repairVerbMasdarPairs(): Promise<void> {
+  if (!isOnline()) return;
   const { data, error } = await supabase
     .from('flashcards')
     .select('id, root, word_type, verb_form, paired_word_id, needs_review');
@@ -128,7 +130,9 @@ export async function repairVerbMasdarPairs(): Promise<void> {
 
 /** Tag specific cards (e.g. right after adding new words). */
 export async function tagCards(cards: { id: string; word: string; shaami?: string | null }[]): Promise<AutoTagSummary> {
-  if (cards.length === 0) return { tagged: 0, failed: 0 };
+  // Tagging needs the AI backend. Offline cards keep tagged_at null, so the
+  // untagged-deck backfill picks them up on the next online session.
+  if (cards.length === 0 || !isOnline()) return { tagged: 0, failed: 0 };
   const rows: DbRow[] = cards.map((c) => ({ id: c.id, word: c.word, shaami: c.shaami ?? null }));
   const summary = await tagRows(rows);
   await repairVerbMasdarPairs();
@@ -137,6 +141,7 @@ export async function tagCards(cards: { id: string; word: string; shaami?: strin
 
 /** Backfill: tag every card in the user's deck that hasn't been tagged yet. */
 export async function tagUntaggedDeck(onProgress?: TagProgress): Promise<AutoTagSummary> {
+  if (!isOnline()) return { tagged: 0, failed: 0 };
   const { data, error } = await supabase
     .from('flashcards')
     .select('id, word, shaami')
@@ -153,6 +158,7 @@ export async function tagUntaggedDeck(onProgress?: TagProgress): Promise<AutoTag
 
 /** How many cards still need tagging (tagged_at is null). */
 export async function countUntaggedCards(): Promise<number> {
+  if (!isOnline()) return 0;
   const { count, error } = await supabase
     .from('flashcards')
     .select('id', { count: 'exact', head: true })
@@ -167,6 +173,7 @@ export async function countUntaggedCards(): Promise<number> {
  * backend). Costs one AI call per BATCH_SIZE cards.
  */
 export async function retagEntireDeck(onProgress?: TagProgress): Promise<AutoTagSummary> {
+  if (!isOnline()) return { tagged: 0, failed: 0 };
   const { data, error } = await supabase
     .from('flashcards')
     .select('id, word, shaami');
