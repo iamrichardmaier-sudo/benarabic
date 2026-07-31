@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { BookOpen, Plus, Layers, List, GraduationCap, LogOut, RefreshCw, Shuffle, BookA, Sparkles } from 'lucide-react';
+import { BookOpen, Plus, Layers, List, GraduationCap, LogOut, RefreshCw, Shuffle, BookA, Sparkles, CloudOff } from 'lucide-react';
 import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
@@ -12,8 +12,9 @@ import ConjugationDrill from '@/components/ConjugationDrill';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
-import { searchImage } from '@/lib/unsplash';
+import { searchImage, backfillMissingImages } from '@/lib/unsplash';
 import { tagCards, tagUntaggedDeck, repairVerbMasdarPairs } from '@/lib/auto-tag-deck';
+import { markNeedsImage } from '@/lib/offline-cache';
 import type { TaggedImportEntry } from '@/lib/import-tagged';
 import { useToast } from '@/hooks/use-toast';
 
@@ -28,7 +29,7 @@ function errorReason(err: unknown): string {
 }
 
 const Index = () => {
-  const { cards, loading, addCards, updateCard, deleteCard, refetch } = useFlashcards();
+  const { cards, loading, addCards, updateCard, deleteCard, refetch, online, pendingCount } = useFlashcards();
   const { signOut, user } = useAuth();
   const [view, setView] = useState<View>('home');
   const [reviewItems, setReviewItems] = useState<{ card: FlashCard; direction: ReviewDirection }[]>([]);
@@ -39,39 +40,55 @@ const Index = () => {
   const { toast } = useToast();
   const backfillRan = useRef(false);
 
-  // One-time background backfill: tag any pre-existing cards that predate auto-tagging.
+  // Catch-up work that needs a connection: tag cards that predate auto-tagging
+  // or were added offline, and fetch the pictures those cards went without.
+  // Resets when the connection drops so it runs again once we're back.
   useEffect(() => {
-    if (loading || backfillRan.current) return;
+    if (loading || !online) {
+      backfillRan.current = false;
+      return;
+    }
+    if (backfillRan.current) return;
     backfillRan.current = true;
-    tagUntaggedDeck()
-      .then((summary) => {
-        if (summary.tagged > 0) refetch();
-      })
-      .catch((err) => console.error('Deck backfill tagging failed:', err));
-  }, [loading, refetch]);
+
+    (async () => {
+      try {
+        const summary = await tagUntaggedDeck();
+        const filled = await backfillMissingImages(user?.id, cards, updateCard);
+        if (summary.tagged > 0 || filled > 0) await refetch();
+      } catch (err) {
+        console.error('Deck backfill failed:', err);
+      }
+    })();
+  }, [loading, online, user?.id, cards, updateCard, refetch]);
 
   const handleAddWords = async (lines: string[]) => {
     setIsLoading(true);
     try {
       const newCards: FlashCard[] = [];
       let imageError: string | null = null;
+      let imagesDeferred = false;
       for (const line of lines) {
         const entries = parseWordLine(line);
         for (const { fusha, shaami, english } of entries) {
           if (!fusha) continue;
           const searchQuery = english || fusha;
-          const { imageUrl, error } = await searchImage(searchQuery);
+          const { imageUrl, error, deferred } = await searchImage(searchQuery);
           if (error && !imageError) imageError = error;
+          if (deferred) imagesDeferred = true;
           newCards.push(createCard(fusha, english, imageUrl, shaami));
         }
       }
       await addCards(newCards);
+      if (imagesDeferred) markNeedsImage(user?.id, newCards.map((c) => c.id));
       const found = newCards.filter((c) => c.imageUrl).length;
       toast({
         title: `Added ${newCards.length} word${newCards.length > 1 ? 's' : ''}`,
-        description: imageError
-          ? `${found} images found — image lookup failed for the rest: ${imageError}`
-          : `${found} images found`,
+        description: imagesDeferred
+          ? 'Saved on this device — pictures and tags fill in when you reconnect.'
+          : imageError
+            ? `${found} images found — image lookup failed for the rest: ${imageError}`
+            : `${found} images found`,
       });
       setView('home');
       try {
@@ -94,9 +111,11 @@ const Index = () => {
       const taggedAt = new Date().toISOString();
       const newCards: FlashCard[] = [];
       let imageError: string | null = null;
+      let imagesDeferred = false;
       for (const e of entries) {
-        const { imageUrl, error } = await searchImage(e.imageQuery || e.english);
+        const { imageUrl, error, deferred } = await searchImage(e.imageQuery || e.english);
         if (error && !imageError) imageError = error;
+        if (deferred) imagesDeferred = true;
         newCards.push({
           ...createCard(e.fusha, e.english, imageUrl, e.shaami),
           fushaPlural: e.fushaPlural,
@@ -113,6 +132,7 @@ const Index = () => {
         });
       }
       await addCards(newCards);
+      if (imagesDeferred) markNeedsImage(user?.id, newCards.map((c) => c.id));
       // Post-insert housekeeping must never turn a successful import into an error.
       try {
         await repairVerbMasdarPairs();
@@ -123,9 +143,11 @@ const Index = () => {
       const found = newCards.filter((c) => c.imageUrl).length;
       toast({
         title: `Imported ${newCards.length} tagged word${newCards.length > 1 ? 's' : ''}`,
-        description: imageError
-          ? `${found} images found — image lookup failed for the rest: ${imageError}`
-          : `${found} images found`,
+        description: imagesDeferred
+          ? 'Saved on this device — pictures fill in when you reconnect.'
+          : imageError
+            ? `${found} images found — image lookup failed for the rest: ${imageError}`
+            : `${found} images found`,
       });
       setView('home');
     } catch (err) {
@@ -209,6 +231,19 @@ const Index = () => {
             <span className="font-bold text-lg">بطاقات</span>
           </button>
           <div className="flex items-center gap-3">
+            {(!online || pendingCount > 0) && (
+              <span
+                className="flex items-center gap-1.5 rounded-full bg-muted px-2.5 py-1 text-xs font-medium text-muted-foreground"
+                title={
+                  online
+                    ? `${pendingCount} change${pendingCount === 1 ? '' : 's'} waiting to sync`
+                    : 'Offline — your work is saved on this device and syncs when you reconnect'
+                }
+              >
+                <CloudOff className="w-3.5 h-3.5" />
+                <span>{online ? `${pendingCount} to sync` : 'Offline'}</span>
+              </span>
+            )}
             <button
               onClick={() => setView('deck')}
               className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
