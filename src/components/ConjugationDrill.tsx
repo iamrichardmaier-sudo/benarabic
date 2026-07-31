@@ -17,6 +17,19 @@ interface DrillItem {
 }
 
 type FieldResult = 'correct' | 'incorrect';
+type Phase = 'select' | 'drill';
+
+/** Conventional ordering; anything unrecognised sorts to the end. */
+const FORM_ORDER = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+
+function compareForms(a: string, b: string): number {
+  const ia = FORM_ORDER.indexOf(a);
+  const ib = FORM_ORDER.indexOf(b);
+  if (ia === -1 && ib === -1) return a.localeCompare(b);
+  if (ia === -1) return 1;
+  if (ib === -1) return -1;
+  return ia - ib;
+}
 
 function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
@@ -33,8 +46,19 @@ const FIELDS: { key: 'past' | 'present' | 'masdar'; label: string; get: (item: D
   { key: 'masdar', label: 'Masdar', get: (i) => i.masdarForm },
 ];
 
+const BackLink = ({ label, onClick }: { label: string; onClick: () => void }) => (
+  <button
+    onClick={onClick}
+    className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+  >
+    <ChevronLeft className="w-4 h-4" />
+    {label}
+  </button>
+);
+
 const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
-  const items = useMemo<DrillItem[]>(() => {
+  // Every verb eligible for drilling, one entry per root + form pair.
+  const allItems = useMemo<DrillItem[]>(() => {
     const seen = new Set<string>();
     const out: DrillItem[] = [];
     for (const card of cards) {
@@ -50,9 +74,27 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
         masdarForm: card.masdarForm,
       });
     }
-    return shuffle(out);
+    return out;
   }, [cards]);
 
+  const countsByForm = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const item of allItems) counts.set(item.verbForm, (counts.get(item.verbForm) ?? 0) + 1);
+    return counts;
+  }, [allItems]);
+
+  const availableForms = useMemo(
+    () => [...countsByForm.keys()].sort(compareForms),
+    [countsByForm],
+  );
+
+  const [phase, setPhase] = useState<Phase>('select');
+  // null means "untouched", which reads as everything selected — so the common
+  // case is a single tap on Start without ticking ten boxes first.
+  const [picked, setPicked] = useState<Set<string> | null>(null);
+  const selectedForms = picked ?? new Set(availableForms);
+
+  const [items, setItems] = useState<DrillItem[]>([]);
   const [index, setIndex] = useState(0);
   const [inputs, setInputs] = useState({ past: '', present: '', masdar: '' });
   const [results, setResults] = useState<Record<string, FieldResult> | null>(null);
@@ -67,16 +109,30 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
     firstInputRef.current?.focus();
   }, [index]);
 
-  if (items.length === 0) {
+  const selectedCount = allItems.filter((i) => selectedForms.has(i.verbForm)).length;
+
+  const toggleForm = (form: string) => {
+    const next = new Set(selectedForms);
+    if (next.has(form)) next.delete(form);
+    else next.add(form);
+    setPicked(next);
+  };
+
+  const startDrill = () => {
+    setItems(shuffle(allItems.filter((i) => selectedForms.has(i.verbForm))));
+    setIndex(0);
+    setScore({ correct: 0, total: 0 });
+    setInputs({ past: '', present: '', masdar: '' });
+    setResults(null);
+    setPhase('drill');
+  };
+
+  if (allItems.length === 0) {
     return (
       <div className="space-y-4">
-        <button
-          onClick={onBack}
-          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors mb-2"
-        >
-          <ChevronLeft className="w-4 h-4" />
-          Back
-        </button>
+        <div className="mb-2">
+          <BackLink label="Back" onClick={onBack} />
+        </div>
         <h2 className="text-xl font-bold text-foreground">Drill Conjugations</h2>
         <div className="rounded-2xl border border-border bg-card p-8 text-center space-y-2">
           <p className="text-foreground font-medium">No tagged verbs found yet.</p>
@@ -88,22 +144,79 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
     );
   }
 
+  if (phase === 'select') {
+    const allSelected = selectedForms.size === availableForms.length;
+    return (
+      <div className="space-y-4">
+        <BackLink label="Back" onClick={onBack} />
+
+        <div className="space-y-1">
+          <h2 className="text-xl font-bold text-foreground">Drill Conjugations</h2>
+          <p className="text-sm text-muted-foreground">Pick the verb forms you want to practise.</p>
+        </div>
+
+        <div className="rounded-2xl border border-border bg-card overflow-hidden divide-y divide-border/60">
+          {availableForms.map((form) => {
+            const count = countsByForm.get(form) ?? 0;
+            return (
+              <label
+                key={form}
+                className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-muted/40 transition-colors"
+              >
+                <input
+                  type="checkbox"
+                  checked={selectedForms.has(form)}
+                  onChange={() => toggleForm(form)}
+                  className="w-4 h-4 accent-primary cursor-pointer"
+                />
+                <span className="flex-1 font-medium text-foreground">Form {form}</span>
+                <span className="text-sm text-muted-foreground">
+                  {count} verb{count === 1 ? '' : 's'}
+                </span>
+              </label>
+            );
+          })}
+        </div>
+
+        <div className="flex items-center justify-between">
+          <button
+            onClick={() => setPicked(allSelected ? new Set<string>() : new Set(availableForms))}
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {allSelected ? 'Clear all' : 'Select all'}
+          </button>
+          <span className="text-sm text-muted-foreground">
+            {selectedCount} verb{selectedCount === 1 ? '' : 's'} selected
+          </span>
+        </div>
+
+        <button
+          onClick={startDrill}
+          disabled={selectedCount === 0}
+          className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all active:scale-95 disabled:opacity-40"
+        >
+          Start Drill
+        </button>
+      </div>
+    );
+  }
+
   if (index >= items.length) {
     return (
       <div className="space-y-4">
-        <button
-          onClick={onBack}
-          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors mb-2"
-        >
-          <ChevronLeft className="w-4 h-4" />
-          Back
-        </button>
+        <BackLink label="Back" onClick={onBack} />
         <div className="rounded-2xl border border-border bg-card p-8 text-center space-y-2">
           <p className="text-foreground font-medium">Drill complete!</p>
           <p className="text-sm text-muted-foreground">
             {score.correct} / {score.total} fully correct
           </p>
         </div>
+        <button
+          onClick={() => setPhase('select')}
+          className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all active:scale-95"
+        >
+          Choose forms
+        </button>
       </div>
     );
   }
@@ -127,13 +240,7 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <button
-          onClick={onBack}
-          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <ChevronLeft className="w-4 h-4" />
-          Back
-        </button>
+        <BackLink label="Forms" onClick={() => setPhase('select')} />
         <span className="text-sm text-muted-foreground">{index + 1} / {items.length}</span>
       </div>
 
