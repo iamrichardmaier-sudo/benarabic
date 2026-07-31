@@ -45,6 +45,27 @@ export function normalizeArabicKeepVowels(str: string): string {
 }
 
 /**
+ * Remove short vowels, tanwin, sukun and the dagger alef, but deliberately
+ * keep shadda (ّ). Gemination is what separates one verb form from
+ * another — بَدَّلَ (II) from بَدَلَ (I) — so it stays graded even when a
+ * drill has stopped grading vowels.
+ */
+export function stripShortVowels(str: string): string {
+  // U+064B–U+0650 fathatan…kasra, U+0652 sukun, U+0670 dagger alef.
+  // U+0651 (shadda) is intentionally absent from this set.
+  return str.replace(/[ً-ِْٰ]/g, '');
+}
+
+/**
+ * Orthographic normalization with short vowels ignored. For drills where the
+ * learner is practising the consonantal skeleton and shouldn't be marked wrong
+ * for skipping tashkeel.
+ */
+export function normalizeArabicIgnoreShortVowels(str: string): string {
+  return normalizeArabicKeepVowels(stripShortVowels(str));
+}
+
+/**
  * Check a user's plural answer against the list of accepted answers.
  * Returns true if any normalized answer matches.
  */

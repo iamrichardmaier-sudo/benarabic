@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ConjugationDrill from './ConjugationDrill';
@@ -30,6 +30,15 @@ function row(formLabel: string) {
   return screen.getByText(formLabel).closest('label') as HTMLElement;
 }
 
+beforeEach(() => {
+  localStorage.clear();
+});
+
+/** The per-form checkboxes, excluding the short-vowel option. */
+function formCheckboxes() {
+  return screen.getAllByRole('checkbox', { name: /^Form / });
+}
+
 describe('ConjugationDrill form picker', () => {
   it('opens on the picker, not straight into the drill', () => {
     render(<ConjugationDrill cards={deck} onBack={() => {}} />);
@@ -43,12 +52,12 @@ describe('ConjugationDrill form picker', () => {
     expect(within(row('Form I')).getByText('2 verbs')).toBeInTheDocument();
     expect(within(row('Form V')).getByText('2 verbs')).toBeInTheDocument();
     expect(within(row('Form VI')).getByText('1 verb')).toBeInTheDocument();
-    expect(screen.getAllByRole('checkbox')).toHaveLength(3);
+    expect(formCheckboxes()).toHaveLength(3);
   });
 
   it('orders forms by Roman numeral, not alphabetically', () => {
     render(<ConjugationDrill cards={[verb('a', 'X'), verb('b', 'II'), verb('c', 'I')]} onBack={() => {}} />);
-    const labels = screen.getAllByRole('checkbox').map(
+    const labels = formCheckboxes().map(
       (box) => (box.closest('label') as HTMLElement).textContent,
     );
     expect(labels.map((t) => t?.match(/Form [IVX]+/)?.[0])).toEqual(['Form I', 'Form II', 'Form X']);
@@ -56,7 +65,7 @@ describe('ConjugationDrill form picker', () => {
 
   it('starts with everything selected so Start needs one tap', () => {
     render(<ConjugationDrill cards={deck} onBack={() => {}} />);
-    screen.getAllByRole('checkbox').forEach((box) => expect(box).toBeChecked());
+    formCheckboxes().forEach((box) => expect(box).toBeChecked());
     expect(screen.getByText('5 verbs selected')).toBeInTheDocument();
   });
 
@@ -118,5 +127,60 @@ describe('ConjugationDrill form picker', () => {
   it('shows the empty state when no verb is fully tagged', () => {
     render(<ConjugationDrill cards={[createCard('بَحر', 'sea')]} onBack={() => {}} />);
     expect(screen.getByText('No tagged verbs found yet.')).toBeInTheDocument();
+  });
+});
+
+describe('ConjugationDrill short-vowel option', () => {
+  const single = [verb('ف-ع-ل', 'I')]; // past فَعَلَ, present يَفعَل, masdar فِعل
+
+  /** Types the unvowelled skeleton of each answer, then submits. */
+  async function answerWithoutVowels(user: ReturnType<typeof userEvent.setup>) {
+    const [past, present, masdar] = screen.getAllByRole('textbox');
+    await user.type(past, 'فعل');
+    await user.type(present, 'يفعل');
+    await user.type(masdar, 'فعل');
+    await user.click(screen.getByRole('button', { name: 'Check Answer' }));
+  }
+
+  it('is off by default, so vowels are still graded', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    expect(screen.getByRole('checkbox', { name: /Don't check short vowels/ })).not.toBeChecked();
+
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    await answerWithoutVowels(user);
+
+    expect(screen.getByRole('button', { name: /Continue/ })).toBeInTheDocument();
+    expect(screen.queryByText(/Correct — Continue/)).not.toBeInTheDocument();
+  });
+
+  it('accepts unvowelled answers once enabled', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+
+    await user.click(screen.getByRole('checkbox', { name: /Don't check short vowels/ }));
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    await answerWithoutVowels(user);
+
+    expect(screen.getByRole('button', { name: /Correct — Continue/ })).toBeInTheDocument();
+  });
+
+  it('says so during the drill when enabled', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('checkbox', { name: /Don't check short vowels/ }));
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+
+    expect(screen.getByText("Short vowels aren't being checked.")).toBeInTheDocument();
+  });
+
+  it('remembers the choice for next time', async () => {
+    const user = userEvent.setup();
+    const { unmount } = render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('checkbox', { name: /Don't check short vowels/ }));
+    unmount();
+
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    expect(screen.getByRole('checkbox', { name: /Don't check short vowels/ })).toBeChecked();
   });
 });
