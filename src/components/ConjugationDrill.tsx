@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { ChevronLeft, Check, X } from 'lucide-react';
 import { FlashCard } from '@/lib/spaced-repetition';
-import { normalizeArabicKeepVowels } from '@/lib/arabic-normalize';
+import { normalizeArabicKeepVowels, normalizeArabicIgnoreShortVowels } from '@/lib/arabic-normalize';
 
 interface ConjugationDrillProps {
   cards: FlashCard[];
@@ -21,6 +21,17 @@ type Phase = 'select' | 'drill';
 
 /** Conventional ordering; anything unrecognised sorts to the end. */
 const FORM_ORDER = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
+
+/** Remembered across sessions so the choice doesn't have to be re-made. */
+const IGNORE_VOWELS_KEY = 'arabic-flashcards-drill-ignore-short-vowels';
+
+function readVowelPref(): boolean {
+  try {
+    return localStorage.getItem(IGNORE_VOWELS_KEY) === 'true';
+  } catch {
+    return false;
+  }
+}
 
 function compareForms(a: string, b: string): number {
   const ia = FORM_ORDER.indexOf(a);
@@ -94,6 +105,7 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
   const [picked, setPicked] = useState<Set<string> | null>(null);
   const selectedForms = picked ?? new Set(availableForms);
 
+  const [ignoreShortVowels, setIgnoreShortVowels] = useState(readVowelPref);
   const [items, setItems] = useState<DrillItem[]>([]);
   const [index, setIndex] = useState(0);
   const [inputs, setInputs] = useState({ past: '', present: '', masdar: '' });
@@ -110,6 +122,18 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
   }, [index]);
 
   const selectedCount = allItems.filter((i) => selectedForms.has(i.verbForm)).length;
+
+  const toggleVowelChecking = () => {
+    setIgnoreShortVowels((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem(IGNORE_VOWELS_KEY, String(next));
+      } catch {
+        /* preference just won't persist */
+      }
+      return next;
+    });
+  };
 
   const toggleForm = (form: string) => {
     const next = new Set(selectedForms);
@@ -165,6 +189,7 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
               >
                 <input
                   type="checkbox"
+                  aria-label={`Form ${form}`}
                   checked={selectedForms.has(form)}
                   onChange={() => toggleForm(form)}
                   className="w-4 h-4 accent-primary cursor-pointer"
@@ -177,6 +202,22 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
             );
           })}
         </div>
+
+        <label className="flex items-start gap-3 rounded-2xl border border-border bg-card px-4 py-3 cursor-pointer hover:bg-muted/40 transition-colors">
+          <input
+            type="checkbox"
+            checked={ignoreShortVowels}
+            onChange={toggleVowelChecking}
+            className="w-4 h-4 mt-0.5 accent-primary cursor-pointer"
+          />
+          <span className="flex-1">
+            <span className="block font-medium text-foreground">Don't check short vowels</span>
+            <span className="block text-xs text-muted-foreground">
+              Grade the letters only, so missing tashkeel isn't marked wrong. Shadda still counts,
+              since it's what separates one form from another.
+            </span>
+          </span>
+        </label>
 
         <div className="flex items-center justify-between">
           <button
@@ -224,9 +265,10 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
   const handleCheck = () => {
     const next: Record<string, FieldResult> = {};
     let allCorrect = true;
+    const normalize = ignoreShortVowels ? normalizeArabicIgnoreShortVowels : normalizeArabicKeepVowels;
     for (const field of FIELDS) {
-      const expected = normalizeArabicKeepVowels(field.get(current));
-      const typed = normalizeArabicKeepVowels(inputs[field.key]);
+      const expected = normalize(field.get(current));
+      const typed = normalize(inputs[field.key]);
       const ok = expected === typed;
       next[field.key] = ok ? 'correct' : 'incorrect';
       if (!ok) allCorrect = false;
@@ -244,7 +286,12 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
         <span className="text-sm text-muted-foreground">{index + 1} / {items.length}</span>
       </div>
 
-      <h2 className="text-xl font-bold text-foreground">Drill Conjugations</h2>
+      <div className="space-y-1">
+        <h2 className="text-xl font-bold text-foreground">Drill Conjugations</h2>
+        {ignoreShortVowels && (
+          <p className="text-xs text-muted-foreground">Short vowels aren't being checked.</p>
+        )}
+      </div>
 
       <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-6 flex flex-col items-center justify-center gap-2">
         <p className="text-[40px] font-bold text-foreground font-arabic" dir="rtl">{current.root}</p>
