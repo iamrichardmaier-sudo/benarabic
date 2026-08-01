@@ -82,6 +82,24 @@ export type Database = {
           },
         ]
       }
+      root_meanings: {
+        Row: {
+          created_at: string
+          meaning: string
+          root: string
+        }
+        Insert: {
+          created_at?: string
+          meaning: string
+          root: string
+        }
+        Update: {
+          created_at?: string
+          meaning?: string
+          root?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

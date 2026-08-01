@@ -1,4 +1,15 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
+
+// The drill pulls root glosses from Supabase; serve them locally so these
+// tests exercise the hover behaviour rather than the network.
+vi.mock('@/lib/morphology', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@/lib/morphology')>();
+  return {
+    ...actual,
+    loadRootMeanings: vi.fn(async () => ({ 'ك-ت-ب': 'writing' })),
+  };
+});
+
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ConjugationDrill from './ConjugationDrill';
@@ -182,5 +193,112 @@ describe('ConjugationDrill short-vowel option', () => {
 
     render(<ConjugationDrill cards={single} onBack={() => {}} />);
     expect(screen.getByRole('checkbox', { name: /Don't check short vowels/ })).toBeChecked();
+  });
+});
+
+describe('ConjugationDrill root and form glosses', () => {
+  async function startDrill(cards: FlashCard[]) {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={cards} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    return user;
+  }
+
+  it('explains the root on hover', async () => {
+    const user = await startDrill([verb('ك-ت-ب', 'I')]);
+    await user.hover(screen.getByRole('button', { name: /What the root ك-ت-ب means/ }));
+    expect(await screen.findByText('writing')).toBeInTheDocument();
+  });
+
+  it('says so plainly when a root has no gloss recorded', async () => {
+    const user = await startDrill([verb('ز-ز-ز', 'I')]);
+    await user.hover(screen.getByRole('button', { name: /What the root ز-ز-ز means/ }));
+    expect(await screen.findByText(/No gloss recorded for this root yet/)).toBeInTheDocument();
+  });
+
+  it('explains what the form does to the root', async () => {
+    const user = await startDrill([verb('ك-ت-ب', 'II')]);
+    await user.hover(screen.getByRole('button', { name: /What Form II does to a root/ }));
+    expect(await screen.findByText(/Form II — Causative or intensive/)).toBeInTheDocument();
+    expect(await screen.findByText(/Doubling the middle letter/)).toBeInTheDocument();
+  });
+
+  it('shows the pattern the root is poured into', async () => {
+    const user = await startDrill([verb('ك-ت-ب', 'X')]);
+    await user.hover(screen.getByRole('button', { name: /What Form X does to a root/ }));
+    expect(await screen.findByText('اِستَفعَلَ')).toBeInTheDocument();
+  });
+
+  it('keeps both hints shut until asked', async () => {
+    await startDrill([verb('ك-ت-ب', 'I')]);
+    expect(screen.queryByText('writing')).not.toBeInTheDocument();
+    expect(screen.queryByText(/The base form/)).not.toBeInTheDocument();
+  });
+
+  it('opens on tap too, for a phone', async () => {
+    const user = await startDrill([verb('ك-ت-ب', 'I')]);
+    await user.click(screen.getByRole('button', { name: /What the root ك-ت-ب means/ }));
+    expect(await screen.findByText('writing')).toBeInTheDocument();
+  });
+});
+
+describe('ConjugationDrill always reveals the full vowelling', () => {
+  const single = [verb('ف-ع-ل', 'I')]; // past فَعَلَ, present يَفعَل, masdar فِعل
+
+  async function answer(user: ReturnType<typeof userEvent.setup>, values: string[]) {
+    const boxes = screen.getAllByRole('textbox');
+    for (let i = 0; i < values.length; i++) await user.type(boxes[i], values[i]);
+    await user.click(screen.getByRole('button', { name: 'Check Answer' }));
+  }
+
+  it('shows the vowelled forms after a lenient pass, so the tashkeel is still seen', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('checkbox', { name: /Don't check short vowels/ }));
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+
+    await answer(user, ['فعل', 'يفعل', 'فعل']);
+
+    // Marked correct...
+    expect(screen.getByRole('button', { name: /Correct — Continue/ })).toBeInTheDocument();
+    // ...and the vowelled forms are shown anyway.
+    expect(screen.getByText('فَعَلَ')).toBeInTheDocument();
+    expect(screen.getByText('يَفعَل')).toBeInTheDocument();
+    expect(screen.getByText('فِعل')).toBeInTheDocument();
+    expect(screen.getAllByText('full vowelling')).toHaveLength(3);
+  });
+
+  it('stays quiet when the answer already carried its vowels', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+
+    await answer(user, ['فَعَلَ', 'يَفعَل', 'فِعل']);
+
+    expect(screen.getByRole('button', { name: /Correct — Continue/ })).toBeInTheDocument();
+    expect(screen.queryByText('full vowelling')).not.toBeInTheDocument();
+  });
+
+  it('still shows the answer for a wrong field, without the vowelling note', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+
+    await answer(user, ['كَتَبَ', 'يَفعَل', 'فِعل']);
+
+    expect(screen.getByText('فَعَلَ')).toBeInTheDocument();
+    expect(screen.queryByText('full vowelling')).not.toBeInTheDocument();
+  });
+
+  it('reveals vowelling for a partly unvowelled answer in strict mode too', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+
+    // Strict mode marks these wrong, but the vowelled form must still appear.
+    await answer(user, ['فعل', 'يفعل', 'فعل']);
+
+    expect(screen.getByText('فَعَلَ')).toBeInTheDocument();
+    expect(screen.getByText('يَفعَل')).toBeInTheDocument();
   });
 });
