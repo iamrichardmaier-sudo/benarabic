@@ -1,4 +1,15 @@
-import { describe, it, expect, beforeEach } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
+
+// The drill pulls root glosses from Supabase; serve them locally so these
+// tests exercise the hover behaviour rather than the network.
+vi.mock('@/lib/morphology', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@/lib/morphology')>();
+  return {
+    ...actual,
+    loadRootMeanings: vi.fn(async () => ({ 'ك-ت-ب': 'writing' })),
+  };
+});
+
 import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import ConjugationDrill from './ConjugationDrill';
@@ -182,5 +193,51 @@ describe('ConjugationDrill short-vowel option', () => {
 
     render(<ConjugationDrill cards={single} onBack={() => {}} />);
     expect(screen.getByRole('checkbox', { name: /Don't check short vowels/ })).toBeChecked();
+  });
+});
+
+describe('ConjugationDrill root and form glosses', () => {
+  async function startDrill(cards: FlashCard[]) {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={cards} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    return user;
+  }
+
+  it('explains the root on hover', async () => {
+    const user = await startDrill([verb('ك-ت-ب', 'I')]);
+    await user.hover(screen.getByRole('button', { name: /What the root ك-ت-ب means/ }));
+    expect(await screen.findByText('writing')).toBeInTheDocument();
+  });
+
+  it('says so plainly when a root has no gloss recorded', async () => {
+    const user = await startDrill([verb('ز-ز-ز', 'I')]);
+    await user.hover(screen.getByRole('button', { name: /What the root ز-ز-ز means/ }));
+    expect(await screen.findByText(/No gloss recorded for this root yet/)).toBeInTheDocument();
+  });
+
+  it('explains what the form does to the root', async () => {
+    const user = await startDrill([verb('ك-ت-ب', 'II')]);
+    await user.hover(screen.getByRole('button', { name: /What Form II does to a root/ }));
+    expect(await screen.findByText(/Form II — Causative or intensive/)).toBeInTheDocument();
+    expect(await screen.findByText(/Doubling the middle letter/)).toBeInTheDocument();
+  });
+
+  it('shows the pattern the root is poured into', async () => {
+    const user = await startDrill([verb('ك-ت-ب', 'X')]);
+    await user.hover(screen.getByRole('button', { name: /What Form X does to a root/ }));
+    expect(await screen.findByText('اِستَفعَلَ')).toBeInTheDocument();
+  });
+
+  it('keeps both hints shut until asked', async () => {
+    await startDrill([verb('ك-ت-ب', 'I')]);
+    expect(screen.queryByText('writing')).not.toBeInTheDocument();
+    expect(screen.queryByText(/The base form/)).not.toBeInTheDocument();
+  });
+
+  it('opens on tap too, for a phone', async () => {
+    const user = await startDrill([verb('ك-ت-ب', 'I')]);
+    await user.click(screen.getByRole('button', { name: /What the root ك-ت-ب means/ }));
+    expect(await screen.findByText('writing')).toBeInTheDocument();
   });
 });

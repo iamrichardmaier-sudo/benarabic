@@ -2,6 +2,8 @@ import { useState, useMemo, useEffect, useRef } from 'react';
 import { ChevronLeft, Check, X } from 'lucide-react';
 import { FlashCard } from '@/lib/spaced-repetition';
 import { normalizeArabicKeepVowels, normalizeArabicIgnoreShortVowels } from '@/lib/arabic-normalize';
+import { VERB_FORM_GLOSSES, loadRootMeanings } from '@/lib/morphology';
+import GlossPopover from '@/components/GlossPopover';
 
 interface ConjugationDrillProps {
   cards: FlashCard[];
@@ -106,6 +108,7 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
   const selectedForms = picked ?? new Set(availableForms);
 
   const [ignoreShortVowels, setIgnoreShortVowels] = useState(readVowelPref);
+  const [rootMeanings, setRootMeanings] = useState<Record<string, string>>({});
   const [items, setItems] = useState<DrillItem[]>([]);
   const [index, setIndex] = useState(0);
   const [inputs, setInputs] = useState({ past: '', present: '', masdar: '' });
@@ -120,6 +123,18 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
     setResults(null);
     firstInputRef.current?.focus();
   }, [index]);
+
+  useEffect(() => {
+    let cancelled = false;
+    loadRootMeanings()
+      .then((meanings) => {
+        if (!cancelled) setRootMeanings(meanings);
+      })
+      .catch((err) => console.error('Root meanings unavailable:', err));
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const selectedCount = allItems.filter((i) => selectedForms.has(i.verbForm)).length;
 
@@ -294,8 +309,40 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
       </div>
 
       <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-6 flex flex-col items-center justify-center gap-2">
-        <p className="text-[40px] font-bold text-foreground font-arabic" dir="rtl">{current.root}</p>
-        <p className="text-sm text-muted-foreground">Form {current.verbForm}</p>
+        <GlossPopover
+          title={current.root}
+          subtitle="Root"
+          body={
+            rootMeanings[current.root] ??
+            'No gloss recorded for this root yet — the sense has to be inferred from the words that use it.'
+          }
+          side="top"
+          triggerLabel={`What the root ${current.root} means`}
+          className="px-2 py-1 underline"
+        >
+          <span className="text-[40px] font-bold text-foreground font-arabic" dir="rtl">
+            {current.root}
+          </span>
+        </GlossPopover>
+
+        {(() => {
+          const gloss = current.verbForm ? VERB_FORM_GLOSSES[current.verbForm] : undefined;
+          if (!gloss) {
+            return <p className="text-sm text-muted-foreground">Form {current.verbForm}</p>;
+          }
+          return (
+            <GlossPopover
+              title={gloss.pattern}
+              subtitle={`Form ${current.verbForm} — ${gloss.summary}`}
+              body={gloss.detail}
+              side="bottom"
+              triggerLabel={`What Form ${current.verbForm} does to a root`}
+              className="px-2 py-0.5 text-sm text-muted-foreground underline"
+            >
+              Form {current.verbForm}
+            </GlossPopover>
+          );
+        })()}
       </div>
 
       <div className="space-y-3">
