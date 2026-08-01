@@ -346,32 +346,51 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
       </div>
 
       <div className="space-y-3">
-        {FIELDS.map((field) => (
-          <div key={field.key} className="space-y-1">
-            <label className="text-sm text-muted-foreground font-medium">{field.label}</label>
-            <input
-              ref={field.key === 'past' ? firstInputRef : undefined}
-              type="text"
-              value={inputs[field.key]}
-              onChange={(e) => setInputs((v) => ({ ...v, [field.key]: e.target.value }))}
-              disabled={!!results}
-              dir="rtl"
-              className={`w-full font-arabic text-2xl bg-card border rounded-xl px-4 py-2.5 text-foreground focus:ring-2 focus:ring-primary/30 focus:outline-none disabled:opacity-80 ${
-                results
-                  ? results[field.key] === 'correct'
-                    ? 'border-success'
-                    : 'border-destructive'
-                  : 'border-border'
-              }`}
-            />
-            {results && results[field.key] === 'incorrect' && (
-              <p className="text-sm text-success font-arabic flex items-center gap-1.5" dir="rtl">
-                <Check className="w-3.5 h-3.5 flex-shrink-0" />
-                {field.get(current)}
-              </p>
-            )}
-          </div>
-        ))}
+        {FIELDS.map((field) => {
+          const expected = field.get(current);
+          // Character-for-character match, tashkeel included. Lenient grading
+          // can call an answer correct while the vowels and tanwin are missing,
+          // and those are exactly what the learner still needs to see.
+          const typedItExactly =
+            normalizeArabicKeepVowels(inputs[field.key]) === normalizeArabicKeepVowels(expected);
+          const wrong = results?.[field.key] === 'incorrect';
+          const showAnswer = !!results && (wrong || !typedItExactly);
+
+          return (
+            <div key={field.key} className="space-y-1">
+              <label className="text-sm text-muted-foreground font-medium">{field.label}</label>
+              <input
+                ref={field.key === 'past' ? firstInputRef : undefined}
+                type="text"
+                value={inputs[field.key]}
+                onChange={(e) => setInputs((v) => ({ ...v, [field.key]: e.target.value }))}
+                disabled={!!results}
+                dir="rtl"
+                className={`w-full font-arabic text-2xl bg-card border rounded-xl px-4 py-2.5 text-foreground focus:ring-2 focus:ring-primary/30 focus:outline-none disabled:opacity-80 ${
+                  results
+                    ? results[field.key] === 'correct'
+                      ? 'border-success'
+                      : 'border-destructive'
+                    : 'border-border'
+                }`}
+              />
+              {showAnswer && (
+                <p
+                  className={`text-sm font-arabic flex items-center gap-1.5 ${wrong ? 'text-success' : 'text-muted-foreground'}`}
+                  dir="rtl"
+                >
+                  <Check className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>{expected}</span>
+                  {!wrong && (
+                    <span className="font-sans text-xs" dir="ltr">
+                      full vowelling
+                    </span>
+                  )}
+                </p>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {!results ? (

@@ -241,3 +241,64 @@ describe('ConjugationDrill root and form glosses', () => {
     expect(await screen.findByText('writing')).toBeInTheDocument();
   });
 });
+
+describe('ConjugationDrill always reveals the full vowelling', () => {
+  const single = [verb('ف-ع-ل', 'I')]; // past فَعَلَ, present يَفعَل, masdar فِعل
+
+  async function answer(user: ReturnType<typeof userEvent.setup>, values: string[]) {
+    const boxes = screen.getAllByRole('textbox');
+    for (let i = 0; i < values.length; i++) await user.type(boxes[i], values[i]);
+    await user.click(screen.getByRole('button', { name: 'Check Answer' }));
+  }
+
+  it('shows the vowelled forms after a lenient pass, so the tashkeel is still seen', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('checkbox', { name: /Don't check short vowels/ }));
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+
+    await answer(user, ['فعل', 'يفعل', 'فعل']);
+
+    // Marked correct...
+    expect(screen.getByRole('button', { name: /Correct — Continue/ })).toBeInTheDocument();
+    // ...and the vowelled forms are shown anyway.
+    expect(screen.getByText('فَعَلَ')).toBeInTheDocument();
+    expect(screen.getByText('يَفعَل')).toBeInTheDocument();
+    expect(screen.getByText('فِعل')).toBeInTheDocument();
+    expect(screen.getAllByText('full vowelling')).toHaveLength(3);
+  });
+
+  it('stays quiet when the answer already carried its vowels', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+
+    await answer(user, ['فَعَلَ', 'يَفعَل', 'فِعل']);
+
+    expect(screen.getByRole('button', { name: /Correct — Continue/ })).toBeInTheDocument();
+    expect(screen.queryByText('full vowelling')).not.toBeInTheDocument();
+  });
+
+  it('still shows the answer for a wrong field, without the vowelling note', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+
+    await answer(user, ['كَتَبَ', 'يَفعَل', 'فِعل']);
+
+    expect(screen.getByText('فَعَلَ')).toBeInTheDocument();
+    expect(screen.queryByText('full vowelling')).not.toBeInTheDocument();
+  });
+
+  it('reveals vowelling for a partly unvowelled answer in strict mode too', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+
+    // Strict mode marks these wrong, but the vowelled form must still appear.
+    await answer(user, ['فعل', 'يفعل', 'فعل']);
+
+    expect(screen.getByText('فَعَلَ')).toBeInTheDocument();
+    expect(screen.getByText('يَفعَل')).toBeInTheDocument();
+  });
+});
