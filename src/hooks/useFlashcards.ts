@@ -42,6 +42,7 @@ interface DbRow {
   masdar_form: string | null;
   companion_forms: CompanionForm[] | null;
   tagged_at: string | null;
+  card_group: string | null;
 }
 
 function rowToCard(row: DbRow): FlashCard {
@@ -70,6 +71,7 @@ function rowToCard(row: DbRow): FlashCard {
     masdarForm: row.masdar_form,
     companionForms: row.companion_forms,
     taggedAt: row.tagged_at,
+    group: row.card_group,
   };
 }
 
@@ -97,6 +99,7 @@ function cardToRow(card: FlashCard) {
     masdar_form: card.masdarForm ?? null,
     companion_forms: card.companionForms ?? null,
     tagged_at: card.taggedAt ?? null,
+    card_group: card.group ?? null,
   };
 }
 
@@ -125,6 +128,7 @@ function toDbUpdates(updates: Partial<FlashCard>): Record<string, unknown> {
   if (updates.masdarForm !== undefined) db.masdar_form = updates.masdarForm;
   if (updates.companionForms !== undefined) db.companion_forms = updates.companionForms;
   if (updates.taggedAt !== undefined) db.tagged_at = updates.taggedAt;
+  if (updates.group !== undefined) db.card_group = updates.group;
   return db;
 }
 
