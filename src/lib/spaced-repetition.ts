@@ -32,6 +32,8 @@ export interface FlashCard {
   masdarForm?: string | null;
   companionForms?: CompanionForm[] | null;
   taggedAt?: string | null;
+  /** Named batch this card belongs to, e.g. "Chapter 12". Null means ungrouped. */
+  group?: string | null;
 }
 
 export type Rating = 'again' | 'hard' | 'good' | 'easy';

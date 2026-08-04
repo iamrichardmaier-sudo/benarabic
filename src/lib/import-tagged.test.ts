@@ -52,3 +52,30 @@ describe('looksLikeJson', () => {
     expect(looksLikeJson('جَبَل | mountain')).toBe(false);
   });
 });
+
+describe('group assignment on import', () => {
+  const base = '"fusha": "كِتاب", "english": "book"';
+
+  it('carries a group through to the entry', () => {
+    const { entries, errors } = parseTaggedImport(`[{${base}, "group": "Chapter 12"}]`);
+    expect(errors).toEqual([]);
+    expect(entries[0].group).toBe('Chapter 12');
+  });
+
+  it('leaves the group null when the field is absent', () => {
+    const { entries } = parseTaggedImport(`[{${base}}]`);
+    expect(entries[0].group).toBeNull();
+  });
+
+  it('treats a blank group as no group', () => {
+    const { entries } = parseTaggedImport(`[{${base}, "group": "   "}]`);
+    expect(entries[0].group).toBeNull();
+  });
+
+  it('lets different entries carry different groups', () => {
+    const { entries } = parseTaggedImport(
+      `[{${base}, "group": "Chapter 12"}, {"fusha": "قَلَم", "english": "pen", "group": "Chapter 13"}]`,
+    );
+    expect(entries.map((e) => e.group)).toEqual(['Chapter 12', 'Chapter 13']);
+  });
+});

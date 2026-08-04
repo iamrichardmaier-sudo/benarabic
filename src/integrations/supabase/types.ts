@@ -16,6 +16,7 @@ export type Database = {
     Tables: {
       flashcards: {
         Row: {
+          card_group: string | null
           created_at: string
           ease_factor: number
           english: string | null
@@ -35,6 +36,7 @@ export type Database = {
           word_type: string | null
         }
         Insert: {
+          card_group?: string | null
           created_at?: string
           ease_factor?: number
           english?: string | null
@@ -54,6 +56,7 @@ export type Database = {
           word_type?: string | null
         }
         Update: {
+          card_group?: string | null
           created_at?: string
           ease_factor?: number
           english?: string | null

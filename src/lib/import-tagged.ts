@@ -21,6 +21,8 @@ export interface TaggedImportEntry {
   presentTense: string | null;
   masdarForm: string | null;
   companionForms: CompanionForm[];
+  /** Optional batch name, e.g. "Chapter 12", applied to every card imported. */
+  group?: string | null;
 }
 
 export interface ImportValidation {
@@ -155,6 +157,7 @@ export function parseTaggedImport(text: string): ImportValidation {
       presentTense: optionalString(o.presentTense),
       masdarForm: optionalString(o.masdarForm),
       companionForms,
+      group: optionalString(o.group),
     });
   });
 

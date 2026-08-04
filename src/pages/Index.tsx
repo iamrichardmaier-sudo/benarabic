@@ -15,10 +15,21 @@ import { useAuth } from '@/hooks/useAuth';
 import { searchImage, backfillMissingImages } from '@/lib/unsplash';
 import { tagCards, tagUntaggedDeck, repairVerbMasdarPairs } from '@/lib/auto-tag-deck';
 import { markNeedsImage } from '@/lib/offline-cache';
+import GroupFilter from '@/components/GroupFilter';
 import type { TaggedImportEntry } from '@/lib/import-tagged';
 import { useToast } from '@/hooks/use-toast';
 
 type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'verbMasdar' | 'conjugationDrill';
+
+const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
+
+function readActiveGroup(): string | null {
+  try {
+    return localStorage.getItem(ACTIVE_GROUP_KEY);
+  } catch {
+    return null;
+  }
+}
 
 /** Supabase errors are plain objects, not Error instances — read .message off either. */
 function errorReason(err: unknown): string {
@@ -39,6 +50,7 @@ const Index = () => {
   const [showTagModal, setShowTagModal] = useState(false);
   const { toast } = useToast();
   const backfillRan = useRef(false);
+  const [activeGroup, setActiveGroup] = useState<string | null>(readActiveGroup);
 
   // Catch-up work that needs a connection: tag cards that predate auto-tagging
   // or were added offline, and fetch the pictures those cards went without.
@@ -129,6 +141,7 @@ const Index = () => {
           masdarForm: e.masdarForm,
           companionForms: e.companionForms,
           taggedAt,
+          group: e.group ?? null,
         });
       }
       await addCards(newCards);
@@ -158,8 +171,29 @@ const Index = () => {
     }
   };
 
+  const chooseGroup = (group: string | null) => {
+    setActiveGroup(group);
+    try {
+      if (group === null) localStorage.removeItem(ACTIVE_GROUP_KEY);
+      else localStorage.setItem(ACTIVE_GROUP_KEY, group);
+    } catch {
+      /* the choice just will not persist */
+    }
+  };
+
+  const groups = [...new Set(cards.map((c) => c.group).filter((g): g is string => !!g))].sort();
+  const groupCounts = groups.reduce<Record<string, number>>((acc, g) => {
+    acc[g] = cards.filter((c) => c.group === g).length;
+    return acc;
+  }, {});
+  // A filter naming a group that no longer exists would silently hide the whole
+  // deck, so fall back to everything.
+  const effectiveGroup = activeGroup && groups.includes(activeGroup) ? activeGroup : null;
+  /** What the study modes work from. The Deck view still lists everything. */
+  const studyCards = effectiveGroup ? cards.filter((c) => c.group === effectiveGroup) : cards;
+
   const startReview = () => {
-    const due = getDueCards(cards);
+    const due = getDueCards(studyCards);
     const items: { card: FlashCard; direction: ReviewDirection }[] = [];
     for (const card of due) {
       items.push({ card, direction: 'ar-to-en' });
@@ -210,8 +244,8 @@ const Index = () => {
     setView('learn');
   };
 
-  const dueCount = getDueCards(cards).length;
-  const learnCount = getLearnableCards(cards).length;
+  const dueCount = getDueCards(studyCards).length;
+  const learnCount = getLearnableCards(studyCards).length;
   const reviewDone = view === 'review' && currentIndex >= reviewItems.length;
 
   if (loading) {
@@ -274,6 +308,15 @@ const Index = () => {
                 </p>
               </div>
             )}
+
+            <GroupFilter
+              groups={groups}
+              active={effectiveGroup}
+              onChange={chooseGroup}
+              counts={groupCounts}
+              totalCount={cards.length}
+            />
+
             <div className="grid grid-cols-2 gap-3">
               <div className="rounded-2xl bg-card flashcard-shadow p-5 text-center space-y-1">
                 <p className="text-3xl font-bold text-foreground">{learnCount}</p>
@@ -364,7 +407,7 @@ const Index = () => {
 
         {view === 'learn' && (
           <LearningMode
-            cards={getLearnableCards(cards)}
+            cards={getLearnableCards(studyCards)}
             allCards={cards}
             onUpdateCard={(id, updates) => handleUpdateCard(id, updates)}
             onBack={() => setView('home')}
@@ -381,11 +424,11 @@ const Index = () => {
         )}
 
         {view === 'verbMasdar' && (
-          <VerbMasdarDrill cards={cards} onBack={() => setView('home')} />
+          <VerbMasdarDrill cards={studyCards} onBack={() => setView('home')} />
         )}
 
         {view === 'conjugationDrill' && (
-          <ConjugationDrill cards={cards} onBack={() => setView('home')} />
+          <ConjugationDrill cards={studyCards} onBack={() => setView('home')} />
         )}
       </main>
 
