@@ -59,6 +59,21 @@ export default defineConfig(({ mode }) => ({
             },
           },
           {
+            // Unlike chapter text, the audio index grows over time as more
+            // books get narration -- always check the network first so a
+            // browser that cached an earlier (e.g. Gospels-only) version
+            // picks up newly-added books instead of being stuck on it for
+            // up to a year. Must come before the /bible/ rule below, since
+            // workbox uses the first matching route.
+            urlPattern: ({ url }) => url.pathname.endsWith("/bible/audio-index.json"),
+            handler: "NetworkFirst",
+            options: {
+              cacheName: "bible-audio-index",
+              expiration: { maxEntries: 1, maxAgeSeconds: 60 * 60 * 24 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+          {
             // Bible chapter text never changes — cache each chapter the first
             // time it's read so flipping back to it (or reading offline) is instant.
             urlPattern: ({ url }) => url.pathname.includes("/bible/"),
