@@ -27,10 +27,19 @@ const FORM_ORDER = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
 
 /** Remembered across sessions so the choice doesn't have to be re-made. */
 const IGNORE_VOWELS_KEY = 'arabic-flashcards-drill-ignore-short-vowels';
+const MASDAR_ONLY_KEY = 'arabic-flashcards-drill-masdar-only';
 
 function readVowelPref(): boolean {
   try {
     return localStorage.getItem(IGNORE_VOWELS_KEY) === 'true';
+  } catch {
+    return false;
+  }
+}
+
+function readMasdarOnlyPref(): boolean {
+  try {
+    return localStorage.getItem(MASDAR_ONLY_KEY) === 'true';
   } catch {
     return false;
   }
@@ -109,6 +118,7 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
   const selectedForms = picked ?? new Set(availableForms);
 
   const [ignoreShortVowels, setIgnoreShortVowels] = useState(readVowelPref);
+  const [masdarOnly, setMasdarOnly] = useState(readMasdarOnlyPref);
   const [rootMeanings, setRootMeanings] = useState<Record<string, string>>({});
   const [items, setItems] = useState<DrillItem[]>([]);
   const [index, setIndex] = useState(0);
@@ -139,6 +149,10 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
 
   const selectedCount = allItems.filter((i) => selectedForms.has(i.verbForm)).length;
 
+  // Masdar-only mode drills a single field (given the verb, produce its masdar)
+  // instead of the full past/present/masdar set.
+  const activeFields = masdarOnly ? FIELDS.filter((f) => f.key === 'masdar') : FIELDS;
+
   const allFieldsCorrect = (r: Record<string, FieldResult>) =>
     Object.values(r).every((v) => v === 'correct');
 
@@ -150,7 +164,7 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
     const next: Record<string, FieldResult> = {};
     let allCorrect = true;
     const normalize = ignoreShortVowels ? normalizeArabicIgnoreShortVowels : normalizeArabicKeepVowels;
-    for (const field of FIELDS) {
+    for (const field of activeFields) {
       const expected = normalize(field.get(current));
       const typed = normalize(inputs[field.key]);
       const ok = expected === typed;
@@ -167,12 +181,12 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
   const handleOverrideAll = () => {
     if (!results || allFieldsCorrect(results)) return;
     const next: Record<string, FieldResult> = {};
-    for (const field of FIELDS) next[field.key] = 'correct';
+    for (const field of activeFields) next[field.key] = 'correct';
     setResults(next);
     setScore((s) => ({ ...s, correct: s.correct + 1 }));
   };
 
-  const allInputsFilled = !!inputs.past.trim() && !!inputs.present.trim() && !!inputs.masdar.trim();
+  const allInputsFilled = activeFields.every((f) => !!inputs[f.key].trim());
 
   useDrillKeyboard({
     canSubmit: phase === 'drill' && !!current && !results && allInputsFilled,
@@ -188,6 +202,18 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
       const next = !prev;
       try {
         localStorage.setItem(IGNORE_VOWELS_KEY, String(next));
+      } catch {
+        /* preference just won't persist */
+      }
+      return next;
+    });
+  };
+
+  const toggleMasdarOnly = () => {
+    setMasdarOnly((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem(MASDAR_ONLY_KEY, String(next));
       } catch {
         /* preference just won't persist */
       }
@@ -266,6 +292,21 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
         <label className="flex items-start gap-3 rounded-2xl border border-border bg-card px-4 py-3 cursor-pointer hover:bg-muted/40 transition-colors">
           <input
             type="checkbox"
+            checked={masdarOnly}
+            onChange={toggleMasdarOnly}
+            className="w-4 h-4 mt-0.5 accent-primary cursor-pointer"
+          />
+          <span className="flex-1">
+            <span className="block font-medium text-foreground">Verb → Masdar only</span>
+            <span className="block text-xs text-muted-foreground">
+              Skip past and present tense — just see the verb and type its masdar.
+            </span>
+          </span>
+        </label>
+
+        <label className="flex items-start gap-3 rounded-2xl border border-border bg-card px-4 py-3 cursor-pointer hover:bg-muted/40 transition-colors">
+          <input
+            type="checkbox"
             checked={ignoreShortVowels}
             onChange={toggleVowelChecking}
             className="w-4 h-4 mt-0.5 accent-primary cursor-pointer"
@@ -330,51 +371,76 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
       </div>
 
       <div className="space-y-1">
-        <h2 className="text-xl font-bold text-foreground">Drill Conjugations</h2>
+        <h2 className="text-xl font-bold text-foreground">
+          {masdarOnly ? 'Verb → Masdar' : 'Drill Conjugations'}
+        </h2>
         {ignoreShortVowels && (
           <p className="text-xs text-muted-foreground">Short vowels aren't being checked.</p>
         )}
       </div>
 
       <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-6 flex flex-col items-center justify-center gap-2">
-        <GlossPopover
-          title={current.root}
-          subtitle="Root"
-          body={
-            rootMeanings[current.root] ??
-            'No gloss recorded for this root yet — the sense has to be inferred from the words that use it.'
-          }
-          side="top"
-          triggerLabel={`What the root ${current.root} means`}
-          className="px-2 py-1 underline"
-        >
-          <span className="text-[40px] font-bold text-foreground font-arabic" dir="rtl">
-            {current.root}
-          </span>
-        </GlossPopover>
-
-        {(() => {
-          const gloss = current.verbForm ? VERB_FORM_GLOSSES[current.verbForm] : undefined;
-          if (!gloss) {
-            return <p className="text-sm text-muted-foreground">Form {current.verbForm}</p>;
-          }
-          return (
+        {masdarOnly ? (
+          <>
+            <span className="text-[40px] font-bold text-foreground font-arabic" dir="rtl">
+              {current.pastTense}
+            </span>
             <GlossPopover
-              title={gloss.pattern}
-              subtitle={`Form ${current.verbForm} — ${gloss.summary}`}
-              body={gloss.detail}
+              title={current.root}
+              subtitle="Root"
+              body={
+                rootMeanings[current.root] ??
+                'No gloss recorded for this root yet — the sense has to be inferred from the words that use it.'
+              }
               side="bottom"
-              triggerLabel={`What Form ${current.verbForm} does to a root`}
+              triggerLabel={`What the root ${current.root} means`}
               className="px-2 py-0.5 text-sm text-muted-foreground underline"
             >
-              Form {current.verbForm}
+              Verb · Form {current.verbForm}
             </GlossPopover>
-          );
-        })()}
+          </>
+        ) : (
+          <>
+            <GlossPopover
+              title={current.root}
+              subtitle="Root"
+              body={
+                rootMeanings[current.root] ??
+                'No gloss recorded for this root yet — the sense has to be inferred from the words that use it.'
+              }
+              side="top"
+              triggerLabel={`What the root ${current.root} means`}
+              className="px-2 py-1 underline"
+            >
+              <span className="text-[40px] font-bold text-foreground font-arabic" dir="rtl">
+                {current.root}
+              </span>
+            </GlossPopover>
+
+            {(() => {
+              const gloss = current.verbForm ? VERB_FORM_GLOSSES[current.verbForm] : undefined;
+              if (!gloss) {
+                return <p className="text-sm text-muted-foreground">Form {current.verbForm}</p>;
+              }
+              return (
+                <GlossPopover
+                  title={gloss.pattern}
+                  subtitle={`Form ${current.verbForm} — ${gloss.summary}`}
+                  body={gloss.detail}
+                  side="bottom"
+                  triggerLabel={`What Form ${current.verbForm} does to a root`}
+                  className="px-2 py-0.5 text-sm text-muted-foreground underline"
+                >
+                  Form {current.verbForm}
+                </GlossPopover>
+              );
+            })()}
+          </>
+        )}
       </div>
 
       <div className="space-y-3">
-        {FIELDS.map((field) => {
+        {activeFields.map((field) => {
           const expected = field.get(current);
           // Character-for-character match, tashkeel included. Lenient grading
           // can call an answer correct while the vowels and tanwin are missing,
@@ -388,7 +454,7 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
             <div key={field.key} className="space-y-1">
               <label className="text-sm text-muted-foreground font-medium">{field.label}</label>
               <input
-                ref={field.key === 'past' ? firstInputRef : undefined}
+                ref={field.key === activeFields[0].key ? firstInputRef : undefined}
                 type="text"
                 value={inputs[field.key]}
                 onChange={(e) => setInputs((v) => ({ ...v, [field.key]: e.target.value }))}
@@ -424,7 +490,7 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
       {!results ? (
         <button
           onClick={handleCheck}
-          disabled={!inputs.past.trim() || !inputs.present.trim() || !inputs.masdar.trim()}
+          disabled={!allInputsFilled}
           className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all active:scale-95 disabled:opacity-40"
         >
           Check Answer
