@@ -58,6 +58,17 @@ export default defineConfig(({ mode }) => ({
               cacheableResponse: { statuses: [0, 200] },
             },
           },
+          {
+            // Bible chapter text never changes — cache each chapter the first
+            // time it's read so flipping back to it (or reading offline) is instant.
+            urlPattern: ({ url }) => url.pathname.includes("/bible/"),
+            handler: "CacheFirst",
+            options: {
+              cacheName: "bible-text",
+              expiration: { maxEntries: 1300, maxAgeSeconds: 60 * 60 * 24 * 365 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
         ],
         // Supabase reads and writes must never be served from cache — stale
         // decks and silently-swallowed writes are worse than a clean failure
