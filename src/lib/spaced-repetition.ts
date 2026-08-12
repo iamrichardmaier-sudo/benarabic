@@ -34,6 +34,12 @@ export interface FlashCard {
   taggedAt?: string | null;
   /** Named batch this card belongs to, e.g. "Chapter 12". Null means ungrouped. */
   group?: string | null;
+  /** The preposition that always follows this word, e.g. "في" for نَجَحَ في. */
+  fixedPreposition?: string | null;
+  /** A sentence using this word with "___" standing in for fixedPreposition. */
+  prepositionSentence?: string | null;
+  /** English translation of prepositionSentence, with the blank filled in. */
+  prepositionSentenceEn?: string | null;
 }
 
 export type Rating = 'again' | 'hard' | 'good' | 'easy';

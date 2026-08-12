@@ -43,6 +43,9 @@ interface DbRow {
   companion_forms: CompanionForm[] | null;
   tagged_at: string | null;
   card_group: string | null;
+  fixed_preposition: string | null;
+  preposition_sentence: string | null;
+  preposition_sentence_en: string | null;
 }
 
 function rowToCard(row: DbRow): FlashCard {
@@ -72,6 +75,9 @@ function rowToCard(row: DbRow): FlashCard {
     companionForms: row.companion_forms,
     taggedAt: row.tagged_at,
     group: row.card_group,
+    fixedPreposition: row.fixed_preposition,
+    prepositionSentence: row.preposition_sentence,
+    prepositionSentenceEn: row.preposition_sentence_en,
   };
 }
 
@@ -100,6 +106,9 @@ function cardToRow(card: FlashCard) {
     companion_forms: card.companionForms ?? null,
     tagged_at: card.taggedAt ?? null,
     card_group: card.group ?? null,
+    fixed_preposition: card.fixedPreposition ?? null,
+    preposition_sentence: card.prepositionSentence ?? null,
+    preposition_sentence_en: card.prepositionSentenceEn ?? null,
   };
 }
 
@@ -129,6 +138,9 @@ function toDbUpdates(updates: Partial<FlashCard>): Record<string, unknown> {
   if (updates.companionForms !== undefined) db.companion_forms = updates.companionForms;
   if (updates.taggedAt !== undefined) db.tagged_at = updates.taggedAt;
   if (updates.group !== undefined) db.card_group = updates.group;
+  if (updates.fixedPreposition !== undefined) db.fixed_preposition = updates.fixedPreposition;
+  if (updates.prepositionSentence !== undefined) db.preposition_sentence = updates.prepositionSentence;
+  if (updates.prepositionSentenceEn !== undefined) db.preposition_sentence_en = updates.prepositionSentenceEn;
   return db;
 }
 

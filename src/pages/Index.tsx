@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { BookOpen, Plus, Layers, List, GraduationCap, LogOut, RefreshCw, Shuffle, BookA, Sparkles, CloudOff } from 'lucide-react';
+import { BookOpen, Plus, Layers, List, GraduationCap, LogOut, RefreshCw, Shuffle, BookA, Sparkles, CloudOff, Link2 } from 'lucide-react';
 import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
@@ -9,6 +9,7 @@ import RelearnModal from '@/components/RelearnModal';
 import TagDeckModal from '@/components/TagDeckModal';
 import VerbMasdarDrill from '@/components/VerbMasdarDrill';
 import ConjugationDrill from '@/components/ConjugationDrill';
+import PrepositionDrill from '@/components/PrepositionDrill';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
@@ -19,7 +20,7 @@ import GroupFilter from '@/components/GroupFilter';
 import type { TaggedImportEntry } from '@/lib/import-tagged';
 import { useToast } from '@/hooks/use-toast';
 
-type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'verbMasdar' | 'conjugationDrill';
+type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'verbMasdar' | 'conjugationDrill' | 'prepositionDrill';
 
 const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
@@ -382,6 +383,13 @@ const Index = () => {
                 Drill Conjugations
               </button>
               <button
+                onClick={() => setView('prepositionDrill')}
+                className="flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95"
+              >
+                <Link2 className="w-5 h-5" />
+                Drill Prepositions
+              </button>
+              <button
                 onClick={() => setShowTagModal(true)}
                 disabled={cards.length === 0}
                 className="flex flex-col items-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-5 font-semibold transition-all active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
@@ -429,6 +437,10 @@ const Index = () => {
 
         {view === 'conjugationDrill' && (
           <ConjugationDrill cards={studyCards} onBack={() => setView('home')} />
+        )}
+
+        {view === 'prepositionDrill' && (
+          <PrepositionDrill cards={studyCards} onBack={() => setView('home')} />
         )}
       </main>
 

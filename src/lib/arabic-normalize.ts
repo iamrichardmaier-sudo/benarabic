@@ -9,6 +9,15 @@ export function stripTashkeel(str: string): string {
   return str.replace(/[\u064B-\u065F\u0670]/g, '');
 }
 
+/**
+ * Remove tatweel (\u0640), the stylistic elongation mark used to write a clitic
+ * preposition in isolation \u2014 \u0628\u0650\u0640, \u0644\u0650\u0640. Nobody types it; a citation form that
+ * carries it must still match a bare typed answer.
+ */
+export function stripTatweel(str: string): string {
+  return str.replace(/\u0640/g, '');
+}
+
 /** Normalize alef variants (أ إ آ ٱ) to bare alef (ا) */
 function normalizeAlef(str: string): string {
   return str.replace(/[أإآٱ]/g, 'ا');
@@ -29,7 +38,7 @@ export function normalizeArabic(str: string): string {
   return normalizeTaaMarbuuta(
     normalizeYaa(
       normalizeAlef(
-        stripTashkeel(str)
+        stripTashkeel(stripTatweel(str))
       )
     )
   ).trim().replace(/\s+/g, ' ');
@@ -41,7 +50,7 @@ export function normalizeArabic(str: string): string {
  * typed correctly (e.g. conjugation drilling).
  */
 export function normalizeArabicKeepVowels(str: string): string {
-  return normalizeTaaMarbuuta(normalizeYaa(normalizeAlef(str))).trim().replace(/\s+/g, ' ');
+  return normalizeTaaMarbuuta(normalizeYaa(normalizeAlef(stripTatweel(str)))).trim().replace(/\s+/g, ' ');
 }
 
 /**
