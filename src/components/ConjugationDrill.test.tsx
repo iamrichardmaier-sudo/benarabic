@@ -302,3 +302,73 @@ describe('ConjugationDrill always reveals the full vowelling', () => {
     expect(screen.getByText('يَفعَل')).toBeInTheDocument();
   });
 });
+
+describe('ConjugationDrill keyboard shortcuts', () => {
+  const single = [verb('ف-ع-ل', 'I')]; // past فَعَلَ, present يَفعَل, masdar فِعل
+
+  async function fillCorrect(user: ReturnType<typeof userEvent.setup>) {
+    const [past, present, masdar] = screen.getAllByRole('textbox');
+    await user.type(past, 'فَعَلَ');
+    await user.type(present, 'يَفعَل');
+    await user.type(masdar, 'فِعل');
+  }
+
+  it('checks on Enter once every field is filled', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    await fillCorrect(user);
+    await user.keyboard('{Enter}');
+    expect(screen.getByRole('button', { name: /Correct — Continue/ })).toBeInTheDocument();
+  });
+
+  it('does nothing on Enter while a field is still empty', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    const [past] = screen.getAllByRole('textbox');
+    await user.type(past, 'فَعَلَ');
+    await user.keyboard('{Enter}');
+    // Still on the same question — no feedback yet.
+    expect(screen.queryByRole('button', { name: /Continue/ })).not.toBeInTheDocument();
+  });
+
+  it('advances to the completion screen on a second Enter', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    await fillCorrect(user);
+    await user.keyboard('{Enter}');
+    await user.keyboard('{Enter}');
+    expect(screen.getByText('Drill complete!')).toBeInTheDocument();
+  });
+
+  it('accepts a wrong answer on Space, flipping all three fields to correct', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    const [past, present, masdar] = screen.getAllByRole('textbox');
+    await user.type(past, 'wrong');
+    await user.type(present, 'wrong');
+    await user.type(masdar, 'wrong');
+    await user.keyboard('{Enter}');
+    expect(screen.getByRole('button', { name: /^Continue/ })).toBeInTheDocument();
+
+    await user.keyboard(' ');
+    expect(screen.getByRole('button', { name: /Correct — Continue/ })).toBeInTheDocument();
+  });
+
+  it('counts the override in the final score', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    const [past, present, masdar] = screen.getAllByRole('textbox');
+    await user.type(past, 'wrong');
+    await user.type(present, 'wrong');
+    await user.type(masdar, 'wrong');
+    await user.keyboard('{Enter}');
+    await user.keyboard(' ');
+    await user.keyboard('{Enter}');
+    expect(screen.getByText('1 / 1 fully correct')).toBeInTheDocument();
+  });
+});

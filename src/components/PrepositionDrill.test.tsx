@@ -107,3 +107,62 @@ describe('PrepositionDrill', () => {
     expect(screen.getByText('1 / 1')).toBeInTheDocument();
   });
 });
+
+describe('PrepositionDrill keyboard shortcuts', () => {
+  it('submits on Enter', async () => {
+    const user = userEvent.setup();
+    render(
+      <PrepositionDrill
+        cards={[tagged('نَجَحَ', 'في', 'نَجَحتُ ___ الاِمتِحان.')]}
+        onBack={() => {}}
+      />,
+    );
+    await user.type(screen.getByRole('textbox', { name: 'The missing preposition' }), 'في');
+    await user.keyboard('{Enter}');
+    expect(screen.getByText('1 correct')).toBeInTheDocument();
+  });
+
+  it('advances to the next item on Enter once checked', async () => {
+    const user = userEvent.setup();
+    render(
+      <PrepositionDrill
+        cards={[tagged('نَجَحَ', 'في', 'نَجَحتُ ___ الاِمتِحان.')]}
+        onBack={() => {}}
+      />,
+    );
+    await user.type(screen.getByRole('textbox', { name: 'The missing preposition' }), 'في');
+    await user.keyboard('{Enter}');
+    await user.keyboard('{Enter}');
+    expect(screen.getByText('Drill Complete!')).toBeInTheDocument();
+  });
+
+  it('accepts a wrong answer as correct on Space', async () => {
+    const user = userEvent.setup();
+    render(
+      <PrepositionDrill
+        cards={[tagged('نَجَحَ', 'في', 'نَجَحتُ ___ الاِمتِحان.')]}
+        onBack={() => {}}
+      />,
+    );
+    await user.type(screen.getByRole('textbox', { name: 'The missing preposition' }), 'على');
+    await user.keyboard('{Enter}');
+    expect(screen.getByText('0 correct')).toBeInTheDocument();
+
+    await user.keyboard(' ');
+    expect(screen.getByText('1 correct')).toBeInTheDocument();
+  });
+
+  it('does not let Space override a correct answer', async () => {
+    const user = userEvent.setup();
+    render(
+      <PrepositionDrill
+        cards={[tagged('نَجَحَ', 'في', 'نَجَحتُ ___ الاِمتِحان.')]}
+        onBack={() => {}}
+      />,
+    );
+    await user.type(screen.getByRole('textbox', { name: 'The missing preposition' }), 'في');
+    await user.keyboard('{Enter}');
+    await user.keyboard(' ');
+    expect(screen.getByText('1 correct')).toBeInTheDocument();
+  });
+});
