@@ -150,6 +150,7 @@ export type Database = {
           subtitle: string | null
           title: string
           user_id: string
+          video_url: string | null
         }
         Insert: {
           content: string
@@ -158,6 +159,7 @@ export type Database = {
           subtitle?: string | null
           title: string
           user_id?: string
+          video_url?: string | null
         }
         Update: {
           content?: string
@@ -166,6 +168,7 @@ export type Database = {
           subtitle?: string | null
           title?: string
           user_id?: string
+          video_url?: string | null
         }
         Relationships: []
       }
