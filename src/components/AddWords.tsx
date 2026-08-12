@@ -5,16 +5,19 @@ import { Plus, Loader2, FileJson } from 'lucide-react';
 import { parseTaggedImport, looksLikeJson, TaggedImportEntry } from '@/lib/import-tagged';
 
 interface AddWordsProps {
-  onAdd: (lines: string[]) => void;
+  onAdd: (lines: string[], chapter: string) => void;
   onImport: (entries: TaggedImportEntry[]) => void;
   isLoading?: boolean;
+  /** Existing chapter names, for the autocomplete list. */
+  chapters?: string[];
 }
 
 type Mode = 'list' | 'json';
 
-const AddWords = ({ onAdd, onImport, isLoading }: AddWordsProps) => {
+const AddWords = ({ onAdd, onImport, isLoading, chapters = [] }: AddWordsProps) => {
   const [mode, setMode] = useState<Mode>('list');
   const [text, setText] = useState('');
+  const [chapter, setChapter] = useState('');
   const [jsonText, setJsonText] = useState('');
   const [error, setError] = useState('');
   const [jsonErrors, setJsonErrors] = useState<string[]>([]);
@@ -41,7 +44,7 @@ const AddWords = ({ onAdd, onImport, isLoading }: AddWordsProps) => {
       return;
     }
 
-    onAdd(lines);
+    onAdd(lines, chapter.trim());
     setText('');
   };
 
@@ -103,6 +106,25 @@ const AddWords = ({ onAdd, onImport, isLoading }: AddWordsProps) => {
           {error && (
             <p className="text-sm text-destructive font-medium">{error}</p>
           )}
+          <div className="space-y-1.5">
+            <label htmlFor="add-words-chapter" className="text-sm font-medium text-muted-foreground">
+              Chapter (optional)
+            </label>
+            <input
+              id="add-words-chapter"
+              list="add-words-chapter-options"
+              value={chapter}
+              onChange={(e) => setChapter(e.target.value)}
+              placeholder="e.g. Chapter 13"
+              disabled={isLoading}
+              className="w-full rounded-xl border border-border bg-card px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/30"
+            />
+            <datalist id="add-words-chapter-options">
+              {chapters.map((c) => (
+                <option key={c} value={c} />
+              ))}
+            </datalist>
+          </div>
           <Button onClick={handleAdd} className="w-full gap-2" size="lg" disabled={isLoading}>
             {isLoading ? (
               <>
