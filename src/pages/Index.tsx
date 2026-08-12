@@ -74,7 +74,7 @@ const Index = () => {
     })();
   }, [loading, online, user?.id, cards, updateCard, refetch]);
 
-  const handleAddWords = async (lines: string[]) => {
+  const handleAddWords = async (lines: string[], chapter: string) => {
     setIsLoading(true);
     try {
       const newCards: FlashCard[] = [];
@@ -88,7 +88,7 @@ const Index = () => {
           const { imageUrl, error, deferred } = await searchImage(searchQuery);
           if (error && !imageError) imageError = error;
           if (deferred) imagesDeferred = true;
-          newCards.push(createCard(fusha, english, imageUrl, shaami));
+          newCards.push({ ...createCard(fusha, english, imageUrl, shaami), group: chapter || null });
         }
       }
       await addCards(newCards);
@@ -399,7 +399,9 @@ const Index = () => {
           </div>
         )}
 
-        {view === 'add' && <AddWords onAdd={handleAddWords} onImport={handleImportTagged} isLoading={isLoading} />}
+        {view === 'add' && (
+          <AddWords onAdd={handleAddWords} onImport={handleImportTagged} isLoading={isLoading} chapters={groups} />
+        )}
 
         {view === 'review' && !reviewDone && reviewItems[currentIndex] && (
           <Flashcard
