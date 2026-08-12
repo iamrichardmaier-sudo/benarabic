@@ -4,6 +4,7 @@ import { FlashCard } from '@/lib/spaced-repetition';
 import { normalizeArabicKeepVowels, normalizeArabicIgnoreShortVowels } from '@/lib/arabic-normalize';
 import { VERB_FORM_GLOSSES, loadRootMeanings } from '@/lib/morphology';
 import GlossPopover from '@/components/GlossPopover';
+import { useDrillKeyboard } from '@/hooks/useDrillKeyboard';
 
 interface ConjugationDrillProps {
   cards: FlashCard[];
@@ -137,6 +138,50 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
   }, []);
 
   const selectedCount = allItems.filter((i) => selectedForms.has(i.verbForm)).length;
+
+  const allFieldsCorrect = (r: Record<string, FieldResult>) =>
+    Object.values(r).every((v) => v === 'correct');
+
+  // Defined before the early returns below (select phase, drill complete) so
+  // the useDrillKeyboard call — a hook — always runs on every render; it
+  // no-ops itself via canSubmit/hasFeedback whenever there's no active question.
+  const handleCheck = () => {
+    if (!current) return;
+    const next: Record<string, FieldResult> = {};
+    let allCorrect = true;
+    const normalize = ignoreShortVowels ? normalizeArabicIgnoreShortVowels : normalizeArabicKeepVowels;
+    for (const field of FIELDS) {
+      const expected = normalize(field.get(current));
+      const typed = normalize(inputs[field.key]);
+      const ok = expected === typed;
+      next[field.key] = ok ? 'correct' : 'incorrect';
+      if (!ok) allCorrect = false;
+    }
+    setResults(next);
+    setScore((s) => ({ correct: s.correct + (allCorrect ? 1 : 0), total: s.total + 1 }));
+  };
+
+  const handleNext = () => setIndex((i) => i + 1);
+
+  /** Space, while any field is wrong: accept the whole answer anyway. */
+  const handleOverrideAll = () => {
+    if (!results || allFieldsCorrect(results)) return;
+    const next: Record<string, FieldResult> = {};
+    for (const field of FIELDS) next[field.key] = 'correct';
+    setResults(next);
+    setScore((s) => ({ ...s, correct: s.correct + 1 }));
+  };
+
+  const allInputsFilled = !!inputs.past.trim() && !!inputs.present.trim() && !!inputs.masdar.trim();
+
+  useDrillKeyboard({
+    canSubmit: phase === 'drill' && !!current && !results && allInputsFilled,
+    hasFeedback: phase === 'drill' && !!results,
+    isWrong: phase === 'drill' && !!results && !allFieldsCorrect(results),
+    onSubmit: handleCheck,
+    onOverride: handleOverrideAll,
+    onNext: handleNext,
+  });
 
   const toggleVowelChecking = () => {
     setIgnoreShortVowels((prev) => {
@@ -277,23 +322,6 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
     );
   }
 
-  const handleCheck = () => {
-    const next: Record<string, FieldResult> = {};
-    let allCorrect = true;
-    const normalize = ignoreShortVowels ? normalizeArabicIgnoreShortVowels : normalizeArabicKeepVowels;
-    for (const field of FIELDS) {
-      const expected = normalize(field.get(current));
-      const typed = normalize(inputs[field.key]);
-      const ok = expected === typed;
-      next[field.key] = ok ? 'correct' : 'incorrect';
-      if (!ok) allCorrect = false;
-    }
-    setResults(next);
-    setScore((s) => ({ correct: s.correct + (allCorrect ? 1 : 0), total: s.total + 1 }));
-  };
-
-  const handleNext = () => setIndex((i) => i + 1);
-
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
@@ -402,20 +430,28 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
           Check Answer
         </button>
       ) : (
-        <button
-          onClick={handleNext}
-          className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all active:scale-95 flex items-center justify-center gap-2"
-        >
-          {Object.values(results).every((r) => r === 'correct') ? (
-            <>
-              <Check className="w-4 h-4" /> Correct — Continue
-            </>
-          ) : (
-            <>
-              <X className="w-4 h-4" /> Continue
-            </>
+        <div className="space-y-2">
+          {!allFieldsCorrect(results) && (
+            <p className="text-xs text-muted-foreground text-center" dir="ltr">
+              Close enough? Press <kbd className="font-sans">Space</kbd> to accept it, or{' '}
+              <kbd className="font-sans">Enter</kbd> to move on.
+            </p>
           )}
-        </button>
+          <button
+            onClick={handleNext}
+            className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all active:scale-95 flex items-center justify-center gap-2"
+          >
+            {allFieldsCorrect(results) ? (
+              <>
+                <Check className="w-4 h-4" /> Correct — Continue
+              </>
+            ) : (
+              <>
+                <X className="w-4 h-4" /> Continue
+              </>
+            )}
+          </button>
+        </div>
       )}
     </div>
   );

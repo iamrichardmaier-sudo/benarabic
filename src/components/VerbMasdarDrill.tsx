@@ -3,6 +3,7 @@ import { ChevronLeft, Check, X } from 'lucide-react';
 import { FlashCard } from '@/lib/spaced-repetition';
 import { normalizeArabic } from '@/lib/arabic-normalize';
 import SpeakButton from '@/components/SpeakButton';
+import { useDrillKeyboard } from '@/hooks/useDrillKeyboard';
 
 interface VerbMasdarDrillProps {
   cards: FlashCard[];
@@ -66,6 +67,43 @@ const VerbMasdarDrill = ({ cards, onBack }: VerbMasdarDrillProps) => {
     inputRef.current?.focus();
   }, [index]);
 
+  // Items can be empty (nothing paired yet), so these guard on `current` rather
+  // than assume it exists — all of this has to run before the empty-state
+  // return below, or the hook call after it would run conditionally.
+  const current = items[index];
+
+  const handleSubmit = () => {
+    if (!current || !input.trim() || feedback) return;
+    const isCorrect = normalizeArabic(input) === normalizeArabic(current.answer.word);
+    setFeedback(isCorrect ? 'correct' : 'incorrect');
+    setScore((s) => ({ correct: s.correct + (isCorrect ? 1 : 0), total: s.total + 1 }));
+  };
+
+  const handleNext = () => {
+    setIndex((i) => i + 1);
+  };
+
+  const handleRestart = () => {
+    setIndex(0);
+    setScore({ correct: 0, total: 0 });
+  };
+
+  /** Space, while wrong: accept it anyway — a typo or near-miss the grader is too strict for. */
+  const handleOverride = () => {
+    if (feedback !== 'incorrect') return;
+    setFeedback('correct');
+    setScore((s) => ({ ...s, correct: s.correct + 1 }));
+  };
+
+  useDrillKeyboard({
+    canSubmit: !!input.trim(),
+    hasFeedback: !!feedback,
+    isWrong: feedback === 'incorrect',
+    onSubmit: handleSubmit,
+    onOverride: handleOverride,
+    onNext: handleNext,
+  });
+
   if (items.length === 0) {
     return (
       <div className="space-y-4">
@@ -88,24 +126,7 @@ const VerbMasdarDrill = ({ cards, onBack }: VerbMasdarDrillProps) => {
     );
   }
 
-  const current = items[index];
   const done = index >= items.length;
-
-  const handleSubmit = () => {
-    if (!input.trim() || feedback) return;
-    const isCorrect = normalizeArabic(input) === normalizeArabic(current.answer.word);
-    setFeedback(isCorrect ? 'correct' : 'incorrect');
-    setScore((s) => ({ correct: s.correct + (isCorrect ? 1 : 0), total: s.total + 1 }));
-  };
-
-  const handleNext = () => {
-    setIndex((i) => i + 1);
-  };
-
-  const handleRestart = () => {
-    setIndex(0);
-    setScore({ correct: 0, total: 0 });
-  };
 
   if (done) {
     return (
@@ -186,7 +207,6 @@ const VerbMasdarDrill = ({ cards, onBack }: VerbMasdarDrillProps) => {
         ref={inputRef}
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        onKeyDown={(e) => e.key === 'Enter' && (feedback ? handleNext() : handleSubmit())}
         disabled={!!feedback}
         dir="rtl"
         className={`w-full p-3 text-2xl font-amiri text-center rounded-xl border bg-background transition-colors focus:outline-none focus:ring-2 focus:ring-ring ${
@@ -215,6 +235,12 @@ const VerbMasdarDrill = ({ cards, onBack }: VerbMasdarDrillProps) => {
           </div>
           {current.answer.english && (
             <p className="text-xs text-muted-foreground">{current.answer.english}</p>
+          )}
+          {feedback === 'incorrect' && (
+            <p className="text-xs text-muted-foreground pt-1" dir="ltr">
+              Close enough? Press <kbd className="font-sans">Space</kbd> to accept it, or{' '}
+              <kbd className="font-sans">Enter</kbd> to move on.
+            </p>
           )}
         </div>
       )}

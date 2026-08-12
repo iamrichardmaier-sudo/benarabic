@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect, useRef } from 'react';
 import { ChevronLeft, Check, X } from 'lucide-react';
 import { FlashCard } from '@/lib/spaced-repetition';
 import { normalizeArabic } from '@/lib/arabic-normalize';
+import { useDrillKeyboard } from '@/hooks/useDrillKeyboard';
 
 interface PrepositionDrillProps {
   cards: FlashCard[];
@@ -52,6 +53,40 @@ const PrepositionDrill = ({ cards, onBack }: PrepositionDrillProps) => {
     inputRef.current?.focus();
   }, [index]);
 
+  // Items can be empty, so everything here guards on `current` rather than
+  // assume it exists — this all has to run before the empty-state return
+  // below, or the hook call after it would run conditionally.
+  const current = items[index];
+
+  const handleSubmit = () => {
+    if (!current || !input.trim() || feedback) return;
+    const isCorrect = normalizeArabic(input) === normalizeArabic(current.card.fixedPreposition ?? '');
+    setFeedback(isCorrect ? 'correct' : 'incorrect');
+    setScore((s) => ({ correct: s.correct + (isCorrect ? 1 : 0), total: s.total + 1 }));
+  };
+
+  const handleNext = () => setIndex((i) => i + 1);
+  const handleRestart = () => {
+    setIndex(0);
+    setScore({ correct: 0, total: 0 });
+  };
+
+  /** Space, while wrong: accept it anyway — a typo or dialectal variant the grader missed. */
+  const handleOverride = () => {
+    if (feedback !== 'incorrect') return;
+    setFeedback('correct');
+    setScore((s) => ({ ...s, correct: s.correct + 1 }));
+  };
+
+  useDrillKeyboard({
+    canSubmit: !!input.trim(),
+    hasFeedback: !!feedback,
+    isWrong: feedback === 'incorrect',
+    onSubmit: handleSubmit,
+    onOverride: handleOverride,
+    onNext: handleNext,
+  });
+
   if (items.length === 0) {
     return (
       <div className="space-y-4">
@@ -74,21 +109,7 @@ const PrepositionDrill = ({ cards, onBack }: PrepositionDrillProps) => {
     );
   }
 
-  const current = items[index];
   const done = index >= items.length;
-
-  const handleSubmit = () => {
-    if (!input.trim() || feedback) return;
-    const isCorrect = normalizeArabic(input) === normalizeArabic(current.card.fixedPreposition ?? '');
-    setFeedback(isCorrect ? 'correct' : 'incorrect');
-    setScore((s) => ({ correct: s.correct + (isCorrect ? 1 : 0), total: s.total + 1 }));
-  };
-
-  const handleNext = () => setIndex((i) => i + 1);
-  const handleRestart = () => {
-    setIndex(0);
-    setScore({ correct: 0, total: 0 });
-  };
 
   if (done) {
     return (
@@ -166,7 +187,6 @@ const PrepositionDrill = ({ cards, onBack }: PrepositionDrillProps) => {
             ref={inputRef}
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && (feedback ? handleNext() : handleSubmit())}
             disabled={!!feedback}
             dir="rtl"
             aria-label="The missing preposition"
@@ -205,6 +225,12 @@ const PrepositionDrill = ({ cards, onBack }: PrepositionDrillProps) => {
           {current.card.prepositionSentenceEn && (
             <p className="text-xs text-muted-foreground" dir="ltr">
               {current.card.prepositionSentenceEn}
+            </p>
+          )}
+          {feedback === 'incorrect' && (
+            <p className="text-xs text-muted-foreground pt-1" dir="ltr">
+              Close enough? Press <kbd className="font-sans">Space</kbd> to accept it, or{' '}
+              <kbd className="font-sans">Enter</kbd> to move on.
             </p>
           )}
         </div>
