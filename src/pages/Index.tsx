@@ -6,10 +6,10 @@ import ReviewComplete from '@/components/ReviewComplete';
 import DeckList from '@/components/DeckList';
 import LearningMode from '@/components/LearningMode';
 import RelearnModal from '@/components/RelearnModal';
-import TagDeckModal from '@/components/TagDeckModal';
 import VerbMasdarDrill from '@/components/VerbMasdarDrill';
 import ConjugationDrill from '@/components/ConjugationDrill';
 import PrepositionDrill from '@/components/PrepositionDrill';
+import MemorizeTranscript from '@/components/MemorizeTranscript';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
@@ -20,7 +20,7 @@ import GroupFilter from '@/components/GroupFilter';
 import type { TaggedImportEntry } from '@/lib/import-tagged';
 import { useToast } from '@/hooks/use-toast';
 
-type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'verbMasdar' | 'conjugationDrill' | 'prepositionDrill';
+type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'verbMasdar' | 'conjugationDrill' | 'prepositionDrill' | 'memorize';
 
 const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
@@ -48,7 +48,6 @@ const Index = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [showRelearnModal, setShowRelearnModal] = useState(false);
-  const [showTagModal, setShowTagModal] = useState(false);
   const { toast } = useToast();
   const backfillRan = useRef(false);
   const [activeGroup, setActiveGroup] = useState<string | null>(readActiveGroup);
@@ -390,12 +389,11 @@ const Index = () => {
                 Drill Prepositions
               </button>
               <button
-                onClick={() => setShowTagModal(true)}
-                disabled={cards.length === 0}
-                className="flex flex-col items-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-5 font-semibold transition-all active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
+                onClick={() => setView('memorize')}
+                className="flex flex-col items-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-5 font-semibold transition-all active:scale-95"
               >
                 <Sparkles className="w-5 h-5" />
-                Tag Words
+                Memorize Transcript
               </button>
             </div>
           </div>
@@ -442,6 +440,8 @@ const Index = () => {
         {view === 'prepositionDrill' && (
           <PrepositionDrill cards={studyCards} onBack={() => setView('home')} />
         )}
+
+        {view === 'memorize' && <MemorizeTranscript onBack={() => setView('home')} />}
       </main>
 
       {showRelearnModal && (
@@ -452,13 +452,6 @@ const Index = () => {
         />
       )}
 
-      {showTagModal && (
-        <TagDeckModal
-          totalCards={cards.length}
-          onClose={() => setShowTagModal(false)}
-          onDone={refetch}
-        />
-      )}
     </div>
   );
 };
