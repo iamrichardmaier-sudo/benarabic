@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 const books = [
@@ -33,10 +33,17 @@ vi.mock('@/hooks/useBibleWordTags', () => ({
   useBibleWordTags: () => new Map(),
 }));
 
+const audioMock = vi.fn(() => null as string | null);
+vi.mock('@/hooks/useBibleAudio', () => ({
+  useBibleAudio: (book: string | null, chapter: number | null) => audioMock(book, chapter),
+}));
+
 import BibleReader from './BibleReader';
 
 beforeEach(() => {
   localStorage.clear();
+  audioMock.mockReset();
+  audioMock.mockReturnValue(null);
 });
 
 describe('BibleReader', () => {
@@ -114,5 +121,35 @@ describe('BibleReader', () => {
 
     await user.click(screen.getAllByRole('button', { name: /^Next$/ })[0]);
     expect(screen.getByText('Exodus 1')).toBeInTheDocument();
+  });
+
+  it('lets text size be increased and decreased, clamped at the limits', async () => {
+    const user = userEvent.setup();
+    render(<BibleReader />);
+
+    expect(screen.getByText('100%')).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Increase text size' }));
+    expect(screen.getByText('110%')).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Decrease text size' }));
+    await user.click(screen.getByRole('button', { name: 'Decrease text size' }));
+    expect(screen.getByText('90%')).toBeInTheDocument();
+  });
+
+  it('shows no audio player when the chapter has no audio', () => {
+    render(<BibleReader />);
+    expect(screen.queryByLabelText('Speed')).not.toBeInTheDocument();
+  });
+
+  it('shows an audio player with a speed slider clamped between 75% and 100% when audio is available', () => {
+    audioMock.mockReturnValue('https://audio.example.com/gen-1.mp3');
+    render(<BibleReader />);
+
+    const slider = screen.getByLabelText('Speed') as HTMLInputElement;
+    expect(slider).toHaveAttribute('min', '0.75');
+    expect(slider).toHaveAttribute('max', '1');
+    expect(slider.value).toBe('1');
+
+    fireEvent.change(slider, { target: { value: '0.75' } });
+    expect(slider.value).toBe('0.75');
   });
 });
