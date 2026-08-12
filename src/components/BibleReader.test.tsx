@@ -1,0 +1,106 @@
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+const books = [
+  { code: 'Gen', name: 'Genesis', order: 1, chapters: 3 },
+  { code: 'Exod', name: 'Exodus', order: 2, chapters: 2 },
+  { code: 'Matt', name: 'Matthew', order: 40, chapters: 1 },
+];
+
+const versesByKey: Record<string, { v: number; a: string; e: string }[]> = {
+  'Gen/1': [
+    { v: 1, a: 'فِي الْبَدْءِ', e: 'In the beginning' },
+    { v: 2, a: 'وَكَانَتِ الأَرْضُ', e: 'And the earth was' },
+  ],
+  'Gen/2': [{ v: 1, a: 'فَأُكْمِلَتِ', e: 'Thus were finished' }],
+};
+
+vi.mock('@/hooks/useBibleBooks', () => ({
+  useBibleBooks: () => ({ books, loading: false, error: null }),
+}));
+
+vi.mock('@/hooks/useBibleChapter', () => ({
+  useBibleChapter: (book: string | null, chapter: number | null) => {
+    const key = `${book}/${chapter}`;
+    return { verses: versesByKey[key] ?? [], loading: false, error: null };
+  },
+}));
+
+import BibleReader from './BibleReader';
+
+beforeEach(() => {
+  localStorage.clear();
+});
+
+describe('BibleReader', () => {
+  it('defaults to the first book, chapter 1', () => {
+    render(<BibleReader />);
+    expect(screen.getByRole('button', { name: /Genesis/ })).toBeInTheDocument();
+    expect(screen.getByText('Genesis 1')).toBeInTheDocument();
+  });
+
+  it('shows both languages for every verse in side-by-side mode', () => {
+    render(<BibleReader />);
+    expect(screen.getByText('In the beginning')).toBeInTheDocument();
+    expect(screen.getByText(/فِي الْبَدْءِ/)).toBeInTheDocument();
+    expect(screen.getByText('And the earth was')).toBeInTheDocument();
+  });
+
+  it('hides English until a verse is tapped in tap-to-reveal mode, and toggles it back off', async () => {
+    const user = userEvent.setup();
+    render(<BibleReader />);
+
+    await user.click(screen.getByRole('button', { name: /Arabic — Tap for English/ }));
+    expect(screen.queryByText('In the beginning')).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: /فِي الْبَدْءِ/ }));
+    expect(screen.getByText('In the beginning')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: /فِي الْبَدْءِ/ }));
+    expect(screen.queryByText('In the beginning')).not.toBeInTheDocument();
+  });
+
+  it('lets a book be picked from the Old and New Testament sections', async () => {
+    const user = userEvent.setup();
+    render(<BibleReader />);
+
+    await user.click(screen.getByRole('button', { name: /Genesis/ }));
+    expect(screen.getByText('Old Testament')).toBeInTheDocument();
+    expect(screen.getByText('New Testament')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Matthew' }));
+    expect(screen.getByText('Matthew 1')).toBeInTheDocument();
+    expect(screen.queryByText('Old Testament')).not.toBeInTheDocument();
+  });
+
+  it('lets a chapter be picked, and resets to chapter 1 on a new book', async () => {
+    const user = userEvent.setup();
+    render(<BibleReader />);
+
+    await user.click(screen.getByRole('button', { name: '1' }));
+    await user.click(screen.getByRole('button', { name: '2' }));
+    expect(screen.getByText('Genesis 2')).toBeInTheDocument();
+    expect(screen.getByText('Thus were finished')).toBeInTheDocument();
+  });
+
+  it('disables Prev on the very first chapter of the very first book', () => {
+    render(<BibleReader />);
+    const prevButtons = screen.getAllByRole('button', { name: /Prev/ });
+    prevButtons.forEach((btn) => expect(btn).toBeDisabled());
+  });
+
+  it('crosses from one book into the next on Next at a book boundary', async () => {
+    const user = userEvent.setup();
+    render(<BibleReader />);
+
+    await user.click(screen.getByRole('button', { name: '1' }));
+    await user.click(screen.getByRole('button', { name: '2' }));
+    // Exodus has only 2 chapters in this fixture; walk from Genesis 2 -> Genesis 3 -> Exodus 1.
+    await user.click(screen.getAllByRole('button', { name: /^Next$/ })[0]);
+    expect(screen.getByText('Genesis 3')).toBeInTheDocument();
+
+    await user.click(screen.getAllByRole('button', { name: /^Next$/ })[0]);
+    expect(screen.getByText('Exodus 1')).toBeInTheDocument();
+  });
+});

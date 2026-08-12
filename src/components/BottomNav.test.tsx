@@ -4,11 +4,12 @@ import userEvent from '@testing-library/user-event';
 import BottomNav from './BottomNav';
 
 describe('BottomNav', () => {
-  it('shows all three destinations', () => {
+  it('shows all four destinations', () => {
     render(<BottomNav active="wordMastery" onSelect={vi.fn()} />);
     expect(screen.getByRole('button', { name: /Word Mastery/ })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Grammar/ })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /Memorization/ })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Bible/ })).toBeInTheDocument();
   });
 
   it('marks only the active tab as current', () => {

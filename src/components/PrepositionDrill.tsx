@@ -189,6 +189,7 @@ const PrepositionDrill = ({ cards, onBack }: PrepositionDrillProps) => {
             onChange={(e) => setInput(e.target.value)}
             disabled={!!feedback}
             dir="rtl"
+            autoFocus
             aria-label="The missing preposition"
             className={`inline-block w-20 text-center font-arabic text-2xl rounded-lg border-b-2 bg-transparent px-1 pb-0.5 focus:outline-none transition-colors ${
               feedback === 'correct'

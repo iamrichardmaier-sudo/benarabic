@@ -1,6 +1,6 @@
-import { GraduationCap, Sparkles, Brain, type LucideIcon } from 'lucide-react';
+import { GraduationCap, Sparkles, Brain, Scroll, type LucideIcon } from 'lucide-react';
 
-export type Tab = 'wordMastery' | 'grammar' | 'memorization';
+export type Tab = 'wordMastery' | 'grammar' | 'memorization' | 'bible';
 
 interface BottomNavProps {
   active: Tab;
@@ -11,13 +11,14 @@ const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
   { id: 'wordMastery', label: 'Word Mastery', icon: GraduationCap },
   { id: 'grammar', label: 'Grammar', icon: Sparkles },
   { id: 'memorization', label: 'Memorization', icon: Brain },
+  { id: 'bible', label: 'Bible', icon: Scroll },
 ];
 
 /** Fixed app-wide tab bar. Bold and playful on purpose — this is the primary
  * way to move around, so it should read as the loudest thing on screen. */
 const BottomNav = ({ active, onSelect }: BottomNavProps) => (
   <nav className="fixed inset-x-0 bottom-0 z-20 border-t border-border/60 bg-card/95 backdrop-blur-sm">
-    <div className="max-w-lg mx-auto grid grid-cols-3 gap-2 px-3 py-2.5">
+    <div className="max-w-lg mx-auto grid grid-cols-4 gap-2 px-3 py-2.5">
       {TABS.map(({ id, label, icon: Icon }) => {
         const isActive = active === id;
         return (

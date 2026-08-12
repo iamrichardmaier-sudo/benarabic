@@ -10,6 +10,7 @@ import GrammarHome from '@/components/GrammarHome';
 import ConjugationDrill from '@/components/ConjugationDrill';
 import PrepositionDrill from '@/components/PrepositionDrill';
 import MemorizeTranscript from '@/components/MemorizeTranscript';
+import BibleReader from '@/components/BibleReader';
 import BottomNav, { type Tab } from '@/components/BottomNav';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
@@ -21,7 +22,7 @@ import GroupFilter from '@/components/GroupFilter';
 import type { TaggedImportEntry } from '@/lib/import-tagged';
 import { useToast } from '@/hooks/use-toast';
 
-type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'grammarHome' | 'conjugationDrill' | 'prepositionDrill' | 'memorize';
+type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'grammarHome' | 'conjugationDrill' | 'prepositionDrill' | 'memorize' | 'bible';
 
 const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
@@ -177,6 +178,7 @@ const Index = () => {
     wordMastery: 'home',
     grammar: 'grammarHome',
     memorization: 'memorize',
+    bible: 'bible',
   };
 
   const selectTab = (next: Tab) => {
@@ -312,7 +314,7 @@ const Index = () => {
             </button>
           </div>
         </div>
-        {tab !== 'memorization' && groups.length > 0 && (
+        {tab !== 'memorization' && tab !== 'bible' && groups.length > 0 && (
           <div className="max-w-lg mx-auto px-4 pb-3">
             <GroupFilter
               groups={groups}
@@ -439,6 +441,8 @@ const Index = () => {
         )}
 
         {view === 'memorize' && <MemorizeTranscript />}
+
+        {view === 'bible' && <BibleReader />}
       </main>
 
       {showRelearnModal && (
