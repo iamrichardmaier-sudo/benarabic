@@ -4,7 +4,8 @@ import { useTranscripts, type Transcript } from '@/hooks/useTranscripts';
 import { tokenize, shuffledWordOrder, hiddenIndices, maskWord } from '@/lib/transcript-mask';
 
 interface MemorizeTranscriptProps {
-  onBack: () => void;
+  /** Omit when this is a top-level tab with nowhere to "back" to. */
+  onBack?: () => void;
 }
 
 const MemorizeTranscript = ({ onBack }: MemorizeTranscriptProps) => {
@@ -80,13 +81,15 @@ const MemorizeTranscript = ({ onBack }: MemorizeTranscriptProps) => {
 
   return (
     <div className="space-y-4">
-      <button
-        onClick={onBack}
-        className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors mb-2"
-      >
-        <ChevronLeft className="w-4 h-4" />
-        Back
-      </button>
+      {onBack && (
+        <button
+          onClick={onBack}
+          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors mb-2"
+        >
+          <ChevronLeft className="w-4 h-4" />
+          Back
+        </button>
+      )}
 
       <h2 className="text-xl font-bold text-foreground">Memorize Transcript</h2>
 

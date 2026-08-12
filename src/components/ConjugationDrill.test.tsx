@@ -196,6 +196,45 @@ describe('ConjugationDrill short-vowel option', () => {
   });
 });
 
+describe('ConjugationDrill verb-to-masdar-only option', () => {
+  const single = [verb('ف-ع-ل', 'I')]; // past فَعَلَ, present يَفعَل, masdar فِعل
+
+  it('is off by default, drilling the full past/present/masdar set', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    expect(screen.getByRole('checkbox', { name: /Verb → Masdar only/ })).not.toBeChecked();
+
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    expect(screen.getAllByRole('textbox')).toHaveLength(3);
+    expect(screen.getByText('ف-ع-ل')).toBeInTheDocument();
+  });
+
+  it('drills a single masdar field, prompted with the verb itself, once enabled', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('checkbox', { name: /Verb → Masdar only/ }));
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+
+    expect(screen.getAllByRole('textbox')).toHaveLength(1);
+    expect(screen.getByText('فَعَلَ')).toBeInTheDocument();
+    expect(screen.getByText('Masdar')).toBeInTheDocument();
+
+    await user.type(screen.getByRole('textbox'), 'فِعل');
+    await user.click(screen.getByRole('button', { name: 'Check Answer' }));
+    expect(screen.getByRole('button', { name: /Correct — Continue/ })).toBeInTheDocument();
+  });
+
+  it('remembers the choice for next time', async () => {
+    const user = userEvent.setup();
+    const { unmount } = render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    await user.click(screen.getByRole('checkbox', { name: /Verb → Masdar only/ }));
+    unmount();
+
+    render(<ConjugationDrill cards={single} onBack={() => {}} />);
+    expect(screen.getByRole('checkbox', { name: /Verb → Masdar only/ })).toBeChecked();
+  });
+});
+
 describe('ConjugationDrill root and form glosses', () => {
   async function startDrill(cards: FlashCard[]) {
     const user = userEvent.setup();

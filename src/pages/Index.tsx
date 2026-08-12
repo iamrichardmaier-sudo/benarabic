@@ -1,15 +1,16 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { BookOpen, Plus, Layers, List, GraduationCap, LogOut, RefreshCw, Shuffle, BookA, Sparkles, CloudOff, Link2 } from 'lucide-react';
+import { BookOpen, Plus, Layers, List, GraduationCap, LogOut, RefreshCw, CloudOff } from 'lucide-react';
 import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import ReviewComplete from '@/components/ReviewComplete';
 import DeckList from '@/components/DeckList';
 import LearningMode from '@/components/LearningMode';
 import RelearnModal from '@/components/RelearnModal';
-import VerbMasdarDrill from '@/components/VerbMasdarDrill';
+import GrammarHome from '@/components/GrammarHome';
 import ConjugationDrill from '@/components/ConjugationDrill';
 import PrepositionDrill from '@/components/PrepositionDrill';
 import MemorizeTranscript from '@/components/MemorizeTranscript';
+import BottomNav, { type Tab } from '@/components/BottomNav';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
@@ -20,7 +21,7 @@ import GroupFilter from '@/components/GroupFilter';
 import type { TaggedImportEntry } from '@/lib/import-tagged';
 import { useToast } from '@/hooks/use-toast';
 
-type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'verbMasdar' | 'conjugationDrill' | 'prepositionDrill' | 'memorize';
+type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'grammarHome' | 'conjugationDrill' | 'prepositionDrill' | 'memorize';
 
 const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
@@ -43,6 +44,7 @@ function errorReason(err: unknown): string {
 const Index = () => {
   const { cards, loading, addCards, updateCard, deleteCard, refetch, online, pendingCount } = useFlashcards();
   const { signOut, user } = useAuth();
+  const [tab, setTab] = useState<Tab>('wordMastery');
   const [view, setView] = useState<View>('home');
   const [reviewItems, setReviewItems] = useState<{ card: FlashCard; direction: ReviewDirection }[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -171,6 +173,22 @@ const Index = () => {
     }
   };
 
+  const TAB_HOME_VIEW: Record<Tab, View> = {
+    wordMastery: 'home',
+    grammar: 'grammarHome',
+    memorization: 'memorize',
+  };
+
+  const selectTab = (next: Tab) => {
+    setTab(next);
+    setView(TAB_HOME_VIEW[next]);
+  };
+
+  const goToDeck = () => {
+    setTab('wordMastery');
+    setView('deck');
+  };
+
   const chooseGroup = (group: string | null) => {
     setActiveGroup(group);
     try {
@@ -260,7 +278,7 @@ const Index = () => {
     <div className="min-h-screen bg-background flex flex-col">
       <header className="border-b border-border/60 bg-card/50 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-lg mx-auto px-4 py-4 flex items-center justify-between">
-          <button onClick={() => setView('home')} className="flex items-center gap-2 text-foreground">
+          <button onClick={() => selectTab('wordMastery')} className="flex items-center gap-2 text-foreground">
             <BookOpen className="w-5 h-5 text-primary" />
             <span className="font-bold text-lg">بطاقات</span>
           </button>
@@ -279,7 +297,7 @@ const Index = () => {
               </span>
             )}
             <button
-              onClick={() => setView('deck')}
+              onClick={goToDeck}
               className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               <Layers className="w-4 h-4" />
@@ -294,9 +312,21 @@ const Index = () => {
             </button>
           </div>
         </div>
+        {tab !== 'memorization' && groups.length > 0 && (
+          <div className="max-w-lg mx-auto px-4 pb-3">
+            <GroupFilter
+              groups={groups}
+              active={effectiveGroup}
+              onChange={chooseGroup}
+              counts={groupCounts}
+              totalCount={cards.length}
+              compact
+            />
+          </div>
+        )}
       </header>
 
-      <main className="flex-1 max-w-lg mx-auto w-full px-4 py-8">
+      <main className="flex-1 max-w-lg mx-auto w-full px-4 pt-8 pb-28">
         {view === 'home' && (
           <div className="space-y-8">
             {cards.length === 0 && user?.email && (
@@ -308,14 +338,6 @@ const Index = () => {
                 </p>
               </div>
             )}
-
-            <GroupFilter
-              groups={groups}
-              active={effectiveGroup}
-              onChange={chooseGroup}
-              counts={groupCounts}
-              totalCount={cards.length}
-            />
 
             <div className="grid grid-cols-2 gap-3">
               <div className="rounded-2xl bg-card flashcard-shadow p-5 text-center space-y-1">
@@ -360,47 +382,24 @@ const Index = () => {
                 <RefreshCw className="w-5 h-5" />
                 Relearn Cards
               </button>
-              <button
-                onClick={() => setView('deck')}
-                className="flex flex-col items-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-5 font-semibold transition-all active:scale-95"
-              >
-                <List className="w-5 h-5" />
-                My Deck
-              </button>
-              <button
-                onClick={() => setView('verbMasdar')}
-                className="flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95"
-              >
-                <Shuffle className="w-5 h-5" />
-                Verb ↔ Masdar
-              </button>
-              <button
-                onClick={() => setView('conjugationDrill')}
-                className="flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95"
-              >
-                <BookA className="w-5 h-5" />
-                Drill Conjugations
-              </button>
-              <button
-                onClick={() => setView('prepositionDrill')}
-                className="flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95"
-              >
-                <Link2 className="w-5 h-5" />
-                Drill Prepositions
-              </button>
-              <button
-                onClick={() => setView('memorize')}
-                className="flex flex-col items-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-5 font-semibold transition-all active:scale-95"
-              >
-                <Sparkles className="w-5 h-5" />
-                Memorize Transcript
-              </button>
             </div>
+
+            <button
+              onClick={() => setView('deck')}
+              className="w-full flex items-center justify-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-4 font-semibold transition-all active:scale-95"
+            >
+              <List className="w-5 h-5" />
+              My Deck
+            </button>
           </div>
         )}
 
         {view === 'add' && (
           <AddWords onAdd={handleAddWords} onImport={handleImportTagged} isLoading={isLoading} chapters={groups} />
+        )}
+
+        {view === 'grammarHome' && (
+          <GrammarHome onSelect={(destination) => setView(destination)} />
         )}
 
         {view === 'review' && !reviewDone && reviewItems[currentIndex] && (
@@ -431,19 +430,15 @@ const Index = () => {
           />
         )}
 
-        {view === 'verbMasdar' && (
-          <VerbMasdarDrill cards={studyCards} onBack={() => setView('home')} />
-        )}
-
         {view === 'conjugationDrill' && (
-          <ConjugationDrill cards={studyCards} onBack={() => setView('home')} />
+          <ConjugationDrill cards={studyCards} onBack={() => setView('grammarHome')} />
         )}
 
         {view === 'prepositionDrill' && (
-          <PrepositionDrill cards={studyCards} onBack={() => setView('home')} />
+          <PrepositionDrill cards={studyCards} onBack={() => setView('grammarHome')} />
         )}
 
-        {view === 'memorize' && <MemorizeTranscript onBack={() => setView('home')} />}
+        {view === 'memorize' && <MemorizeTranscript />}
       </main>
 
       {showRelearnModal && (
@@ -454,6 +449,7 @@ const Index = () => {
         />
       )}
 
+      <BottomNav active={tab} onSelect={selectTab} />
     </div>
   );
 };
