@@ -7,6 +7,7 @@ export interface Transcript {
   title: string;
   subtitle: string | null;
   content: string;
+  videoUrl: string | null;
   createdAt: string;
 }
 
@@ -45,6 +46,7 @@ export function useTranscripts() {
           title: row.title,
           subtitle: row.subtitle,
           content: row.content,
+          videoUrl: row.video_url,
           createdAt: row.created_at,
         })),
       ),

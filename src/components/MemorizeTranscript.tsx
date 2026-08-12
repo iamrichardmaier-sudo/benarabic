@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { ChevronLeft, Shuffle, Eye, Plus } from 'lucide-react';
+import { ChevronLeft, Shuffle, Eye, Plus, Video, X } from 'lucide-react';
 import { useTranscripts, type Transcript } from '@/hooks/useTranscripts';
 import { tokenize, shuffledWordOrder, hiddenIndices, maskWord } from '@/lib/transcript-mask';
 
@@ -15,6 +15,7 @@ const MemorizeTranscript = ({ onBack }: MemorizeTranscriptProps) => {
   const [keepFirstLetter, setKeepFirstLetter] = useState(true);
   const [order, setOrder] = useState<number[]>([]);
   const [revealed, setRevealed] = useState<Set<number>>(new Set());
+  const [showVideo, setShowVideo] = useState(false);
   const [showAdd, setShowAdd] = useState(false);
   const [newTitle, setNewTitle] = useState('');
   const [newSubtitle, setNewSubtitle] = useState('');
@@ -45,6 +46,7 @@ const MemorizeTranscript = ({ onBack }: MemorizeTranscriptProps) => {
   useEffect(() => {
     setOrder(shuffledWordOrder(wordCount));
     setRevealed(new Set());
+    setShowVideo(false);
   }, [selected?.id, wordCount]);
 
   const hidden = useMemo(() => hiddenIndices(order, percent), [order, percent]);
@@ -168,6 +170,35 @@ const MemorizeTranscript = ({ onBack }: MemorizeTranscriptProps) => {
 
           {selected && (
             <>
+              {/* Video, when this chapter has one */}
+              {selected.videoUrl && (
+                <div className="space-y-2">
+                  <button
+                    onClick={() => setShowVideo((v) => !v)}
+                    aria-expanded={showVideo}
+                    className="flex items-center gap-1.5 rounded-xl border border-border bg-card px-3 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-muted/40"
+                  >
+                    {showVideo ? <X className="w-4 h-4" /> : <Video className="w-4 h-4 text-primary" />}
+                    {showVideo ? 'Hide video' : 'Watch video'}
+                  </button>
+                  {showVideo && (
+                    <div className="max-w-xs rounded-2xl border border-border bg-card p-2 shadow-sm">
+                      {/* eslint-disable-next-line jsx-a11y/media-has-caption -- home-recorded story videos, no caption track exists */}
+                      <video
+                        key={selected.videoUrl}
+                        src={`${import.meta.env.BASE_URL}${selected.videoUrl}`}
+                        controls
+                        playsInline
+                        preload="metadata"
+                        className="w-full rounded-xl bg-black"
+                      >
+                        Your browser does not support video playback.
+                      </video>
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* Controls */}
               <div className="rounded-2xl border border-border bg-card p-4 space-y-4">
                 <div className="space-y-1.5">
