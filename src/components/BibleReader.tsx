@@ -2,9 +2,49 @@ import { useState, useEffect, useMemo, useRef } from 'react';
 import { ChevronLeft, ChevronRight, ChevronDown, BookOpen, Columns2, MessageSquareText } from 'lucide-react';
 import { useBibleBooks } from '@/hooks/useBibleBooks';
 import { useBibleChapter } from '@/hooks/useBibleChapter';
+import { useBibleWordTags, type BibleWordTag } from '@/hooks/useBibleWordTags';
+import { tokenize } from '@/lib/transcript-mask';
+import BibleWordPopover from '@/components/BibleWordPopover';
 import type { BibleBook } from '@/lib/bible-types';
 
 type Mode = 'side' | 'tap';
+
+// The tagging pipeline strips the same leading/trailing punctuation before
+// treating two occurrences as "the same word" -- matching that here is what
+// lets a word in running text find its row in bible_word_tags.
+const EDGE_PUNCTUATION = /^[.,،؛:؟!"«»()]+|[.,،؛:؟!"«»()]+$/g;
+
+function lookupKey(word: string): string {
+  return word.replace(EDGE_PUNCTUATION, '');
+}
+
+/** Every word in a chapter's Arabic text, for one bulk tag lookup per chapter
+ * instead of one query per verse. */
+function chapterWords(verses: { a: string }[]): string[] {
+  const words: string[] = [];
+  for (const v of verses) {
+    for (const token of tokenize(v.a)) {
+      if (token.isWord) words.push(lookupKey(token.text));
+    }
+  }
+  return words;
+}
+
+/** Renders Arabic text word-by-word: tagged words get a hover/tap popover
+ * with root, lemma, and gloss; everything else (whitespace, untagged words)
+ * renders as plain text. */
+function ArabicWithTags({ text, tags }: { text: string; tags: Map<string, BibleWordTag> }) {
+  return (
+    <>
+      {tokenize(text).map((token, i) => {
+        if (!token.isWord) return <span key={i}>{token.text}</span>;
+        const tag = tags.get(lookupKey(token.text));
+        if (!tag) return <span key={i}>{token.text}</span>;
+        return <BibleWordPopover key={i} text={token.text} tag={tag} />;
+      })}
+    </>
+  );
+}
 
 const BOOK_KEY = 'arabic-flashcards-bible-book';
 const CHAPTER_KEY = 'arabic-flashcards-bible-chapter';
@@ -50,6 +90,8 @@ const BibleReader = () => {
   const effectiveChapter = chapter && book && chapter <= book.chapters ? chapter : 1;
 
   const { verses, loading: versesLoading, error: versesError } = useBibleChapter(bookCode, effectiveChapter);
+  const wordList = useMemo(() => chapterWords(verses ?? []), [verses]);
+  const wordTags = useBibleWordTags(wordList);
 
   const scrollRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -204,7 +246,7 @@ const BibleReader = () => {
         {verses && mode === 'side' && (
           <div className="grid grid-cols-2 gap-x-4 gap-y-3">
             {verses.map((v) => (
-              <VerseRowPair key={v.v} verse={v} />
+              <VerseRowPair key={v.v} verse={v} tags={wordTags} />
             ))}
           </div>
         )}
@@ -213,15 +255,18 @@ const BibleReader = () => {
           <div className="space-y-2" dir="rtl">
             {verses.map((v) => (
               <div key={v.v}>
-                <button
-                  onClick={() => toggleReveal(v.v)}
-                  className="w-full text-right font-arabic text-xl leading-loose text-foreground hover:text-primary transition-colors"
-                >
-                  <span className="font-sans text-xs text-muted-foreground align-super ml-1.5" dir="ltr">
+                <p className="font-arabic text-xl leading-loose text-foreground">
+                  <button
+                    onClick={() => toggleReveal(v.v)}
+                    aria-label={`Verse ${v.v}, tap to reveal the English translation`}
+                    title="Tap to reveal the English translation"
+                    className="font-sans text-xs text-muted-foreground align-super ml-1.5 hover:text-primary transition-colors"
+                    dir="ltr"
+                  >
                     {v.v}
-                  </span>
-                  {v.a}
-                </button>
+                  </button>
+                  <ArabicWithTags text={v.a} tags={wordTags} />
+                </p>
                 {revealed.has(v.v) && (
                   <p
                     className="text-sm text-muted-foreground border-r-2 border-primary/40 pr-3 mt-1.5 mb-1"
@@ -278,14 +323,20 @@ const BibleReader = () => {
   );
 };
 
-const VerseRowPair = ({ verse }: { verse: { v: number; a: string; e: string } }) => (
+const VerseRowPair = ({
+  verse,
+  tags,
+}: {
+  verse: { v: number; a: string; e: string };
+  tags: Map<string, BibleWordTag>;
+}) => (
   <>
     <p className="text-sm text-muted-foreground" dir="ltr">
       <span className="text-xs text-muted-foreground/70 align-super mr-1">{verse.v}</span>
       {verse.e}
     </p>
     <p className="font-arabic text-lg text-foreground text-right" dir="rtl">
-      {verse.a}
+      <ArabicWithTags text={verse.a} tags={tags} />
       <span className="font-sans text-xs text-muted-foreground/70 align-super mr-1.5" dir="ltr">
         {verse.v}
       </span>
