@@ -1,5 +1,14 @@
 import { useState, useEffect, useMemo, useRef } from 'react';
-import { ChevronLeft, ChevronRight, ChevronDown, BookOpen, Columns2, MessageSquareText, Volume2 } from 'lucide-react';
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronDown,
+  BookOpen,
+  Columns2,
+  MessageSquareText,
+  Volume2,
+  Settings,
+} from 'lucide-react';
 import { useBibleBooks } from '@/hooks/useBibleBooks';
 import { useBibleChapter } from '@/hooks/useBibleChapter';
 import { useBibleAudio } from '@/hooks/useBibleAudio';
@@ -88,6 +97,7 @@ const BibleReader = () => {
   const [mode, setMode] = useState<Mode>(() => (readStored(MODE_KEY) === 'tap' ? 'tap' : 'side'));
   const [showBookPicker, setShowBookPicker] = useState(false);
   const [showChapterPicker, setShowChapterPicker] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
   const [revealed, setRevealed] = useState<Set<number>>(new Set());
   const [textScale, setTextScale] = useState<number>(() => {
     const stored = readStored(TEXT_SCALE_KEY);
@@ -208,11 +218,56 @@ const BibleReader = () => {
 
   return (
     <div className="space-y-4" ref={scrollRef}>
-      <div className="space-y-1">
-        <h2 className="text-xl font-bold text-foreground">Bible</h2>
-        <p className="text-sm text-muted-foreground">
-          Van Dyke Arabic (1865), paired with the King James Version.
-        </p>
+      <div className="flex items-start justify-between gap-2">
+        <div className="space-y-1">
+          <h2 className="text-xl font-bold text-foreground">Bible</h2>
+          <p className="text-sm text-muted-foreground">
+            Van Dyke Arabic (1865), paired with the King James Version.
+          </p>
+        </div>
+        <div className="relative shrink-0">
+          <button
+            onClick={() => setShowSettings((v) => !v)}
+            aria-label="Reading settings"
+            aria-expanded={showSettings}
+            className={`flex items-center justify-center w-9 h-9 rounded-xl border border-border transition-colors ${
+              showSettings ? 'bg-muted text-foreground' : 'bg-card text-muted-foreground hover:text-foreground hover:bg-muted/40'
+            }`}
+          >
+            <Settings className="w-4 h-4" />
+          </button>
+          {showSettings && (
+            <>
+              <button
+                aria-label="Close settings"
+                onClick={() => setShowSettings(false)}
+                className="fixed inset-0 z-40 cursor-default"
+              />
+              <div className="absolute right-0 top-11 z-50 w-56 rounded-xl border border-border bg-card p-3 shadow-lg">
+                <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2">Text size</p>
+                <div className="flex items-center justify-between gap-2">
+                  <button
+                    onClick={() => adjustTextScale(-TEXT_SCALE_STEP)}
+                    disabled={textScale <= TEXT_SCALE_MIN}
+                    aria-label="Decrease text size"
+                    className="flex items-center justify-center w-8 h-8 rounded-lg border border-border text-sm font-semibold text-foreground transition-colors hover:bg-muted/40 disabled:opacity-30 disabled:pointer-events-none"
+                  >
+                    A<span className="text-xs">-</span>
+                  </button>
+                  <span className="text-xs text-muted-foreground tabular-nums">{Math.round(textScale * 100)}%</span>
+                  <button
+                    onClick={() => adjustTextScale(TEXT_SCALE_STEP)}
+                    disabled={textScale >= TEXT_SCALE_MAX}
+                    aria-label="Increase text size"
+                    className="flex items-center justify-center w-8 h-8 rounded-lg border border-border text-base font-semibold text-foreground transition-colors hover:bg-muted/40 disabled:opacity-30 disabled:pointer-events-none"
+                  >
+                    A<span className="text-sm">+</span>
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
       </div>
 
       {/* Book / chapter pickers */}
@@ -281,59 +336,29 @@ const BibleReader = () => {
         </button>
       </div>
 
-      {/* Text size */}
-      <div className="flex items-center justify-between rounded-xl border border-border bg-card px-3 py-2">
-        <span className="text-sm text-muted-foreground">Text size</span>
-        <div className="flex items-center gap-3">
-          <button
-            onClick={() => adjustTextScale(-TEXT_SCALE_STEP)}
-            disabled={textScale <= TEXT_SCALE_MIN}
-            aria-label="Decrease text size"
-            className="flex items-center justify-center w-8 h-8 rounded-lg border border-border text-sm font-semibold text-foreground transition-colors hover:bg-muted/40 disabled:opacity-30 disabled:pointer-events-none"
-          >
-            A<span className="text-xs">-</span>
-          </button>
-          <span className="text-xs text-muted-foreground tabular-nums w-10 text-center">
-            {Math.round(textScale * 100)}%
-          </span>
-          <button
-            onClick={() => adjustTextScale(TEXT_SCALE_STEP)}
-            disabled={textScale >= TEXT_SCALE_MAX}
-            aria-label="Increase text size"
-            className="flex items-center justify-center w-8 h-8 rounded-lg border border-border text-base font-semibold text-foreground transition-colors hover:bg-muted/40 disabled:opacity-30 disabled:pointer-events-none"
-          >
-            A<span className="text-sm">+</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Chapter audio, when available (currently the four Gospels) */}
+      {/* Chapter audio, when available */}
       {audioUrl && (
-        <div className="space-y-2 rounded-xl border border-border bg-card px-3 py-2.5">
-          <div className="flex items-center gap-2">
-            <Volume2 className="w-4 h-4 shrink-0 text-primary" />
-            <audio ref={audioRef} key={audioUrl} controls preload="none" className="w-full h-9" src={audioUrl}>
-              Your browser does not support audio playback.
-            </audio>
-          </div>
-          <div className="flex items-center gap-2 pl-6">
-            <label htmlFor="bible-audio-speed" className="text-xs text-muted-foreground shrink-0">
-              Speed
-            </label>
-            <input
-              id="bible-audio-speed"
-              type="range"
-              min={PLAYBACK_RATE_MIN}
-              max={PLAYBACK_RATE_MAX}
-              step={PLAYBACK_RATE_STEP}
-              value={playbackRate}
-              onChange={(e) => changePlaybackRate(Number(e.target.value))}
-              className="flex-1 accent-primary"
-            />
-            <span className="text-xs text-muted-foreground tabular-nums w-10 text-right">
-              {Math.round(playbackRate * 100)}%
-            </span>
-          </div>
+        <div className="flex items-center gap-1.5 rounded-lg border border-border bg-card px-2 py-1">
+          <Volume2 className="w-3.5 h-3.5 shrink-0 text-primary" />
+          <audio ref={audioRef} key={audioUrl} controls preload="none" className="flex-1 h-7 min-w-0" src={audioUrl}>
+            Your browser does not support audio playback.
+          </audio>
+          <label htmlFor="bible-audio-speed" className="text-[11px] text-muted-foreground shrink-0 pl-1">
+            Speed
+          </label>
+          <input
+            id="bible-audio-speed"
+            type="range"
+            min={PLAYBACK_RATE_MIN}
+            max={PLAYBACK_RATE_MAX}
+            step={PLAYBACK_RATE_STEP}
+            value={playbackRate}
+            onChange={(e) => changePlaybackRate(Number(e.target.value))}
+            className="w-16 shrink-0 accent-primary"
+          />
+          <span className="text-[11px] text-muted-foreground tabular-nums w-8 text-right shrink-0">
+            {Math.round(playbackRate * 100)}%
+          </span>
         </div>
       )}
 

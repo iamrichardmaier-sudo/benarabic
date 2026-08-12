@@ -123,16 +123,30 @@ describe('BibleReader', () => {
     expect(screen.getByText('Exodus 1')).toBeInTheDocument();
   });
 
-  it('lets text size be increased and decreased, clamped at the limits', async () => {
+  it('lets text size be increased and decreased from the settings dropdown, clamped at the limits', async () => {
     const user = userEvent.setup();
     render(<BibleReader />);
 
+    expect(screen.queryByText('Text size')).not.toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: 'Reading settings' }));
     expect(screen.getByText('100%')).toBeInTheDocument();
+
     await user.click(screen.getByRole('button', { name: 'Increase text size' }));
     expect(screen.getByText('110%')).toBeInTheDocument();
     await user.click(screen.getByRole('button', { name: 'Decrease text size' }));
     await user.click(screen.getByRole('button', { name: 'Decrease text size' }));
     expect(screen.getByText('90%')).toBeInTheDocument();
+  });
+
+  it('closes the settings dropdown when clicking outside it', async () => {
+    const user = userEvent.setup();
+    render(<BibleReader />);
+
+    await user.click(screen.getByRole('button', { name: 'Reading settings' }));
+    expect(screen.getByText('Text size')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Close settings' }));
+    expect(screen.queryByText('Text size')).not.toBeInTheDocument();
   });
 
   it('shows no audio player when the chapter has no audio', () => {
