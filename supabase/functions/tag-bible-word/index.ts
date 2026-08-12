@@ -127,19 +127,32 @@ serve(async (req) => {
       );
     }
 
-    const inputSet = new Set(words);
     const nullify = (v: unknown): string | null => (typeof v === "string" && v.trim() !== "" ? v : null);
+    const rawResults = (parsed.results ?? []) as Record<string, unknown>[];
 
-    const results: TagResult[] = (parsed.results ?? [])
-      .filter((r): r is Record<string, unknown> => !!r && typeof r === "object" && inputSet.has((r as Record<string, unknown>).surface as string))
-      .map((r) => ({
-        surface: r.surface as string,
-        root: nullify(r.root),
-        lemma: (r.lemma as string) || (r.surface as string),
-        pos: ((r.pos as string) || "other") as TagResult["pos"],
-        verbForm: nullify(r.verbForm),
-        gloss: (r.gloss as string) || "",
-      }));
+    // Match by position, not by re-comparing the model's echoed "surface"
+    // string against the input: Arabic diacritics admit more than one valid
+    // Unicode encoding of the same visible word (e.g. precomposed alef-madda
+    // vs. alef + a combining madda), and a model reply can round-trip through
+    // a different one than the source text used -- an exact string compare
+    // then silently drops words that tagged just fine. The prompt asks for
+    // one result per input in order, so pairing by index is both simpler and
+    // immune to that whole class of mismatch; the surface we return is always
+    // the original input, never the model's copy of it.
+    const results: TagResult[] = words
+      .map((surface, i) => {
+        const r = rawResults[i];
+        if (!r || typeof r !== "object") return null;
+        return {
+          surface,
+          root: nullify(r.root),
+          lemma: (r.lemma as string) || surface,
+          pos: ((r.pos as string) || "other") as TagResult["pos"],
+          verbForm: nullify(r.verbForm),
+          gloss: (r.gloss as string) || "",
+        };
+      })
+      .filter((r): r is TagResult => r !== null);
 
     return new Response(
       JSON.stringify({ results }),

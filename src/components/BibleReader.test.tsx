@@ -27,6 +27,12 @@ vi.mock('@/hooks/useBibleChapter', () => ({
   },
 }));
 
+// No tags in these fixtures, so words render as plain text -- these tests
+// cover navigation and mode-switching, not the word-popover feature.
+vi.mock('@/hooks/useBibleWordTags', () => ({
+  useBibleWordTags: () => new Map(),
+}));
+
 import BibleReader from './BibleReader';
 
 beforeEach(() => {
@@ -43,8 +49,13 @@ describe('BibleReader', () => {
   it('shows both languages for every verse in side-by-side mode', () => {
     render(<BibleReader />);
     expect(screen.getByText('In the beginning')).toBeInTheDocument();
-    expect(screen.getByText(/فِي الْبَدْءِ/)).toBeInTheDocument();
     expect(screen.getByText('And the earth was')).toBeInTheDocument();
+    // Arabic words render as separate spans (each is its own popover target
+    // once tagged), so the phrase is checked by an element's full text content
+    // rather than a single text node.
+    expect(
+      screen.getByText((_, el) => el?.tagName === 'P' && el.textContent === 'فِي الْبَدْءِ1'),
+    ).toBeInTheDocument();
   });
 
   it('hides English until a verse is tapped in tap-to-reveal mode, and toggles it back off', async () => {
@@ -54,10 +65,11 @@ describe('BibleReader', () => {
     await user.click(screen.getByRole('button', { name: /Arabic — Tap for English/ }));
     expect(screen.queryByText('In the beginning')).not.toBeInTheDocument();
 
-    await user.click(screen.getByRole('button', { name: /فِي الْبَدْءِ/ }));
+    const revealVerse1 = screen.getByRole('button', { name: /Verse 1, tap to reveal/ });
+    await user.click(revealVerse1);
     expect(screen.getByText('In the beginning')).toBeInTheDocument();
 
-    await user.click(screen.getByRole('button', { name: /فِي الْبَدْءِ/ }));
+    await user.click(revealVerse1);
     expect(screen.queryByText('In the beginning')).not.toBeInTheDocument();
   });
 

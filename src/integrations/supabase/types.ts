@@ -14,6 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
+      bible_word_tags: {
+        Row: {
+          gloss: string | null
+          lemma: string | null
+          pos: string | null
+          root: string | null
+          surface: string
+          tagged_at: string | null
+          verb_form: string | null
+        }
+        Insert: {
+          gloss?: string | null
+          lemma?: string | null
+          pos?: string | null
+          root?: string | null
+          surface: string
+          tagged_at?: string | null
+          verb_form?: string | null
+        }
+        Update: {
+          gloss?: string | null
+          lemma?: string | null
+          pos?: string | null
+          root?: string | null
+          surface?: string
+          tagged_at?: string | null
+          verb_form?: string | null
+        }
+        Relationships: []
+      }
       flashcards: {
         Row: {
           card_group: string | null
