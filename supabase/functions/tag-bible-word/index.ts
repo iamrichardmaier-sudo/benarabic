@@ -88,7 +88,6 @@ serve(async (req) => {
       body: JSON.stringify({
         model: "claude-opus-4-8",
         max_tokens: 8000,
-        thinking: { type: "adaptive" },
         system: SYSTEM_PROMPT,
         output_config: {
           format: { type: "json_schema", schema: RESULT_JSON_SCHEMA },

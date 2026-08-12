@@ -54,6 +54,11 @@ BEGIN
     RETURN -1;
   END IF;
 
+  -- The http extension's default 5s timeout is too short for an LLM call;
+  -- this is a per-connection curl setting, so pg_cron's own session needs
+  -- it set here too, not just an interactive one.
+  PERFORM public.http_set_curlopt('CURLOPT_TIMEOUT_MS', '90000');
+
   SELECT array_agg(surface) INTO words
   FROM (
     SELECT surface FROM public.bible_word_tags
@@ -113,3 +118,8 @@ BEGIN
   RETURN tagged_count;
 END;
 $$;
+
+-- Every 30s, one batch of 40 words. At full queue depth (~11.5k Gospel
+-- words) that's roughly 2-3 hours to finish, safely paced under any
+-- reasonable API rate limit.
+SELECT cron.schedule('bible-word-tagging', '30 seconds', $$SELECT public.process_bible_tag_batch(40);$$);
