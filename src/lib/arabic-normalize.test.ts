@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
 import {
   stripShortVowels,
+  stripTatweel,
+  normalizeArabic,
   normalizeArabicIgnoreShortVowels,
   normalizeArabicKeepVowels,
 } from './arabic-normalize';
@@ -57,5 +59,23 @@ describe('normalizeArabicIgnoreShortVowels', () => {
 describe('normalizeArabicKeepVowels (strict mode, unchanged)', () => {
   it('still marks a missing vowel as different', () => {
     expect(normalizeArabicKeepVowels('كتب')).not.toBe(normalizeArabicKeepVowels('كَتَبَ'));
+  });
+});
+
+describe('stripTatweel', () => {
+  it('removes the elongation mark from a clitic preposition', () => {
+    expect(stripTatweel('بِـ')).toBe('بِ');
+    expect(stripTatweel('لِـ')).toBe('لِ');
+  });
+
+  it('leaves text without tatweel untouched', () => {
+    expect(stripTatweel('مِن')).toBe('مِن');
+  });
+});
+
+describe('normalizeArabic and tatweel', () => {
+  it('matches a bare typed preposition against its tatweel citation form', () => {
+    expect(normalizeArabic('ب')).toBe(normalizeArabic('بِـ'));
+    expect(normalizeArabic('ل')).toBe(normalizeArabic('لِـ'));
   });
 });

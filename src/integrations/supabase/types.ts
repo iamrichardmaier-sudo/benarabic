@@ -20,6 +20,7 @@ export type Database = {
           created_at: string
           ease_factor: number
           english: string | null
+          fixed_preposition: string | null
           id: string
           image_url: string | null
           interval_days: number
@@ -27,6 +28,8 @@ export type Database = {
           needs_review: boolean
           next_review_date: string
           paired_word_id: string | null
+          preposition_sentence: string | null
+          preposition_sentence_en: string | null
           root: string | null
           stage1_attempts: number
           stage2_attempts: number
@@ -40,6 +43,7 @@ export type Database = {
           created_at?: string
           ease_factor?: number
           english?: string | null
+          fixed_preposition?: string | null
           id?: string
           image_url?: string | null
           interval_days?: number
@@ -47,6 +51,8 @@ export type Database = {
           needs_review?: boolean
           next_review_date?: string
           paired_word_id?: string | null
+          preposition_sentence?: string | null
+          preposition_sentence_en?: string | null
           root?: string | null
           stage1_attempts?: number
           stage2_attempts?: number
@@ -60,6 +66,7 @@ export type Database = {
           created_at?: string
           ease_factor?: number
           english?: string | null
+          fixed_preposition?: string | null
           id?: string
           image_url?: string | null
           interval_days?: number
@@ -67,6 +74,8 @@ export type Database = {
           needs_review?: boolean
           next_review_date?: string
           paired_word_id?: string | null
+          preposition_sentence?: string | null
+          preposition_sentence_en?: string | null
           root?: string | null
           stage1_attempts?: number
           stage2_attempts?: number
