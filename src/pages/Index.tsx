@@ -11,6 +11,7 @@ import ConjugationDrill from '@/components/ConjugationDrill';
 import PrepositionDrill from '@/components/PrepositionDrill';
 import MemorizeTranscript from '@/components/MemorizeTranscript';
 import BibleReader from '@/components/BibleReader';
+import ArabicInTheWild from '@/components/ArabicInTheWild';
 import BottomNav, { type Tab } from '@/components/BottomNav';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
@@ -22,7 +23,7 @@ import GroupFilter from '@/components/GroupFilter';
 import type { TaggedImportEntry } from '@/lib/import-tagged';
 import { useToast } from '@/hooks/use-toast';
 
-type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'grammarHome' | 'conjugationDrill' | 'prepositionDrill' | 'memorize' | 'bible';
+type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'grammarHome' | 'conjugationDrill' | 'prepositionDrill' | 'memorize' | 'bible' | 'wild';
 
 const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
@@ -179,6 +180,7 @@ const Index = () => {
     grammar: 'grammarHome',
     memorization: 'memorize',
     bible: 'bible',
+    wild: 'wild',
   };
 
   const selectTab = (next: Tab) => {
@@ -314,7 +316,7 @@ const Index = () => {
             </button>
           </div>
         </div>
-        {tab !== 'memorization' && tab !== 'bible' && groups.length > 0 && (
+        {tab !== 'memorization' && tab !== 'bible' && tab !== 'wild' && groups.length > 0 && (
           <div className="max-w-lg mx-auto px-4 pb-3">
             <GroupFilter
               groups={groups}
@@ -443,6 +445,8 @@ const Index = () => {
         {view === 'memorize' && <MemorizeTranscript />}
 
         {view === 'bible' && <BibleReader />}
+
+        {view === 'wild' && <ArabicInTheWild />}
       </main>
 
       {showRelearnModal && (
