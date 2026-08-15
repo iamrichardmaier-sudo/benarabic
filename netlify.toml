@@ -2,6 +2,38 @@
   command = "npm run build"
   publish = "dist"
 
+# Static SEO pages (public/root/**, public/form/**, public/roots, public/forms,
+# public/guide/**) are real files in the publish directory. Netlify matches
+# existing files BEFORE applying redirect rules, so the SPA fallback below does
+# not swallow them. Keep that fallback LAST for the same reason.
+
+[[headers]]
+  for = "/root/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/form/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/bible/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# SPA fallback — must remain the final rule.
 [[redirects]]
   from = "/*"
   to = "/index.html"
