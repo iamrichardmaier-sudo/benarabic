@@ -34,6 +34,13 @@ export default defineConfig(({ mode }) => ({
       workbox: {
         // Precache the app shell so a cold start with no network still boots.
         globPatterns: ["**/*.{js,css,html,ico,png,svg,woff,woff2}"],
+        // The static SEO pages (roots, verb forms, guides) exist for crawlers
+        // and first-time search visitors, not for the installed app. Precaching
+        // them would bloat the install for pages a logged-in user never opens.
+        globIgnores: [
+          "root/**", "form/**", "roots/**", "forms/**", "guide/**",
+          "**/sitemap.xml",
+        ],
         navigateFallback: "index.html",
         // The bundle ships a ~1MB chunk; the default 2MiB cap would drop it.
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,

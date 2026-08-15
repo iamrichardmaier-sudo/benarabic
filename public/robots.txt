@@ -1,14 +1,9 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+
+# The interactive study tool sits behind auth and has nothing crawlable;
+# the public reference pages (roots, verb forms, guides) are the indexable layer.
+Disallow: /auth
+Disallow: /.lovable/
+
+Sitemap: https://wazn.app/sitemap.xml

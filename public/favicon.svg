@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Wazn (وزن) — "the measure/weight of a word".
+       A balance scale: the mizan by which an Arabic word is weighed against
+       its pattern. Kept geometric rather than calligraphic so it stays legible
+       at favicon size and to learners who can't yet read Arabic script. -->
+  <rect width="32" height="32" rx="7" fill="#C2622A"/>
+  <g stroke="#FDF8F2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M16 8.5v15" stroke-width="2.1"/>
+    <path d="M7 12h18" stroke-width="2.1"/>
+    <path d="M11.5 24.5h9" stroke-width="2.1"/>
+    <path d="M4.5 12l2.6 5.2a3.2 3.2 0 0 0 5.8 0L15.5 12" stroke-width="1.6" opacity=".8"/>
+    <path d="M16.5 12l2.6 5.2a3.2 3.2 0 0 0 5.8 0L27.5 12" stroke-width="1.6" opacity=".8"/>
+    <circle cx="16" cy="8.5" r="1.6" fill="#FDF8F2" stroke="none"/>
+  </g>
+</svg>

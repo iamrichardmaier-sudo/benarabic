@@ -197,8 +197,94 @@ are genuinely strong standalone pages.
 
 ## Phase 4 — Build
 
-_Not started. Awaiting Checkpoint 1 approval._
+**Decisions taken at Checkpoint 1:** brand = **Wazn**; canonical host = **Netlify**;
+batch 1 = 35 pages; article-fetcher bug folded in.
+
+### Hosting decision — Netlify (chosen over GitHub Pages)
+
+| | Netlify | GitHub Pages |
+|---|---|---|
+| Custom `_headers` / cache control | ✅ | ❌ |
+| `_redirects` / real 301s | ✅ | ❌ (only the auto github.io→custom redirect) |
+| Serves from domain root | ✅ | needs `/benarabic/` base path unless custom domain |
+| Repo size ceiling | generous | 1 GB (repo now carries ~21 MB of video) |
+
+Netlify wins on the two things an SEO layer actually needs: real redirect control for
+canonicalization, and per-path cache headers. GitHub Pages remains deployed but must be
+made non-canonical (see Phase 5 actions).
+
+**GitHub Student Developer Pack** is worth checking before buying a domain — it has
+historically bundled a free year from Namecheap/Name.com. Caveat: the free options are
+usually `.me`/`.tech`, which are weaker for trust than `.com`/`.app`. At $12/yr,
+buying the right name is the better call.
+
+### Shipped
+
+| Artifact | Detail |
+|---|---|
+| `scripts/seo/generate.mjs` | Static page generator. No DB creds needed at build — reads the committed skeleton index, Bible chapter JSON, and curated root glosses |
+| `scripts/seo/root-meanings.json` | 27 curated root glosses for the batch-1 roots |
+| `scripts/seo/root-slugs.json` | **Persisted** root→slug map so published URLs never shift |
+| 25 root pages | `/root/k-t-b/` etc. — word family grouped verb/noun, attested verse, form links, drill CTA |
+| 10 form pages | `/form/1/`–`/form/10/` — pattern, meaning, and every attested verb of that form (Form II alone has **166**) |
+| 3 hub pages | `/roots/`, `/forms/`, `/guide/arabic-root-system/` |
+| `public/sitemap.xml` | 39 URLs |
+| `public/favicon.svg` | Wazn balance-scale mark |
+| `index.html` | Lovable boilerplate → real Wazn metadata, canonical, OG/Twitter |
+| `public/robots.txt` | Sitemap reference; disallows `/auth` and `/.lovable/` |
+| `netlify.toml` | Per-path cache headers; SPA fallback documented as must-stay-last |
+| `vite.config.ts` | `globIgnores` so SEO pages aren't precached (49 → 11 precache entries) |
+| `src/lib/analytics.ts` | GA4, **inert until `VITE_GA_MEASUREMENT_ID` is set** |
+
+### Article-fetcher fix (deployed as `fetch-article` v2)
+
+**Root cause:** the fallback extractor scored each `<p>`'s *immediate parent*. Modern news
+sites wrap every paragraph in its own `<div>`, so every candidate tied at exactly one
+paragraph and the winner was a single arbitrary paragraph.
+
+**Fix:** score *ancestors* up to 8 levels, letting the true article container accumulate all
+its paragraphs; then descend to the deepest element still holding ≥90% of the text (so we
+don't climb to a near-`<body>` wrapper and drag in navigation). Plus: `<article>` is only
+trusted when it yields ≥2 paragraphs, single-paragraph containers are rejected, short
+captions/bylines are skipped, and output is de-duplicated.
+
+**Verified on live BBC Arabic articles:**
+
+| Article | Before | After |
+|---|---|---|
+| `cvg0rlydmydo` | 230 chars | **1,152 chars / 10 paragraphs** |
+| `cr5918vq5zgo` | 1 paragraph | **4,742 chars / 35 paragraphs** |
+| `c24m83pvdqno` | 1 paragraph | **4,731 chars / 30 paragraphs** |
+
+### Verification
+
+- `npx tsc --noEmit` clean · `npx vitest run` **189/189** · `npm run build` clean
+- All 39 pages confirmed present in `dist/`; no existing app code modified beyond a
+  one-line analytics init in `main.tsx`
+
+### Content & licensing notes
+
+Root pages quote **one short verse** each as a linguistic illustration. Both source texts —
+Smith & Van Dyke Arabic (1865) and the KJV — are public domain, and brief citation to
+illustrate usage is ordinary lexicographic practice. STEPBible CC BY-SA 4.0 attribution
+appears in the footer of every generated page. Nothing from the news-article fetcher is
+stored or published; it stays transient and user-initiated.
 
 ## Phase 5 — Ship & verify
 
-_Not started._
+Deployed via merge to `main`. Netlify + GitHub Pages both rebuild on push.
+
+### Blocked on owner action (cannot be done from here)
+
+1. **Buy the domain** — check `wazn.app`, `getwazn.com`, `waznarabic.com`. Check the
+   GitHub Student Pack first for a free year.
+2. **Point it at Netlify**, then set `SITE_URL` and regenerate so canonicals match the
+   real origin (currently hardcoded to `https://wazn.app`).
+3. **Make GitHub Pages non-canonical** — disabling `.github/workflows/deploy-pages.yml`
+   is cleanest; otherwise identical content is live on two origins.
+4. **Search Console** — add the domain property, verify via DNS TXT, submit
+   `/sitemap.xml`.
+5. **GA4** — create a property, set `VITE_GA_MEASUREMENT_ID` in Netlify env vars.
+
+Until (1)–(3) are done the pages are live but canonicals point at a domain that does not
+resolve, so **do not submit to Search Console yet**.

@@ -80,35 +80,87 @@ Deno.serve(async (req: Request) => {
         .map((p) => (p as Element).textContent?.trim() ?? "")
         .filter((t) => t.length > 0);
 
-    // Most news sites mark up the article body semantically -- prefer that.
-    // Otherwise, fall back to whichever element holds the most <p> text
-    // body-wide (a simplified version of what "reader mode" tools do), since
-    // page layouts vary too much to hardcode selectors per site.
+    // Most news sites mark up the article body semantically -- prefer that,
+    // but only when it actually yielded a body's worth of text. Some sites use
+    // <article> as a card wrapper in a feed, so a one-paragraph result means we
+    // grabbed the wrong element and should fall through to scoring.
     let paragraphs: string[] = [];
     const article = doc.querySelector("article");
-    if (article) paragraphs = paragraphsFrom(article as Element);
+    if (article) {
+      const fromArticle = paragraphsFrom(article as Element);
+      if (fromArticle.length >= 2) paragraphs = fromArticle;
+    }
 
     if (paragraphs.length === 0) {
-      const allParagraphs = Array.from(doc.querySelectorAll("p")) as Element[];
-      const scoreByParent = new Map<Element, number>();
-      const parentOf = new Map<Element, Element>();
-      for (const p of allParagraphs) {
-        const parent = p.parentElement as Element | null;
-        if (!parent) continue;
-        const text = p.textContent?.trim() ?? "";
-        scoreByParent.set(parent, (scoreByParent.get(parent) ?? 0) + text.length);
-        parentOf.set(p, parent);
-      }
-      let bestParent: Element | null = null;
-      let bestScore = 0;
-      for (const [parent, score] of scoreByParent) {
-        if (score > bestScore) {
-          bestScore = score;
-          bestParent = parent;
+      // Score ANCESTORS, not just immediate parents. Most modern news sites
+      // wrap every <p> in its own <div>, so scoring by immediate parent gives
+      // each candidate exactly one paragraph and the "winner" is a single
+      // arbitrary paragraph -- which is the one-paragraph bug this fixes.
+      // Walking several levels up lets the true article container accumulate
+      // the sum of all its paragraphs and win outright.
+      const MAX_DEPTH = 8;
+      const MIN_PARAGRAPH_CHARS = 25;
+
+      const textScore = new Map<Element, number>();
+      const paraCount = new Map<Element, number>();
+
+      for (const node of Array.from(doc.querySelectorAll("p")) as Element[]) {
+        const text = node.textContent?.trim() ?? "";
+        if (text.length < MIN_PARAGRAPH_CHARS) continue; // skip captions/bylines
+        let ancestor: Element | null = node.parentElement as Element | null;
+        for (let depth = 0; ancestor && depth < MAX_DEPTH; depth++) {
+          const tag = ancestor.tagName?.toLowerCase();
+          if (tag === "body" || tag === "html") break;
+          textScore.set(ancestor, (textScore.get(ancestor) ?? 0) + text.length);
+          paraCount.set(ancestor, (paraCount.get(ancestor) ?? 0) + 1);
+          ancestor = ancestor.parentElement as Element | null;
         }
       }
-      if (bestParent) paragraphs = paragraphsFrom(bestParent);
+
+      // Prefer the DEEPEST element that still holds essentially all the text.
+      // Every ancestor above the real container inherits the same score, so
+      // taking the highest score alone would climb to a near-body wrapper and
+      // drag in navigation and related-article links.
+      let best: Element | null = null;
+      let bestScore = 0;
+      for (const [el, score] of textScore) {
+        if (score > bestScore) {
+          bestScore = score;
+          best = el;
+        }
+      }
+      if (best && bestScore > 0) {
+        const threshold = bestScore * 0.9;
+        let deepest = best;
+        let deepestDepth = -1;
+        for (const [el, score] of textScore) {
+          if (score < threshold) continue;
+          // Never descend to a container holding a single paragraph -- that is
+          // exactly the failure mode being fixed here.
+          if ((paraCount.get(el) ?? 0) < 2 && (paraCount.get(best) ?? 0) >= 2) continue;
+          let depth = 0;
+          let walk: Element | null = el.parentElement as Element | null;
+          while (walk && depth < 64) {
+            depth++;
+            walk = walk.parentElement as Element | null;
+          }
+          if (depth > deepestDepth) {
+            deepestDepth = depth;
+            deepest = el;
+          }
+        }
+        paragraphs = paragraphsFrom(deepest);
+      }
     }
+
+    // De-duplicate while preserving order; nested containers can otherwise
+    // yield the same paragraph twice.
+    const seen = new Set<string>();
+    paragraphs = paragraphs.filter((t) => {
+      if (seen.has(t)) return false;
+      seen.add(t);
+      return true;
+    });
 
     if (paragraphs.length === 0) {
       return new Response(
