@@ -183,7 +183,8 @@ const MemorizeTranscript = ({ onBack }: MemorizeTranscriptProps) => {
                   </button>
                   {showVideo && (
                     <div className="max-w-xs rounded-2xl border border-border bg-card p-2 shadow-sm">
-                      {/* eslint-disable-next-line jsx-a11y/media-has-caption -- home-recorded story videos, no caption track exists */}
+                      {/* No caption track: these are course story videos with
+                          the transcript already displayed directly below. */}
                       <video
                         key={selected.videoUrl}
                         src={`${import.meta.env.BASE_URL}${selected.videoUrl}`}
