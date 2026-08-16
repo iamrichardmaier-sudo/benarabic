@@ -6,15 +6,12 @@ import ReviewComplete from '@/components/ReviewComplete';
 import DeckList from '@/components/DeckList';
 import LearningMode from '@/components/LearningMode';
 import RelearnModal from '@/components/RelearnModal';
-import GrammarHome from '@/components/GrammarHome';
 import ConjugationDrill from '@/components/ConjugationDrill';
 import PrepositionDrill from '@/components/PrepositionDrill';
 import MemorizeTranscript from '@/components/MemorizeTranscript';
-import BibleReader from '@/components/BibleReader';
-import ArabicInTheWild from '@/components/ArabicInTheWild';
+import Library from '@/components/library/Library';
 import HomeDashboard from '@/components/HomeDashboard';
 import LearnHub, { type LearnDestination } from '@/components/LearnHub';
-import LibraryHome, { type LibraryDestination } from '@/components/LibraryHome';
 import SettingsScreen from '@/components/SettingsScreen';
 import BottomNav, { type Tab } from '@/components/BottomNav';
 import { recordStudyDay } from '@/lib/streak';
@@ -32,8 +29,7 @@ import { useToast } from '@/hooks/use-toast';
 type View =
   | 'home' | 'learnHub' | 'library' | 'settings'
   | 'add' | 'review' | 'deck' | 'learnCards'
-  | 'conjugationDrill' | 'prepositionDrill' | 'memorize'
-  | 'bible' | 'wild';
+  | 'conjugationDrill' | 'prepositionDrill' | 'memorize';
 
 const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
@@ -62,6 +58,10 @@ const Index = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [showRelearnModal, setShowRelearnModal] = useState(false);
+  // Bumped to tell the Library to return to its root, or to open the stored
+  // reading position — both are actions only the Library can carry out.
+  const [libraryReset, setLibraryReset] = useState(0);
+  const [libraryResume, setLibraryResume] = useState(0);
   const { toast } = useToast();
   const backfillRan = useRef(false);
   const [activeGroup, setActiveGroup] = useState<string | null>(readActiveGroup);
@@ -196,6 +196,9 @@ const Index = () => {
   /** Tapping a tab always returns to that section's root, including the tab
    *  you are already on — the standard "tap again to go back up" shortcut. */
   const selectTab = (next: Tab) => {
+    // Re-tapping Library while already there means "back to the top of the
+    // Library", which only the Library itself can act on — hence the token.
+    if (next === 'library' && tab === 'library') setLibraryReset((n) => n + 1);
     setTab(next);
     if (next === 'review') return startReview();
     setView(TAB_HOME_VIEW[next]);
@@ -215,19 +218,18 @@ const Index = () => {
     }
   };
 
-  const openLibraryDestination = (destination: LibraryDestination) => {
-    setView(destination);
-  };
-
+  /** Home's "continue reading" hands off to the Library, which reads the same
+   *  stored position and opens straight into the reader. */
   const continueReading = (bookCode: string, chapter: number) => {
     try {
       localStorage.setItem('arabic-flashcards-bible-book', bookCode);
       localStorage.setItem('arabic-flashcards-bible-chapter', String(chapter));
     } catch {
-      /* the reader falls back to its own stored position */
+      /* the Library falls back to its own stored position */
     }
     setTab('library');
-    setView('bible');
+    setView('library');
+    setLibraryResume((n) => n + 1);
   };
 
   const chooseGroup = (group: string | null) => {
@@ -401,7 +403,7 @@ const Index = () => {
         )}
 
         {view === 'library' && (
-          <LibraryHome onSelect={openLibraryDestination} />
+          <Library resetToken={libraryReset} resumeToken={libraryResume} />
         )}
 
         {view === 'settings' && (
@@ -454,10 +456,6 @@ const Index = () => {
         )}
 
         {view === 'memorize' && <MemorizeTranscript onBack={() => setView('learnHub')} />}
-
-        {view === 'bible' && <BibleReader onBack={() => setView('library')} />}
-
-        {view === 'wild' && <ArabicInTheWild onBack={() => setView('library')} />}
       </main>
 
       {showRelearnModal && (
