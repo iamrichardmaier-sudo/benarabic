@@ -15,6 +15,7 @@ import {
 } from '@/lib/preferences';
 import { chapterWords } from '@/lib/bible-words';
 import ArabicWithTags from '@/components/ArabicWithTags';
+import BackButton from '@/components/BackButton';
 import type { BibleBook } from '@/lib/bible-types';
 
 export type ReadMode = 'side' | 'tap';
@@ -120,13 +121,7 @@ const ChapterReader = ({
         <>
           {/* Chrome: back, tappable breadcrumb, reading controls */}
           <div className="flex items-center gap-2">
-            <button
-              onClick={onBack}
-              aria-label="Back to chapter list"
-              className="p-1.5 -ms-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
+            <BackButton onClick={onBack} label="Chapters" className="shrink-0" />
 
             <div className="relative min-w-0 flex-1">
               <button

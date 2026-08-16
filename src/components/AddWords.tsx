@@ -3,9 +3,12 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Plus, Loader2, FileJson } from 'lucide-react';
 import { parseTaggedImport, looksLikeJson, TaggedImportEntry } from '@/lib/import-tagged';
+import BackButton from '@/components/BackButton';
 
 interface AddWordsProps {
   onAdd: (lines: string[], chapter: string) => void;
+  /** Omitted when this is a top-level screen with nowhere to go back to. */
+  onBack?: () => void;
   onImport: (entries: TaggedImportEntry[]) => void;
   isLoading?: boolean;
   /** Existing chapter names, for the autocomplete list. */
@@ -14,7 +17,7 @@ interface AddWordsProps {
 
 type Mode = 'list' | 'json';
 
-const AddWords = ({ onAdd, onImport, isLoading, chapters = [] }: AddWordsProps) => {
+const AddWords = ({ onAdd, onImport, isLoading, chapters = [], onBack }: AddWordsProps) => {
   const [mode, setMode] = useState<Mode>('list');
   const [text, setText] = useState('');
   const [chapter, setChapter] = useState('');
@@ -64,6 +67,7 @@ const AddWords = ({ onAdd, onImport, isLoading, chapters = [] }: AddWordsProps) 
 
   return (
     <div className="w-full max-w-md mx-auto space-y-4">
+      {onBack && <BackButton onClick={onBack} label="Learn" />}
       {/* Mode toggle */}
       <div className="grid grid-cols-2 gap-1 rounded-xl bg-muted/60 p-1">
         <button

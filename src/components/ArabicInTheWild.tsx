@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Link2, FileText, Loader2, X, ChevronLeft } from 'lucide-react';
+import { Link2, FileText, Loader2 } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
+import BackButton from '@/components/BackButton';
 import { useWordSkeletonIndex } from '@/hooks/useWordSkeletonIndex';
 import { tokenize } from '@/lib/transcript-mask';
 import WildWordPopover from '@/components/WildWordPopover';
@@ -69,13 +70,7 @@ const ArabicInTheWild = ({ onBack }: ArabicInTheWildProps) => {
   if (article) {
     return (
       <div className="space-y-4">
-        <button
-          onClick={handleEdit}
-          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <X className="w-4 h-4" />
-          Close
-        </button>
+        <BackButton onClick={handleEdit} label="Edit text" />
 
         {article.title && (
           <h2 className="font-arabic text-xl font-bold text-foreground text-right" dir="rtl">
@@ -110,15 +105,7 @@ const ArabicInTheWild = ({ onBack }: ArabicInTheWildProps) => {
 
   return (
     <div className="space-y-4">
-      {onBack && (
-        <button
-          onClick={onBack}
-          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <ChevronLeft className="w-4 h-4" />
-          Library
-        </button>
-      )}
+      {onBack && <BackButton onClick={onBack} label="Library" />}
       <div className="space-y-1">
         <h2 className="text-xl font-bold text-foreground">Arabic in the Wild</h2>
         <p className="text-sm text-muted-foreground">

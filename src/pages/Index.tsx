@@ -14,6 +14,8 @@ import HomeDashboard from '@/components/HomeDashboard';
 import LearnHub, { type LearnDestination } from '@/components/LearnHub';
 import SettingsScreen from '@/components/SettingsScreen';
 import BottomNav, { type Tab } from '@/components/BottomNav';
+import BackButton from '@/components/BackButton';
+import WaznLogo from '@/components/WaznLogo';
 import { recordStudyDay } from '@/lib/streak';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
@@ -332,10 +334,12 @@ const Index = () => {
     <div className="min-h-screen bg-background flex flex-col">
       <header className="border-b border-border/60 bg-card/50 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-lg mx-auto px-4 py-4 flex items-center justify-between">
-          <button onClick={() => selectTab('home')} className="flex items-center gap-2 text-foreground">
-            <BookOpen className="w-5 h-5 text-primary" />
-            <span className="font-bold text-lg">Wazn</span>
-            <span className="font-arabic text-lg text-muted-foreground" dir="rtl">وزن</span>
+          <button
+            onClick={() => selectTab('home')}
+            aria-label="Wazn — go to Home"
+            className="flex items-center text-primary"
+          >
+            <WaznLogo size={28} wordmark />
           </button>
           <div className="flex items-center gap-3">
             {(!online || pendingCount > 0) && (
@@ -424,19 +428,30 @@ const Index = () => {
         )}
 
         {view === 'add' && (
-          <AddWords onAdd={handleAddWords} onImport={handleImportTagged} isLoading={isLoading} chapters={groups} />
-        )}
-
-        {view === 'review' && !reviewDone && reviewItems[currentIndex] && (
-          <Flashcard
-            card={reviewItems[currentIndex].card}
-            direction={reviewItems[currentIndex].direction}
-            onRate={handleRate}
-            progress={{ current: currentIndex + 1, total: reviewItems.length }}
+          <AddWords
+            onAdd={handleAddWords}
+            onImport={handleImportTagged}
+            isLoading={isLoading}
+            chapters={groups}
+            onBack={() => setView('learnHub')}
           />
         )}
 
-        {reviewDone && <ReviewComplete />}
+        {view === 'review' && !reviewDone && reviewItems[currentIndex] && (
+          <div className="space-y-4">
+            <BackButton onClick={() => selectTab('home')} label="Home" />
+            <Flashcard
+              card={reviewItems[currentIndex].card}
+              direction={reviewItems[currentIndex].direction}
+              onRate={handleRate}
+              progress={{ current: currentIndex + 1, total: reviewItems.length }}
+            />
+          </div>
+        )}
+
+        {reviewDone && (
+          <ReviewComplete reviewed={reviewItems.length} onDone={() => selectTab('home')} />
+        )}
 
         {view === 'learnCards' && (
           <LearningMode

@@ -1,15 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <!-- Wazn (وزن) — "the measure/weight of a word".
-       A balance scale: the mizan by which an Arabic word is weighed against
-       its pattern. Kept geometric rather than calligraphic so it stays legible
-       at favicon size and to learners who can't yet read Arabic script. -->
-  <rect width="32" height="32" rx="7" fill="#C2622A"/>
-  <g stroke="#FDF8F2" stroke-linecap="round" stroke-linejoin="round" fill="none">
-    <path d="M16 8.5v15" stroke-width="2.1"/>
-    <path d="M7 12h18" stroke-width="2.1"/>
-    <path d="M11.5 24.5h9" stroke-width="2.1"/>
-    <path d="M4.5 12l2.6 5.2a3.2 3.2 0 0 0 5.8 0L15.5 12" stroke-width="1.6" opacity=".8"/>
-    <path d="M16.5 12l2.6 5.2a3.2 3.2 0 0 0 5.8 0L27.5 12" stroke-width="1.6" opacity=".8"/>
-    <circle cx="16" cy="8.5" r="1.6" fill="#FDF8F2" stroke="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+  <!-- Wazn (وزن) — the balance by which a word is weighed against its pattern.
+       Geometric rather than calligraphic so it stays legible at 16px and to
+       readers who cannot yet read Arabic script. -->
+  <rect width="40" height="40" rx="9" fill="#1B4F63"/>
+  <g stroke="#F2F7F8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M20 9v21" stroke-width="2.4"/>
+    <path d="M7 13.5h26" stroke-width="2.4"/>
+    <path d="M13.5 30.5h13" stroke-width="2.4"/>
+    <path d="M3.5 13.9l3.3 6.6a4.1 4.1 0 0 0 7 0l3.2-6.6" stroke-width="1.9"/>
+    <path d="M23 13.9l3.3 6.6a4.1 4.1 0 0 0 7 0l3.2-6.6" stroke-width="1.9"/>
   </g>
+  <circle cx="20" cy="7.2" r="2.1" fill="#F2F7F8"/>
 </svg>

@@ -1,7 +1,8 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import { ChevronLeft, ChevronRight, BookOpen, Newspaper } from 'lucide-react';
+import { ChevronRight, BookOpen } from 'lucide-react';
 import { useBibleBooks } from '@/hooks/useBibleBooks';
 import LibraryHome, { type LibraryDestination } from '@/components/LibraryHome';
+import BackButton from '@/components/BackButton';
 import ChapterReader from '@/components/library/ChapterReader';
 import ArabicInTheWild from '@/components/ArabicInTheWild';
 import type { BibleBook } from '@/lib/bible-types';
@@ -147,8 +148,10 @@ const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
 
     return (
       <div className="space-y-4">
-        <Crumb label={testament === 'ot' ? 'Old Testament' : 'New Testament'}
-               onBack={() => setLevel({ kind: 'books', testament })} />
+        <BackButton
+          label={testament === 'ot' ? 'Old Testament' : 'New Testament'}
+          onClick={() => setLevel({ kind: 'books', testament })}
+        />
         <h1 className="text-2xl font-bold text-foreground">{book.name}</h1>
         <p className="text-sm text-muted-foreground">{book.chapters} chapters</p>
         <div className="grid grid-cols-6 gap-2">
@@ -171,7 +174,7 @@ const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
     const list = level.testament === 'ot' ? books.slice(0, OT_COUNT) : books.slice(OT_COUNT);
     return (
       <div className="space-y-4">
-        <Crumb label="The Bible" onBack={() => setLevel({ kind: 'sections' })} />
+        <BackButton label="The Bible" onClick={() => setLevel({ kind: 'sections' })} />
         <h1 className="text-2xl font-bold text-foreground">
           {level.testament === 'ot' ? 'Old Testament' : 'New Testament'}
         </h1>
@@ -198,7 +201,7 @@ const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
   if (level.kind === 'sections') {
     return (
       <div className="space-y-4">
-        <Crumb label="Library" onBack={() => setLevel({ kind: 'home' })} />
+        <BackButton label="Library" onClick={() => setLevel({ kind: 'home' })} />
         <h1 className="text-2xl font-bold text-foreground">The Bible</h1>
         <p className="text-sm text-muted-foreground">
           Smith &amp; Van Dyke (1865), fully vowelled, with the King James Version alongside.
@@ -246,15 +249,5 @@ const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
     />
   );
 };
-
-const Crumb = ({ label, onBack }: { label: string; onBack: () => void }) => (
-  <button
-    onClick={onBack}
-    className="flex items-center gap-1 -ms-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
-  >
-    <ChevronLeft className="w-4 h-4" />
-    {label}
-  </button>
-);
 
 export default Library;
