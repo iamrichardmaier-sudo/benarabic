@@ -61,6 +61,62 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  /* Dark palette. Tailwind was already configured with darkMode:["class"] but
+     no dark tokens existed, so the class did nothing. Kept in the same warm
+     family as the light theme rather than a neutral grey, so the app still
+     reads as the same product at night — and deliberately not pure black,
+     which makes long Arabic text at low contrast harder to read. */
+  .dark {
+    --background: 24 12% 10%;
+    --foreground: 36 20% 92%;
+
+    --card: 24 10% 14%;
+    --card-foreground: 36 20% 92%;
+
+    --popover: 24 10% 14%;
+    --popover-foreground: 36 20% 92%;
+
+    --primary: 24 75% 58%;
+    --primary-foreground: 24 15% 10%;
+
+    --secondary: 24 8% 20%;
+    --secondary-foreground: 36 18% 88%;
+
+    --muted: 24 8% 18%;
+    --muted-foreground: 36 8% 62%;
+
+    --accent: 24 10% 22%;
+    --accent-foreground: 36 18% 90%;
+
+    --destructive: 0 62% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 30 75% 56%;
+    --warning-foreground: 24 15% 10%;
+
+    --success: 145 45% 48%;
+    --success-foreground: 24 15% 10%;
+
+    --info: 210 60% 58%;
+    --info-foreground: 24 15% 10%;
+
+    --border: 24 10% 24%;
+    --input: 24 10% 24%;
+    --ring: 24 75% 58%;
+
+    --card-shadow: 0 2px 8px -2px hsl(0 0% 0% / 0.5), 0 6px 20px -4px hsl(0 0% 0% / 0.4);
+    --card-shadow-hover: 0 4px 12px -2px hsl(0 0% 0% / 0.6), 0 8px 28px -4px hsl(0 0% 0% / 0.5);
+
+    --sidebar-background: 24 10% 12%;
+    --sidebar-foreground: 36 18% 88%;
+    --sidebar-primary: 24 75% 58%;
+    --sidebar-primary-foreground: 24 15% 10%;
+    --sidebar-accent: 24 8% 20%;
+    --sidebar-accent-foreground: 36 18% 88%;
+    --sidebar-border: 24 10% 24%;
+    --sidebar-ring: 24 75% 58%;
+  }
 }
 
 @layer base {

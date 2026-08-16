@@ -10,7 +10,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "//typecheck": "The root tsconfig is a project-references stub with files:[], so bare `tsc --noEmit` silently checks nothing and always exits 0. Point at the app project explicitly.",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",

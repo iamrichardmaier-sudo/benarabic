@@ -33,7 +33,7 @@ vi.mock('@/hooks/useBibleWordTags', () => ({
   useBibleWordTags: () => new Map(),
 }));
 
-const audioMock = vi.fn(() => null as string | null);
+const audioMock = vi.fn((_book?: string | null, _chapter?: number | null) => null as string | null);
 vi.mock('@/hooks/useBibleAudio', () => ({
   useBibleAudio: (book: string | null, chapter: number | null) => audioMock(book, chapter),
 }));

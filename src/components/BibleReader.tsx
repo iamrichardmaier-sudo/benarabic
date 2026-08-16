@@ -86,7 +86,12 @@ function writeStored(key: string, value: string): void {
   }
 }
 
-const BibleReader = () => {
+interface BibleReaderProps {
+  /** Omitted when the reader is a top-level screen with nowhere to go back to. */
+  onBack?: () => void;
+}
+
+const BibleReader = ({ onBack }: BibleReaderProps) => {
   const { books, loading: booksLoading, error: booksError } = useBibleBooks();
 
   const [bookCode, setBookCode] = useState<string | null>(() => readStored(BOOK_KEY));
@@ -218,6 +223,15 @@ const BibleReader = () => {
 
   return (
     <div className="space-y-4" ref={scrollRef}>
+      {onBack && (
+        <button
+          onClick={onBack}
+          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <ChevronLeft className="w-4 h-4" />
+          Library
+        </button>
+      )}
       <div className="flex items-start justify-between gap-2">
         <div className="space-y-1">
           <h2 className="text-xl font-bold text-foreground">Bible</h2>
