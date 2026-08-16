@@ -12,7 +12,12 @@ import PrepositionDrill from '@/components/PrepositionDrill';
 import MemorizeTranscript from '@/components/MemorizeTranscript';
 import BibleReader from '@/components/BibleReader';
 import ArabicInTheWild from '@/components/ArabicInTheWild';
+import HomeDashboard from '@/components/HomeDashboard';
+import LearnHub, { type LearnDestination } from '@/components/LearnHub';
+import LibraryHome, { type LibraryDestination } from '@/components/LibraryHome';
+import SettingsScreen from '@/components/SettingsScreen';
 import BottomNav, { type Tab } from '@/components/BottomNav';
+import { recordStudyDay } from '@/lib/streak';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
@@ -23,7 +28,12 @@ import GroupFilter from '@/components/GroupFilter';
 import type { TaggedImportEntry } from '@/lib/import-tagged';
 import { useToast } from '@/hooks/use-toast';
 
-type View = 'home' | 'add' | 'review' | 'deck' | 'learn' | 'grammarHome' | 'conjugationDrill' | 'prepositionDrill' | 'memorize' | 'bible' | 'wild';
+/** A tab's root screen, plus every screen reachable beneath it. */
+type View =
+  | 'home' | 'learnHub' | 'library' | 'settings'
+  | 'add' | 'review' | 'deck' | 'learnCards'
+  | 'conjugationDrill' | 'prepositionDrill' | 'memorize'
+  | 'bible' | 'wild';
 
 const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
@@ -46,7 +56,7 @@ function errorReason(err: unknown): string {
 const Index = () => {
   const { cards, loading, addCards, updateCard, deleteCard, refetch, online, pendingCount } = useFlashcards();
   const { signOut, user } = useAuth();
-  const [tab, setTab] = useState<Tab>('wordMastery');
+  const [tab, setTab] = useState<Tab>('home');
   const [view, setView] = useState<View>('home');
   const [reviewItems, setReviewItems] = useState<{ card: FlashCard; direction: ReviewDirection }[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -176,21 +186,48 @@ const Index = () => {
   };
 
   const TAB_HOME_VIEW: Record<Tab, View> = {
-    wordMastery: 'home',
-    grammar: 'grammarHome',
-    memorization: 'memorize',
-    bible: 'bible',
-    wild: 'wild',
+    home: 'home',
+    learn: 'learnHub',
+    library: 'library',
+    review: 'review',
+    settings: 'settings',
   };
 
+  /** Tapping a tab always returns to that section's root, including the tab
+   *  you are already on — the standard "tap again to go back up" shortcut. */
   const selectTab = (next: Tab) => {
     setTab(next);
+    if (next === 'review') return startReview();
     setView(TAB_HOME_VIEW[next]);
   };
 
   const goToDeck = () => {
-    setTab('wordMastery');
+    setTab('settings');
     setView('deck');
+  };
+
+  const openLearnDestination = (destination: LearnDestination) => {
+    switch (destination) {
+      case 'learn': return setView('learnCards');
+      case 'review': return startReview();
+      case 'relearn': return setShowRelearnModal(true);
+      default: return setView(destination as View);
+    }
+  };
+
+  const openLibraryDestination = (destination: LibraryDestination) => {
+    setView(destination);
+  };
+
+  const continueReading = (bookCode: string, chapter: number) => {
+    try {
+      localStorage.setItem('arabic-flashcards-bible-book', bookCode);
+      localStorage.setItem('arabic-flashcards-bible-chapter', String(chapter));
+    } catch {
+      /* the reader falls back to its own stored position */
+    }
+    setTab('library');
+    setView('bible');
   };
 
   const chooseGroup = (group: string | null) => {
@@ -238,6 +275,8 @@ const Index = () => {
       easeFactor: reviewed.easeFactor,
       nextReviewDate: reviewed.nextReviewDate,
     });
+    // Grading a card is a genuine study action, so it counts toward the streak.
+    recordStudyDay(user?.id);
     setCurrentIndex((i) => i + 1);
   };
 
@@ -263,7 +302,8 @@ const Index = () => {
     }
     setShowRelearnModal(false);
     toast({ title: `Reset ${cardIds.length} card${cardIds.length !== 1 ? 's' : ''} for relearning` });
-    setView('learn');
+    setTab('learn');
+    setView('learnCards');
   };
 
   const dueCount = getDueCards(studyCards).length;
@@ -282,9 +322,10 @@ const Index = () => {
     <div className="min-h-screen bg-background flex flex-col">
       <header className="border-b border-border/60 bg-card/50 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-lg mx-auto px-4 py-4 flex items-center justify-between">
-          <button onClick={() => selectTab('wordMastery')} className="flex items-center gap-2 text-foreground">
+          <button onClick={() => selectTab('home')} className="flex items-center gap-2 text-foreground">
             <BookOpen className="w-5 h-5 text-primary" />
-            <span className="font-bold text-lg">بطاقات</span>
+            <span className="font-bold text-lg">Wazn</span>
+            <span className="font-arabic text-lg text-muted-foreground" dir="rtl">وزن</span>
           </button>
           <div className="flex items-center gap-3">
             {(!online || pendingCount > 0) && (
@@ -307,16 +348,10 @@ const Index = () => {
               <Layers className="w-4 h-4" />
               <span>{cards.length} words</span>
             </button>
-            <button
-              onClick={signOut}
-              className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-              title={user?.email ? `Signed in as ${user.email} — sign out` : 'Sign out'}
-            >
-              <LogOut className="w-4 h-4" />
-            </button>
           </div>
         </div>
-        {tab !== 'memorization' && tab !== 'bible' && tab !== 'wild' && groups.length > 0 && (
+        {/* The group filter narrows study, so it only belongs on study screens. */}
+        {tab === 'learn' && view !== 'memorize' && groups.length > 0 && (
           <div className="max-w-lg mx-auto px-4 pb-3">
             <GroupFilter
               groups={groups}
@@ -332,9 +367,9 @@ const Index = () => {
 
       <main className="flex-1 max-w-lg mx-auto w-full px-4 pt-8 pb-28">
         {view === 'home' && (
-          <div className="space-y-8">
+          <>
             {cards.length === 0 && user?.email && (
-              <div className="rounded-xl border border-border/60 bg-muted/50 p-4 text-sm text-muted-foreground space-y-1">
+              <div className="rounded-xl border border-border/60 bg-muted/50 p-4 mb-5 text-sm text-muted-foreground space-y-1">
                 <p className="text-foreground font-medium">This account has no cards yet.</p>
                 <p>
                   You're signed in as <span className="text-foreground">{user.email}</span>. If your
@@ -342,68 +377,44 @@ const Index = () => {
                 </p>
               </div>
             )}
+            <HomeDashboard
+              userId={user?.id}
+              dueCount={dueCount}
+              learnCount={learnCount}
+              deckSize={cards.length}
+              onReview={startReview}
+              onLearn={() => { setTab('learn'); setView('learnCards'); }}
+              onAddWords={() => { setTab('learn'); setView('add'); }}
+              onContinueReading={continueReading}
+              onBrowseLibrary={() => selectTab('library')}
+            />
+          </>
+        )}
 
-            <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-2xl bg-card flashcard-shadow p-5 text-center space-y-1">
-                <p className="text-3xl font-bold text-foreground">{learnCount}</p>
-                <p className="text-sm text-muted-foreground">words to learn</p>
-              </div>
-              <div className="rounded-2xl bg-card flashcard-shadow p-5 text-center space-y-1">
-                <p className="text-3xl font-bold text-foreground">{dueCount}</p>
-                <p className="text-sm text-muted-foreground">words to review</p>
-              </div>
-            </div>
+        {view === 'learnHub' && (
+          <LearnHub
+            dueCount={dueCount}
+            learnCount={learnCount}
+            deckSize={cards.length}
+            onSelect={openLearnDestination}
+          />
+        )}
 
-            <div className="grid grid-cols-2 gap-3">
-              <button
-                onClick={() => setView('learn')}
-                disabled={learnCount === 0}
-                className="flex flex-col items-center gap-2 rounded-xl bg-success text-success-foreground py-5 font-semibold transition-all active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
-              >
-                <GraduationCap className="w-5 h-5" />
-                Learn New Words
-              </button>
-              <button
-                onClick={startReview}
-                disabled={dueCount === 0}
-                className="flex flex-col items-center gap-2 rounded-xl bg-primary text-primary-foreground py-5 font-semibold transition-all active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
-              >
-                <BookOpen className="w-5 h-5" />
-                Review Cards
-              </button>
-              <button
-                onClick={() => setView('add')}
-                className="flex flex-col items-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-5 font-semibold transition-all active:scale-95"
-              >
-                <Plus className="w-5 h-5" />
-                Add Words
-              </button>
-              <button
-                onClick={() => setShowRelearnModal(true)}
-                disabled={cards.length === 0}
-                className="flex flex-col items-center gap-2 rounded-xl bg-accent text-accent-foreground py-5 font-semibold transition-all active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
-              >
-                <RefreshCw className="w-5 h-5" />
-                Relearn Cards
-              </button>
-            </div>
+        {view === 'library' && (
+          <LibraryHome onSelect={openLibraryDestination} />
+        )}
 
-            <button
-              onClick={() => setView('deck')}
-              className="w-full flex items-center justify-center gap-2 rounded-xl bg-secondary text-secondary-foreground py-4 font-semibold transition-all active:scale-95"
-            >
-              <List className="w-5 h-5" />
-              My Deck
-            </button>
-          </div>
+        {view === 'settings' && (
+          <SettingsScreen
+            email={user?.email}
+            deckSize={cards.length}
+            onSignOut={signOut}
+            onOpenDeck={() => setView('deck')}
+          />
         )}
 
         {view === 'add' && (
           <AddWords onAdd={handleAddWords} onImport={handleImportTagged} isLoading={isLoading} chapters={groups} />
-        )}
-
-        {view === 'grammarHome' && (
-          <GrammarHome onSelect={(destination) => setView(destination)} />
         )}
 
         {view === 'review' && !reviewDone && reviewItems[currentIndex] && (
@@ -416,12 +427,12 @@ const Index = () => {
 
         {reviewDone && <ReviewComplete />}
 
-        {view === 'learn' && (
+        {view === 'learnCards' && (
           <LearningMode
             cards={getLearnableCards(studyCards)}
             allCards={cards}
             onUpdateCard={(id, updates) => handleUpdateCard(id, updates)}
-            onBack={() => setView('home')}
+            onBack={() => setView('learnHub')}
           />
         )}
 
@@ -430,23 +441,23 @@ const Index = () => {
             cards={cards}
             onDelete={handleDelete}
             onUpdateCard={handleUpdateCard}
-            onBack={() => setView('home')}
+            onBack={() => setView(tab === 'settings' ? 'settings' : 'learnHub')}
           />
         )}
 
         {view === 'conjugationDrill' && (
-          <ConjugationDrill cards={studyCards} onBack={() => setView('grammarHome')} />
+          <ConjugationDrill cards={studyCards} onBack={() => setView('learnHub')} />
         )}
 
         {view === 'prepositionDrill' && (
-          <PrepositionDrill cards={studyCards} onBack={() => setView('grammarHome')} />
+          <PrepositionDrill cards={studyCards} onBack={() => setView('learnHub')} />
         )}
 
-        {view === 'memorize' && <MemorizeTranscript />}
+        {view === 'memorize' && <MemorizeTranscript onBack={() => setView('learnHub')} />}
 
-        {view === 'bible' && <BibleReader />}
+        {view === 'bible' && <BibleReader onBack={() => setView('library')} />}
 
-        {view === 'wild' && <ArabicInTheWild />}
+        {view === 'wild' && <ArabicInTheWild onBack={() => setView('library')} />}
       </main>
 
       {showRelearnModal && (
@@ -457,7 +468,7 @@ const Index = () => {
         />
       )}
 
-      <BottomNav active={tab} onSelect={selectTab} />
+      <BottomNav active={tab} onSelect={selectTab} dueCount={dueCount} />
     </div>
   );
 };

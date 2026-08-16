@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link2, FileText, Loader2, X } from 'lucide-react';
+import { Link2, FileText, Loader2, X, ChevronLeft } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { useWordSkeletonIndex } from '@/hooks/useWordSkeletonIndex';
 import { tokenize } from '@/lib/transcript-mask';
@@ -26,7 +26,12 @@ interface FetchedArticle {
   content: string;
 }
 
-const ArabicInTheWild = () => {
+interface ArabicInTheWildProps {
+  /** Omitted when this is a top-level screen with nowhere to go back to. */
+  onBack?: () => void;
+}
+
+const ArabicInTheWild = ({ onBack }: ArabicInTheWildProps) => {
   const { lookup } = useWordSkeletonIndex();
   const [url, setUrl] = useState('');
   const [fetching, setFetching] = useState(false);
@@ -105,6 +110,15 @@ const ArabicInTheWild = () => {
 
   return (
     <div className="space-y-4">
+      {onBack && (
+        <button
+          onClick={onBack}
+          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <ChevronLeft className="w-4 h-4" />
+          Library
+        </button>
+      )}
       <div className="space-y-1">
         <h2 className="text-xl font-bold text-foreground">Arabic in the Wild</h2>
         <p className="text-sm text-muted-foreground">
