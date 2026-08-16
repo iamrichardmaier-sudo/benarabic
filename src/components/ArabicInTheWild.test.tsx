@@ -87,7 +87,7 @@ describe('ArabicInTheWild', () => {
     await user.click(screen.getByRole('button', { name: 'Show with translations' }));
     expect(screen.queryByRole('button', { name: 'Show with translations' })).not.toBeInTheDocument();
 
-    await user.click(screen.getByRole('button', { name: 'Close' }));
+    await user.click(screen.getByRole('button', { name: /Back to Edit text/ }));
     expect(screen.getByRole('button', { name: 'Show with translations' })).toBeInTheDocument();
   });
 });

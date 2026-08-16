@@ -89,10 +89,10 @@ describe('Library drill-down', () => {
     render(<Library />);
     await openGenesis1(user);
 
-    await user.click(screen.getByRole('button', { name: /Back to chapter list/ }));
+    await user.click(screen.getByRole('button', { name: /Back to Chapters/ }));
     expect(screen.getByRole('heading', { name: 'Genesis' })).toBeInTheDocument();
 
-    await user.click(screen.getByRole('button', { name: /Old Testament/ }));
+    await user.click(screen.getByRole('button', { name: /Back to Old Testament/ }));
     expect(screen.getByRole('heading', { name: 'Old Testament' })).toBeInTheDocument();
   });
 
