@@ -4,6 +4,7 @@ import { RotateCcw } from 'lucide-react';
 import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import WordInfoPopover from '@/components/WordInfoPopover';
 import WordForms from '@/components/WordForms';
+import SwipeToGrade from '@/components/SwipeToGrade';
 
 export type ReviewDirection = 'ar-to-en' | 'en-to-ar';
 
@@ -11,6 +12,8 @@ interface FlashcardProps {
   card: FlashCard;
   direction?: ReviewDirection;
   onRate: (rating: Rating) => void;
+  /** Position in the current session, for the progress indicator. */
+  progress?: { current: number; total: number };
 }
 
 const ratingButtons: { rating: Rating; label: string; colorClass: string }[] = [
@@ -20,7 +23,7 @@ const ratingButtons: { rating: Rating; label: string; colorClass: string }[] = [
   { rating: 'easy', label: 'Easy', colorClass: 'bg-info hover:bg-info/90 text-info-foreground' },
 ];
 
-const Flashcard = ({ card, direction = 'ar-to-en', onRate }: FlashcardProps) => {
+const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress }: FlashcardProps) => {
   const [flipped, setFlipped] = useState(false);
   const prevFlipped = useRef(false);
 
@@ -123,24 +126,52 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate }: FlashcardProps) => 
 
   return (
     <div className="w-full max-w-md mx-auto space-y-6">
-      <button
-        onClick={() => setFlipped(!flipped)}
-        className="w-full min-h-[320px] rounded-2xl bg-card flashcard-shadow hover:flashcard-shadow-hover transition-all duration-300 flex flex-col items-center justify-center p-8 cursor-pointer border border-border/50 active:scale-[0.98]"
-      >
-        {!flipped ? renderFront() : renderBack()}
-      </button>
+      {progress && progress.total > 0 && (
+        <div className="space-y-1.5">
+          <div
+            className="h-1.5 rounded-full bg-muted overflow-hidden"
+            role="progressbar"
+            aria-valuenow={progress.current}
+            aria-valuemin={0}
+            aria-valuemax={progress.total}
+            aria-label="Session progress"
+          >
+            <div
+              className="h-full bg-primary transition-all duration-300"
+              style={{ width: `${(progress.current / progress.total) * 100}%` }}
+            />
+          </div>
+          <p className="text-xs text-muted-foreground text-center tabular-nums">
+            {progress.current} of {progress.total}
+          </p>
+        </div>
+      )}
+
+      <SwipeToGrade onGrade={handleRate} enabled={flipped}>
+        <button
+          onClick={() => setFlipped(!flipped)}
+          className="w-full min-h-[320px] rounded-2xl bg-card flashcard-shadow hover:flashcard-shadow-hover transition-all duration-300 flex flex-col items-center justify-center p-8 cursor-pointer border border-border/50 active:scale-[0.98]"
+        >
+          {!flipped ? renderFront() : renderBack()}
+        </button>
+      </SwipeToGrade>
 
       {flipped && (
-        <div className="grid grid-cols-4 gap-2">
-          {ratingButtons.map(({ rating, label, colorClass }) => (
-            <button
-              key={rating}
-              onClick={() => handleRate(rating)}
-              className={`py-3 px-2 rounded-xl font-semibold text-sm transition-all duration-150 active:scale-95 ${colorClass}`}
-            >
-              {label}
-            </button>
-          ))}
+        <div className="space-y-2">
+          <div className="grid grid-cols-4 gap-2">
+            {ratingButtons.map(({ rating, label, colorClass }) => (
+              <button
+                key={rating}
+                onClick={() => handleRate(rating)}
+                className={`py-3 px-2 rounded-xl font-semibold text-sm transition-all duration-150 active:scale-95 ${colorClass}`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <p className="text-[11px] text-muted-foreground text-center">
+            Or swipe the card — left to repeat, right for good, up for easy, down for hard.
+          </p>
         </div>
       )}
     </div>
