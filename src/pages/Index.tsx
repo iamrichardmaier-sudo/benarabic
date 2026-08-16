@@ -253,8 +253,14 @@ const Index = () => {
   /** What the study modes work from. The Deck view still lists everything. */
   const studyCards = effectiveGroup ? cards.filter((c) => c.group === effectiveGroup) : cards;
 
+  /**
+   * Review is deliberately global: the spaced-repetition schedule is a promise
+   * about the whole deck, so a card falling due must not be hidden just because
+   * a chapter filter happens to be set. Learning new words still respects the
+   * filter — that is a choice about what to study next, not a debt already owed.
+   */
   const startReview = () => {
-    const due = getDueCards(studyCards);
+    const due = getDueCards(cards);
     const items: { card: FlashCard; direction: ReviewDirection }[] = [];
     for (const card of due) {
       items.push({ card, direction: 'ar-to-en' });
@@ -308,7 +314,9 @@ const Index = () => {
     setView('learnCards');
   };
 
-  const dueCount = getDueCards(studyCards).length;
+  // Due count is global, matching the global review queue — a badge that
+  // disagreed with the session it launches would be worse than no badge.
+  const dueCount = getDueCards(cards).length;
   const learnCount = getLearnableCards(studyCards).length;
   const reviewDone = view === 'review' && currentIndex >= reviewItems.length;
 
@@ -424,6 +432,7 @@ const Index = () => {
             card={reviewItems[currentIndex].card}
             direction={reviewItems[currentIndex].direction}
             onRate={handleRate}
+            progress={{ current: currentIndex + 1, total: reviewItems.length }}
           />
         )}
 
