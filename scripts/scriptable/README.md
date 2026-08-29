@@ -50,6 +50,7 @@ One tap from the home screen into a real session is as close as iOS currently al
 - **Tap the right third** — *Easy* (longest interval).
 - Before the card is flipped, tapping anywhere flips it — you can't grade an answer you
   haven't seen.
+- **Tap the WAZN logo** at the top — opens the web app in Safari.
 - **Swipe down** to finish. Everything graded up to that point is saved, so a session you
   abandon halfway still counts.
 
@@ -57,6 +58,21 @@ One tap from the home screen into a real session is as close as iOS currently al
 phone-sized session fast. Use the web app when you want the full four-way rating.
 
 ## How it stays in sync with the web app
+
+There is no second copy of the data. The script reads and writes the **same Supabase
+`flashcards` rows the website uses**, as the same signed-in user, so sync is not something
+it maintains — it is just where the data lives. A card graded on the phone is already
+graded for the browser, and vice versa.
+
+Each grade is sent the moment it's made, not held until the session ends. The page can't
+call into Scriptable directly, so it navigates to a `wazn://grade?...` URL that the native
+side intercepts and blocks; after dismissal a reconciling pass re-sends anything that
+didn't get through, which is safe because each schedule is computed from the card as it was
+fetched rather than from its stored value.
+
+**The home-screen widget is the one part that can lag.** iOS decides when a widget
+refreshes — a few minutes is normal — so the due count on the home screen may trail the
+database briefly after a session. Nothing the script does can force it sooner.
 
 Scheduling is a direct port of `reviewCard()` in `src/lib/spaced-repetition.ts` — the same
 SM-2 interval and ease maths, the same 1.3–2.5 ease clamp, the same local-calendar-day
