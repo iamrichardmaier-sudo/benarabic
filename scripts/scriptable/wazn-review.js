@@ -40,11 +40,11 @@ const SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwaHBjZmVjZ25mb29nZmFlaWh1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQzNzY2NjAsImV4cCI6MjA5OTk1MjY2MH0.2OXlbp8EuQpgv0Mnk5Ps3XbL16-vI8vDDRTWi4yYOk4";
 
 // Pre-fills the email box on first run so only the password has to be typed.
-// Left blank in the repo on purpose: this repository is public, and a personal
-// address committed here would be scraped from the file and from git history
-// forever. Fill it in on your own copy in Scriptable instead — that copy lives
-// on your device and is never pushed anywhere.
-const DEFAULT_EMAIL = "";
+// Note this repository is public, so this address is visible in the file and in
+// git history. The password is deliberately NOT here — the Keychain holds it
+// after the first run, and a credential in a script is one screenshot away from
+// being shared.
+const DEFAULT_EMAIL = "rbm66@byu.edu";
 
 const KEY_EMAIL = "wazn.email";
 const KEY_PASSWORD = "wazn.password";
