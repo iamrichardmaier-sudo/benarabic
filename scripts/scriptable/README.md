@@ -24,18 +24,20 @@ One tap from the home screen into a real session is as close as iOS currently al
 3. **Run it once.** It asks for your Wazn email and password and stores them in the iOS
    **Keychain** on that device. They are not written into the script or to any file.
 
-   To save typing your address every time you re-paste the script, set `DEFAULT_EMAIL`
-   near the top of *your* copy in Scriptable:
+   `DEFAULT_EMAIL` near the top pre-fills the address so only the password has to be
+   typed. Change it if you sign in with a different account:
 
    ```js
    const DEFAULT_EMAIL = "you@example.com";
    ```
 
-   It is left blank in this repository on purpose — **this repo is public**, so an address
-   committed here would be scraped from the file and from git history permanently. Your
-   Scriptable copy lives on your device and is never pushed anywhere, which is the right
-   place for it. Never put the password in the file: after the first run the Keychain
-   already has it, and a password in a script is one screenshot away from being shared.
+   Note that **this repository is public**, so whatever address is set there is visible in
+   the file and in git history. If you would rather it weren't, either blank it out here and
+   set it only in your Scriptable copy on the device, or make the repository private.
+
+   **Never put the password in the file.** After the first run the Keychain already holds
+   it, and a credential sitting in a script is one screenshot or screen-share away from
+   being exposed.
 4. Long-press the home screen → **+** → **Scriptable** → pick a size.
 5. Long-press the placed widget → **Edit Widget**:
    - **Script** → *Wazn Review*
