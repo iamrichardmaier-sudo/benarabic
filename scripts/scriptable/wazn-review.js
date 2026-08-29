@@ -46,6 +46,10 @@ const SUPABASE_ANON_KEY =
 // being shared.
 const DEFAULT_EMAIL = "rbm66@byu.edu";
 
+// The live site, opened by the logo button at the top of the review screen.
+// Update this when the custom domain is pointed at the app.
+const SITE_URL = "https://iamrichardmaier-sudo.github.io/benarabic/";
+
 const KEY_EMAIL = "wazn.email";
 const KEY_PASSWORD = "wazn.password";
 const CACHE_FILE = "wazn-widget-cache.json";
@@ -289,11 +293,15 @@ function reviewHTML(cards) {
     background:${CREAM}; color:${INK};
     font-family:-apple-system,system-ui,sans-serif; user-select:none; }
   #app { height:100%; display:flex; flex-direction:column; }
-  header { display:flex; align-items:center; gap:10px; padding:14px 16px 6px; }
+  header { display:flex; align-items:center; gap:10px; padding:12px 16px 2px; }
+  #quitline { text-align:center; padding-bottom:4px; }
   #bar { flex:1; height:5px; border-radius:3px; background:rgba(0,0,0,.09); overflow:hidden; }
   #fill { height:100%; width:0%; background:${BRAND}; transition:width .25s ease; }
   #count { font-size:12px; opacity:.55; font-variant-numeric:tabular-nums; }
-  #quit { font-size:13px; color:${BRAND}; font-weight:600; padding:4px 2px; }
+  #quit { font-size:11px; opacity:.45; }
+  #logo { display:flex; align-items:center; gap:6px; padding:4px 8px 4px 2px;
+          font-size:13px; font-weight:800; letter-spacing:.06em; color:${BRAND}; }
+  #logo svg { width:19px; height:19px; }
   main { flex:1; position:relative; display:flex; align-items:center;
          justify-content:center; padding:16px 22px; text-align:center; }
   .ar { font-size:56px; font-weight:700; direction:rtl; line-height:1.35; }
@@ -324,10 +332,21 @@ function reviewHTML(cards) {
 <body>
 <div id="app">
   <header>
-    <span id="quit">Swipe down to save</span>
+    <span id="logo" data-nav="site" title="Open Wazn">
+      <svg viewBox="0 0 40 40" fill="none" stroke="currentColor"
+           stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="20" cy="6.5" r="2.1" fill="currentColor" stroke="none"/>
+        <path d="M20 8.5v22" stroke-width="2.4"/>
+        <path d="M7 13h26" stroke-width="2.4"/>
+        <path d="M13.5 31h13" stroke-width="2.4"/>
+        <path d="M3 13.4l3.4 6.8a4.2 4.2 0 0 0 7.2 0L17 13.4" stroke-width="1.9"/>
+        <path d="M23 13.4l3.4 6.8a4.2 4.2 0 0 0 7.2 0L37 13.4" stroke-width="1.9"/>
+      </svg>WAZN
+    </span>
     <div id="bar"><div id="fill"></div></div>
     <span id="count"></span>
   </header>
+  <div id="quitline"><span id="quit">Swipe down when you\u2019re done</span></div>
   <main>
     <div id="card"></div>
     <div id="tip">Tap to flip</div>
@@ -387,10 +406,24 @@ function flip() {
 
 function grade(rating) {
   if (!flipped || !CARDS[i]) return;
-  results.push({ id: CARDS[i].id, rating: rating });
+  const id = CARDS[i].id;
+  results.push({ id: id, rating: rating });
+  // Hand the grade to Scriptable straight away so it reaches the database
+  // while the session is still open, rather than only on the way out.
+  ping('grade?id=' + encodeURIComponent(id) + '&rating=' + rating);
   flash(rating === 'easy' ? 'Easy' : 'Again', rating === 'easy' ? '#2E7D52' : '#C0392B');
   i++;
   setTimeout(render, 170);
+}
+
+/** Fires a wazn:// request that the native side intercepts and blocks. Sent
+ *  from a hidden iframe so the page itself never attempts to navigate. */
+function ping(path) {
+  const f = document.createElement('iframe');
+  f.style.display = 'none';
+  f.src = 'wazn://' + path;
+  document.body.appendChild(f);
+  setTimeout(function () { f.remove(); }, 80);
 }
 
 function flash(text, color) {
@@ -415,6 +448,7 @@ function esc(s) {
 }
 
 document.addEventListener('click', (e) => {
+  if (e.target.closest('[data-nav="site"]')) { ping('open-site'); return; }
   const act = e.target.closest('[data-act]');
   if (!act) return;
   const a = act.dataset.act;
@@ -466,12 +500,54 @@ async function runReview() {
     return;
   }
 
+  const byId = Object.fromEntries(cards.map((c) => [c.id, c]));
+  const savedIds = new Set();
+
   const wv = new WebView();
   await wv.loadHTML(reviewHTML(cards));
 
+  // The page cannot call back into Scriptable mid-session, so it navigates to
+  // a wazn:// URL instead and this handler intercepts it. Returning false
+  // blocks the navigation, leaving the session on screen untouched.
+  //
+  // Saves here are deliberately not awaited: this callback must return a
+  // boolean synchronously, and blocking the UI on a network round-trip after
+  // every card would make grading feel sticky. Anything that fails is caught
+  // by the reconciling pass after dismissal, which re-sends whatever is still
+  // missing — so a dropped request costs nothing.
+  wv.shouldAllowRequest = (request) => {
+    const url = String((request && request.url) || "");
+    if (!url.startsWith("wazn://")) return true;
+
+    if (url.startsWith("wazn://open-site")) {
+      Safari.open(SITE_URL);
+      return false;
+    }
+
+    if (url.startsWith("wazn://grade")) {
+      const idMatch = url.match(/[?&]id=([^&]+)/);
+      const ratingMatch = url.match(/[?&]rating=([^&]+)/);
+      if (idMatch && ratingMatch) {
+        const id = decodeURIComponent(idMatch[1]);
+        const rating = decodeURIComponent(ratingMatch[1]);
+        const card = byId[id];
+        if (card && !savedIds.has(id)) {
+          savedIds.add(id);
+          saveGrade(token, id, schedule(card, rating)).catch(() => {
+            // Let the reconciling pass try again after dismissal.
+            savedIds.delete(id);
+          });
+        }
+      }
+      return false;
+    }
+
+    return false;
+  };
+
   // present() resolves when the sheet is dismissed, after which the page is
-  // still alive and can be read. Grades are collected on the way out rather
-  // than pushed as they happen, so a session abandoned halfway still saves
+  // still alive and can be read. The full list of grades is read back then as
+  // well as saved live above, so a session abandoned halfway still saves
   // everything graded up to that point — and there is no callback left
   // dangling if the user swipes down instead of reaching the end.
   await wv.present(true);
@@ -485,9 +561,9 @@ async function runReview() {
     /* nothing graded, or the page was gone — treat as an empty session */
   }
 
-  const byId = Object.fromEntries(cards.map((c) => [c.id, c]));
-  const savedIds = new Set();
-
+  // Reconcile: re-send anything the live saves did not get through. Writing
+  // the same grade twice is harmless, because the schedule is computed from
+  // the card as it was fetched, not from its current stored value.
   for (const r of graded) {
     const card = byId[r.id];
     if (!card || savedIds.has(r.id)) continue;
