@@ -39,6 +39,13 @@ const SUPABASE_URL = "https://fphpcfecgnfoogfaeihu.supabase.co";
 const SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZwaHBjZmVjZ25mb29nZmFlaWh1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQzNzY2NjAsImV4cCI6MjA5OTk1MjY2MH0.2OXlbp8EuQpgv0Mnk5Ps3XbL16-vI8vDDRTWi4yYOk4";
 
+// Pre-fills the email box on first run so only the password has to be typed.
+// Left blank in the repo on purpose: this repository is public, and a personal
+// address committed here would be scraped from the file and from git history
+// forever. Fill it in on your own copy in Scriptable instead — that copy lives
+// on your device and is never pushed anywhere.
+const DEFAULT_EMAIL = "";
+
 const KEY_EMAIL = "wazn.email";
 const KEY_PASSWORD = "wazn.password";
 const CACHE_FILE = "wazn-widget-cache.json";
@@ -104,7 +111,7 @@ async function credentials(promptIfMissing) {
   const a = new Alert();
   a.title = "Sign in to Wazn";
   a.message = "Stored in the iOS Keychain on this device only.";
-  a.addTextField("Email");
+  a.addTextField("Email", DEFAULT_EMAIL);
   a.addSecureTextField("Password");
   a.addAction("Sign in");
   a.addCancelAction("Cancel");
