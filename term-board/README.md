@@ -164,7 +164,8 @@ src/
     pdf.js            pdf.js text + scanned detection
     html.js           HTML -> text
   template/styles.css the Term Board's own CSS, reused unchanged
-scriptable/TermBoard.js
+scriptable/TermBoard.js         the widget
+scriptable/TermBoard-loader.js  optional: fetches the above at run time
 supabase/001_term_board.sql
 windows/run-daily.ps1  install-task.ps1  publish-to-repo.ps1
 test/smoke.mjs
