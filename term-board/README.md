@@ -14,20 +14,41 @@ the Google Calendar by hand.
 ## How it fits together
 
 ```
-  Lenovo, 6am                    Supabase (private, RLS)         Your phone
-  ┌───────────────┐              ┌──────────────────────┐        ┌──────────┐
-  │ Task Scheduler│─── scrape ──▶│ term_board_snapshots │◀──────│ TermBoard │
-  │  Playwright   │              │ term_board_readings  │        │  widget   │
-  │  + Chromium   │              └──────────────────────┘        └──────────┘
-  └───────────────┘                        │
-          │                                │  daily Claude routine
-          └── data/term-board.html ────────┴──▶ republishes the Term Board artifact
+  Lenovo, 6am                 GitHub Pages (public)          Your phone
+  ┌───────────────┐           ┌────────────────────┐        ┌───────────┐
+  │ Task Scheduler│── push ──▶│ public/term-board/ │──────▶ │ TermBoard │
+  │  Playwright   │           │  index.html        │ sched. │  widget   │
+  │  + Chromium   │           │  board.json        │        │           │
+  └───────────────┘           └────────────────────┘        └───────────┘
+          │                                                       ▲
+          │                   Supabase (private, RLS)             │
+          │                   ┌──────────────────────┐            │
+          └──── publish ─────▶│ term_board_snapshots │── grades ──┘
+                              │ term_board_readings  │
+                              └──────────────────────┘
 ```
 
-The artifact is regenerated rather than fetching for itself, because an Artifact
-runs under a content-security policy that blocks every outbound request. It
-cannot poll. So the scraper renders the HTML and a scheduled Claude routine
-publishes it to the same URL.
+**The split is deliberate.** GitHub Pages is the open internet, and this
+repository is public, so the hosted files carry the *schedule* only — assignment
+titles and due dates, which is syllabus information. **Grades never go there.**
+They live in Supabase behind row-level security, and the widget fetches them
+signed in as you. If you skip the sign-in, the schedule still works and the
+grades section says so.
+
+Hosting the board in the repo is also what makes the widget possible at all: a
+Claude artifact URL requires a login, so fetching one from Scriptable returns the
+app shell or a 403, never the board.
+
+Live at:
+
+- https://iamrichardmaier-sudo.github.io/benarabic/term-board/
+- https://iamrichardmaier-sudo.github.io/benarabic/term-board/board.json
+
+### If you want grades on the public page anyway
+
+`npm run web -- --publish-grades` includes them. `windows/publish-to-repo.ps1`
+will refuse to push that to the public repo unless you do it by hand — the check
+is there because a gradebook on an indexable URL is hard to take back.
 
 ## Setup
 
@@ -52,8 +73,10 @@ powershell -ExecutionPolicy Bypass -File windows\install-task.ps1
 | `npm run dry-run` | The same, without touching Supabase. |
 | `npm run calibrate` | Dumps Learning Suite's real markup to `calibration/`. See below. |
 | `npm run render` | Rebuilds the board HTML from the last snapshot. |
+| `npm run web` | Writes the hosted board into `../public/term-board`. |
 | `npm run doctor` | Checks the setup without touching Learning Suite. |
 | `node test/smoke.mjs` | Tests the date parsing, payload building and rendering. |
+| `node test/widget-logic.mjs` | Tests the widget's date bucketing and grade merge. |
 
 ## The selectors need one calibration pass
 
@@ -116,6 +139,7 @@ src/
   scrape.js           orchestrates one full pass
   normalize.js        raw scrape -> snapshot + readings
   render.js           snapshot -> Term Board HTML
+  publish-web.js      snapshot -> public/term-board (grades withheld)
   supabase.js         publish / fetch
   dates.js            Learning Suite dates -> ISO with the right Mountain offset
   credentials.js      DPAPI storage
@@ -130,6 +154,6 @@ src/
   template/styles.css the Term Board's own CSS, reused unchanged
 scriptable/TermBoard.js
 supabase/001_term_board.sql
-windows/run-daily.ps1  install-task.ps1
+windows/run-daily.ps1  install-task.ps1  publish-to-repo.ps1
 test/smoke.mjs
 ```
