@@ -19,6 +19,12 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { renderBoard } from "./render.js";
+
+const PAGES_URL = "https://iamrichardmaier-sudo.github.io/benarabic/term-board/";
+const ARTIFACT_URL = "https://claude.ai/code/artifact/5a6e40c4-1795-4f6e-8faf-893ab37117f5";
+
+/** Switch to PAGES_URL once public/term-board/ is live on `main`. */
+const BOARD_TAP_TARGET = ARTIFACT_URL;
 import { log } from "./log.js";
 
 /** Strip every score from a snapshot, leaving the schedule intact. */
@@ -52,7 +58,13 @@ function boardJson(snapshot, publishGrades) {
     generatedAt: snapshot.scrapedAt,
     seeded: Boolean(snapshot.seeded),
     gradesArePrivate: !publishGrades,
-    boardUrl: "https://iamrichardmaier-sudo.github.io/benarabic/term-board/",
+    // Where tapping the widget goes. The Pages copy is the better target — it
+    // refreshes with every scrape — but Pages only publishes from `main`, so
+    // until this work is merged that URL is a 404 and the tap is a dead end.
+    // Until then, point at the Claude artifact, which is the same board and
+    // works today. Flip BOARD_TAP_TARGET below once the merge lands.
+    boardUrl: BOARD_TAP_TARGET,
+    pagesUrl: PAGES_URL,
 
     // {course, grade} matches how the widget renders a row. Empty when grades
     // are withheld, which is what makes the widget fall back to Supabase.

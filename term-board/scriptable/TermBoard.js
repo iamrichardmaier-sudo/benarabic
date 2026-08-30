@@ -40,7 +40,7 @@
  * every run, so "which version is actually on the phone?" is answerable in two
  * seconds instead of by reading a diff.
  */
-const VERSION = "2026-08-30c";
+const VERSION = "2026-08-30d";
 
 const REPO = "iamrichardmaier-sudo/benarabic";
 const WORK_BRANCH = "claude/term-board-scraper-setup-d1krf6";
@@ -357,7 +357,9 @@ function buildWidget(data, note) {
   const w = new ListWidget();
   w.setPadding(14, 14, 14, 14);
   w.backgroundColor = new Color(BG);
-  w.url = BOARD_URL;
+  // The feed names its own tap target, so this follows the board wherever it
+  // actually lives without needing the script re-pasted.
+  w.url = (data && data.boardUrl) || BOARD_URL;
 
   const family = config.widgetFamily || "large";
   const small = family === "small";
