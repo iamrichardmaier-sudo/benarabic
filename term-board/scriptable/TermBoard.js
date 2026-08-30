@@ -35,6 +35,13 @@
 
 // ---------------------------------------------------------------- config
 
+/**
+ * Bumped whenever this file changes. Shown in the in-app header and logged on
+ * every run, so "which version is actually on the phone?" is answerable in two
+ * seconds instead of by reading a diff.
+ */
+const VERSION = "2026-08-30c";
+
 const REPO = "iamrichardmaier-sudo/benarabic";
 const WORK_BRANCH = "claude/term-board-scraper-setup-d1krf6";
 
@@ -472,8 +479,17 @@ async function presentBoard(data, token) {
 
   const header = new UITableRow();
   header.isHeader = true;
-  header.addText("Term Board", footerDetail(data));
+  header.addText(`Term Board · v${VERSION}`, footerDetail(data));
   table.addRow(header);
+
+  // Which URL answered. The one recurring failure with this script has been a
+  // stale copy pointing at a dead URL, and this makes that visible at a glance.
+  if (data.source) {
+    const src = new UITableRow();
+    src.height = 40;
+    src.addText("Data source", String(data.source).replace(/^https:\/\//, ""));
+    table.addRow(src);
+  }
 
   const gradeRow = new UITableRow();
   gradeRow.height = 46;
@@ -623,11 +639,13 @@ function trimForUrl(prompt) {
 
 async function run() {
   const interactive = !config.runsInWidget;
+  console.log(`Term Board ${VERSION}`);
 
   let board = null;
   let boardError = null;
   try {
     board = await fetchBoard();
+    console.log(`board loaded from ${board.source}`);
   } catch (e) {
     boardError = String(e);
     console.error(boardError);
