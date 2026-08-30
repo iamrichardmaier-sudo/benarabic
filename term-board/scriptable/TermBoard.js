@@ -35,8 +35,29 @@
 
 // ---------------------------------------------------------------- config
 
+const REPO = "iamrichardmaier-sudo/benarabic";
+const WORK_BRANCH = "claude/term-board-scraper-setup-d1krf6";
+
 const BOARD_URL = "https://iamrichardmaier-sudo.github.io/benarabic/term-board/";
-const DATA_URL = BOARD_URL + "board.json";
+
+/**
+ * Tried in order, first valid JSON wins.
+ *
+ * raw.githubusercontent.com comes first because it serves a public repo's files
+ * directly — no build, no deploy wait, and it works on any branch. GitHub Pages
+ * only publishes from `main`, so until this work is merged the Pages URL is a
+ * 404 and the widget would show nothing at all.
+ *
+ * Once it is merged, the first entry starts answering and the rest never run.
+ * Leaving the branch entry in place costs one failed request in the window
+ * where main has the file and the branch is deleted, and saves the widget from
+ * breaking the moment either one moves.
+ */
+const DATA_URLS = [
+  `https://raw.githubusercontent.com/${REPO}/main/public/term-board/board.json`,
+  `https://raw.githubusercontent.com/${REPO}/${WORK_BRANCH}/public/term-board/board.json`,
+  BOARD_URL + "board.json",
+];
 
 const SUPABASE_URL = "https://fphpcfecgnfoogfaeihu.supabase.co";
 // Publishable anon key — the same value the web app ships to browsers. Not a
@@ -109,13 +130,26 @@ function dueColor(dateStr) {
 // ------------------------------------------------------------ data: board
 
 async function fetchBoard() {
-  const req = new Request(DATA_URL);
-  req.timeoutInterval = 15;
-  const data = await req.loadJSON();
-  if (!data || !Array.isArray(data.assignments)) {
-    throw new Error("board.json did not contain an assignments array.");
+  const failures = [];
+
+  for (const url of DATA_URLS) {
+    try {
+      const req = new Request(url);
+      req.timeoutInterval = 12;
+      const data = await req.loadJSON();
+      // A 404 from raw.githubusercontent is HTML, not JSON, and a Pages 404 is
+      // the SPA shell — both parse into something without assignments rather
+      // than throwing, so the shape is what decides, not the status code.
+      if (data && Array.isArray(data.assignments) && data.assignments.length) {
+        return { ...data, source: url };
+      }
+      failures.push(`${url} — no assignments in the response`);
+    } catch (e) {
+      failures.push(`${url} — ${e}`);
+    }
   }
-  return data;
+
+  throw new Error("Could not load board.json.\n\n" + failures.join("\n"));
 }
 
 // ----------------------------------------------------------- data: grades
@@ -591,10 +625,12 @@ async function run() {
   const interactive = !config.runsInWidget;
 
   let board = null;
+  let boardError = null;
   try {
     board = await fetchBoard();
   } catch (e) {
-    console.error("board fetch failed: " + e);
+    boardError = String(e);
+    console.error(boardError);
   }
 
   // Grades are a bonus, never a blocker: a failed sign-in still leaves the
@@ -626,8 +662,8 @@ async function run() {
     const a = new Alert();
     a.title = "Couldn't load the board";
     a.message =
-      `Nothing came back from ${DATA_URL}\n\n` +
-      "If the scrape has never run, or the Pages deploy hasn't finished, that's expected.";
+      (boardError || "No data, and nothing cached on this device.") +
+      "\n\nIf board.json has not been pushed yet, that is expected.";
     a.addAction("OK");
     await a.presentAlert();
     return;

@@ -39,10 +39,22 @@ Hosting the board in the repo is also what makes the widget possible at all: a
 Claude artifact URL requires a login, so fetching one from Scriptable returns the
 app shell or a 403, never the board.
 
-Live at:
+### Where the widget actually reads from
 
-- https://iamrichardmaier-sudo.github.io/benarabic/term-board/
-- https://iamrichardmaier-sudo.github.io/benarabic/term-board/board.json
+`raw.githubusercontent.com`, not Pages. Pages only publishes from `main`, so
+until this work is merged the Pages URL is a 404 and the widget shows nothing.
+Raw serves any branch immediately, with no build step and no deploy wait.
+
+The widget tries these in order and takes the first that returns real JSON:
+
+1. `raw.githubusercontent.com/<repo>/main/public/term-board/board.json`
+2. the same path on the working branch
+3. `iamrichardmaier-sudo.github.io/benarabic/term-board/board.json`
+
+So it works before the merge and keeps working after it. Once merged, the human
+-readable board is also at
+https://iamrichardmaier-sudo.github.io/benarabic/term-board/ — that URL is what
+tapping the widget opens, so it stays a 404 until the merge.
 
 ### If you want grades on the public page anyway
 
