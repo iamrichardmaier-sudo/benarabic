@@ -5,7 +5,7 @@
 | Where | What it does |
 |---|---|
 | **Home-screen widget** | Shows how many cards are due and the next word in Arabic. Tapping it launches the review session. |
-| **Run in Scriptable** | A full-screen review session: tap the middle to flip, then the **left** third for *Again* and the **right** third for *Easy*. |
+| **Run in Scriptable** | A full-screen review session: tap the middle to flip, then the **left** third for *Again* and the **right** third for *Easy*. Words are read aloud, and the answer side shows the same word detail as the web app. |
 
 ## Why the reviewing isn't inside the widget
 
@@ -50,9 +50,39 @@ One tap from the home screen into a real session is as close as iOS currently al
 - **Tap the right third** — *Easy* (longest interval).
 - Before the card is flipped, tapping anywhere flips it — you can't grade an answer you
   haven't seen.
+- **Scroll** the answer when it runs past the screen. A tap that ends a scroll doesn't
+  grade, so you can read the whole entry before deciding.
 - **Tap the WAZN logo** at the top — opens the web app in Safari.
 - **Swipe down** to finish. Everything graded up to that point is saved, so a session you
   abandon halfway still counts.
+
+## What each card shows
+
+Every word is **read aloud** when it appears and again when it's flipped; the speaker
+button under the word replays it. The web app's `ar-SA` voice and slowed rate are used
+where the device has an Arabic voice — vowelled Arabic at full speed is hard to catch.
+The vowelled spelling is what gets read, since the bare one pronounces badly.
+
+Flipping a card shows what the web app shows, in the same order:
+
+| Section | Where it comes from |
+|---|---|
+| Root · Form · part of speech | the card's own tags |
+| **Its other forms** | plural, Shaami, Shaami plural, past, present, masdar |
+| **Word family** | the card's companion forms — the same root in other patterns |
+| **Same root in your deck** | other cards you're learning built on that root |
+| **Same root in the Bible** | tagged words from the Bible corpus sharing the root |
+| **Other Form N words you know** | your cards in the same verb form |
+
+A section that has nothing to show is left out rather than shown empty, so a bare card
+still looks like a bare card. A word never appears twice across the sections — the first
+one to claim it keeps it, which is why a root whose whole family is already listed under
+*Word family* usually shows nothing under *Same root in your deck*.
+
+All of this is fetched **before** the session opens, in two extra requests: your whole
+deck, and the Bible words for the roots that came up. The review page cannot make network
+calls of its own, so everything it will ever show has to be in hand first. If either
+request fails the review still runs — it just loses the cross-references.
 
 *Hard* and *Good* aren't offered here by design — a two-choice pass is what makes a
 phone-sized session fast. Use the web app when you want the full four-way rating.
