@@ -1,0 +1,423 @@
+[
+  {
+    "fusha": "أَخيراً",
+    "wordVoweled": "أَخيراً",
+    "english": "finally, at last",
+    "root": "أ-خ-ر",
+    "wordType": "other",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "آخِر", "label": "Adjective (last)" },
+      { "form": "أَخير", "label": "Adjective (final)" },
+      { "form": "تَأَخَّرَ", "label": "Form V verb (to be late)" },
+      { "form": "مُتَأَخِّر", "label": "Active participle (late)" }
+    ]
+  },
+  {
+    "fusha": "أَمامَ",
+    "wordVoweled": "أَمامَ",
+    "english": "in front of, before",
+    "root": "أ-م-م",
+    "wordType": "other",
+    "shaami": "قِدّام",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "قُدّام", "label": "Preposition (in front of, Masri)" },
+      { "form": "إمام", "label": "Noun (imam, leader)" },
+      { "form": "أُمّة", "label": "Noun (nation, community)" },
+      { "form": "وَراءَ", "label": "Opposite (behind)" }
+    ]
+  },
+  {
+    "fusha": "أَلّا",
+    "wordVoweled": "أَلّا",
+    "english": "not to",
+    "wordType": "other",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "أَنْ", "label": "Made from (that, to + verb)" },
+      { "form": "لا", "label": "Made from (not)" },
+      { "form": "أَرجو أَلّا تَتَأَخَّر", "label": "Example (I hope you will not be late)" }
+    ]
+  },
+  {
+    "fusha": "مَجَلّة",
+    "wordVoweled": "مَجَلَّة",
+    "english": "magazine, journal",
+    "root": "ج-ل-ل",
+    "wordType": "noun",
+    "fushaPlural": "مَجَلّات",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "جَلَّ", "label": "Form I verb (to be lofty, great)" },
+      { "form": "جَليل", "label": "Adjective (majestic)" },
+      { "form": "جَلال", "label": "Noun (majesty, grandeur)" }
+    ]
+  },
+  {
+    "fusha": "حُلم",
+    "wordVoweled": "حُلْم",
+    "english": "dream",
+    "root": "ح-ل-م",
+    "wordType": "noun",
+    "fushaPlural": "أَحلام",
+    "shaami": "حِلم",
+    "shaamiPlural": "أَحلام",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "حَلَمَ بِـ", "label": "Form I verb (to dream of)" },
+      { "form": "يَحلَم", "label": "Present (he dreams)" },
+      { "form": "حالِم", "label": "Active participle (dreaming)" }
+    ]
+  },
+  {
+    "fusha": "رَجَعَ من / إلى",
+    "wordVoweled": "رَجَعَ",
+    "english": "to return (from / to)",
+    "root": "ر-ج-ع",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "رَجَعَ",
+    "presentTense": "يَرجِع",
+    "masdarForm": "الرُّجوع",
+    "shaami": "رِجِع ، يرجَع عَ",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "عادَ ، يَعود", "label": "Synonym (to return)" },
+      { "form": "رُجوع", "label": "Verbal noun (return)" },
+      { "form": "أَرجَعَ", "label": "Form IV verb (to give back)" },
+      { "form": "رِجِع ، يِرجَع", "label": "Verb (to return, Masri)" }
+    ]
+  },
+  {
+    "fusha": "رَغِبَ في",
+    "wordVoweled": "رَغِبَ في",
+    "english": "to desire, wish to",
+    "root": "ر-غ-ب",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "رَغِبَ",
+    "presentTense": "يَرغَب",
+    "masdarForm": "الرَّغبة",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "رَغبة", "label": "Noun (desire, wish)" },
+      { "form": "رَغَبات", "label": "Plural (desires)" },
+      { "form": "راغِب", "label": "Active participle (desiring)" }
+    ]
+  },
+  {
+    "fusha": "ما زالَ",
+    "wordVoweled": "ما زالَ",
+    "english": "continues to, is still",
+    "root": "ز-ي-ل",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "ما زالَ (ما زِلتُ)",
+    "presentTense": "ما يَزال",
+    "shaami": "بَعد + ضمير",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "ما زِلتُ", "label": "First person (I am still)" },
+      { "form": "لا يَزال", "label": "Present (he is still)" },
+      { "form": "ما زالوا", "label": "Plural (they are still)" },
+      { "form": "لِسّه", "label": "Adverb (still, Masri)" }
+    ]
+  },
+  {
+    "fusha": "مَسرَح",
+    "wordVoweled": "مَسرَح",
+    "english": "theater",
+    "root": "س-ر-ح",
+    "wordType": "noun",
+    "fushaPlural": "مَسارِح",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "مَسرَحِيّة", "label": "Noun (play, drama)" },
+      { "form": "مَسرَحِيّ", "label": "Adjective (theatrical)" },
+      { "form": "سَرَحَ", "label": "Form I verb (to let out to pasture; to daydream)" }
+    ]
+  },
+  {
+    "fusha": "شَجَّعَ على",
+    "wordVoweled": "شَجَّعَ على",
+    "english": "to encourage (someone) to",
+    "root": "ش-ج-ع",
+    "wordType": "verb",
+    "verbForm": "II",
+    "pastTense": "شَجَّعَ",
+    "presentTense": "يُشَجِّع",
+    "masdarForm": "التَّشجيع",
+    "shaami": "شَجَّع ، يشَجِّع",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "تَشجيع", "label": "Verbal noun (encouragement)" },
+      { "form": "شُجاع", "label": "Adjective (brave)" },
+      { "form": "شَجاعة", "label": "Noun (courage)" },
+      { "form": "مُشَجِّع", "label": "Active participle (supporter, fan)" }
+    ]
+  },
+  {
+    "fusha": "ظَنَّ أَنَّ",
+    "wordVoweled": "ظَنَّ أَنَّ",
+    "english": "to think that, believe",
+    "root": "ظ-ن-ن",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "ظَنَّ (ظَنَنْتُ)",
+    "presentTense": "يَظُنّ",
+    "masdarForm": "الظَّنّ",
+    "shaami": "ظَنّ (ظَنّيت) ، يظِنّ إنّو",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "ظَنّ", "label": "Noun (assumption, opinion)" },
+      { "form": "ظُنون", "label": "Plural (assumptions)" },
+      { "form": "مَظنون", "label": "Passive participle (supposed)" },
+      { "form": "اِفتَكَر ، يِفتِكِر إنّ", "label": "Verb (to think that, Masri)" }
+    ]
+  },
+  {
+    "fusha": "يَعني",
+    "wordVoweled": "يَعني",
+    "english": "it means",
+    "root": "ع-ن-ي",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "عَنى",
+    "presentTense": "يَعني",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "مَعنى", "label": "Noun (meaning)" },
+      { "form": "مَعاني", "label": "Plural (meanings)" },
+      { "form": "مَعنِيّ بِـ", "label": "Passive participle (concerned with)" },
+      { "form": "يَعني إيه؟", "label": "Question (what does it mean?)" }
+    ]
+  },
+  {
+    "fusha": "الغُربة",
+    "wordVoweled": "الغُربة",
+    "english": "longing for one's native land; feeling of being a stranger; homesickness",
+    "root": "غ-ر-ب",
+    "wordType": "noun",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "غَريب", "label": "Adjective (strange, foreign)" },
+      { "form": "غُرَباء", "label": "Plural (strangers)" },
+      { "form": "مُغتَرِب", "label": "Active participle (expatriate)" },
+      { "form": "غَرب", "label": "Noun (west)" }
+    ]
+  },
+  {
+    "fusha": "فُرصة",
+    "wordVoweled": "فُرْصة",
+    "english": "opportunity, chance",
+    "root": "ف-ر-ص",
+    "wordType": "noun",
+    "fushaPlural": "فُرَص",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "فُرصة سَعيدة", "label": "Expression (nice to have met you)" },
+      { "form": "اِنتَهَزَ الفُرصة", "label": "Expression (to seize the opportunity)" }
+    ]
+  },
+  {
+    "fusha": "فُرصة سَعيدة!",
+    "wordVoweled": "فُرْصة سَعيدة!",
+    "english": "nice to have met you!",
+    "root": "ف-ر-ص",
+    "wordType": "other",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "فُرصة", "label": "Noun (opportunity)" },
+      { "form": "سَعيد", "label": "Adjective (happy)" },
+      { "form": "سَعادة", "label": "Noun (happiness)" }
+    ]
+  },
+  {
+    "fusha": "فَشِلَ في",
+    "wordVoweled": "فَشِلَ في",
+    "english": "to fail (at, in)",
+    "root": "ف-ش-ل",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "فَشِلَ",
+    "presentTense": "يَفشَل",
+    "masdarForm": "الفَشَل",
+    "shaami": "فِشِل ، يِفشَل بـ",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "فَشَل", "label": "Noun (failure)" },
+      { "form": "فاشِل", "label": "Active participle (a failure)" },
+      { "form": "فَشَل ، يِفشَل بـ", "label": "Verb (to fail, Masri)" }
+    ]
+  },
+  {
+    "fusha": "فَصَلَ",
+    "wordVoweled": "فَصَلَ",
+    "english": "to dismiss, fire (from a job)",
+    "root": "ف-ص-ل",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "فَصَلَ",
+    "presentTense": "يَفصِل",
+    "masdarForm": "الفَصْل",
+    "shaami": "فَصَل ، يِفصِل",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "فُصول", "label": "Plural (chapters, seasons, classrooms)" },
+      { "form": "فاصِل", "label": "Active participle (separating; interval)" },
+      { "form": "اِنفَصَلَ", "label": "Form VII verb (to separate, be cut off)" },
+      { "form": "تَفصيل", "label": "Noun (detail)" }
+    ]
+  },
+  {
+    "fusha": "فَكَّرَ في",
+    "wordVoweled": "فَكَّرَ في",
+    "english": "to think about (doing something)",
+    "root": "ف-ك-ر",
+    "wordType": "verb",
+    "verbForm": "II",
+    "pastTense": "فَكَّرَ",
+    "presentTense": "يُفَكِّر",
+    "masdarForm": "التَّفكير",
+    "shaami": "فَكَّر ، يفَكِّر",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "تَفكير", "label": "Verbal noun (thinking)" },
+      { "form": "فِكرة", "label": "Noun (idea)" },
+      { "form": "أَفكار", "label": "Plural (ideas)" },
+      { "form": "مُفَكِّر", "label": "Active participle (thinker)" }
+    ]
+  },
+  {
+    "fusha": "اِستَقَرَّ",
+    "wordVoweled": "اِسْتَقَرَّ",
+    "english": "to settle down, become stable",
+    "root": "ق-ر-ر",
+    "wordType": "verb",
+    "verbForm": "X",
+    "pastTense": "اِستَقَرَّ",
+    "presentTense": "يَستَقِرّ",
+    "masdarForm": "الاِستِقرار",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "اِستِقرار", "label": "Verbal noun (stability)" },
+      { "form": "مُستَقِرّ", "label": "Active participle (stable, settled)" },
+      { "form": "قَرَّرَ", "label": "Form II verb (to decide)" },
+      { "form": "قَرار", "label": "Noun (decision)" }
+    ]
+  },
+  {
+    "fusha": "مَقالة",
+    "wordVoweled": "مَقالة",
+    "english": "article (e.g., in a newspaper)",
+    "root": "ق-و-ل",
+    "wordType": "noun",
+    "fushaPlural": "مَقالات",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "مَقال", "label": "Noun (article, essay)" },
+      { "form": "قالَ", "label": "Form I verb (to say)" },
+      { "form": "قَول", "label": "Noun (saying, statement)" }
+    ]
+  },
+  {
+    "fusha": "كَذلِكَ",
+    "wordVoweled": "كَذلِكَ",
+    "english": "likewise, also",
+    "wordType": "other",
+    "shaami": "كَمان",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "ذلِكَ", "label": "Made from (that)" },
+      { "form": "أَيضاً", "label": "Synonym (also, too)" },
+      { "form": "كَمان", "label": "Adverb (also, Shaami and Masri)" }
+    ]
+  },
+  {
+    "fusha": "مُناسِب/ة",
+    "wordVoweled": "مُناسِب/ة",
+    "english": "appropriate, suitable (for)",
+    "root": "ن-س-ب",
+    "wordType": "participle",
+    "verbForm": "III",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "ناسَبَ", "label": "Form III verb (to suit, be appropriate for)" },
+      { "form": "مُناسَبة", "label": "Noun (occasion)" },
+      { "form": "نِسبة", "label": "Noun (ratio, proportion)" },
+      { "form": "بِالنِّسبة لِـ", "label": "Expression (with regard to)" }
+    ]
+  },
+  {
+    "fusha": "اِنتَهى من",
+    "wordVoweled": "اِنْتَهى من",
+    "english": "to finish (something)",
+    "root": "ن-ه-ي",
+    "wordType": "verb",
+    "verbForm": "VIII",
+    "pastTense": "اِنتَهى",
+    "presentTense": "يَنتَهي",
+    "masdarForm": "الاِنتِهاء",
+    "shaami": "خَلَّص ، يخَلِّص",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "اِنتِهاء", "label": "Verbal noun (ending, completion)" },
+      { "form": "نِهاية", "label": "Noun (end)" },
+      { "form": "مُنتَهٍ", "label": "Active participle (finished)" },
+      { "form": "خَلَّص ، يخَلِّص", "label": "Verb (to finish, Shaami and Masri)" }
+    ]
+  },
+  {
+    "fusha": "وَجَدَ",
+    "wordVoweled": "وَجَدَ",
+    "english": "to find",
+    "root": "و-ج-د",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "وَجَدَ",
+    "presentTense": "يَجِد",
+    "shaami": "لَقى (لْقيت) ، يلاقي",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "مَوجود", "label": "Passive participle (present, existing)" },
+      { "form": "وُجود", "label": "Noun (existence)" },
+      { "form": "أَوجَدَ", "label": "Form IV verb (to create, bring about)" },
+      { "form": "لَقى ، يِلاقي", "label": "Verb (to find, Masri)" }
+    ]
+  },
+  {
+    "fusha": "لَم أَجِد",
+    "wordVoweled": "لَم أَجِد",
+    "english": "I did not find",
+    "root": "و-ج-د",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "ما وَجَدتُ",
+    "presentTense": "لَم أَجِد",
+    "shaami": "ما لْقيت",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "لَم", "label": "Particle (negates the past, with jussive)" },
+      { "form": "ما وَجَدتُ", "label": "Equivalent (past negation with ما)" },
+      { "form": "لَم يَجِد", "label": "Third person (he did not find)" },
+      { "form": "ما لْقيتش", "label": "Phrase (I did not find, Masri)" }
+    ]
+  },
+  {
+    "fusha": "وَظيفة",
+    "wordVoweled": "وَظيفة",
+    "english": "position, job",
+    "root": "و-ظ-ف",
+    "wordType": "noun",
+    "fushaPlural": "وَظائِف",
+    "shaami": "وَظيفة",
+    "shaamiPlural": "وَظايِف",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "مُوَظَّف", "label": "Passive participle (employee)" },
+      { "form": "وَظَّفَ", "label": "Form II verb (to employ)" },
+      { "form": "تَوظيف", "label": "Verbal noun (employment)" }
+    ]
+  }
+]
