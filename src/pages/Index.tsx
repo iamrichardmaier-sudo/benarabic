@@ -445,6 +445,7 @@ const Index = () => {
               direction={reviewItems[currentIndex].direction}
               onRate={handleRate}
               progress={{ current: currentIndex + 1, total: reviewItems.length }}
+              deck={cards}
             />
           </div>
         )}

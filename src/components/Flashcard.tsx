@@ -5,6 +5,7 @@ import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import WordInfoPopover from '@/components/WordInfoPopover';
 import WordForms from '@/components/WordForms';
 import SwipeToGrade from '@/components/SwipeToGrade';
+import WordDetail from '@/components/WordDetail';
 
 export type ReviewDirection = 'ar-to-en' | 'en-to-ar';
 
@@ -14,6 +15,8 @@ interface FlashcardProps {
   onRate: (rating: Rating) => void;
   /** Position in the current session, for the progress indicator. */
   progress?: { current: number; total: number };
+  /** The whole deck, so the answer can show words sharing a root or a form. */
+  deck?: FlashCard[];
 }
 
 const ratingButtons: { rating: Rating; label: string; colorClass: string }[] = [
@@ -23,7 +26,7 @@ const ratingButtons: { rating: Rating; label: string; colorClass: string }[] = [
   { rating: 'easy', label: 'Easy', colorClass: 'bg-info hover:bg-info/90 text-info-foreground' },
 ];
 
-const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress }: FlashcardProps) => {
+const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }: FlashcardProps) => {
   const [flipped, setFlipped] = useState(false);
   const prevFlipped = useRef(false);
 
@@ -61,7 +64,10 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress }: Flashcard
     </div>
   );
 
-  const renderArabic = () => (
+  /** `withForms` is off wherever WordDetail is also on screen: it lists the
+   *  plural and the Shaami forms itself, so the line under the word would
+   *  print them a second time. */
+  const renderArabic = (withForms = true) => (
     <div className="space-y-2">
       <div className="flex items-center justify-center gap-2">
         <WordInfoPopover card={card}>
@@ -71,7 +77,7 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress }: Flashcard
         </WordInfoPopover>
         <SpeakButton word={card.word} size={22} autoSpeak />
       </div>
-      <WordForms card={card} />
+      {withForms && <WordForms card={card} />}
     </div>
   );
 
@@ -106,20 +112,19 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress }: Flashcard
             <p className="text-lg text-muted-foreground">{card.english}</p>
           )}
           <div className="w-full h-px bg-border" />
-          {renderArabic()}
+          {renderArabic(false)}
+          <WordDetail card={card} deck={deck} includeCorpus />
         </div>
       );
     }
     return (
       <div className="space-y-4 text-center w-full">
-        <div className="space-y-1">
-          <p className="font-arabic text-2xl text-muted-foreground" dir="rtl">
-            {card.word}
-          </p>
-          <WordForms card={card} className="text-base" />
-        </div>
+        <p className="font-arabic text-2xl text-muted-foreground" dir="rtl">
+          {card.wordVoweled || card.word}
+        </p>
         <div className="w-full h-px bg-border" />
         {renderImageAndEnglish()}
+        <WordDetail card={card} deck={deck} includeCorpus />
       </div>
     );
   };
