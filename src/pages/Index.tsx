@@ -9,6 +9,8 @@ import RelearnModal from '@/components/RelearnModal';
 import ConjugationDrill from '@/components/ConjugationDrill';
 import PrepositionDrill from '@/components/PrepositionDrill';
 import MemorizeTranscript from '@/components/MemorizeTranscript';
+import WordLookup from '@/components/WordLookup';
+import { entryToCardFields, type DictionaryEntry } from '@/lib/dictionary';
 import Library from '@/components/library/Library';
 import HomeDashboard from '@/components/HomeDashboard';
 import LearnHub, { type LearnDestination } from '@/components/LearnHub';
@@ -30,7 +32,7 @@ import { useToast } from '@/hooks/use-toast';
 /** A tab's root screen, plus every screen reachable beneath it. */
 type View =
   | 'home' | 'learnHub' | 'library' | 'settings'
-  | 'add' | 'review' | 'deck' | 'learnCards'
+  | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
   | 'conjugationDrill' | 'prepositionDrill' | 'memorize';
 
 const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
@@ -290,6 +292,34 @@ const Index = () => {
     setCurrentIndex((i) => i + 1);
   };
 
+  /**
+   * Adds a dictionary entry to the deck as a new card.
+   *
+   * No image lookup: the entry already carries a gloss, a root and a form,
+   * and an image search on a word like "before" returns noise. The card can
+   * be given one later from My Deck.
+   */
+  const handleAddFromDictionary = async (entry: DictionaryEntry) => {
+    const fields = entryToCardFields(entry);
+    try {
+      await addCards([
+        {
+          ...createCard(fields.word, fields.english, null, null),
+          root: fields.root,
+          wordType: fields.wordType,
+          verbForm: fields.verbForm,
+          wordVoweled: fields.word,
+          taggedAt: new Date().toISOString(),
+        },
+      ]);
+      toast({ title: `Added ${fields.word}` });
+    } catch (err) {
+      console.error('Could not add the word:', err);
+      toast({ title: 'Could not add that word', variant: 'destructive' });
+      throw err;
+    }
+  };
+
   const handleDelete = async (id: string) => {
     await deleteCard(id);
   };
@@ -478,6 +508,14 @@ const Index = () => {
 
         {view === 'prepositionDrill' && (
           <PrepositionDrill cards={studyCards} onBack={() => setView('learnHub')} />
+        )}
+
+        {view === 'lookup' && (
+          <WordLookup
+            deck={cards}
+            onAdd={handleAddFromDictionary}
+            onBack={() => setView('learnHub')}
+          />
         )}
 
         {view === 'memorize' && <MemorizeTranscript onBack={() => setView('learnHub')} />}

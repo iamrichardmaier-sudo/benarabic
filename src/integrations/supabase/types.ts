@@ -44,75 +44,147 @@ export type Database = {
         }
         Relationships: []
       }
+      dictionary: {
+        Row: {
+          created_at: string
+          gloss_text: string
+          glosses: string[]
+          id: string
+          lemma: string
+          lemma_key: string
+          occurrences: number
+          pos: string | null
+          root: string | null
+          root_key: string | null
+          source: string
+          verb_form: string | null
+        }
+        Insert: {
+          created_at?: string
+          gloss_text?: string
+          glosses?: string[]
+          id?: string
+          lemma: string
+          lemma_key: string
+          occurrences?: number
+          pos?: string | null
+          root?: string | null
+          root_key?: string | null
+          source?: string
+          verb_form?: string | null
+        }
+        Update: {
+          created_at?: string
+          gloss_text?: string
+          glosses?: string[]
+          id?: string
+          lemma?: string
+          lemma_key?: string
+          occurrences?: number
+          pos?: string | null
+          root?: string | null
+          root_key?: string | null
+          source?: string
+          verb_form?: string | null
+        }
+        Relationships: []
+      }
       flashcards: {
         Row: {
           card_group: string | null
+          companion_forms: Json | null
           created_at: string
           ease_factor: number
           english: string | null
           fixed_preposition: string | null
+          fusha_plural: string | null
           id: string
           image_url: string | null
           interval_days: number
           learning_stage: string
+          masdar_form: string | null
           needs_review: boolean
           next_review_date: string
           paired_word_id: string | null
+          past_tense: string | null
           preposition_sentence: string | null
           preposition_sentence_en: string | null
+          present_tense: string | null
           root: string | null
           stage1_attempts: number
           stage2_attempts: number
+          shaami: string | null
+          shaami_plural: string | null
+          tagged_at: string | null
           user_id: string
           verb_form: string | null
           word: string
           word_type: string | null
+          word_voweled: string | null
         }
         Insert: {
           card_group?: string | null
+          companion_forms?: Json | null
           created_at?: string
           ease_factor?: number
           english?: string | null
           fixed_preposition?: string | null
+          fusha_plural?: string | null
           id?: string
           image_url?: string | null
           interval_days?: number
           learning_stage?: string
+          masdar_form?: string | null
           needs_review?: boolean
           next_review_date?: string
           paired_word_id?: string | null
+          past_tense?: string | null
           preposition_sentence?: string | null
           preposition_sentence_en?: string | null
+          present_tense?: string | null
           root?: string | null
           stage1_attempts?: number
           stage2_attempts?: number
+          shaami?: string | null
+          shaami_plural?: string | null
+          tagged_at?: string | null
           user_id?: string
           verb_form?: string | null
           word: string
           word_type?: string | null
+          word_voweled?: string | null
         }
         Update: {
           card_group?: string | null
+          companion_forms?: Json | null
           created_at?: string
           ease_factor?: number
           english?: string | null
           fixed_preposition?: string | null
+          fusha_plural?: string | null
           id?: string
           image_url?: string | null
           interval_days?: number
           learning_stage?: string
+          masdar_form?: string | null
           needs_review?: boolean
           next_review_date?: string
           paired_word_id?: string | null
+          past_tense?: string | null
           preposition_sentence?: string | null
           preposition_sentence_en?: string | null
+          present_tense?: string | null
           root?: string | null
           stage1_attempts?: number
           stage2_attempts?: number
+          shaami?: string | null
+          shaami_plural?: string | null
+          tagged_at?: string | null
           user_id?: string
           verb_form?: string | null
           word?: string
           word_type?: string | null
+          word_voweled?: string | null
         }
         Relationships: [
           {
