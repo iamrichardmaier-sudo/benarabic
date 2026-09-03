@@ -419,5 +419,100 @@
       { "form": "وَظَّفَ", "label": "Form II verb (to employ)" },
       { "form": "تَوظيف", "label": "Verbal noun (employment)" }
     ]
+  },
+  {
+    "fusha": "شَيِّق",
+    "wordVoweled": "شَيِّق",
+    "english": "interesting",
+    "root": "ش-و-ق",
+    "wordType": "adjective",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "مُشَوِّق", "label": "Active participle (exciting, gripping)" },
+      { "form": "شَوق", "label": "Noun (longing, yearning)" },
+      { "form": "أَشواق", "label": "Plural (longings)" },
+      { "form": "اِشتاقَ إلى", "label": "Form VIII verb (to long for)" }
+    ]
+  },
+  {
+    "fusha": "كافَحَ",
+    "wordVoweled": "كافَحَ",
+    "english": "to struggle, to battle (against)",
+    "root": "ك-ف-ح",
+    "wordType": "verb",
+    "verbForm": "III",
+    "pastTense": "كافَحَ",
+    "presentTense": "يُكافِح",
+    "masdarForm": "الكِفاح",
+    "shaami": "كافَح ، يكافِح",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "كِفاح", "label": "Verbal noun (struggle)" },
+      { "form": "مُكافِح", "label": "Active participle (one who struggles, fighter)" },
+      { "form": "مُكافَحة", "label": "Noun (combating, fighting against)" },
+      { "form": "كافَحَ الفَقر", "label": "Example (he struggled against poverty)" }
+    ]
+  },
+  {
+    "fusha": "مُهِمّ/ة",
+    "wordVoweled": "مُهِمّ/ة",
+    "english": "important",
+    "root": "ه-م-م",
+    "wordType": "participle",
+    "verbForm": "IV",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "أَهَمِّيّة", "label": "Noun (importance)" },
+      { "form": "اِهتَمَّ بِـ", "label": "Form VIII verb (to be interested in, care about)" },
+      { "form": "مُهِمّة", "label": "Noun (task, mission)" },
+      { "form": "أَهَمَّ", "label": "Form IV verb (to matter to, concern)" }
+    ]
+  },
+  {
+    "fusha": "خِدمة",
+    "wordVoweled": "خِدمة",
+    "english": "service (to offer a service)",
+    "root": "خ-د-م",
+    "wordType": "noun",
+    "fushaPlural": "خَدَمات",
+    "shaami": "خِدمة",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "قَدَّمَ خِدمة", "label": "Expression (to offer a service)" },
+      { "form": "خَدَمَ", "label": "Form I verb (to serve)" },
+      { "form": "خادِم", "label": "Active participle (servant)" },
+      { "form": "اِستَخدَمَ", "label": "Form X verb (to use, to employ)" }
+    ]
+  },
+  {
+    "fusha": "يَنبَغي أَنْ",
+    "wordVoweled": "يَنبَغي أَنْ",
+    "english": "should, ought to",
+    "root": "ب-غ-ي",
+    "wordType": "verb",
+    "verbForm": "VII",
+    "pastTense": "اِنبَغى",
+    "presentTense": "يَنبَغي",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "ماذا يَنبَغي أَنْ نَفعَل؟", "label": "Question (what should we do?)" },
+      { "form": "لا يَنبَغي أَنْ", "label": "Negative (one should not)" },
+      { "form": "يَجِب أَنْ", "label": "Synonym (must, have to)" },
+      { "form": "لازِم", "label": "Particle (have to, Shaami and Masri)" }
+    ]
+  },
+  {
+    "fusha": "وَفير",
+    "wordVoweled": "وَفير",
+    "english": "plentiful, abundant",
+    "root": "و-ف-ر",
+    "wordType": "adjective",
+    "group": "Chapter 13",
+    "companionForms": [
+      { "form": "وَفرة", "label": "Noun (abundance)" },
+      { "form": "وَفَّرَ", "label": "Form II verb (to provide; to save)" },
+      { "form": "تَوفير", "label": "Verbal noun (provision, saving)" },
+      { "form": "مُتَوَفِّر", "label": "Active participle (available)" }
+    ]
   }
 ]
