@@ -6,6 +6,9 @@ import WordInfoPopover from '@/components/WordInfoPopover';
 import WordForms from '@/components/WordForms';
 import SwipeToGrade from '@/components/SwipeToGrade';
 import WordDetail from '@/components/WordDetail';
+import DialectToggle from '@/components/DialectToggle';
+import { dialectView } from '@/lib/dialect';
+import { usePreferences } from '@/hooks/usePreferences';
 
 export type ReviewDirection = 'ar-to-en' | 'en-to-ar';
 
@@ -29,19 +32,22 @@ const ratingButtons: { rating: Rating; label: string; colorClass: string }[] = [
 const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }: FlashcardProps) => {
   const [flipped, setFlipped] = useState(false);
   const prevFlipped = useRef(false);
+  const { dialect } = usePreferences();
+  const view = dialectView(card, dialect);
 
   const handleRate = (rating: Rating) => {
     setFlipped(false);
     onRate(rating);
   };
 
-  // Auto-speak Arabic when card is flipped to reveal
+  // Auto-speak Arabic when card is flipped to reveal. Reads whichever
+  // register is on screen, so studying Shaami does not read back Fusha.
   useEffect(() => {
     if (flipped && !prevFlipped.current) {
-      speakArabic(card.word);
+      speakArabic(view.spoken);
     }
     prevFlipped.current = flipped;
-  }, [flipped, card.word]);
+  }, [flipped, view.spoken]);
 
   const renderImageAndEnglish = () => (
     <div className="space-y-3 w-full">
@@ -72,10 +78,10 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
       <div className="flex items-center justify-center gap-2">
         <WordInfoPopover card={card}>
           <p className="font-arabic text-[48px] font-bold text-foreground leading-relaxed" dir="rtl">
-            {card.word}
+            {view.headline}
           </p>
         </WordInfoPopover>
-        <SpeakButton word={card.word} size={22} autoSpeak />
+        <SpeakButton word={view.spoken} size={22} autoSpeak />
       </div>
       {withForms && <WordForms card={card} />}
     </div>
@@ -120,7 +126,7 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
     return (
       <div className="space-y-4 text-center w-full">
         <p className="font-arabic text-2xl text-muted-foreground" dir="rtl">
-          {card.wordVoweled || card.word}
+          {view.headline}
         </p>
         <div className="w-full h-px bg-border" />
         {renderImageAndEnglish()}
@@ -130,7 +136,9 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
   };
 
   return (
-    <div className="w-full max-w-md mx-auto space-y-6">
+    <div className="w-full max-w-md mx-auto space-y-4">
+      <DialectToggle compact className="mx-auto w-auto" />
+
       {progress && progress.total > 0 && (
         <div className="space-y-1.5">
           <div

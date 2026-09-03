@@ -1,5 +1,6 @@
-import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight } from 'lucide-react';
+import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages } from 'lucide-react';
 import { usePreferences } from '@/hooks/usePreferences';
+import DialectToggle from '@/components/DialectToggle';
 import {
   setTextScale, setAudioRate, setTheme,
   TEXT_SCALE_MIN, TEXT_SCALE_MAX, TEXT_SCALE_STEP,
@@ -37,6 +38,28 @@ const SettingsScreen = ({ email, deckSize, onSignOut, onOpenDeck }: SettingsScre
         <h1 className="text-2xl font-bold text-foreground">Settings</h1>
         {email && <p className="text-sm text-muted-foreground">Signed in as {email}</p>}
       </div>
+
+      {/* Flashcards */}
+      <section className="space-y-2">
+        <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide px-1">
+          Flashcards
+        </h2>
+        <div className="rounded-2xl border border-border bg-card">
+          <div className="space-y-2.5 px-4 py-3.5">
+            <span className="flex items-center gap-2.5">
+              <Languages className="w-5 h-5 text-primary shrink-0" />
+              <span>
+                <span className="block text-sm text-foreground">Which Arabic to study</span>
+                <span className="block text-xs text-muted-foreground">
+                  Cards without a separate Shaami form still show their Fusha, so nothing
+                  drops out of the deck.
+                </span>
+              </span>
+            </span>
+            <DialectToggle />
+          </div>
+        </div>
+      </section>
 
       {/* Reading & display */}
       <section className="space-y-2">

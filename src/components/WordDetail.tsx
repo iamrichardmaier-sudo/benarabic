@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import type { FlashCard } from '@/lib/spaced-repetition';
 import { relatedInDeck, MAX_RELATED, wordKey } from '@/lib/word-relations';
 import { fetchWordsByRoot } from '@/lib/bible-root-index';
+import { dialectView, showsShaamiRows } from '@/lib/dialect';
+import { usePreferences } from '@/hooks/usePreferences';
 import type { BibleWordTag } from '@/hooks/useBibleWordTags';
 
 interface WordDetailProps {
@@ -57,6 +59,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
  * bare card still looks like a bare card.
  */
 const WordDetail = ({ card, deck = [], includeCorpus = false, className = '' }: WordDetailProps) => {
+  const { dialect } = usePreferences();
   const [corpus, setCorpus] = useState<BibleWordTag[] | null>(null);
 
   useEffect(() => {
@@ -80,10 +83,16 @@ const WordDetail = ({ card, deck = [], includeCorpus = false, className = '' }: 
 
   const { sameRoot, sameForm } = relatedInDeck(card, deck);
 
+  const view = dialectView(card, dialect);
+  const withDialect = showsShaamiRows(dialect);
+
   const forms: { label: string; value: string }[] = [
+    // Whatever the headline displaced — the Fusha, when Shaami is leading.
+    ...view.extraForms,
     { label: 'Plural', value: card.fushaPlural ?? '' },
-    { label: 'Shaami', value: card.shaami ?? '' },
-    { label: 'Shaami pl.', value: card.shaamiPlural ?? '' },
+    // Suppressed when it is already the headline, so it is never printed twice.
+    { label: 'Shaami', value: withDialect && !view.isDialectForm ? card.shaami ?? '' : '' },
+    { label: 'Shaami pl.', value: withDialect ? card.shaamiPlural ?? '' : '' },
     { label: 'Past', value: card.pastTense ?? '' },
     { label: 'Present', value: card.presentTense ?? '' },
     { label: 'Masdar', value: card.masdarForm ?? '' },
