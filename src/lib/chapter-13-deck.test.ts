@@ -10,8 +10,8 @@ describe('chapter-13.json', () => {
     expect(errors).toEqual([]);
   });
 
-  it('has all 26 words', () => {
-    expect(entries).toHaveLength(26);
+  it('has all 32 words', () => {
+    expect(entries).toHaveLength(32);
   });
 
   it('gives every verb a past and present tense', () => {
