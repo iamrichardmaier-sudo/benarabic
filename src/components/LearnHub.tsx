@@ -1,10 +1,10 @@
 import {
   GraduationCap, BookOpen, Plus, RefreshCw, List,
-  Sparkles, Link2, Brain, ChevronRight, type LucideIcon,
+  Sparkles, Link2, Brain, ChevronRight, Search, type LucideIcon,
 } from 'lucide-react';
 
 export type LearnDestination =
-  | 'learn' | 'review' | 'add' | 'relearn' | 'deck'
+  | 'learn' | 'review' | 'add' | 'relearn' | 'deck' | 'lookup'
   | 'conjugationDrill' | 'prepositionDrill'
   | 'memorize';
 
@@ -44,6 +44,10 @@ const LearnHub = ({ dueCount, learnCount, deckSize, onSelect }: LearnHubProps) =
           disabled: dueCount === 0,
         },
         { id: 'add', label: 'Add words', icon: Plus, hint: 'Type or paste a list' },
+        {
+          id: 'lookup', label: 'Look up a word', icon: Search,
+          hint: 'Search the tagged Bible and add what you find',
+        },
         {
           id: 'relearn', label: 'Relearn cards', icon: RefreshCw,
           hint: 'Reset cards you want to see again', disabled: deckSize === 0,
