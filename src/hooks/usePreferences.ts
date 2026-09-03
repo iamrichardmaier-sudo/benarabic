@@ -11,7 +11,8 @@ function getSnapshot(): Preferences {
   if (
     next.textScale !== snapshot.textScale ||
     next.audioRate !== snapshot.audioRate ||
-    next.theme !== snapshot.theme
+    next.theme !== snapshot.theme ||
+    next.dialect !== snapshot.dialect
   ) {
     snapshot = next;
   }
