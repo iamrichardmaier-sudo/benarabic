@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { FlashCard } from '@/lib/spaced-repetition';
-import { Trash2, Pencil, Check, X, ArrowLeft, RefreshCw, Loader2, ArrowLeftRight, FileDown } from 'lucide-react';
+import { Trash2, Pencil, Check, X, ArrowLeft, RefreshCw, Loader2, ArrowLeftRight, FileDown, Search } from 'lucide-react';
 import SpeakButton from '@/components/SpeakButton';
+import WordDetail from '@/components/WordDetail';
+import { searchDeck } from '@/lib/deck-search';
+import { hasWordDetail } from '@/lib/word-relations';
 import { searchUnsplashImage } from '@/lib/unsplash';
 import { useToast } from '@/hooks/use-toast';
 import jsPDF from 'jspdf';
@@ -40,7 +43,14 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack }: DeckListProps) => {
   const [refreshingId, setRefreshingId] = useState<string | null>(null);
   const [swappedId, setSwappedId] = useState<string | null>(null);
   const [exporting, setExporting] = useState(false);
+  const [query, setQuery] = useState('');
+  // The word whose detail the side panel is showing. Set by hover on a
+  // pointer, and by tapping the row where there is no hover to have.
+  const [previewId, setPreviewId] = useState<string | null>(null);
   const { toast } = useToast();
+
+  const visible = useMemo(() => searchDeck(cards, query), [cards, query]);
+  const preview = visible.find((c) => c.id === previewId) ?? null;
 
   const startEdit = (card: FlashCard) => {
     setEditingId(card.id);
@@ -101,7 +111,7 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack }: DeckListProps) => {
       doc.text(`Exported on ${dateStr}`, 14, 28);
       doc.setTextColor(0, 0, 0);
 
-      const tableData = cards.map((card, i) => [
+      const tableData = visible.map((card, i) => [
         String(i + 1),
         card.word,
         card.english || '',
@@ -146,7 +156,7 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack }: DeckListProps) => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto space-y-4">
+    <div className="w-full max-w-md lg:max-w-5xl mx-auto space-y-4">
       <button
         onClick={onBack}
         className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -156,7 +166,9 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack }: DeckListProps) => {
       </button>
 
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-bold text-foreground">My Deck ({cards.length})</h2>
+        <h2 className="text-xl font-bold text-foreground">
+          My Deck ({query ? `${visible.length} of ${cards.length}` : cards.length})
+        </h2>
         <button
           onClick={exportPDF}
           disabled={exporting}
@@ -167,15 +179,43 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack }: DeckListProps) => {
         </button>
       </div>
 
+      {/* Sticky so it follows the list down: a deck of several hundred words is
+          a long scroll, and having to go back to the top to search is the
+          thing that stops anyone searching. */}
+      <div className="sticky top-0 z-10 -mx-1 bg-background/95 px-1 py-2 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+        <div className="relative">
+          <Search className="pointer-events-none absolute start-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search your deck — English or Arabic"
+            aria-label="Search your deck"
+            className="w-full rounded-full border border-border bg-card py-2 ps-9 pe-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+          />
+        </div>
+      </div>
+
       {cards.length === 0 && (
         <p className="text-muted-foreground text-center py-8">No words in your deck yet.</p>
       )}
 
-      <div className="space-y-2">
-        {cards.map((card) => (
+      {cards.length > 0 && visible.length === 0 && (
+        <p className="py-8 text-center text-muted-foreground">
+          Nothing matches “{query}”.
+        </p>
+      )}
+
+      <div className="lg:flex lg:items-start lg:gap-5">
+      <div className="space-y-2 lg:min-w-0 lg:flex-1">
+        {visible.map((card) => (
           <div
             key={card.id}
-            className="rounded-xl bg-card flashcard-shadow border border-border/50 p-4"
+            onMouseEnter={() => setPreviewId(card.id)}
+            onFocus={() => setPreviewId(card.id)}
+            className={`rounded-xl bg-card flashcard-shadow border p-4 transition-colors ${
+              previewId === card.id ? 'border-primary/60' : 'border-border/50'
+            }`}
             style={{ backgroundColor: getCardColor(card) }}
           >
             <div className="flex items-center gap-3">
@@ -202,9 +242,24 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack }: DeckListProps) => {
                 {card.english && (
                   <p className="text-sm text-muted-foreground truncate">{card.english}</p>
                 )}
-                <p className="text-xs text-muted-foreground">
-                  Review: {card.nextReviewDate}
-                </p>
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-xs text-muted-foreground">
+                  {card.root && (
+                    <span className="font-arabic text-[13px] font-semibold text-primary" dir="rtl">
+                      {card.root}
+                    </span>
+                  )}
+                  {card.verbForm && <span className="font-medium text-primary/80">Form {card.verbForm}</span>}
+                  <span>Review: {card.nextReviewDate}</span>
+                </div>
+                {hasWordDetail(card) && (
+                  <button
+                    onClick={() => setPreviewId(previewId === card.id ? null : card.id)}
+                    aria-expanded={previewId === card.id}
+                    className="mt-1 text-xs font-medium text-primary lg:hidden"
+                  >
+                    {previewId === card.id ? 'Hide forms' : 'Roots & forms'}
+                  </button>
+                )}
               </div>
 
               {/* Actions */}
@@ -278,8 +333,42 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack }: DeckListProps) => {
                 </div>
               </div>
             )}
+
+            {/* Below lg there is no room for a side panel and no hover to
+                drive it, so the detail opens inline under the row instead. */}
+            {previewId === card.id && hasWordDetail(card) && (
+              <div className="mt-3 border-t border-border/50 pt-3 lg:hidden">
+                <WordDetail card={card} deck={cards} />
+              </div>
+            )}
           </div>
         ))}
+      </div>
+
+        {/* The side panel. Sticky, so it stays beside the row being pointed at
+            however far down the deck the scroll has gone. */}
+        <aside className="hidden lg:block lg:w-80 lg:shrink-0">
+          <div className="sticky top-16 rounded-2xl border border-border bg-card p-4 flashcard-shadow">
+            {preview ? (
+              <>
+                <div className="mb-2 flex items-center gap-2">
+                  <p className="font-arabic text-2xl font-bold text-foreground" dir="rtl">
+                    {preview.wordVoweled || preview.word}
+                  </p>
+                  <SpeakButton word={preview.wordVoweled || preview.word} size={18} />
+                </div>
+                {preview.english && (
+                  <p className="mb-2 text-sm text-muted-foreground">{preview.english}</p>
+                )}
+                <WordDetail card={preview} deck={cards} />
+              </>
+            ) : (
+              <p className="text-sm text-muted-foreground">
+                Point at a word to see its root, its forms and the other words built on it.
+              </p>
+            )}
+          </div>
+        </aside>
       </div>
     </div>
   );
