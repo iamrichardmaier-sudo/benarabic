@@ -1,13 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Search, Plus, Check, Loader2 } from 'lucide-react';
+import { Search, Plus, Check, Loader2, Sparkles, BookOpen, Bookmark } from 'lucide-react';
 import BackButton from '@/components/BackButton';
 import SpeakButton from '@/components/SpeakButton';
-import { searchDictionary, entryToCardFields, type DictionaryEntry } from '@/lib/dictionary';
+import {
+  searchDictionary, entriesForRoots, entryToCardFields, type DictionaryEntry,
+} from '@/lib/dictionary';
+import { searchDeck } from '@/lib/deck-search';
+import { mergeResults, markOwned, recentRoots, type LookupResult } from '@/lib/lookup';
 import { wordKey } from '@/lib/word-relations';
 import type { FlashCard } from '@/lib/spaced-repetition';
 
 interface WordLookupProps {
-  /** The learner's deck, for marking words they already have. */
   deck: FlashCard[];
   onAdd: (entry: DictionaryEntry) => Promise<void>;
   onBack: () => void;
@@ -22,41 +25,176 @@ const POS_LABELS: Record<string, string> = {
   particle: 'Particle',
 };
 
+/** How many words to suggest under each root the learner already knows. */
+const PER_ROOT = 3;
+const SUGGESTED_ROOTS = 4;
+
+interface SuggestionGroup {
+  root: string;
+  /** A word the learner already has on this root, to explain the suggestion. */
+  because: string;
+  entries: DictionaryEntry[];
+}
+
+function WordRow({
+  result, onAdd, adding,
+}: {
+  result: LookupResult;
+  onAdd?: () => void;
+  adding: boolean;
+}) {
+  const subtitle = [
+    result.pos ? POS_LABELS[result.pos] ?? result.pos : null,
+    result.verbForm ? `Form ${result.verbForm}` : null,
+  ]
+    .filter(Boolean)
+    .join(' · ');
+
+  return (
+    <div className="rounded-xl border border-border/50 bg-card p-3.5 flashcard-shadow">
+      <div className="flex items-start gap-3">
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-2">
+            <p className="font-arabic text-xl font-bold text-foreground" dir="rtl">
+              {result.lemma}
+            </p>
+            <SpeakButton word={result.lemma} size={16} />
+          </div>
+
+          {subtitle && <p className="text-xs font-medium text-primary">{subtitle}</p>}
+
+          {result.glosses.length > 0 && (
+            <p className="mt-0.5 text-sm text-muted-foreground">{result.glosses.join('; ')}</p>
+          )}
+
+          <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
+            {result.root && (
+              <span className="flex items-center gap-1.5">
+                Root
+                <span className="font-arabic text-[13px] font-semibold text-primary" dir="rtl">
+                  {result.root}
+                </span>
+              </span>
+            )}
+            {result.sources.includes('deck') && (
+              <span className="flex items-center gap-1">
+                <Bookmark className="h-3 w-3" />
+                Your deck
+              </span>
+            )}
+            {result.sources.includes('bible') && result.occurrences !== null && (
+              <span className="flex items-center gap-1">
+                <BookOpen className="h-3 w-3" />
+                {result.occurrences}× in the Bible
+              </span>
+            )}
+          </div>
+        </div>
+
+        {result.inDeck ? (
+          <span className="flex shrink-0 items-center gap-1 rounded-lg px-2 py-1.5 text-xs font-medium text-success">
+            <Check className="h-4 w-4" />
+            In deck
+          </span>
+        ) : (
+          onAdd && (
+            <button
+              onClick={onAdd}
+              disabled={adding}
+              className="flex shrink-0 items-center gap-1 rounded-lg bg-primary px-2.5 py-1.5 text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
+            >
+              {adding ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
+              Add
+            </button>
+          )
+        )}
+      </div>
+    </div>
+  );
+}
+
 /**
- * Look a word up in the shared dictionary and add it to your deck.
+ * Look a word up across everything the app knows, and add it to the deck.
  *
- * The dictionary is every distinct word the tagged Bible corpus knows —
- * roughly three thousand entries, collapsed from their inflected forms to one
- * per lemma, each carrying a root, a form and the senses it was actually
- * glossed with in running text.
+ * Two sources today — the learner's own cards, searched in memory, and the
+ * shared dictionary built from the tagged Bible — merged into one list rather
+ * than presented as two. Words published by other learners would be a third
+ * source and would need no change here.
+ *
+ * Before anything is typed the screen suggests words built on roots the
+ * learner already has cards for, so it opens with something to read instead
+ * of an empty box.
  */
 const WordLookup = ({ deck, onAdd, onBack }: WordLookupProps) => {
   const [query, setQuery] = useState('');
-  const [results, setResults] = useState<DictionaryEntry[]>([]);
+  const [dictMatches, setDictMatches] = useState<DictionaryEntry[]>([]);
   const [searching, setSearching] = useState(false);
   const [failed, setFailed] = useState(false);
   const [adding, setAdding] = useState<string | null>(null);
-  const [added, setAdded] = useState<Set<string>>(new Set());
+  const [added, setAdded] = useState<FlashCard[]>([]);
+  const [groups, setGroups] = useState<SuggestionGroup[] | null>(null);
 
-  // Every word already in the deck, keyed on its consonant skeleton, so an
-  // entry the learner has under a different spelling still reads as owned.
-  const owned = useMemo(() => {
-    const keys = new Set<string>();
-    for (const card of deck) {
-      keys.add(wordKey(card.word));
-      if (card.wordVoweled) keys.add(wordKey(card.wordVoweled));
+  // Cards added during this visit count as owned straight away, without
+  // waiting for the deck prop to come back around from the server.
+  const effectiveDeck = useMemo(() => [...deck, ...added], [deck, added]);
+
+  const trimmed = query.trim();
+  const active = trimmed.length >= 2;
+
+  // Suggestions: words on the roots this learner has been adding lately,
+  // minus the ones they already have.
+  useEffect(() => {
+    const roots = recentRoots(deck, SUGGESTED_ROOTS * 2);
+    if (roots.length === 0) {
+      setGroups([]);
+      return;
     }
-    keys.delete('');
-    return keys;
+    let cancelled = false;
+    entriesForRoots(roots).then((entries) => {
+      if (cancelled) return;
+      const owned = new Set<string>();
+      const example = new Map<string, string>();
+      for (const card of deck) {
+        const key = wordKey(card.wordVoweled || card.word);
+        owned.add(key);
+        owned.add(wordKey(card.word));
+        if (card.root && !example.has(card.root)) {
+          example.set(card.root, card.wordVoweled || card.word);
+        }
+      }
+
+      const byRoot = new Map<string, DictionaryEntry[]>();
+      for (const entry of entries) {
+        if (!entry.root || owned.has(wordKey(entry.lemma))) continue;
+        const list = byRoot.get(entry.root) ?? [];
+        if (list.length >= PER_ROOT) continue;
+        list.push(entry);
+        byRoot.set(entry.root, list);
+      }
+
+      setGroups(
+        roots
+          .filter((root) => (byRoot.get(root)?.length ?? 0) > 0)
+          .slice(0, SUGGESTED_ROOTS)
+          .map((root) => ({
+            root,
+            because: example.get(root) ?? '',
+            entries: byRoot.get(root) as DictionaryEntry[],
+          })),
+      );
+    });
+    return () => {
+      cancelled = true;
+    };
+    // Recomputed only when the deck itself changes, not on every keystroke.
   }, [deck]);
 
-  // Debounced, and guarded against out-of-order responses: a slow request for
-  // an earlier query must not overwrite the results of a later one.
+  // Debounced, and guarded by a ticket so a slow response for an earlier
+  // query cannot overwrite the results of a later one.
   const latest = useRef(0);
   useEffect(() => {
-    const q = query.trim();
-    if (q.length < 2) {
-      setResults([]);
+    if (!active) {
+      setDictMatches([]);
       setSearching(false);
       setFailed(false);
       return;
@@ -64,15 +202,15 @@ const WordLookup = ({ deck, onAdd, onBack }: WordLookupProps) => {
     setSearching(true);
     const ticket = ++latest.current;
     const timer = setTimeout(() => {
-      searchDictionary(q)
+      searchDictionary(trimmed)
         .then((rows) => {
           if (ticket !== latest.current) return;
-          setResults(rows);
+          setDictMatches(rows);
           setFailed(false);
         })
         .catch(() => {
           if (ticket !== latest.current) return;
-          setResults([]);
+          setDictMatches([]);
           setFailed(true);
         })
         .finally(() => {
@@ -80,17 +218,27 @@ const WordLookup = ({ deck, onAdd, onBack }: WordLookupProps) => {
         });
     }, 250);
     return () => clearTimeout(timer);
-  }, [query]);
+  }, [trimmed, active]);
+
+  // The deck is searched in memory, so its matches are on screen immediately
+  // and the corpus results fill in underneath when the request lands.
+  const results = useMemo(() => {
+    if (!active) return [];
+    return markOwned(mergeResults(searchDeck(effectiveDeck, trimmed), dictMatches), effectiveDeck);
+  }, [active, trimmed, effectiveDeck, dictMatches]);
 
   const handleAdd = async (entry: DictionaryEntry) => {
     setAdding(entry.id);
     try {
       await onAdd(entry);
-      setAdded((prev) => new Set(prev).add(entry.id));
+      const fields = entryToCardFields(entry);
+      setAdded((prev) => [...prev, { ...fields, id: `pending:${entry.id}` } as FlashCard]);
     } finally {
       setAdding(null);
     }
   };
+
+  const suggesting = groups === null;
 
   return (
     <div className="w-full max-w-md mx-auto space-y-4">
@@ -99,7 +247,7 @@ const WordLookup = ({ deck, onAdd, onBack }: WordLookupProps) => {
       <div className="space-y-1">
         <h1 className="text-2xl font-bold text-foreground">Look up a word</h1>
         <p className="text-sm text-muted-foreground">
-          Search every word in the tagged Bible, in English or Arabic, and add it to your deck.
+          Searches your own deck and every word tagged in the Bible, in English or Arabic.
         </p>
       </div>
 
@@ -112,98 +260,91 @@ const WordLookup = ({ deck, onAdd, onBack }: WordLookupProps) => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="e.g. born, or وَلَد"
-            aria-label="Search the dictionary"
-            className="w-full rounded-full border border-border bg-card py-2 ps-9 pe-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+            aria-label="Search for a word"
+            className="w-full rounded-full border border-border bg-card py-2.5 ps-9 pe-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
           />
         </div>
       </div>
 
-      {searching && (
-        <p className="flex items-center justify-center gap-2 py-6 text-sm text-muted-foreground">
-          <Loader2 className="h-4 w-4 animate-spin" />
-          Searching…
-        </p>
-      )}
+      {/* Before anything is typed */}
+      {!active && (
+        <div className="space-y-5">
+          {suggesting && (
+            <p className="flex items-center justify-center gap-2 py-6 text-sm text-muted-foreground">
+              <Loader2 className="h-4 w-4 animate-spin" />
+              Finding words for you…
+            </p>
+          )}
 
-      {failed && !searching && (
-        <p className="py-6 text-center text-sm text-destructive">
-          Could not reach the dictionary. Check your connection and try again.
-        </p>
-      )}
+          {groups?.length === 0 && (
+            <p className="py-6 text-center text-sm text-muted-foreground">
+              Search for a word in English or Arabic to get started.
+            </p>
+          )}
 
-      {!searching && !failed && query.trim().length >= 2 && results.length === 0 && (
-        <p className="py-6 text-center text-sm text-muted-foreground">
-          Nothing found for “{query.trim()}”.
-        </p>
-      )}
-
-      <div className="space-y-2">
-        {results.map((entry) => {
-          const isOwned = owned.has(wordKey(entry.lemma)) || added.has(entry.id);
-          const subtitle = [
-            entry.pos ? POS_LABELS[entry.pos] ?? entry.pos : null,
-            entry.verbForm ? `Form ${entry.verbForm}` : null,
-          ]
-            .filter(Boolean)
-            .join(' · ');
-
-          return (
-            <div
-              key={entry.id}
-              className="rounded-xl border border-border/50 bg-card p-4 flashcard-shadow"
-            >
-              <div className="flex items-start gap-3">
-                <div className="min-w-0 flex-1">
-                  <div className="flex items-center gap-2">
-                    <p className="font-arabic text-xl font-bold text-foreground" dir="rtl">
-                      {entry.lemma}
-                    </p>
-                    <SpeakButton word={entry.lemma} size={16} />
-                  </div>
-
-                  {subtitle && <p className="text-xs font-medium text-primary">{subtitle}</p>}
-
-                  <p className="mt-1 text-sm text-muted-foreground">{entry.glosses.join('; ')}</p>
-
-                  <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-                    {entry.root && (
-                      <span className="flex items-center gap-1.5">
-                        Root
-                        <span className="font-arabic text-[13px] font-semibold text-primary" dir="rtl">
-                          {entry.root}
-                        </span>
-                      </span>
-                    )}
-                    <span>
-                      {entry.occurrences} time{entry.occurrences === 1 ? '' : 's'} in the Bible
-                    </span>
-                  </div>
-                </div>
-
-                {isOwned ? (
-                  <span className="flex shrink-0 items-center gap-1 rounded-lg px-2 py-1.5 text-xs font-medium text-success">
-                    <Check className="h-4 w-4" />
-                    In deck
-                  </span>
-                ) : (
-                  <button
-                    onClick={() => handleAdd(entry)}
-                    disabled={adding === entry.id}
-                    className="flex shrink-0 items-center gap-1 rounded-lg bg-primary px-2.5 py-1.5 text-xs font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
-                  >
-                    {adding === entry.id ? (
-                      <Loader2 className="h-4 w-4 animate-spin" />
-                    ) : (
-                      <Plus className="h-4 w-4" />
-                    )}
-                    Add
-                  </button>
-                )}
+          {groups?.map((group) => (
+            <section key={group.root} className="space-y-2">
+              <h2 className="flex flex-wrap items-center gap-1.5 px-1 text-xs font-semibold text-muted-foreground">
+                <Sparkles className="h-3.5 w-3.5 text-primary" />
+                Because you know
+                <span className="font-arabic text-sm text-foreground" dir="rtl">
+                  {group.because}
+                </span>
+                <span className="text-muted-foreground/60">·</span>
+                <span className="font-arabic text-sm font-semibold text-primary" dir="rtl">
+                  {group.root}
+                </span>
+              </h2>
+              <div className="space-y-2">
+                {group.entries.map((entry) => (
+                  <WordRow
+                    key={entry.id}
+                    result={markOwned(mergeResults([], [entry]), effectiveDeck)[0]}
+                    onAdd={() => handleAdd(entry)}
+                    adding={adding === entry.id}
+                  />
+                ))}
               </div>
-            </div>
-          );
-        })}
-      </div>
+            </section>
+          ))}
+        </div>
+      )}
+
+      {/* Searching */}
+      {active && (
+        <div className="space-y-2">
+          {results.map((result) => {
+            const entry = dictMatches.find((e) => `dict:${e.id}` === result.id);
+            return (
+              <WordRow
+                key={result.id}
+                result={result}
+                onAdd={entry ? () => handleAdd(entry) : undefined}
+                adding={!!entry && adding === entry.id}
+              />
+            );
+          })}
+
+          {searching && (
+            <p className="flex items-center justify-center gap-2 py-4 text-sm text-muted-foreground">
+              <Loader2 className="h-4 w-4 animate-spin" />
+              Searching the dictionary…
+            </p>
+          )}
+
+          {failed && !searching && (
+            <p className="py-4 text-center text-sm text-destructive">
+              Could not reach the dictionary. Your own deck is still searched above.
+            </p>
+          )}
+
+          {!searching && !failed && results.length === 0 && (
+            <p className="py-6 text-center text-sm text-muted-foreground">
+              Nothing found for “{trimmed}”.
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 };
