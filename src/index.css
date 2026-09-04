@@ -139,6 +139,34 @@
     box-shadow: var(--card-shadow);
   }
 
+  /* Tailwind ships no 3D-transform utilities, and the deck needs a real flip
+     rather than a crossfade — the card turning over is what tells you the
+     back belongs to the front you were just looking at. */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  /* Respect a reduced-motion preference: the card still turns over, it just
+     does not animate the way there. */
+  @media (prefers-reduced-motion: reduce) {
+    .flip-face {
+      transition: none !important;
+    }
+  }
+
   .flashcard-shadow-hover {
     box-shadow: var(--card-shadow-hover);
   }
