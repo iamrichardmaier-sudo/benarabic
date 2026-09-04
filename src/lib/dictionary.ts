@@ -82,6 +82,32 @@ export async function searchDictionary(query: string): Promise<DictionaryEntry[]
   return ((data ?? []) as unknown as Row[]).map(toEntry);
 }
 
+/**
+ * Dictionary entries on any of the given roots, for the suggestions shown
+ * before the learner has typed anything.
+ *
+ * One request for every root at once rather than one per root: this runs on
+ * opening the screen, where a burst of parallel requests is the difference
+ * between the suggestions being there and the screen sitting blank.
+ */
+export async function entriesForRoots(roots: string[]): Promise<DictionaryEntry[]> {
+  if (roots.length === 0) return [];
+
+  const { data, error } = await supabase
+    .from('dictionary')
+    .select('id, lemma, root, pos, verb_form, glosses, occurrences')
+    .in('root', roots)
+    .order('occurrences', { ascending: false })
+    .limit(120);
+
+  if (error) {
+    // Suggestions are a nicety; a failure here must not break the search box.
+    console.error('Could not load suggestions:', error);
+    return [];
+  }
+  return ((data ?? []) as unknown as Row[]).map(toEntry);
+}
+
 /** Other words on the same root, for the "word family" of a dictionary entry. */
 export async function entriesByRoot(root: string, excludeId: string): Promise<DictionaryEntry[]> {
   const { data, error } = await supabase
