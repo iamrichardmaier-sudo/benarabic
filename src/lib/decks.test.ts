@@ -55,10 +55,13 @@ describe.each(FILES)('%s', (file) => {
     expect(bad.map((e) => e.fusha)).toEqual([]);
   });
 
-  it('puts every entry in exactly one named group', () => {
-    const groups = [...new Set(entries.map((e) => e.group))];
+  // A file is either a named batch (a textbook chapter, a course list) or a
+  // loose set of words that belongs under no heading at all — a conversation
+  // someone wrote down. Both are fine; a file that mixes them is not, because
+  // the group is what the app filters study by.
+  it('agrees with itself about the group', () => {
+    const groups = [...new Set(entries.map((e) => e.group ?? null))];
     expect(groups).toHaveLength(1);
-    expect(groups[0]).toBeTruthy();
   });
 
   it('has no duplicate headwords', () => {
@@ -75,11 +78,18 @@ describe('the decks together', () => {
   );
 
   it('holds the expected number of words', () => {
-    expect(all).toHaveLength(69);
+    expect(all).toHaveLength(94);
   });
 
   it('names each group once', () => {
-    const groups = [...new Set(all.map((e) => e.group))].sort();
-    expect(groups).toEqual(['Chapter 13', 'Embark']);
+    const named = [...new Set(all.map((e) => e.group).filter(Boolean))].sort();
+    expect(named).toEqual(['Chapter 13', 'Embark']);
+  });
+
+  it('has no word appearing in two decks', () => {
+    const keys = all.map((e) => (e.wordVoweled || e.fusha).trim());
+    const seen = new Set<string>();
+    const repeated = keys.filter((k) => (seen.has(k) ? true : (seen.add(k), false)));
+    expect(repeated).toEqual([]);
   });
 });
