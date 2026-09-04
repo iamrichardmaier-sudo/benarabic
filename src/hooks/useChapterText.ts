@@ -1,17 +1,13 @@
 import { useState, useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
 import type { BibleVerse } from '@/lib/bible-types';
 
 /**
  * A chapter of whichever work is being read.
  *
- * Two sources, deliberately different. The Bible is public domain, so it ships
- * as static JSON in the bundle and is fetched over HTTP. A private text is not
- * the app's to ship, so it is read from `private_texts`, where row-level
- * security scopes it to whoever loaded it.
- *
- * Both return the same [{v, a, e}] shape, so the reader does not care which it
- * is looking at.
+ * Both works ship as static JSON under their own directory and are fetched the
+ * same way, so the reader does not care which it is looking at. The split
+ * exists because they live in different folders, not because they load
+ * differently.
  */
 export type Work = 'bible' | 'bom';
 
@@ -22,28 +18,11 @@ function cacheKey(work: Work, bookCode: string, chapter: number): string {
   return `${work}/${bookCode}/${chapter}`;
 }
 
-/** Thrown when a private text simply has not been loaded yet, which is an
- *  empty state rather than a failure and reads differently on screen. */
-export const NOT_LOADED = 'NOT_LOADED';
-
-async function fetchBible(bookCode: string, chapter: number): Promise<BibleVerse[]> {
-  const res = await fetch(`${import.meta.env.BASE_URL}bible/${bookCode}/${chapter}.json`);
+async function fetchChapter(work: Work, bookCode: string, chapter: number): Promise<BibleVerse[]> {
+  const dir = work === 'bible' ? 'bible' : 'bom';
+  const res = await fetch(`${import.meta.env.BASE_URL}${dir}/${bookCode}/${chapter}.json`);
   if (!res.ok) throw new Error(`Could not load ${bookCode} ${chapter} (${res.status})`);
   return (await res.json()) as BibleVerse[];
-}
-
-async function fetchPrivate(work: Work, bookCode: string, chapter: number): Promise<BibleVerse[]> {
-  const { data, error } = await supabase
-    .from('private_texts')
-    .select('verses')
-    .eq('work', work)
-    .eq('book_code', bookCode)
-    .eq('chapter', chapter)
-    .maybeSingle();
-
-  if (error) throw new Error(error.message);
-  if (!data) throw new Error(NOT_LOADED);
-  return (data as unknown as { verses: BibleVerse[] }).verses;
 }
 
 function loadChapter(work: Work, bookCode: string, chapter: number): Promise<BibleVerse[]> {
@@ -53,7 +32,7 @@ function loadChapter(work: Work, bookCode: string, chapter: number): Promise<Bib
 
   let promise = inflight.get(key);
   if (!promise) {
-    promise = (work === 'bible' ? fetchBible(bookCode, chapter) : fetchPrivate(work, bookCode, chapter))
+    promise = fetchChapter(work, bookCode, chapter)
       .then((verses) => {
         cache.set(key, verses);
         return verses;

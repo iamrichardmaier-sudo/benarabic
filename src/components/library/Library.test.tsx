@@ -25,7 +25,6 @@ vi.mock('@/hooks/useBibleBooks', () => ({
 // The reader loads through useChapterText now, which serves both the Bible's
 // static JSON and the private texts held per reader in the database.
 vi.mock('@/hooks/useChapterText', () => ({
-  NOT_LOADED: 'NOT_LOADED',
   useChapterText: (_work: string, book: string | null, chapter: number | null) => ({
     verses: versesByKey[`${book}/${chapter}`] ?? [],
     loading: false,

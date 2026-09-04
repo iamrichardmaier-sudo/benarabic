@@ -3,7 +3,7 @@ import {
   ChevronLeft, ChevronRight, ChevronDown, Type, Volume2,
   Columns2, MessageSquareText, Maximize2, Minimize2,
 } from 'lucide-react';
-import { useChapterText, NOT_LOADED, type Work } from '@/hooks/useChapterText';
+import { useChapterText, type Work } from '@/hooks/useChapterText';
 import { useBibleAudio } from '@/hooks/useBibleAudio';
 import { useBibleWordTags, type BibleWordTag } from '@/hooks/useBibleWordTags';
 import { usePreferences } from '@/hooks/usePreferences';
@@ -288,18 +288,7 @@ const ChapterReader = ({
         onTouchEnd={swipe.onTouchEnd}
       >
         {loading && <p className="text-sm text-muted-foreground text-center py-8">Loading chapter…</p>}
-        {/* A private text that has not been loaded yet is an empty shelf, not a
-            broken one, and should not read like something went wrong. */}
-        {error === NOT_LOADED ? (
-          <div className="py-10 text-center">
-            <p className="text-sm font-medium text-foreground">This chapter isn’t loaded yet.</p>
-            <p className="mx-auto mt-1 max-w-xs text-xs text-muted-foreground">
-              {book.name} {chapter} will appear here once you add the text to your library.
-            </p>
-          </div>
-        ) : (
-          error && <p className="text-sm text-destructive text-center py-8">{error}</p>
-        )}
+        {error && <p className="text-sm text-destructive text-center py-8">{error}</p>}
 
         {verses && mode === 'side' && (
           <div className="grid grid-cols-2 gap-x-4 gap-y-3">
