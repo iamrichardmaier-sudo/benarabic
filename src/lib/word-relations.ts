@@ -74,6 +74,53 @@ export function relatedInDeck(card: FlashCard, deck: FlashCard[]): Related {
   return { sameRoot, sameForm };
 }
 
+/**
+ * The key for asking "is this companion form already on the card?".
+ *
+ * Bare consonants, and without the definite article: a masdar is conventionally
+ * cited with ال (الرُّجوع) while the word family lists it without (رُجوع), and
+ * printing the same word under both "Masdar" and "Word family" reads as a bug.
+ */
+export function formKey(value: string | null | undefined): string {
+  return normalizeArabic(String(value ?? '').split('/')[0])
+    .replace(/^ال/, '')
+    .trim();
+}
+
+/**
+ * Companion forms worth printing, given what the labelled rows already show.
+ *
+ * Two different comparisons, deliberately:
+ *
+ * - against the labelled rows, by consonant skeleton, because that is where
+ *   the same word appears in two spellings (الشُّكر as the masdar, شُكر in the
+ *   family);
+ * - against the other companions and the headword, by exact text, because a
+ *   word family is *made of* words that share a skeleton. مُلهِم (inspiring)
+ *   and مُلهَم (inspired) differ only in a vowel and are exactly the pair worth
+ *   teaching — collapsing them would throw away the point of the section.
+ */
+export function visibleCompanions(
+  companions: { form: string; label: string }[],
+  headline: string,
+  labelledRows: (string | null | undefined)[],
+): { form: string; label: string }[] {
+  const rowKeys = new Set(labelledRows.map(formKey));
+  rowKeys.delete('');
+
+  const seenText = new Set<string>([String(headline ?? '').trim()]);
+  const out: { form: string; label: string }[] = [];
+
+  for (const companion of companions) {
+    const text = String(companion.form ?? '').trim();
+    if (!text || seenText.has(text)) continue;
+    if (rowKeys.has(formKey(text))) continue;
+    seenText.add(text);
+    out.push(companion);
+  }
+  return out;
+}
+
 /** True when a word has anything worth showing beyond its gloss. */
 export function hasWordDetail(card: FlashCard): boolean {
   return !!(

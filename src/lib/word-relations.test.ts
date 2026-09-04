@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { relatedInDeck, wordKey } from './word-relations';
+import { relatedInDeck, wordKey, visibleCompanions } from './word-relations';
 import type { FlashCard } from './spaced-repetition';
 
 function card(over: Partial<FlashCard> & { id: string; word: string }): FlashCard {
@@ -80,5 +80,49 @@ describe('relatedInDeck', () => {
   it('returns nothing for a card with no root and no form', () => {
     const bare = card({ id: 'z', word: 'كَذلِكَ', english: 'likewise' });
     expect(relatedInDeck(bare, deck)).toEqual({ sameRoot: [], sameForm: [] });
+  });
+});
+
+describe('visibleCompanions', () => {
+  const cf = (form: string, label = 'l') => ({ form, label });
+
+  it('drops a companion that repeats the masdar, article and all', () => {
+    // الشُّكر under "Masdar" and شُكر under "Word family" is the same word twice.
+    expect(visibleCompanions([cf('شُكر'), cf('شاكِر')], 'يَشكُر', ['الشُّكر']))
+      .toEqual([cf('شاكِر')]);
+  });
+
+  it('drops a companion that repeats the plural', () => {
+    expect(visibleCompanions([cf('وُعود'), cf('وَعَدَ')], 'وَعد', ['وُعود']))
+      .toEqual([cf('وَعَدَ')]);
+  });
+
+  it('drops a companion that repeats the Shaami row', () => {
+    expect(visibleCompanions([cf('كَمان'), cf('أَيضاً')], 'كَذلِكَ', ['كَمان']))
+      .toEqual([cf('أَيضاً')]);
+  });
+
+  it('keeps a participle pair that differs only in a vowel', () => {
+    // مُلهِم (inspiring) and مُلهَم (inspired) share a skeleton, and teaching
+    // that contrast is the whole point of the section.
+    expect(visibleCompanions([cf('مُلهِم'), cf('مُلهَم')], 'إلهام', [])).toHaveLength(2);
+  });
+
+  it('keeps a verb beside its noun headword', () => {
+    // صَبر and صَبَرَ share a skeleton but are different words.
+    expect(visibleCompanions([cf('صَبَرَ')], 'صَبر', [])).toEqual([cf('صَبَرَ')]);
+  });
+
+  it('drops a companion identical to the headword', () => {
+    expect(visibleCompanions([cf('صَبر'), cf('صابِر')], 'صَبر', [])).toEqual([cf('صابِر')]);
+  });
+
+  it('drops an exact repeat within the companions', () => {
+    expect(visibleCompanions([cf('عادَ'), cf('عادَ')], 'يُعيد', [])).toHaveLength(1);
+  });
+
+  it('ignores blank rows rather than dropping everything', () => {
+    expect(visibleCompanions([cf('شاكِر')], 'يَشكُر', [null, undefined, '']))
+      .toEqual([cf('شاكِر')]);
   });
 });
