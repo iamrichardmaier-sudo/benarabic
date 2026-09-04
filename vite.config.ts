@@ -81,6 +81,18 @@ export default defineConfig(({ mode }) => ({
             },
           },
           {
+            // Book of Mormon chapters, same reasoning as the Bible below: the
+            // text never changes, and 239 chapters would bloat the install if
+            // they were precached instead.
+            urlPattern: ({ url }) => url.pathname.includes("/bom/"),
+            handler: "CacheFirst",
+            options: {
+              cacheName: "bom-text",
+              expiration: { maxEntries: 260, maxAgeSeconds: 60 * 60 * 24 * 365 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+          {
             // Bible chapter text never changes — cache each chapter the first
             // time it's read so flipping back to it (or reading offline) is instant.
             urlPattern: ({ url }) => url.pathname.includes("/bible/"),
