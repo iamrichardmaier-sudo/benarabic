@@ -1,0 +1,341 @@
+[
+  {
+    "fusha": "الحاسوب",
+    "wordVoweled": "الحاسوب",
+    "english": "the computer",
+    "root": "ح-س-ب",
+    "wordType": "noun",
+    "fushaPlural": "حَواسيب",
+    "shaami": "الكُمبيوتَر",
+    "companionForms": [
+      { "form": "حَسَبَ", "label": "Form I verb (to calculate)" },
+      { "form": "حِساب", "label": "Noun (account, arithmetic)" },
+      { "form": "مُحاسِب", "label": "Active participle (accountant)" },
+      { "form": "حَواسيب", "label": "Plural (computers)" }
+    ]
+  },
+  {
+    "fusha": "أنت مْعَصِّب؟",
+    "wordVoweled": "أنت مْعَصِّب؟",
+    "english": "Are you upset? Are you angry? (Shaami)",
+    "root": "ع-ص-ب",
+    "wordType": "other",
+    "companionForms": [
+      { "form": "مْعَصِّب", "label": "Adjective (angry, worked up, Shaami)" },
+      { "form": "عَصَّبَ", "label": "Form II verb (to make angry)" },
+      { "form": "عَصَبِيّ", "label": "Adjective (irritable, nervous)" },
+      { "form": "أَعصاب", "label": "Plural (nerves)" }
+    ]
+  },
+  {
+    "fusha": "شو نَكهِة العِلْكة اللي بْتِمَّك؟",
+    "wordVoweled": "شو نَكهِة العِلْكة اللي بْتِمَّك؟",
+    "english": "What flavour is the gum in your mouth? (Shaami)",
+    "wordType": "other",
+    "companionForms": [
+      { "form": "نَكهة", "label": "Noun (flavour)" },
+      { "form": "عِلْكة", "label": "Noun (chewing gum)" },
+      { "form": "تِمّ", "label": "Noun (mouth, Shaami)" },
+      { "form": "اللي", "label": "Relative pronoun (that, which, Shaami)" }
+    ]
+  },
+  {
+    "fusha": "نَعناع",
+    "wordVoweled": "نَعناع",
+    "english": "mint",
+    "root": "ن-ع-ن-ع",
+    "wordType": "noun",
+    "companionForms": [
+      { "form": "نَعناعة", "label": "Singulative (a mint leaf)" },
+      { "form": "شاي بِنَعناع", "label": "Phrase (mint tea)" },
+      { "form": "لِيمون بِنَعناع", "label": "Phrase (lemon and mint)" }
+    ]
+  },
+  {
+    "fusha": "عِلْكِة الجِبْس",
+    "wordVoweled": "عِلْكِة الجِبْس",
+    "english": "gypsum gum — a hard, chalky chewing gum",
+    "root": "ج-ب-س",
+    "wordType": "other",
+    "companionForms": [
+      { "form": "عِلْكة", "label": "Noun (chewing gum)" },
+      { "form": "جِبْس", "label": "Noun (gypsum, plaster)" },
+      { "form": "نَكهة", "label": "Noun (flavour)" }
+    ]
+  },
+  {
+    "fusha": "وَرْشة",
+    "wordVoweled": "وَرْشة",
+    "english": "workshop",
+    "root": "و-ر-ش",
+    "wordType": "noun",
+    "fushaPlural": "وَرَش",
+    "companionForms": [
+      { "form": "وَرَش", "label": "Plural (workshops)" },
+      { "form": "وَرشة عَمَل", "label": "Phrase (a training workshop)" },
+      { "form": "وَرشة تَصليح", "label": "Phrase (repair shop)" }
+    ]
+  },
+  {
+    "fusha": "خَطيبتي",
+    "wordVoweled": "خَطيبتي",
+    "english": "my fiancée",
+    "root": "خ-ط-ب",
+    "wordType": "noun",
+    "companionForms": [
+      { "form": "خَطيبة", "label": "Noun (fiancée)" },
+      { "form": "خَطيب", "label": "Noun (fiancé; a preacher)" },
+      { "form": "خُطوبة", "label": "Noun (engagement)" },
+      { "form": "خَطَبَ", "label": "Form I verb (to get engaged to; to give a sermon)" }
+    ]
+  },
+  {
+    "fusha": "كَلام عيب",
+    "wordVoweled": "كَلام عيب",
+    "english": "shameful talk, talk you shouldn't say",
+    "root": "ع-ي-ب",
+    "wordType": "other",
+    "companionForms": [
+      { "form": "كَلام", "label": "Noun (talk, speech)" },
+      { "form": "عَيب عَلَيك", "label": "Expression (shame on you)" },
+      { "form": "مَعيوب", "label": "Passive participle (flawed, defective)" },
+      { "form": "عابَ", "label": "Form I verb (to find fault with)" }
+    ]
+  },
+  {
+    "fusha": "عيب",
+    "wordVoweled": "عيب",
+    "english": "shame; \"that's not done\"",
+    "root": "ع-ي-ب",
+    "wordType": "noun",
+    "fushaPlural": "عُيوب",
+    "companionForms": [
+      { "form": "عُيوب", "label": "Plural (faults, defects)" },
+      { "form": "عَيب عَلَيك", "label": "Expression (shame on you)" },
+      { "form": "مَعيوب", "label": "Passive participle (flawed)" },
+      { "form": "عابَ", "label": "Form I verb (to find fault with)" }
+    ]
+  },
+  {
+    "fusha": "كَذّابة",
+    "wordVoweled": "كَذّابة",
+    "english": "a liar (of a woman)",
+    "root": "ك-ذ-ب",
+    "wordType": "noun",
+    "companionForms": [
+      { "form": "كَذّاب", "label": "Masculine (a liar)" },
+      { "form": "كِذب", "label": "Noun (a lie, lying)" },
+      { "form": "كَذَبَ", "label": "Form I verb (to lie)" },
+      { "form": "كاذِب", "label": "Active participle (false, lying)" }
+    ]
+  },
+  {
+    "fusha": "المَسيحِيّة",
+    "wordVoweled": "المَسيحِيّة",
+    "english": "Christianity",
+    "root": "م-س-ح",
+    "wordType": "noun",
+    "companionForms": [
+      { "form": "المَسيح", "label": "Noun (the Messiah, Christ)" },
+      { "form": "مَسيحِيّ", "label": "Adjective (Christian)" },
+      { "form": "مَسيحِيّون", "label": "Plural (Christians)" },
+      { "form": "مَسَحَ", "label": "Form I verb (to anoint; to wipe)" }
+    ]
+  },
+  {
+    "fusha": "مُبَشِّر",
+    "wordVoweled": "مُبَشِّر",
+    "english": "missionary, preacher",
+    "root": "ب-ش-ر",
+    "wordType": "participle",
+    "verbForm": "II",
+    "fushaPlural": "مُبَشِّرون",
+    "companionForms": [
+      { "form": "بَشَّرَ بِـ", "label": "Form II verb (to preach, to bring good news)" },
+      { "form": "بِشارة", "label": "Noun (good news, gospel)" },
+      { "form": "تَبشير", "label": "Verbal noun (evangelising)" },
+      { "form": "بُشرى", "label": "Noun (glad tidings)" }
+    ]
+  },
+  {
+    "fusha": "داعي",
+    "wordVoweled": "داعي",
+    "english": "a preacher, one who calls people to a faith; also \"need, reason\" in Shaami",
+    "root": "د-ع-و",
+    "wordType": "participle",
+    "verbForm": "I",
+    "companionForms": [
+      { "form": "دَعا", "label": "Form I verb (to invite, to call)" },
+      { "form": "دَعوة", "label": "Noun (invitation; a call to a faith)" },
+      { "form": "ما في داعي", "label": "Expression (there's no need, Shaami)" },
+      { "form": "دُعاء", "label": "Noun (supplication)" }
+    ]
+  },
+  {
+    "fusha": "مَشهور",
+    "wordVoweled": "مَشهور",
+    "english": "famous",
+    "root": "ش-ه-ر",
+    "wordType": "participle",
+    "verbForm": "I",
+    "companionForms": [
+      { "form": "شُهرة", "label": "Noun (fame)" },
+      { "form": "اِشتَهَرَ بِـ", "label": "Form VIII verb (to become famous for)" },
+      { "form": "شَهير", "label": "Adjective (renowned)" },
+      { "form": "شَهر", "label": "Noun (month)" }
+    ]
+  },
+  {
+    "fusha": "قَبلَك",
+    "wordVoweled": "قَبلَك",
+    "english": "before you",
+    "root": "ق-ب-ل",
+    "wordType": "other",
+    "companionForms": [
+      { "form": "قَبلَ", "label": "Preposition (before)" },
+      { "form": "بَعدَك", "label": "Opposite (after you)" },
+      { "form": "قَبل شْوَيّ", "label": "Phrase (a little while ago, Shaami)" },
+      { "form": "مِن قَبل", "label": "Phrase (beforehand, previously)" }
+    ]
+  },
+  {
+    "fusha": "يَحمي",
+    "wordVoweled": "يَحمي",
+    "english": "he protects",
+    "root": "ح-م-ي",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "حَمى",
+    "presentTense": "يَحمي",
+    "masdarForm": "الحِماية",
+    "shaami": "حَمى ، يِحمي",
+    "companionForms": [
+      { "form": "حِماية", "label": "Noun (protection)" },
+      { "form": "حامي", "label": "Active participle (protector)" },
+      { "form": "مَحمِيّ", "label": "Passive participle (protected)" },
+      { "form": "اللّٰه يِحميك", "label": "Expression (God protect you, Shaami)" }
+    ]
+  },
+  {
+    "fusha": "مَعلولا",
+    "wordVoweled": "مَعلولا",
+    "english": "Maaloula — a Syrian village where Aramaic is still spoken",
+    "wordType": "other",
+    "companionForms": [
+      { "form": "آرامِيّة", "label": "Noun (Aramaic)" },
+      { "form": "سورِيا", "label": "Noun (Syria)" },
+      { "form": "قَرية", "label": "Noun (village)" },
+      { "form": "جَبَل", "label": "Noun (mountain)" }
+    ]
+  },
+  {
+    "fusha": "آرامِيّة",
+    "wordVoweled": "آرامِيّة",
+    "english": "Aramaic (the language)",
+    "wordType": "noun",
+    "companionForms": [
+      { "form": "مَعلولا", "label": "Noun (Maaloula, where it is still spoken)" },
+      { "form": "سُرْيانِيّة", "label": "Noun (Syriac)" },
+      { "form": "لُغة", "label": "Noun (language)" },
+      { "form": "الآرامِيّون", "label": "Plural (the Aramaeans)" }
+    ]
+  },
+  {
+    "fusha": "بُرتُغالِيّة",
+    "wordVoweled": "بُرتُغالِيّة",
+    "english": "Portuguese (the language)",
+    "wordType": "noun",
+    "companionForms": [
+      { "form": "البُرتُغال", "label": "Noun (Portugal)" },
+      { "form": "بُرتُغالِيّ", "label": "Masculine (Portuguese)" },
+      { "form": "بُرتُقال", "label": "Near-homophone (oranges — note the ق)" },
+      { "form": "لُغة", "label": "Noun (language)" }
+    ]
+  },
+  {
+    "fusha": "زَيّ بَعْض",
+    "wordVoweled": "زَيّ بَعْض",
+    "english": "the same, alike (Shaami)",
+    "wordType": "other",
+    "companionForms": [
+      { "form": "زَيّ", "label": "Preposition (like, as — Shaami)" },
+      { "form": "بَعض", "label": "Noun (some; one another)" },
+      { "form": "مِتل بَعض", "label": "Synonym (the same, Shaami)" },
+      { "form": "نَفس الشي", "label": "Synonym (the same thing)" }
+    ]
+  },
+  {
+    "fusha": "حِلِمت",
+    "wordVoweled": "حِلِمت",
+    "english": "I dreamed",
+    "root": "ح-ل-م",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "حَلَمَ",
+    "presentTense": "يَحلَم",
+    "masdarForm": "الحُلم",
+    "shaami": "حِلِمت ، بِحلَم",
+    "companionForms": [
+      { "form": "حُلم", "label": "Noun (a dream)" },
+      { "form": "أَحلام", "label": "Plural (dreams)" },
+      { "form": "حالِم", "label": "Active participle (dreaming)" },
+      { "form": "حِلِمت فيك", "label": "Phrase (I dreamed of you, Shaami)" }
+    ]
+  },
+  {
+    "fusha": "كَتَلانِيّة",
+    "wordVoweled": "كَتَلانِيّة",
+    "english": "Catalan (the language)",
+    "wordType": "noun",
+    "companionForms": [
+      { "form": "كَتالونيا", "label": "Noun (Catalonia)" },
+      { "form": "إسبانيا", "label": "Noun (Spain)" },
+      { "form": "إسبانِيّة", "label": "Noun (Spanish)" },
+      { "form": "لُغة", "label": "Noun (language)" }
+    ]
+  },
+  {
+    "fusha": "شو الشُّروط؟",
+    "wordVoweled": "شو الشُّروط؟",
+    "english": "What are the conditions? What are the requirements? (Shaami)",
+    "root": "ش-ر-ط",
+    "wordType": "other",
+    "companionForms": [
+      { "form": "شَرط", "label": "Singular (a condition)" },
+      { "form": "اِشتَرَطَ", "label": "Form VIII verb (to stipulate)" },
+      { "form": "شو", "label": "Question word (what, Shaami)" },
+      { "form": "بِشَرط أَنْ", "label": "Phrase (on condition that)" }
+    ]
+  },
+  {
+    "fusha": "تْتَعَمَّد",
+    "wordVoweled": "تْتَعَمَّد",
+    "english": "to be baptized",
+    "root": "ع-م-د",
+    "wordType": "verb",
+    "verbForm": "V",
+    "pastTense": "تَعَمَّدَ",
+    "presentTense": "يَتَعَمَّد",
+    "masdarForm": "التَّعَمُّد",
+    "shaami": "تْعَمَّد ، يِتْعَمَّد",
+    "companionForms": [
+      { "form": "عَمَّدَ", "label": "Form II verb (to baptize someone)" },
+      { "form": "التَّعميد", "label": "Verbal noun (baptism, the rite)" },
+      { "form": "المَعمودِيّة", "label": "Noun (baptism)" },
+      { "form": "يوحَنّا المَعمَدان", "label": "Name (John the Baptist)" }
+    ]
+  },
+  {
+    "fusha": "يوحَنّا المَعمَدان",
+    "wordVoweled": "يوحَنّا المَعمَدان",
+    "english": "John the Baptist",
+    "root": "ع-م-د",
+    "wordType": "other",
+    "companionForms": [
+      { "form": "يوحَنّا", "label": "Name (John)" },
+      { "form": "المَعمودِيّة", "label": "Noun (baptism)" },
+      { "form": "عَمَّدَ", "label": "Form II verb (to baptize)" },
+      { "form": "نَبِيّ", "label": "Noun (prophet)" }
+    ]
+  }
+]
