@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { FlashCard } from '@/lib/spaced-repetition';
-import { relatedInDeck, MAX_RELATED, wordKey } from '@/lib/word-relations';
+import { relatedInDeck, visibleCompanions, MAX_RELATED, wordKey } from '@/lib/word-relations';
 import { fetchWordsByRoot } from '@/lib/bible-root-index';
 import { dialectView, showsShaamiRows } from '@/lib/dialect';
 import { usePreferences } from '@/hooks/usePreferences';
@@ -98,7 +98,13 @@ const WordDetail = ({ card, deck = [], includeCorpus = false, className = '' }: 
     { label: 'Masdar', value: card.masdarForm ?? '' },
   ].filter((f) => f.value);
 
-  const companions = card.companionForms ?? [];
+  // A companion form that repeats a row already above it — the masdar, the
+  // plural, the Shaami — is noise, not a second word.
+  const companions = visibleCompanions(
+    card.companionForms ?? [],
+    view.headline,
+    forms.map((f) => f.value),
+  );
 
   // Anything already named above should not reappear in the Bible list.
   const claimed = new Set<string>([

@@ -1,0 +1,607 @@
+[
+  {
+    "fusha": "هِبة الأَلسِنة",
+    "wordVoweled": "هِبة الأَلسِنة",
+    "english": "Gift of Tongues",
+    "root": "و-ه-ب",
+    "wordType": "other",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "هِبة", "label": "Noun (gift)" },
+      { "form": "وَهَبَ", "label": "Form I verb (to grant, bestow)" },
+      { "form": "لِسان", "label": "Noun (tongue)" },
+      { "form": "أَلسِنة", "label": "Plural (tongues)" }
+    ]
+  },
+  {
+    "fusha": "صَبر",
+    "wordVoweled": "صَبر",
+    "english": "patience",
+    "root": "ص-ب-ر",
+    "wordType": "noun",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "صَبَرَ", "label": "Form I verb (to be patient)" },
+      { "form": "صابِر", "label": "Active participle (patient)" },
+      { "form": "صَبور", "label": "Adjective (long-suffering)" },
+      { "form": "اِصبِر!", "label": "Imperative (be patient!)" }
+    ]
+  },
+  {
+    "fusha": "إيمان",
+    "wordVoweled": "إيمان",
+    "english": "faith",
+    "root": "أ-م-ن",
+    "wordType": "masdar",
+    "verbForm": "IV",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "آمَنَ بِـ", "label": "Form IV verb (to believe in)" },
+      { "form": "مُؤمِن", "label": "Active participle (believer)" },
+      { "form": "أَمين", "label": "Adjective (trustworthy)" },
+      { "form": "أَمان", "label": "Noun (safety)" }
+    ]
+  },
+  {
+    "fusha": "إجابة",
+    "wordVoweled": "إِجابة",
+    "english": "answer",
+    "root": "ج-و-ب",
+    "wordType": "masdar",
+    "verbForm": "IV",
+    "fushaPlural": "إِجابات",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "أَجابَ", "label": "Form IV verb (to answer)" },
+      { "form": "جَواب", "label": "Noun (reply)" },
+      { "form": "اِستَجابَ", "label": "Form X verb (to respond to)" },
+      { "form": "مُجيب", "label": "Active participle (respondent)" }
+    ]
+  },
+  {
+    "fusha": "بَرَكة",
+    "wordVoweled": "بَرَكة",
+    "english": "blessing",
+    "root": "ب-ر-ك",
+    "wordType": "noun",
+    "fushaPlural": "بَرَكات",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "بارَكَ", "label": "Form III verb (to bless)" },
+      { "form": "مُبارَك", "label": "Passive participle (blessed)" },
+      { "form": "تَبارَكَ", "label": "Form VI verb (to be blessed)" },
+      { "form": "مَبروك", "label": "Expression (congratulations)" }
+    ]
+  },
+  {
+    "fusha": "مَغفِرة",
+    "wordVoweled": "مَغفِرة",
+    "english": "forgiveness",
+    "root": "غ-ف-ر",
+    "wordType": "noun",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "غَفَرَ", "label": "Form I verb (to forgive)" },
+      { "form": "غَفور", "label": "Adjective (most forgiving)" },
+      { "form": "اِستَغفَرَ", "label": "Form X verb (to seek forgiveness)" },
+      { "form": "غُفران", "label": "Verbal noun (pardon)" }
+    ]
+  },
+  {
+    "fusha": "تَوجيه",
+    "wordVoweled": "تَوجيه",
+    "english": "guidance",
+    "root": "و-ج-ه",
+    "wordType": "masdar",
+    "verbForm": "II",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "وَجَّهَ", "label": "Form II verb (to direct, guide)" },
+      { "form": "وَجه", "label": "Noun (face)" },
+      { "form": "اِتِّجاه", "label": "Noun (direction)" },
+      { "form": "مُوَجِّه", "label": "Active participle (guide, mentor)" }
+    ]
+  },
+  {
+    "fusha": "سَأَلَ",
+    "wordVoweled": "سَأَلَ",
+    "english": "to ask (a question)",
+    "root": "س-أ-ل",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "سَأَلَ",
+    "presentTense": "يَسأَل",
+    "masdarForm": "السُّؤال",
+    "shaami": "سَأَل ، يِسأَل",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "سُؤال", "label": "Noun (question)" },
+      { "form": "أَسئِلة", "label": "Plural (questions)" },
+      { "form": "مَسؤول", "label": "Passive participle (responsible; an official)" },
+      { "form": "تَساءَلَ", "label": "Form VI verb (to wonder)" }
+    ]
+  },
+  {
+    "fusha": "يَطلُب",
+    "wordVoweled": "يَطلُب",
+    "english": "to ask for, to request",
+    "root": "ط-ل-ب",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "طَلَبَ",
+    "presentTense": "يَطلُب",
+    "masdarForm": "الطَّلَب",
+    "shaami": "طَلَب ، يِطلُب",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "طَلَب", "label": "Noun (request)" },
+      { "form": "طالِب", "label": "Active participle (student, seeker)" },
+      { "form": "مَطلوب", "label": "Passive participle (required, wanted)" },
+      { "form": "مَطلَب", "label": "Noun (demand)" }
+    ]
+  },
+  {
+    "fusha": "غَفَرَ",
+    "wordVoweled": "غَفَرَ",
+    "english": "to forgive (of God)",
+    "root": "غ-ف-ر",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "غَفَرَ",
+    "presentTense": "يَغفِر",
+    "masdarForm": "المَغفِرة",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "مَغفِرة", "label": "Noun (forgiveness)" },
+      { "form": "غَفور", "label": "Adjective (most forgiving)" },
+      { "form": "اِستَغفَرَ", "label": "Form X verb (to seek forgiveness)" },
+      { "form": "اللّٰهُ يَغفِر لَك", "label": "Expression (may God forgive you)" }
+    ]
+  },
+  {
+    "fusha": "يُسامِح",
+    "wordVoweled": "يُسامِح",
+    "english": "to forgive (a person)",
+    "root": "س-م-ح",
+    "wordType": "verb",
+    "verbForm": "III",
+    "pastTense": "سامَحَ",
+    "presentTense": "يُسامِح",
+    "masdarForm": "المُسامَحة",
+    "shaami": "سامَح ، يسامِح",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "مُسامَحة", "label": "Verbal noun (forgiveness)" },
+      { "form": "سَمَحَ لِـ", "label": "Form I verb (to permit)" },
+      { "form": "تَسامُح", "label": "Form VI verbal noun (tolerance)" },
+      { "form": "لَو سَمَحت", "label": "Expression (excuse me, please)" }
+    ]
+  },
+  {
+    "fusha": "أَعطى",
+    "wordVoweled": "أَعطى",
+    "english": "to give",
+    "root": "ع-ط-و",
+    "wordType": "verb",
+    "verbForm": "IV",
+    "pastTense": "أَعطى",
+    "presentTense": "يُعطي",
+    "masdarForm": "الإعطاء",
+    "shaami": "عَطى ، يَعطي",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "عَطاء", "label": "Noun (giving, generosity)" },
+      { "form": "عَطِيّة", "label": "Noun (a gift)" },
+      { "form": "مُعطي", "label": "Active participle (giver)" },
+      { "form": "أَعطِني", "label": "Imperative (give me)" }
+    ]
+  },
+  {
+    "fusha": "اِستَلَمَ",
+    "wordVoweled": "اِستَلَمَ",
+    "english": "to receive",
+    "root": "س-ل-م",
+    "wordType": "verb",
+    "verbForm": "X",
+    "pastTense": "اِستَلَمَ",
+    "presentTense": "يَستَلِم",
+    "masdarForm": "الاِستِلام",
+    "shaami": "اِستَلَم ، يِستَلِم",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "اِستِلام", "label": "Verbal noun (receipt)" },
+      { "form": "سَلَّمَ", "label": "Form II verb (to hand over; to greet)" },
+      { "form": "تَسليم", "label": "Verbal noun (delivery)" },
+      { "form": "سَلام", "label": "Noun (peace)" }
+    ]
+  },
+  {
+    "fusha": "بَلَّش",
+    "wordVoweled": "بَلَّش",
+    "english": "to start (Shaami)",
+    "root": "ب-ل-ش",
+    "wordType": "verb",
+    "verbForm": "II",
+    "pastTense": "بَلَّش",
+    "presentTense": "يبَلِّش",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "بَدَأَ", "label": "Fusha (to begin)" },
+      { "form": "اِبتَدَأَ", "label": "Form VIII verb (to begin)" },
+      { "form": "بِداية", "label": "Noun (beginning)" },
+      { "form": "بَلَّشنا", "label": "First person plural (we started)" }
+    ]
+  },
+  {
+    "fusha": "يَشكُر",
+    "wordVoweled": "يَشكُر",
+    "english": "to thank",
+    "root": "ش-ك-ر",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "شَكَرَ",
+    "presentTense": "يَشكُر",
+    "masdarForm": "الشُّكر",
+    "shaami": "شَكَر ، يِشكُر",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "شُكر", "label": "Noun (thanks)" },
+      { "form": "شُكراً", "label": "Expression (thank you)" },
+      { "form": "شاكِر", "label": "Active participle (thankful)" },
+      { "form": "مَشكور", "label": "Passive participle (thanked, much obliged)" }
+    ]
+  },
+  {
+    "fusha": "إلهام",
+    "wordVoweled": "إلهام",
+    "english": "inspiration",
+    "root": "ل-ه-م",
+    "wordType": "masdar",
+    "verbForm": "IV",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "أَلهَمَ", "label": "Form IV verb (to inspire)" },
+      { "form": "مُلهِم", "label": "Active participle (inspiring)" },
+      { "form": "مُلهَم", "label": "Passive participle (inspired)" },
+      { "form": "اِلهام إلهي", "label": "Phrase (divine inspiration)" }
+    ]
+  },
+  {
+    "fusha": "أَمان",
+    "wordVoweled": "أَمان",
+    "english": "safety",
+    "root": "أ-م-ن",
+    "wordType": "noun",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "أَمن", "label": "Noun (security)" },
+      { "form": "آمِن", "label": "Adjective (safe)" },
+      { "form": "إيمان", "label": "Verbal noun (faith)" },
+      { "form": "بِأَمان", "label": "Phrase (safely, in safety)" }
+    ]
+  },
+  {
+    "fusha": "الكِتاب المُقَدَّس",
+    "wordVoweled": "الكِتاب المُقَدَّس",
+    "english": "the Bible",
+    "root": "ك-ت-ب",
+    "wordType": "other",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "كِتاب", "label": "Noun (book)" },
+      { "form": "كُتُب", "label": "Plural (books)" },
+      { "form": "مُقَدَّس", "label": "Passive participle (holy, sacred)" },
+      { "form": "كَتَبَ", "label": "Form I verb (to write)" }
+    ]
+  },
+  {
+    "fusha": "المَبادِئ والعُهود",
+    "wordVoweled": "المَبادِئ والعُهود",
+    "english": "Doctrine and Covenants",
+    "wordType": "other",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "مَبدَأ", "label": "Singular (principle)" },
+      { "form": "عَهد", "label": "Singular (covenant)" },
+      { "form": "عُهود", "label": "Plural (covenants)" },
+      { "form": "مَبادِئ", "label": "Plural (principles)" }
+    ]
+  },
+  {
+    "fusha": "العَهد القَديم",
+    "wordVoweled": "العَهد القَديم",
+    "english": "the Old Testament",
+    "root": "ع-ه-د",
+    "wordType": "other",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "عَهد", "label": "Noun (covenant, era)" },
+      { "form": "قَديم", "label": "Adjective (old, ancient)" },
+      { "form": "العَهد الجَديد", "label": "Phrase (the New Testament)" },
+      { "form": "عاهَدَ", "label": "Form III verb (to make a covenant with)" }
+    ]
+  },
+  {
+    "fusha": "فَصل (من كِتاب)",
+    "wordVoweled": "فَصل",
+    "english": "chapter",
+    "root": "ف-ص-ل",
+    "wordType": "noun",
+    "fushaPlural": "فُصول",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "فُصول", "label": "Plural (chapters)" },
+      { "form": "فَصَلَ", "label": "Form I verb (to separate)" },
+      { "form": "فاصِل", "label": "Active participle (divider, interval)" },
+      { "form": "تَفصيل", "label": "Noun (detail)" }
+    ]
+  },
+  {
+    "fusha": "شَعب",
+    "wordVoweled": "شَعب",
+    "english": "a people, a nation",
+    "root": "ش-ع-ب",
+    "wordType": "noun",
+    "fushaPlural": "شُعوب",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "شُعوب", "label": "Plural (peoples)" },
+      { "form": "شَعبِيّ", "label": "Adjective (popular, of the people)" },
+      { "form": "شُعبة", "label": "Noun (branch, division)" },
+      { "form": "تَشَعَّبَ", "label": "Form V verb (to branch out)" }
+    ]
+  },
+  {
+    "fusha": "مَبدَأ",
+    "wordVoweled": "مَبدَأ",
+    "english": "principle",
+    "root": "ب-د-أ",
+    "wordType": "noun",
+    "fushaPlural": "مَبادِئ",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "مَبادِئ", "label": "Plural (principles)" },
+      { "form": "بَدَأَ", "label": "Form I verb (to begin)" },
+      { "form": "بِداية", "label": "Noun (beginning)" },
+      { "form": "مَبدَئِيّاً", "label": "Adverb (in principle)" }
+    ]
+  },
+  {
+    "fusha": "وَعد",
+    "wordVoweled": "وَعد",
+    "english": "promise",
+    "root": "و-ع-د",
+    "wordType": "noun",
+    "fushaPlural": "وُعود",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "وُعود", "label": "Plural (promises)" },
+      { "form": "وَعَدَ", "label": "Form I verb (to promise)" },
+      { "form": "مَوعِد", "label": "Noun (appointment)" },
+      { "form": "ميعاد", "label": "Noun (appointed time)" }
+    ]
+  },
+  {
+    "fusha": "لَقى",
+    "wordVoweled": "لَقى",
+    "english": "to find (Shaami)",
+    "root": "ل-ق-ي",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "لَقى (لَقيت)",
+    "presentTense": "يِلاقي",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "وَجَدَ", "label": "Fusha (to find)" },
+      { "form": "لِقاء", "label": "Noun (meeting)" },
+      { "form": "اِلتَقى بِـ", "label": "Form VIII verb (to meet)" },
+      { "form": "ما لْقيت", "label": "Phrase (I did not find)" }
+    ]
+  },
+  {
+    "fusha": "قَصَدَ",
+    "wordVoweled": "قَصَدَ",
+    "english": "to mean, to intend",
+    "root": "ق-ص-د",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "قَصَدَ",
+    "presentTense": "يَقصِد",
+    "masdarForm": "القَصد",
+    "shaami": "قَصَد ، يِقصُد",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "قَصد", "label": "Noun (intention)" },
+      { "form": "مَقصود", "label": "Passive participle (intended, deliberate)" },
+      { "form": "مَقصَد", "label": "Noun (aim, purpose)" },
+      { "form": "شو قَصدَك؟", "label": "Question (what do you mean?, Shaami)" }
+    ]
+  },
+  {
+    "fusha": "يُشارِك",
+    "wordVoweled": "يُشارِك",
+    "english": "to share, to take part",
+    "root": "ش-ر-ك",
+    "wordType": "verb",
+    "verbForm": "III",
+    "pastTense": "شارَكَ",
+    "presentTense": "يُشارِك",
+    "masdarForm": "المُشارَكة",
+    "shaami": "شارَك ، يشارِك",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "مُشارَكة", "label": "Verbal noun (participation)" },
+      { "form": "شَريك", "label": "Noun (partner)" },
+      { "form": "اِشتَرَكَ في", "label": "Form VIII verb (to take part in)" },
+      { "form": "مُشتَرَك", "label": "Passive participle (shared, joint)" }
+    ]
+  },
+  {
+    "fusha": "بِصَوتٍ عالٍ",
+    "wordVoweled": "بِصَوتٍ عالٍ",
+    "english": "aloud, out loud",
+    "root": "ص-و-ت",
+    "wordType": "other",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "صَوت", "label": "Noun (voice, sound)" },
+      { "form": "أَصوات", "label": "Plural (voices)" },
+      { "form": "عالٍ", "label": "Adjective (high, loud)" },
+      { "form": "بِصَوتٍ مُنخَفِض", "label": "Opposite (in a low voice)" }
+    ]
+  },
+  {
+    "fusha": "يَخدِم",
+    "wordVoweled": "يَخدِم",
+    "english": "to serve",
+    "root": "خ-د-م",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "خَدَمَ",
+    "presentTense": "يَخدِم",
+    "masdarForm": "الخِدمة",
+    "shaami": "خَدَم ، يِخدِم",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "خِدمة", "label": "Noun (service)" },
+      { "form": "خادِم", "label": "Active participle (servant)" },
+      { "form": "اِستَخدَمَ", "label": "Form X verb (to use, employ)" },
+      { "form": "مُوَظَّف خِدمات", "label": "Phrase (service worker)" }
+    ]
+  },
+  {
+    "fusha": "مُمَثِّل",
+    "wordVoweled": "مُمَثِّل",
+    "english": "representative",
+    "root": "م-ث-ل",
+    "wordType": "participle",
+    "verbForm": "II",
+    "fushaPlural": "مُمَثِّلون",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "مَثَّلَ", "label": "Form II verb (to represent; to act)" },
+      { "form": "تَمثيل", "label": "Verbal noun (representation, acting)" },
+      { "form": "مِثال", "label": "Noun (example)" },
+      { "form": "مِثلَ", "label": "Preposition (like)" }
+    ]
+  },
+  {
+    "fusha": "يِسَوّي",
+    "wordVoweled": "يِسَوّي",
+    "english": "to do, to make (Shaami)",
+    "root": "س-و-ي",
+    "wordType": "verb",
+    "verbForm": "II",
+    "pastTense": "سَوّى",
+    "presentTense": "يِسَوّي",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "عَمِلَ", "label": "Fusha (to do, to make)" },
+      { "form": "فَعَلَ", "label": "Fusha (to do)" },
+      { "form": "شو عَم تِسَوّي؟", "label": "Question (what are you doing?, Shaami)" },
+      { "form": "سَوا", "label": "Adverb (together, Shaami)" }
+    ]
+  },
+  {
+    "fusha": "اِختَبَرَ",
+    "wordVoweled": "اِختَبَرَ",
+    "english": "to experience, to go through",
+    "root": "خ-ب-ر",
+    "wordType": "verb",
+    "verbForm": "VIII",
+    "pastTense": "اِختَبَرَ",
+    "presentTense": "يَختَبِر",
+    "masdarForm": "الاِختِبار",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "خِبرة", "label": "Noun (experience)" },
+      { "form": "اِختِبار", "label": "Verbal noun (test, trial)" },
+      { "form": "خَبَر", "label": "Noun (news)" },
+      { "form": "خَبير", "label": "Adjective (expert)" }
+    ]
+  },
+  {
+    "fusha": "يَثِق بِـ",
+    "wordVoweled": "يَثِق بِـ",
+    "english": "to trust (in)",
+    "root": "و-ث-ق",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "وَثِقَ بِـ",
+    "presentTense": "يَثِق",
+    "masdarForm": "الثِّقة",
+    "shaami": "وِثِق ، يوثَق بِـ",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "ثِقة", "label": "Noun (trust, confidence)" },
+      { "form": "واثِق", "label": "Active participle (confident)" },
+      { "form": "مَوثوق", "label": "Passive participle (trustworthy)" },
+      { "form": "وَثيقة", "label": "Noun (document)" }
+    ]
+  },
+  {
+    "fusha": "العَهد الجَديد",
+    "wordVoweled": "العَهد الجَديد",
+    "english": "the New Testament",
+    "root": "ع-ه-د",
+    "wordType": "other",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "عَهد", "label": "Noun (covenant, era)" },
+      { "form": "جَديد", "label": "Adjective (new)" },
+      { "form": "العَهد القَديم", "label": "Phrase (the Old Testament)" },
+      { "form": "عُهود", "label": "Plural (covenants)" }
+    ]
+  },
+  {
+    "fusha": "شْوَيّ شْوَيّ",
+    "wordVoweled": "شْوَيّ شْوَيّ",
+    "english": "slowly, little by little (Shaami)",
+    "wordType": "other",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "شْوَيّة", "label": "Noun (a little, Shaami)" },
+      { "form": "بِبُطء", "label": "Fusha (slowly)" },
+      { "form": "قَليلاً قَليلاً", "label": "Fusha (little by little)" },
+      { "form": "عَ مَهلَك", "label": "Expression (take your time, Shaami)" }
+    ]
+  },
+  {
+    "fusha": "يُعيد",
+    "wordVoweled": "يُعيد",
+    "english": "to repeat, to do again",
+    "root": "ع-و-د",
+    "wordType": "verb",
+    "verbForm": "IV",
+    "pastTense": "أَعادَ",
+    "presentTense": "يُعيد",
+    "masdarForm": "الإعادة",
+    "shaami": "عاد ، يعيد",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "إعادة", "label": "Verbal noun (repetition)" },
+      { "form": "عادَ", "label": "Form I verb (to return)" },
+      { "form": "عادة", "label": "Noun (habit, custom)" },
+      { "form": "كَمان مَرّة", "label": "Expression (one more time, Shaami)" }
+    ]
+  },
+  {
+    "fusha": "يَكبَر",
+    "wordVoweled": "يَكبَر",
+    "english": "to grow up, to get bigger",
+    "root": "ك-ب-ر",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "كَبِرَ",
+    "presentTense": "يَكبَر",
+    "masdarForm": "الكِبَر",
+    "shaami": "كِبِر ، يِكبَر",
+    "group": "Embark",
+    "companionForms": [
+      { "form": "كَبير", "label": "Adjective (big, old)" },
+      { "form": "أَكبَر", "label": "Comparative (bigger, older)" },
+      { "form": "كِبَر", "label": "Noun (old age)" },
+      { "form": "تَكبير", "label": "Verbal noun (enlargement)" }
+    ]
+  }
+]
