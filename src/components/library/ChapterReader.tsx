@@ -3,7 +3,7 @@ import {
   ChevronLeft, ChevronRight, ChevronDown, Type, Volume2,
   Columns2, MessageSquareText, Maximize2, Minimize2,
 } from 'lucide-react';
-import { useBibleChapter } from '@/hooks/useBibleChapter';
+import { useChapterText, NOT_LOADED, type Work } from '@/hooks/useChapterText';
 import { useBibleAudio } from '@/hooks/useBibleAudio';
 import { useBibleWordTags, type BibleWordTag } from '@/hooks/useBibleWordTags';
 import { usePreferences } from '@/hooks/usePreferences';
@@ -33,6 +33,8 @@ function readMode(): ReadMode {
 interface ChapterReaderProps {
   book: BibleBook;
   chapter: number;
+  /** Which work this chapter belongs to; decides where the text is read from. */
+  work?: Work;
   /** Breadcrumb path, innermost last. Tapping any crumb jumps up to it. */
   crumbs: { label: string; onJump: () => void }[];
   onBack: () => void;
@@ -51,7 +53,7 @@ interface ChapterReaderProps {
  * drift apart, and tap-to-reveal for reading Arabic alone.
  */
 const ChapterReader = ({
-  book, chapter, crumbs, onBack, onChangeChapter, onNextBook, onPrevBook,
+  book, chapter, work = 'bible', crumbs, onBack, onChangeChapter, onNextBook, onPrevBook,
 }: ChapterReaderProps) => {
   const prefs = usePreferences();
   const [mode, setMode] = useState<ReadMode>(readMode);
@@ -60,7 +62,7 @@ const ChapterReader = ({
   const [panel, setPanel] = useState<'none' | 'text' | 'audio'>('none');
   const [immersive, setImmersive] = useState(false);
 
-  const { verses, loading, error } = useBibleChapter(book.code, chapter);
+  const { verses, loading, error } = useChapterText(work, book.code, chapter);
   const wordList = useMemo(() => chapterWords(verses ?? []), [verses]);
   const wordTags = useBibleWordTags(wordList);
   const audioUrl = useBibleAudio(book.code, chapter);
@@ -286,7 +288,18 @@ const ChapterReader = ({
         onTouchEnd={swipe.onTouchEnd}
       >
         {loading && <p className="text-sm text-muted-foreground text-center py-8">Loading chapter…</p>}
-        {error && <p className="text-sm text-destructive text-center py-8">{error}</p>}
+        {/* A private text that has not been loaded yet is an empty shelf, not a
+            broken one, and should not read like something went wrong. */}
+        {error === NOT_LOADED ? (
+          <div className="py-10 text-center">
+            <p className="text-sm font-medium text-foreground">This chapter isn’t loaded yet.</p>
+            <p className="mx-auto mt-1 max-w-xs text-xs text-muted-foreground">
+              {book.name} {chapter} will appear here once you add the text to your library.
+            </p>
+          </div>
+        ) : (
+          error && <p className="text-sm text-destructive text-center py-8">{error}</p>
+        )}
 
         {verses && mode === 'side' && (
           <div className="grid grid-cols-2 gap-x-4 gap-y-3">

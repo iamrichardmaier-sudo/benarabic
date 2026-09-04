@@ -22,8 +22,11 @@ vi.mock('@/hooks/useBibleBooks', () => ({
   useBibleBooks: () => ({ books, loading: false, error: null }),
 }));
 
-vi.mock('@/hooks/useBibleChapter', () => ({
-  useBibleChapter: (book: string | null, chapter: number | null) => ({
+// The reader loads through useChapterText now, which serves both the Bible's
+// static JSON and the private texts held per reader in the database.
+vi.mock('@/hooks/useChapterText', () => ({
+  NOT_LOADED: 'NOT_LOADED',
+  useChapterText: (_work: string, book: string | null, chapter: number | null) => ({
     verses: versesByKey[`${book}/${chapter}`] ?? [],
     loading: false,
     error: null,
@@ -207,5 +210,40 @@ describe('ChapterReader', () => {
     expect(screen.getByText('110%')).toBeInTheDocument();
     // Written through the shared preferences store, not local component state.
     expect(localStorage.getItem('arabic-flashcards-bible-text-scale')).toBe('1.1');
+  });
+});
+
+describe('Book of Mormon', () => {
+  it('sits alongside the two testaments', async () => {
+    const user = userEvent.setup();
+    render(<Library />);
+    await user.click(screen.getByRole('button', { name: /The Bible/ }));
+    expect(screen.getByRole('button', { name: /Book of Mormon/ })).toBeInTheDocument();
+  });
+
+  it('walks Book of Mormon \u2192 book \u2192 chapter \u2192 reader', async () => {
+    const user = userEvent.setup();
+    render(<Library />);
+    await user.click(screen.getByRole('button', { name: /The Bible/ }));
+    await user.click(screen.getByRole('button', { name: /Book of Mormon/ }));
+    expect(screen.getByRole('heading', { name: 'Book of Mormon' })).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: /1 Nephi/ }));
+    expect(screen.getByRole('heading', { name: '1 Nephi' })).toBeInTheDocument();
+    expect(screen.getByText('22 chapters')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: '1' }));
+    // The breadcrumb path is collapsed by default, so the back control is what
+    // shows the reader actually opened.
+    expect(screen.getByRole('button', { name: /Back to Chapters/ })).toBeInTheDocument();
+  });
+
+  it('comes back out to the section list', async () => {
+    const user = userEvent.setup();
+    render(<Library />);
+    await user.click(screen.getByRole('button', { name: /The Bible/ }));
+    await user.click(screen.getByRole('button', { name: /Book of Mormon/ }));
+    await user.click(screen.getByRole('button', { name: /Back to The Bible/ }));
+    expect(screen.getByRole('heading', { name: 'The Bible' })).toBeInTheDocument();
   });
 });

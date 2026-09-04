@@ -196,6 +196,39 @@ export type Database = {
           },
         ]
       }
+      private_texts: {
+        Row: {
+          book_code: string
+          chapter: number
+          created_at: string
+          id: string
+          updated_at: string
+          user_id: string
+          verses: Json
+          work: string
+        }
+        Insert: {
+          book_code: string
+          chapter: number
+          created_at?: string
+          id?: string
+          updated_at?: string
+          user_id?: string
+          verses: Json
+          work: string
+        }
+        Update: {
+          book_code?: string
+          chapter?: number
+          created_at?: string
+          id?: string
+          updated_at?: string
+          user_id?: string
+          verses?: Json
+          work?: string
+        }
+        Relationships: []
+      }
       root_meanings: {
         Row: {
           created_at: string
