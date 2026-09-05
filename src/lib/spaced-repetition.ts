@@ -1,3 +1,5 @@
+import { today, daysFromNow } from './day';
+
 export type LearningStage = 'new' | 'stage1' | 'stage2' | 'graduated';
 export type WordType = 'verb' | 'masdar' | 'noun' | 'adjective' | 'participle' | 'other';
 export type VerbForm = 'I' | 'II' | 'III' | 'IV' | 'V' | 'VI' | 'VII' | 'VIII' | 'IX' | 'X';
@@ -71,20 +73,17 @@ export function reviewCard(card: FlashCard, rating: Rating): FlashCard {
 
   easeFactor = Math.max(MIN_EASE, Math.min(MAX_EASE, easeFactor));
 
-  const nextReview = new Date();
-  nextReview.setDate(nextReview.getDate() + intervalDays);
-
   return {
     ...card,
     intervalDays,
     easeFactor,
-    nextReviewDate: nextReview.toISOString().split('T')[0],
+    nextReviewDate: daysFromNow(intervalDays),
   };
 }
 
 export function getDueCards(cards: FlashCard[]): FlashCard[] {
-  const today = new Date().toISOString().split('T')[0];
-  return cards.filter((c) => c.learningStage === 'graduated' && c.nextReviewDate <= today);
+  const cutoff = today();
+  return cards.filter((c) => c.learningStage === 'graduated' && c.nextReviewDate <= cutoff);
 }
 
 export function getLearnableCards(cards: FlashCard[]): FlashCard[] {
@@ -92,12 +91,10 @@ export function getLearnableCards(cards: FlashCard[]): FlashCard[] {
 }
 
 export function graduateCard(card: FlashCard): FlashCard {
-  const tomorrow = new Date();
-  tomorrow.setDate(tomorrow.getDate() + 1);
   return {
     ...card,
     learningStage: 'graduated',
-    nextReviewDate: tomorrow.toISOString().split('T')[0],
+    nextReviewDate: daysFromNow(1),
     intervalDays: 1,
     easeFactor: 2.5,
   };
@@ -114,7 +111,7 @@ export function createCard(
     word: word.trim(),
     english: english?.trim() || null,
     imageUrl,
-    nextReviewDate: new Date().toISOString().split('T')[0],
+    nextReviewDate: today(),
     intervalDays: 1,
     easeFactor: 2.5,
     learningStage: 'new',

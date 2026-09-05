@@ -6,6 +6,7 @@ import ReviewComplete from '@/components/ReviewComplete';
 import DeckList from '@/components/DeckList';
 import LearningMode from '@/components/LearningMode';
 import RelearnModal from '@/components/RelearnModal';
+import { today } from '@/lib/day';
 import ConjugationDrill from '@/components/ConjugationDrill';
 import PrepositionDrill from '@/components/PrepositionDrill';
 import MemorizeTranscript from '@/components/MemorizeTranscript';
@@ -329,7 +330,7 @@ const Index = () => {
   };
 
   const handleStartRelearn = async (cardIds: string[]) => {
-    const today = new Date().toISOString().split('T')[0];
+    const startDate = today();
     for (const id of cardIds) {
       await updateCard(id, {
         easeFactor: 2.5,
@@ -337,7 +338,7 @@ const Index = () => {
         learningStage: 'new',
         stage1Attempts: 0,
         stage2Attempts: 0,
-        nextReviewDate: today,
+        nextReviewDate: startDate,
       });
     }
     setShowRelearnModal(false);

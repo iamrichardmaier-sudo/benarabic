@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { defineTool, type ToolContext } from "@lovable.dev/mcp-js";
 import { z } from "zod";
+import { today } from "../../day";
 
 function clientFor(ctx: ToolContext) {
   return createClient(process.env.SUPABASE_URL!, process.env.SUPABASE_PUBLISHABLE_KEY!, {
@@ -21,7 +22,7 @@ export default defineTool({
   annotations: { readOnlyHint: false, destructiveHint: false, openWorldHint: false },
   handler: async ({ word, english, image_url }, ctx) => {
     if (!ctx.isAuthenticated()) return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
-    const today = new Date().toISOString().split("T")[0];
+    const startDate = today();
     const { data, error } = await clientFor(ctx)
       .from("flashcards")
       .insert({
@@ -29,7 +30,7 @@ export default defineTool({
         word,
         english,
         image_url: image_url ?? null,
-        next_review_date: today,
+        next_review_date: startDate,
         interval_days: 0,
         ease_factor: 2.5,
         learning_stage: "new",

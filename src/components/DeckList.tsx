@@ -3,6 +3,7 @@ import { FlashCard } from '@/lib/spaced-repetition';
 import { ArrowLeft, Loader2, FileDown, Search } from 'lucide-react';
 import DeckCard from '@/components/DeckCard';
 import { searchDeck } from '@/lib/deck-search';
+import { isoDay } from '@/lib/day';
 import { searchUnsplashImage } from '@/lib/unsplash';
 import { useToast } from '@/hooks/use-toast';
 import jsPDF from 'jspdf';
@@ -97,7 +98,7 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack }: DeckListProps) => {
 
       const today = new Date();
       const dateStr = today.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
-      const fileDate = today.toISOString().split('T')[0];
+      const fileDate = isoDay(today);
 
       doc.setFontSize(18);
       doc.setFont('helvetica', 'bold');
