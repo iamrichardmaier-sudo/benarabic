@@ -1,9 +1,10 @@
 import { describe, it, expect } from 'vitest';
-import { entryToCardFields, type DictionaryEntry } from './dictionary';
+import { attestedIn, entryToCardFields, type DictionaryEntry } from './dictionary';
 
 const entry = (over: Partial<DictionaryEntry>): DictionaryEntry => ({
   id: '1', lemma: 'وَلَدَ', root: 'و-ل-د', pos: 'verb', verbForm: 'I',
-  glosses: ['she gives birth', 'you will give birth'], occurrences: 16, ...over,
+  glosses: ['she gives birth', 'you will give birth'], occurrences: 16,
+  bibleOccurrences: 16, bomOccurrences: 0, ...over,
 });
 
 describe('entryToCardFields', () => {
@@ -38,5 +39,22 @@ describe('entryToCardFields', () => {
 
   it('leaves the verb form null for a word that has none', () => {
     expect(entryToCardFields(entry({ verbForm: null })).verbForm).toBeNull();
+  });
+});
+
+describe('attestedIn', () => {
+  it('names the Bible for a word only the Bible has', () => {
+    expect(attestedIn({ bibleOccurrences: 12, bomOccurrences: 0 })).toBe('in the Bible');
+  });
+
+  it('names the Book of Mormon for a word only it has', () => {
+    // Nephite names and the vocabulary the translation reaches for are not in
+    // the Bible at all, and sending a learner there to find them is worse than
+    // saying nothing.
+    expect(attestedIn({ bibleOccurrences: 0, bomOccurrences: 57 })).toBe('in the Book of Mormon');
+  });
+
+  it('names neither when both have it', () => {
+    expect(attestedIn({ bibleOccurrences: 3, bomOccurrences: 4 })).toBe('in scripture');
   });
 });

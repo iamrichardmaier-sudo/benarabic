@@ -16,7 +16,11 @@ export type Database = {
     Tables: {
       bible_word_tags: {
         Row: {
+          bible_count: number
+          bom_count: number
           gloss: string | null
+          in_bible: boolean
+          in_bom: boolean
           lemma: string | null
           pos: string | null
           root: string | null
@@ -25,7 +29,11 @@ export type Database = {
           verb_form: string | null
         }
         Insert: {
+          bible_count?: number
+          bom_count?: number
           gloss?: string | null
+          in_bible?: boolean
+          in_bom?: boolean
           lemma?: string | null
           pos?: string | null
           root?: string | null
@@ -34,7 +42,11 @@ export type Database = {
           verb_form?: string | null
         }
         Update: {
+          bible_count?: number
+          bom_count?: number
           gloss?: string | null
+          in_bible?: boolean
+          in_bom?: boolean
           lemma?: string | null
           pos?: string | null
           root?: string | null
@@ -46,7 +58,10 @@ export type Database = {
       }
       dictionary: {
         Row: {
+          bible_occurrences: number
+          bom_occurrences: number
           created_at: string
+          forms: number
           gloss_text: string
           glosses: string[]
           id: string
@@ -60,7 +75,10 @@ export type Database = {
           verb_form: string | null
         }
         Insert: {
+          bible_occurrences?: number
+          bom_occurrences?: number
           created_at?: string
+          forms?: number
           gloss_text?: string
           glosses?: string[]
           id?: string
@@ -74,7 +92,10 @@ export type Database = {
           verb_form?: string | null
         }
         Update: {
+          bible_occurrences?: number
+          bom_occurrences?: number
           created_at?: string
+          forms?: number
           gloss_text?: string
           glosses?: string[]
           id?: string
