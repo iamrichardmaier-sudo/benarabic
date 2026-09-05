@@ -4,7 +4,8 @@ import userEvent from '@testing-library/user-event';
 
 const fetchWordsByRootMock = vi.fn();
 
-vi.mock('@/lib/bible-root-index', () => ({
+vi.mock('@/lib/bible-root-index', async (importOriginal) => ({
+  ...(await importOriginal<typeof import('@/lib/bible-root-index')>()),
   fetchWordsByRoot: (...args: unknown[]) => fetchWordsByRootMock(...args),
 }));
 
@@ -55,7 +56,7 @@ describe('BibleWordPopover', () => {
     render(<BibleWordPopover text="كَتَبَ" tag={tag} />);
 
     await user.click(screen.getByRole('button', { name: /كَتَبَ/ }));
-    expect(await screen.findByText(/No other tagged words/)).toBeInTheDocument();
+    expect(await screen.findByText(/No other words on this root/)).toBeInTheDocument();
   });
 
   it('skips the root section entirely for a word with no root (particles, names)', async () => {
@@ -71,5 +72,46 @@ describe('BibleWordPopover', () => {
     expect(await screen.findByText('in')).toBeInTheDocument();
     expect(fetchWordsByRootMock).not.toHaveBeenCalled();
     expect(screen.queryByText(/Root/)).not.toBeInTheDocument();
+  });
+
+  it('gives a root-only word the meaning of its root rather than a blank', async () => {
+    // Four fifths of the Book of Mormon's tagged forms carry a root and
+    // nothing else. Before this, tapping one showed a heading, a root, and a
+    // column of bare Arabic with no translations against it.
+    fetchWordsByRootMock.mockResolvedValue([
+      { surface: 'كَلِمَة', lemma: 'كَلِمَة', root: 'ك-ل-م', pos: 'noun', verbForm: null, gloss: 'word' },
+      { surface: 'كَلام', lemma: 'كَلام', root: 'ك-ل-م', pos: 'noun', verbForm: null, gloss: 'speech' },
+    ]);
+    const user = userEvent.setup();
+    render(
+      <BibleWordPopover
+        text="كَلِماتِهِ"
+        tag={{ surface: 'كَلِماتِهِ', root: 'ك-ل-م', lemma: null, pos: null, verbForm: null, gloss: null }}
+      />,
+    );
+
+    await user.click(screen.getByRole('button', { name: /كَلِماتِهِ/ }));
+    expect(await screen.findByText('word')).toBeInTheDocument();
+    expect(screen.getByText('ك-ل-م')).toBeInTheDocument();
+    // And it says whose meaning that is, rather than passing it off as the
+    // meaning of the form the reader tapped.
+    expect(screen.getByText(/not glossed on its own/i)).toBeInTheDocument();
+  });
+
+  it('does not print the stand-in twice', async () => {
+    fetchWordsByRootMock.mockResolvedValue([
+      { surface: 'كَلِمَة', lemma: 'كَلِمَة', root: 'ك-ل-م', pos: 'noun', verbForm: null, gloss: 'word' },
+    ]);
+    const user = userEvent.setup();
+    render(
+      <BibleWordPopover
+        text="كَلِماتِهِ"
+        tag={{ surface: 'كَلِماتِهِ', root: 'ك-ل-م', lemma: null, pos: null, verbForm: null, gloss: null }}
+      />,
+    );
+
+    await user.click(screen.getByRole('button', { name: /كَلِماتِهِ/ }));
+    expect(await screen.findByText('word')).toBeInTheDocument();
+    expect(screen.getAllByText('كَلِمَة')).toHaveLength(1);
   });
 });

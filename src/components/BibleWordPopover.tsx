@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { fetchWordsByRoot } from '@/lib/bible-root-index';
+import { fetchWordsByRoot, splitRootSense } from '@/lib/bible-root-index';
 import type { BibleWordTag } from '@/hooks/useBibleWordTags';
 
 const POS_LABELS: Record<string, string> = {
@@ -19,11 +19,19 @@ interface BibleWordPopoverProps {
 }
 
 /**
- * Hover-or-tap word info for the Bible reader: root, lemma, gloss, and (lazily,
- * once opened) other tagged words sharing the same root. Follows the same
- * hover-for-mouse / tap-for-phone interaction as GlossPopover, but the "other
- * forms" list is fetched on open rather than passed in, so it can't be built
- * as a static-props component the way GlossPopover is.
+ * Hover-or-tap word info for the reader, shaped like the back of a flashcard:
+ * what the word is, what it means, its root, and the family built on it with
+ * a meaning against each one.
+ *
+ * Most words in the Book of Mormon carry a root and nothing else — the root
+ * was propagated from the Bible, the vowels were not, so no gloss could be
+ * borrowed honestly. Rather than showing a heading with a blank under it,
+ * those words lead with the meaning of the root, labelled as the root's and
+ * not the word's. That is the difference between saying nothing and saying
+ * something true but general.
+ *
+ * The family is fetched on open rather than passed in, so this can't be a
+ * static-props component the way GlossPopover is.
  */
 const BibleWordPopover = ({ text, tag }: BibleWordPopoverProps) => {
   const [open, setOpen] = useState(false);
@@ -43,6 +51,8 @@ const BibleWordPopover = ({ text, tag }: BibleWordPopoverProps) => {
         .finally(() => setLoadingRelated(false));
     }
   };
+
+  const { rootSense, family } = splitRootSense(tag.gloss, related, tag.surface);
 
   const posLabel = tag.pos ? POS_LABELS[tag.pos] ?? tag.pos : undefined;
   const subtitle = [posLabel, tag.verbForm ? `Form ${tag.verbForm}` : null].filter(Boolean).join(' · ');
@@ -80,26 +90,46 @@ const BibleWordPopover = ({ text, tag }: BibleWordPopoverProps) => {
           {subtitle && <p className="text-xs font-medium text-primary">{subtitle}</p>}
         </div>
 
-        {tag.gloss && <p className="text-sm leading-snug text-muted-foreground">{tag.gloss}</p>}
+        {tag.gloss ? (
+          <p className="text-sm leading-snug text-foreground">{tag.gloss}</p>
+        ) : (
+          rootSense && (
+            <p className="text-sm leading-snug text-muted-foreground">
+              <span className="font-arabic text-foreground" dir="rtl">{rootSense.lemma}</span>
+              {' — '}
+              <span>{rootSense.gloss}</span>
+              <span className="mt-0.5 block text-xs text-muted-foreground/80">
+                The root&rsquo;s meaning; this form is not glossed on its own.
+              </span>
+            </p>
+          )
+        )}
 
         {tag.root && (
           <div className="space-y-1 border-t border-border/60 pt-2">
             <p className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
               Root <span className="font-arabic text-sm text-foreground" dir="rtl">{tag.root}</span>
             </p>
-            {loadingRelated && <p className="text-xs text-muted-foreground">Loading related words…</p>}
-            {!loadingRelated && related && related.length > 0 && (
-              <ul className="space-y-1">
-                {related.map((w) => (
-                  <li key={w.surface} className="flex items-center justify-between gap-2 text-sm">
-                    <span className="font-arabic text-foreground" dir="rtl">{w.lemma ?? w.surface}</span>
-                    <span className="text-xs text-muted-foreground truncate">{w.gloss}</span>
-                  </li>
-                ))}
-              </ul>
+            {loadingRelated && <p className="text-xs text-muted-foreground">Loading related words&hellip;</p>}
+            {!loadingRelated && family.length > 0 && (
+              <>
+                <p className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground/70">
+                  Other words on this root
+                </p>
+                <ul className="space-y-1">
+                  {family.map((w) => (
+                    <li key={w.lemma ?? w.surface} className="flex items-baseline justify-between gap-2 text-sm">
+                      <span className="font-arabic text-foreground" dir="rtl">{w.lemma ?? w.surface}</span>
+                      <span className="min-w-0 flex-1 truncate text-end text-xs text-muted-foreground">
+                        {w.gloss}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </>
             )}
-            {!loadingRelated && related && related.length === 0 && (
-              <p className="text-xs text-muted-foreground">No other tagged words for this root yet.</p>
+            {!loadingRelated && related && family.length === 0 && (
+              <p className="text-xs text-muted-foreground">No other words on this root yet.</p>
             )}
           </div>
         )}
