@@ -82,10 +82,10 @@ function WordRow({
                 Your deck
               </span>
             )}
-            {result.sources.includes('bible') && result.occurrences !== null && (
+            {result.sources.includes('corpus') && result.occurrences !== null && (
               <span className="flex items-center gap-1">
                 <BookOpen className="h-3 w-3" />
-                {result.occurrences}× in the Bible
+                {result.occurrences}× {result.attestedIn}
               </span>
             )}
           </div>
@@ -117,7 +117,7 @@ function WordRow({
  * Look a word up across everything the app knows, and add it to the deck.
  *
  * Two sources today — the learner's own cards, searched in memory, and the
- * shared dictionary built from the tagged Bible — merged into one list rather
+ * shared dictionary built from the tagged scriptures — merged into one list rather
  * than presented as two. Words published by other learners would be a third
  * source and would need no change here.
  *
@@ -247,7 +247,8 @@ const WordLookup = ({ deck, onAdd, onBack }: WordLookupProps) => {
       <div className="space-y-1">
         <h1 className="text-2xl font-bold text-foreground">Look up a word</h1>
         <p className="text-sm text-muted-foreground">
-          Searches your own deck and every word tagged in the Bible, in English or Arabic.
+          Searches your own deck and every word tagged in the Bible and the Book of Mormon,
+          in English or Arabic.
         </p>
       </div>
 

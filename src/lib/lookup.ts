@@ -1,17 +1,17 @@
 import { wordKey } from './word-relations';
-import type { DictionaryEntry } from './dictionary';
+import { attestedIn, type DictionaryEntry } from './dictionary';
 import type { FlashCard } from './spaced-repetition';
 
 /**
  * One search over everything the app knows about a word.
  *
  * Today that means two places: the learner's own deck, held in memory, and
- * the shared dictionary built from the tagged Bible. `source` is deliberately
+ * the shared dictionary built from the tagged scriptures. `source` is deliberately
  * open-ended — when words published by other learners land they become a
  * third source and slot into the same list without the UI changing shape.
  */
 
-export type LookupSource = 'deck' | 'bible' | 'community';
+export type LookupSource = 'deck' | 'corpus' | 'community';
 
 export interface LookupResult {
   /** Consonant skeleton — the identity used to merge the same word across sources. */
@@ -23,8 +23,10 @@ export interface LookupResult {
   pos: string | null;
   verbForm: string | null;
   glosses: string[];
-  /** Times attested in the Bible, where the word came from there. */
+  /** Times attested in the corpus, where the word came from there. */
   occurrences: number | null;
+  /** Which work those occurrences are in — "in the Bible", "in scripture". */
+  attestedIn: string | null;
   /** Every place this word was found, in the order they were merged. */
   sources: LookupSource[];
   /** True when the learner already has a card for it. */
@@ -41,6 +43,7 @@ function fromCard(card: FlashCard): LookupResult {
     verbForm: card.verbForm ?? null,
     glosses: card.english ? [card.english] : [],
     occurrences: null,
+    attestedIn: null,
     sources: ['deck'],
     inDeck: true,
   };
@@ -56,7 +59,8 @@ function fromEntry(entry: DictionaryEntry): LookupResult {
     verbForm: entry.verbForm,
     glosses: entry.glosses,
     occurrences: entry.occurrences,
-    sources: [entry.id.startsWith('community:') ? 'community' : 'bible'],
+    attestedIn: attestedIn(entry),
+    sources: [entry.id.startsWith('community:') ? 'community' : 'corpus'],
     inDeck: false,
   };
 }
@@ -101,6 +105,7 @@ export function mergeResults(
     existing.pos = existing.pos ?? row.pos;
     existing.verbForm = existing.verbForm ?? row.verbForm;
     existing.occurrences = existing.occurrences ?? row.occurrences;
+    existing.attestedIn = existing.attestedIn ?? row.attestedIn;
     // A card with no gloss of its own is better off borrowing the corpus's
     // than showing nothing.
     if (existing.glosses.length === 0) existing.glosses = row.glosses;

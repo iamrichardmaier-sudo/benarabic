@@ -3,8 +3,8 @@ import { normalizeArabic } from './arabic-normalize';
 import type { VerbForm, WordType } from './spaced-repetition';
 
 /**
- * Search over the shared dictionary — every distinct word the tagged Bible
- * corpus knows, collapsed from its inflected forms to one entry per lemma.
+ * Search over the shared dictionary — every distinct word the tagged corpus
+ * knows, collapsed from its inflected forms to one entry per lemma.
  *
  * It is built from the corpus rather than from anyone's flashcards. The
  * corpus is already shared, non-personal reference data, whereas `flashcards`
@@ -20,7 +20,10 @@ export interface DictionaryEntry {
   pos: string | null;
   verbForm: string | null;
   glosses: string[];
+  /** Times the word appears across both works. */
   occurrences: number;
+  bibleOccurrences: number;
+  bomOccurrences: number;
 }
 
 interface Row {
@@ -31,6 +34,8 @@ interface Row {
   verb_form: string | null;
   glosses: string[] | null;
   occurrences: number;
+  bible_occurrences: number;
+  bom_occurrences: number;
 }
 
 const ARABIC = /[؀-ۿ]/;
@@ -45,7 +50,25 @@ function toEntry(row: Row): DictionaryEntry {
     verbForm: row.verb_form,
     glosses: row.glosses ?? [],
     occurrences: row.occurrences,
+    bibleOccurrences: row.bible_occurrences,
+    bomOccurrences: row.bom_occurrences,
   };
+}
+
+/**
+ * Which work an entry is attested in, for the frequency line.
+ *
+ * A word in both is the common case and does not need naming; a word in only
+ * one does, because "12× in scripture" would otherwise send a learner looking
+ * for it in the wrong book.
+ */
+export function attestedIn(entry: {
+  bibleOccurrences: number;
+  bomOccurrences: number;
+}): string {
+  if (entry.bibleOccurrences > 0 && entry.bomOccurrences > 0) return 'in scripture';
+  if (entry.bomOccurrences > 0) return 'in the Book of Mormon';
+  return 'in the Bible';
 }
 
 /** Escapes the wildcards PostgREST's ilike filter would otherwise interpret. */
@@ -70,7 +93,7 @@ export async function searchDictionary(query: string): Promise<DictionaryEntry[]
 
   const { data, error } = await supabase
     .from('dictionary')
-    .select('id, lemma, root, pos, verb_form, glosses, occurrences')
+    .select('id, lemma, root, pos, verb_form, glosses, occurrences, bible_occurrences, bom_occurrences')
     .ilike(column, `%${escapeLike(needle)}%`)
     .order('occurrences', { ascending: false })
     .limit(LIMIT);
@@ -95,7 +118,7 @@ export async function entriesForRoots(roots: string[]): Promise<DictionaryEntry[
 
   const { data, error } = await supabase
     .from('dictionary')
-    .select('id, lemma, root, pos, verb_form, glosses, occurrences')
+    .select('id, lemma, root, pos, verb_form, glosses, occurrences, bible_occurrences, bom_occurrences')
     .in('root', roots)
     .order('occurrences', { ascending: false })
     .limit(120);
@@ -112,7 +135,7 @@ export async function entriesForRoots(roots: string[]): Promise<DictionaryEntry[
 export async function entriesByRoot(root: string, excludeId: string): Promise<DictionaryEntry[]> {
   const { data, error } = await supabase
     .from('dictionary')
-    .select('id, lemma, root, pos, verb_form, glosses, occurrences')
+    .select('id, lemma, root, pos, verb_form, glosses, occurrences, bible_occurrences, bom_occurrences')
     .eq('root', root)
     .order('occurrences', { ascending: false })
     .limit(8);

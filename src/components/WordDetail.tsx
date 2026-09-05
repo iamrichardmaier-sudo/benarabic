@@ -11,7 +11,7 @@ interface WordDetailProps {
   /** The rest of the deck, for the "same root" and "same form" lists. */
   deck?: FlashCard[];
   /**
-   * Look up other words on this root in the tagged Bible corpus. Off by
+   * Look up other words on this root in the tagged scripture corpus. Off by
    * default because it costs a request: worth it on a flashcard the learner is
    * sitting with, not on a hover panel they are skimming past.
    */
@@ -106,7 +106,7 @@ const WordDetail = ({ card, deck = [], includeCorpus = false, className = '' }: 
     forms.map((f) => f.value),
   );
 
-  // Anything already named above should not reappear in the Bible list.
+  // Anything already named above should not reappear in the scripture list.
   const claimed = new Set<string>([
     wordKey(card.word),
     wordKey(card.wordVoweled),
@@ -173,7 +173,7 @@ const WordDetail = ({ card, deck = [], includeCorpus = false, className = '' }: 
       )}
 
       {corpusWords.length > 0 && (
-        <Section title="Same root in the Bible">
+        <Section title="Same root in scripture">
           {corpusWords.map((w) => (
             <Row key={w.surface} label={w.gloss ?? ''} value={w.lemma ?? w.surface} />
           ))}

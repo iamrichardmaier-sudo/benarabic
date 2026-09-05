@@ -9,7 +9,8 @@ const card = (o: Partial<FlashCard> & { id: string; word: string }): FlashCard =
      ...o } as FlashCard);
 
 const entry = (o: Partial<DictionaryEntry> & { id: string; lemma: string }): DictionaryEntry =>
-  ({ root: null, pos: null, verbForm: null, glosses: [], occurrences: 0, ...o });
+  ({ root: null, pos: null, verbForm: null, glosses: [], occurrences: 0,
+     bibleOccurrences: 0, bomOccurrences: 0, ...o });
 
 describe('mergeResults', () => {
   it('puts the learner’s own words first', () => {
@@ -26,7 +27,7 @@ describe('mergeResults', () => {
       [entry({ id: '1', lemma: 'كَتَبَ', root: 'ك-ت-ب', glosses: ['wrote'], occurrences: 11 })],
     );
     expect(merged).toHaveLength(1);
-    expect(merged[0].sources).toEqual(['deck', 'bible']);
+    expect(merged[0].sources).toEqual(['deck', 'corpus']);
   });
 
   it('keeps the learner’s own gloss when folding', () => {
