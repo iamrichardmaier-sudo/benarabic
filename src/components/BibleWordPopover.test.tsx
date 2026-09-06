@@ -4,13 +4,18 @@ import userEvent from '@testing-library/user-event';
 
 const fetchWordsByRootMock = vi.fn();
 
+const fetchFormsOfLemmaMock = vi.fn();
+
 vi.mock('@/lib/bible-root-index', async (importOriginal) => ({
   ...(await importOriginal<typeof import('@/lib/bible-root-index')>()),
   fetchWordsByRoot: (...args: unknown[]) => fetchWordsByRootMock(...args),
+  fetchFormsOfLemma: (...args: unknown[]) => fetchFormsOfLemmaMock(...args),
 }));
 
 import BibleWordPopover from './BibleWordPopover';
 import type { BibleWordTag } from '@/hooks/useBibleWordTags';
+import type { FlashCard } from '@/lib/spaced-repetition';
+import { DeckContext } from '@/contexts/DeckContext';
 
 const tag: BibleWordTag = {
   surface: 'كَتَبَ',
@@ -23,6 +28,8 @@ const tag: BibleWordTag = {
 
 beforeEach(() => {
   fetchWordsByRootMock.mockReset();
+  fetchFormsOfLemmaMock.mockReset();
+  fetchFormsOfLemmaMock.mockResolvedValue([]);
 });
 
 describe('BibleWordPopover', () => {
@@ -113,5 +120,98 @@ describe('BibleWordPopover', () => {
     await user.click(screen.getByRole('button', { name: /كَلِماتِهِ/ }));
     expect(await screen.findByText('word')).toBeInTheDocument();
     expect(screen.getAllByText('كَلِمَة')).toHaveLength(1);
+  });
+
+  it('lists the other spellings the word wears in the text', async () => {
+    fetchWordsByRootMock.mockResolvedValue([]);
+    fetchFormsOfLemmaMock.mockResolvedValue(['الْكَلِماتِ', 'كَلِماتِهِ']);
+    const user = userEvent.setup();
+    render(
+      <BibleWordPopover
+        text="كَلِمَة"
+        tag={{ surface: 'كَلِمَة', root: 'ك-ل-م', lemma: 'كَلِمَة', pos: 'noun', verbForm: null, gloss: 'word' }}
+      />,
+    );
+
+    await user.click(screen.getByRole('button', { name: /كَلِمَة/ }));
+    expect(await screen.findByText('Its other forms')).toBeInTheDocument();
+    expect(screen.getByText('الْكَلِماتِ')).toBeInTheDocument();
+  });
+
+  it('does not ask for other forms of a word the corpus never named', async () => {
+    // A root-only form has no lemma to gather siblings under, and guessing
+    // from the skeleton would sweep in words that merely look alike.
+    fetchWordsByRootMock.mockResolvedValue([]);
+    const user = userEvent.setup();
+    render(
+      <BibleWordPopover
+        text="كَلِماتِهِ"
+        tag={{ surface: 'كَلِماتِهِ', root: 'ك-ل-م', lemma: null, pos: null, verbForm: null, gloss: null }}
+      />,
+    );
+
+    await user.click(screen.getByRole('button', { name: /كَلِماتِهِ/ }));
+    expect(fetchFormsOfLemmaMock).not.toHaveBeenCalled();
+  });
+
+  it('shows what the reader already knows on this root', async () => {
+    fetchWordsByRootMock.mockResolvedValue([]);
+    const user = userEvent.setup();
+    render(
+      <DeckContext.Provider
+        value={[
+          { id: '1', word: 'يخدم', wordVoweled: 'يَخدِم', english: 'to serve', root: 'خ-د-م' },
+          { id: '2', word: 'كتب', wordVoweled: 'كَتَبَ', english: 'to write', root: 'ك-ت-ب' },
+        ] as FlashCard[]}
+      >
+        <BibleWordPopover
+          text="خِدْمَة"
+          tag={{ surface: 'خِدْمَة', root: 'خ-د-م', lemma: 'خِدْمَة', pos: 'noun', verbForm: null, gloss: 'service' }}
+        />
+      </DeckContext.Provider>,
+    );
+
+    await user.click(screen.getByRole('button', { name: /خِدْمَة/ }));
+    expect(await screen.findByText('Same root in your deck')).toBeInTheDocument();
+    expect(screen.getByText('يَخدِم')).toBeInTheDocument();
+    // A card on a different root is not "same root".
+    expect(screen.queryByText('كَتَبَ')).not.toBeInTheDocument();
+  });
+
+  it('leaves the deck section out when nothing shares the root', async () => {
+    fetchWordsByRootMock.mockResolvedValue([]);
+    const user = userEvent.setup();
+    render(
+      <DeckContext.Provider value={[{ id: '2', word: 'كتب', wordVoweled: 'كَتَبَ', english: 'to write', root: 'ك-ت-ب' }] as FlashCard[]}>
+        <BibleWordPopover
+          text="خِدْمَة"
+          tag={{ surface: 'خِدْمَة', root: 'خ-د-م', lemma: 'خِدْمَة', pos: 'noun', verbForm: null, gloss: 'service' }}
+        />
+      </DeckContext.Provider>,
+    );
+
+    await user.click(screen.getByRole('button', { name: /خِدْمَة/ }));
+    expect(await screen.findByText('service')).toBeInTheDocument();
+    expect(screen.queryByText('Same root in your deck')).not.toBeInTheDocument();
+  });
+
+  it('finds a deck card whose root spells its hamza differently', async () => {
+    // The card says أ-ر-ض, the corpus says ء-ر-ض. Same root.
+    fetchWordsByRootMock.mockResolvedValue([]);
+    const user = userEvent.setup();
+    render(
+      <DeckContext.Provider
+        value={[{ id: '1', word: 'ارض', wordVoweled: 'أَرْض', english: 'land', root: 'أ-ر-ض' }] as FlashCard[]}
+      >
+        <BibleWordPopover
+          text="الْأَرْضِ"
+          tag={{ surface: 'الْأَرْضِ', root: 'ء-ر-ض', lemma: 'أَرْض', pos: 'noun', verbForm: null, gloss: 'the land' }}
+        />
+      </DeckContext.Provider>,
+    );
+
+    await user.click(screen.getByRole('button', { name: /الْأَرْضِ/ }));
+    expect(await screen.findByText('Same root in your deck')).toBeInTheDocument();
+    expect(screen.getByText('land')).toBeInTheDocument();
   });
 });

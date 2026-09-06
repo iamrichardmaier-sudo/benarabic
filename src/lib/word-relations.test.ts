@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { relatedInDeck, wordKey, visibleCompanions } from './word-relations';
+import { relatedInDeck, wordKey, rootKey, visibleCompanions } from './word-relations';
 import type { FlashCard } from './spaced-repetition';
 
 function card(over: Partial<FlashCard> & { id: string; word: string }): FlashCard {
@@ -23,6 +23,25 @@ describe('wordKey', () => {
 
   it('keys a two-spelling field on the first spelling', () => {
     expect(wordKey('طول / طِوال')).toBe(wordKey('طول'));
+  });
+});
+
+describe('rootKey', () => {
+  it('matches a root however its hamza is written', () => {
+    // The corpus and the deck disagree on 34 roots for this reason alone, and
+    // they are the common ones: أ-ر-ض, أ-م-ن, ر-أ-ي, س-أ-ل.
+    expect(rootKey('أ-خ-ذ')).toBe(rootKey('ء-خ-ذ'));
+    expect(rootKey('أ-خ-ذ')).toBe(rootKey('ا-خ-ذ'));
+    expect(rootKey('ر-أ-ي')).toBe(rootKey('ر-ء-ي'));
+  });
+
+  it('still tells genuinely different roots apart', () => {
+    expect(rootKey('ك-ت-ب')).not.toBe(rootKey('ك-ذ-ب'));
+  });
+
+  it('is blank for a card with no root, so nothing matches on emptiness', () => {
+    expect(rootKey(null)).toBe('');
+    expect(rootKey(undefined)).toBe('');
   });
 });
 

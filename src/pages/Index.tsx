@@ -7,6 +7,7 @@ import DeckList from '@/components/DeckList';
 import LearningMode from '@/components/LearningMode';
 import RelearnModal from '@/components/RelearnModal';
 import { today } from '@/lib/day';
+import { DeckContext } from '@/contexts/DeckContext';
 import ConjugationDrill from '@/components/ConjugationDrill';
 import PrepositionDrill from '@/components/PrepositionDrill';
 import MemorizeTranscript from '@/components/MemorizeTranscript';
@@ -362,6 +363,7 @@ const Index = () => {
   }
 
   return (
+    <DeckContext.Provider value={cards}>
     <div className="min-h-screen bg-background flex flex-col">
       <header className="border-b border-border/60 bg-card/50 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-lg mx-auto px-4 py-4 flex items-center justify-between">
@@ -532,6 +534,7 @@ const Index = () => {
 
       <BottomNav active={tab} onSelect={selectTab} dueCount={dueCount} />
     </div>
+    </DeckContext.Provider>
   );
 };
 

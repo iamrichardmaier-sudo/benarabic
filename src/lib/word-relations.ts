@@ -32,6 +32,23 @@ export function wordKey(value: string | null | undefined): string {
   return normalizeArabic(String(value ?? '').split('/')[0]).trim();
 }
 
+/**
+ * The comparison key for "is this the same root?".
+ *
+ * A hamza-initial root is written three ways across the corpus and the deck —
+ * أ-خ-ذ, ء-خ-ذ, ا-خ-ذ — because different tagging passes chose differently.
+ * Comparing the stored strings loses 34 roots, and they are the common ones a
+ * learner is likeliest to hold cards for: أ-ر-ض, أ-م-ن, ر-أ-ي, س-أ-ل. Folding
+ * every hamza carrier to a bare alef costs nothing, since two roots that
+ * differ only there are the same root.
+ */
+export function rootKey(value: string | null | undefined): string {
+  return String(value ?? '')
+    .replace(/[ءأإآٱ]/g, 'ا')
+    .replace(/[-\s]/g, '')
+    .trim();
+}
+
 function display(card: FlashCard): RelatedWord {
   return { ar: card.wordVoweled || card.word, en: card.english || '' };
 }

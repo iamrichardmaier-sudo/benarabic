@@ -5,6 +5,7 @@ import { fetchWordsByRoot } from '@/lib/bible-root-index';
 import { dialectView, showsShaamiRows } from '@/lib/dialect';
 import { usePreferences } from '@/hooks/usePreferences';
 import type { BibleWordTag } from '@/hooks/useBibleWordTags';
+import { Row, Section } from '@/components/WordSections';
 
 interface WordDetailProps {
   card: FlashCard;
@@ -26,28 +27,6 @@ const TYPE_LABELS: Record<string, string> = {
   participle: 'Participle',
   masdar: 'Verbal noun',
 };
-
-function Row({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex items-baseline justify-between gap-4 py-0.5">
-      <span className="text-xs leading-snug text-muted-foreground">{label}</span>
-      <span className="font-arabic text-lg leading-snug text-foreground" dir="rtl">
-        {value}
-      </span>
-    </div>
-  );
-}
-
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
-  return (
-    <div className="border-t border-border/60 pt-2.5">
-      <h4 className="mb-1 text-[10px] font-bold uppercase tracking-wider text-muted-foreground/70">
-        {title}
-      </h4>
-      {children}
-    </div>
-  );
-}
 
 /**
  * Everything the app knows about one word, in the order the phone widget shows

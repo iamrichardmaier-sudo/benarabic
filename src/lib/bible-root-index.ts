@@ -3,6 +3,7 @@ import { normalizeArabic } from './arabic-normalize';
 import type { BibleWordTag } from '@/hooks/useBibleWordTags';
 
 const cache = new Map<string, BibleWordTag[]>();
+const formCache = new Map<string, string[]>();
 
 /**
  * The definite article, when it really is one.
@@ -99,4 +100,45 @@ export function splitRootSense(
 
   const rootSense = glossed[pick] ?? null;
   return { rootSense, family: glossed.filter((_, n) => n !== pick) };
+}
+
+/**
+ * The other spellings this same word wears in the text.
+ *
+ * The flashcard's "its other forms" is the plural, the Shaami, the past and
+ * present. A word met while reading has a truer equivalent: the inflections it
+ * actually appears in — الْكَلِماتِ, كَلِماتِهِ, بِكَلِماتِ for كَلِمَة. Keyed on the
+ * lemma, so it is only offered for a word the corpus has identified; a form
+ * carrying nothing but a root has no lemma to gather siblings under, and
+ * guessing from the skeleton would sweep in words that merely look alike.
+ */
+export async function fetchFormsOfLemma(lemma: string, excludeSurface: string): Promise<string[]> {
+  const cached = formCache.get(lemma);
+  const drop = bareKey(excludeSurface);
+  if (cached) return cached.filter((s) => bareKey(s) !== drop);
+
+  const { data, error } = await supabase
+    .from('bible_word_tags')
+    .select('surface')
+    .eq('lemma', lemma)
+    .not('tagged_at', 'is', null)
+    .limit(24);
+
+  if (error) {
+    console.error('Could not load other forms:', error);
+    return [];
+  }
+
+  const seen = new Set<string>();
+  const forms: string[] = [];
+  for (const row of data ?? []) {
+    const key = bareKey(row.surface);
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    forms.push(row.surface);
+    if (forms.length >= 6) break;
+  }
+
+  formCache.set(lemma, forms);
+  return forms.filter((s) => bareKey(s) !== drop);
 }
