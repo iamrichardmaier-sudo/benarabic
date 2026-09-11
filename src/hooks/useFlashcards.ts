@@ -35,6 +35,7 @@ interface DbRow {
   needs_review: boolean;
   shaami: string | null;
   fusha_plural: string | null;
+  gender: string | null;
   shaami_plural: string | null;
   word_voweled: string | null;
   past_tense: string | null;
@@ -67,6 +68,7 @@ function rowToCard(row: DbRow): FlashCard {
     needsReview: row.needs_review,
     shaami: row.shaami,
     fushaPlural: row.fusha_plural,
+    gender: (row.gender as 'm' | 'f' | null) ?? null,
     shaamiPlural: row.shaami_plural,
     wordVoweled: row.word_voweled,
     pastTense: row.past_tense,
@@ -95,6 +97,7 @@ function cardToRow(card: FlashCard) {
     stage2_attempts: card.stage2Attempts,
     shaami: card.shaami ?? null,
     fusha_plural: card.fushaPlural ?? null,
+    gender: card.gender ?? null,
     shaami_plural: card.shaamiPlural ?? null,
     root: card.root ?? null,
     word_type: card.wordType ?? null,
@@ -130,6 +133,7 @@ function toDbUpdates(updates: Partial<FlashCard>): Record<string, unknown> {
   if (updates.needsReview !== undefined) db.needs_review = updates.needsReview;
   if (updates.shaami !== undefined) db.shaami = updates.shaami;
   if (updates.fushaPlural !== undefined) db.fusha_plural = updates.fushaPlural;
+  if (updates.gender !== undefined) db.gender = updates.gender;
   if (updates.shaamiPlural !== undefined) db.shaami_plural = updates.shaamiPlural;
   if (updates.wordVoweled !== undefined) db.word_voweled = updates.wordVoweled;
   if (updates.pastTense !== undefined) db.past_tense = updates.pastTense;

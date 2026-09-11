@@ -20,6 +20,8 @@ interface TagResult {
   pastTense: string | null;
   presentTense: string | null;
   masdarForm: string | null;
+  gender: "m" | "f" | null;
+  fushaPlural: string | null;
   companionForms: { form: string; label: string }[];
 }
 
@@ -29,6 +31,8 @@ const SYSTEM_PROMPT = `You are an expert in Arabic morphology and lexicography, 
 - verbForm: the Form as a Roman numeral "I".."X" if the word is a verb (or is derived from a specific verb form), else "" (empty string).
 - wordVoweled: the word fully voweled with harakat (tashkeel), reflecting its most common reading.
 - pastTense, presentTense, masdarForm: fully voweled 3rd-person-masculine-singular past, present (indicative), and verbal noun, ONLY if this word is a verb or a form directly tied to one verb (else "" for all three).
+- gender: for a NOUN, its grammatical gender, "m" or "f". Judge the word itself, not its meaning: أُمّ, أَرض, سوق, عَين, شَمس, نَفس, حَرب and يَد are feminine despite having no tāʾ marbūṭa, while a handful of words in ة (خَليفة, أُسامة) are masculine. Return "" for anything that is not a noun.
+- fushaPlural: for a NOUN, the fully voweled plural — the broken plural where the word takes one, otherwise the sound plural. Give the bare plural with no definite article. Return "" for anything that is not a noun, and for a noun that has no plural in normal use (a mass noun or an abstract).
 - companionForms: an array of the up to 4 MOST COMMON other words sharing the same root (other derived forms, whether other verb forms, participles, or nouns) that a learner would benefit from seeing alongside this word. Each entry has "form" (fully voweled Arabic) and "label" (a short grammatical description, e.g. "Form II verb (past)", "Active participle", "Verbal noun", "Elative/comparative"). Return fewer than 4 if fewer genuinely common forms exist — do not invent rare or contrived forms.
 
 Return exactly one result per input word, in the same order, with matching "id" fields.`;
@@ -49,6 +53,8 @@ const RESULT_JSON_SCHEMA = {
           pastTense: { type: "string" },
           presentTense: { type: "string" },
           masdarForm: { type: "string" },
+          gender: { type: "string", enum: ["m", "f", ""] },
+          fushaPlural: { type: "string" },
           companionForms: {
             type: "array",
             items: {
@@ -62,7 +68,7 @@ const RESULT_JSON_SCHEMA = {
             },
           },
         },
-        required: ["id", "root", "wordType", "verbForm", "wordVoweled", "pastTense", "presentTense", "masdarForm", "companionForms"],
+        required: ["id", "root", "wordType", "verbForm", "wordVoweled", "pastTense", "presentTense", "masdarForm", "gender", "fushaPlural", "companionForms"],
         additionalProperties: false,
       },
     },
@@ -170,6 +176,10 @@ serve(async (req) => {
         pastTense: nullify(r.pastTense),
         presentTense: nullify(r.presentTense),
         masdarForm: nullify(r.masdarForm),
+        // Gender and plural are noun properties; a verb reporting either is
+        // the model over-answering, so they are dropped rather than stored.
+        gender: r.wordType === "noun" && (r.gender === "m" || r.gender === "f") ? r.gender : null,
+        fushaPlural: r.wordType === "noun" ? nullify(r.fushaPlural) : null,
         companionForms: Array.isArray(r.companionForms) ? (r.companionForms as TagResult["companionForms"]).slice(0, 4) : [],
       }));
 

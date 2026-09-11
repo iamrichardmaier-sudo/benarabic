@@ -10,6 +10,7 @@ import { today } from '@/lib/day';
 import { DeckContext } from '@/contexts/DeckContext';
 import ConjugationDrill from '@/components/ConjugationDrill';
 import PrepositionDrill from '@/components/PrepositionDrill';
+import NumbersDrill from '@/components/NumbersDrill';
 import MemorizeTranscript from '@/components/MemorizeTranscript';
 import WordLookup from '@/components/WordLookup';
 import { entryToCardFields, type DictionaryEntry } from '@/lib/dictionary';
@@ -35,7 +36,7 @@ import { useToast } from '@/hooks/use-toast';
 type View =
   | 'home' | 'learnHub' | 'library' | 'settings'
   | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
-  | 'conjugationDrill' | 'prepositionDrill' | 'memorize';
+  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize';
 
 const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
@@ -511,6 +512,10 @@ const Index = () => {
 
         {view === 'prepositionDrill' && (
           <PrepositionDrill cards={studyCards} onBack={() => setView('learnHub')} />
+        )}
+
+        {view === 'numbersDrill' && (
+          <NumbersDrill cards={studyCards} onBack={() => setView('learnHub')} />
         )}
 
         {view === 'lookup' && (
