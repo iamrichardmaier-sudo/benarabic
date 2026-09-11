@@ -38,6 +38,15 @@ interface Question {
   noun: DrillNoun;
 }
 
+/** A question that went wrong, kept so it can be looked at again. */
+interface Missed {
+  id: number;
+  n: number;
+  word: string;
+  expected: string;
+  gave: string;
+}
+
 /**
  * Numbers and plurals: one noun, one number, and the two things that have to
  * agree.
@@ -55,6 +64,8 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
   const [nounInput, setNounInput] = useState('');
   const [checked, setChecked] = useState(false);
   const [score, setScore] = useState({ right: 0, asked: 0 });
+  const [missed, setMissed] = useState<Missed[]>([]);
+  const [reviewing, setReviewing] = useState(false);
   const numberRef = useRef<HTMLInputElement>(null);
   const nounRef = useRef<HTMLInputElement>(null);
   // The window listener below is declared before `advance` exists — a hook
@@ -86,11 +97,14 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
   useEffect(() => {
     if (!checked) return;
     const onEnter = (e: KeyboardEvent) => {
-      if (e.key !== 'Enter') return;
+      if (e.key !== 'Enter' || e.repeat) return;
       // A focused button acts on Enter itself. Advancing here as well would
       // fire twice and skip a question unseen — the same double-advance the
-      // left-half tap has to avoid, arriving by keyboard instead.
-      if ((e.target as HTMLElement | null)?.closest('button,a')) return;
+      // left-half tap has to avoid, arriving by keyboard instead. Guarded on
+      // the type as well as on null: a keydown with nothing focused can be
+      // targeted at the document, which has no closest() to call.
+      const target = e.target;
+      if (target instanceof Element && target.closest('button,a')) return;
       e.preventDefault();
       advanceRef.current();
     };
@@ -186,8 +200,24 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
 
   const check = () => {
     if (checked) return;
+    const right = numberRight && nounRight;
     setChecked(true);
-    setScore((s) => ({ right: s.right + (numberRight && nounRight ? 1 : 0), asked: s.asked + 1 }));
+    setScore((s) => ({ right: s.right + (right ? 1 : 0), asked: s.asked + 1 }));
+    if (!right) {
+      // Kept whole rather than as a tally: what is worth going back to is the
+      // word and the number that caught you out, beside what you actually
+      // wrote, not the fact that something did.
+      setMissed((m) => [
+        ...m,
+        {
+          id: m.length,
+          n,
+          word: noun.singular,
+          expected: `${expectedNumber} ${expectedNoun}`,
+          gave: `${numberInput.trim() || '—'} ${nounInput.trim() || '—'}`,
+        },
+      ]);
+    }
     // Let the keyboard go, so the answer and the rule are not typed over.
     numberRef.current?.blur();
     nounRef.current?.blur();
@@ -217,6 +247,11 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
    */
   const onKeyDown = (e: React.KeyboardEvent, from: 'number' | 'noun') => {
     if (e.key !== 'Enter') return;
+    // A held key repeats on a physical keyboard. Without this the first repeat
+    // checks and the second advances a few milliseconds later, so the answer
+    // is gone before it can be read — which is why this went unnoticed on a
+    // phone, whose on-screen return key does not repeat.
+    if (e.repeat) return;
     e.preventDefault();
     if (checked) {
       advance();
@@ -250,12 +285,55 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
     >
       <div className="flex items-center justify-between">
         <BackButton onClick={() => setStarted(false)} />
-        <span className="text-sm text-muted-foreground">
+        <button
+          onClick={() => setReviewing((r) => !r)}
+          disabled={missed.length === 0}
+          className="text-sm text-muted-foreground transition-colors hover:text-foreground disabled:hover:text-muted-foreground"
+        >
           {score.right}/{score.asked}
-        </span>
+          {missed.length > 0 && (
+            <span className="ml-1 text-destructive">
+              · {missed.length} to review
+            </span>
+          )}
+        </button>
       </div>
 
-      <div className={`rounded-xl border border-border/60 bg-card text-center ${tight ? 'p-3' : 'p-6'}`}>
+      {reviewing && (
+        <div className="space-y-2 rounded-xl border border-border/60 bg-card p-4">
+          <div className="flex items-center justify-between">
+            <h2 className="text-sm font-bold text-foreground">What you missed</h2>
+            <button
+              onClick={() => setReviewing(false)}
+              className="text-xs font-medium text-primary hover:underline"
+            >
+              Back to the drill
+            </button>
+          </div>
+          <ul className="space-y-3">
+            {missed.map((m) => (
+              <li key={m.id} className="border-t border-border/60 pt-2 first:border-0 first:pt-0">
+                <div className="flex items-baseline justify-between gap-3">
+                  <span className="font-arabic text-lg text-muted-foreground" dir="rtl">
+                    {toArabicIndic(m.n)}
+                  </span>
+                  <span className="font-arabic text-lg text-foreground" dir="rtl">
+                    {m.word}
+                  </span>
+                </div>
+                <p className="mt-1 font-arabic text-lg text-success" dir="rtl">
+                  {m.expected}
+                </p>
+                <p className="font-arabic text-sm text-destructive line-through" dir="rtl">
+                  {m.gave}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <div hidden={reviewing} className={`rounded-xl border border-border/60 bg-card text-center ${tight ? 'p-3' : 'p-6'}`}>
         {!tight && (
           <p className="text-xs uppercase tracking-wider text-muted-foreground/70">
             {noun.english}
@@ -286,7 +364,7 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
         </p>
       </div>
 
-      <div className={tight ? 'space-y-2' : 'space-y-3'}>
+      <div hidden={reviewing} className={tight ? 'space-y-2' : 'space-y-3'}>
         <Field
           ref={numberRef}
           label="The number, in words"
@@ -313,7 +391,7 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
         />
       </div>
 
-      {checked && (
+      {checked && !reviewing && (
         <div className="rounded-xl border border-border/60 bg-muted/30 p-3">
           {!tight && <p className="text-sm text-foreground">{ruleFor(n)}</p>}
           <p className="mt-2 font-arabic text-xl text-foreground" dir="rtl">
@@ -322,7 +400,7 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
         </div>
       )}
 
-      {checked ? (
+      {reviewing ? null : checked ? (
         <button
           onClick={() => nextQuestion(ranges)}
           className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
