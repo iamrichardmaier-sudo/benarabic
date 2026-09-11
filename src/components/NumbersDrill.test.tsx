@@ -191,8 +191,10 @@ describe('NumbersDrill on a phone', () => {
     await toQuestion(user);
     await user.type(screen.getByLabelText(/The number, in words/i), 'ثلاثة');
     await user.type(screen.getByLabelText(/The noun/i), 'كتب{Enter}');
-    // No coarse pointer stubbed, so this is a mouse: button only.
+    // No coarse pointer stubbed, so this is a mouse: it is told about Enter,
+    // not about tapping.
     expect(screen.queryByText(/tap the left/i)).not.toBeInTheDocument();
+    expect(screen.getByText(/press Enter/i)).toBeInTheDocument();
   });
 
   it('gives back the card’s height when the keyboard comes up', async () => {
@@ -269,5 +271,69 @@ describe('NumbersDrill on a phone', () => {
 
     // The second question, not the third.
     expect(screen.getByText('مَجَلّة')).toBeInTheDocument();
+  });
+
+  it('advances once when Enter is pressed on the focused Next button', async () => {
+    // The button acts on Enter itself; the window listener must stand back or
+    // the two together skip a question.
+    let call = 0;
+    vi.spyOn(Math, 'random').mockImplementation(() => {
+      call++;
+      if (call % 3 === 0) return (call / 3) % 2 === 1 ? 0 : 0.99;
+      return 0;
+    });
+
+    const user = userEvent.setup();
+    render(<NumbersDrill cards={[book, magazine]} onBack={() => {}} />);
+    await toQuestion(user);
+    expect(screen.getByText('كِتاب')).toBeInTheDocument();
+
+    await user.type(screen.getByLabelText(/The number, in words/i), 'ثلاثة');
+    await user.type(screen.getByLabelText(/The noun/i), 'كتب{Enter}');
+
+    screen.getByRole('button', { name: /Next/ }).focus();
+    await user.keyboard('{Enter}');
+
+    // The second question, not the third.
+    expect(screen.getByText('مَجَلّة')).toBeInTheDocument();
+  });
+
+  it('puts the cursor in the first box on starting, so the keyboard comes up', async () => {
+    const user = userEvent.setup();
+    startWith([book]);
+    await toQuestion(user);
+    expect(screen.getByLabelText(/The number, in words/i)).toHaveFocus();
+  });
+
+  it('puts the cursor back in the first box on the next question', async () => {
+    // iOS raises the keyboard only for a focused, editable input, and only
+    // inside the gesture that asked — so the focus landing here is what makes
+    // the keyboard appear on the phone.
+    const user = userEvent.setup();
+    startWith([book]);
+    await toQuestion(user);
+    await user.type(screen.getByLabelText(/The number, in words/i), 'ثلاثة');
+    await user.type(screen.getByLabelText(/The noun/i), 'كتب{Enter}');
+
+    await user.keyboard('{Enter}');
+    expect(screen.getByLabelText(/The number, in words/i)).toHaveFocus();
+  });
+
+  it('makes the box editable again once the answer is dismissed', async () => {
+    // Safari will not show the keyboard for a read-only input, and the box is
+    // read-only while the answer is up — hence the flushSync before focus in
+    // `advance`, so the DOM is updated before the cursor lands and while still
+    // inside the gesture. This test cannot pin that ordering: act() flushes
+    // before any assertion can run, so jsdom sees the settled state either
+    // way. What it does catch is the box staying read-only altogether.
+    const user = userEvent.setup();
+    startWith([book]);
+    await toQuestion(user);
+    await user.type(screen.getByLabelText(/The number, in words/i), 'ثلاثة');
+    await user.type(screen.getByLabelText(/The noun/i), 'كتب{Enter}');
+    expect(screen.getByLabelText(/The number, in words/i)).toHaveAttribute('readonly');
+
+    await user.keyboard('{Enter}');
+    expect(screen.getByLabelText(/The number, in words/i)).not.toHaveAttribute('readonly');
   });
 });

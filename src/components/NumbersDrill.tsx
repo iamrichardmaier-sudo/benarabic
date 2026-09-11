@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback, useRef, useEffect, forwardRef } from 'react';
+import { flushSync } from 'react-dom';
 import { Check, X, ArrowRight, Hash } from 'lucide-react';
 import type { FlashCard } from '@/lib/spaced-repetition';
 import { numberToArabicWords, toArabicIndic } from '@/lib/arabic-numbers';
@@ -56,6 +57,9 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
   const [score, setScore] = useState({ right: 0, asked: 0 });
   const numberRef = useRef<HTMLInputElement>(null);
   const nounRef = useRef<HTMLInputElement>(null);
+  // The window listener below is declared before `advance` exists — a hook
+  // cannot wait until there is a question to show — so it reaches it by ref.
+  const advanceRef = useRef<() => void>(() => {});
   // With the keyboard up a phone has room for the word, the number, both
   // boxes and the button only if the card gives most of its height back.
   const tight = useKeyboardOpen();
@@ -71,7 +75,6 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
     setNumberInput('');
     setNounInput('');
     setChecked(false);
-    numberRef.current?.focus();
   }, [nouns]);
 
   // Checking blurs both boxes so the phone keyboard drops off the answer,
@@ -84,12 +87,16 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
     if (!checked) return;
     const onEnter = (e: KeyboardEvent) => {
       if (e.key !== 'Enter') return;
+      // A focused button acts on Enter itself. Advancing here as well would
+      // fire twice and skip a question unseen — the same double-advance the
+      // left-half tap has to avoid, arriving by keyboard instead.
+      if ((e.target as HTMLElement | null)?.closest('button,a')) return;
       e.preventDefault();
-      nextQuestion(ranges);
+      advanceRef.current();
     };
     window.addEventListener('keydown', onEnter);
     return () => window.removeEventListener('keydown', onEnter);
-  }, [checked, nextQuestion, ranges]);
+  }, [checked]);
 
   if (nouns.length === 0) {
     return (
@@ -152,9 +159,14 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
         <button
           disabled={ranges.length === 0}
           onClick={() => {
-            setStarted(true);
-            setScore({ right: 0, asked: 0 });
-            nextQuestion(ranges);
+            // Same two rules as advancing: flush so the box exists, focus
+            // inside the tap so the keyboard comes up with it.
+            flushSync(() => {
+              setStarted(true);
+              setScore({ right: 0, asked: 0 });
+              nextQuestion(ranges);
+            });
+            numberRef.current?.focus();
           }}
           className="w-full rounded-xl bg-primary py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
         >
@@ -181,7 +193,21 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
     nounRef.current?.blur();
   };
 
-  const advance = () => nextQuestion(ranges);
+  /**
+   * Move to the next question and put the cursor back in the first box.
+   *
+   * The focus has to survive two iOS rules at once. Safari will not raise the
+   * keyboard for a read-only input, and the box is read-only while an answer
+   * is on screen — so the state has to reach the DOM before focus lands, which
+   * is what flushSync buys. And it will not raise the keyboard for focus that
+   * happens outside a user gesture, so the focus has to stay inside the tap or
+   * keypress that asked for it rather than waiting for an effect.
+   */
+  const advance = () => {
+    flushSync(() => nextQuestion(ranges));
+    numberRef.current?.focus();
+  };
+  advanceRef.current = advance;
 
   /**
    * Enter moves on: to the other box while one is empty, to the answer once
@@ -302,7 +328,9 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
           className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
         >
           Next <ArrowRight className="h-4 w-4" />
-          {touch && <span className="text-xs font-normal opacity-70">or tap the left</span>}
+          <span className="text-xs font-normal opacity-70">
+            {touch ? 'or tap the left' : 'or press Enter'}
+          </span>
         </button>
       ) : (
         <button
