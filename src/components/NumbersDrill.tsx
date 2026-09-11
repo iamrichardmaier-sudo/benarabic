@@ -3,7 +3,8 @@ import { Check, X, ArrowRight, Hash } from 'lucide-react';
 import type { FlashCard } from '@/lib/spaced-repetition';
 import { numberToArabicWords, toArabicIndic } from '@/lib/arabic-numbers';
 import { countedForm, nounFormFor, isCorrect } from '@/lib/counted-noun';
-import { RANGES, drillableNouns, pickNumber, type Range } from '@/lib/numbers-drill';
+import { RANGES, drillableNouns, pickNumber, type Range, type DrillNoun } from '@/lib/numbers-drill';
+import WordInfoPopover from '@/components/WordInfoPopover';
 import BackButton from '@/components/BackButton';
 import SpeakButton from '@/components/SpeakButton';
 
@@ -32,7 +33,7 @@ function ruleFor(n: number): string {
 
 interface Question {
   n: number;
-  noun: { singular: string; plural: string; gender: 'm' | 'f'; english: string };
+  noun: DrillNoun;
 }
 
 /**
@@ -166,9 +167,13 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
           {noun.english}
         </p>
         <div className="mt-1 flex items-center justify-center gap-2">
-          <p className="font-arabic text-3xl font-bold text-foreground" dir="rtl">
-            {noun.singular}
-          </p>
+          {/* Hovering the word gives the whole card — definition, root, forms,
+              family — so a blank can be thought through rather than guessed. */}
+          <WordInfoPopover card={noun.card}>
+            <span className="font-arabic text-3xl font-bold text-foreground" dir="rtl">
+              {noun.singular}
+            </span>
+          </WordInfoPopover>
           <SpeakButton word={noun.singular} size={16} />
         </div>
         <p className="mt-1 text-xs font-medium text-primary">

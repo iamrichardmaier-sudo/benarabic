@@ -6,7 +6,7 @@ import type { FlashCard } from '@/lib/spaced-repetition';
 
 const book = {
   id: '1', word: 'كتاب', wordVoweled: 'كِتاب', english: 'book',
-  wordType: 'noun', fushaPlural: 'كُتُب', gender: 'm',
+  wordType: 'noun', fushaPlural: 'كُتُب', gender: 'm', root: 'ك-ت-ب',
 } as FlashCard;
 
 const magazine = {
@@ -95,5 +95,20 @@ describe('NumbersDrill rounds', () => {
     await user.click(screen.getByRole('button', { name: 'Check' }));
 
     expect(screen.getByText('1/1')).toBeInTheDocument();
+  });
+
+  it('gives the noun a hover panel with its definition and tags', async () => {
+    const user = userEvent.setup();
+    startWith([book]);
+    await user.click(screen.getByText('1–2'));
+    await user.click(screen.getByText('11–99'));
+    await user.click(screen.getByRole('button', { name: 'Start' }));
+
+    // The word sits inside the popover's trigger, so hover the trigger itself
+    // rather than the span holding the text.
+    const trigger = screen.getByText('كِتاب').closest('[aria-haspopup]');
+    await user.hover(trigger as Element);
+    expect(await screen.findByText('ك-ت-ب')).toBeInTheDocument();
+    expect(screen.getByText('كُتُب')).toBeInTheDocument();
   });
 });

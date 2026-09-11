@@ -56,9 +56,15 @@ export function bareSingular(word: string): string {
  * counting an iḍāfa (اِبن عَمّ) follows rules this drill does not teach, and
  * duplicates collapse so one word cannot come up three times in a row.
  */
-export function drillableNouns(cards: FlashCard[]): (CountedNoun & { english: string })[] {
+export interface DrillNoun extends CountedNoun {
+  english: string;
+  /** The card itself, so the hover panel can show everything it knows. */
+  card: FlashCard;
+}
+
+export function drillableNouns(cards: FlashCard[]): DrillNoun[] {
   const seen = new Set<string>();
-  const out: (CountedNoun & { english: string })[] = [];
+  const out: DrillNoun[] = [];
 
   for (const card of cards) {
     if (card.wordType !== 'noun') continue;
@@ -71,7 +77,7 @@ export function drillableNouns(cards: FlashCard[]): (CountedNoun & { english: st
     if (seen.has(singular)) continue;
     seen.add(singular);
 
-    out.push({ singular, plural, gender: card.gender, english: card.english ?? '' });
+    out.push({ singular, plural, gender: card.gender, english: card.english ?? '', card });
   }
   return out;
 }
