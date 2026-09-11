@@ -119,6 +119,7 @@ export type Database = {
           english: string | null
           fixed_preposition: string | null
           fusha_plural: string | null
+          gender: string | null
           id: string
           image_url: string | null
           interval_days: number
@@ -151,6 +152,7 @@ export type Database = {
           english?: string | null
           fixed_preposition?: string | null
           fusha_plural?: string | null
+          gender?: string | null
           id?: string
           image_url?: string | null
           interval_days?: number
@@ -183,6 +185,7 @@ export type Database = {
           english?: string | null
           fixed_preposition?: string | null
           fusha_plural?: string | null
+          gender?: string | null
           id?: string
           image_url?: string | null
           interval_days?: number

@@ -1,6 +1,6 @@
 // LLM-driven auto-tagger. Sends each Fusha word to the tag-word edge function,
-// which returns root/form/grammar identity, voweled principal parts, and
-// companion forms. Runs automatically after adding words and as a background
+// which returns root/form/grammar identity, voweled principal parts, gender
+// and plural for nouns, and companion forms. Runs automatically after adding words and as a background
 // backfill for any previously untagged cards.
 
 import { supabase } from '@/integrations/supabase/client';
@@ -28,6 +28,8 @@ interface TagResult {
   pastTense: string | null;
   presentTense: string | null;
   masdarForm: string | null;
+  gender: 'm' | 'f' | null;
+  fushaPlural: string | null;
   companionForms: CompanionForm[];
 }
 
@@ -59,6 +61,10 @@ async function tagBatch(rows: DbRow[]): Promise<AutoTagSummary> {
         past_tense: r.pastTense,
         present_tense: r.presentTense,
         masdar_form: r.masdarForm,
+        // A noun without both of these cannot enter the numbers drill, which
+        // is why they are tagged on the way in rather than backfilled later.
+        gender: r.gender,
+        fusha_plural: r.fushaPlural,
         companion_forms: r.companionForms as unknown as Json,
         tagged_at: now,
       })

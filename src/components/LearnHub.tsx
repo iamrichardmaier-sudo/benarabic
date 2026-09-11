@@ -1,11 +1,11 @@
 import {
   GraduationCap, BookOpen, Plus, RefreshCw, List,
-  Sparkles, Link2, Brain, ChevronRight, Search, type LucideIcon,
+  Sparkles, Link2, Brain, ChevronRight, Search, Hash, type LucideIcon,
 } from 'lucide-react';
 
 export type LearnDestination =
   | 'learn' | 'review' | 'add' | 'relearn' | 'deck' | 'lookup'
-  | 'conjugationDrill' | 'prepositionDrill'
+  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill'
   | 'memorize';
 
 interface LearnHubProps {
@@ -60,6 +60,7 @@ const LearnHub = ({ dueCount, learnCount, deckSize, onSelect }: LearnHubProps) =
       items: [
         { id: 'conjugationDrill', label: 'Drill conjugations', icon: Sparkles, hint: 'Past, present and masdar by form' },
         { id: 'prepositionDrill', label: 'Drill prepositions', icon: Link2, hint: 'Verbs that take a fixed preposition' },
+        { id: 'numbersDrill', label: 'Drill numbers and plurals', icon: Hash, hint: 'Counting, and the gender the numeral takes' },
       ],
     },
     {

@@ -28,6 +28,8 @@ export interface FlashCard {
   shaami?: string | null;
   fushaPlural?: string | null;
   shaamiPlural?: string | null;
+  /** Grammatical gender of a noun, which the numbers drill agrees with. */
+  gender?: 'm' | 'f' | null;
   wordVoweled?: string | null;
   pastTense?: string | null;
   presentTense?: string | null;
