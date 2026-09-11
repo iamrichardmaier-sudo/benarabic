@@ -336,4 +336,63 @@ describe('NumbersDrill on a phone', () => {
     await user.keyboard('{Enter}');
     expect(screen.getByLabelText(/The number, in words/i)).not.toHaveAttribute('readonly');
   });
+
+  it('does not let a held Enter check and advance in one press', async () => {
+    // A physical keyboard repeats a held key: the first keydown checks and the
+    // repeat advances a few milliseconds later, so the answer is gone before
+    // it can be read. An on-screen return key does not repeat, which is why
+    // this showed up only on the computer.
+    const user = userEvent.setup();
+    startWith([book]);
+    await toQuestion(user);
+    await user.type(screen.getByLabelText(/The number, in words/i), 'ثلاث');
+    await user.type(screen.getByLabelText(/The noun/i), 'كتب{Enter}');
+
+    // The answer is showing.
+    expect(screen.getByText('0/1')).toBeInTheDocument();
+    // Both boxes are blurred after checking, so a real keydown lands on the
+    // body rather than on window, which is not an Element at all.
+    fireEvent.keyDown(document.body, { key: 'Enter', repeat: true });
+    // Still showing: a repeat is not a second press.
+    expect(screen.getByText(/1 to review/)).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Check' })).not.toBeInTheDocument();
+  });
+
+  it('keeps what you got wrong, with your answer beside the right one', async () => {
+    const user = userEvent.setup();
+    startWith([book]);
+    await toQuestion(user);
+    // ثلاث is the feminine form; كِتاب is masculine, so this is wrong.
+    await user.type(screen.getByLabelText(/The number, in words/i), 'ثلاث');
+    await user.type(screen.getByLabelText(/The noun/i), 'كتاب{Enter}');
+
+    await user.click(screen.getByRole('button', { name: /1 to review/ }));
+    expect(screen.getByText('What you missed')).toBeInTheDocument();
+    expect(screen.getByText('ثلاثة كُتُب')).toBeInTheDocument();
+    expect(screen.getByText('ثلاث كتاب')).toBeInTheDocument();
+  });
+
+  it('does not offer a review when nothing has gone wrong', async () => {
+    const user = userEvent.setup();
+    startWith([book]);
+    await toQuestion(user);
+    await user.type(screen.getByLabelText(/The number, in words/i), 'ثلاثة');
+    await user.type(screen.getByLabelText(/The noun/i), 'كتب{Enter}');
+
+    expect(screen.queryByText(/to review/)).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: '1/1' })).toBeDisabled();
+  });
+
+  it('puts the drill away while the review is open', async () => {
+    const user = userEvent.setup();
+    startWith([book]);
+    await toQuestion(user);
+    await user.type(screen.getByLabelText(/The number, in words/i), 'ثلاث');
+    await user.type(screen.getByLabelText(/The noun/i), 'كتاب{Enter}');
+    await user.click(screen.getByRole('button', { name: /1 to review/ }));
+
+    expect(screen.queryByRole('button', { name: /Next/ })).not.toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /Back to the drill/ }));
+    expect(screen.getByRole('button', { name: /Next/ })).toBeInTheDocument();
+  });
 });
