@@ -411,3 +411,33 @@ describe('ConjugationDrill keyboard shortcuts', () => {
     expect(screen.getByText('1 / 1 fully correct')).toBeInTheDocument();
   });
 });
+
+describe('full verb chart', () => {
+  it('offers the chart alongside the principal-parts drill', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={deck} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Drill Full Verb Chart' }));
+    expect(screen.getByRole('heading', { name: 'Full Verb Chart' })).toBeInTheDocument();
+    // Masdar at the top, then a past and a present blank for all 13 persons.
+    expect(screen.getByRole('textbox', { name: 'Masdar' })).toBeInTheDocument();
+    expect(screen.getAllByRole('textbox')).toHaveLength(27);
+  });
+
+  it('only charts the forms that are ticked', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={deck} onBack={() => {}} />);
+    for (const box of formCheckboxes()) await user.click(box);
+    await user.click(within(row('Form V')).getByRole('checkbox'));
+    await user.click(screen.getByRole('button', { name: 'Drill Full Verb Chart' }));
+    // Two Form V verbs in the deck, and nothing else.
+    expect(screen.getByText('1 / 2')).toBeInTheDocument();
+  });
+
+  it('comes back to the picker rather than out of the drill', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={deck} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Drill Full Verb Chart' }));
+    await user.click(screen.getByRole('button', { name: 'Forms' }));
+    expect(screen.getByText('Pick the verb forms you want to practise.')).toBeInTheDocument();
+  });
+});

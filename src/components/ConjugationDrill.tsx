@@ -4,6 +4,8 @@ import { FlashCard } from '@/lib/spaced-repetition';
 import { normalizeArabicKeepVowels, normalizeArabicIgnoreShortVowels } from '@/lib/arabic-normalize';
 import { VERB_FORM_GLOSSES, loadRootMeanings } from '@/lib/morphology';
 import GlossPopover from '@/components/GlossPopover';
+import VerbChartDrill from '@/components/VerbChartDrill';
+import { chartable } from '@/lib/verb-chart';
 import { useDrillKeyboard } from '@/hooks/useDrillKeyboard';
 
 interface ConjugationDrillProps {
@@ -20,7 +22,7 @@ interface DrillItem {
 }
 
 type FieldResult = 'correct' | 'incorrect';
-type Phase = 'select' | 'drill';
+type Phase = 'select' | 'drill' | 'chart';
 
 /** Conventional ordering; anything unrecognised sorts to the end. */
 const FORM_ORDER = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'];
@@ -147,7 +149,12 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
     };
   }, []);
 
-  const selectedCount = allItems.filter((i) => selectedForms.has(i.verbForm)).length;
+  const selectedItems = allItems.filter((i) => selectedForms.has(i.verbForm));
+  const selectedCount = selectedItems.length;
+  // Charts are derived from the principal parts, and a handful of entries
+  // (quadriliterals, passives, phrases) have no paradigm to derive — they are
+  // dropped rather than charted wrongly, so the count is worth showing.
+  const chartableCount = chartable(selectedItems).length;
 
   // Masdar-only mode drills a single field (given the verb, produce its masdar)
   // instead of the full past/present/masdar set.
@@ -237,6 +244,10 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
     setPhase('drill');
   };
 
+  const startChart = () => {
+    setPhase('chart');
+  };
+
   if (allItems.length === 0) {
     return (
       <div className="space-y-4">
@@ -251,6 +262,17 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
           </p>
         </div>
       </div>
+    );
+  }
+
+  if (phase === 'chart') {
+    return (
+      <VerbChartDrill
+        verbs={selectedItems}
+        rootMeanings={rootMeanings}
+        ignoreShortVowels={ignoreShortVowels}
+        onBack={() => setPhase('select')}
+      />
     );
   }
 
@@ -332,13 +354,27 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
           </span>
         </div>
 
-        <button
-          onClick={startDrill}
-          disabled={selectedCount === 0}
-          className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all active:scale-95 disabled:opacity-40"
-        >
-          Start Drill
-        </button>
+        <div className="space-y-2">
+          <button
+            onClick={startDrill}
+            disabled={selectedCount === 0}
+            className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all active:scale-95 disabled:opacity-40"
+          >
+            Start Drill
+          </button>
+          <button
+            onClick={startChart}
+            disabled={chartableCount === 0}
+            className="w-full py-3 rounded-xl border border-primary text-primary font-semibold transition-all active:scale-95 disabled:opacity-40"
+          >
+            Drill Full Verb Chart
+          </button>
+          <p className="text-xs text-muted-foreground text-center">
+            The whole table — masdar, then all thirteen persons in past and present.
+            {chartableCount < selectedCount &&
+              ` ${selectedCount - chartableCount} of the selected verbs can't be charted from their principal parts.`}
+          </p>
+        </div>
       </div>
     );
   }
