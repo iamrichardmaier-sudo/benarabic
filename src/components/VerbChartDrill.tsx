@@ -3,8 +3,8 @@ import { ChevronLeft, Check } from 'lucide-react';
 import { normalizeArabicKeepVowels, normalizeArabicIgnoreShortVowels } from '@/lib/arabic-normalize';
 import { VERB_FORM_GLOSSES } from '@/lib/morphology';
 import GlossPopover from '@/components/GlossPopover';
-import { PEOPLE, type PersonId } from '@/lib/conjugation';
-import { chartable, type ChartVerb } from '@/lib/verb-chart';
+import { type PersonId } from '@/lib/conjugation';
+import { chartable, CHART_PEOPLE, type ChartVerb } from '@/lib/verb-chart';
 
 interface VerbChartDrillProps {
   verbs: ChartVerb[];
@@ -28,7 +28,6 @@ const CLASS_LABEL: Record<string, string> = {
 
 const GROUP_LABEL: Record<string, string> = {
   singular: 'Singular',
-  dual: 'Dual',
   plural: 'Plural',
 };
 
@@ -55,7 +54,7 @@ const VerbChartDrill = ({ verbs, rootMeanings, ignoreShortVowels, onBack }: Verb
   // The blanks in tab order: masdar first, then each person's past and present.
   const order = useMemo<CellKey[]>(() => {
     const keys: CellKey[] = [MASDAR];
-    for (const person of PEOPLE) {
+    for (const person of CHART_PEOPLE) {
       keys.push(cellKey('past', person.id));
       keys.push(cellKey('present', person.id));
     }
@@ -65,7 +64,7 @@ const VerbChartDrill = ({ verbs, rootMeanings, ignoreShortVowels, onBack }: Verb
   const expected = useMemo<Record<CellKey, string>>(() => {
     if (!entry) return {};
     const map: Record<CellKey, string> = { [MASDAR]: entry.verb.masdarForm };
-    for (const person of PEOPLE) {
+    for (const person of CHART_PEOPLE) {
       map[cellKey('past', person.id)] = entry.chart.past[person.id];
       map[cellKey('present', person.id)] = entry.chart.present[person.id];
     }
@@ -267,8 +266,8 @@ const VerbChartDrill = ({ verbs, rootMeanings, ignoreShortVowels, onBack }: Verb
             </tr>
           </thead>
           <tbody>
-            {PEOPLE.map((person, i) => {
-              const startsGroup = i === 0 || PEOPLE[i - 1].number !== person.number;
+            {CHART_PEOPLE.map((person, i) => {
+              const startsGroup = i === 0 || CHART_PEOPLE[i - 1].number !== person.number;
               return (
                 <Fragment key={person.id}>
                   {startsGroup && (

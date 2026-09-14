@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import VerbChartDrill from './VerbChartDrill';
 import { chartable, type ChartVerb } from '@/lib/verb-chart';
 import { PEOPLE } from '@/lib/conjugation';
+import { CHART_PEOPLE } from '@/lib/verb-chart';
 
 const kataba: ChartVerb = {
   root: 'ك-ت-ب',
@@ -53,15 +54,25 @@ describe('chartable', () => {
 });
 
 describe('VerbChartDrill', () => {
-  it('lays out a blank for the masdar and for all thirteen persons in both tenses', () => {
+  it('lays out a blank for the masdar and for every charted person in both tenses', () => {
     draw();
     expect(screen.getByRole('textbox', { name: 'Masdar' })).toBeInTheDocument();
-    expect(screen.getAllByRole('textbox')).toHaveLength(1 + PEOPLE.length * 2);
-    // Every person is a row of the table, labelled by its pronoun.
-    for (const person of PEOPLE) {
+    expect(screen.getAllByRole('textbox')).toHaveLength(1 + CHART_PEOPLE.length * 2);
+    // Every charted person is a row of the table, labelled by its pronoun.
+    for (const person of CHART_PEOPLE) {
       expect(screen.getByRole('textbox', { name: `${person.english} past` })).toBeInTheDocument();
       expect(screen.getByRole('textbox', { name: `${person.english} present` })).toBeInTheDocument();
     }
+  });
+
+  it('leaves the dual out', () => {
+    draw();
+    expect(CHART_PEOPLE).toHaveLength(PEOPLE.length - 3);
+    for (const person of PEOPLE.filter((p) => p.number === 'dual')) {
+      expect(screen.queryByRole('textbox', { name: `${person.english} past` })).toBeNull();
+      expect(screen.queryByRole('textbox', { name: `${person.english} present` })).toBeNull();
+    }
+    expect(screen.queryByText('Dual')).toBeNull();
   });
 
   it('grades each cell and shows the answer for the ones that are wrong', async () => {
@@ -74,7 +85,7 @@ describe('VerbChartDrill', () => {
     expect(cell('I past')).toHaveClass('border-success');
     expect(cell('she past')).toHaveClass('border-destructive');
     // The blanks left empty count against the chart, not as free passes.
-    expect(screen.getByText('1 / 27 correct on this chart')).toBeInTheDocument();
+    expect(screen.getByText('1 / 21 correct on this chart')).toBeInTheDocument();
     // And the real form is put on screen next to what was typed.
     expect(screen.getByText('كَتَبَتْ')).toBeInTheDocument();
   });
@@ -133,7 +144,7 @@ describe('VerbChartDrill', () => {
     await user.click(screen.getByRole('button', { name: 'Check Chart' }));
     await user.click(screen.getByRole('button', { name: /Continue/ }));
     expect(screen.getByText('Charts complete!')).toBeInTheDocument();
-    expect(screen.getByText('1 / 27 cells correct (4%)')).toBeInTheDocument();
+    expect(screen.getByText('1 / 21 cells correct (5%)')).toBeInTheDocument();
   });
 
   it('says so rather than showing an empty table when nothing is chartable', () => {
