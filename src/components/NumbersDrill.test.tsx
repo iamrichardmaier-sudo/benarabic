@@ -156,6 +156,12 @@ describe('NumbersDrill rounds', () => {
     await user.type(screen.getByLabelText(/The number, in words/i), 'ثلاثة');
     await user.type(screen.getByLabelText(/The noun/i), 'كتب{Enter}');
     expect(screen.getByText('1/1')).toBeInTheDocument();
+    // And it stops on the answer. Checking makes `checked` true, and React can
+    // flush that and the window listener's effect before the keypress has
+    // finished bubbling — so without stopPropagation the same press advances
+    // straight past the answer, which a score assertion alone cannot see.
+    expect(screen.getByRole('button', { name: /Next/ })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Check' })).not.toBeInTheDocument();
   });
 
   it('goes back to the number box from an empty one, rather than checking half an answer', async () => {
