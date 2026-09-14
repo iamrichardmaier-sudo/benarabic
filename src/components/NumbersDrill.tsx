@@ -103,8 +103,10 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
       // left-half tap has to avoid, arriving by keyboard instead. Guarded on
       // the type as well as on null: a keydown with nothing focused can be
       // targeted at the document, which has no closest() to call.
+      // A focused button or box handles Enter itself; advancing here as well
+      // would fire twice and skip a question unseen.
       const target = e.target;
-      if (target instanceof Element && target.closest('button,a')) return;
+      if (target instanceof Element && target.closest('button,a,input')) return;
       e.preventDefault();
       advanceRef.current();
     };
@@ -253,6 +255,12 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
     // phone, whose on-screen return key does not repeat.
     if (e.repeat) return;
     e.preventDefault();
+    // And stop it bubbling. Checking makes `checked` true, React flushes that
+    // and the effect below before this native event has finished travelling to
+    // the window, so the listener added there catches the very keypress that
+    // caused the check and advances past the answer. preventDefault never
+    // helped: it stops the browser's default action, not propagation.
+    e.stopPropagation();
     if (checked) {
       advance();
       return;

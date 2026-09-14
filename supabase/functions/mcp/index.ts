@@ -44,6 +44,19 @@ var list_flashcards_default = defineTool({
 import { createClient as createClient2 } from "npm:@supabase/supabase-js@^2.95.3";
 import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.23.0";
 import { z as z2 } from "npm:zod@^4.4.3";
+
+// src/lib/day.ts
+function today(now = /* @__PURE__ */ new Date()) {
+  return isoDay(now);
+}
+function isoDay(date) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+// src/lib/mcp/tools/create-flashcard.ts
 function clientFor2(ctx) {
   return createClient2(process.env.SUPABASE_URL, process.env.SUPABASE_PUBLISHABLE_KEY, {
     global: { headers: { Authorization: `Bearer ${ctx.getToken()}` } },
@@ -62,13 +75,13 @@ var create_flashcard_default = defineTool2({
   annotations: { readOnlyHint: false, destructiveHint: false, openWorldHint: false },
   handler: async ({ word, english, image_url }, ctx) => {
     if (!ctx.isAuthenticated()) return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
-    const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
+    const startDate = today();
     const { data, error } = await clientFor2(ctx).from("flashcards").insert({
       user_id: ctx.getUserId(),
       word,
       english,
       image_url: image_url ?? null,
-      next_review_date: today,
+      next_review_date: startDate,
       interval_days: 0,
       ease_factor: 2.5,
       learning_stage: "new",
@@ -103,8 +116,8 @@ var get_due_cards_default = defineTool3({
   annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
   handler: async ({ limit }, ctx) => {
     if (!ctx.isAuthenticated()) return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
-    const today = (/* @__PURE__ */ new Date()).toISOString().split("T")[0];
-    const { data, error } = await clientFor3(ctx).from("flashcards").select("id, word, english, next_review_date, interval_days, ease_factor, learning_stage").lte("next_review_date", today).neq("learning_stage", "new").order("next_review_date", { ascending: true }).limit(limit ?? 100);
+    const cutoff = today();
+    const { data, error } = await clientFor3(ctx).from("flashcards").select("id, word, english, next_review_date, interval_days, ease_factor, learning_stage").lte("next_review_date", cutoff).neq("learning_stage", "new").order("next_review_date", { ascending: true }).limit(limit ?? 100);
     if (error) return { content: [{ type: "text", text: error.message }], isError: true };
     return {
       content: [{ type: "text", text: JSON.stringify(data ?? [], null, 2) }],
