@@ -1,4 +1,13 @@
-import { conjugate, type Conjugation } from './conjugation';
+import { conjugate, PEOPLE, type Conjugation } from './conjugation';
+
+/**
+ * The persons the chart drills: the dual is left out.
+ *
+ * conjugate() still derives it — it belongs in a reference chart — but it is
+ * vanishingly rare outside formal writing, and six of the twenty-seven blanks
+ * is a lot of typing to spend on forms that hardly ever come up.
+ */
+export const CHART_PEOPLE = PEOPLE.filter((person) => person.number !== 'dual');
 
 /** The pieces of a tagged card the full chart is built from. */
 export interface ChartVerb {

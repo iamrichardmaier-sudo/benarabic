@@ -418,9 +418,10 @@ describe('full verb chart', () => {
     render(<ConjugationDrill cards={deck} onBack={() => {}} />);
     await user.click(screen.getByRole('button', { name: 'Drill Full Verb Chart' }));
     expect(screen.getByRole('heading', { name: 'Full Verb Chart' })).toBeInTheDocument();
-    // Masdar at the top, then a past and a present blank for all 13 persons.
+    // Masdar at the top, then a past and a present blank for ten persons —
+    // everything but the dual.
     expect(screen.getByRole('textbox', { name: 'Masdar' })).toBeInTheDocument();
-    expect(screen.getAllByRole('textbox')).toHaveLength(27);
+    expect(screen.getAllByRole('textbox')).toHaveLength(21);
   });
 
   it('only charts the forms that are ticked', async () => {
