@@ -1,0 +1,808 @@
+[
+  {
+    "fusha": "اِستَأجَرَ",
+    "wordVoweled": "اِستَأجَرَ",
+    "english": "to rent",
+    "root": "أ-ج-ر",
+    "wordType": "verb",
+    "verbForm": "X",
+    "pastTense": "اِستَأجَرَ",
+    "presentTense": "يَستَأجِر",
+    "masdarForm": "اِستِئْجار",
+    "shaami": "يِستَأجِر",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "أَجَّرَ",
+        "label": "Form II verb (to rent out; Masri: to rent)"
+      },
+      {
+        "form": "أَجْر",
+        "label": "Noun (wage, fee)"
+      },
+      {
+        "form": "مُستَأجِر",
+        "label": "Active participle (tenant)"
+      },
+      {
+        "form": "مُؤَجِّر",
+        "label": "Active participle (landlord)"
+      }
+    ]
+  },
+  {
+    "fusha": "إيجار",
+    "wordVoweled": "إيجار",
+    "english": "rent",
+    "root": "أ-ج-ر",
+    "wordType": "noun",
+    "gender": "m",
+    "fushaPlural": "إيجارات",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "اِستَأجَرَ",
+        "label": "Form X verb (to rent)"
+      },
+      {
+        "form": "أَجَّرَ",
+        "label": "Form II verb (to rent out)"
+      },
+      {
+        "form": "أَجْر",
+        "label": "Noun (wage, fee)"
+      }
+    ]
+  },
+  {
+    "fusha": "أَم",
+    "wordVoweled": "أَمْ",
+    "english": "or (in questions)",
+    "wordType": "other",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "أَو",
+        "label": "Particle (or)"
+      },
+      {
+        "form": "إمّا",
+        "label": "Particle (either)"
+      },
+      {
+        "form": "هَل",
+        "label": "Particle (question marker)"
+      }
+    ]
+  },
+  {
+    "fusha": "إمّا ... أَو",
+    "wordVoweled": "إمّا ... أَو",
+    "english": "either … or",
+    "wordType": "other",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "أَو",
+        "label": "Particle (or)"
+      },
+      {
+        "form": "أَمْ",
+        "label": "Particle (or, in questions)"
+      },
+      {
+        "form": "لا ... ولا",
+        "label": "Particle (neither … nor)"
+      }
+    ]
+  },
+  {
+    "fusha": "بَسيط",
+    "wordVoweled": "بَسيط",
+    "english": "simple",
+    "root": "ب-س-ط",
+    "wordType": "adjective",
+    "fushaPlural": "بُسَطاء",
+    "shaamiPlural": "بُسَطا",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "بَسَطَ",
+        "label": "Form I verb (to spread out)"
+      },
+      {
+        "form": "بَساطة",
+        "label": "Noun (simplicity)"
+      },
+      {
+        "form": "اِنبَسَطَ",
+        "label": "Form VII verb (to be delighted)"
+      },
+      {
+        "form": "مَبسوط",
+        "label": "Passive participle (pleased, well)"
+      }
+    ]
+  },
+  {
+    "fusha": "تَحْتَ",
+    "wordVoweled": "تَحْتَ",
+    "english": "beneath, below",
+    "root": "ت-ح-ت",
+    "wordType": "other",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "فَوْقَ",
+        "label": "Opposite (above)"
+      },
+      {
+        "form": "أَسفَل",
+        "label": "Noun (lower part)"
+      },
+      {
+        "form": "تَحتانِيّ",
+        "label": "Adjective (lower)"
+      }
+    ]
+  },
+  {
+    "fusha": "تَرَكَ",
+    "wordVoweled": "تَرَكَ",
+    "english": "to leave (someone or something)",
+    "root": "ت-ر-ك",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "تَرَكَ",
+    "presentTense": "يَترُك",
+    "masdarForm": "التَّرْك",
+    "shaami": "يِترُك",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "ساب",
+        "label": "Verb (to leave, Masri)"
+      },
+      {
+        "form": "مَتروك",
+        "label": "Passive participle (left, abandoned)"
+      },
+      {
+        "form": "تَرِكة",
+        "label": "Noun (estate, legacy)"
+      },
+      {
+        "form": "تارِك",
+        "label": "Active participle (one who leaves)"
+      }
+    ]
+  },
+  {
+    "fusha": "جانِب",
+    "wordVoweled": "جانِب",
+    "english": "side",
+    "root": "ج-ن-ب",
+    "wordType": "noun",
+    "gender": "m",
+    "fushaPlural": "جَوانِب",
+    "shaami": "جَنب",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "بِجانِب",
+        "label": "Preposition (next to)"
+      },
+      {
+        "form": "جَنْب",
+        "label": "Noun (side; Shaami/Masri جَمب)"
+      },
+      {
+        "form": "تَجَنَّبَ",
+        "label": "Form V verb (to avoid)"
+      },
+      {
+        "form": "أَجنَبِيّ",
+        "label": "Adjective (foreign)"
+      }
+    ]
+  },
+  {
+    "fusha": "بِجانِب",
+    "wordVoweled": "بِجانِب",
+    "english": "next to, beside",
+    "root": "ج-ن-ب",
+    "wordType": "other",
+    "shaami": "جَنب",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "جانِب",
+        "label": "Noun (side)"
+      },
+      {
+        "form": "جَنْب",
+        "label": "Noun (side; Shaami/Masri جَمب)"
+      },
+      {
+        "form": "بِقُرب",
+        "label": "Preposition (near)"
+      }
+    ]
+  },
+  {
+    "fusha": "جيل",
+    "wordVoweled": "جيل",
+    "english": "generation",
+    "root": "ج-ي-ل",
+    "wordType": "noun",
+    "gender": "m",
+    "fushaPlural": "أَجيال",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "عَصر",
+        "label": "Noun (era)"
+      },
+      {
+        "form": "قَرن",
+        "label": "Noun (century)"
+      },
+      {
+        "form": "شَباب",
+        "label": "Noun (youth)"
+      }
+    ]
+  },
+  {
+    "fusha": "حَديقة",
+    "wordVoweled": "حَديقة",
+    "english": "garden, yard, park",
+    "root": "ح-د-ق",
+    "wordType": "noun",
+    "gender": "f",
+    "fushaPlural": "حَدائِق",
+    "shaami": "جْنينة",
+    "shaamiPlural": "جَنايِن",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "حَدَقة",
+        "label": "Noun (pupil of the eye)"
+      },
+      {
+        "form": "أَحدَقَ",
+        "label": "Form IV verb (to surround)"
+      },
+      {
+        "form": "بُستان",
+        "label": "Noun (orchard)"
+      }
+    ]
+  },
+  {
+    "fusha": "حَديقة عامّة",
+    "wordVoweled": "حَديقة عامّة",
+    "english": "public park",
+    "root": "ح-د-ق",
+    "wordType": "noun",
+    "gender": "f",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "حَديقة",
+        "label": "Noun (garden, park)"
+      },
+      {
+        "form": "عامّ",
+        "label": "Adjective (public, general)"
+      },
+      {
+        "form": "عامّة",
+        "label": "Noun (the general public)"
+      }
+    ]
+  },
+  {
+    "fusha": "حَلّ",
+    "wordVoweled": "حَلّ",
+    "english": "solution",
+    "root": "ح-ل-ل",
+    "wordType": "noun",
+    "gender": "m",
+    "fushaPlural": "حُلول",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "حَلَّ",
+        "label": "Form I verb (to solve, to untie)"
+      },
+      {
+        "form": "مَحَلّ",
+        "label": "Noun (place, shop)"
+      },
+      {
+        "form": "حَلال",
+        "label": "Adjective (permitted)"
+      },
+      {
+        "form": "اِحتَلَّ",
+        "label": "Form VIII verb (to occupy)"
+      }
+    ]
+  },
+  {
+    "fusha": "حَمّام",
+    "wordVoweled": "حَمّام",
+    "english": "bathroom, bath, bathhouse",
+    "root": "ح-م-م",
+    "wordType": "noun",
+    "gender": "m",
+    "fushaPlural": "حَمّامات",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "اِستَحَمَّ",
+        "label": "Form X verb (to bathe)"
+      },
+      {
+        "form": "حَميم",
+        "label": "Adjective (intimate)"
+      },
+      {
+        "form": "حُمّى",
+        "label": "Noun (fever)"
+      }
+    ]
+  },
+  {
+    "fusha": "حَماة",
+    "wordVoweled": "حَماة",
+    "english": "mother-in-law",
+    "root": "ح-م-و",
+    "wordType": "noun",
+    "gender": "f",
+    "fushaPlural": "حَمَوات",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "حَمو",
+        "label": "Noun (father-in-law)"
+      },
+      {
+        "form": "حَمى",
+        "label": "Form I verb (to protect)"
+      },
+      {
+        "form": "حِماية",
+        "label": "Noun (protection)"
+      }
+    ]
+  },
+  {
+    "fusha": "خِلاف",
+    "wordVoweled": "خِلاف",
+    "english": "disagreement, dispute",
+    "root": "خ-ل-ف",
+    "wordType": "noun",
+    "gender": "m",
+    "fushaPlural": "خِلافات",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "اِختَلَفَ",
+        "label": "Form VIII verb (to differ)"
+      },
+      {
+        "form": "مُختَلِف",
+        "label": "Active participle (different)"
+      },
+      {
+        "form": "خَلْفَ",
+        "label": "Preposition (behind)"
+      },
+      {
+        "form": "خَليفة",
+        "label": "Noun (successor, caliph)"
+      }
+    ]
+  },
+  {
+    "fusha": "الرَّبّ",
+    "wordVoweled": "الرَّبّ",
+    "english": "God, (our) Lord",
+    "root": "ر-ب-ب",
+    "wordType": "noun",
+    "gender": "m",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "رَبُّنا",
+        "label": "Noun (our Lord)"
+      },
+      {
+        "form": "رَبَّى",
+        "label": "Form II verb (to raise, bring up)"
+      },
+      {
+        "form": "تَربِية",
+        "label": "Noun (upbringing, education)"
+      },
+      {
+        "form": "رَبّة البَيت",
+        "label": "Noun (housewife)"
+      }
+    ]
+  },
+  {
+    "fusha": "سُفرة",
+    "wordVoweled": "السُّفرة",
+    "english": "dining (room), dining table",
+    "root": "س-ف-ر",
+    "wordType": "noun",
+    "gender": "f",
+    "fushaPlural": "سُفَر",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "سافَرَ",
+        "label": "Form III verb (to travel)"
+      },
+      {
+        "form": "سَفَر",
+        "label": "Noun (travel)"
+      },
+      {
+        "form": "سَفير",
+        "label": "Noun (ambassador)"
+      },
+      {
+        "form": "مُسافِر",
+        "label": "Active participle (traveller)"
+      }
+    ]
+  },
+  {
+    "fusha": "شَقّة",
+    "wordVoweled": "شَقّة",
+    "english": "apartment",
+    "root": "ش-ق-ق",
+    "wordType": "noun",
+    "gender": "f",
+    "fushaPlural": "شُقَق",
+    "shaami": "شَقّة",
+    "shaamiPlural": "شِقَق",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "شَقَّ",
+        "label": "Form I verb (to split)"
+      },
+      {
+        "form": "مَشَقّة",
+        "label": "Noun (hardship)"
+      },
+      {
+        "form": "شَقيق",
+        "label": "Noun (brother)"
+      },
+      {
+        "form": "اِنشَقَّ",
+        "label": "Form VII verb (to split off, to dissent)"
+      }
+    ]
+  },
+  {
+    "fusha": "طَبَخَ",
+    "wordVoweled": "طَبَخَ",
+    "english": "to cook",
+    "root": "ط-ب-خ",
+    "wordType": "verb",
+    "verbForm": "I",
+    "pastTense": "طَبَخَ",
+    "presentTense": "يَطبُخ",
+    "masdarForm": "الطَّبْخ",
+    "shaami": "يِطبُخ",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "مَطبَخ",
+        "label": "Noun (kitchen)"
+      },
+      {
+        "form": "طَبّاخ",
+        "label": "Noun (cook)"
+      },
+      {
+        "form": "مَطبوخ",
+        "label": "Passive participle (cooked)"
+      }
+    ]
+  },
+  {
+    "fusha": "مَطبَخ",
+    "wordVoweled": "مَطبَخ",
+    "english": "kitchen",
+    "root": "ط-ب-خ",
+    "wordType": "noun",
+    "gender": "m",
+    "fushaPlural": "مَطابِخ",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "طَبَخَ",
+        "label": "Form I verb (to cook)"
+      },
+      {
+        "form": "طَبّاخ",
+        "label": "Noun (cook)"
+      },
+      {
+        "form": "طَبْخ",
+        "label": "Verbal noun (cooking)"
+      }
+    ]
+  },
+  {
+    "fusha": "طابِق",
+    "wordVoweled": "طابِق",
+    "english": "floor, story",
+    "root": "ط-ب-ق",
+    "wordType": "noun",
+    "gender": "m",
+    "fushaPlural": "طَوابِق",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "دور",
+        "label": "Noun (floor, Masri; pl. أَدوار)"
+      },
+      {
+        "form": "طَبَّقَ",
+        "label": "Form II verb (to apply)"
+      },
+      {
+        "form": "تَطبيق",
+        "label": "Noun (application)"
+      },
+      {
+        "form": "طَبَق",
+        "label": "Noun (plate, dish)"
+      }
+    ]
+  },
+  {
+    "fusha": "طَلاق",
+    "wordVoweled": "الطَّلاق",
+    "english": "divorce",
+    "root": "ط-ل-ق",
+    "wordType": "noun",
+    "gender": "m",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "طَلَّقَ",
+        "label": "Form II verb (to divorce)"
+      },
+      {
+        "form": "اِنطَلَقَ",
+        "label": "Form VII verb (to set off)"
+      },
+      {
+        "form": "مُطلَق",
+        "label": "Adjective (absolute)"
+      },
+      {
+        "form": "طَليق",
+        "label": "Adjective (free, at liberty)"
+      }
+    ]
+  },
+  {
+    "fusha": "أَعَدَّ",
+    "wordVoweled": "أَعَدَّ",
+    "english": "to prepare, get (something) ready",
+    "root": "ع-د-د",
+    "wordType": "verb",
+    "verbForm": "IV",
+    "pastTense": "أَعَدَّ",
+    "presentTense": "يُعِدّ",
+    "masdarForm": "الإعداد",
+    "shaami": "جَهَّز",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "يِجَهِّز",
+        "label": "Verb (to prepare, Shaami/Masri)"
+      },
+      {
+        "form": "اِستَعَدَّ",
+        "label": "Form X verb (to get ready)"
+      },
+      {
+        "form": "عَدَّ",
+        "label": "Form I verb (to count)"
+      },
+      {
+        "form": "اِستِعداد",
+        "label": "Noun (readiness)"
+      }
+    ]
+  },
+  {
+    "fusha": "عَدَم",
+    "wordVoweled": "عَدَم",
+    "english": "non-, lack of (negates a verbal noun)",
+    "root": "ع-د-م",
+    "wordType": "noun",
+    "gender": "m",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "اِنعَدَمَ",
+        "label": "Form VII verb (to be lacking)"
+      },
+      {
+        "form": "مَعدوم",
+        "label": "Passive participle (non-existent)"
+      },
+      {
+        "form": "عَديم",
+        "label": "Adjective (devoid of)"
+      }
+    ]
+  },
+  {
+    "fusha": "فاضي",
+    "wordVoweled": "فاضي",
+    "english": "unoccupied, not busy (spoken)",
+    "root": "ف-ض-و",
+    "wordType": "adjective",
+    "shaami": "فاضي",
+    "shaamiPlural": "فاضيين",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "فارِغ",
+        "label": "Adjective (empty, Fusha)"
+      },
+      {
+        "form": "فَضاء",
+        "label": "Noun (space)"
+      },
+      {
+        "form": "فَراغ",
+        "label": "Noun (emptiness, free time)"
+      }
+    ]
+  },
+  {
+    "fusha": "فَوْقَ",
+    "wordVoweled": "فَوْقَ",
+    "english": "above; upstairs",
+    "root": "ف-و-ق",
+    "wordType": "other",
+    "shaami": "فوق",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "تَحْتَ",
+        "label": "Opposite (beneath, below)"
+      },
+      {
+        "form": "فائِق",
+        "label": "Adjective (superior)"
+      },
+      {
+        "form": "تَفَوَّقَ",
+        "label": "Form V verb (to excel)"
+      }
+    ]
+  },
+  {
+    "fusha": "مَمنوع",
+    "wordVoweled": "مَمنوع",
+    "english": "forbidden",
+    "root": "م-ن-ع",
+    "wordType": "participle",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "مَنَعَ",
+        "label": "Form I verb (to forbid)"
+      },
+      {
+        "form": "مَنْع",
+        "label": "Verbal noun (prevention)"
+      },
+      {
+        "form": "اِمتَنَعَ",
+        "label": "Form VIII verb (to abstain)"
+      },
+      {
+        "form": "مانِع",
+        "label": "Noun (obstacle)"
+      }
+    ]
+  },
+  {
+    "fusha": "تَمَنَّى",
+    "wordVoweled": "تَمَنَّى",
+    "english": "to hope, wish (for someone to)",
+    "root": "م-ن-ي",
+    "wordType": "verb",
+    "verbForm": "V",
+    "pastTense": "تَمَنَّى",
+    "presentTense": "يَتَمَنّى",
+    "masdarForm": "التَّمَنّي",
+    "shaami": "يِتْمَنّى",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "أُمنِية",
+        "label": "Noun (a wish)"
+      },
+      {
+        "form": "أَماني",
+        "label": "Noun (wishes, hopes)"
+      },
+      {
+        "form": "مُتَمَنّي",
+        "label": "Active participle (one who wishes)"
+      }
+    ]
+  },
+  {
+    "fusha": "اِنتَقَلَ",
+    "wordVoweled": "اِنتَقَلَ",
+    "english": "to move to",
+    "root": "ن-ق-ل",
+    "wordType": "verb",
+    "verbForm": "VIII",
+    "pastTense": "اِنتَقَلَ",
+    "presentTense": "يَنتَقِل",
+    "masdarForm": "الاِنتِقال",
+    "shaami": "يِنتِقِل لَـ",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "اِتنَقَل",
+        "label": "Verb (to move, Masri)"
+      },
+      {
+        "form": "نَقَلَ",
+        "label": "Form I verb (to transport)"
+      },
+      {
+        "form": "نَقْل",
+        "label": "Verbal noun (transport)"
+      },
+      {
+        "form": "ناقِل",
+        "label": "Active participle (carrier)"
+      }
+    ]
+  },
+  {
+    "fusha": "وَراءَ",
+    "wordVoweled": "وَراءَ",
+    "english": "behind, in the back of",
+    "root": "و-ر-ي",
+    "wordType": "other",
+    "shaami": "ورا",
+    "group": "Chapter 14",
+    "companionForms": [
+      {
+        "form": "أَمامَ",
+        "label": "Opposite (in front of)"
+      },
+      {
+        "form": "خَلْفَ",
+        "label": "Preposition (behind)"
+      },
+      {
+        "form": "تَوارى",
+        "label": "Form VI verb (to hide oneself)"
+      }
+    ]
+  }
+]

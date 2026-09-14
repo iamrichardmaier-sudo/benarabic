@@ -161,6 +161,7 @@ const Index = () => {
           presentTense: e.presentTense,
           masdarForm: e.masdarForm,
           companionForms: e.companionForms,
+          gender: e.gender ?? null,
           taggedAt,
           group: e.group ?? null,
         });
