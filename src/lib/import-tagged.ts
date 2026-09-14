@@ -21,6 +21,16 @@ export interface TaggedImportEntry {
   presentTense: string | null;
   masdarForm: string | null;
   companionForms: CompanionForm[];
+  /**
+   * Grammatical gender of a noun, "m" or "f".
+   *
+   * Carried through the importer because the numbers drill cannot count a noun
+   * without it, and a pasted word is never seen by the auto-tagger: the import
+   * marks cards tagged, so the backfill that would otherwise supply gender
+   * skips them. Without this a whole chapter of nouns would sit outside the
+   * drill for good.
+   */
+  gender?: 'm' | 'f' | null;
   /** Optional batch name, e.g. "Chapter 12", applied to every card imported. */
   group?: string | null;
 }
@@ -157,6 +167,7 @@ export function parseTaggedImport(text: string): ImportValidation {
       presentTense: optionalString(o.presentTense),
       masdarForm: optionalString(o.masdarForm),
       companionForms,
+      gender: o.gender === 'm' || o.gender === 'f' ? o.gender : null,
       group: optionalString(o.group),
     });
   });

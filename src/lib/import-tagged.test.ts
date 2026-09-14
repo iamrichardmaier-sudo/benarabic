@@ -78,4 +78,23 @@ describe('group assignment on import', () => {
     );
     expect(entries.map((e) => e.group)).toEqual(['Chapter 12', 'Chapter 13']);
   });
+
+  it('carries a noun’s gender through, so it can reach the numbers drill', () => {
+    // A pasted card is never seen by the auto-tagger — the import marks it
+    // tagged, so the backfill that would otherwise supply gender skips it.
+    const { entries, errors } = parseTaggedImport(JSON.stringify([
+      { fusha: 'شَقّة', english: 'apartment', wordType: 'noun', gender: 'f',
+        companionForms: [{ form: 'شَقَّ', label: 'Form I verb' }] },
+    ]));
+    expect(errors).toEqual([]);
+    expect(entries[0].gender).toBe('f');
+  });
+
+  it('ignores a gender that is neither m nor f', () => {
+    const { entries } = parseTaggedImport(JSON.stringify([
+      { fusha: 'كِتاب', english: 'book', wordType: 'noun', gender: 'neuter',
+        companionForms: [{ form: 'كَتَبَ', label: 'Form I verb' }] },
+    ]));
+    expect(entries[0].gender).toBeNull();
+  });
 });
