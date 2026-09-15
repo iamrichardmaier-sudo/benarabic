@@ -13,6 +13,8 @@ interface WordInput {
 
 interface TagResult {
   id: string;
+  /** A short English meaning. Callers that already have one ignore it. */
+  gloss: string | null;
   root: string | null;
   wordType: "verb" | "masdar" | "noun" | "adjective" | "participle" | "other";
   verbForm: string | null;
@@ -26,6 +28,7 @@ interface TagResult {
 }
 
 const SYSTEM_PROMPT = `You are an expert in Arabic morphology and lexicography, with knowledge equivalent to the Hans Wehr Dictionary of Modern Written Arabic. For each Modern Standard Arabic (Fusha) word you are given, return:
+- gloss: a short English meaning, two to five words, no article and no trailing full stop (e.g. "to serve", "service", "quickly"). For a verb give the infinitive. This is for a learner glancing at a word while reading, so give the ordinary everyday sense rather than an exhaustive one.
 - root: the triliteral/quadriliteral root, letters joined by "-" (e.g. "ك-ت-ب"), or "" (empty string) if it has no derivable root (e.g. a loanword or particle).
 - wordType: one of "verb", "masdar", "noun", "adjective", "participle", "other".
 - verbForm: the Form as a Roman numeral "I".."X" if the word is a verb (or is derived from a specific verb form), else "" (empty string).
@@ -34,6 +37,8 @@ const SYSTEM_PROMPT = `You are an expert in Arabic morphology and lexicography, 
 - gender: for a NOUN, its grammatical gender, "m" or "f". Judge the word itself, not its meaning: أُمّ, أَرض, سوق, عَين, شَمس, نَفس, حَرب and يَد are feminine despite having no tāʾ marbūṭa, while a handful of words in ة (خَليفة, أُسامة) are masculine. Return "" for anything that is not a noun.
 - fushaPlural: for a NOUN, the fully voweled plural — the broken plural where the word takes one, otherwise the sound plural. Give the bare plural with no definite article. Return "" for anything that is not a noun, and for a noun that has no plural in normal use (a mass noun or an abstract).
 - companionForms: an array of the up to 4 MOST COMMON other words sharing the same root (other derived forms, whether other verb forms, participles, or nouns) that a learner would benefit from seeing alongside this word. Each entry has "form" (fully voweled Arabic) and "label" (a short grammatical description, e.g. "Form II verb (past)", "Active participle", "Verbal noun", "Elative/comparative"). Return fewer than 4 if fewer genuinely common forms exist — do not invent rare or contrived forms.
+
+Some words will be Levantine colloquial rather than Fusha (for example from song lyrics or dialogue). Tag those as they are: give the everyday meaning and the root if one is derivable, and do not silently replace the word with its Fusha equivalent.
 
 Return exactly one result per input word, in the same order, with matching "id" fields.`;
 
@@ -46,6 +51,7 @@ const RESULT_JSON_SCHEMA = {
         type: "object",
         properties: {
           id: { type: "string" },
+          gloss: { type: "string" },
           root: { type: "string" },
           wordType: { type: "string", enum: ["verb", "masdar", "noun", "adjective", "participle", "other"] },
           verbForm: { type: "string" },
@@ -68,7 +74,7 @@ const RESULT_JSON_SCHEMA = {
             },
           },
         },
-        required: ["id", "root", "wordType", "verbForm", "wordVoweled", "pastTense", "presentTense", "masdarForm", "gender", "fushaPlural", "companionForms"],
+        required: ["id", "gloss", "root", "wordType", "verbForm", "wordVoweled", "pastTense", "presentTense", "masdarForm", "gender", "fushaPlural", "companionForms"],
         additionalProperties: false,
       },
     },
@@ -169,6 +175,7 @@ serve(async (req) => {
       .filter((r): r is Record<string, unknown> => !!r && typeof r === "object" && byId.has((r as Record<string, unknown>).id as string))
       .map((r) => ({
         id: r.id as string,
+        gloss: nullify(r.gloss),
         root: nullify(r.root),
         wordType: ((r.wordType as string) || "other") as TagResult["wordType"],
         verbForm: nullify(r.verbForm),

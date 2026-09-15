@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useLibraryTexts, type LibraryText } from '@/hooks/useLibraryTexts';
 import { readAsCover } from '@/lib/cover-image';
+import { wordsNeedingTags, tagWords, MAX_WORDS, type TagProgress } from '@/lib/tag-text';
+import type { WordSense } from '@/hooks/useWordSkeletonIndex';
 import { Link2, FileText, Loader2, BookmarkPlus, ImagePlus } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import BackButton from '@/components/BackButton';
@@ -51,6 +53,10 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(!!entry);
   const [saveError, setSaveError] = useState<string | null>(null);
+  const [progress, setProgress] = useState<TagProgress | null>(null);
+  // Senses for this entry's own words, which the shared scripture index does
+  // not have — colloquial vocabulary above all.
+  const [wordTags, setWordTags] = useState<Record<string, WordSense[]>>(entry?.wordTags ?? {});
 
   const pickCover = async (file: File | undefined) => {
     if (!file) return;
@@ -67,12 +73,26 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
     setSaving(true);
     setSaveError(null);
     try {
-      await save({ id: entry?.id, title: title.trim() || 'Untitled', body: content, coverUrl: cover });
+      // Tag first, so what gets stored is the text and its words together.
+      // Words the shared index already explains are left to it; the rest are
+      // this text's own, and they travel with it.
+      const needed = wordsNeedingTags(content, (skeleton) => (lookup(skeleton)?.length ?? 0) > 0);
+      const fresh = needed.length > 0 ? await tagWords(needed, setProgress) : {};
+      const merged = { ...wordTags, ...fresh };
+      setWordTags(merged);
+      await save({
+        id: entry?.id,
+        title: title.trim() || 'Untitled',
+        body: content,
+        coverUrl: cover,
+        wordTags: merged,
+      });
       setSaved(true);
     } catch (err) {
       setSaveError(errorReason(err));
     } finally {
       setSaving(false);
+      setProgress(null);
     }
   };
 
@@ -128,8 +148,17 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
             className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-primary py-2 text-sm font-semibold text-primary transition-all active:scale-95 disabled:opacity-50"
           >
             {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <BookmarkPlus className="h-4 w-4" />}
-            {saving ? 'Saving…' : 'Keep this in my library'}
+            {saving
+              ? progress && progress.total > 0
+                ? `Tagging words… ${progress.done} of ${progress.total}`
+                : 'Saving…'
+              : 'Keep this in my library'}
           </button>
+        )}
+        {saving && progress && progress.total >= MAX_WORDS && (
+          <p className="text-center text-[11px] text-muted-foreground">
+            Long text — the first {MAX_WORDS} new words are being tagged.
+          </p>
         )}
         {saveError && <p className="text-xs text-destructive text-center">{saveError}</p>}
 
@@ -142,7 +171,10 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
             {tokenize(article.content).map((token, i) => {
               if (!token.isWord) return <span key={i}>{token.text}</span>;
               const key = lookupKey(token.text);
-              const senses = key ? lookup(key) : null;
+              // The entry's own tags first: they were made from this text, so
+              // where they disagree with a skeleton match from scripture they
+              // are the better answer.
+              const senses = key ? wordTags[key] ?? lookup(key) : null;
               if (!senses || senses.length === 0) return <span key={i}>{token.text}</span>;
               return <WildWordPopover key={i} text={token.text} senses={senses} />;
             })}
