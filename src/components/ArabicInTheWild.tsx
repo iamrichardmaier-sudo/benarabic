@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useLibraryTexts, type LibraryText } from '@/hooks/useLibraryTexts';
 import { readAsCover } from '@/lib/cover-image';
 import { wordsNeedingTags, tagWords, MAX_WORDS, type TagProgress } from '@/lib/tag-text';
-import type { WordSense } from '@/hooks/useWordSkeletonIndex';
+import { skeletonOf, type WordSense } from '@/hooks/useWordSkeletonIndex';
 import { Link2, FileText, Loader2, BookmarkPlus, ImagePlus } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import BackButton from '@/components/BackButton';
@@ -58,6 +58,20 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
   // not have — colloquial vocabulary above all.
   const [wordTags, setWordTags] = useState<Record<string, WordSense[]>>(entry?.wordTags ?? {});
 
+  /**
+   * The words of this text that nothing explains yet.
+   *
+   * Recomputed rather than stored: the shared index arrives asynchronously, so
+   * a count taken once would be wrong on the first render.
+   */
+  const stillUntagged = article
+    ? wordsNeedingTags(
+        article.content,
+        (skeleton) => !!wordTags[skeleton] || (lookup(skeleton)?.length ?? 0) > 0,
+      ).length
+    : 0;
+  const taggedHere = Object.keys(wordTags).length;
+
   const pickCover = async (file: File | undefined) => {
     if (!file) return;
     try {
@@ -76,7 +90,10 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
       // Tag first, so what gets stored is the text and its words together.
       // Words the shared index already explains are left to it; the rest are
       // this text's own, and they travel with it.
-      const needed = wordsNeedingTags(content, (skeleton) => (lookup(skeleton)?.length ?? 0) > 0);
+      const needed = wordsNeedingTags(
+        content,
+        (skeleton) => !!wordTags[skeleton] || (lookup(skeleton)?.length ?? 0) > 0,
+      );
       const fresh = needed.length > 0 ? await tagWords(needed, setProgress) : {};
       const merged = { ...wordTags, ...fresh };
       setWordTags(merged);
@@ -125,7 +142,11 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
   if (article) {
     return (
       <div className="space-y-4">
-        <BackButton onClick={handleEdit} label="Edit text" />
+        {entry && onBack ? (
+          <BackButton onClick={onBack} label="Library" />
+        ) : (
+          <BackButton onClick={handleEdit} label="Edit text" />
+        )}
 
         {cover && (
           <img
@@ -141,7 +162,7 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
           </h2>
         )}
 
-        {!saved && (
+        {(!saved || stillUntagged > 0) && (
           <button
             onClick={handleSave}
             disabled={saving}
@@ -152,8 +173,20 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
               ? progress && progress.total > 0
                 ? `Tagging words… ${progress.done} of ${progress.total}`
                 : 'Saving…'
-              : 'Keep this in my library'}
+              : saved
+                // Already in the library, so this is only about the words —
+                // and an entry saved before tagging existed needs a way in.
+                ? `Tag ${stillUntagged} more word${stillUntagged === 1 ? '' : 's'}`
+                : 'Keep this in my library'}
           </button>
+        )}
+
+        {saved && !saving && (
+          <p className="text-center text-[11px] text-muted-foreground">
+            {taggedHere > 0
+              ? `${taggedHere} word${taggedHere === 1 ? '' : 's'} tagged from this text.`
+              : 'None of this text\u2019s own words are tagged yet.'}
+          </p>
         )}
         {saving && progress && progress.total >= MAX_WORDS && (
           <p className="text-center text-[11px] text-muted-foreground">
@@ -170,21 +203,28 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
           >
             {tokenize(article.content).map((token, i) => {
               if (!token.isWord) return <span key={i}>{token.text}</span>;
-              const key = lookupKey(token.text);
-              // The entry's own tags first: they were made from this text, so
-              // where they disagree with a skeleton match from scripture they
-              // are the better answer.
-              const senses = key ? wordTags[key] ?? lookup(key) : null;
-              if (!senses || senses.length === 0) return <span key={i}>{token.text}</span>;
-              return <WildWordPopover key={i} text={token.text} senses={senses} />;
+              const word = lookupKey(token.text);
+              if (!word) return <span key={i}>{token.text}</span>;
+              // Keyed by consonant skeleton, which is what the tags were
+              // stored under — reading them back by the bare word found
+              // nothing, however many were there.
+              //
+              // The entry's own tags come first: they were made from this
+              // text, so where they disagree with a skeleton match borrowed
+              // from scripture they are the better answer.
+              const senses = wordTags[skeletonOf(word)] ?? lookup(word) ?? [];
+              // Every word is hoverable, tagged or not. A word with nothing
+              // known about it is exactly the word worth stopping on, and the
+              // panel can still offer to put it in the deck.
+              return <WildWordPopover key={i} text={token.text} word={word} senses={senses} />;
             })}
           </p>
         </div>
 
         <p className="text-[11px] text-muted-foreground/70 text-center pb-2">
-          Word meanings come from the Bible word-tagging database matched by consonant skeleton, since
-          this text has no diacritics — coverage is partial and a word can show more than one possible
-          reading.
+          {taggedHere > 0
+            ? 'Meanings come from this text\u2019s own tagging first, then from the scripture word database matched by consonant skeleton. A word without diacritics can have more than one possible reading.'
+            : 'Word meanings come from the scripture word database matched by consonant skeleton, since this text has no diacritics \u2014 coverage is partial and a word can show more than one possible reading. Tag this text to fill in the rest.'}
         </p>
       </div>
     );
