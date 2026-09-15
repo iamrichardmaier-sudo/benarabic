@@ -23,6 +23,7 @@ import BackButton from '@/components/BackButton';
 import WaznLogo from '@/components/WaznLogo';
 import { recordStudyDay } from '@/lib/streak';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine, scheduleFields, nextWave } from '@/lib/spaced-repetition';
+import { queueAfterGrade, cardsCovered } from '@/lib/review-queue';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
 import { searchImage, backfillMissingImages } from '@/lib/unsplash';
@@ -284,11 +285,12 @@ const Index = () => {
   };
 
   const handleRate = async (rating: Rating) => {
-    const current = reviewItems[currentIndex].card;
-    const reviewed = reviewCard(current, rating);
+    const item = reviewItems[currentIndex];
+    const reviewed = reviewCard(item.card, rating);
     await updateCard(reviewed.id, scheduleFields(reviewed));
     // Grading a card is a genuine study action, so it counts toward the streak.
     recordStudyDay(user?.id);
+    setReviewItems((items) => queueAfterGrade(items, currentIndex, rating));
     setCurrentIndex((i) => i + 1);
   };
 
@@ -484,7 +486,7 @@ const Index = () => {
         )}
 
         {reviewDone && (
-          <ReviewComplete reviewed={reviewItems.length} onDone={() => selectTab('home')} />
+          <ReviewComplete reviewed={cardsCovered(reviewItems)} onDone={() => selectTab('home')} />
         )}
 
         {view === 'learnCards' && (

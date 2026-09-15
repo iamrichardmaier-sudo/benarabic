@@ -93,3 +93,79 @@ describe('the widget keeps the same schedule as the app', () => {
     expect(SOURCE).toContain('"intensive_day", "intensive_reps_done", "next_review_at"');
   });
 });
+
+/**
+ * The review page inside the widget is a string of HTML and JavaScript, so it
+ * never gets type-checked or bundled. Its grade() is lifted out and run here
+ * the same way, because "Again" quietly doing nothing on the phone is exactly
+ * the kind of fault that survives a green test run.
+ */
+function widgetGrade() {
+  const state = {
+    CARDS: [{ id: 'a' }, { id: 'b' }, { id: 'c' }],
+    i: 0,
+    flipped: true,
+    results: [] as { id: string; rating: string }[],
+    pings: [] as string[],
+  };
+  const fn = new Function(
+    'state',
+    `
+    let { CARDS, i, flipped, results } = state;
+    const ping = (p) => state.pings.push(p);
+    const flash = () => {};
+    const render = () => {};
+    const setTimeout = (f) => {};
+    ${extract('grade').replace('\nreturn grade;', '')}
+    return function (rating) {
+      ({ CARDS, i, flipped, results } = { ...state, flipped: true });
+      grade(rating);
+      state.i = i;
+    };
+    `,
+  )(state) as (rating: string) => void;
+  return { state, grade: fn };
+}
+
+describe('the widget sends an "Again" card to the back of the deck', () => {
+  it('requeues instead of advancing, and advances on a real grade', () => {
+    const { state, grade } = widgetGrade();
+
+    grade('again');
+    // The card is still in the session, now last, and the position has not moved.
+    expect(state.CARDS.map((c) => c.id)).toEqual(['b', 'c', 'a']);
+    expect(state.i).toBe(0);
+
+    grade('easy');
+    expect(state.CARDS.map((c) => c.id)).toEqual(['b', 'c', 'a']);
+    expect(state.i).toBe(1);
+  });
+
+  it('numbers every grade, so a card graded twice is saved twice', () => {
+    const { state, grade } = widgetGrade();
+    grade('again');
+    grade('easy');
+    grade('easy');
+    expect(state.pings.map((p) => p.match(/seq=(\d+)/)![1])).toEqual(['0', '1', '2']);
+    // Two grades for card "a" — the second must not look like a replay.
+    expect(state.results.filter((r) => r.id === 'a')).toHaveLength(1);
+    expect(state.results).toHaveLength(3);
+  });
+});
+
+describe('the widget saves a second grade for the same card', () => {
+  it('dedupes by sequence rather than by card id', () => {
+    // Keying on the id is what made "Again" do nothing: the card came round,
+    // was graded, and the write was dropped as a duplicate.
+    expect(SOURCE).not.toContain('savedIds');
+    expect(SOURCE).toContain('savedSeqs.has(seq)');
+  });
+
+  it('chains the writes so the later grade of a repeated card lands last', () => {
+    expect(SOURCE).toContain('saveQueue = saveQueue');
+  });
+
+  it('still counts a card whose last answer was "Again" as due', () => {
+    expect(SOURCE).toContain('lastRating[id] !== "again"');
+  });
+});
