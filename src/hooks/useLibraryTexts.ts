@@ -50,6 +50,7 @@ export function useLibraryTexts() {
   const { user } = useAuth();
   const [texts, setTexts] = useState<LibraryText[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const refresh = useCallback(async () => {
     if (!user) {
@@ -63,9 +64,15 @@ export function useLibraryTexts() {
       .eq('kind', 'text')
       .order('updated_at', { ascending: false });
     if (error) {
+      // Whatever was listed stays listed. A failed read means the list could
+      // not be refreshed, not that the reader's texts are gone — and showing
+      // an empty library for a query error reads as data loss. This is not
+      // hypothetical: a column added to the select before its migration had
+      // been applied emptied the library on sight.
       console.error('Could not load your library:', error);
-      setTexts([]);
+      setError(error.message ?? 'Your library could not be loaded.');
     } else {
+      setError(null);
       setTexts((data as unknown as Row[]).map(rowToText));
     }
     setLoading(false);
@@ -123,5 +130,5 @@ export function useLibraryTexts() {
     [refresh],
   );
 
-  return { texts, loading, save, remove, refresh };
+  return { texts, loading, error, save, remove, refresh };
 }

@@ -42,3 +42,25 @@ describe('LibraryHome', () => {
     expect(onOpenText).toHaveBeenCalledWith(saved[0]);
   });
 });
+
+describe('when the list cannot be loaded', () => {
+  it('says so instead of showing an empty library', () => {
+    // A query error used to blank the list, which reads as "your texts are
+    // gone". It happened for real: a column was added to the select before
+    // its migration was applied.
+    render(<LibraryHome onSelect={() => {}} texts={[]} textsError="column does not exist" onOpenText={() => {}} />);
+    expect(screen.getByText(/could not be loaded/)).toBeInTheDocument();
+    expect(screen.getByText(/have not been lost/)).toBeInTheDocument();
+  });
+
+  it('keeps listing what it already had', () => {
+    render(<LibraryHome onSelect={() => {}} texts={saved} textsError="transient" onOpenText={() => {}} />);
+    expect(screen.getByText('نص محفوظ')).toBeInTheDocument();
+    expect(screen.getByText(/could not be loaded/)).toBeInTheDocument();
+  });
+
+  it('says nothing when all is well', () => {
+    render(<LibraryHome onSelect={() => {}} texts={saved} onOpenText={() => {}} />);
+    expect(screen.queryByText(/could not be loaded/)).toBeNull();
+  });
+});

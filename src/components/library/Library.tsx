@@ -67,7 +67,7 @@ interface LibraryProps {
 const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
   const { books, loading, error } = useBibleBooks();
   const [level, setLevel] = useState<Level>({ kind: 'home' });
-  const { texts } = useLibraryTexts();
+  const { texts, error: libraryError } = useLibraryTexts();
 
   // Tapping the already-active Library tab returns to the root.
   useEffect(() => {
@@ -381,6 +381,7 @@ const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
       resume={resume ? { label: `${resume.book.name} ${resume.chapter}` } : null}
       onResume={resume ? () => openChapter(resume.book.code, resume.chapter) : undefined}
       texts={texts}
+      textsError={libraryError}
       onOpenText={(text) => setLevel({ kind: 'saved', text })}
     />
   );

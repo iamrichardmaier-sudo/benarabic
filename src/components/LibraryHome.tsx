@@ -10,6 +10,8 @@ interface LibraryHomeProps {
   onResume?: () => void;
   /** The reader's own saved texts. Private to them; never part of the app. */
   texts?: LibraryText[];
+  /** Set when the list could not be loaded, so silence is never the answer. */
+  textsError?: string | null;
   onOpenText?: (text: LibraryText) => void;
 }
 
@@ -23,6 +25,7 @@ const LibraryHome = ({
   resume,
   onResume,
   texts = [],
+  textsError,
   onOpenText,
 }: LibraryHomeProps) => (
   <div className="space-y-5">
@@ -72,6 +75,13 @@ const LibraryHome = ({
         <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
       </button>
     </div>
+
+    {textsError && (
+      <p className="rounded-2xl border border-destructive/40 bg-destructive/5 px-4 py-3 text-xs text-destructive">
+        Your saved texts could not be loaded just now, so any you have are not listed. They have
+        not been lost — try again in a moment.
+      </p>
+    )}
 
     {texts.length > 0 && onOpenText && (
       <section className="space-y-2">
