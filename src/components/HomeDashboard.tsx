@@ -5,6 +5,8 @@ import { useBibleBooks } from '@/hooks/useBibleBooks';
 interface HomeDashboardProps {
   userId?: string;
   dueCount: number;
+  /** The next batch waiting on its gap, when nothing is due this minute. */
+  nextWave?: { at: Date; count: number } | null;
   learnCount: number;
   deckSize: number;
   onReview: () => void;
@@ -31,7 +33,7 @@ function readStored(key: string): string | null {
  * work that lives elsewhere — Home owns no functionality of its own.
  */
 const HomeDashboard = ({
-  userId, dueCount, learnCount, deckSize,
+  userId, dueCount, nextWave, learnCount, deckSize,
   onReview, onLearn, onAddWords, onContinueReading, onBrowseLibrary,
 }: HomeDashboardProps) => {
   const streak = currentStreak(userId);
@@ -47,6 +49,13 @@ const HomeDashboard = ({
     ? { label: `Review ${dueCount} card${dueCount === 1 ? '' : 's'}`, icon: Layers, action: onReview }
     : learnCount > 0
       ? { label: `Learn ${learnCount} new word${learnCount === 1 ? '' : 's'}`, icon: GraduationCap, action: onLearn }
+      : null;
+
+  // An empty queue that is only empty for another hour should say so, rather
+  // than reading as "you're done" or as the app being broken.
+  const waveLabel =
+    dueCount === 0 && nextWave
+      ? `${nextWave.count} card${nextWave.count === 1 ? '' : 's'} come${nextWave.count === 1 ? 's' : ''} back at ${nextWave.at.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}`
       : null;
 
   return (
@@ -108,6 +117,7 @@ const HomeDashboard = ({
           <div className="rounded-2xl bg-card border border-border p-4 text-center space-y-0.5">
             <p className="text-2xl font-bold text-foreground tabular-nums">{dueCount}</p>
             <p className="text-xs text-muted-foreground">to review</p>
+            {waveLabel && <p className="text-[11px] leading-tight text-muted-foreground/80 pt-0.5">{waveLabel}</p>}
           </div>
         </div>
         <div className="grid grid-cols-2 gap-2">

@@ -67,6 +67,13 @@ const MIN_EASE = 1.3;
 const MAX_EASE = 2.5;
 const MIN_INTERVAL = 1;
 
+// The front-loaded phase a newly-graduated card runs: four reps a day for
+// three days, two a day for two more, spaced GAP_HOURS apart, then plain
+// SM-2. Mirrors src/lib/intensive.ts in the web app — keep the two in step.
+const REPS_PER_DAY = [4, 4, 4, 2, 2];
+const GAP_HOURS = 3;
+const EXIT_INTERVAL_DAYS = 3;
+
 /** Mirrors reviewCard() in the web app. Keep the two in step. */
 function schedule(card, rating) {
   let interval = card.interval_days;
@@ -87,6 +94,12 @@ function schedule(card, rating) {
 
   ease = Math.max(MIN_EASE, Math.min(MAX_EASE, ease));
 
+  // Inside the phase the rating moves the ease the card will carry out of it,
+  // but the number of looks it gets is fixed, so the interval is ignored.
+  if (card.intensive_day != null) {
+    return { ...advanceIntensive(card), ease_factor: ease };
+  }
+
   const next = new Date();
   next.setDate(next.getDate() + interval);
 
@@ -94,6 +107,37 @@ function schedule(card, rating) {
     interval_days: interval,
     ease_factor: ease,
     next_review_date: isoDay(next),
+  };
+}
+
+/** Mirrors advanceIntensive() in src/lib/intensive.ts. */
+function advanceIntensive(card) {
+  const day = card.intensive_day;
+  const reps = (card.intensive_reps_done || 0) + 1;
+  const target = REPS_PER_DAY[day - 1] || 0;
+
+  if (reps < target) {
+    const at = new Date(Date.now() + GAP_HOURS * 60 * 60 * 1000);
+    return {
+      intensive_day: day,
+      intensive_reps_done: reps,
+      next_review_at: at.toISOString(),
+      next_review_date: isoDay(at),
+      interval_days: 1,
+    };
+  }
+
+  // The day is done, so the date alone decides again.
+  const nextDay = day + 1;
+  const done = nextDay > REPS_PER_DAY.length;
+  const next = new Date();
+  next.setDate(next.getDate() + (done ? EXIT_INTERVAL_DAYS : 1));
+  return {
+    intensive_day: done ? null : nextDay,
+    intensive_reps_done: 0,
+    next_review_at: null,
+    next_review_date: isoDay(next),
+    interval_days: done ? EXIT_INTERVAL_DAYS : 1,
   };
 }
 
@@ -176,6 +220,7 @@ const CARD_COLUMNS = [
   "fusha_plural", "shaami", "shaami_plural",
   "past_tense", "present_tense", "masdar_form", "companion_forms",
   "interval_days", "ease_factor", "next_review_date",
+  "intensive_day", "intensive_reps_done", "next_review_at",
 ].join(",");
 
 // Deliberately shorter than CARD_COLUMNS: this one pulls every card in the
@@ -191,11 +236,15 @@ const MAX_RELATED = 6;
 const MAX_CORPUS = 5;
 
 async function fetchDueCards(token) {
+  // A card in the front-loaded phase carries next_review_at as well as a
+  // date, so that its several reps a day land spaced out rather than the
+  // widget offering the same card again the moment it has been graded.
   const url =
     `${SUPABASE_URL}/rest/v1/flashcards` +
     `?select=${CARD_COLUMNS}` +
     `&learning_stage=eq.graduated` +
     `&next_review_date=lte.${isoDay()}` +
+    `&or=(next_review_at.is.null,next_review_at.lte.${new Date().toISOString()})` +
     `&order=next_review_date.asc`;
 
   const req = new Request(url);

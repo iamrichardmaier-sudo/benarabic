@@ -1,4 +1,5 @@
 import { today, daysFromNow } from './day';
+import { advanceIntensive, isIntensive, startIntensive, timeHasCome } from './intensive';
 
 export type LearningStage = 'new' | 'stage1' | 'stage2' | 'graduated';
 export type WordType = 'verb' | 'masdar' | 'noun' | 'adjective' | 'participle' | 'other';
@@ -42,6 +43,15 @@ export interface FlashCard {
   fixedPreposition?: string | null;
   /** A sentence using this word with "___" standing in for fixedPreposition. */
   prepositionSentence?: string | null;
+  /**
+   * 1-based day of the front-loaded phase a newly-graduated card runs, or
+   * null once it has joined the long-term rotation. See ./intensive.
+   */
+  intensiveDay?: number | null;
+  /** Reps already done on the current day of that phase. */
+  intensiveRepsDone?: number;
+  /** The moment the next rep is wanted, when it falls later the same day. */
+  nextReviewAt?: string | null;
   /** English translation of prepositionSentence, with the blank filled in. */
   prepositionSentenceEn?: string | null;
 }
@@ -52,7 +62,7 @@ const MIN_EASE = 1.3;
 const MAX_EASE = 2.5;
 const MIN_INTERVAL = 1;
 
-export function reviewCard(card: FlashCard, rating: Rating): FlashCard {
+export function reviewCard(card: FlashCard, rating: Rating, now: Date = new Date()): FlashCard {
   let { intervalDays, easeFactor } = card;
 
   switch (rating) {
@@ -75,30 +85,95 @@ export function reviewCard(card: FlashCard, rating: Rating): FlashCard {
 
   easeFactor = Math.max(MIN_EASE, Math.min(MAX_EASE, easeFactor));
 
+  // A card still in its first five days runs a fixed number of exposures
+  // rather than a growing interval. The rating is not ignored — it moves the
+  // ease the card will carry into the long-term rotation — but it does not
+  // decide when the next rep comes.
+  if (isIntensive(card)) {
+    return { ...card, easeFactor, ...advanceIntensive(card, now) };
+  }
+
   return {
     ...card,
     intervalDays,
     easeFactor,
-    nextReviewDate: daysFromNow(intervalDays),
+    nextReviewDate: daysFromNow(intervalDays, now),
   };
 }
 
-export function getDueCards(cards: FlashCard[]): FlashCard[] {
-  const cutoff = today();
-  return cards.filter((c) => c.learningStage === 'graduated' && c.nextReviewDate <= cutoff);
+/**
+ * Everything the schedule owns, for persisting a review or a graduation.
+ *
+ * The call sites used to list these fields by hand, which is exactly how a
+ * newly-added scheduling field ends up written in one place and not the other.
+ */
+export function scheduleFields(card: FlashCard): Partial<FlashCard> {
+  return {
+    learningStage: card.learningStage,
+    nextReviewDate: card.nextReviewDate,
+    intervalDays: card.intervalDays,
+    easeFactor: card.easeFactor,
+    intensiveDay: card.intensiveDay ?? null,
+    intensiveRepsDone: card.intensiveRepsDone ?? 0,
+    nextReviewAt: card.nextReviewAt ?? null,
+  };
+}
+
+export function getDueCards(cards: FlashCard[], now: Date = new Date()): FlashCard[] {
+  const cutoff = today(now);
+  return cards.filter(
+    (c) =>
+      c.learningStage === 'graduated' &&
+      c.nextReviewDate <= cutoff &&
+      // A card mid-phase is due on its day but not until its gap has run out,
+      // so the four reps land across the day instead of back to back.
+      timeHasCome(c.nextReviewAt, now),
+  );
+}
+
+/**
+ * The next batch of cards waiting on their gap, if the queue is empty only
+ * because it is too soon.
+ *
+ * Without this the app would say "nothing to review" three hours after a
+ * session and look broken, which is exactly how the widget looked the last
+ * time a scheduling change went unexplained.
+ */
+export function nextWave(
+  cards: FlashCard[],
+  now: Date = new Date(),
+): { at: Date; count: number } | null {
+  const cutoff = today(now);
+  const waiting = cards
+    .filter(
+      (c) =>
+        c.learningStage === 'graduated' &&
+        c.nextReviewDate <= cutoff &&
+        !timeHasCome(c.nextReviewAt, now),
+    )
+    .map((c) => new Date(c.nextReviewAt as string).getTime())
+    .filter((t) => !Number.isNaN(t))
+    .sort((a, b) => a - b);
+
+  if (waiting.length === 0) return null;
+  const at = waiting[0];
+  // Everything within a few minutes of the first is one batch, not several.
+  const count = waiting.filter((t) => t - at < 5 * 60 * 1000).length;
+  return { at: new Date(at), count };
 }
 
 export function getLearnableCards(cards: FlashCard[]): FlashCard[] {
   return cards.filter((c) => c.learningStage !== 'graduated');
 }
 
-export function graduateCard(card: FlashCard): FlashCard {
+export function graduateCard(card: FlashCard, now: Date = new Date()): FlashCard {
+  // Straight into the front-loaded phase, due at once: the first of today's
+  // four reps is the one just earned by graduating.
   return {
     ...card,
     learningStage: 'graduated',
-    nextReviewDate: daysFromNow(1),
-    intervalDays: 1,
     easeFactor: 2.5,
+    ...startIntensive(now),
   };
 }
 
@@ -119,6 +194,9 @@ export function createCard(
     learningStage: 'new',
     stage1Attempts: 0,
     stage2Attempts: 0,
+    intensiveDay: null,
+    intensiveRepsDone: 0,
+    nextReviewAt: null,
     shaami: shaami?.trim() || null,
   };
 }
