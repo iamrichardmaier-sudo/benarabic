@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
-import { FlashCard, graduateCard, acceptedAnswers } from '@/lib/spaced-repetition';
+import { FlashCard, graduateCard, acceptedAnswers, scheduleFields } from '@/lib/spaced-repetition';
 import { Progress } from '@/components/ui/progress';
 import { ArrowLeft, Check, X, Sparkles } from 'lucide-react';
 import SpeakButton, { speakArabic } from '@/components/SpeakButton';
@@ -186,12 +186,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
 
     if (isMatch) {
       const graduated = graduateCard(currentCard);
-      onUpdateCard(currentCard.id, {
-        learningStage: graduated.learningStage,
-        nextReviewDate: graduated.nextReviewDate,
-        intervalDays: graduated.intervalDays,
-        easeFactor: graduated.easeFactor,
-      });
+      onUpdateCard(currentCard.id, scheduleFields(graduated));
       setCompletedStage2((n) => n + 1);
       setAnswerState({ type: 'correct' });
     } else {
@@ -202,12 +197,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
   const handleCloseEnough = () => {
     if (!currentCard) return;
     const graduated = graduateCard(currentCard);
-    onUpdateCard(currentCard.id, {
-      learningStage: graduated.learningStage,
-      nextReviewDate: graduated.nextReviewDate,
-      intervalDays: graduated.intervalDays,
-      easeFactor: graduated.easeFactor,
-    });
+    onUpdateCard(currentCard.id, scheduleFields(graduated));
     setCompletedStage2((n) => n + 1);
     setAnswerState({ type: 'correct' });
   };

@@ -109,9 +109,29 @@ SM-2 interval and ease maths, the same 1.3–2.5 ease clamp, the same local-cale
 handling. Grades made on the phone and grades made in the browser produce identical
 schedules.
 
+### The front-loaded phase
+
+A card that has just been learned doesn't go straight onto the SM-2 curve. For its first
+five days it runs a fixed number of exposures — **four a day for three days, then two a day
+for two more**, sixteen in all — spaced about three hours apart, and only then joins the
+long-term rotation at a three-day interval. Cards already in the long-term rotation are not
+affected: their schedules are exactly what they were.
+
+Inside the phase the rating still moves the card's ease, so a word you keep failing carries
+that difficulty out with it, but it doesn't change how many looks the card gets.
+
+This means the widget needs two things beyond the date it always used:
+
+- it asks for `next_review_at` as well as `next_review_date`, so a card graded five minutes
+  ago isn't offered again straight away;
+- it writes `intensive_day` and `intensive_reps_done` back with each grade, so a session on
+  the phone advances the phase the same way a session in the browser does.
+
 **If you ever change the scheduling logic in the web app, change it here too.** There is no
 shared module between a TypeScript bundle and a Scriptable script, so this is a deliberate
-duplication rather than an accidental one.
+duplication rather than an accidental one. `src/lib/widget-schedule.test.ts` guards it: it
+lifts `advanceIntensive` straight out of this script, runs a card through all sixteen reps
+with it, and fails if the two copies disagree.
 
 ## Notes
 

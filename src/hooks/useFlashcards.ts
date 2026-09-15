@@ -47,6 +47,9 @@ interface DbRow {
   fixed_preposition: string | null;
   preposition_sentence: string | null;
   preposition_sentence_en: string | null;
+  intensive_day: number | null;
+  intensive_reps_done: number | null;
+  next_review_at: string | null;
 }
 
 function rowToCard(row: DbRow): FlashCard {
@@ -80,6 +83,9 @@ function rowToCard(row: DbRow): FlashCard {
     fixedPreposition: row.fixed_preposition,
     prepositionSentence: row.preposition_sentence,
     prepositionSentenceEn: row.preposition_sentence_en,
+    intensiveDay: row.intensive_day,
+    intensiveRepsDone: row.intensive_reps_done ?? 0,
+    nextReviewAt: row.next_review_at,
   };
 }
 
@@ -112,6 +118,9 @@ function cardToRow(card: FlashCard) {
     fixed_preposition: card.fixedPreposition ?? null,
     preposition_sentence: card.prepositionSentence ?? null,
     preposition_sentence_en: card.prepositionSentenceEn ?? null,
+    intensive_day: card.intensiveDay ?? null,
+    intensive_reps_done: card.intensiveRepsDone ?? 0,
+    next_review_at: card.nextReviewAt ?? null,
   };
 }
 
@@ -145,6 +154,9 @@ function toDbUpdates(updates: Partial<FlashCard>): Record<string, unknown> {
   if (updates.fixedPreposition !== undefined) db.fixed_preposition = updates.fixedPreposition;
   if (updates.prepositionSentence !== undefined) db.preposition_sentence = updates.prepositionSentence;
   if (updates.prepositionSentenceEn !== undefined) db.preposition_sentence_en = updates.prepositionSentenceEn;
+  if (updates.intensiveDay !== undefined) db.intensive_day = updates.intensiveDay;
+  if (updates.intensiveRepsDone !== undefined) db.intensive_reps_done = updates.intensiveRepsDone;
+  if (updates.nextReviewAt !== undefined) db.next_review_at = updates.nextReviewAt;
   return db;
 }
 

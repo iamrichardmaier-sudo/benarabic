@@ -22,7 +22,7 @@ import BottomNav, { type Tab } from '@/components/BottomNav';
 import BackButton from '@/components/BackButton';
 import WaznLogo from '@/components/WaznLogo';
 import { recordStudyDay } from '@/lib/streak';
-import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine } from '@/lib/spaced-repetition';
+import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine, scheduleFields, nextWave } from '@/lib/spaced-repetition';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
 import { searchImage, backfillMissingImages } from '@/lib/unsplash';
@@ -286,11 +286,7 @@ const Index = () => {
   const handleRate = async (rating: Rating) => {
     const current = reviewItems[currentIndex].card;
     const reviewed = reviewCard(current, rating);
-    await updateCard(reviewed.id, {
-      intervalDays: reviewed.intervalDays,
-      easeFactor: reviewed.easeFactor,
-      nextReviewDate: reviewed.nextReviewDate,
-    });
+    await updateCard(reviewed.id, scheduleFields(reviewed));
     // Grading a card is a genuine study action, so it counts toward the streak.
     recordStudyDay(user?.id);
     setCurrentIndex((i) => i + 1);
@@ -353,6 +349,7 @@ const Index = () => {
   // Due count is global, matching the global review queue — a badge that
   // disagreed with the session it launches would be worse than no badge.
   const dueCount = getDueCards(cards).length;
+  const upcomingWave = nextWave(cards);
   const learnCount = getLearnableCards(studyCards).length;
   const reviewDone = view === 'review' && currentIndex >= reviewItems.length;
 
@@ -429,6 +426,7 @@ const Index = () => {
             <HomeDashboard
               userId={user?.id}
               dueCount={dueCount}
+              nextWave={upcomingWave}
               learnCount={learnCount}
               deckSize={cards.length}
               onReview={startReview}
