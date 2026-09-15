@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { useLibraryTexts, type LibraryText } from '@/hooks/useLibraryTexts';
 import { readAsCover } from '@/lib/cover-image';
 import { wordsNeedingTags, tagWords, MAX_WORDS, type TagProgress } from '@/lib/tag-text';
-import { skeletonOf, type WordSense } from '@/hooks/useWordSkeletonIndex';
-import { Link2, FileText, Loader2, BookmarkPlus, ImagePlus } from 'lucide-react';
+import { skeletonOf } from '@/hooks/useWordSkeletonIndex';
+import { fromWordSense, type TaggedSense } from '@/lib/reader-word';
+import { Link2, FileText, Loader2, BookmarkPlus, ImagePlus, Languages } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import BackButton from '@/components/BackButton';
 import { useWordSkeletonIndex } from '@/hooks/useWordSkeletonIndex';
@@ -31,6 +32,17 @@ interface FetchedArticle {
   content: string;
 }
 
+/** Remembered, so the choice does not have to be made on every entry. */
+const ENGLISH_KEY = 'arabic-flashcards-library-show-english';
+
+function readShowEnglish(): boolean {
+  try {
+    return localStorage.getItem(ENGLISH_KEY) === 'true';
+  } catch {
+    return false;
+  }
+}
+
 interface ArabicInTheWildProps {
   /** Omitted when this is a top-level screen with nowhere to go back to. */
   onBack?: () => void;
@@ -47,6 +59,8 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
   const [title, setTitle] = useState(entry?.title ?? '');
   const [content, setContent] = useState(entry?.body ?? '');
   const [cover, setCover] = useState<string | null>(entry?.coverUrl ?? null);
+  const [english, setEnglish] = useState(entry?.english ?? '');
+  const [showEnglish, setShowEnglish] = useState(readShowEnglish);
   const [article, setArticle] = useState<FetchedArticle | null>(
     entry ? { title: entry.title, content: entry.body } : null,
   );
@@ -56,7 +70,7 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
   const [progress, setProgress] = useState<TagProgress | null>(null);
   // Senses for this entry's own words, which the shared scripture index does
   // not have — colloquial vocabulary above all.
-  const [wordTags, setWordTags] = useState<Record<string, WordSense[]>>(entry?.wordTags ?? {});
+  const [wordTags, setWordTags] = useState<Record<string, TaggedSense[]>>(entry?.wordTags ?? {});
 
   /**
    * The words of this text that nothing explains yet.
@@ -71,6 +85,38 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
       ).length
     : 0;
   const taggedHere = Object.keys(wordTags).length;
+
+  /**
+   * One line of the text, every word of it hoverable.
+   *
+   * Tags are read by consonant skeleton, which is the key they were stored
+   * under; reading them back by the bare word off the page found nothing,
+   * however many were there. The entry's own tags come first, since they were
+   * made from this text and beat a skeleton match borrowed from scripture.
+   */
+  const renderLine = (line: string) =>
+    tokenize(line).map((token, i) => {
+      if (!token.isWord) return <span key={i}>{token.text}</span>;
+      const word = lookupKey(token.text);
+      if (!word) return <span key={i}>{token.text}</span>;
+      const senses: TaggedSense[] =
+        wordTags[skeletonOf(word)] ?? (lookup(word) ?? []).map(fromWordSense);
+      // Every word is hoverable, tagged or not: a word nothing is known about
+      // is the one worth stopping on, and the panel can still offer to learn it.
+      return <WildWordPopover key={i} text={token.text} word={word} senses={senses} />;
+    });
+
+  const toggleEnglish = () => {
+    setShowEnglish((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem(ENGLISH_KEY, String(next));
+      } catch {
+        /* the preference just will not persist */
+      }
+      return next;
+    });
+  };
 
   const pickCover = async (file: File | undefined) => {
     if (!file) return;
@@ -101,6 +147,7 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
         id: entry?.id,
         title: title.trim() || 'Untitled',
         body: content,
+        english,
         coverUrl: cover,
         wordTags: merged,
       });
@@ -195,30 +242,34 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
         )}
         {saveError && <p className="text-xs text-destructive text-center">{saveError}</p>}
 
-        <div className="rounded-2xl border border-border bg-card p-6">
-          <p
-            className="font-arabic text-lg leading-loose text-foreground text-right"
-            dir="rtl"
-            style={{ whiteSpace: 'pre-wrap' }}
+        {english.trim() && (
+          <button
+            onClick={toggleEnglish}
+            aria-pressed={showEnglish}
+            className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-border py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            {tokenize(article.content).map((token, i) => {
-              if (!token.isWord) return <span key={i}>{token.text}</span>;
-              const word = lookupKey(token.text);
-              if (!word) return <span key={i}>{token.text}</span>;
-              // Keyed by consonant skeleton, which is what the tags were
-              // stored under — reading them back by the bare word found
-              // nothing, however many were there.
-              //
-              // The entry's own tags come first: they were made from this
-              // text, so where they disagree with a skeleton match borrowed
-              // from scripture they are the better answer.
-              const senses = wordTags[skeletonOf(word)] ?? lookup(word) ?? [];
-              // Every word is hoverable, tagged or not. A word with nothing
-              // known about it is exactly the word worth stopping on, and the
-              // panel can still offer to put it in the deck.
-              return <WildWordPopover key={i} text={token.text} word={word} senses={senses} />;
-            })}
-          </p>
+            <Languages className="h-4 w-4" />
+            {showEnglish ? 'Hide English' : 'Show English'}
+          </button>
+        )}
+
+        {/* Line by line rather than one block, so each line can be paired with
+            its English the way a verse is in the Bible reader. */}
+        <div className="space-y-1 rounded-2xl border border-border bg-card p-6">
+          {article.content.split('\n').map((line, lineIndex) => {
+            const englishLine = english.split('\n')[lineIndex]?.trim() ?? '';
+            if (!line.trim()) return <div key={lineIndex} className="h-3" />;
+            return (
+              <div key={lineIndex} className="space-y-0.5">
+                <p className="font-arabic text-lg leading-loose text-foreground text-right" dir="rtl">
+                  {renderLine(line)}
+                </p>
+                {showEnglish && englishLine && (
+                  <p className="text-sm leading-snug text-muted-foreground">{englishLine}</p>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         <p className="text-[11px] text-muted-foreground/70 text-center pb-2">
@@ -324,6 +375,25 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
           rows={10}
           className="w-full rounded-xl border border-border bg-background px-3 py-2 text-base font-arabic leading-loose focus:outline-none focus:ring-2 focus:ring-primary/30"
         />
+        <div className="space-y-1">
+          <label htmlFor="wild-english" className="text-xs font-medium text-foreground">
+            English (optional)
+          </label>
+          <p className="text-[11px] text-muted-foreground">
+            One line per line of Arabic above, and a <em>Show English</em> button appears while
+            reading. Blank lines line up too, so verses and stanzas stay together.
+          </p>
+          <textarea
+            id="wild-english"
+            value={english}
+            onChange={(e) => setEnglish(e.target.value)}
+            placeholder="Line one&#10;Line two"
+            dir="ltr"
+            rows={6}
+            className="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm leading-relaxed focus:outline-none focus:ring-2 focus:ring-primary/30"
+          />
+        </div>
+
         <button
           onClick={handleShow}
           disabled={!content.trim()}

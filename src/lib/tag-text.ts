@@ -1,6 +1,7 @@
 import { supabase } from '@/integrations/supabase/client';
 import { tokenize } from '@/lib/transcript-mask';
-import { skeletonOf, type WordSense } from '@/hooks/useWordSkeletonIndex';
+import { skeletonOf } from '@/hooks/useWordSkeletonIndex';
+import type { TaggedSense } from '@/lib/reader-word';
 
 /** Punctuation clinging to a word, which is not part of it. */
 const EDGE_PUNCTUATION = /^[.,،؛:؟!"'«»()[\]{}\-–—…]+|[.,،؛:؟!"'«»()[\]{}\-–—…]+$/g;
@@ -61,6 +62,12 @@ interface TagRow {
   wordType: string | null;
   verbForm: string | null;
   wordVoweled: string | null;
+  gender: 'm' | 'f' | null;
+  fushaPlural: string | null;
+  pastTense: string | null;
+  presentTense: string | null;
+  masdarForm: string | null;
+  companionForms: { form: string; label: string }[] | null;
 }
 
 /**
@@ -74,9 +81,9 @@ interface TagRow {
 export async function tagWords(
   words: { skeleton: string; word: string }[],
   onProgress?: (p: TagProgress) => void,
-): Promise<Record<string, WordSense[]>> {
+): Promise<Record<string, TaggedSense[]>> {
   const wanted = words.slice(0, MAX_WORDS);
-  const tags: Record<string, WordSense[]> = {};
+  const tags: Record<string, TaggedSense[]> = {};
   onProgress?.({ done: 0, total: wanted.length });
 
   for (let i = 0; i < wanted.length; i += BATCH) {
@@ -92,13 +99,22 @@ export async function tagWords(
         // A word with no meaning found is not worth storing: the popover would
         // open on a heading and nothing else.
         if (!row.gloss && !row.root) continue;
+        // Everything the tagger found is kept, not just the headline: the
+        // reader's panel is the flashcard's panel, and it has a plural row, a
+        // verb's principal parts and a word family to fill.
         tags[row.id] = [
           {
-            lemma: row.wordVoweled || source.word,
-            gloss: row.gloss ?? '',
+            word: row.wordVoweled || source.word,
+            english: row.gloss ?? '',
             root: row.root,
-            pos: row.wordType ?? 'other',
+            wordType: row.wordType ?? 'other',
             verbForm: row.verbForm,
+            gender: row.gender ?? null,
+            fushaPlural: row.fushaPlural ?? null,
+            pastTense: row.pastTense ?? null,
+            presentTense: row.presentTense ?? null,
+            masdarForm: row.masdarForm ?? null,
+            companionForms: row.companionForms ?? null,
           },
         ];
       }

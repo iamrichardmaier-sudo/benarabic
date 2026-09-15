@@ -40,6 +40,9 @@ beforeEach(() => {
   lookupMock.mockReset();
   lookupMock.mockReturnValue(null);
   invokeMock.mockReset();
+  // The show-English choice persists on purpose, so it has to be cleared or
+  // one test decides what the next one sees.
+  localStorage.clear();
 });
 
 describe('ArabicInTheWild', () => {
@@ -120,6 +123,7 @@ function entry(over: Partial<LibraryText> = {}): LibraryText {
     id: 'e1',
     title: 'نص',
     body: 'بَعيد برة',
+    english: '',
     coverUrl: null,
     updatedAt: '2026-09-15',
     wordTags: {},
@@ -182,5 +186,84 @@ describe('a saved entry', () => {
     // an already-saved entry could never be tagged at all.
     expect(screen.getByRole('button', { name: 'Tag 2 more words' })).toBeInTheDocument();
     expect(screen.getByText(/None of this text/)).toBeInTheDocument();
+  });
+});
+
+describe('English alongside the Arabic', () => {
+  it('offers nothing to show when the entry has no English', () => {
+    lookupMock.mockReturnValue(null);
+    render(<ArabicInTheWild onBack={() => {}} entry={entry()} />);
+    expect(screen.queryByRole('button', { name: /English/ })).toBeNull();
+  });
+
+  it('shows and hides the English line by line', async () => {
+    const user = userEvent.setup();
+    lookupMock.mockReturnValue(null);
+    render(
+      <ArabicInTheWild
+        onBack={() => {}}
+        entry={entry({ body: 'سَطر واحد\nسطر تنين', english: 'Line one\nLine two' })}
+      />,
+    );
+
+    // Hidden to begin with, so the Arabic is read on its own by default.
+    expect(screen.queryByText('Line one')).toBeNull();
+
+    await user.click(screen.getByRole('button', { name: 'Show English' }));
+    expect(screen.getByText('Line one')).toBeInTheDocument();
+    expect(screen.getByText('Line two')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Hide English' }));
+    expect(screen.queryByText('Line one')).toBeNull();
+  });
+
+  it('remembers the choice for the next entry', async () => {
+    const user = userEvent.setup();
+    lookupMock.mockReturnValue(null);
+    const withEnglish = entry({ body: 'سطر', english: 'A line' });
+    const { unmount } = render(<ArabicInTheWild onBack={() => {}} entry={withEnglish} />);
+    await user.click(screen.getByRole('button', { name: 'Show English' }));
+    unmount();
+
+    render(<ArabicInTheWild onBack={() => {}} entry={withEnglish} />);
+    expect(screen.getByRole('button', { name: 'Hide English' })).toBeInTheDocument();
+    expect(screen.getByText('A line')).toBeInTheDocument();
+  });
+
+  it('keeps the words hoverable once the lines are split apart', async () => {
+    const user = userEvent.setup();
+    lookupMock.mockReturnValue(null);
+    render(
+      <ArabicInTheWild
+        onBack={() => {}}
+        entry={entry({
+          body: 'بَعيد\nبرة',
+          english: 'far\noutside',
+          wordTags: {
+            [skeletonOf('بعيد')]: [
+              { word: 'بَعيد', english: 'far away', root: 'ب-ع-د', wordType: 'adjective' },
+            ],
+          },
+        })}
+      />,
+    );
+    // Splitting the body into lines must not cost the word popovers.
+    await user.hover(screen.getByRole('button', { name: /بَعيد/ }));
+    expect(await screen.findByText('far away')).toBeInTheDocument();
+  });
+
+  it('lines a blank line up with a blank line, so stanzas stay together', async () => {
+    const user = userEvent.setup();
+    lookupMock.mockReturnValue(null);
+    render(
+      <ArabicInTheWild
+        onBack={() => {}}
+        entry={entry({ body: 'أول\n\nتالت', english: 'first\n\nthird' })}
+      />,
+    );
+    await user.click(screen.getByRole('button', { name: 'Show English' }));
+    // "third" is the third line of each, not the second — a blank line counts.
+    expect(screen.getByText('third')).toBeInTheDocument();
+    expect(screen.queryByText('first\n\nthird')).toBeNull();
   });
 });

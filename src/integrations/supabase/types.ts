@@ -227,6 +227,7 @@ export type Database = {
           chapter: number
           cover_url: string | null
           created_at: string
+          english: string | null
           id: string
           kind: string
           title: string | null
@@ -242,6 +243,7 @@ export type Database = {
           chapter: number
           cover_url?: string | null
           created_at?: string
+          english?: string | null
           id?: string
           kind?: string
           title?: string | null
@@ -257,6 +259,7 @@ export type Database = {
           chapter?: number
           cover_url?: string | null
           created_at?: string
+          english?: string | null
           id?: string
           kind?: string
           title?: string | null
