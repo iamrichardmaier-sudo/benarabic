@@ -5,8 +5,8 @@ import LibraryHome from './LibraryHome';
 import type { LibraryText } from '@/hooks/useLibraryTexts';
 
 const saved: LibraryText[] = [
-  { id: 'a', title: 'نص محفوظ', body: 'كلمات', coverUrl: 'data:image/jpeg;base64,xxx', updatedAt: '2026-09-15', wordTags: {} },
-  { id: 'b', title: 'بدون غلاف', body: 'كلمات', coverUrl: null, updatedAt: '2026-09-14', wordTags: {} },
+  { id: 'a', title: 'نص محفوظ', body: 'كلمات', english: '', coverUrl: 'data:image/jpeg;base64,xxx', updatedAt: '2026-09-15', wordTags: {} },
+  { id: 'b', title: 'بدون غلاف', body: 'كلمات', english: '', coverUrl: null, updatedAt: '2026-09-14', wordTags: {} },
 ];
 
 describe('LibraryHome', () => {

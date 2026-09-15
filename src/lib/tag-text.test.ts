@@ -43,7 +43,10 @@ describe('wordsNeedingTags', () => {
 describe('tagWords', () => {
   const word = { skeleton: skeletonOf('اصحى'), word: 'اصحى' };
 
-  it('turns a tagged word into a sense the popover can show', async () => {
+  it('keeps everything the tagger found, not just the headline', async () => {
+    // The panel the reader shows is the flashcard's panel, so it has a plural
+    // row, a verb's principal parts and a word family to fill. Dropping those
+    // on the way in is what left the popover with a heading and a gloss.
     invokeMock.mockResolvedValue({
       data: {
         results: [
@@ -54,6 +57,12 @@ describe('tagWords', () => {
             wordType: 'verb',
             verbForm: 'I',
             wordVoweled: 'اِصْحى',
+            gender: null,
+            fushaPlural: null,
+            pastTense: 'صَحا',
+            presentTense: 'يَصحو',
+            masdarForm: 'صَحْو',
+            companionForms: [{ form: 'صاحٍ', label: 'Active participle' }],
           },
         ],
       },
@@ -62,7 +71,19 @@ describe('tagWords', () => {
 
     const tags = await tagWords([word]);
     expect(tags[word.skeleton]).toEqual([
-      { lemma: 'اِصْحى', gloss: 'to wake up', root: 'ص-ح-و', pos: 'verb', verbForm: 'I' },
+      {
+        word: 'اِصْحى',
+        english: 'to wake up',
+        root: 'ص-ح-و',
+        wordType: 'verb',
+        verbForm: 'I',
+        gender: null,
+        fushaPlural: null,
+        pastTense: 'صَحا',
+        presentTense: 'يَصحو',
+        masdarForm: 'صَحْو',
+        companionForms: [{ form: 'صاحٍ', label: 'Active participle' }],
+      },
     ]);
   });
 

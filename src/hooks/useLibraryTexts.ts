@@ -1,22 +1,25 @@
 import { useCallback, useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
-import type { WordSense } from '@/hooks/useWordSkeletonIndex';
+import type { TaggedSense } from '@/lib/reader-word';
 
 export interface LibraryText {
   id: string;
   title: string;
   body: string;
+  /** The reader's own English, one line per line of the body. */
+  english: string;
   coverUrl: string | null;
   updatedAt: string;
   /** Senses for this entry's own words, keyed by consonant skeleton. */
-  wordTags: Record<string, WordSense[]>;
+  wordTags: Record<string, TaggedSense[]>;
 }
 
 interface Row {
   id: string;
   title: string | null;
   body: string | null;
+  english: string | null;
   cover_url: string | null;
   updated_at: string | null;
   created_at: string;
@@ -28,9 +31,10 @@ function rowToText(row: Row): LibraryText {
     id: row.id,
     title: row.title ?? 'Untitled',
     body: row.body ?? '',
+    english: row.english ?? '',
     coverUrl: row.cover_url,
     updatedAt: row.updated_at ?? row.created_at,
-    wordTags: (row.word_tags as Record<string, WordSense[]>) ?? {},
+    wordTags: (row.word_tags as Record<string, TaggedSense[]>) ?? {},
   };
 }
 
@@ -55,7 +59,7 @@ export function useLibraryTexts() {
     }
     const { data, error } = await supabase
       .from('private_texts')
-      .select('id,title,body,cover_url,updated_at,created_at,word_tags')
+      .select('id,title,body,english,cover_url,updated_at,created_at,word_tags')
       .eq('kind', 'text')
       .order('updated_at', { ascending: false });
     if (error) {
@@ -76,8 +80,9 @@ export function useLibraryTexts() {
       id?: string;
       title: string;
       body: string;
+      english?: string;
       coverUrl: string | null;
-      wordTags?: Record<string, WordSense[]>;
+      wordTags?: Record<string, TaggedSense[]>;
     }) => {
       if (!user) throw new Error('Sign in to save to your library.');
       const fields = {
@@ -90,6 +95,7 @@ export function useLibraryTexts() {
         chapter: 1,
         title: entry.title.trim() || 'Untitled',
         body: entry.body,
+        english: entry.english ?? null,
         cover_url: entry.coverUrl,
         word_tags: entry.wordTags ?? {},
         // Required, and meaningless for a pasted entry: the column belongs to
