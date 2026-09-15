@@ -233,6 +233,7 @@ export type Database = {
           updated_at: string
           user_id: string
           verses: Json
+          word_tags: Json
           work: string
         }
         Insert: {
@@ -246,7 +247,8 @@ export type Database = {
           title?: string | null
           updated_at?: string
           user_id?: string
-          verses: Json
+          verses?: Json
+          word_tags?: Json
           work: string
         }
         Update: {
@@ -261,6 +263,7 @@ export type Database = {
           updated_at?: string
           user_id?: string
           verses?: Json
+          word_tags?: Json
           work?: string
         }
         Relationships: []
