@@ -1,4 +1,5 @@
-import { BookOpen, Newspaper, ChevronRight } from 'lucide-react';
+import { BookOpen, Newspaper, ChevronRight, Library as LibraryIcon } from 'lucide-react';
+import type { LibraryText } from '@/hooks/useLibraryTexts';
 
 export type LibraryDestination = 'bible' | 'wild';
 
@@ -7,6 +8,9 @@ interface LibraryHomeProps {
   /** Last-read location, shown as a resume shortcut when one exists. */
   resume?: { label: string } | null;
   onResume?: () => void;
+  /** The reader's own saved texts. Private to them; never part of the app. */
+  texts?: LibraryText[];
+  onOpenText?: (text: LibraryText) => void;
 }
 
 /**
@@ -14,7 +18,13 @@ interface LibraryHomeProps {
  * enters from here, so the mental model stays one level deep and consistent —
  * scripture and imported articles behave the same way once opened.
  */
-const LibraryHome = ({ onSelect, resume, onResume }: LibraryHomeProps) => (
+const LibraryHome = ({
+  onSelect,
+  resume,
+  onResume,
+  texts = [],
+  onOpenText,
+}: LibraryHomeProps) => (
   <div className="space-y-5">
     <div className="space-y-1">
       <h1 className="text-2xl font-bold text-foreground">Library</h1>
@@ -62,6 +72,41 @@ const LibraryHome = ({ onSelect, resume, onResume }: LibraryHomeProps) => (
         <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
       </button>
     </div>
+
+    {texts.length > 0 && onOpenText && (
+      <section className="space-y-2">
+        <h2 className="px-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+          Yours
+        </h2>
+        <div className="grid grid-cols-2 gap-3">
+          {texts.map((text) => (
+            <button
+              key={text.id}
+              onClick={() => onOpenText(text)}
+              className="overflow-hidden rounded-2xl border border-border bg-card text-start transition-all active:scale-95 hover:bg-muted/40"
+            >
+              {text.coverUrl ? (
+                <img
+                  src={text.coverUrl}
+                  alt=""
+                  className="aspect-square w-full object-cover"
+                />
+              ) : (
+                <div className="flex aspect-square w-full items-center justify-center bg-muted/50">
+                  <LibraryIcon className="h-8 w-8 text-muted-foreground/60" />
+                </div>
+              )}
+              <span
+                className="block truncate px-3 py-2 font-arabic text-sm font-semibold text-foreground"
+                dir="rtl"
+              >
+                {text.title}
+              </span>
+            </button>
+          ))}
+        </div>
+      </section>
+    )}
 
     <p className="text-xs text-muted-foreground px-1">
       More texts are on the way. Anything you read here shares the same word lookup — root, form and

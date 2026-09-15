@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import type { WordSense } from '@/hooks/useWordSkeletonIndex';
+import AddWordButton from '@/components/AddWordButton';
 
 const POS_LABELS: Record<string, string> = {
   verb: 'Verb',
@@ -73,6 +74,18 @@ const WildWordPopover = ({ text, senses }: WildWordPopoverProps) => {
             Root <span className="font-arabic text-sm text-foreground" dir="rtl">{primary.root}</span>
           </p>
         )}
+
+        <div className="border-t border-border/60 pt-2">
+          <AddWordButton
+            word={{
+              word: primary.lemma,
+              english: primary.gloss ?? null,
+              root: primary.root ?? null,
+              wordType: primary.pos ?? null,
+              verbForm: primary.verbForm ?? null,
+            }}
+          />
+        </div>
 
         {others.length > 0 && (
           <div className="space-y-1 border-t border-border/60 pt-2">
