@@ -19,7 +19,11 @@ function subtitleFor(sense: WordSense): string {
 }
 
 interface WildWordPopoverProps {
+  /** The word as it appears in the text, punctuation and all. */
   text: string;
+  /** The same word with the punctuation taken off, for adding to the deck. */
+  word?: string;
+  /** Every reading the word could be. May be empty for an untagged word. */
   senses: WordSense[];
 }
 
@@ -30,16 +34,17 @@ interface WildWordPopoverProps {
  * ambiguous without diacritics -- so this shows every candidate reading
  * rather than guessing one, with the most common one first.
  */
-const WildWordPopover = ({ text, senses }: WildWordPopoverProps) => {
+const WildWordPopover = ({ text, word, senses }: WildWordPopoverProps) => {
   const [open, setOpen] = useState(false);
   const [primary, ...others] = senses;
+  const bare = word ?? text;
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <button
           type="button"
-          aria-label={`${text}${primary.gloss ? ` — ${primary.gloss}` : ''}`}
+          aria-label={`${text}${primary?.gloss ? ` — ${primary.gloss}` : ''}`}
           onMouseEnter={() => setOpen(true)}
           onMouseLeave={() => setOpen(false)}
           onFocus={() => setOpen(true)}
@@ -47,7 +52,9 @@ const WildWordPopover = ({ text, senses }: WildWordPopoverProps) => {
             e.preventDefault();
             setOpen(true);
           }}
-          className="cursor-help rounded underline decoration-dotted decoration-primary/50 underline-offset-4 transition-colors hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+          className={`cursor-help rounded underline decoration-dotted underline-offset-4 transition-colors hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
+            primary ? 'decoration-primary/50' : 'decoration-muted-foreground/30'
+          }`}
         >
           {text}
         </button>
@@ -62,14 +69,22 @@ const WildWordPopover = ({ text, senses }: WildWordPopoverProps) => {
       >
         <div className="space-y-0.5">
           <p className="font-arabic text-lg font-bold text-foreground" dir="rtl">
-            {primary.lemma}
+            {primary?.lemma ?? bare}
           </p>
-          <p className="text-xs font-medium text-primary">{subtitleFor(primary)}</p>
+          {primary ? (
+            <p className="text-xs font-medium text-primary">{subtitleFor(primary)}</p>
+          ) : (
+            <p className="text-xs text-muted-foreground">
+              Nothing recorded for this word yet.
+            </p>
+          )}
         </div>
 
-        {primary.gloss && <p className="text-sm leading-snug text-muted-foreground">{primary.gloss}</p>}
+        {primary?.gloss && (
+          <p className="text-sm leading-snug text-muted-foreground">{primary.gloss}</p>
+        )}
 
-        {primary.root && (
+        {primary?.root && (
           <p className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
             Root <span className="font-arabic text-sm text-foreground" dir="rtl">{primary.root}</span>
           </p>
@@ -78,11 +93,11 @@ const WildWordPopover = ({ text, senses }: WildWordPopoverProps) => {
         <div className="border-t border-border/60 pt-2">
           <AddWordButton
             word={{
-              word: primary.lemma,
-              english: primary.gloss ?? null,
-              root: primary.root ?? null,
-              wordType: primary.pos ?? null,
-              verbForm: primary.verbForm ?? null,
+              word: primary?.lemma ?? bare,
+              english: primary?.gloss ?? null,
+              root: primary?.root ?? null,
+              wordType: primary?.pos ?? null,
+              verbForm: primary?.verbForm ?? null,
             }}
           />
         </div>
