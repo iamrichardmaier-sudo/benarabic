@@ -5,6 +5,8 @@ import { ArrowLeft, Check, X, Sparkles } from 'lucide-react';
 import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import WordInfoPopover from '@/components/WordInfoPopover';
 import WordForms from '@/components/WordForms';
+import WordDetail from '@/components/WordDetail';
+import { hasWordDetail } from '@/lib/word-relations';
 
 interface LearningModeProps {
   cards: FlashCard[];
@@ -43,6 +45,28 @@ function buildStage1Queue(cards: FlashCard[]): QueueItem[] {
     }))
   );
 }
+
+/**
+ * Everything the app knows about the word just answered — its other forms, its
+ * word family, the words on the same root in the deck and in scripture. The
+ * same panel the phone widget shows, and the same one the review flashcard
+ * shows, so a word reads identically wherever it is met.
+ *
+ * The moment right after answering is when this is worth reading: the learner
+ * has just committed to an answer and is looking to see whether it was right,
+ * which is exactly when the surrounding family will stick.
+ *
+ * Declared out here rather than inside LearningMode: a component defined in a
+ * render body is a new type on every render, so React would tear this down and
+ * rebuild it each time — and WordDetail fetches on mount, so the scripture
+ * lookup would be re-issued over and over.
+ */
+const AnswerDetail = ({ card, deck }: { card: FlashCard; deck: FlashCard[] }) =>
+  hasWordDetail(card) ? (
+    <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-5">
+      <WordDetail card={card} deck={deck} includeCorpus />
+    </div>
+  ) : null;
 
 const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModeProps) => {
   const stage1Cards = useMemo(() => cards.filter((c) => c.learningStage === 'new' || c.learningStage === 'stage1'), [cards]);
@@ -289,7 +313,8 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
           <Sparkles className="w-12 h-12 text-success mx-auto" />
           <h2 className="text-2xl font-bold text-foreground">Excellent!</h2>
           <p className="text-muted-foreground">
-            These {totalLearnable} words will appear in tomorrow's review.
+            These {totalLearnable} words go into today's reviews, and come back
+            through the day.
           </p>
         </div>
         <button
@@ -412,6 +437,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
               </div>
             </div>
           </div>
+          <AnswerDetail card={currentCard} deck={allCards} />
           <button
             onClick={advanceToNext}
             className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all active:scale-95"
@@ -440,6 +466,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
               </div>
             </div>
           </div>
+          <AnswerDetail card={currentCard} deck={allCards} />
           <button
             onClick={advanceToNext}
             className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all active:scale-95"
@@ -481,6 +508,10 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
               ✗ Try again (Enter)
             </button>
           </div>
+          {/* Below the buttons here, unlike the other two: this screen is
+              asking a question, and burying it under a long panel would mean
+              scrolling to answer. */}
+          <AnswerDetail card={currentCard} deck={allCards} />
         </div>
       )}
     </div>
