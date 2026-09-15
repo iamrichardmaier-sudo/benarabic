@@ -8,8 +8,21 @@ vi.mock('@/hooks/useWordSkeletonIndex', () => ({
 }));
 
 const invokeMock = vi.fn();
+// Saving to the library needs the signed-in reader and their private_texts
+// rows, so the mock has to cover auth and a table read as well as functions.
 vi.mock('@/integrations/supabase/client', () => ({
-  supabase: { functions: { invoke: (...args: unknown[]) => invokeMock(...args) } },
+  supabase: {
+    functions: { invoke: (...args: unknown[]) => invokeMock(...args) },
+    auth: {
+      getSession: async () => ({ data: { session: null } }),
+      onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }),
+    },
+    from: () => ({
+      select: () => ({
+        eq: () => ({ order: async () => ({ data: [], error: null }) }),
+      }),
+    }),
+  },
 }));
 
 import ArabicInTheWild from './ArabicInTheWild';

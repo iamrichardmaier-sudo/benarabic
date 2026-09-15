@@ -24,6 +24,7 @@ import WaznLogo from '@/components/WaznLogo';
 import { recordStudyDay } from '@/lib/streak';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine, scheduleFields, nextWave } from '@/lib/spaced-repetition';
 import { queueAfterGrade, cardsCovered } from '@/lib/review-queue';
+import { DeckActionsContext, type NewWord } from '@/contexts/DeckActionsContext';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
 import { searchImage, backfillMissingImages } from '@/lib/unsplash';
@@ -284,6 +285,28 @@ const Index = () => {
     setView('review');
   };
 
+  /**
+   * A word sent to the deck from whatever is being read.
+   *
+   * It lands unlearned, which is what puts it at the front of the Learn queue
+   * rather than dropping it into a review schedule it has not earned.
+   */
+  const addWordFromReader = useCallback(
+    async (word: NewWord) => {
+      await addCards([
+        {
+          ...createCard(word.word, word.english ?? null, null, null),
+          root: word.root ?? null,
+          wordType: (word.wordType as FlashCard['wordType']) ?? null,
+          verbForm: (word.verbForm as FlashCard['verbForm']) ?? null,
+          wordVoweled: word.word,
+        },
+      ]);
+      toast({ title: `Added ${word.word}`, description: 'It is waiting in Learn.' });
+    },
+    [addCards, toast],
+  );
+
   const handleRate = async (rating: Rating) => {
     const item = reviewItems[currentIndex];
     const reviewed = reviewCard(item.card, rating);
@@ -365,6 +388,7 @@ const Index = () => {
 
   return (
     <DeckContext.Provider value={cards}>
+    <DeckActionsContext.Provider value={{ addWord: addWordFromReader }}>
     <div className="min-h-screen bg-background flex flex-col">
       <header className="border-b border-border/60 bg-card/50 backdrop-blur-sm sticky top-0 z-10">
         <div className="max-w-lg mx-auto px-4 py-4 flex items-center justify-between">
@@ -540,6 +564,7 @@ const Index = () => {
 
       <BottomNav active={tab} onSelect={selectTab} dueCount={dueCount} />
     </div>
+    </DeckActionsContext.Provider>
     </DeckContext.Provider>
   );
 };

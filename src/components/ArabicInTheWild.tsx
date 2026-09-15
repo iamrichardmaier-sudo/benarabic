@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { Link2, FileText, Loader2 } from 'lucide-react';
+import { useLibraryTexts, type LibraryText } from '@/hooks/useLibraryTexts';
+import { readAsCover } from '@/lib/cover-image';
+import { Link2, FileText, Loader2, BookmarkPlus, ImagePlus } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import BackButton from '@/components/BackButton';
 import { useWordSkeletonIndex } from '@/hooks/useWordSkeletonIndex';
@@ -30,16 +32,49 @@ interface FetchedArticle {
 interface ArabicInTheWildProps {
   /** Omitted when this is a top-level screen with nowhere to go back to. */
   onBack?: () => void;
+  /** A saved entry to open straight into, instead of the paste form. */
+  entry?: LibraryText | null;
 }
 
-const ArabicInTheWild = ({ onBack }: ArabicInTheWildProps) => {
+const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
   const { lookup } = useWordSkeletonIndex();
+  const { save } = useLibraryTexts();
   const [url, setUrl] = useState('');
   const [fetching, setFetching] = useState(false);
   const [fetchError, setFetchError] = useState<string | null>(null);
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [article, setArticle] = useState<FetchedArticle | null>(null);
+  const [title, setTitle] = useState(entry?.title ?? '');
+  const [content, setContent] = useState(entry?.body ?? '');
+  const [cover, setCover] = useState<string | null>(entry?.coverUrl ?? null);
+  const [article, setArticle] = useState<FetchedArticle | null>(
+    entry ? { title: entry.title, content: entry.body } : null,
+  );
+  const [saving, setSaving] = useState(false);
+  const [saved, setSaved] = useState(!!entry);
+  const [saveError, setSaveError] = useState<string | null>(null);
+
+  const pickCover = async (file: File | undefined) => {
+    if (!file) return;
+    try {
+      setCover(await readAsCover(file));
+      setSaved(false);
+    } catch (err) {
+      setSaveError(errorReason(err));
+    }
+  };
+
+  const handleSave = async () => {
+    if (!content.trim()) return;
+    setSaving(true);
+    setSaveError(null);
+    try {
+      await save({ id: entry?.id, title: title.trim() || 'Untitled', body: content, coverUrl: cover });
+      setSaved(true);
+    } catch (err) {
+      setSaveError(errorReason(err));
+    } finally {
+      setSaving(false);
+    }
+  };
 
   const handleFetchUrl = async () => {
     if (!url.trim()) return;
@@ -72,11 +107,31 @@ const ArabicInTheWild = ({ onBack }: ArabicInTheWildProps) => {
       <div className="space-y-4">
         <BackButton onClick={handleEdit} label="Edit text" />
 
+        {cover && (
+          <img
+            src={cover}
+            alt=""
+            className="mx-auto w-40 max-w-full rounded-2xl border border-border object-cover shadow-sm"
+          />
+        )}
+
         {article.title && (
           <h2 className="font-arabic text-xl font-bold text-foreground text-right" dir="rtl">
             {article.title}
           </h2>
         )}
+
+        {!saved && (
+          <button
+            onClick={handleSave}
+            disabled={saving}
+            className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-primary py-2 text-sm font-semibold text-primary transition-all active:scale-95 disabled:opacity-50"
+          >
+            {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : <BookmarkPlus className="h-4 w-4" />}
+            {saving ? 'Saving…' : 'Keep this in my library'}
+          </button>
+        )}
+        {saveError && <p className="text-xs text-destructive text-center">{saveError}</p>}
 
         <div className="rounded-2xl border border-border bg-card p-6">
           <p
@@ -157,6 +212,38 @@ const ArabicInTheWild = ({ onBack }: ArabicInTheWildProps) => {
           dir="rtl"
           className="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm font-arabic focus:outline-none focus:ring-2 focus:ring-primary/30"
         />
+
+        <div className="flex items-center gap-3">
+          {cover ? (
+            <img src={cover} alt="" className="h-14 w-14 rounded-lg border border-border object-cover" />
+          ) : (
+            <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-dashed border-border text-muted-foreground">
+              <ImagePlus className="h-5 w-5" />
+            </div>
+          )}
+          <label className="flex-1 cursor-pointer text-xs text-muted-foreground">
+            <span className="font-medium text-foreground">Cover picture (optional)</span>
+            <span className="mt-0.5 block">
+              A picture from this device. It is scaled down and kept on your own copy — it is never
+              part of the app itself.
+            </span>
+            <input
+              type="file"
+              accept="image/*"
+              aria-label="Cover picture"
+              className="sr-only"
+              onChange={(e) => pickCover(e.target.files?.[0])}
+            />
+          </label>
+          {cover && (
+            <button
+              onClick={() => setCover(null)}
+              className="text-xs text-muted-foreground underline hover:text-foreground"
+            >
+              Remove
+            </button>
+          )}
+        </div>
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}

@@ -5,6 +5,7 @@ import LibraryHome, { type LibraryDestination } from '@/components/LibraryHome';
 import BackButton from '@/components/BackButton';
 import ChapterReader from '@/components/library/ChapterReader';
 import ArabicInTheWild from '@/components/ArabicInTheWild';
+import { useLibraryTexts, type LibraryText } from '@/hooks/useLibraryTexts';
 import { BOM_BOOKS, bomBook } from '@/lib/bom-books';
 import type { BibleBook } from '@/lib/bible-types';
 
@@ -17,6 +18,8 @@ type Testament = 'ot' | 'nt';
 /** Where the reader is in the Library hierarchy. */
 type Level =
   | { kind: 'home' }
+  // One of the reader's own saved texts, opened straight into reading.
+  | { kind: 'saved'; text: LibraryText }
   | { kind: 'sections' }
   | { kind: 'books'; testament: Testament }
   | { kind: 'chapters'; bookCode: string }
@@ -64,6 +67,7 @@ interface LibraryProps {
 const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
   const { books, loading, error } = useBibleBooks();
   const [level, setLevel] = useState<Level>({ kind: 'home' });
+  const { texts } = useLibraryTexts();
 
   // Tapping the already-active Library tab returns to the root.
   useEffect(() => {
@@ -356,6 +360,17 @@ const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
     return <ArabicInTheWild onBack={() => setLevel({ kind: 'home' })} />;
   }
 
+  // --------------------------------------------------------- a saved text
+  if (level.kind === 'saved') {
+    return (
+      <ArabicInTheWild
+        key={level.text.id}
+        entry={level.text}
+        onBack={() => setLevel({ kind: 'home' })}
+      />
+    );
+  }
+
   // ----------------------------------------------------------------- home
   const openDestination = (d: LibraryDestination) =>
     setLevel(d === 'bible' ? { kind: 'sections' } : { kind: 'articles' });
@@ -365,6 +380,8 @@ const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
       onSelect={openDestination}
       resume={resume ? { label: `${resume.book.name} ${resume.chapter}` } : null}
       onResume={resume ? () => openChapter(resume.book.code, resume.chapter) : undefined}
+      texts={texts}
+      onOpenText={(text) => setLevel({ kind: 'saved', text })}
     />
   );
 };

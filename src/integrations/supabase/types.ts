@@ -222,30 +222,42 @@ export type Database = {
       }
       private_texts: {
         Row: {
+          body: string | null
           book_code: string
           chapter: number
+          cover_url: string | null
           created_at: string
           id: string
+          kind: string
+          title: string | null
           updated_at: string
           user_id: string
           verses: Json
           work: string
         }
         Insert: {
+          body?: string | null
           book_code: string
           chapter: number
+          cover_url?: string | null
           created_at?: string
           id?: string
+          kind?: string
+          title?: string | null
           updated_at?: string
           user_id?: string
           verses: Json
           work: string
         }
         Update: {
+          body?: string | null
           book_code?: string
           chapter?: number
+          cover_url?: string | null
           created_at?: string
           id?: string
+          kind?: string
+          title?: string | null
           updated_at?: string
           user_id?: string
           verses?: Json

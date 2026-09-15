@@ -4,6 +4,7 @@ import { fetchWordsByRoot, fetchFormsOfLemma, splitRootSense } from '@/lib/bible
 import { Row, Section } from '@/components/WordSections';
 import SpeakButton from '@/components/SpeakButton';
 import { useDeck } from '@/contexts/DeckContext';
+import AddWordButton from '@/components/AddWordButton';
 import { wordKey, rootKey } from '@/lib/word-relations';
 import type { BibleWordTag } from '@/hooks/useBibleWordTags';
 
@@ -173,6 +174,18 @@ const BibleWordPopover = ({ text, tag }: BibleWordPopoverProps) => {
             ))}
           </Section>
         )}
+
+        <div className="border-t border-border/60 pt-2.5">
+          <AddWordButton
+            word={{
+              word: tag.lemma || tag.surface,
+              english: tag.gloss ?? null,
+              root: tag.root ?? null,
+              wordType: tag.pos ?? null,
+              verbForm: tag.verbForm ?? null,
+            }}
+          />
+        </div>
 
         {loadingRelated && family.length === 0 && (
           <p className="text-xs text-muted-foreground">Loading related words&hellip;</p>
