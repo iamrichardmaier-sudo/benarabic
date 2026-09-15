@@ -697,13 +697,23 @@ function speaker() {
 
 function grade(rating) {
   if (!flipped || !CARDS[i]) return;
-  const id = CARDS[i].id;
-  results.push({ id: id, rating: rating });
+  const card = CARDS[i];
+  results.push({ id: card.id, rating: rating });
   // Hand the grade to Scriptable straight away so it reaches the database
-  // while the session is still open, rather than only on the way out.
-  ping('grade?id=' + encodeURIComponent(id) + '&rating=' + rating);
+  // while the session is still open, rather than only on the way out. The
+  // sequence number is what the native side dedupes on: keying by card id
+  // would throw away the second grade of a card that came round again.
+  ping('grade?id=' + encodeURIComponent(card.id) + '&rating=' + rating +
+       '&seq=' + (results.length - 1));
   flash(rating === 'easy' ? 'Easy' : 'Again', rating === 'easy' ? '#2E7D52' : '#C0392B');
-  i++;
+  if (rating === 'again') {
+    // Didn't know it: to the back of the deck, so it comes round again this
+    // session instead of disappearing until tomorrow.
+    CARDS.splice(i, 1);
+    CARDS.push(card);
+  } else {
+    i++;
+  }
   setTimeout(render, 170);
 }
 
@@ -830,7 +840,12 @@ async function runReview() {
   }
 
   const byId = Object.fromEntries(cards.map((c) => [c.id, c]));
-  const savedIds = new Set();
+  // Grades are deduped by their position in the session, not by card id: a
+  // card answered "Again" comes round again and is graded a second time, and
+  // that second grade must not be mistaken for a replay of the first.
+  const savedSeqs = new Set();
+  const gradedIds = new Set();
+  let saveQueue = Promise.resolve();
 
   const wv = new WebView();
   await wv.loadHTML(reviewHTML(cards));
@@ -871,16 +886,24 @@ async function runReview() {
     if (url.startsWith("wazn://grade")) {
       const idMatch = url.match(/[?&]id=([^&]+)/);
       const ratingMatch = url.match(/[?&]rating=([^&]+)/);
+      const seqMatch = url.match(/[?&]seq=(\d+)/);
       if (idMatch && ratingMatch) {
         const id = decodeURIComponent(idMatch[1]);
         const rating = decodeURIComponent(ratingMatch[1]);
+        const seq = seqMatch ? Number(seqMatch[1]) : savedSeqs.size;
         const card = byId[id];
-        if (card && !savedIds.has(id)) {
-          savedIds.add(id);
-          saveGrade(token, id, schedule(card, rating)).catch(() => {
-            // Let the reconciling pass try again after dismissal.
-            savedIds.delete(id);
-          });
+        if (card && !savedSeqs.has(seq)) {
+          savedSeqs.add(seq);
+          gradedIds.add(id);
+          // Chained rather than fired loose: a card answered "Again" and then
+          // "Easy" produces two writes for one row, and the later one has to
+          // be the one that lands.
+          saveQueue = saveQueue
+            .then(() => saveGrade(token, id, schedule(card, rating)))
+            .catch(() => {
+              // Let the reconciling pass try again after dismissal.
+              savedSeqs.delete(seq);
+            });
         }
       }
       return false;
@@ -905,22 +928,33 @@ async function runReview() {
     /* nothing graded, or the page was gone — treat as an empty session */
   }
 
-  // Reconcile: re-send anything the live saves did not get through. Writing
+  // Reconcile: re-send anything the live saves did not get through, in the
+  // order they were made, so the last grade of a repeated card wins. Writing
   // the same grade twice is harmless, because the schedule is computed from
   // the card as it was fetched, not from its current stored value.
-  for (const r of graded) {
+  for (let seq = 0; seq < graded.length; seq++) {
+    const r = graded[seq];
     const card = byId[r.id];
-    if (!card || savedIds.has(r.id)) continue;
+    if (!card || savedSeqs.has(seq)) continue;
     try {
       await saveGrade(token, card.id, schedule(card, r.rating));
-      savedIds.add(r.id);
+      savedSeqs.add(seq);
+      gradedIds.add(r.id);
     } catch {
       /* keep going: one failed save should not lose the rest */
     }
   }
 
-  const saved = savedIds.size;
-  const stillDue = cards.filter((c) => !savedIds.has(c.id));
+  // A card whose last answer was "Again" was never really cleared, even
+  // though a grade was written for it, so it still counts as due.
+  const lastRating = {};
+  for (const r of graded) lastRating[r.id] = r.rating;
+  const clearedIds = new Set(
+    [...gradedIds].filter((id) => lastRating[id] !== "again"),
+  );
+
+  const saved = clearedIds.size;
+  const stillDue = cards.filter((c) => !clearedIds.has(c.id));
   writeCache({
     due: stillDue.length,
     word: stillDue.length ? stillDue[0].word : "",

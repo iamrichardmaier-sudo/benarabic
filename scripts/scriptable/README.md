@@ -46,7 +46,10 @@ One tap from the home screen into a real session is as close as iOS currently al
 ## Using it
 
 - **Tap the middle** — flip the card.
-- **Tap the left third** — *Again* (resets to a 1-day interval).
+- **Tap the left third** — *Again*. The card goes to the back of the deck and comes round
+  again before the session ends, so you get another go at it straight away rather than
+  waiting for tomorrow. It still records the lapse; answering it the second time overwrites
+  that with the real grade.
 - **Tap the right third** — *Easy* (longest interval).
 - Before the card is flipped, tapping anywhere flips it — you can't grade an answer you
   haven't seen.
