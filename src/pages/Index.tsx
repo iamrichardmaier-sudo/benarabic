@@ -18,6 +18,7 @@ import Library from '@/components/library/Library';
 import HomeDashboard from '@/components/HomeDashboard';
 import LearnHub, { type LearnDestination } from '@/components/LearnHub';
 import SettingsScreen from '@/components/SettingsScreen';
+import PdfToAudio from '@/components/PdfToAudio';
 import BottomNav, { type Tab } from '@/components/BottomNav';
 import BackButton from '@/components/BackButton';
 import WaznLogo from '@/components/WaznLogo';
@@ -38,7 +39,8 @@ import { useToast } from '@/hooks/use-toast';
 type View =
   | 'home' | 'learnHub' | 'library' | 'settings'
   | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
-  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize';
+  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize'
+  | 'pdfToAudio';
 
 const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
@@ -477,8 +479,11 @@ const Index = () => {
           <Library resetToken={libraryReset} resumeToken={libraryResume} />
         )}
 
+        {view === 'pdfToAudio' && <PdfToAudio onBack={() => setView('settings')} />}
+
         {view === 'settings' && (
           <SettingsScreen
+            onOpenPdfToAudio={() => setView('pdfToAudio')}
             email={user?.email}
             deckSize={cards.length}
             onSignOut={signOut}

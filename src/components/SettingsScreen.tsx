@@ -1,4 +1,4 @@
-import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages } from 'lucide-react';
+import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages, AudioLines } from 'lucide-react';
 import { usePreferences } from '@/hooks/usePreferences';
 import DialectToggle from '@/components/DialectToggle';
 import {
@@ -13,6 +13,8 @@ interface SettingsScreenProps {
   deckSize: number;
   onSignOut: () => void;
   onOpenDeck: () => void;
+  /** Opens the PDF-to-audio utility, which lives down here out of the way. */
+  onOpenPdfToAudio: () => void;
 }
 
 const THEMES: { id: Theme; label: string; icon: typeof Sun }[] = [
@@ -29,7 +31,7 @@ const THEMES: { id: Theme; label: string; icon: typeof Sun }[] = [
  * Only settings that genuinely do something are listed — an inert toggle is
  * worse than a missing one.
  */
-const SettingsScreen = ({ email, deckSize, onSignOut, onOpenDeck }: SettingsScreenProps) => {
+const SettingsScreen = ({ email, deckSize, onSignOut, onOpenDeck, onOpenPdfToAudio }: SettingsScreenProps) => {
   const prefs = usePreferences();
 
   return (
@@ -170,6 +172,27 @@ const SettingsScreen = ({ email, deckSize, onSignOut, onOpenDeck }: SettingsScre
       </section>
 
       {/* Account */}
+      {/* A utility rather than part of learning Arabic, so it sits near the
+          bottom with the housekeeping instead of anywhere a learner passes. */}
+      <section className="space-y-2">
+        <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide px-1">Tools</h2>
+        <div className="rounded-2xl border border-border bg-card overflow-hidden">
+          <button
+            onClick={onOpenPdfToAudio}
+            className="w-full flex items-center gap-3 px-4 py-3.5 text-start transition-colors hover:bg-muted/40"
+          >
+            <AudioLines className="w-5 h-5 text-primary shrink-0" />
+            <span className="min-w-0 flex-1">
+              <span className="block font-semibold text-foreground">PDF to audio</span>
+              <span className="block text-xs text-muted-foreground">
+                An English PDF read aloud as an MP3, generated on this device
+              </span>
+            </span>
+            <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
+          </button>
+        </div>
+      </section>
+
       <section className="space-y-2">
         <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide px-1">Account</h2>
         <div className="rounded-2xl border border-border bg-card overflow-hidden">
