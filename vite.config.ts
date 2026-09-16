@@ -40,6 +40,12 @@ export default defineConfig(({ mode }) => ({
         globIgnores: [
           "root/**", "form/**", "roots/**", "forms/**", "guide/**",
           "**/sitemap.xml",
+          // The PDF-to-audio tool: a PDF reader, a voice model runtime and an
+          // MP3 encoder, together several megabytes. It lives in Settings and
+          // most sessions never open it, so it is fetched when it is asked for
+          // rather than downloaded by everyone who installs the app.
+          "**/assets/pdf-*.js", "**/assets/pdf.worker*", "**/assets/kokoro-*.js",
+          "**/assets/lamejs-*.js", "**/assets/ort-*",
         ],
         navigateFallback: "index.html",
         // The bundle ships a ~1MB chunk; the default 2MiB cap would drop it.
