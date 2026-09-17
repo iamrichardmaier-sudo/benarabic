@@ -450,6 +450,27 @@ export function wordToCard(word: Word): FlashCard {
   };
 }
 
+/**
+ * Give one learner's card a picture.
+ *
+ * Used by the JSON import, whose schema has always had an imageQuery field;
+ * the picture belongs on the card rather than on the shared word, since it is
+ * a memory aid for one person and not a fact about the word.
+ */
+export async function setCardImage(
+  userId: string,
+  wordId: string,
+  imageUrl: string,
+): Promise<void> {
+  const { error } = await supabase
+    .from('flashcards')
+    .update({ image_url: imageUrl } as never)
+    .eq('user_id', userId)
+    .eq('word_id', wordId)
+    .is('image_url', null);
+  if (error) throw error;
+}
+
 export interface DeckStat {
   deckId: string;
   title: string;

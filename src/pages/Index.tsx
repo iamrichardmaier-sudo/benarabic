@@ -19,6 +19,12 @@ import HomeDashboard from '@/components/HomeDashboard';
 import LearnHub, { type LearnDestination } from '@/components/LearnHub';
 import SettingsScreen from '@/components/SettingsScreen';
 import PdfToAudio from '@/components/PdfToAudio';
+import LearnDecks from '@/components/decks/LearnDecks';
+import DeckBuilder from '@/components/decks/DeckBuilder';
+import AdminDecks from '@/components/decks/AdminDecks';
+import ImportWords from '@/components/decks/ImportWords';
+import { useDeckLibrary } from '@/hooks/useDeckLibrary';
+import type { Deck } from '@/lib/deck-store';
 import BottomNav, { type Tab } from '@/components/BottomNav';
 import BackButton from '@/components/BackButton';
 import WaznLogo from '@/components/WaznLogo';
@@ -41,7 +47,8 @@ type View =
   | 'home' | 'learnHub' | 'library' | 'settings'
   | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
   | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize'
-  | 'pdfToAudio';
+  | 'pdfToAudio'
+  | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords';
 
 const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
@@ -76,6 +83,7 @@ const Index = () => {
    * the opposite of what asking for more practice means.
    */
   const [practising, setPractising] = useState(false);
+  const [editingDeck, setEditingDeck] = useState<Deck | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [showRelearnModal, setShowRelearnModal] = useState(false);
@@ -84,6 +92,7 @@ const Index = () => {
   const [libraryReset, setLibraryReset] = useState(0);
   const [libraryResume, setLibraryResume] = useState(0);
   const { toast } = useToast();
+  const { admin: isDeckAdmin } = useDeckLibrary();
   const backfillRan = useRef(false);
   const [activeGroup, setActiveGroup] = useState<string | null>(readActiveGroup);
 
@@ -152,61 +161,6 @@ const Index = () => {
     }
   };
 
-  const handleImportTagged = async (entries: TaggedImportEntry[]) => {
-    setIsLoading(true);
-    try {
-      const taggedAt = new Date().toISOString();
-      const newCards: FlashCard[] = [];
-      let imageError: string | null = null;
-      let imagesDeferred = false;
-      for (const e of entries) {
-        const { imageUrl, error, deferred } = await searchImage(e.imageQuery || e.english);
-        if (error && !imageError) imageError = error;
-        if (deferred) imagesDeferred = true;
-        newCards.push({
-          ...createCard(e.fusha, e.english, imageUrl, e.shaami),
-          fushaPlural: e.fushaPlural,
-          shaamiPlural: e.shaamiPlural,
-          root: e.root,
-          wordType: e.wordType,
-          verbForm: e.verbForm,
-          wordVoweled: e.wordVoweled,
-          pastTense: e.pastTense,
-          presentTense: e.presentTense,
-          masdarForm: e.masdarForm,
-          companionForms: e.companionForms,
-          gender: e.gender ?? null,
-          taggedAt,
-          group: e.group ?? null,
-        });
-      }
-      await addCards(newCards);
-      if (imagesDeferred) markNeedsImage(user?.id, newCards.map((c) => c.id));
-      // Post-insert housekeeping must never turn a successful import into an error.
-      try {
-        await repairVerbMasdarPairs();
-        await refetch();
-      } catch (repairErr) {
-        console.error('Post-import repair failed:', repairErr);
-      }
-      const found = newCards.filter((c) => c.imageUrl).length;
-      toast({
-        title: `Imported ${newCards.length} tagged word${newCards.length > 1 ? 's' : ''}`,
-        description: imagesDeferred
-          ? 'Saved on this device — pictures fill in when you reconnect.'
-          : imageError
-            ? `${found} images found — image lookup failed for the rest: ${imageError}`
-            : `${found} images found`,
-      });
-      setView('home');
-    } catch (err) {
-      console.error(err);
-      toast({ title: 'Error importing words', description: errorReason(err), variant: 'destructive' });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
   const TAB_HOME_VIEW: Record<Tab, View> = {
     home: 'home',
     learn: 'learnHub',
@@ -236,6 +190,7 @@ const Index = () => {
       case 'learn': return setView('learnCards');
       case 'review': return startReview();
       case 'relearn': return setShowRelearnModal(true);
+      case 'learnDecks': return setView('learnDecks');
       default: return setView(destination as View);
     }
   };
@@ -479,7 +434,8 @@ const Index = () => {
               deckSize={cards.length}
               onReview={startReview}
               onLearn={() => { setTab('learn'); setView('learnCards'); }}
-              onAddWords={() => { setTab('learn'); setView('add'); }}
+              onBuildDeck={() => { setEditingDeck(null); setView('deckBuilder'); }}
+              onBrowseDecks={() => setView('learnDecks')}
               onContinueReading={continueReading}
               onBrowseLibrary={() => selectTab('library')}
             />
@@ -501,9 +457,38 @@ const Index = () => {
 
         {view === 'pdfToAudio' && <PdfToAudio onBack={() => setView('settings')} />}
 
+        {view === 'learnDecks' && (
+          <LearnDecks
+            onBack={() => selectTab('home')}
+            onBuildDeck={() => {
+              setEditingDeck(null);
+              setView('deckBuilder');
+            }}
+            onEditDeck={(deck) => {
+              setEditingDeck(deck);
+              setView('deckBuilder');
+            }}
+          />
+        )}
+
+        {view === 'deckBuilder' && (
+          <DeckBuilder
+            deck={editingDeck}
+            admin={isDeckAdmin}
+            onBack={() => setView('learnDecks')}
+            onSaved={refetch}
+          />
+        )}
+
+        {view === 'adminDecks' && <AdminDecks onBack={() => setView('settings')} />}
+
+        {view === 'importWords' && <ImportWords onBack={() => setView('settings')} />}
+
         {view === 'settings' && (
           <SettingsScreen
             onOpenPdfToAudio={() => setView('pdfToAudio')}
+            onOpenImportWords={() => setView('importWords')}
+            onOpenAdminDecks={isDeckAdmin ? () => setView('adminDecks') : undefined}
             email={user?.email}
             deckSize={cards.length}
             onSignOut={signOut}
@@ -514,7 +499,6 @@ const Index = () => {
         {view === 'add' && (
           <AddWords
             onAdd={handleAddWords}
-            onImport={handleImportTagged}
             isLoading={isLoading}
             chapters={groups}
             onBack={() => setView('learnHub')}
@@ -576,7 +560,6 @@ const Index = () => {
         {view === 'lookup' && (
           <WordLookup
             deck={cards}
-            onAdd={handleAddFromDictionary}
             onBack={() => setView('learnHub')}
           />
         )}

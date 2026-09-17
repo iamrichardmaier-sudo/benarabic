@@ -1,4 +1,4 @@
-import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages, AudioLines } from 'lucide-react';
+import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages, AudioLines, FileJson, LayoutList } from 'lucide-react';
 import { usePreferences } from '@/hooks/usePreferences';
 import DialectToggle from '@/components/DialectToggle';
 import {
@@ -15,6 +15,10 @@ interface SettingsScreenProps {
   onOpenDeck: () => void;
   /** Opens the PDF-to-audio utility, which lives down here out of the way. */
   onOpenPdfToAudio: () => void;
+  /** Importing words by JSON or by prompt — reachable only from here. */
+  onOpenImportWords: () => void;
+  /** Deck management, present only for the account that can publish. */
+  onOpenAdminDecks?: () => void;
 }
 
 const THEMES: { id: Theme; label: string; icon: typeof Sun }[] = [
@@ -31,7 +35,10 @@ const THEMES: { id: Theme; label: string; icon: typeof Sun }[] = [
  * Only settings that genuinely do something are listed — an inert toggle is
  * worse than a missing one.
  */
-const SettingsScreen = ({ email, deckSize, onSignOut, onOpenDeck, onOpenPdfToAudio }: SettingsScreenProps) => {
+const SettingsScreen = ({
+  email, deckSize, onSignOut, onOpenDeck, onOpenPdfToAudio,
+  onOpenImportWords, onOpenAdminDecks,
+}: SettingsScreenProps) => {
   const prefs = usePreferences();
 
   return (
@@ -177,9 +184,39 @@ const SettingsScreen = ({ email, deckSize, onSignOut, onOpenDeck, onOpenPdfToAud
       <section className="space-y-2">
         <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide px-1">Tools</h2>
         <div className="rounded-2xl border border-border bg-card overflow-hidden">
+          {/* Importing lives here and nowhere else now: a bulk paste is a
+              settings-shaped task, not something to meet while studying. */}
+          <button
+            onClick={onOpenImportWords}
+            className="w-full flex items-center gap-3 px-4 py-3.5 text-start transition-colors hover:bg-muted/40"
+          >
+            <FileJson className="w-5 h-5 text-primary shrink-0" />
+            <span className="min-w-0 flex-1">
+              <span className="block font-semibold text-foreground">Import words</span>
+              <span className="block text-xs text-muted-foreground">
+                Paste JSON, or copy a prompt for your own Claude
+              </span>
+            </span>
+            <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
+          </button>
+          {onOpenAdminDecks && (
+            <button
+              onClick={onOpenAdminDecks}
+              className="w-full flex items-center gap-3 px-4 py-3.5 text-start border-t border-border transition-colors hover:bg-muted/40"
+            >
+              <LayoutList className="w-5 h-5 text-primary shrink-0" />
+              <span className="min-w-0 flex-1">
+                <span className="block font-semibold text-foreground">Manage decks</span>
+                <span className="block text-xs text-muted-foreground">
+                  Publish, edit and see who is learning what
+                </span>
+              </span>
+              <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
+            </button>
+          )}
           <button
             onClick={onOpenPdfToAudio}
-            className="w-full flex items-center gap-3 px-4 py-3.5 text-start transition-colors hover:bg-muted/40"
+            className="w-full flex items-center gap-3 px-4 py-3.5 text-start border-t border-border transition-colors hover:bg-muted/40"
           >
             <AudioLines className="w-5 h-5 text-primary shrink-0" />
             <span className="min-w-0 flex-1">
