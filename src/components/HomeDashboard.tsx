@@ -1,4 +1,4 @@
-import { Flame, BookOpen, Layers, GraduationCap, Hammer, ChevronRight, RotateCcw, LibraryBig } from 'lucide-react';
+import { Flame, BookOpen, Layers, GraduationCap, ChevronRight, RotateCcw, LibraryBig } from 'lucide-react';
 import { currentStreak } from '@/lib/streak';
 import { useBibleBooks } from '@/hooks/useBibleBooks';
 
@@ -15,9 +15,7 @@ interface HomeDashboardProps {
   onPractice?: () => void;
   onReview: () => void;
   onLearn: () => void;
-  /** Opens the deck builder, which is where words are added now. */
-  onBuildDeck: () => void;
-  /** Opens the deck shelf. */
+  /** Opens the deck shelf, which is where building your own starts too. */
   onBrowseDecks: () => void;
   onContinueReading: (bookCode: string, chapter: number) => void;
   onBrowseLibrary: () => void;
@@ -42,7 +40,7 @@ function readStored(key: string): string | null {
 const HomeDashboard = ({
   userId, dueCount, nextWave, learnCount, deckSize,
   recentCount = 0, onPractice,
-  onReview, onLearn, onBuildDeck, onBrowseDecks, onContinueReading, onBrowseLibrary,
+  onReview, onLearn, onBrowseDecks, onContinueReading, onBrowseLibrary,
 }: HomeDashboardProps) => {
   const streak = currentStreak(userId);
   const { books } = useBibleBooks();
@@ -136,20 +134,6 @@ const HomeDashboard = ({
         </button>
       )}
 
-      <button
-        onClick={onBrowseDecks}
-        className="w-full flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3.5 text-start transition-all active:scale-95 hover:bg-muted/40"
-      >
-        <LibraryBig className="w-5 h-5 text-primary shrink-0" />
-        <span className="min-w-0 flex-1">
-          <span className="block font-semibold text-foreground">Learn Decks</span>
-          <span className="block text-xs text-muted-foreground">
-            Chapter decks to pick up, or build your own
-          </span>
-        </span>
-        <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
-      </button>
-
       <section className="space-y-2">
         <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide px-1">Flashcards</h2>
         <div className="grid grid-cols-2 gap-3">
@@ -173,11 +157,11 @@ const HomeDashboard = ({
             Learn
           </button>
           <button
-            onClick={onBuildDeck}
+            onClick={onBrowseDecks}
             className="flex items-center justify-center gap-1.5 rounded-xl bg-secondary text-secondary-foreground py-3 text-sm font-semibold transition-all active:scale-95"
           >
-            <Hammer className="w-4 h-4" />
-            Build deck
+            <LibraryBig className="w-4 h-4" />
+            Learn Decks
           </button>
         </div>
       </section>
@@ -198,8 +182,8 @@ const HomeDashboard = ({
 
       {deckSize === 0 && (
         <p className="text-sm text-muted-foreground text-center px-4">
-          Your deck is empty. Add a few words to get started, or read something in the Library and
-          tap any word you don't know.
+          Your deck is empty. Pick up a deck in Learn Decks to get started, or read something in
+          the Library and tap any word you don't know.
         </p>
       )}
     </div>
