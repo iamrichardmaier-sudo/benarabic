@@ -434,7 +434,6 @@ const Index = () => {
               deckSize={cards.length}
               onReview={startReview}
               onLearn={() => { setTab('learn'); setView('learnCards'); }}
-              onBuildDeck={() => { setEditingDeck(null); setView('deckBuilder'); }}
               onBrowseDecks={() => setView('learnDecks')}
               onContinueReading={continueReading}
               onBrowseLibrary={() => selectTab('library')}
