@@ -112,6 +112,21 @@ SM-2 interval and ease maths, the same 1.3–2.5 ease clamp, the same local-cale
 handling. Grades made on the phone and grades made in the browser produce identical
 schedules.
 
+### Practising this week's words
+
+Running the script with words due *and* words learned in the last seven days asks which you
+want. **Review** is the day's schedule as usual. **Practise** runs this week's words again
+whether or not any of them are due.
+
+Practice writes nothing — not the grades, not the intervals, not the widget's count. The
+point of it is extra exposure on demand, and moving the schedule there would push this
+week's words further out every time you ran the set again. The page says
+*Practice · nothing is rescheduled* along the top so there is never a question of whether
+it counted.
+
+If only one of the two has anything in it, the script goes straight into that one rather
+than showing a menu with a single item.
+
 ### The front-loaded phase
 
 A card that has just been learned doesn't go straight onto the SM-2 curve. For its first
