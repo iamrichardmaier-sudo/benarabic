@@ -32,6 +32,7 @@ interface DbRow {
   word_type: string | null;
   verb_form: string | null;
   paired_word_id: string | null;
+  placed_as: string | null;
   needs_review: boolean;
   shaami: string | null;
   fusha_plural: string | null;
@@ -68,6 +69,7 @@ function rowToCard(row: DbRow): FlashCard {
     wordType: row.word_type as FlashCard['wordType'],
     verbForm: row.verb_form as FlashCard['verbForm'],
     pairedWordId: row.paired_word_id,
+    placedAs: row.placed_as as FlashCard['placedAs'],
     needsReview: row.needs_review,
     shaami: row.shaami,
     fushaPlural: row.fusha_plural,

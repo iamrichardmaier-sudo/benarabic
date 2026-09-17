@@ -1,5 +1,5 @@
 import { supabase } from '@/integrations/supabase/client';
-import { today } from '@/lib/day';
+import { placementFields, type DeckPlacement } from '@/lib/deck-placement';
 import type { CompanionForm, FlashCard } from '@/lib/spaced-repetition';
 
 /**
@@ -202,7 +202,8 @@ export async function searchWords(query: string, limit = 40): Promise<Word[]> {
  * it belongs at the front of Learn rather than on a review schedule it has
  * not earned.
  */
-function cardRowsFor(words: Word[], userId: string) {
+function cardRowsFor(words: Word[], userId: string, placement: DeckPlacement) {
+  const schedule = placementFields(placement);
   return words.map((w) => ({
     user_id: userId,
     word_id: w.id,
@@ -220,16 +221,18 @@ function cardRowsFor(words: Word[], userId: string) {
     shaami: w.shaami,
     shaami_plural: w.shaamiPlural,
     companion_forms: w.companionForms,
-    learning_stage: 'new',
-    next_review_date: today(),
-    interval_days: 1,
-    ease_factor: 2.5,
+    ...schedule,
     tagged_at: w.root ? new Date().toISOString() : null,
   }));
 }
 
 /**
  * Take up one or more decks.
+ *
+ * `placement` decides where the new cards start — queued up to be learned,
+ * straight into the review rotation, or parked as mastered — and nothing else.
+ * It has no effect on words already held: a card that exists keeps the
+ * schedule it earned, whichever way the deck carrying it arrives.
  *
  * Words already held are skipped rather than duplicated: one flashcard per
  * word however many decks contain it, so a word in two decks is never
@@ -238,6 +241,7 @@ function cardRowsFor(words: Word[], userId: string) {
 export async function addDecksToLearn(
   deckIds: string[],
   userId: string,
+  placement: DeckPlacement = 'learn',
 ): Promise<{ decks: number; newCards: number }> {
   if (deckIds.length === 0) return { decks: 0, newCards: 0 };
 
@@ -262,7 +266,9 @@ export async function addDecksToLearn(
 
   const missing = [...wanted.values()].filter((w) => !alreadyHave.has(w.id));
   if (missing.length > 0) {
-    const { error } = await supabase.from('flashcards').insert(cardRowsFor(missing, userId) as never);
+    const { error } = await supabase
+      .from('flashcards')
+      .insert(cardRowsFor(missing, userId, placement) as never);
     if (error) throw error;
   }
   return { decks: deckIds.length, newCards: missing.length };

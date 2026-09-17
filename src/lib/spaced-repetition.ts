@@ -56,6 +56,13 @@ export interface FlashCard {
   createdAt?: string | null;
   /** English translation of prepositionSentence, with the blank filled in. */
   prepositionSentenceEn?: string | null;
+  /**
+   * How the card arrived, when it was not learned here: 'review' for a deck
+   * taken straight into the rotation, 'mastered' for one parked on a long
+   * interval. Null — the usual case — means it was learned the normal way.
+   * See ./deck-placement.
+   */
+  placedAs?: 'review' | 'mastered' | null;
 }
 
 export type Rating = 'again' | 'hard' | 'good' | 'easy';

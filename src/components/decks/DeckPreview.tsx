@@ -4,16 +4,19 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import BackButton from '@/components/BackButton';
 import DeckIcon from '@/components/decks/DeckIcon';
 import WordDetail from '@/components/WordDetail';
+import PlacementPicker from '@/components/decks/PlacementPicker';
 import { useDeck } from '@/contexts/DeckContext';
 import { FOUNDATION_ICON } from '@/lib/deck-icons';
 import { fetchDeckWords, wordToCard, type Deck, type Word } from '@/lib/deck-store';
+import type { DeckPlacement } from '@/lib/deck-placement';
 
 interface DeckPreviewProps {
   deck: Deck;
   /** True when this deck is already in the learner's Learn section. */
   added: boolean;
   onBack: () => void;
-  onAdd: () => void;
+  /** Takes the deck up, with the words starting where `placement` says. */
+  onAdd: (placement: DeckPlacement) => void;
   onRemove: () => void;
   /** Present when the viewer owns the deck and can take words out of it. */
   onRemoveWord?: (wordId: string) => Promise<void>;
@@ -34,6 +37,7 @@ const DeckPreview = ({
   const [error, setError] = useState<string | null>(null);
   const [openWord, setOpenWord] = useState<string | null>(null);
   const [confirmRemove, setConfirmRemove] = useState(false);
+  const [placement, setPlacement] = useState<DeckPlacement>('learn');
   const deckCards = useDeck();
 
   useEffect(() => {
@@ -72,13 +76,16 @@ const DeckPreview = ({
       )}
 
       {!added ? (
-        <button
-          onClick={onAdd}
-          className="flex w-full items-center justify-center gap-1.5 rounded-xl bg-primary py-3 font-semibold text-primary-foreground transition-all active:scale-95"
-        >
-          <Plus className="h-4 w-4" />
-          Add to my Learn section
-        </button>
+        <div className="space-y-2">
+          <PlacementPicker value={placement} onChange={setPlacement} />
+          <button
+            onClick={() => onAdd(placement)}
+            className="flex w-full items-center justify-center gap-1.5 rounded-xl bg-primary py-3 font-semibold text-primary-foreground transition-all active:scale-95"
+          >
+            <Plus className="h-4 w-4" />
+            Add this deck
+          </button>
+        </div>
       ) : !confirmRemove ? (
         <div className="space-y-2">
           <p className="flex items-center justify-center gap-1.5 rounded-xl bg-success/10 py-2.5 text-sm font-medium text-success">

@@ -255,6 +255,7 @@ export type Database = {
           next_review_date: string
           paired_word_id: string | null
           past_tense: string | null
+          placed_as: string | null
           preposition_sentence: string | null
           preposition_sentence_en: string | null
           present_tense: string | null
@@ -289,6 +290,7 @@ export type Database = {
           next_review_date?: string
           paired_word_id?: string | null
           past_tense?: string | null
+          placed_as?: string | null
           preposition_sentence?: string | null
           preposition_sentence_en?: string | null
           present_tense?: string | null
@@ -323,6 +325,7 @@ export type Database = {
           next_review_date?: string
           paired_word_id?: string | null
           past_tense?: string | null
+          placed_as?: string | null
           preposition_sentence?: string | null
           preposition_sentence_en?: string | null
           present_tense?: string | null
