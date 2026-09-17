@@ -52,6 +52,8 @@ export interface FlashCard {
   intensiveRepsDone?: number;
   /** The moment the next rep is wanted, when it falls later the same day. */
   nextReviewAt?: string | null;
+  /** When the card was added, which is when its learning started. */
+  createdAt?: string | null;
   /** English translation of prepositionSentence, with the blank filled in. */
   prepositionSentenceEn?: string | null;
 }

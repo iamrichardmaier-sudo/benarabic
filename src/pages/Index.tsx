@@ -25,6 +25,7 @@ import WaznLogo from '@/components/WaznLogo';
 import { recordStudyDay } from '@/lib/streak';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine, scheduleFields, nextWave } from '@/lib/spaced-repetition';
 import { queueAfterGrade, cardsCovered } from '@/lib/review-queue';
+import { learnedRecently, RECENT_DAYS } from '@/lib/recent-words';
 import { DeckActionsContext, type NewWord } from '@/contexts/DeckActionsContext';
 import { useFlashcards } from '@/hooks/useFlashcards';
 import { useAuth } from '@/hooks/useAuth';
@@ -66,6 +67,15 @@ const Index = () => {
   const [tab, setTab] = useState<Tab>('home');
   const [view, setView] = useState<View>('home');
   const [reviewItems, setReviewItems] = useState<{ card: FlashCard; direction: ReviewDirection }[]>([]);
+  /**
+   * True while running the practice set rather than the day's reviews.
+   *
+   * Practice deliberately writes nothing: the point is extra exposure on
+   * demand, and if grading here moved the schedule then going through the set
+   * twice in an evening would push this week's words out to next month —
+   * the opposite of what asking for more practice means.
+   */
+  const [practising, setPractising] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [showRelearnModal, setShowRelearnModal] = useState(false);
@@ -271,10 +281,9 @@ const Index = () => {
    * a chapter filter happens to be set. Learning new words still respects the
    * filter — that is a choice about what to study next, not a debt already owed.
    */
-  const startReview = () => {
-    const due = getDueCards(cards);
+  const openSession = (pool: FlashCard[], practice: boolean) => {
     const items: { card: FlashCard; direction: ReviewDirection }[] = [];
-    for (const card of due) {
+    for (const card of pool) {
       items.push({ card, direction: 'ar-to-en' });
       items.push({ card, direction: 'en-to-ar' });
     }
@@ -282,10 +291,16 @@ const Index = () => {
       const j = Math.floor(Math.random() * (i + 1));
       [items[i], items[j]] = [items[j], items[i]];
     }
+    setPractising(practice);
     setReviewItems(items);
     setCurrentIndex(0);
     setView('review');
   };
+
+  const startReview = () => openSession(getDueCards(cards), false);
+
+  /** This week's words again, whether or not they are due. */
+  const startPractice = () => openSession(learnedRecently(cards), true);
 
   /**
    * A word sent to the deck from whatever is being read.
@@ -311,8 +326,10 @@ const Index = () => {
 
   const handleRate = async (rating: Rating) => {
     const item = reviewItems[currentIndex];
-    const reviewed = reviewCard(item.card, rating);
-    await updateCard(reviewed.id, scheduleFields(reviewed));
+    if (!practising) {
+      const reviewed = reviewCard(item.card, rating);
+      await updateCard(reviewed.id, scheduleFields(reviewed));
+    }
     // Grading a card is a genuine study action, so it counts toward the streak.
     recordStudyDay(user?.id);
     setReviewItems((items) => queueAfterGrade(items, currentIndex, rating));
@@ -377,6 +394,7 @@ const Index = () => {
   // disagreed with the session it launches would be worse than no badge.
   const dueCount = getDueCards(cards).length;
   const upcomingWave = nextWave(cards);
+  const recentlyLearned = learnedRecently(cards);
   const learnCount = getLearnableCards(studyCards).length;
   const reviewDone = view === 'review' && currentIndex >= reviewItems.length;
 
@@ -455,6 +473,8 @@ const Index = () => {
               userId={user?.id}
               dueCount={dueCount}
               nextWave={upcomingWave}
+              recentCount={recentlyLearned.length}
+              onPractice={startPractice}
               learnCount={learnCount}
               deckSize={cards.length}
               onReview={startReview}
@@ -504,6 +524,11 @@ const Index = () => {
         {view === 'review' && !reviewDone && reviewItems[currentIndex] && (
           <div className="space-y-4">
             <BackButton onClick={() => selectTab('home')} label="Home" />
+            {practising && (
+              <p className="rounded-xl border border-border bg-card px-3 py-2 text-center text-xs text-muted-foreground">
+                Practising this week&rsquo;s words. Nothing here changes when they next come up.
+              </p>
+            )}
             <Flashcard
               card={reviewItems[currentIndex].card}
               direction={reviewItems[currentIndex].direction}

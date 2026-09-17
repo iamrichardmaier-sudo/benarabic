@@ -1,4 +1,4 @@
-import { Flame, BookOpen, Layers, GraduationCap, Plus, ChevronRight } from 'lucide-react';
+import { Flame, BookOpen, Layers, GraduationCap, Plus, ChevronRight, RotateCcw } from 'lucide-react';
 import { currentStreak } from '@/lib/streak';
 import { useBibleBooks } from '@/hooks/useBibleBooks';
 
@@ -9,6 +9,10 @@ interface HomeDashboardProps {
   nextWave?: { at: Date; count: number } | null;
   learnCount: number;
   deckSize: number;
+  /** How many words were learned in the last week. */
+  recentCount?: number;
+  /** Run those words again, without touching their schedule. */
+  onPractice?: () => void;
   onReview: () => void;
   onLearn: () => void;
   onAddWords: () => void;
@@ -34,6 +38,7 @@ function readStored(key: string): string | null {
  */
 const HomeDashboard = ({
   userId, dueCount, nextWave, learnCount, deckSize,
+  recentCount = 0, onPractice,
   onReview, onLearn, onAddWords, onContinueReading, onBrowseLibrary,
 }: HomeDashboardProps) => {
   const streak = currentStreak(userId);
@@ -104,6 +109,27 @@ const HomeDashboard = ({
             </span>
           </span>
           <ChevronRight className="w-5 h-5 text-muted-foreground shrink-0" />
+        </button>
+      )}
+
+      {/* Extra practice on this week's words, whether or not they are due.
+          Separate from Review because it changes nothing: it is exposure on
+          demand, not a review the schedule asked for. */}
+      {recentCount > 0 && onPractice && (
+        <button
+          onClick={onPractice}
+          className="w-full flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3.5 text-start transition-all active:scale-95 hover:bg-muted/40"
+        >
+          <RotateCcw className="w-5 h-5 text-primary shrink-0" />
+          <span className="min-w-0 flex-1">
+            <span className="block font-semibold text-foreground">
+              Practise this week&rsquo;s {recentCount} word{recentCount === 1 ? '' : 's'}
+            </span>
+            <span className="block text-xs text-muted-foreground">
+              Run them again now — your schedule stays as it is
+            </span>
+          </span>
+          <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
         </button>
       )}
 
