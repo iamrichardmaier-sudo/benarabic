@@ -1,4 +1,4 @@
-import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages, AudioLines, FileJson, LayoutList } from 'lucide-react';
+import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages, AudioLines, FileJson, LayoutList, Plus } from 'lucide-react';
 import { usePreferences } from '@/hooks/usePreferences';
 import DialectToggle from '@/components/DialectToggle';
 import {
@@ -15,6 +15,8 @@ interface SettingsScreenProps {
   onOpenDeck: () => void;
   /** Opens the PDF-to-audio utility, which lives down here out of the way. */
   onOpenPdfToAudio: () => void;
+  /** Typing words in one at a time — reachable only from here. */
+  onOpenAddWords: () => void;
   /** Importing words by JSON or by prompt — reachable only from here. */
   onOpenImportWords: () => void;
   /** Deck management, present only for the account that can publish. */
@@ -37,7 +39,7 @@ const THEMES: { id: Theme; label: string; icon: typeof Sun }[] = [
  */
 const SettingsScreen = ({
   email, deckSize, onSignOut, onOpenDeck, onOpenPdfToAudio,
-  onOpenImportWords, onOpenAdminDecks,
+  onOpenAddWords, onOpenImportWords, onOpenAdminDecks,
 }: SettingsScreenProps) => {
   const prefs = usePreferences();
 
@@ -184,11 +186,25 @@ const SettingsScreen = ({
       <section className="space-y-2">
         <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide px-1">Tools</h2>
         <div className="rounded-2xl border border-border bg-card overflow-hidden">
-          {/* Importing lives here and nowhere else now: a bulk paste is a
-              settings-shaped task, not something to meet while studying. */}
+          {/* Adding and importing both live here and nowhere else now: putting
+              words in is a settings-shaped task, not something to meet while
+              studying. Decks are how vocabulary arrives day to day. */}
+          <button
+            onClick={onOpenAddWords}
+            className="w-full flex items-center gap-3 px-4 py-3.5 text-start transition-colors hover:bg-muted/40"
+          >
+            <Plus className="w-5 h-5 text-primary shrink-0" />
+            <span className="min-w-0 flex-1">
+              <span className="block font-semibold text-foreground">Add words</span>
+              <span className="block text-xs text-muted-foreground">
+                Type a list, one word per line
+              </span>
+            </span>
+            <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
+          </button>
           <button
             onClick={onOpenImportWords}
-            className="w-full flex items-center gap-3 px-4 py-3.5 text-start transition-colors hover:bg-muted/40"
+            className="w-full flex items-center gap-3 px-4 py-3.5 text-start border-t border-border transition-colors hover:bg-muted/40"
           >
             <FileJson className="w-5 h-5 text-primary shrink-0" />
             <span className="min-w-0 flex-1">

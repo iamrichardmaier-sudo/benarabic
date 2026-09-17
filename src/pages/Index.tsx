@@ -486,6 +486,7 @@ const Index = () => {
         {view === 'settings' && (
           <SettingsScreen
             onOpenPdfToAudio={() => setView('pdfToAudio')}
+            onOpenAddWords={() => setView('add')}
             onOpenImportWords={() => setView('importWords')}
             onOpenAdminDecks={isDeckAdmin ? () => setView('adminDecks') : undefined}
             email={user?.email}
@@ -500,7 +501,7 @@ const Index = () => {
             onAdd={handleAddWords}
             isLoading={isLoading}
             chapters={groups}
-            onBack={() => setView('learnHub')}
+            onBack={() => setView('settings')}
           />
         )}
 
