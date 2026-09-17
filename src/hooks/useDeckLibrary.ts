@@ -4,6 +4,7 @@ import {
   fetchDecks, fetchUserDecks, addDecksToLearn, removeDeckFromLearn,
   isDeckAdmin, type Deck,
 } from '@/lib/deck-store';
+import type { DeckPlacement } from '@/lib/deck-placement';
 
 /**
  * The deck library: what exists, and what this learner has taken up.
@@ -52,9 +53,9 @@ export function useDeckLibrary() {
   }, [refresh]);
 
   const addDecks = useCallback(
-    async (deckIds: string[]) => {
+    async (deckIds: string[], placement: DeckPlacement = 'learn') => {
       if (!user) throw new Error('Sign in to add decks.');
-      const result = await addDecksToLearn(deckIds, user.id);
+      const result = await addDecksToLearn(deckIds, user.id, placement);
       await refresh();
       return result;
     },

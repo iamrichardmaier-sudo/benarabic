@@ -18,6 +18,18 @@ function card(over: Partial<FlashCard>): FlashCard {
 }
 
 describe('learnedRecently', () => {
+  it('leaves out a deck that was placed as already known, not learned here', () => {
+    // A 500-word deck parked as mastered arrives graduated and brand new, so
+    // without this it would look like a week's work and the practice button
+    // would offer to drill the lot — exactly the words meant to stay quiet.
+    expect(learnedRecently([card({ placedAs: 'mastered' })], RECENT_DAYS, NOW)).toHaveLength(0);
+    expect(learnedRecently([card({ placedAs: 'review' })], RECENT_DAYS, NOW)).toHaveLength(0);
+  });
+
+  it('still takes a card learned here the ordinary way', () => {
+    expect(learnedRecently([card({ id: 'x', placedAs: null })], RECENT_DAYS, NOW)).toHaveLength(1);
+  });
+
   it('takes the words learned inside the window', () => {
     const got = learnedRecently([card({ id: 'a', createdAt: daysAgo(2) })], RECENT_DAYS, NOW);
     expect(got.map((c) => c.id)).toEqual(['a']);

@@ -3,10 +3,12 @@ import { Check, Hammer, Loader2, Search, X } from 'lucide-react';
 import BackButton from '@/components/BackButton';
 import DeckIcon from '@/components/decks/DeckIcon';
 import DeckPreview from '@/components/decks/DeckPreview';
+import PlacementPicker from '@/components/decks/PlacementPicker';
 import { useDeckLibrary } from '@/hooks/useDeckLibrary';
 import { FOUNDATION_ICON } from '@/lib/deck-icons';
 import type { Deck } from '@/lib/deck-store';
 import { matchesDeck } from '@/lib/deck-browse';
+import { placementNote, type DeckPlacement } from '@/lib/deck-placement';
 
 interface LearnDecksProps {
   onBack: () => void;
@@ -29,6 +31,7 @@ const LearnDecks = ({ onBack, onBuildDeck, onEditDeck }: LearnDecksProps) => {
   const [open, setOpen] = useState<Deck | null>(null);
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState<string | null>(null);
+  const [placement, setPlacement] = useState<DeckPlacement>('learn');
 
   const visible = useMemo(
     () =>
@@ -53,11 +56,9 @@ const LearnDecks = ({ onBack, onBuildDeck, onEditDeck }: LearnDecksProps) => {
     setBusy(true);
     setNote(null);
     try {
-      const { decks: n, newCards } = await addDecks([...selected]);
+      const { decks: n, newCards } = await addDecks([...selected], placement);
       setSelected(new Set());
-      setNote(
-        `Added ${n} deck${n === 1 ? '' : 's'} · ${newCards} new word${newCards === 1 ? '' : 's'} waiting in Learn`,
-      );
+      setNote(`Added ${n} deck${n === 1 ? '' : 's'} · ${placementNote(placement, newCards)}`);
     } catch (err) {
       setNote(err instanceof Error ? err.message : 'Those decks could not be added.');
     } finally {
@@ -71,8 +72,8 @@ const LearnDecks = ({ onBack, onBuildDeck, onEditDeck }: LearnDecksProps) => {
         deck={open}
         added={mine.has(open.id)}
         onBack={() => setOpen(null)}
-        onAdd={async () => {
-          await addDecks([open.id]);
+        onAdd={async (chosen) => {
+          await addDecks([open.id], chosen);
         }}
         onRemove={async () => {
           await removeDeck(open.id);
@@ -197,14 +198,17 @@ const LearnDecks = ({ onBack, onBuildDeck, onEditDeck }: LearnDecksProps) => {
       )}
 
       {selected.size > 0 && (
-        <button
-          onClick={addSelected}
-          disabled={busy}
-          className="flex w-full items-center justify-center gap-1.5 rounded-xl bg-primary py-3 font-semibold text-primary-foreground transition-all active:scale-95 disabled:opacity-50"
-        >
-          {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
-          Add {selected.size} deck{selected.size === 1 ? '' : 's'} to Learn
-        </button>
+        <div className="space-y-2">
+          <PlacementPicker value={placement} onChange={setPlacement} />
+          <button
+            onClick={addSelected}
+            disabled={busy}
+            className="flex w-full items-center justify-center gap-1.5 rounded-xl bg-primary py-3 font-semibold text-primary-foreground transition-all active:scale-95 disabled:opacity-50"
+          >
+            {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Check className="h-4 w-4" />}
+            Add {selected.size} deck{selected.size === 1 ? '' : 's'}
+          </button>
+        </div>
       )}
 
       {admin && (
