@@ -9,9 +9,18 @@
     "fushaPlural": "الأَهالي",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "أَهلاً وسَهلاً", "label": "Expression (welcome)" },
-      { "form": "أَهلِيّ", "label": "Adjective (domestic, civil)" },
-      { "form": "مُؤَهَّل", "label": "Passive participle (qualified)" }
+      {
+        "form": "أَهلاً وسَهلاً",
+        "label": "Expression (welcome)"
+      },
+      {
+        "form": "أَهلِيّ",
+        "label": "Adjective (domestic, civil)"
+      },
+      {
+        "form": "مُؤَهَّل",
+        "label": "Passive participle (qualified)"
+      }
     ]
   },
   {
@@ -24,10 +33,22 @@
     "fushaPlural": "بِدايات",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "بَدَأَ", "label": "Form I verb (to begin)" },
-      { "form": "البَدء", "label": "Verbal noun (starting)" },
-      { "form": "مَبدَأ", "label": "Noun (principle)" },
-      { "form": "اِبتِدائِيّ", "label": "Adjective (elementary)" }
+      {
+        "form": "بَدَأَ",
+        "label": "Form I verb (to begin)"
+      },
+      {
+        "form": "البَدء",
+        "label": "Verbal noun (starting)"
+      },
+      {
+        "form": "مَبدَأ",
+        "label": "Noun (principle)"
+      },
+      {
+        "form": "اِبتِدائِيّ",
+        "label": "Adjective (elementary)"
+      }
     ]
   },
   {
@@ -40,10 +61,22 @@
     "shaamiPlural": "جْداد",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "جُداد", "label": "Plural (Masri)" },
-      { "form": "جَدَّدَ", "label": "Form II verb (to renew)" },
-      { "form": "تَجديد", "label": "Verbal noun (renewal)" },
-      { "form": "مِن جَديد", "label": "Expression (anew, again)" }
+      {
+        "form": "جُداد",
+        "label": "Plural (Masri)"
+      },
+      {
+        "form": "جَدَّدَ",
+        "label": "Form II verb (to renew)"
+      },
+      {
+        "form": "تَجديد",
+        "label": "Verbal noun (renewal)"
+      },
+      {
+        "form": "مِن جَديد",
+        "label": "Expression (anew, again)"
+      }
     ]
   },
   {
@@ -59,10 +92,22 @@
     "shaami": "صار ، يصير",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "حَصَل ، يِحصَل", "label": "Verb (Masri: to happen)" },
-      { "form": "حادِث", "label": "Noun (accident) — ج. حَوادِث" },
-      { "form": "حَدَث", "label": "Noun (event) — ج. أَحداث" },
-      { "form": "حَديث", "label": "Adjective (modern); noun (talk)" }
+      {
+        "form": "حَصَل ، يِحصَل",
+        "label": "Verb (Masri: to happen)"
+      },
+      {
+        "form": "حادِث",
+        "label": "Noun (accident) — ج. حَوادِث"
+      },
+      {
+        "form": "حَدَث",
+        "label": "Noun (event) — ج. أَحداث"
+      },
+      {
+        "form": "حَديث",
+        "label": "Adjective (modern); noun (talk)"
+      }
     ]
   },
   {
@@ -74,10 +119,22 @@
     "gender": "f",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "خاصّ", "label": "Adjective (special, private)" },
-      { "form": "خُصوصاً", "label": "Adverb (especially)" },
-      { "form": "تَخَصُّص", "label": "Verbal noun (specialisation)" },
-      { "form": "اِختِصاص", "label": "Noun (field, competence)" }
+      {
+        "form": "خاصّ",
+        "label": "Adjective (special, private)"
+      },
+      {
+        "form": "خُصوصاً",
+        "label": "Adverb (especially)"
+      },
+      {
+        "form": "تَخَصُّص",
+        "label": "Verbal noun (specialisation)"
+      },
+      {
+        "form": "اِختِصاص",
+        "label": "Noun (field, competence)"
+      }
     ]
   },
   {
@@ -89,10 +146,22 @@
     "gender": "m",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "خَطيبة", "label": "Feminine (fiancée)" },
-      { "form": "خَطَبَ", "label": "Form I verb (to propose; to give a speech)" },
-      { "form": "خُطوبة", "label": "Verbal noun (engagement)" },
-      { "form": "خُطبة", "label": "Noun (sermon, address)" }
+      {
+        "form": "خَطيبة",
+        "label": "Feminine (fiancée)"
+      },
+      {
+        "form": "خَطَبَ",
+        "label": "Form I verb (to propose; to give a speech)"
+      },
+      {
+        "form": "خُطوبة",
+        "label": "Verbal noun (engagement)"
+      },
+      {
+        "form": "خُطبة",
+        "label": "Noun (sermon, address)"
+      }
     ]
   },
   {
@@ -105,9 +174,18 @@
     "fushaPlural": "مَخطوبات",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "خُطِبَت", "label": "Passive verb (she got engaged)" },
-      { "form": "خَطيب/ة", "label": "Noun (fiancé/fiancée)" },
-      { "form": "خُطوبة", "label": "Verbal noun (engagement)" }
+      {
+        "form": "خُطِبَت",
+        "label": "Passive verb (she got engaged)"
+      },
+      {
+        "form": "خَطيب/ة",
+        "label": "Noun (fiancé/fiancée)"
+      },
+      {
+        "form": "خُطوبة",
+        "label": "Verbal noun (engagement)"
+      }
     ]
   },
   {
@@ -123,10 +201,22 @@
     "shaami": "ذَكَر ، يِذكُر",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "تَذَكَّرَ", "label": "Form V verb (to recall) — Shaami تذَكَّر, Masri اِفتَكَر" },
-      { "form": "فاكِر/فاكْرة", "label": "Participle (Shaami: remembering)" },
-      { "form": "ذِكرى", "label": "Noun (memory, anniversary)" },
-      { "form": "تَذكِرة", "label": "Noun (ticket)" }
+      {
+        "form": "تَذَكَّرَ",
+        "label": "Form V verb (to recall) — Shaami تذَكَّر, Masri اِفتَكَر"
+      },
+      {
+        "form": "فاكِر/فاكْرة",
+        "label": "Participle (Shaami: remembering)"
+      },
+      {
+        "form": "ذِكرى",
+        "label": "Noun (memory, anniversary)"
+      },
+      {
+        "form": "تَذكِرة",
+        "label": "Noun (ticket)"
+      }
     ]
   },
   {
@@ -138,10 +228,22 @@
     "gender": "f",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "اِستِراحة", "label": "Noun (break, rest)" },
-      { "form": "اِستَراحَ", "label": "Form X verb (to rest)" },
-      { "form": "مُرتاح", "label": "Participle (comfortable, at ease)" },
-      { "form": "مُريح", "label": "Participle (comfortable, restful)" }
+      {
+        "form": "اِستِراحة",
+        "label": "Noun (break, rest)"
+      },
+      {
+        "form": "اِستَراحَ",
+        "label": "Form X verb (to rest)"
+      },
+      {
+        "form": "مُرتاح",
+        "label": "Participle (comfortable, at ease)"
+      },
+      {
+        "form": "مُريح",
+        "label": "Participle (comfortable, restful)"
+      }
     ]
   },
   {
@@ -154,10 +256,22 @@
     "fushaPlural": "مَسابِح",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "حَمّام سِباحة", "label": "Expression (Masri: swimming pool)" },
-      { "form": "سَبَحَ", "label": "Form I verb (to swim)" },
-      { "form": "سِباحة", "label": "Verbal noun (swimming)" },
-      { "form": "سَبّاح", "label": "Noun (swimmer)" }
+      {
+        "form": "حَمّام سِباحة",
+        "label": "Expression (Masri: swimming pool)"
+      },
+      {
+        "form": "سَبَحَ",
+        "label": "Form I verb (to swim)"
+      },
+      {
+        "form": "سِباحة",
+        "label": "Verbal noun (swimming)"
+      },
+      {
+        "form": "سَبّاح",
+        "label": "Noun (swimmer)"
+      }
     ]
   },
   {
@@ -169,9 +283,18 @@
     "shaami": "السَّنة اللي فاتِت",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "الماضي", "label": "Noun/adjective (the past)" },
-      { "form": "مَضى", "label": "Form I verb (to pass, elapse)" },
-      { "form": "الأُسبوع الماضي", "label": "Expression (last week)" }
+      {
+        "form": "الماضي",
+        "label": "Noun/adjective (the past)"
+      },
+      {
+        "form": "مَضى",
+        "label": "Form I verb (to pass, elapse)"
+      },
+      {
+        "form": "الأُسبوع الماضي",
+        "label": "Expression (last week)"
+      }
     ]
   },
   {
@@ -184,10 +307,22 @@
     "fushaPlural": "أَفكار",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "فَكَّرَ", "label": "Form II verb (to think)" },
-      { "form": "التَّفكير", "label": "Verbal noun (thinking)" },
-      { "form": "مُفَكِّر", "label": "Noun (thinker)" },
-      { "form": "فِكر", "label": "Noun (thought, intellect)" }
+      {
+        "form": "فَكَّرَ",
+        "label": "Form II verb (to think)"
+      },
+      {
+        "form": "التَّفكير",
+        "label": "Verbal noun (thinking)"
+      },
+      {
+        "form": "مُفَكِّر",
+        "label": "Noun (thinker)"
+      },
+      {
+        "form": "فِكر",
+        "label": "Noun (thought, intellect)"
+      }
     ]
   },
   {
@@ -203,10 +338,22 @@
     "shaami": "يِستَقبِل",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "قابَلَ", "label": "Form III verb (to meet)" },
-      { "form": "المُقابَلة", "label": "Verbal noun (meeting, interview)" },
-      { "form": "اِستِقبال", "label": "Noun (reception)" },
-      { "form": "المُستَقبَل", "label": "Noun (the future)" }
+      {
+        "form": "قابَلَ",
+        "label": "Form III verb (to meet)"
+      },
+      {
+        "form": "المُقابَلة",
+        "label": "Verbal noun (meeting, interview)"
+      },
+      {
+        "form": "اِستِقبال",
+        "label": "Noun (reception)"
+      },
+      {
+        "form": "المُستَقبَل",
+        "label": "Noun (the future)"
+      }
     ]
   },
   {
@@ -218,9 +365,18 @@
     "shaami": "قَبل هيك",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "قَبل كِده", "label": "Expression (Masri: before, previously)" },
-      { "form": "قَبل", "label": "Preposition (before)" },
-      { "form": "سابِق", "label": "Participle (former, previous)" }
+      {
+        "form": "قَبل كِده",
+        "label": "Expression (Masri: before, previously)"
+      },
+      {
+        "form": "قَبل",
+        "label": "Preposition (before)"
+      },
+      {
+        "form": "سابِق",
+        "label": "Participle (former, previous)"
+      }
     ]
   },
   {
@@ -232,10 +388,22 @@
     "gender": "m",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "اِستَقَلَّ", "label": "Form X verb (to become independent)" },
-      { "form": "مُستَقِلّ", "label": "Participle (independent)" },
-      { "form": "قَليل", "label": "Adjective (few, little)" },
-      { "form": "أَقَلّ", "label": "Elative (less, fewer)" }
+      {
+        "form": "اِستَقَلَّ",
+        "label": "Form X verb (to become independent)"
+      },
+      {
+        "form": "مُستَقِلّ",
+        "label": "Participle (independent)"
+      },
+      {
+        "form": "قَليل",
+        "label": "Adjective (few, little)"
+      },
+      {
+        "form": "أَقَلّ",
+        "label": "Elative (less, fewer)"
+      }
     ]
   },
   {
@@ -251,10 +419,22 @@
     "shaami": "تكَوَّن من ، يِتْكَوَّن",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "اِتكَوِّن من ، يِتكَوِّن", "label": "Verb (Masri: to consist of)" },
-      { "form": "كان ، يكون", "label": "Form I verb (to be)" },
-      { "form": "مُكَوِّن", "label": "Noun (component, ingredient)" },
-      { "form": "تَكوين", "label": "Verbal noun (formation)" }
+      {
+        "form": "اِتكَوِّن من ، يِتكَوِّن",
+        "label": "Verb (Masri: to consist of)"
+      },
+      {
+        "form": "كان ، يكون",
+        "label": "Form I verb (to be)"
+      },
+      {
+        "form": "مُكَوِّن",
+        "label": "Noun (component, ingredient)"
+      },
+      {
+        "form": "تَكوين",
+        "label": "Verbal noun (formation)"
+      }
     ]
   },
   {
@@ -267,9 +447,18 @@
     "fushaPlural": "أَماكِن",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "كان ، يكون", "label": "Form I verb (to be)" },
-      { "form": "مَكانة", "label": "Noun (standing, status)" },
-      { "form": "مَكانِيّ", "label": "Adjective (spatial)" }
+      {
+        "form": "كان ، يكون",
+        "label": "Form I verb (to be)"
+      },
+      {
+        "form": "مَكانة",
+        "label": "Noun (standing, status)"
+      },
+      {
+        "form": "مَكانِيّ",
+        "label": "Adjective (spatial)"
+      }
     ]
   },
   {
@@ -282,10 +471,22 @@
     "fushaPlural": "نِهايات",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "اِنتَهى", "label": "Form VIII verb (to come to an end)" },
-      { "form": "الاِنتِهاء", "label": "Verbal noun (ending, finishing)" },
-      { "form": "أَنهى", "label": "Form IV verb (to finish something)" },
-      { "form": "نِهائِيّ", "label": "Adjective (final)" }
+      {
+        "form": "اِنتَهى",
+        "label": "Form VIII verb (to come to an end)"
+      },
+      {
+        "form": "الاِنتِهاء",
+        "label": "Verbal noun (ending, finishing)"
+      },
+      {
+        "form": "أَنهى",
+        "label": "Form IV verb (to finish something)"
+      },
+      {
+        "form": "نِهائِيّ",
+        "label": "Adjective (final)"
+      }
     ]
   },
   {
@@ -298,11 +499,25 @@
     "presentTense": "يوجَد",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "توجَد", "label": "Feminine (is found, exists)" },
-      { "form": "وَجَدَ ، يَجِد", "label": "Form I verb (to find)" },
-      { "form": "مَوجود", "label": "Passive participle (present, existing)" },
-      { "form": "الوُجود", "label": "Verbal noun (existence)" }
-    ]
+      {
+        "form": "توجَد",
+        "label": "Feminine (is found, exists)"
+      },
+      {
+        "form": "وَجَدَ ، يَجِد",
+        "label": "Form I verb (to find)"
+      },
+      {
+        "form": "مَوجود",
+        "label": "Passive participle (present, existing)"
+      },
+      {
+        "form": "الوُجود",
+        "label": "Verbal noun (existence)"
+      }
+    ],
+    "pastTense": "وُجِدَ",
+    "masdarForm": "الوُجود"
   },
   {
     "fusha": "الوُجود",
@@ -313,9 +528,18 @@
     "gender": "m",
     "group": "Words from familiar roots",
     "companionForms": [
-      { "form": "وَجَدَ ، يَجِد", "label": "Form I verb (to find)" },
-      { "form": "مَوجود", "label": "Passive participle (present, existing)" },
-      { "form": "أَوجَدَ", "label": "Form IV verb (to bring into being)" }
+      {
+        "form": "وَجَدَ ، يَجِد",
+        "label": "Form I verb (to find)"
+      },
+      {
+        "form": "مَوجود",
+        "label": "Passive participle (present, existing)"
+      },
+      {
+        "form": "أَوجَدَ",
+        "label": "Form IV verb (to bring into being)"
+      }
     ]
   }
 ]
