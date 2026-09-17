@@ -253,6 +253,30 @@ async function fetchDueCards(token) {
   return Array.isArray(rows) ? rows : [];
 }
 
+/** How far back "this week" reaches for the practice set. */
+const RECENT_DAYS = 7;
+
+/**
+ * The words learned in the last week, due or not.
+ *
+ * The practice set: extra exposure on the words still settling, asked for
+ * rather than scheduled. Mirrors learnedRecently() in the web app.
+ */
+async function fetchRecentCards(token) {
+  const since = new Date(Date.now() - RECENT_DAYS * 24 * 60 * 60 * 1000).toISOString();
+  const url =
+    `${SUPABASE_URL}/rest/v1/flashcards` +
+    `?select=${CARD_COLUMNS}` +
+    `&learning_stage=eq.graduated` +
+    `&created_at=gte.${since}` +
+    `&order=created_at.desc`;
+
+  const req = new Request(url);
+  req.headers = restHeaders(token);
+  const rows = await req.loadJSON();
+  return Array.isArray(rows) ? rows : [];
+}
+
 /** Every card in the deck, due or not — the pool the "also in your deck" and
  *  "other Form N words" lists are drawn from. */
 async function fetchDeck(token) {
@@ -447,7 +471,7 @@ function buildWidget(state) {
 
 // -------------------------------------------------------- review session
 
-function reviewHTML(cards) {
+function reviewHTML(cards, practice) {
   // Cards are injected as JSON rather than templated into markup, so a word
   // containing a quote or an angle bracket cannot break the page.
   const payload = JSON.stringify(cards).replace(/</g, "\\u003c");
@@ -530,7 +554,7 @@ function reviewHTML(cards) {
     <div id="bar"><div id="fill"></div></div>
     <span id="count"></span>
   </header>
-  <div id="quitline"><span id="quit">Swipe down when you\u2019re done</span></div>
+  <div id="quitline"><span id="quit">${practice ? "Practice \u00b7 nothing is rescheduled" : "Swipe down when you\u2019re done"}</span></div>
   <main>
     <div id="scroll"><div id="card"></div></div>
     <div id="flash"></div>
@@ -798,9 +822,9 @@ async function runReview() {
     return;
   }
 
-  let cards;
+  let due, recent;
   try {
-    cards = await fetchDueCards(token);
+    [due, recent] = await Promise.all([fetchDueCards(token), fetchRecentCards(token)]);
   } catch (e) {
     const a = new Alert();
     a.title = "Could not load cards";
@@ -810,20 +834,39 @@ async function runReview() {
     return;
   }
 
+  // The widget face counts what is owed, so it is written from the due set
+  // whichever session is chosen.
   writeCache({
-    due: cards.length,
-    word: cards.length ? cards[0].word : "",
+    due: due.length,
+    word: due.length ? due[0].word : "",
     at: Date.now(),
   });
 
-  if (cards.length === 0) {
+  if (due.length === 0 && recent.length === 0) {
     const a = new Alert();
     a.title = "All caught up";
-    a.message = "Nothing is due right now. Come back tomorrow.";
+    a.message = "Nothing is due, and nothing new this week to run again.";
     a.addAction("OK");
     await a.presentAlert();
     return;
   }
+
+  // Both on offer: ask. One of them: go straight in, since a menu with a
+  // single item is a tap for nothing.
+  let practice = due.length === 0;
+  if (due.length > 0 && recent.length > 0) {
+    const a = new Alert();
+    a.title = "What would you like to do?";
+    a.message = `${due.length} due \u00b7 ${recent.length} learned this week`;
+    a.addAction(`Review ${due.length} due`);
+    a.addAction(`Practise this week\u2019s ${recent.length}`);
+    a.addCancelAction("Cancel");
+    const choice = await a.presentAlert();
+    if (choice === -1) return;
+    practice = choice === 1;
+  }
+
+  const cards = practice ? recent : due;
 
   // The see-also lists are assembled before the session opens, because the
   // page cannot fetch anything once it is on screen. Failing here costs the
@@ -848,7 +891,7 @@ async function runReview() {
   let saveQueue = Promise.resolve();
 
   const wv = new WebView();
-  await wv.loadHTML(reviewHTML(cards));
+  await wv.loadHTML(reviewHTML(cards, practice));
 
   // The page cannot call back into Scriptable mid-session, so it navigates to
   // a wazn:// URL instead and this handler intercepts it. Returning false
@@ -892,7 +935,10 @@ async function runReview() {
         const rating = decodeURIComponent(ratingMatch[1]);
         const seq = seqMatch ? Number(seqMatch[1]) : savedSeqs.size;
         const card = byId[id];
-        if (card && !savedSeqs.has(seq)) {
+        // Practice writes nothing at all. The point of it is extra exposure
+        // on demand, and moving the schedule here would push this week's
+        // words further out every time the set was run again.
+        if (card && !practice && !savedSeqs.has(seq)) {
           savedSeqs.add(seq);
           gradedIds.add(id);
           // Chained rather than fired loose: a card answered "Again" and then
@@ -933,6 +979,7 @@ async function runReview() {
   // the same grade twice is harmless, because the schedule is computed from
   // the card as it was fetched, not from its current stored value.
   for (let seq = 0; seq < graded.length; seq++) {
+    if (practice) break;
     const r = graded[seq];
     const card = byId[r.id];
     if (!card || savedSeqs.has(seq)) continue;
@@ -952,6 +999,20 @@ async function runReview() {
   const clearedIds = new Set(
     [...gradedIds].filter((id) => lastRating[id] !== "again"),
   );
+
+  if (practice) {
+    // Nothing was written, so the widget's count is still whatever the due
+    // set said before the session, and must not be recomputed from this one.
+    const seen = new Set(graded.map((r) => r.id)).size;
+    if (seen > 0) {
+      const a = new Alert();
+      a.title = "Practice done";
+      a.message = `${seen} word${seen === 1 ? "" : "s"} run again. Your schedule is unchanged.`;
+      a.addAction("OK");
+      await a.presentAlert();
+    }
+    return;
+  }
 
   const saved = clearedIds.size;
   const stillDue = cards.filter((c) => !clearedIds.has(c.id));

@@ -169,3 +169,46 @@ describe('the widget saves a second grade for the same card', () => {
     expect(SOURCE).toContain('lastRating[id] !== "again"');
   });
 });
+
+describe('the widget can practise this week\'s words', () => {
+  it('asks the server for the recent ones, due or not', () => {
+    // Deliberately no next_review_date filter: the point of the practice set
+    // is that it does not wait for the schedule.
+    expect(SOURCE).toContain('fetchRecentCards');
+    expect(SOURCE).toContain('created_at=gte.');
+    expect(SOURCE).toContain('learning_stage=eq.graduated');
+    const fn = SOURCE.slice(SOURCE.indexOf('async function fetchRecentCards'));
+    const body = fn.slice(0, fn.indexOf('\n}'));
+    expect(body).not.toContain('next_review_date');
+  });
+
+  it('reaches back the same seven days as the app', () => {
+    const m = SOURCE.match(/const RECENT_DAYS = (\d+);/);
+    expect(m?.[1]).toBe('7');
+  });
+
+  it('writes nothing while practising', () => {
+    // Both save paths — the live one and the reconciling pass after the sheet
+    // is dismissed — have to be shut off, or running the set again would push
+    // this week's words further out each time.
+    expect(SOURCE).toContain('if (card && !practice && !savedSeqs.has(seq))');
+    expect(SOURCE).toContain('if (practice) break;');
+  });
+
+  it('leaves the widget count alone after a practice session', () => {
+    // The face counts what is owed. Recomputing it from the practice set
+    // would show this week's words as the backlog.
+    const tail = SOURCE.slice(SOURCE.indexOf('if (practice) {'));
+    expect(tail.slice(0, tail.indexOf('return;'))).not.toContain('writeCache');
+  });
+
+  it('says on the page that nothing is being rescheduled', () => {
+    expect(SOURCE).toContain('nothing is rescheduled');
+    expect(SOURCE).toContain('function reviewHTML(cards, practice)');
+  });
+
+  it('offers a choice only when there is a choice to make', () => {
+    expect(SOURCE).toContain('let practice = due.length === 0;');
+    expect(SOURCE).toContain('if (due.length > 0 && recent.length > 0)');
+  });
+});
