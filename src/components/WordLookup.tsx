@@ -12,7 +12,11 @@ import type { FlashCard } from '@/lib/spaced-repetition';
 
 interface WordLookupProps {
   deck: FlashCard[];
-  onAdd: (entry: DictionaryEntry) => Promise<void>;
+  /**
+   * Adding from here is gone: words enter a deck through Learn Decks now,
+   * so this screen is for looking something up and nothing else.
+   */
+  onAdd?: (entry: DictionaryEntry) => Promise<void>;
   onBack: () => void;
 }
 

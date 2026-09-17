@@ -1,10 +1,10 @@
 import {
   GraduationCap, BookOpen, Plus, RefreshCw, List,
-  Sparkles, Link2, Brain, ChevronRight, Search, Hash, type LucideIcon,
+  Sparkles, Link2, Brain, ChevronRight, Search, Hash, LibraryBig, type LucideIcon,
 } from 'lucide-react';
 
 export type LearnDestination =
-  | 'learn' | 'review' | 'add' | 'relearn' | 'deck' | 'lookup'
+  | 'learn' | 'review' | 'add' | 'relearn' | 'deck' | 'lookup' | 'learnDecks'
   | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill'
   | 'memorize';
 
@@ -42,6 +42,10 @@ const LearnHub = ({ dueCount, learnCount, deckSize, onSelect }: LearnHubProps) =
           id: 'review', label: 'Review', icon: BookOpen,
           hint: dueCount > 0 ? `${dueCount} due` : 'All caught up',
           disabled: dueCount === 0,
+        },
+        {
+          id: 'learnDecks', label: 'Learn Decks', icon: LibraryBig,
+          hint: 'Chapter decks, or build your own',
         },
         { id: 'add', label: 'Add words', icon: Plus, hint: 'Type or paste a list' },
         {

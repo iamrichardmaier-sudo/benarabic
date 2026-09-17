@@ -78,12 +78,14 @@ describe('the decks together', () => {
   );
 
   it('holds the expected number of words', () => {
-    expect(all).toHaveLength(125);
+    expect(all).toHaveLength(145);
   });
 
   it('names each group once', () => {
     const named = [...new Set(all.map((e) => e.group).filter(Boolean))].sort();
-    expect(named).toEqual(['Chapter 13', 'Chapter 14', 'Embark']);
+    expect(named).toEqual([
+      'Chapter 13', 'Chapter 14', 'Embark', 'Words from familiar roots',
+    ]);
   });
 
   it('has no word appearing in two decks', () => {

@@ -110,6 +110,132 @@ export type Database = {
         }
         Relationships: []
       }
+      decks: {
+        Row: {
+          book_part_prefix: string | null
+          chapter_range: string | null
+          created_at: string
+          created_by: string | null
+          icon: string
+          id: string
+          is_admin_deck: boolean
+          is_public: boolean
+          publish_requested: boolean
+          status: string
+          title: string
+        }
+        Insert: {
+          book_part_prefix?: string | null
+          chapter_range?: string | null
+          created_at?: string
+          created_by?: string | null
+          icon?: string
+          id?: string
+          is_admin_deck?: boolean
+          is_public?: boolean
+          publish_requested?: boolean
+          status?: string
+          title: string
+        }
+        Update: {
+          book_part_prefix?: string | null
+          chapter_range?: string | null
+          created_at?: string
+          created_by?: string | null
+          icon?: string
+          id?: string
+          is_admin_deck?: boolean
+          is_public?: boolean
+          publish_requested?: boolean
+          status?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      deck_words: {
+        Row: { added_at: string; deck_id: string; word_id: string }
+        Insert: { added_at?: string; deck_id: string; word_id: string }
+        Update: { added_at?: string; deck_id?: string; word_id?: string }
+        Relationships: []
+      }
+      user_decks: {
+        Row: { added_at: string; custom_title: string | null; deck_id: string; user_id: string }
+        Insert: { added_at?: string; custom_title?: string | null; deck_id: string; user_id: string }
+        Update: { added_at?: string; custom_title?: string | null; deck_id?: string; user_id?: string }
+        Relationships: []
+      }
+      words: {
+        Row: {
+          companion_forms: Json | null
+          created_at: string
+          created_by: string | null
+          english: string | null
+          example_sentence: string | null
+          example_sentence_en: string | null
+          fixed_preposition: string | null
+          fusha_plural: string | null
+          gender: string | null
+          id: string
+          key: string
+          masdar_form: string | null
+          past_tense: string | null
+          present_tense: string | null
+          root: string | null
+          shaami: string | null
+          shaami_plural: string | null
+          verb_form: string | null
+          word: string
+          word_type: string | null
+          word_voweled: string | null
+        }
+        Insert: {
+          companion_forms?: Json | null
+          created_at?: string
+          created_by?: string | null
+          english?: string | null
+          example_sentence?: string | null
+          example_sentence_en?: string | null
+          fixed_preposition?: string | null
+          fusha_plural?: string | null
+          gender?: string | null
+          id?: string
+          key: string
+          masdar_form?: string | null
+          past_tense?: string | null
+          present_tense?: string | null
+          root?: string | null
+          shaami?: string | null
+          shaami_plural?: string | null
+          verb_form?: string | null
+          word: string
+          word_type?: string | null
+          word_voweled?: string | null
+        }
+        Update: {
+          companion_forms?: Json | null
+          created_at?: string
+          created_by?: string | null
+          english?: string | null
+          example_sentence?: string | null
+          example_sentence_en?: string | null
+          fixed_preposition?: string | null
+          fusha_plural?: string | null
+          gender?: string | null
+          id?: string
+          key?: string
+          masdar_form?: string | null
+          past_tense?: string | null
+          present_tense?: string | null
+          root?: string | null
+          shaami?: string | null
+          shaami_plural?: string | null
+          verb_form?: string | null
+          word?: string
+          word_type?: string | null
+          word_voweled?: string | null
+        }
+        Relationships: []
+      }
       flashcards: {
         Row: {
           card_group: string | null
@@ -141,6 +267,7 @@ export type Database = {
           user_id: string
           verb_form: string | null
           word: string
+          word_id: string | null
           word_type: string | null
           word_voweled: string | null
         }
@@ -174,6 +301,7 @@ export type Database = {
           user_id?: string
           verb_form?: string | null
           word: string
+          word_id?: string | null
           word_type?: string | null
           word_voweled?: string | null
         }
@@ -207,6 +335,7 @@ export type Database = {
           user_id?: string
           verb_form?: string | null
           word?: string
+          word_id?: string | null
           word_type?: string | null
           word_voweled?: string | null
         }
@@ -324,7 +453,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      is_deck_admin: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
+      normalize_arabic: {
+        Args: { input: string }
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never
