@@ -86,6 +86,7 @@ function rowToCard(row: DbRow): FlashCard {
     intensiveDay: row.intensive_day,
     intensiveRepsDone: row.intensive_reps_done ?? 0,
     nextReviewAt: row.next_review_at,
+    createdAt: row.created_at,
   };
 }
 
