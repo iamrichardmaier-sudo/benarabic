@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
-import { Check, Loader2, Search, X } from 'lucide-react';
-import WaznIcon from '@/components/icons/WaznIcon';
+import { Check, Hammer, Loader2, Search, X } from 'lucide-react';
 import BackButton from '@/components/BackButton';
 import DeckIcon from '@/components/decks/DeckIcon';
 import DeckPreview from '@/components/decks/DeckPreview';
@@ -99,7 +98,7 @@ const LearnDecks = ({ onBack, onBuildDeck, onEditDeck }: LearnDecksProps) => {
         onClick={onBuildDeck}
         className="flex w-full items-center gap-3 rounded-2xl border border-primary bg-card px-4 py-3.5 text-start transition-all active:scale-95 hover:bg-muted/40"
       >
-        <WaznIcon name="build" size={30} className="text-primary" />
+        <Hammer className="h-5 w-5 shrink-0 text-primary" />
         <span className="min-w-0 flex-1">
           <span className="block font-semibold text-foreground">Build your own deck</span>
           <span className="block text-xs text-muted-foreground">
