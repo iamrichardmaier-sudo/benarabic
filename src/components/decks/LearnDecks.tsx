@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
-import { Check, Hammer, Loader2, Search, X } from 'lucide-react';
+import { Check, Loader2, Search, X } from 'lucide-react';
+import WaznIcon from '@/components/icons/WaznIcon';
 import BackButton from '@/components/BackButton';
 import DeckIcon from '@/components/decks/DeckIcon';
 import DeckPreview from '@/components/decks/DeckPreview';
@@ -98,7 +99,7 @@ const LearnDecks = ({ onBack, onBuildDeck, onEditDeck }: LearnDecksProps) => {
         onClick={onBuildDeck}
         className="flex w-full items-center gap-3 rounded-2xl border border-primary bg-card px-4 py-3.5 text-start transition-all active:scale-95 hover:bg-muted/40"
       >
-        <Hammer className="h-5 w-5 shrink-0 text-primary" />
+        <WaznIcon name="build" size={30} className="text-primary" />
         <span className="min-w-0 flex-1">
           <span className="block font-semibold text-foreground">Build your own deck</span>
           <span className="block text-xs text-muted-foreground">
@@ -145,52 +146,65 @@ const LearnDecks = ({ onBack, onBuildDeck, onEditDeck }: LearnDecksProps) => {
       )}
 
       {!loading && (
-        <div className="overflow-hidden rounded-2xl border border-border bg-card divide-y divide-border/60">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           {visible.map((deck) => {
             const added = mine.has(deck.id);
             const picked = selected.has(deck.id);
             const title = mine.get(deck.id) || deck.title;
             const ownedByViewer = !deck.isAdminDeck && deck.createdBy !== null;
+            const foundation = deck.icon === FOUNDATION_ICON;
             return (
-              <div key={deck.id} className={`flex items-center gap-3 px-3 ${added ? 'opacity-60' : ''}`}>
-                {/* Ticking is for adding several at once; tapping the row
-                    opens the deck so its words can be read first. */}
-                {!added && (
-                  <input
-                    type="checkbox"
-                    checked={picked}
-                    onChange={() => toggle(deck.id)}
-                    aria-label={`Select ${deck.title}`}
-                    className="h-4 w-4 shrink-0 accent-primary"
-                  />
-                )}
+              <div
+                key={deck.id}
+                className={`relative overflow-hidden rounded-2xl border bg-card transition-colors ${
+                  picked ? 'border-primary ring-2 ring-primary/25' : 'border-border'
+                } ${added ? 'opacity-70' : ''}`}
+              >
+                {/* Tapping the card opens the deck; the tick in the corner is
+                    for taking several at once without opening any of them. */}
                 <button
-                  onClick={() =>
-                    ownedByViewer && onEditDeck ? onEditDeck(deck) : setOpen(deck)
-                  }
-                  className="flex min-w-0 flex-1 items-center gap-3 py-3 text-start"
+                  onClick={() => (ownedByViewer && onEditDeck ? onEditDeck(deck) : setOpen(deck))}
+                  className="flex w-full flex-col items-stretch text-start"
                 >
-                  <DeckIcon icon={deck.icon} foundation={deck.icon === FOUNDATION_ICON} size="sm" />
-                  <span className="min-w-0 flex-1">
-                    <span className="block truncate font-semibold text-foreground">{title}</span>
+                  <span
+                    className={`flex h-28 items-center justify-center ${
+                      foundation ? 'bg-primary text-primary-foreground' : 'bg-muted/40 text-primary'
+                    }`}
+                  >
+                    <DeckIcon icon={deck.icon} foundation={foundation} size="face" />
+                  </span>
+                  <span className="min-w-0 px-3 py-2.5">
+                    <span className="block truncate text-sm font-semibold text-foreground">
+                      {title}
+                    </span>
                     <span className="block text-xs text-muted-foreground">
                       {deck.wordCount ?? 0} word{deck.wordCount === 1 ? '' : 's'}
                       {deck.status === 'draft' && ' · draft'}
-                      {deck.publishRequested && deck.status === 'draft' && ' · awaiting review'}
                     </span>
                   </span>
-                  {added && (
-                    <span className="flex shrink-0 items-center gap-1 text-xs font-medium text-success">
-                      <Check className="h-3.5 w-3.5" />
-                      Added
-                    </span>
-                  )}
                 </button>
+
+                {added ? (
+                  <span className="absolute end-2 top-2 flex items-center gap-1 rounded-full bg-success px-2 py-0.5 text-[10px] font-semibold text-success-foreground">
+                    <Check className="h-3 w-3" />
+                    Added
+                  </span>
+                ) : (
+                  <label className="absolute end-2 top-2 cursor-pointer rounded-lg bg-background/85 p-1.5 backdrop-blur">
+                    <input
+                      type="checkbox"
+                      checked={picked}
+                      onChange={() => toggle(deck.id)}
+                      aria-label={`Select ${deck.title}`}
+                      className="block h-4 w-4 accent-primary"
+                    />
+                  </label>
+                )}
               </div>
             );
           })}
           {visible.length === 0 && (
-            <p className="px-4 py-10 text-center text-sm text-muted-foreground">
+            <p className="col-span-full px-4 py-10 text-center text-sm text-muted-foreground">
               {query ? 'No deck matches that.' : 'No decks yet.'}
             </p>
           )}

@@ -1,70 +1,57 @@
-import {
-  Anchor, Compass, Feather, Flame, Footprints, Gem, Landmark,
-  Leaf, Lightbulb, Map, Mountain, Scroll, Ship, Sparkles, Sprout,
-  Sun, Tent, Waves, Wheat, BookOpen, Key, Lamp, Puzzle,
-} from 'lucide-react';
-import { type DeckIconKey } from '@/lib/deck-icons';
+import WaznIcon from '@/components/icons/WaznIcon';
+import type { WaznIconName } from '@/lib/wazn-icons';
+import { DECK_ICON_KEYS, type DeckIconKey } from '@/lib/deck-icons';
 
 /**
- * The deck icon set.
+ * A deck's mark.
  *
- * Drawn from one family of line icons so the browse list reads as a set
- * rather than a pile of clip art, and each deck is given its own so a learner
- * comes to recognise a deck by its mark rather than by reading every title.
- *
- * Bridge is not in the icon font; Puzzle stands in for it, which is why the
- * map and not the component name is what a deck stores.
+ * Every deck icon key is also a Wazn icon name — the assignment below is what
+ * makes TypeScript prove it, so adding a deck key without drawing it is a
+ * build error rather than a blank tile.
  */
-const ICONS: Record<DeckIconKey, typeof BookOpen> = {
-  foundation: Landmark,
-  compass: Compass,
-  scroll: Scroll,
-  lantern: Lamp,
-  bridge: Puzzle,
-  anchor: Anchor,
-  feather: Feather,
-  flame: Flame,
-  footprints: Footprints,
-  gem: Gem,
-  leaf: Leaf,
-  lightbulb: Lightbulb,
-  map: Map,
-  mountain: Mountain,
-  ship: Ship,
-  sparkles: Sparkles,
-  sprout: Sprout,
-  sun: Sun,
-  tent: Tent,
-  waves: Waves,
-  wheat: Wheat,
-  book: BookOpen,
-  key: Key,
-} as const;
+const asIcon = (key: DeckIconKey): WaznIconName => key;
 
+/**
+ * Sizes, and why there are four of them.
+ *
+ * These drawings carry interlace and medallion rings, which need room: shrink
+ * one to a list-row glyph and the ornament closes into a blot. So the deck
+ * surfaces give it room instead — `face` fills a card, `lg` heads a screen —
+ * and `sm` exists only for the few places a deck still has to appear inline.
+ */
+const SIZES = {
+  sm: { box: 'h-10 w-10 rounded-xl border', glyph: 22 },
+  md: { box: 'h-14 w-14 rounded-2xl border', glyph: 32 },
+  lg: { box: 'h-20 w-20 rounded-2xl border', glyph: 48 },
+  face: { box: 'h-full w-full rounded-none border-0', glyph: 76 },
+} as const;
 
 interface DeckIconProps {
   icon: string;
-  /** Marks the foundational deck, which is styled as filled rather than outlined. */
+  /** Marks the foundational deck, which is filled rather than outlined. */
   foundation?: boolean;
-  size?: 'sm' | 'md';
+  size?: keyof typeof SIZES;
   className?: string;
 }
 
 const DeckIcon = ({ icon, foundation = false, size = 'md', className = '' }: DeckIconProps) => {
-  const Glyph = ICONS[icon as DeckIconKey] ?? ICONS.book;
-  const box = size === 'sm' ? 'h-9 w-9' : 'h-11 w-11';
-  const glyph = size === 'sm' ? 'h-4 w-4' : 'h-5 w-5';
+  // A deck stores its icon as free text, so an unknown value gets the default
+  // rather than an empty tile.
+  const known = (DECK_ICON_KEYS as readonly string[]).includes(icon)
+    ? (icon as DeckIconKey)
+    : 'book';
+  const { box, glyph } = SIZES[size];
 
   return (
     <span
       aria-hidden="true"
-      className={`flex shrink-0 items-center justify-center rounded-xl border ${box} ${
+      className={`flex shrink-0 items-center justify-center ${box} ${
         foundation
           ? 'border-primary bg-primary text-primary-foreground'
           : 'border-border bg-muted/40 text-primary'
       } ${className}`}
     >
-      <Glyph className={glyph} />
+      <WaznIcon name={asIcon(known)} size={glyph} />
     </span>
   );
 };

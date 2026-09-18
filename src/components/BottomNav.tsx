@@ -1,4 +1,5 @@
-import { Home, GraduationCap, Library, Layers, Settings, type LucideIcon } from 'lucide-react';
+import WaznIcon from '@/components/icons/WaznIcon';
+import type { WaznIconName } from '@/lib/wazn-icons';
 
 export type Tab = 'home' | 'learn' | 'library' | 'review' | 'settings';
 
@@ -9,12 +10,12 @@ interface BottomNavProps {
   dueCount?: number;
 }
 
-const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
-  { id: 'home', label: 'Home', icon: Home },
-  { id: 'learn', label: 'Learn', icon: GraduationCap },
-  { id: 'library', label: 'Library', icon: Library },
-  { id: 'review', label: 'Review', icon: Layers },
-  { id: 'settings', label: 'Settings', icon: Settings },
+const TABS: { id: Tab; label: string; icon: WaznIconName }[] = [
+  { id: 'home', label: 'Home', icon: 'home' },
+  { id: 'learn', label: 'Learn', icon: 'learn' },
+  { id: 'library', label: 'Library', icon: 'book' },
+  { id: 'review', label: 'Review', icon: 'decks' },
+  { id: 'settings', label: 'Settings', icon: 'settings' },
 ];
 
 /**
@@ -26,7 +27,7 @@ const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
 const BottomNav = ({ active, onSelect, dueCount = 0 }: BottomNavProps) => (
   <nav className="fixed inset-x-0 bottom-0 z-20 border-t border-border/60 bg-card/95 backdrop-blur-sm">
     <div className="max-w-lg mx-auto grid grid-cols-5 gap-1 px-2 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
-      {TABS.map(({ id, label, icon: Icon }) => {
+      {TABS.map(({ id, label, icon }) => {
         const isActive = active === id;
         const showBadge = id === 'review' && dueCount > 0;
         return (
@@ -42,7 +43,7 @@ const BottomNav = ({ active, onSelect, dueCount = 0 }: BottomNavProps) => (
             }`}
           >
             <span className="relative">
-              <Icon className="w-5 h-5" />
+              <WaznIcon name={icon} size={25} />
               {showBadge && (
                 <span
                   aria-hidden="true"

@@ -1,4 +1,5 @@
-import { Flame, BookOpen, Layers, GraduationCap, ChevronRight, RotateCcw, LibraryBig } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
+import WaznIcon from '@/components/icons/WaznIcon';
 import { currentStreak } from '@/lib/streak';
 import { useBibleBooks } from '@/hooks/useBibleBooks';
 
@@ -121,7 +122,7 @@ const HomeDashboard = ({
           onClick={onPractice}
           className="w-full flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3.5 text-start transition-all active:scale-95 hover:bg-muted/40"
         >
-          <RotateCcw className="w-5 h-5 text-primary shrink-0" />
+          <WaznIcon name="practice" size={32} className="text-primary" />
           <span className="min-w-0 flex-1">
             <span className="block font-semibold text-foreground">
               Practise this week&rsquo;s {recentCount} word{recentCount === 1 ? '' : 's'}
@@ -153,14 +154,14 @@ const HomeDashboard = ({
             disabled={learnCount === 0}
             className="flex items-center justify-center gap-1.5 rounded-xl bg-secondary text-secondary-foreground py-3 text-sm font-semibold transition-all active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
           >
-            <GraduationCap className="w-4 h-4" />
+            <WaznIcon name="learn" size={22} />
             Learn
           </button>
           <button
             onClick={onBrowseDecks}
             className="flex items-center justify-center gap-1.5 rounded-xl bg-secondary text-secondary-foreground py-3 text-sm font-semibold transition-all active:scale-95"
           >
-            <LibraryBig className="w-4 h-4" />
+            <WaznIcon name="decks" size={22} />
             Learn Decks
           </button>
         </div>
@@ -171,7 +172,7 @@ const HomeDashboard = ({
         className="w-full flex items-center justify-between gap-3 rounded-2xl border border-border bg-card px-5 py-4 text-start transition-colors hover:bg-muted/40"
       >
         <span className="flex items-center gap-2.5">
-          <BookOpen className="w-5 h-5 text-primary" />
+          <WaznIcon name="book" size={32} className="text-primary" />
           <span>
             <span className="block font-semibold text-foreground">Library</span>
             <span className="block text-xs text-muted-foreground">The Bible, articles, and more</span>

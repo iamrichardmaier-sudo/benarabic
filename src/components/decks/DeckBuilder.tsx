@@ -221,7 +221,7 @@ const DeckBuilder = ({ onBack, deck = null, admin = false, onSaved }: DeckBuilde
 
       <div className="space-y-3 rounded-2xl border border-border bg-card p-4">
         <div className="flex items-center gap-3">
-          <DeckIcon icon={icon} />
+          <DeckIcon icon={icon} size="lg" />
           <input
             value={title}
             onChange={(e) => setTitle(e.target.value)}
@@ -242,7 +242,7 @@ const DeckBuilder = ({ onBack, deck = null, admin = false, onSaved }: DeckBuilde
                 icon === key ? 'border-primary bg-primary/10' : 'border-border hover:bg-muted/40'
               }`}
             >
-              <DeckIcon icon={key} size="sm" className="border-0 bg-transparent" />
+              <DeckIcon icon={key} size="md" className="border-0 bg-transparent" />
             </button>
           ))}
         </div>
