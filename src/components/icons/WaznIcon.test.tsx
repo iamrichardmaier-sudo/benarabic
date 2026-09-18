@@ -4,16 +4,16 @@ import WaznIcon from './WaznIcon';
 import { WAZN_ICON_NAMES } from '@/lib/wazn-icons';
 import { DECK_ICON_KEYS } from '@/lib/deck-icons';
 
-describe('the Wazn icon set', () => {
+describe('the deck marks', () => {
   it('names every icon once', () => {
     expect(new Set(WAZN_ICON_NAMES).size).toBe(WAZN_ICON_NAMES.length);
   });
 
-  it('can draw every deck a deck can choose', () => {
-    // A deck key with no drawing would render as an empty tile rather than
-    // fail, so the check belongs here where it is loud.
-    const drawable = new Set<string>(WAZN_ICON_NAMES);
-    expect(DECK_ICON_KEYS.filter((k) => !drawable.has(k))).toEqual([]);
+  it('draws exactly the marks a deck can choose, no more and no less', () => {
+    // A deck key with no drawing renders as an empty tile rather than failing,
+    // so that half is checked here where it is loud. The other half catches a
+    // mark left behind after the surfaces using it were reverted.
+    expect([...WAZN_ICON_NAMES].sort()).toEqual([...DECK_ICON_KEYS].sort());
   });
 
   it.each(WAZN_ICON_NAMES)('draws %s with geometry inside it', (name) => {

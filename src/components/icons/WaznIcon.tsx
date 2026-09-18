@@ -2,13 +2,18 @@ import type { ReactNode } from 'react';
 import type { WaznIconName } from '@/lib/wazn-icons';
 
 /**
- * The Wazn icon set.
+ * The deck marks.
  *
  * Drawn for this app rather than borrowed, and drawn by construction rather
  * than by eye: the medallions are {8/3} star polygons, the arches are
- * two-centred, the rosettes are two squares at 45° to each other, the chain
- * links are broken where the next link passes through. That is why they read
- * as one family — they are the same handful of constructions, reused.
+ * two-centred, the rosettes are two squares at 45° to each other. That is why
+ * they read as one family — they are the same handful of constructions,
+ * reused.
+ *
+ * These are the deck marks and nothing else. The rest of the app keeps its
+ * borrowed line icons, which sit better at the sizes those surfaces use; a
+ * wider set was tried and reverted in #82/#84, and is in the history if it is
+ * ever wanted back.
  *
  * The grid is 48×48, not the 24 that line-icon sets normally use. Ornament
  * needs room: at 24 the interlace closes up into a blot. The consequence is
@@ -22,7 +27,7 @@ import type { WaznIconName } from '@/lib/wazn-icons';
  * lets one drawing serve light and dark.
  */
 
-/** The geometry of each icon, on a 48×48 grid. */
+/** The geometry of each mark, on a 48×48 grid. */
 const GEOMETRY: Record<WaznIconName, ReactNode> = {
   foundation: (
     <>
@@ -232,156 +237,6 @@ const GEOMETRY: Record<WaznIconName, ReactNode> = {
     <path d="M22 24h21" />
     <path d="M34 24v6" />
     <path d="M39.5 24v4" />
-    </>
-  ),
-  home: (
-    <>
-    <path d="M5 21L24 5l19 16" />
-    <path d="M9 19v22a2 2 0 0 0 2 2h26a2 2 0 0 0 2-2V19" />
-    <path d="M18 43V31a6 6 0 0 1 12 0v12" />
-    <path d="M24 25v6" />
-    <path d="M24.00 10.80 L27.20 14.00 L24.00 17.20 L20.80 14.00 Z" />
-    </>
-  ),
-  learn: (
-    <>
-    <path d="M44 18L24 9 4 18l20 9z" />
-    <path d="M12 22v11c0 4 6 7 12 7s12-3 12-7V22" />
-    <path d="M44 18v11" />
-    <circle cx="44" cy="31" r="2" />
-    </>
-  ),
-  review: (
-    <>
-    <path d="M24 13v26" />
-    <path d="M24 13C19 9 12 8 5 9v25c7-1 14 0 19 5" />
-    <path d="M24 13c4-3 9-4 14-4" />
-    <path d="M43 20v14c-7-1-14 0-19 5" />
-    <path d="M34 6a7 7 0 1 1-6.5 9.5" />
-    <path d="M28 9l-1 6 6-1" />
-    </>
-  ),
-  decks: (
-    <>
-    <path d="M14 13l17-6 7 17-17 6z" />
-    <path d="M9 18h18a2 2 0 0 1 2 2v19a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V20a2 2 0 0 1 2-2z" />
-    <path d="M18.00 24.50 L23.00 29.50 L18.00 34.50 L13.00 29.50 Z" />
-    </>
-  ),
-  build: (
-    <>
-    <path d="M27 6l15 15-5 5-15-15z" />
-    <path d="M29 15L9 35" />
-    <path d="M6 32l10 10-6 2-6-6z" />
-    <path d="M36 26v14a2 2 0 0 1-2 2H20" />
-    </>
-  ),
-  add: (
-    <>
-    <path d="M24.00 4.00 L44.00 24.00 L24.00 44.00 L4.00 24.00 Z" />
-    <path d="M38.14 9.86 L38.14 38.14 L9.86 38.14 L9.86 9.86 Z" />
-    <path d="M24 15v18M15 24h18" />
-    </>
-  ),
-  search: (
-    <>
-    <circle cx="20" cy="20" r="14" />
-    <circle cx="20" cy="20" r="9" />
-    <path d="M30 30l13 13" />
-    </>
-  ),
-  settings: (
-    <>
-    <circle cx="24" cy="24" r="7" />
-    <path d="M24.00 4.00 L28.97 11.99 L38.14 9.86 L36.01 19.03 L44.00 24.00 L36.01 28.97 L38.14 38.14 L28.97 36.01 L24.00 44.00 L19.03 36.01 L9.86 38.14 L11.99 28.97 L4.00 24.00 L11.99 19.03 L9.86 9.86 L19.03 11.99 Z" />
-    </>
-  ),
-  streak: (
-    <>
-    <path d="M24 5c3 5 9 10 9 17a9 9 0 0 1-18 0c0-5 3-9 6-12 1 3 3 4 5 5 1-4 0-7-2-10z" />
-    <path d="M24 25c2 2 3 4 3 6a3 3 0 0 1-6 0c0-2 1-4 3-6z" />
-    <path d="M12 38h24a2 2 0 0 1 2 2v3H10v-3a2 2 0 0 1 2-2z" />
-    <path d="M24 38v5" />
-    </>
-  ),
-  conjugation: (
-    <>
-    <path d="M24 5v10" />
-    <path d="M24 15L10 25M24 15v10M24 15l14 10" />
-    <path d="M10 25v6M24 25v6M38 25v6" />
-    <path d="M24.00 4.80 L28.20 9.00 L24.00 13.20 L19.80 9.00 Z" />
-    <path d="M10.00 31.00 L15.00 36.00 L10.00 41.00 L5.00 36.00 Z" />
-    <path d="M24.00 31.00 L29.00 36.00 L24.00 41.00 L19.00 36.00 Z" />
-    <path d="M38.00 31.00 L43.00 36.00 L38.00 41.00 L33.00 36.00 Z" />
-    </>
-  ),
-  preposition: (
-    <>
-    <path d="M14 17a7 7 0 1 0 0 14" />
-    <path d="M14 17a7 7 0 0 1 3.5 2M14 31a7 7 0 0 0 3.5-2" />
-    <path d="M24 17a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" />
-    <path d="M34 17a7 7 0 1 1 0 14" />
-    <path d="M34 17a7 7 0 0 0-3.5 2M34 31a7 7 0 0 1-3.5-2" />
-    </>
-  ),
-  numbers: (
-    <>
-    <path d="M8 7h32a2 2 0 0 1 2 2v30a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z" />
-    <path d="M6 17h36M6 27h36M6 37h36" />
-    <circle cx="15" cy="17" r="3" />
-    <circle cx="28" cy="27" r="3" />
-    <circle cx="20" cy="37" r="3" />
-    </>
-  ),
-  memorize: (
-    <>
-    <path d="M31 43v-6a7 7 0 0 0-5-6.7V28c3 0 6-2.5 6-6.5A9.5 9.5 0 0 0 13 20v3c0 3-1 5-3 7l-2 2v11" />
-    <path d="M21.00 14.00 L27.00 20.00 L21.00 26.00 L15.00 20.00 Z" />
-    <path d="M25.24 15.76 L25.24 24.24 L16.76 24.24 L16.76 15.76 Z" />
-    </>
-  ),
-  audio: (
-    <>
-    <circle cx="11" cy="24" r="3" />
-    <path d="M19 16a11 11 0 0 1 0 16" />
-    <path d="M27 10a19 19 0 0 1 0 28" />
-    <path d="M35 5a27 27 0 0 1 0 38" />
-    </>
-  ),
-  import: (
-    <>
-    <path d="M28 5H11a3 3 0 0 0-3 3v32a3 3 0 0 0 3 3h26a3 3 0 0 0 3-3V17z" />
-    <path d="M28 5v12h12" />
-    <path d="M24 22v13" />
-    <path d="M18 29l6 6 6-6" />
-    </>
-  ),
-  speak: (
-    <>
-    <path d="M6 29V19h8l10-8v26l-10-8z" />
-    <path d="M30 18a9 9 0 0 1 0 12" />
-    <path d="M36 13a17 17 0 0 1 0 22" />
-    </>
-  ),
-  relearn: (
-    <>
-    <path d="M40 24a16 16 0 1 1-4.7-11.3" />
-    <path d="M40 7v10H30" />
-    <path d="M24.00 19.00 L29.00 24.00 L24.00 29.00 L19.00 24.00 Z" />
-    </>
-  ),
-  mastered: (
-    <>
-    <path d="M24.00 7.00 L41.00 24.00 L24.00 41.00 L7.00 24.00 Z" />
-    <path d="M36.02 11.98 L36.02 36.02 L11.98 36.02 L11.98 11.98 Z" />
-    <path d="M24.00 13.00 L31.78 31.78 L13.00 24.00 L31.78 16.22 L24.00 35.00 L16.22 16.22 L35.00 24.00 L16.22 31.78 Z" />
-    </>
-  ),
-  practice: (
-    <>
-    <path d="M17 15h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H17a2 2 0 0 1-2-2V17a2 2 0 0 1 2-2z" />
-    <path d="M40 24a16 16 0 1 1-5.5-12" />
-    <path d="M40 8v9h-9" />
     </>
   ),
 };

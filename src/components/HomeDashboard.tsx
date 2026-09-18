@@ -1,5 +1,4 @@
-import { ChevronRight } from 'lucide-react';
-import WaznIcon from '@/components/icons/WaznIcon';
+import { Flame, BookOpen, Layers, GraduationCap, ChevronRight, RotateCcw, LibraryBig } from 'lucide-react';
 import { currentStreak } from '@/lib/streak';
 import { useBibleBooks } from '@/hooks/useBibleBooks';
 
@@ -53,9 +52,9 @@ const HomeDashboard = ({
     : null;
 
   const primary = dueCount > 0
-    ? { label: `Review ${dueCount} card${dueCount === 1 ? '' : 's'}`, icon: 'review' as const, action: onReview }
+    ? { label: `Review ${dueCount} card${dueCount === 1 ? '' : 's'}`, icon: Layers, action: onReview }
     : learnCount > 0
-      ? { label: `Learn ${learnCount} new word${learnCount === 1 ? '' : 's'}`, icon: 'learn' as const, action: onLearn }
+      ? { label: `Learn ${learnCount} new word${learnCount === 1 ? '' : 's'}`, icon: GraduationCap, action: onLearn }
       : null;
 
   // An empty queue that is only empty for another hour should say so, rather
@@ -76,11 +75,7 @@ const HomeDashboard = ({
           className="flex items-center gap-1.5 rounded-2xl border border-border bg-card px-3 py-2 shrink-0"
           title={streak.longest > 0 ? `Longest streak: ${streak.longest} days` : undefined}
         >
-          <WaznIcon
-            name="streak"
-            size={22}
-            className={streak.current > 0 ? 'text-primary' : 'text-muted-foreground/50'}
-          />
+          <Flame className={`w-4 h-4 ${streak.current > 0 ? 'text-primary' : 'text-muted-foreground/50'}`} />
           <span className="font-bold text-foreground tabular-nums">{streak.current}</span>
           <span className="text-xs text-muted-foreground">day{streak.current === 1 ? '' : 's'}</span>
         </div>
@@ -93,7 +88,7 @@ const HomeDashboard = ({
           className="w-full flex items-center justify-between gap-3 rounded-2xl bg-primary text-primary-foreground px-5 py-4 font-semibold transition-all active:scale-95"
         >
           <span className="flex items-center gap-2.5">
-            <WaznIcon name={primary.icon} size={24} />
+            <primary.icon className="w-5 h-5" />
             {primary.label}
           </span>
           <ChevronRight className="w-5 h-5 opacity-80" />
@@ -106,7 +101,7 @@ const HomeDashboard = ({
           className="w-full flex items-center justify-between gap-3 rounded-2xl border border-border bg-card px-5 py-4 text-start transition-colors hover:bg-muted/40"
         >
           <span className="flex items-center gap-2.5 min-w-0">
-            <WaznIcon name="book" size={30} className="text-primary" />
+            <BookOpen className="w-5 h-5 text-primary shrink-0" />
             <span className="min-w-0">
               <span className="block text-xs text-muted-foreground">Continue reading</span>
               <span className="block font-semibold text-foreground truncate">
@@ -126,7 +121,7 @@ const HomeDashboard = ({
           onClick={onPractice}
           className="w-full flex items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3.5 text-start transition-all active:scale-95 hover:bg-muted/40"
         >
-          <WaznIcon name="practice" size={32} className="text-primary" />
+          <RotateCcw className="w-5 h-5 text-primary shrink-0" />
           <span className="min-w-0 flex-1">
             <span className="block font-semibold text-foreground">
               Practise this week&rsquo;s {recentCount} word{recentCount === 1 ? '' : 's'}
@@ -158,14 +153,14 @@ const HomeDashboard = ({
             disabled={learnCount === 0}
             className="flex items-center justify-center gap-1.5 rounded-xl bg-secondary text-secondary-foreground py-3 text-sm font-semibold transition-all active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
           >
-            <WaznIcon name="learn" size={22} />
+            <GraduationCap className="w-4 h-4" />
             Learn
           </button>
           <button
             onClick={onBrowseDecks}
             className="flex items-center justify-center gap-1.5 rounded-xl bg-secondary text-secondary-foreground py-3 text-sm font-semibold transition-all active:scale-95"
           >
-            <WaznIcon name="decks" size={22} />
+            <LibraryBig className="w-4 h-4" />
             Learn Decks
           </button>
         </div>
@@ -176,7 +171,7 @@ const HomeDashboard = ({
         className="w-full flex items-center justify-between gap-3 rounded-2xl border border-border bg-card px-5 py-4 text-start transition-colors hover:bg-muted/40"
       >
         <span className="flex items-center gap-2.5">
-          <WaznIcon name="book" size={32} className="text-primary" />
+          <BookOpen className="w-5 h-5 text-primary" />
           <span>
             <span className="block font-semibold text-foreground">Library</span>
             <span className="block text-xs text-muted-foreground">The Bible, articles, and more</span>

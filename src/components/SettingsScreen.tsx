@@ -1,5 +1,4 @@
-import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages } from 'lucide-react';
-import WaznIcon from '@/components/icons/WaznIcon';
+import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages, AudioLines, FileJson, LayoutList, Plus } from 'lucide-react';
 import { usePreferences } from '@/hooks/usePreferences';
 import DialectToggle from '@/components/DialectToggle';
 import {
@@ -194,7 +193,7 @@ const SettingsScreen = ({
             onClick={onOpenAddWords}
             className="w-full flex items-center gap-3 px-4 py-3.5 text-start transition-colors hover:bg-muted/40"
           >
-            <WaznIcon name="add" size={30} className="text-primary" />
+            <Plus className="w-5 h-5 text-primary shrink-0" />
             <span className="min-w-0 flex-1">
               <span className="block font-semibold text-foreground">Add words</span>
               <span className="block text-xs text-muted-foreground">
@@ -207,7 +206,7 @@ const SettingsScreen = ({
             onClick={onOpenImportWords}
             className="w-full flex items-center gap-3 px-4 py-3.5 text-start border-t border-border transition-colors hover:bg-muted/40"
           >
-            <WaznIcon name="import" size={30} className="text-primary" />
+            <FileJson className="w-5 h-5 text-primary shrink-0" />
             <span className="min-w-0 flex-1">
               <span className="block font-semibold text-foreground">Import words</span>
               <span className="block text-xs text-muted-foreground">
@@ -221,7 +220,7 @@ const SettingsScreen = ({
               onClick={onOpenAdminDecks}
               className="w-full flex items-center gap-3 px-4 py-3.5 text-start border-t border-border transition-colors hover:bg-muted/40"
             >
-              <WaznIcon name="decks" size={30} className="text-primary" />
+              <LayoutList className="w-5 h-5 text-primary shrink-0" />
               <span className="min-w-0 flex-1">
                 <span className="block font-semibold text-foreground">Manage decks</span>
                 <span className="block text-xs text-muted-foreground">
@@ -235,7 +234,7 @@ const SettingsScreen = ({
             onClick={onOpenPdfToAudio}
             className="w-full flex items-center gap-3 px-4 py-3.5 text-start border-t border-border transition-colors hover:bg-muted/40"
           >
-            <WaznIcon name="audio" size={30} className="text-primary" />
+            <AudioLines className="w-5 h-5 text-primary shrink-0" />
             <span className="min-w-0 flex-1">
               <span className="block font-semibold text-foreground">PDF to audio</span>
               <span className="block text-xs text-muted-foreground">
