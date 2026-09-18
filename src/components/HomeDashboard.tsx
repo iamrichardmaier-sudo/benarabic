@@ -53,9 +53,9 @@ const HomeDashboard = ({
     : null;
 
   const primary = dueCount > 0
-    ? { label: `Review ${dueCount} card${dueCount === 1 ? '' : 's'}`, icon: Layers, action: onReview }
+    ? { label: `Review ${dueCount} card${dueCount === 1 ? '' : 's'}`, icon: 'review' as const, action: onReview }
     : learnCount > 0
-      ? { label: `Learn ${learnCount} new word${learnCount === 1 ? '' : 's'}`, icon: GraduationCap, action: onLearn }
+      ? { label: `Learn ${learnCount} new word${learnCount === 1 ? '' : 's'}`, icon: 'learn' as const, action: onLearn }
       : null;
 
   // An empty queue that is only empty for another hour should say so, rather
@@ -76,7 +76,11 @@ const HomeDashboard = ({
           className="flex items-center gap-1.5 rounded-2xl border border-border bg-card px-3 py-2 shrink-0"
           title={streak.longest > 0 ? `Longest streak: ${streak.longest} days` : undefined}
         >
-          <Flame className={`w-4 h-4 ${streak.current > 0 ? 'text-primary' : 'text-muted-foreground/50'}`} />
+          <WaznIcon
+            name="streak"
+            size={22}
+            className={streak.current > 0 ? 'text-primary' : 'text-muted-foreground/50'}
+          />
           <span className="font-bold text-foreground tabular-nums">{streak.current}</span>
           <span className="text-xs text-muted-foreground">day{streak.current === 1 ? '' : 's'}</span>
         </div>
@@ -89,7 +93,7 @@ const HomeDashboard = ({
           className="w-full flex items-center justify-between gap-3 rounded-2xl bg-primary text-primary-foreground px-5 py-4 font-semibold transition-all active:scale-95"
         >
           <span className="flex items-center gap-2.5">
-            <primary.icon className="w-5 h-5" />
+            <WaznIcon name={primary.icon} size={24} />
             {primary.label}
           </span>
           <ChevronRight className="w-5 h-5 opacity-80" />
@@ -102,7 +106,7 @@ const HomeDashboard = ({
           className="w-full flex items-center justify-between gap-3 rounded-2xl border border-border bg-card px-5 py-4 text-start transition-colors hover:bg-muted/40"
         >
           <span className="flex items-center gap-2.5 min-w-0">
-            <BookOpen className="w-5 h-5 text-primary shrink-0" />
+            <WaznIcon name="book" size={30} className="text-primary" />
             <span className="min-w-0">
               <span className="block text-xs text-muted-foreground">Continue reading</span>
               <span className="block font-semibold text-foreground truncate">

@@ -24,6 +24,11 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+      # vite build strips types without checking them, so an undefined name
+      # compiles happily and blanks the app at runtime. That shipped once.
+      # These two gates run before the build so it cannot happen again.
+      - run: npm run typecheck
+      - run: npm test
       - run: npm run build -- --base=/${{ github.event.repository.name }}/
       - uses: actions/upload-pages-artifact@v3
         with:
