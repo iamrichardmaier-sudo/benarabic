@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect, useRef } from 'react';
 import { BookOpen, Plus, Layers, List, GraduationCap, LogOut, RefreshCw, CloudOff } from 'lucide-react';
 import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
+import FocusReview from '@/components/FocusReview';
 import ReviewComplete from '@/components/ReviewComplete';
 import DeckList from '@/components/DeckList';
 import LearningMode from '@/components/LearningMode';
@@ -34,6 +35,7 @@ import { queueAfterGrade, cardsCovered } from '@/lib/review-queue';
 import { learnedRecently, RECENT_DAYS } from '@/lib/recent-words';
 import { DeckActionsContext, type NewWord } from '@/contexts/DeckActionsContext';
 import { useFlashcards } from '@/hooks/useFlashcards';
+import { useHasKeyboard } from '@/hooks/useHasKeyboard';
 import { useAuth } from '@/hooks/useAuth';
 import { searchImage, backfillMissingImages } from '@/lib/unsplash';
 import { tagCards, tagUntaggedDeck, repairVerbMasdarPairs } from '@/lib/auto-tag-deck';
@@ -83,6 +85,8 @@ const Index = () => {
    * the opposite of what asking for more practice means.
    */
   const [practising, setPractising] = useState(false);
+  /** Full-screen, keyboard-driven review — the phone widget's session. */
+  const [focusReview, setFocusReview] = useState(false);
   const [editingDeck, setEditingDeck] = useState<Deck | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -352,6 +356,28 @@ const Index = () => {
   const recentlyLearned = learnedRecently(cards);
   const learnCount = getLearnableCards(studyCards).length;
   const reviewDone = view === 'review' && currentIndex >= reviewItems.length;
+  const hasKeyboard = useHasKeyboard();
+  const reviewing = view === 'review' && !reviewDone && Boolean(reviewItems[currentIndex]);
+
+  // Enter opens the full-screen session, from the review screen only. The
+  // listener is hung here rather than inside FocusReview because the screen it
+  // opens does not exist yet when the key is pressed.
+  useEffect(() => {
+    if (!reviewing || focusReview) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key !== 'Enter') return;
+      e.preventDefault();
+      setFocusReview(true);
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [reviewing, focusReview]);
+
+  // A session that runs out closes the full screen with it, rather than
+  // leaving an empty card behind for the arrow keys to grade.
+  useEffect(() => {
+    if (!reviewing) setFocusReview(false);
+  }, [reviewing]);
 
   if (loading) {
     return (
@@ -520,7 +546,27 @@ const Index = () => {
               progress={{ current: currentIndex + 1, total: reviewItems.length }}
               deck={cards}
             />
+            {hasKeyboard && (
+              <button
+                onClick={() => setFocusReview(true)}
+                className="mx-auto block text-xs text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
+              >
+                Press Enter for full screen — review with the arrow keys
+              </button>
+            )}
           </div>
+        )}
+
+        {focusReview && reviewing && (
+          <FocusReview
+            card={reviewItems[currentIndex].card}
+            direction={reviewItems[currentIndex].direction}
+            onRate={handleRate}
+            progress={{ current: currentIndex + 1, total: reviewItems.length }}
+            deck={cards}
+            practising={practising}
+            onExit={() => setFocusReview(false)}
+          />
         )}
 
         {reviewDone && (
