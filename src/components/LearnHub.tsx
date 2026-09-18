@@ -1,7 +1,6 @@
-import {
-  GraduationCap, BookOpen, RefreshCw, List,
-  Sparkles, Link2, Brain, ChevronRight, Search, Hash, LibraryBig, type LucideIcon,
-} from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
+import WaznIcon from '@/components/icons/WaznIcon';
+import type { WaznIconName } from '@/lib/wazn-icons';
 
 export type LearnDestination =
   | 'learn' | 'review' | 'relearn' | 'deck' | 'lookup' | 'learnDecks'
@@ -19,7 +18,7 @@ interface Item {
   id: LearnDestination;
   label: string;
   hint: string;
-  icon: LucideIcon;
+  icon: WaznIconName;
   disabled?: boolean;
 }
 
@@ -34,42 +33,42 @@ const LearnHub = ({ dueCount, learnCount, deckSize, onSelect }: LearnHubProps) =
       title: 'Flashcards',
       items: [
         {
-          id: 'learn', label: 'Learn new words', icon: GraduationCap,
+          id: 'learn', label: 'Learn new words', icon: 'learn',
           hint: learnCount > 0 ? `${learnCount} waiting` : 'Nothing new right now',
           disabled: learnCount === 0,
         },
         {
-          id: 'review', label: 'Review', icon: BookOpen,
+          id: 'review', label: 'Review', icon: 'review',
           hint: dueCount > 0 ? `${dueCount} due` : 'All caught up',
           disabled: dueCount === 0,
         },
         {
-          id: 'learnDecks', label: 'Learn Decks', icon: LibraryBig,
+          id: 'learnDecks', label: 'Learn Decks', icon: 'decks',
           hint: 'Chapter decks, or build your own',
         },
         {
-          id: 'lookup', label: 'Look up a word', icon: Search,
+          id: 'lookup', label: 'Look up a word', icon: 'search',
           hint: 'Search the tagged Bible and add what you find',
         },
         {
-          id: 'relearn', label: 'Relearn cards', icon: RefreshCw,
+          id: 'relearn', label: 'Relearn cards', icon: 'relearn',
           hint: 'Reset cards you want to see again', disabled: deckSize === 0,
         },
-        { id: 'deck', label: 'My deck', icon: List, hint: `${deckSize} word${deckSize === 1 ? '' : 's'}` },
+        { id: 'deck', label: 'My deck', icon: 'scroll', hint: `${deckSize} word${deckSize === 1 ? '' : 's'}` },
       ],
     },
     {
       title: 'Grammar',
       items: [
-        { id: 'conjugationDrill', label: 'Drill conjugations', icon: Sparkles, hint: 'Past, present and masdar by form' },
-        { id: 'prepositionDrill', label: 'Drill prepositions', icon: Link2, hint: 'Verbs that take a fixed preposition' },
-        { id: 'numbersDrill', label: 'Drill numbers and plurals', icon: Hash, hint: 'Counting, and the gender the numeral takes' },
+        { id: 'conjugationDrill', label: 'Drill conjugations', icon: 'conjugation', hint: 'Past, present and masdar by form' },
+        { id: 'prepositionDrill', label: 'Drill prepositions', icon: 'preposition', hint: 'Verbs that take a fixed preposition' },
+        { id: 'numbersDrill', label: 'Drill numbers and plurals', icon: 'numbers', hint: 'Counting, and the gender the numeral takes' },
       ],
     },
     {
       title: 'Memorization',
       items: [
-        { id: 'memorize', label: 'Memorize a transcript', icon: Brain, hint: 'Hide words and recall the passage' },
+        { id: 'memorize', label: 'Memorize a transcript', icon: 'memorize', hint: 'Hide words and recall the passage' },
       ],
     },
   ];
@@ -96,7 +95,7 @@ const LearnHub = ({ dueCount, learnCount, deckSize, onSelect }: LearnHubProps) =
                   i > 0 ? 'border-t border-border' : ''
                 }`}
               >
-                <item.icon className="w-5 h-5 text-primary shrink-0" />
+                <WaznIcon name={item.icon} size={32} className="text-primary" />
                 <span className="min-w-0 flex-1">
                   <span className="block font-semibold text-foreground">{item.label}</span>
                   <span className="block text-xs text-muted-foreground truncate">{item.hint}</span>

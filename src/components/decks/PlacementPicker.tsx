@@ -1,10 +1,11 @@
-import { GraduationCap, BookOpen, Award } from 'lucide-react';
+import WaznIcon from '@/components/icons/WaznIcon';
+import type { WaznIconName } from '@/lib/wazn-icons';
 import { PLACEMENTS, type DeckPlacement } from '@/lib/deck-placement';
 
-const ICONS: Record<DeckPlacement, typeof BookOpen> = {
-  learn: GraduationCap,
-  review: BookOpen,
-  mastered: Award,
+const ICONS: Record<DeckPlacement, WaznIconName> = {
+  learn: 'learn',
+  review: 'review',
+  mastered: 'mastered',
 };
 
 interface PlacementPickerProps {
@@ -29,7 +30,7 @@ const PlacementPicker = ({ value, onChange }: PlacementPickerProps) => (
     </legend>
     <div className="overflow-hidden rounded-2xl border border-border bg-card divide-y divide-border/60">
       {PLACEMENTS.map((p) => {
-        const Icon = ICONS[p.id];
+        const icon = ICONS[p.id];
         const picked = p.id === value;
         return (
           <button
@@ -41,7 +42,11 @@ const PlacementPicker = ({ value, onChange }: PlacementPickerProps) => (
               picked ? 'bg-primary/10' : 'hover:bg-muted/40'
             }`}
           >
-            <Icon className={`h-5 w-5 shrink-0 ${picked ? 'text-primary' : 'text-muted-foreground'}`} />
+            <WaznIcon
+              name={icon}
+              size={34}
+              className={picked ? 'text-primary' : 'text-muted-foreground'}
+            />
             <span className="min-w-0 flex-1">
               <span className={`block text-sm font-semibold ${picked ? 'text-primary' : 'text-foreground'}`}>
                 {p.label}
