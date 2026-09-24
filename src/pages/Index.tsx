@@ -3,6 +3,8 @@ import { BookOpen, Plus, Layers, List, GraduationCap, LogOut, RefreshCw, CloudOf
 import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import FocusReview from '@/components/FocusReview';
+import PodcastPlayer from '@/components/podcasts/PodcastPlayer';
+import type { Podcast } from '@/lib/podcasts';
 import ReviewComplete from '@/components/ReviewComplete';
 import DeckList from '@/components/DeckList';
 import LearningMode from '@/components/LearningMode';
@@ -50,7 +52,7 @@ type View =
   | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
   | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize'
   | 'pdfToAudio'
-  | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords';
+  | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast';
 
 const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
@@ -87,6 +89,7 @@ const Index = () => {
   const [practising, setPractising] = useState(false);
   /** Full-screen, keyboard-driven review — the phone widget's session. */
   const [focusReview, setFocusReview] = useState(false);
+  const [podcast, setPodcast] = useState<Podcast | null>(null);
   const [editingDeck, setEditingDeck] = useState<Deck | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
@@ -473,6 +476,7 @@ const Index = () => {
             learnCount={learnCount}
             deckSize={cards.length}
             onSelect={openLearnDestination}
+            onOpenPodcast={(p) => { setPodcast(p); setView('podcast'); }}
           />
         )}
 
@@ -611,6 +615,10 @@ const Index = () => {
         )}
 
         {view === 'memorize' && <MemorizeTranscript onBack={() => setView('learnHub')} />}
+
+        {view === 'podcast' && podcast && (
+          <PodcastPlayer podcast={podcast} onBack={() => setView('learnHub')} />
+        )}
       </main>
 
       {showRelearnModal && (

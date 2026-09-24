@@ -2,6 +2,8 @@ import {
   GraduationCap, BookOpen, RefreshCw, List,
   Sparkles, Link2, Brain, ChevronRight, Search, Hash, LibraryBig, type LucideIcon,
 } from 'lucide-react';
+import PodcastShelf from '@/components/podcasts/PodcastShelf';
+import type { Podcast } from '@/lib/podcasts';
 
 export type LearnDestination =
   | 'learn' | 'review' | 'relearn' | 'deck' | 'lookup' | 'learnDecks'
@@ -13,6 +15,8 @@ interface LearnHubProps {
   learnCount: number;
   deckSize: number;
   onSelect: (destination: LearnDestination) => void;
+  /** Opens a podcast from the shelf at the foot of the screen. */
+  onOpenPodcast: (podcast: Podcast) => void;
 }
 
 interface Item {
@@ -28,7 +32,9 @@ interface Item {
  * first (the daily habit), then grammar drills, then memorization. Reading
  * lives in Library; this screen never opens a text for its own sake.
  */
-const LearnHub = ({ dueCount, learnCount, deckSize, onSelect }: LearnHubProps) => {
+const LearnHub = ({
+  dueCount, learnCount, deckSize, onSelect, onOpenPodcast,
+}: LearnHubProps) => {
   const sections: { title: string; items: Item[] }[] = [
     {
       title: 'Flashcards',
@@ -107,6 +113,8 @@ const LearnHub = ({ dueCount, learnCount, deckSize, onSelect }: LearnHubProps) =
           </div>
         </section>
       ))}
+
+      <PodcastShelf onOpen={onOpenPodcast} />
     </div>
   );
 };
