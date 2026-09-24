@@ -57,6 +57,21 @@ export async function fetchPodcasts(): Promise<Podcast[]> {
   return ((data ?? []) as unknown as Row[]).map(toPodcast);
 }
 
+/**
+ * One podcast by id, for opening the player directly — what a deep link from
+ * the Scriptable widget's browse list does, since a widget can only ever
+ * open a URL rather than run the app in place.
+ */
+export async function fetchPodcastById(id: string): Promise<Podcast | null> {
+  const { data, error } = await supabase
+    .from('podcasts')
+    .select(COLUMNS)
+    .eq('id', id)
+    .maybeSingle();
+  if (error) throw error;
+  return data ? toPodcast(data as unknown as Row) : null;
+}
+
 /** Which registers this podcast actually has audio for. */
 export function available(p: Podcast): Register[] {
   const out: Register[] = [];
