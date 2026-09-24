@@ -162,3 +162,72 @@ with it, and fails if the two copies disagree.
   rather than an error.
 - If your password changes, the stored credentials are cleared automatically on the next
   failed sign-in and it will ask again.
+
+---
+
+## `wazn-podcasts.js` — browse podcasts (iOS)
+
+A second, much smaller script in the same style: a widget that shows how many
+podcasts exist, and a tap that opens a native list of all of them.
+
+| Where | What it does |
+|---|---|
+| **Home-screen widget** | Shows the podcast count and the newest title. Tapping it opens the browse list. |
+| **Run in Scriptable** | A native list (`UITable`), one row per podcast, its cover mark drawn on the fly, its total runtime shown. Tapping a row asks Shaami, Fuṣḥā, or both back to back, then opens that choice in Safari. |
+
+### Why this doesn't play audio itself
+
+Keeping a podcast going with the phone locked needs a page that registers with
+the Media Session API and an `<audio>` element that is never torn down —
+exactly what the web app's player already does, and what this session
+verified works. Rebuilding that inside Scriptable would be a second, untested
+copy of the one part of this app where "mostly works" is a real regression
+from silence: a session that goes quiet the moment the phone locks is worse
+than one that never claimed to keep playing.
+
+So browsing and choosing stay native and fast — a `UITable`, no network wait
+beyond the one list fetch — and the actual minute of listening is one tap into
+`SITE_URL + "?podcast=<id>&register=<shaami|fusha|both>"`, which the web app
+reads on load (see the deep-link effect near the top of `src/pages/Index.tsx`)
+and opens straight to that podcast's player, register already chosen.
+
+### Setup
+
+1. Scriptable → **+** → paste the contents of `wazn-podcasts.js`.
+2. Name it **Wazn Podcasts**.
+3. Run it once. **If you already use `wazn-review.js` on this device, you're
+   already signed in** — both scripts read the same Keychain entry
+   (`wazn.email` / `wazn.password`), on purpose. If not, it asks once, the
+   same way `wazn-review.js` does.
+4. Long-press the home screen → **+** → **Scriptable** → pick a size.
+5. Long-press the placed widget → **Edit Widget**:
+   - **Script** → *Wazn Podcasts*
+   - **When Interacting** → **Run Script**
+
+### The cover mark
+
+Drawn at runtime rather than loaded as an image: the same mihrab-and-arcs
+geometry as the app's `mihrab` icon (`src/components/icons/WaznIcon.tsx`),
+flattened once from curves into straight-line points (Scriptable's `Path` has
+no arc primitive) and redrawn fresh at whatever size is asked for, so the
+widget's small mark and the browse list's larger one are one drawing, not two
+assets that could drift apart.
+
+### If the table ever looks wrong
+
+This script was written and logic-tested outside Scriptable — its control
+flow, its deep-link URLs, and every `Color`/`Path`/`UITable` call were run
+against a stand-in of Scriptable's API that checks argument types the same
+way the real one would — but none of that is the same as running on a phone.
+If a screen looks off, the file's structure mirrors `wazn-review.js` closely
+enough that the same places are worth checking first: `buildWidget()` for the
+widget, `runBrowsePodcasts()` for the list.
+
+### Notes
+
+- Same `SUPABASE_URL` / `SUPABASE_ANON_KEY` / row-level security model as
+  `wazn-review.js` — see that script's notes above.
+- The widget caches the last known count, same reasoning as the review
+  widget's cache: something sensible offline beats an error.
+- A podcast with neither file uploaded yet still shows up in the list, tapping
+  it says so rather than opening a broken player.

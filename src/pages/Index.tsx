@@ -4,7 +4,7 @@ import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import FocusReview from '@/components/FocusReview';
 import PodcastPlayer from '@/components/podcasts/PodcastPlayer';
-import type { Podcast } from '@/lib/podcasts';
+import { fetchPodcastById, type Podcast, type Register } from '@/lib/podcasts';
 import ReviewComplete from '@/components/ReviewComplete';
 import DeckList from '@/components/DeckList';
 import LearningMode from '@/components/LearningMode';
@@ -101,7 +101,43 @@ const Index = () => {
   const { toast } = useToast();
   const { admin: isDeckAdmin } = useDeckLibrary();
   const backfillRan = useRef(false);
+  const podcastLinkRan = useRef(false);
+  const [podcastRegister, setPodcastRegister] = useState<Register | null>(null);
   const [activeGroup, setActiveGroup] = useState<string | null>(readActiveGroup);
+
+  // A Scriptable widget cannot run the app in place -- tapping a podcast in
+  // its browse list is a URL open, same as every other deep link this app
+  // gets. ?podcast=<id> lands straight on that podcast's player rather than
+  // the browse-and-tap-around a fresh launch would otherwise need, and
+  // &register= skips the picker too when the widget already asked.
+  useEffect(() => {
+    if (!user || podcastLinkRan.current) return;
+    const params = new URLSearchParams(window.location.search);
+    const podcastId = params.get('podcast');
+    if (!podcastId) return;
+    podcastLinkRan.current = true;
+
+    const register = params.get('register');
+    const validRegister: Register | null =
+      register === 'shaami' || register === 'fusha' || register === 'both' ? register : null;
+
+    // The link has done its job once read; stripped so a refresh reopens
+    // wherever the learner actually is rather than snapping back here.
+    const url = new URL(window.location.href);
+    url.searchParams.delete('podcast');
+    url.searchParams.delete('register');
+    window.history.replaceState({}, '', url.toString());
+
+    fetchPodcastById(podcastId)
+      .then((found) => {
+        if (!found) return;
+        setPodcast(found);
+        setPodcastRegister(validRegister);
+        setTab('learn');
+        setView('podcast');
+      })
+      .catch((err) => console.error('Could not open the linked podcast:', err));
+  }, [user]);
 
   // Catch-up work that needs a connection: tag cards that predate auto-tagging
   // or were added offline, and fetch the pictures those cards went without.
@@ -476,7 +512,7 @@ const Index = () => {
             learnCount={learnCount}
             deckSize={cards.length}
             onSelect={openLearnDestination}
-            onOpenPodcast={(p) => { setPodcast(p); setView('podcast'); }}
+            onOpenPodcast={(p) => { setPodcast(p); setPodcastRegister(null); setView('podcast'); }}
           />
         )}
 
@@ -617,7 +653,11 @@ const Index = () => {
         {view === 'memorize' && <MemorizeTranscript onBack={() => setView('learnHub')} />}
 
         {view === 'podcast' && podcast && (
-          <PodcastPlayer podcast={podcast} onBack={() => setView('learnHub')} />
+          <PodcastPlayer
+            podcast={podcast}
+            initialRegister={podcastRegister}
+            onBack={() => { setPodcastRegister(null); setView('learnHub'); }}
+          />
         )}
       </main>
 

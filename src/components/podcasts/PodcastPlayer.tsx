@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Play, Pause, RotateCcw, RotateCw, Loader2, X } from 'lucide-react';
 import BackButton from '@/components/BackButton';
 import DeckIcon from '@/components/decks/DeckIcon';
@@ -15,7 +15,19 @@ import {
  * the same lesson twice over, Levantine and Fusha, and picking "both" plays
  * one straight into the other.
  */
-const PodcastPlayer = ({ podcast, onBack }: { podcast: Podcast; onBack: () => void }) => {
+interface PodcastPlayerProps {
+  podcast: Podcast;
+  onBack: () => void;
+  /**
+   * Skips the register picker and starts straight away — what a Scriptable
+   * widget link with &register= on it asks for. A tap from the browse list
+   * with no register still lands on the picker, same as opening from the
+   * shelf.
+   */
+  initialRegister?: Register | null;
+}
+
+const PodcastPlayer = ({ podcast, onBack, initialRegister = null }: PodcastPlayerProps) => {
   const [register, setRegister] = useState<Register | null>(null);
   const { state, tracks, start, toggle, seek, skip, jumpTo, stop } =
     usePodcastPlayer(podcast.title);
@@ -25,6 +37,17 @@ const PodcastPlayer = ({ podcast, onBack }: { podcast: Podcast; onBack: () => vo
     setRegister(r);
     start(tracksFor(podcast, r));
   };
+
+  // Runs once, on arrival, so re-rendering after a grade or a tick of the
+  // clock never restarts the episode out from under the listener.
+  const autoStarted = useRef(false);
+  useEffect(() => {
+    if (autoStarted.current || !initialRegister) return;
+    if (!choices.includes(initialRegister)) return;
+    autoStarted.current = true;
+    begin(initialRegister);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialRegister, choices]);
 
   const total = state.duration || 0;
   const done = state.position;
