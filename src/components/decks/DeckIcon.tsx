@@ -28,19 +28,31 @@ const SIZES = {
 
 interface DeckIconProps {
   icon: string;
+  /**
+   * A drawn mark of this deck's own, as a path under the app's base. It is an
+   * alpha mask rather than a picture, so it is painted with `currentColor`
+   * like the built-in marks and works on a filled card and in dark mode.
+   */
+  iconUrl?: string | null;
   /** Marks the foundational deck, which is filled rather than outlined. */
   foundation?: boolean;
   size?: keyof typeof SIZES;
   className?: string;
 }
 
-const DeckIcon = ({ icon, foundation = false, size = 'md', className = '' }: DeckIconProps) => {
+const DeckIcon = ({
+  icon, iconUrl, foundation = false, size = 'md', className = '',
+}: DeckIconProps) => {
   // A deck stores its icon as free text, so an unknown value gets the default
   // rather than an empty tile.
   const known = (DECK_ICON_KEYS as readonly string[]).includes(icon)
     ? (icon as DeckIconKey)
     : 'book';
   const { box, glyph } = SIZES[size];
+
+  // A relative path, resolved against the app's base — the site is served
+  // from a subpath on GitHub Pages, where a leading slash would miss.
+  const mask = iconUrl ? `${import.meta.env.BASE_URL}${iconUrl.replace(/^\//, '')}` : null;
 
   return (
     <span
@@ -51,7 +63,25 @@ const DeckIcon = ({ icon, foundation = false, size = 'md', className = '' }: Dec
           : 'border-border bg-muted/40 text-primary'
       } ${className}`}
     >
-      <WaznIcon name={asIcon(known)} size={glyph} />
+      {mask ? (
+        <span
+          style={{
+            width: glyph,
+            height: glyph,
+            backgroundColor: 'currentColor',
+            WebkitMaskImage: `url(${mask})`,
+            maskImage: `url(${mask})`,
+            WebkitMaskRepeat: 'no-repeat',
+            maskRepeat: 'no-repeat',
+            WebkitMaskPosition: 'center',
+            maskPosition: 'center',
+            WebkitMaskSize: 'contain',
+            maskSize: 'contain',
+          }}
+        />
+      ) : (
+        <WaznIcon name={asIcon(known)} size={glyph} />
+      )}
     </span>
   );
 };

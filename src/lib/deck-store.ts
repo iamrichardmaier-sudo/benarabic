@@ -24,6 +24,17 @@ export interface Deck {
   status: 'draft' | 'published';
   publishRequested: boolean;
   createdAt: string;
+  /**
+   * The shelf this deck is browsed under, or null for the main grid. A
+   * category keeps a themed set out of the way of the chapter decks without
+   * hiding it — see the shelves under the grid in LearnDecks.
+   */
+  category: string | null;
+  /**
+   * A drawn mark of its own, as an alpha-mask image painted with the theme
+   * colour, for a deck whose subject none of the built-in marks covers.
+   */
+  iconUrl: string | null;
   /** How many words it holds, when the caller asked for counts. */
   wordCount?: number;
 }
@@ -65,6 +76,8 @@ interface DeckRow {
   status: string;
   publish_requested: boolean;
   created_at: string;
+  category: string | null;
+  icon_url: string | null;
 }
 
 interface WordRow {
@@ -89,7 +102,7 @@ interface WordRow {
 }
 
 const DECK_COLUMNS =
-  'id,title,icon,book_part_prefix,chapter_range,is_public,is_admin_deck,created_by,status,publish_requested,created_at';
+  'id,title,icon,book_part_prefix,chapter_range,is_public,is_admin_deck,created_by,status,publish_requested,created_at,category,icon_url';
 
 const WORD_COLUMNS =
   'id,key,word,word_voweled,english,root,word_type,verb_form,past_tense,present_tense,masdar_form,gender,fusha_plural,shaami,shaami_plural,companion_forms,example_sentence,example_sentence_en';
@@ -107,6 +120,8 @@ function toDeck(row: DeckRow): Deck {
     status: row.status === 'published' ? 'published' : 'draft',
     publishRequested: row.publish_requested,
     createdAt: row.created_at,
+    category: row.category,
+    iconUrl: row.icon_url,
   };
 }
 

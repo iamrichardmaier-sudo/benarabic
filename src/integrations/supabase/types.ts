@@ -113,10 +113,12 @@ export type Database = {
       decks: {
         Row: {
           book_part_prefix: string | null
+          category: string | null
           chapter_range: string | null
           created_at: string
           created_by: string | null
           icon: string
+          icon_url: string | null
           id: string
           is_admin_deck: boolean
           is_public: boolean
@@ -126,10 +128,12 @@ export type Database = {
         }
         Insert: {
           book_part_prefix?: string | null
+          category?: string | null
           chapter_range?: string | null
           created_at?: string
           created_by?: string | null
           icon?: string
+          icon_url?: string | null
           id?: string
           is_admin_deck?: boolean
           is_public?: boolean
@@ -139,10 +143,12 @@ export type Database = {
         }
         Update: {
           book_part_prefix?: string | null
+          category?: string | null
           chapter_range?: string | null
           created_at?: string
           created_by?: string | null
           icon?: string
+          icon_url?: string | null
           id?: string
           is_admin_deck?: boolean
           is_public?: boolean
