@@ -1,7 +1,8 @@
 # Wazn Audio — Al-Kitaab II, Chapter 1
 
 Pimsleur-style call-and-response for the 52 words of the **II Chapter 1** deck.
-One hour: 30 minutes Shaami, then 30 minutes Fuṣḥā.
+Shaami first, then Fuṣḥā. Intermediate: you are expected to build clauses, not
+just name things.
 
 ## How to read this file
 
@@ -11,949 +12,863 @@ One hour: 30 minutes Shaami, then 30 minutes Fuṣḥā.
 | `[SH]` | Arabic, Levantine (Shaami) |
 | `[FU]` | Arabic, Fuṣḥā |
 | `[PAUSE n]` | n seconds of silence — **your turn to speak** |
-| `[[FUSHA START]]` | the marker the app's skip button jumps to |
+| `[[FUSHA START]]` | the marker the app's skip control jumps to |
 
-**Pauses are not spoken.** ElevenLabs caps a `<break>` at 3 seconds, which is
-shorter than a Pimsleur answer gap, so the silences are cut in afterwards
-rather than generated. Feed it only the `[EN]` / `[SH]` / `[FU]` lines.
+**Pauses are not spoken.** ElevenLabs caps a `<break>` at 3 seconds, shorter
+than an answer gap needs, so silence is cut in when the episode is assembled.
+Feed it only the `[EN]` / `[SH]` / `[FU]` lines, one generation per line.
 
-Every line is one generation unit. Keep them separate — that is what lets the
-app rebuild the episode with real gaps, and lets you re-record one line
-without redoing the hour.
+## Words added beyond the deck
+
+Needed to make the Arabic sound like speech rather than a word list. All are
+common and worth having.
+
+**Shaami:** هَلَّق · لِسّا · بَدّي · لازِم · مُمكِن · يَعني · بِصَراحة · طَيِّب ·
+مَعليش · إن شاء الله · عَ فِكرة · صار لي · اللي · هيك · لَهيك · كَتير · أَرخَص ·
+أَحسَن · الجيران · صاحِب البيت · مَفروشة
+
+**Fuṣḥā:** في الواقِع · بِصَراحة · عَلى فِكرة · ما زالَ · لا بُدَّ أَن · رُبَّما ·
+أَفضَل · أَرخَص · الجيران · صاحِبُ البَيت · مَفروشة · الَّذي/الَّتي · لِذٰلِك
 
 ---
 
-# PART ONE — SHAAMI (0:00–30:00)
+# PART ONE — SHAAMI
 
-### Cycle 1 — A new apartment
+### Scene 1 — Seeing the place
 
-[EN] Listen to this conversation. You will not understand it yet.
-[SH] مَرحَبا. شو هاد المَكان؟
-[SH] هَيْ شَقّة جْديدة. إِجَرها بَسيط.
-[SH] طَيِّب، بَدّي شوفها.
+[EN] A landlord is showing an apartment. Listen. You are not meant to catch all of it.
+[SH] تْفَضَّل. هَيْ الشَّقّة اللي حَكيتَك عَنها.
+[SH] حِلْوة. بَسّ صار لها كَتير فاضية، مِش هيك؟
+[SH] آه، شَهرين. صاحِب البيت بَدّو يْأَجِّرها بِسِرعة، لَهيك الإيجار أَرخَص.
 [PAUSE 1]
-[EN] Now let's take it apart. Listen and repeat: place.
-[SH] مَكان
+[EN] Let's build that. First: now.
+[SH] هَلَّق
+[PAUSE 2]
+[EN] The one that — the relative word you will need all hour.
+[SH] اللي
 [PAUSE 3]
-[SH] مَكان
-[PAUSE 3]
-[EN] The place.
-[SH] المَكان
-[PAUSE 3]
-[EN] Apartment.
-[SH] شَقّة
-[PAUSE 3]
-[SH] شَقّة
-[PAUSE 3]
-[EN] New — for a feminine word.
-[SH] جْديدة
-[PAUSE 3]
-[EN] A new apartment.
-[PAUSE 4]
-[SH] شَقّة جْديدة
-[PAUSE 3]
-[EN] Rent — the money you pay every month.
-[SH] إيجار
-[PAUSE 3]
-[SH] إيجار
-[PAUSE 3]
-[EN] Its rent.
-[SH] إِجَرها
-[PAUSE 3]
-[EN] Simple. Also: modest, uncomplicated.
-[SH] بَسيط
-[PAUSE 3]
-[EN] Say: the rent is simple.
-[PAUSE 4]
-[SH] الإيجار بَسيط
-[PAUSE 3]
-[EN] Now say: this is a new apartment, and its rent is simple.
+[EN] The apartment that I told you about.
 [PAUSE 5]
-[SH] هَيْ شَقّة جْديدة، وإِجَرها بَسيط
+[SH] الشَّقّة اللي حَكيتَك عَنها
+[PAUSE 3]
+[EN] Empty, unoccupied — the word your deck gives as "free".
+[SH] فاضية
+[PAUSE 3]
+[EN] It's been empty two months. Literally: it became for it two months empty.
+[PAUSE 6]
+[SH] صار لها شَهرين فاضية
+[PAUSE 3]
+[EN] The owner. The landlord.
+[SH] صاحِب البيت
+[PAUSE 3]
+[EN] He wants to rent it out quickly.
+[PAUSE 5]
+[SH] بَدّو يْأَجِّرها بِسِرعة
+[PAUSE 3]
+[EN] Cheaper.
+[SH] أَرخَص
+[PAUSE 2]
+[EN] So — therefore.
+[SH] لَهيك
+[PAUSE 2]
+[EN] Now say the whole reason: so the rent is cheaper.
+[PAUSE 5]
+[SH] لَهيك الإيجار أَرخَص
+[PAUSE 3]
+[EN] Say it as one thought: it's been empty two months, so the rent is cheaper.
+[PAUSE 8]
+[SH] صار لها شَهرين فاضية، لَهيك الإيجار أَرخَص
+[PAUSE 3]
+[EN] Simple — modest, nothing fancy.
+[SH] بَسيط
+[PAUSE 2]
+[EN] Frankly, the rent is simple, and that's what I wanted.
+[PAUSE 7]
+[SH] بِصَراحة، الإيجار بَسيط، وهاد اللي كُنت بَدّي ياه
 [PAUSE 3]
 
-### Cycle 2 — Which floor?
+### Scene 2 — What's in it
 
-[EN] Floor — as in, which storey of the building.
-[SH] طابِق
+[EN] Ask him what the apartment consists of.
+[PAUSE 5]
+[SH] مِن شو بْتِتكَوَّن الشَّقّة؟
 [PAUSE 3]
-[SH] طابِق
+[SH] بْتِتكَوَّن مِن مَطبَخ وحَمّام وسُفرة وغُرفِة نَوم.
+[PAUSE 1]
+[EN] Say those back. Kitchen.
 [PAUSE 3]
-[EN] Ask: which floor?
+[SH] مَطبَخ
+[PAUSE 2]
+[EN] Bathroom.
+[PAUSE 3]
+[SH] حَمّام
+[PAUSE 2]
+[EN] The dining room.
+[PAUSE 3]
+[SH] السُّفرة
+[PAUSE 2]
+[EN] Furnished.
+[SH] مَفروشة
+[PAUSE 3]
+[EN] Ask: is it furnished, or empty?
+[PAUSE 6]
+[SH] هِيّي مَفروشة وَلّا فاضية؟
+[PAUSE 3]
+[EN] That "or" in a question — in Fuṣḥā you will hear أَمْ.
+[SH] وَلّا
+[PAUSE 2]
+[EN] Which floor?
 [PAUSE 4]
 [SH] أَيّ طابِق؟
 [PAUSE 3]
-[EN] Above. Upstairs.
-[SH] فَوْق
-[PAUSE 3]
-[EN] Below. Downstairs.
-[SH] تَحْت
-[PAUSE 3]
-[EN] Say: the apartment is upstairs.
-[PAUSE 4]
-[SH] الشَّقّة فَوْق
-[PAUSE 3]
-[EN] Behind.
-[SH] وَرا
-[PAUSE 3]
-[EN] Next to. Beside.
-[SH] بِجانِب
-[PAUSE 3]
-[SH] بِجانِب
-[PAUSE 3]
-[EN] Garden. Also a yard.
-[SH] حَديقة
-[PAUSE 3]
-[EN] Say: the garden is behind the building.
-[PAUSE 5]
-[SH] الحَديقة وَرا البِناية
-[PAUSE 3]
-[EN] Now: my apartment is next to the garden.
-[PAUSE 5]
-[SH] شَقّتي بِجانِب الحَديقة
-[PAUSE 3]
-[EN] A public park.
-[SH] حَديقة عامّة
-[PAUSE 3]
-[EN] Say: there is a public park below.
-[PAUSE 5]
-[SH] في حَديقة عامّة تَحْت
-[PAUSE 3]
-
-### Cycle 3 — The rooms
-
-[EN] Kitchen.
-[SH] مَطبَخ
-[PAUSE 3]
-[SH] مَطبَخ
-[PAUSE 3]
-[EN] Bathroom.
-[SH] حَمّام
-[PAUSE 3]
-[EN] The dining room.
-[SH] السُّفرة
-[PAUSE 3]
-[EN] Swimming pool.
-[SH] مَسبَح
-[PAUSE 3]
-[SH] مَسبَح
-[PAUSE 3]
-[EN] Now: there is. There exists.
-[SH] في
-[PAUSE 3]
-[EN] Say: there's a kitchen and a bathroom.
-[PAUSE 5]
-[SH] في مَطبَخ وحَمّام
-[PAUSE 3]
-[EN] Ask: is there a pool?
-[PAUSE 4]
-[SH] في مَسبَح؟
-[PAUSE 3]
-[EN] Answer: no, there's no pool.
-[PAUSE 5]
-[SH] لَأ، ما في مَسبَح
-[PAUSE 3]
-[EN] Say: the dining room is next to the kitchen.
-[PAUSE 5]
-[SH] السُّفرة بِجانِب المَطبَخ
-[PAUSE 3]
-[EN] To consist of — to be made up of.
-[SH] بْتِتكَوَّن مِن
-[PAUSE 3]
-[EN] Say: the apartment consists of three rooms.
-[PAUSE 5]
-[SH] الشَّقّة بْتِتكَوَّن مِن تْلات أوَض
-[PAUSE 3]
-
-### Cycle 4 — Moving in
-
-[EN] To move — to relocate somewhere.
-[SH] انتَقَل
-[PAUSE 3]
-[EN] We moved.
-[SH] انتَقَلنا
-[PAUSE 3]
-[EN] Last year.
-[SH] السَّنة الماضية
-[PAUSE 3]
-[SH] السَّنة الماضية
-[PAUSE 3]
-[EN] Say: we moved last year.
-[PAUSE 5]
-[SH] انتَقَلنا السَّنة الماضية
-[PAUSE 3]
-[EN] To rent.
-[SH] استَأجَر
-[PAUSE 3]
-[EN] We rented.
-[SH] استَأجَرنا
-[PAUSE 3]
-[EN] Say: we rented a new apartment last year.
+[SH] التّالِت. فَوْق، بَسّ في مَصعَد.
+[PAUSE 1]
+[EN] Say: the third — upstairs, but there's a lift.
 [PAUSE 6]
-[SH] استَأجَرنا شَقّة جْديدة السَّنة الماضية
+[SH] التّالِت. فَوْق، بَسّ في مَصعَد
 [PAUSE 3]
-[EN] Previously. Before now.
-[SH] مِن قَبِل
+[EN] Now place it. There's a garden behind the building.
+[PAUSE 6]
+[SH] في حَديقة وَرا البِناية
 [PAUSE 3]
-[EN] Ask: have you lived here before?
+[EN] And a public park next to the church.
+[PAUSE 6]
+[SH] وحَديقة عامّة بِجانِب الكَنيسة
+[PAUSE 3]
+[EN] Ask whether there's a pool downstairs.
+[PAUSE 6]
+[SH] في مَسبَح تَحْت؟
+[PAUSE 3]
+[SH] لَأ، ما في مَسبَح. مَعليش.
+[PAUSE 1]
+[EN] Never mind. Don't worry about it.
+[SH] مَعليش
+[PAUSE 2]
+
+### Scene 3 — Telling a friend
+
+[EN] Your friend calls. He asks what happened.
+[SH] شو صار؟ لَقَيت شي؟
+[PAUSE 4]
+[EN] Tell him: I rented an apartment.
 [PAUSE 5]
-[SH] سَكَنت هون مِن قَبِل؟
+[SH] استَأجَرت شَقّة
 [PAUSE 3]
-[EN] To leave something, or someone, behind.
+[EN] We moved last year — but this time say: we're moving next month.
+[PAUSE 6]
+[SH] رَح نِنتِقِل الشَّهر الجاي
+[PAUSE 3]
+[EN] Still. Not yet.
+[SH] لِسّا
+[PAUSE 2]
+[EN] Say: we haven't moved yet.
+[PAUSE 5]
+[SH] لِسّا ما انتَقَلنا
+[PAUSE 3]
+[EN] To leave something behind.
 [SH] تَرَك
+[PAUSE 2]
+[EN] Say: we're leaving the old apartment because there was no privacy in it.
+[PAUSE 9]
+[SH] رَح نِترُك الشَّقّة القَديمة لأَنّو ما كان فيها خُصوصِيّة
 [PAUSE 3]
-[EN] I left.
-[SH] تَرَكت
-[PAUSE 3]
-[EN] Say: I left the old apartment.
-[PAUSE 5]
-[SH] تَرَكت الشَّقّة القَديمة
-[PAUSE 3]
-[EN] The beginning.
-[SH] بِداية
-[PAUSE 3]
-[EN] Say: this is a new beginning.
-[PAUSE 5]
-[SH] هَيْ بِداية جْديدة
-[PAUSE 3]
-
-### Cycle 5 — Having people over
-
-[EN] To cook.
-[SH] طَبَخ
-[PAUSE 3]
-[EN] She cooks.
-[SH] بْتِطبُخ
-[PAUSE 3]
-[EN] Say: my mother cooks in the kitchen.
-[PAUSE 5]
-[SH] إِمّي بْتِطبُخ بالمَطبَخ
-[PAUSE 3]
-[EN] To prepare, to get something ready.
-[SH] حَضَّر
-[PAUSE 3]
-[EN] In Fuṣḥā this is أَعَدَّ. Listen again.
-[SH] حَضَّرنا
-[PAUSE 3]
-[EN] Say: we prepared the dining room.
-[PAUSE 5]
-[SH] حَضَّرنا السُّفرة
-[PAUSE 3]
-[EN] To receive someone. To welcome them.
-[SH] استَقبَل
-[PAUSE 3]
-[EN] We welcome.
-[SH] مْنِستَقبِل
-[PAUSE 3]
-[EN] Say: we welcome the folks on Friday.
+[EN] Privacy.
+[SH] خُصوصِيّة
+[PAUSE 2]
+[EN] Had you lived there long? Answer: three years, roughly.
 [PAUSE 6]
-[SH] مْنِستَقبِل الأَهل يَوم الجُمعة
+[SH] صار لي تْلات سْنين هُناك تَقريباً
 [PAUSE 3]
-[EN] The folks — your family, your people.
-[SH] الأَهل
-[PAUSE 3]
-[EN] Free — not busy. Unoccupied.
-[SH] فاضي
-[PAUSE 3]
-[SH] فاضي
-[PAUSE 3]
-[EN] Ask: are you free tomorrow?
-[PAUSE 5]
-[SH] إِنتَ فاضي بُكرا؟
-[PAUSE 3]
-[EN] Say: no, I'm not free. I'm cooking.
+[EN] Have you lived in this neighbourhood before?
 [PAUSE 6]
-[SH] لَأ، ما أَنا فاضي. عَم بِطبُخ
+[SH] سَكَنت بْهَالحارة مِن قَبِل؟
 [PAUSE 3]
-
-### Cycle 6 — Recall
-
-[EN] Without listening again — how do you say "the rent"?
-[PAUSE 4]
-[SH] الإيجار
-[PAUSE 2]
-[EN] Next to.
-[PAUSE 4]
-[SH] بِجانِب
-[PAUSE 2]
-[EN] We moved.
-[PAUSE 4]
-[SH] انتَقَلنا
-[PAUSE 2]
-[EN] The dining room.
-[PAUSE 4]
-[SH] السُّفرة
-[PAUSE 2]
-[EN] To welcome someone.
-[PAUSE 4]
-[SH] استَقبَل
-[PAUSE 2]
-[EN] Say the whole thing: we rented a new apartment, and its rent is simple.
+[EN] Say: no, never — this is a new beginning.
 [PAUSE 7]
-[SH] استَأجَرنا شَقّة جْديدة، وإِجَرها بَسيط
+[SH] لَأ، أَبَداً. هَيْ بِداية جْديدة
 [PAUSE 3]
 
-### Cycle 7 — Family news
+### Scene 4 — The neighbours, and the mother-in-law
 
-[EN] Fiancé.
-[SH] خَطيب
-[PAUSE 3]
-[EN] Engaged — said of a woman.
-[SH] مَخطوبة
-[PAUSE 3]
-[SH] مَخطوبة
-[PAUSE 3]
-[EN] Say: my sister is engaged.
+[EN] The neighbours.
+[SH] الجيران
+[PAUSE 2]
+[EN] Ask: what are the neighbours like?
 [PAUSE 5]
-[SH] أُختي مَخطوبة
+[SH] كيف الجيران؟
 [PAUSE 3]
-[EN] Ask: who is her fiancé?
-[PAUSE 5]
-[SH] مين خَطيبها؟
-[PAUSE 3]
-[EN] Mother-in-law.
-[SH] حَماة
-[PAUSE 3]
+[SH] هادْيين، الحَمدُ لله. بَسّ حَماتي ساكْنة بالطّابِق اللي فَوْقنا.
+[PAUSE 1]
+[EN] Quiet — plural, about people.
+[SH] هادْيين
+[PAUSE 2]
 [EN] My mother-in-law.
 [SH] حَماتي
 [PAUSE 3]
-[EN] Say: my mother-in-law lives on the floor above.
+[EN] Say: my mother-in-law lives on the floor above us.
+[PAUSE 7]
+[SH] حَماتي ساكْنة بالطّابِق اللي فَوْقنا
+[PAUSE 3]
+[EN] React the way a friend would. Say: seriously?
+[PAUSE 4]
+[SH] والله؟
+[PAUSE 2]
+[SH] آه. يَعني، إِلها مَحاسِن وإِلها مَساوِئ.
+[PAUSE 1]
+[EN] I mean — the filler you will hear constantly.
+[SH] يَعني
+[PAUSE 2]
+[EN] It has its good sides and its bad sides. There is your word for "side".
+[SH] جانِب
+[PAUSE 2]
+[EN] Say: every situation has two sides.
 [PAUSE 6]
-[SH] حَماتي ساكْنة بالطّابِق اللي فَوْق
+[SH] كُلّ شي إِلو جانِبين
+[PAUSE 3]
+[EN] Fiancé.
+[SH] خَطيب
+[PAUSE 2]
+[EN] Engaged, of a woman.
+[SH] مَخطوبة
+[PAUSE 2]
+[EN] Say: my sister got engaged last year, and her fiancé is from Amman.
+[PAUSE 9]
+[SH] أُختي انخَطَبِت السَّنة الماضية، وخَطيبها مِن عَمّان
 [PAUSE 3]
 [EN] A generation.
 [SH] جيل
-[PAUSE 3]
-[EN] Say: this is a new generation.
-[PAUSE 5]
-[SH] هاد جيل جْديد
-[PAUSE 3]
-[EN] To mention, or to recall.
-[SH] ذَكَر
-[PAUSE 3]
-[EN] You mentioned.
-[SH] ذَكَرت
-[PAUSE 3]
-[EN] Say: you mentioned the wedding last year.
+[PAUSE 2]
+[EN] Say: our generation thinks differently.
 [PAUSE 6]
-[SH] ذَكَرت العُرس السَّنة الماضية
+[SH] جيلنا بيْفَكِّر بْشَكِل تاني
 [PAUSE 3]
 
-### Cycle 8 — When it goes wrong
+### Scene 5 — Something went wrong
 
-[EN] A disagreement. A dispute.
+[EN] Listen.
+[SH] سَمِعت شو صار بَينهُن؟
+[SH] لَأ، شو؟
+[SH] صار خِلاف كْبير. بَسّ إن شاء الله ما بيوصَل لَلطَّلاق.
+[PAUSE 1]
+[EN] A disagreement.
 [SH] خِلاف
-[PAUSE 3]
-[SH] خِلاف
-[PAUSE 3]
-[EN] Say: there's a disagreement between them.
-[PAUSE 5]
-[SH] في خِلاف بَيناتهُن
+[PAUSE 2]
+[EN] Say: a big disagreement happened between them.
+[PAUSE 6]
+[SH] صار خِلاف كْبير بَيناتهُن
 [PAUSE 3]
 [EN] Divorce.
 [SH] الطَّلاق
-[PAUSE 3]
-[EN] To happen, to occur.
-[SH] صار
-[PAUSE 3]
-[EN] In Fuṣḥā, حَدَثَ. Say: what happened?
-[PAUSE 4]
-[SH] شو صار؟
+[PAUSE 2]
+[EN] God willing.
+[SH] إن شاء الله
+[PAUSE 2]
+[EN] Say: God willing it won't reach divorce.
+[PAUSE 7]
+[SH] إن شاء الله ما بيوصَل لَلطَّلاق
 [PAUSE 3]
 [EN] A solution.
 [SH] حَلّ
-[PAUSE 3]
-[EN] Ask: is there a solution?
-[PAUSE 4]
-[SH] في حَلّ؟
-[PAUSE 3]
-[EN] The end. The ending.
-[SH] نِهاية
-[PAUSE 3]
-[EN] Say: in the end, there's always a solution.
-[PAUSE 6]
-[SH] بالنِّهاية، دايماً في حَلّ
-[PAUSE 3]
-[EN] To hope, or to wish, for someone.
-[SH] تْمَنّى
-[PAUSE 3]
-[EN] I hope.
-[SH] بْتَمَنّى
-[PAUSE 3]
-[EN] Say: I hope you find a solution.
-[PAUSE 6]
-[SH] بْتَمَنّى تْلاقوا حَلّ
-[PAUSE 3]
-
-### Cycle 9 — Space of your own
-
-[EN] Privacy.
-[SH] خُصوصِيّة
-[PAUSE 3]
-[SH] خُصوصِيّة
-[PAUSE 3]
-[EN] Say: I want a little privacy.
+[PAUSE 2]
+[EN] Ask: isn't there a solution?
 [PAUSE 5]
-[SH] بَدّي شْوَيّ خُصوصِيّة
+[SH] ما في حَلّ؟
 [PAUSE 3]
+[EN] To hope. To wish for someone.
+[SH] تْمَنّى
+[PAUSE 2]
+[EN] Say: I hope they find a solution before the end of the year.
+[PAUSE 9]
+[SH] بْتَمَنّى يْلاقوا حَلّ قَبِل نِهاية السَّنة
+[PAUSE 3]
+[EN] The end.
+[SH] نِهاية
+[PAUSE 2]
+[EN] To mention, or to bring something up.
+[SH] ذَكَر
+[PAUSE 2]
+[EN] Say: don't mention this in front of the folks.
+[PAUSE 7]
+[SH] ما تِذكُر هَالشّي قُدّام الأَهل
+[PAUSE 3]
+[EN] The folks. The family.
+[SH] الأَهل
+[PAUSE 2]
+
+### Scene 6 — Hosting
+
+[EN] Ask whether he's free on Friday.
+[PAUSE 5]
+[SH] إِنتَ فاضي يَوم الجُمعة؟
+[PAUSE 3]
+[SH] فاضي. ليش، في شي؟
+[PAUSE 1]
+[EN] Say: we're having the family over.
+[PAUSE 5]
+[SH] رَح نِستَقبِل الأَهل
+[PAUSE 3]
+[EN] To welcome, to receive.
+[SH] استَقبَل
+[PAUSE 2]
+[EN] Say: we'll cook, and prepare the dining room.
+[PAUSE 7]
+[SH] رَح نِطبُخ ونْحَضِّر السُّفرة
+[PAUSE 3]
+[EN] To cook.
+[SH] طَبَخ
+[PAUSE 2]
+[EN] To prepare — the Fuṣḥā for this is أَعَدَّ, which you will drill later.
+[SH] حَضَّر
+[PAUSE 2]
+[EN] Must. Have to.
+[SH] لازِم
+[PAUSE 2]
+[EN] Say: we have to prepare everything before they arrive.
+[PAUSE 8]
+[SH] لازِم نْحَضِّر كُلّ شي قَبِل ما يوصَلوا
+[PAUSE 3]
+[EN] By the way.
+[SH] عَ فِكرة
+[PAUSE 2]
+[EN] Say: by the way, smoking is forbidden in the building.
+[PAUSE 8]
+[SH] عَ فِكرة، التَّدخين مَمنوع بالبِناية
+[PAUSE 3]
+[EN] Forbidden.
+[SH] مَمنوع
+[PAUSE 2]
+
+### Scene 7 — What you actually wanted
+
+[EN] He asks why you moved at all.
+[SH] طَيِّب، ليش انتَقَلتوا أَصلاً؟
+[PAUSE 5]
+[EN] Comfort.
+[SH] راحة
+[PAUSE 2]
 [EN] Independence.
 [SH] الاِستِقلال
 [PAUSE 3]
-[EN] Say: independence is important.
-[PAUSE 5]
-[SH] الاِستِقلال مُهِمّ
+[EN] Say: I wanted comfort and a bit of independence.
+[PAUSE 7]
+[SH] كُنت بَدّي راحة وشْوَيّ استِقلال
 [PAUSE 3]
-[EN] Comfort. Ease.
-[SH] راحة
-[PAUSE 3]
-[EN] Say: I want comfort and privacy.
-[PAUSE 5]
-[SH] بَدّي راحة وخُصوصِيّة
+[EN] The lack of something.
+[SH] عَدَم
+[PAUSE 2]
+[EN] Say: the lack of privacy was the real problem.
+[PAUSE 7]
+[SH] عَدَم الخُصوصِيّة كان هُوّي المُشكِلة الحَقيقِيّة
 [PAUSE 3]
 [EN] An idea.
 [SH] فِكرة
-[PAUSE 3]
-[EN] Say: that's a good idea.
-[PAUSE 4]
-[SH] هَيْ فِكرة مْنيحة
-[PAUSE 3]
-[EN] A side. An aspect.
-[SH] جانِب
-[PAUSE 3]
-[EN] Say: every idea has two sides.
+[PAUSE 2]
+[EN] Say: honestly, it was my wife's idea.
 [PAUSE 6]
-[SH] كُلّ فِكرة إِلها جانِبين
+[SH] بِصَراحة، كانِت فِكرِة مَرتي
 [PAUSE 3]
-[EN] Forbidden. Not allowed.
-[SH] مَمنوع
-[PAUSE 3]
-[EN] Say: smoking is forbidden in the building.
-[PAUSE 6]
-[SH] التَّدخين مَمنوع بالبِناية
-[PAUSE 3]
-
-### Cycle 10 — Choosing
-
 [EN] Either… or.
 [SH] يا… يا
+[PAUSE 2]
+[EN] Say: either we move, or we stay and say nothing.
+[PAUSE 9]
+[SH] يا نِنتِقِل، يا نِضَلّ ونِسكُت
 [PAUSE 3]
-[EN] In Fuṣḥā, إمّا… أَو. Say: either the kitchen or the garden.
+[EN] Better.
+[SH] أَحسَن
+[PAUSE 2]
+[EN] Say: moving was better for everyone.
 [PAUSE 6]
-[SH] يا المَطبَخ يا الحَديقة
+[SH] الاِنتِقال كان أَحسَن لَلكُلّ
 [PAUSE 3]
-[EN] Or — inside a question, offering two choices.
-[SH] وَلّا
-[PAUSE 3]
-[EN] In Fuṣḥā, أَمْ. Ask: upstairs or downstairs?
-[PAUSE 5]
-[SH] فَوْق وَلّا تَحْت؟
-[PAUSE 3]
-[EN] The lack of something. Its absence.
-[SH] عَدَم
-[PAUSE 3]
-[EN] Say: the lack of privacy is the problem.
-[PAUSE 6]
-[SH] عَدَم الخُصوصِيّة هُوّي المُشكِلة
-[PAUSE 3]
+
+### Scene 8 — A church, a Lord, and being
+
 [EN] Church.
 [SH] كَنيسة
-[PAUSE 3]
-[EN] Say: the church is next to the public park.
-[PAUSE 6]
-[SH] الكَنيسة بِجانِب الحَديقة العامّة
+[PAUSE 2]
+[EN] Say: there's a church next to the public park, and we go every Sunday.
+[PAUSE 9]
+[SH] في كَنيسة بِجانِب الحَديقة العامّة، ومْنِروح كُلّ أَحَد
 [PAUSE 3]
 [EN] The Lord.
 [SH] الرَّبّ
-[PAUSE 3]
+[PAUSE 2]
 [EN] Existence. Being.
 [SH] الوُجود
 [PAUSE 3]
-
-### Cycle 11 — Put it together
-
-[EN] Answer in Arabic. Where is your apartment?
-[PAUSE 5]
-[SH] شَقّتي بالطّابِق التّاني، بِجانِب الحَديقة
+[EN] Say: I mean, existence itself is a strange thing.
+[PAUSE 8]
+[SH] يَعني، الوُجود بْحَدّ ذاتو شي غَريب
 [PAUSE 3]
-[EN] What does it consist of?
-[PAUSE 5]
-[SH] بْتِتكَوَّن مِن مَطبَخ وحَمّام وسُفرة
-[PAUSE 3]
-[EN] When did you move?
-[PAUSE 5]
-[SH] انتَقَلنا السَّنة الماضية
-[PAUSE 3]
-[EN] Why did you leave the old place?
-[PAUSE 6]
-[SH] تَرَكتها لأَنّو ما كان في خُصوصِيّة
-[PAUSE 3]
-[EN] Are you free on Friday?
-[PAUSE 5]
-[SH] آه، فاضي. مْنِستَقبِل الأَهل
-[PAUSE 3]
-[EN] What will you cook?
-[PAUSE 5]
-[SH] رَح نِطبُخ ونْحَضِّر السُّفرة
-[PAUSE 3]
-
-### Cycle 12 — The conversation again
-
-[EN] Here is the conversation from the beginning. This time you will understand it.
-[SH] مَرحَبا. شو هاد المَكان؟
-[PAUSE 1]
-[SH] هَيْ شَقّة جْديدة. إِجَرها بَسيط.
-[PAUSE 1]
-[SH] أَيّ طابِق؟ فَوْق وَلّا تَحْت؟
-[PAUSE 1]
-[SH] فَوْق. وفي حَديقة وَرا البِناية.
-[PAUSE 1]
-[SH] إِمتى انتَقَلتوا؟
-[PAUSE 1]
-[SH] السَّنة الماضية. تَرَكنا شَقّة ما كان فيها خُصوصِيّة.
-[PAUSE 1]
-[SH] وهَلَّق؟
-[PAUSE 1]
-[SH] هَلَّق في راحة واستِقلال. بِداية جْديدة.
-[PAUSE 1]
-[SH] بْتَمَنّى إِلكُن كُلّ خير.
+[EN] Place.
+[SH] مَكان
 [PAUSE 2]
-[EN] That is the end of the Shaami half. The Fuṣḥā half begins now.
+[EN] Say: in the end, a place is just a place — the people are what matters.
+[PAUSE 10]
+[SH] بالنِّهاية، المَكان مَكان. النّاس هُنّي المُهِمّ
+[PAUSE 3]
+
+### Scene 9 — Answer freely
+
+[EN] Answer in your own words, out loud. Where is the new apartment?
+[PAUSE 7]
+[SH] بالطّابِق التّالِت، بِجانِب الحَديقة
+[PAUSE 2]
+[EN] What does it consist of?
+[PAUSE 7]
+[SH] بْتِتكَوَّن مِن مَطبَخ وحَمّام وسُفرة
+[PAUSE 2]
+[EN] Why is the rent cheap?
+[PAUSE 7]
+[SH] لأَنّو صار لها شَهرين فاضية
+[PAUSE 2]
+[EN] Why did you leave the old place?
+[PAUSE 8]
+[SH] لأَنّو ما كان فيها خُصوصِيّة، وبَدّي شْوَيّ استِقلال
+[PAUSE 2]
+[EN] Who lives upstairs?
+[PAUSE 6]
+[SH] حَماتي، ساكْنة بالطّابِق اللي فَوْقنا
+[PAUSE 2]
+[EN] What are you doing on Friday?
+[PAUSE 7]
+[SH] رَح نِستَقبِل الأَهل ونِطبُخ
+[PAUSE 2]
+
+### Scene 10 — The whole conversation, at speed
+
+[EN] Once more, faster, and you should follow every word.
+[SH] تْفَضَّل. هَيْ الشَّقّة اللي حَكيتَك عَنها.
+[PAUSE 1]
+[SH] مِن شو بْتِتكَوَّن؟
+[PAUSE 1]
+[SH] مِن مَطبَخ وحَمّام وسُفرة. والحَديقة وَرا البِناية.
+[PAUSE 1]
+[SH] أَيّ طابِق؟ وهِيّي مَفروشة وَلّا فاضية؟
+[PAUSE 1]
+[SH] التّالِت، ومَفروشة. صار لها شَهرين فاضية، لَهيك الإيجار أَرخَص.
+[PAUSE 1]
+[SH] وليش بَدّك تِترُك شَقّتك؟
+[PAUSE 1]
+[SH] بِصَراحة، ما كان فيها خُصوصِيّة. بَدّي راحة وشْوَيّ استِقلال.
+[PAUSE 1]
+[SH] عَ فِكرة، مين ساكِن فَوْق؟
+[PAUSE 1]
+[SH] حَماتي. يَعني، إِلها جانِب حِلو وجانِب مِش حِلو.
+[PAUSE 1]
+[SH] الله يْساعدَك. إن شاء الله بِداية جْديدة.
+[PAUSE 2]
+[EN] That is the Shaami half. Fuṣḥā begins now.
 
 ---
 
 [[FUSHA START]]
 
-# PART TWO — FUṢḤĀ (30:00–60:00)
+# PART TWO — FUṢḤĀ
 
-### Cycle 1 — The same apartment, in Fuṣḥā
+### Scene 1 — The same apartment, properly inflected
 
-[EN] The same story, now in Modern Standard Arabic. Listen.
-[FU] مَرحَباً. ما هٰذا المَكانُ؟
-[FU] هٰذِهِ شَقَّةٌ جَديدة. إيجارُها بَسيط.
+[EN] The same conversation in Modern Standard Arabic. Listen.
+[FU] تَفَضَّل. هٰذِهِ الشَّقَّةُ الَّتي حَدَّثتُكَ عَنها.
+[FU] جَميلة. لٰكِنَّها ما زالَت فارِغةً مُنذُ شَهرَين، أَليسَ كَذٰلِك؟
+[FU] بَلى. صاحِبُ البَيتِ يُريدُ تَأجيرَها بِسُرعة، وَلِذٰلِكَ فَالإيجارُ أَرخَص.
 [PAUSE 1]
-[EN] Place.
-[FU] مَكان
+[EN] The one that — feminine.
+[FU] الَّتي
 [PAUSE 3]
-[EN] Apartment. Note the ending you did not hear in Shaami.
-[FU] شَقَّة
+[EN] The apartment that I told you about.
+[PAUSE 6]
+[FU] الشَّقَّةُ الَّتي حَدَّثتُكَ عَنها
 [PAUSE 3]
-[EN] New, feminine.
-[FU] جَديدة
+[EN] Still. It continues to be.
+[FU] ما زالَ
 [PAUSE 3]
-[EN] A new apartment.
-[PAUSE 4]
-[FU] شَقَّةٌ جَديدة
+[EN] It has still been empty for two months.
+[PAUSE 7]
+[FU] ما زالَت فارِغةً مُنذُ شَهرَين
 [PAUSE 3]
-[EN] Its rent is simple.
-[PAUSE 4]
-[FU] إيجارُها بَسيط
-[PAUSE 3]
-[EN] Its plural is شُقَق. Say: the apartments are new.
+[EN] Therefore. For that reason.
+[FU] لِذٰلِك
+[PAUSE 2]
+[EN] Say: therefore the rent is cheaper.
 [PAUSE 5]
-[FU] الشُّقَقُ جَديدة
+[FU] وَلِذٰلِكَ فَالإيجارُ أَرخَص
+[PAUSE 3]
+[EN] Now the whole reason, as one sentence.
+[PAUSE 9]
+[FU] ما زالَت فارِغةً مُنذُ شَهرَين، وَلِذٰلِكَ فَالإيجارُ أَرخَص
+[PAUSE 3]
+[EN] Simple, modest.
+[FU] بَسيط
+[PAUSE 2]
+[EN] Say: frankly, the rent is modest, and that is what I wanted.
+[PAUSE 8]
+[FU] بِصَراحة، الإيجارُ بَسيط، وَهٰذا ما أَرَدتُه
 [PAUSE 3]
 
-### Cycle 2 — There is / there exists
+### Scene 2 — There is, there is not
 
-[EN] In Fuṣḥā, "there is" has its own verb. It is found. It exists.
+[EN] Fuṣḥā has a verb for "there is". It is found.
 [FU] يوجَد
-[PAUSE 3]
-[FU] يوجَد
-[PAUSE 3]
-[EN] For a feminine noun: تو جَد.
+[PAUSE 2]
+[EN] Feminine.
 [FU] توجَد
-[PAUSE 3]
-[EN] Say: there is a kitchen.
-[PAUSE 4]
-[FU] يوجَدُ مَطبَخ
-[PAUSE 3]
+[PAUSE 2]
 [EN] Say: there is a garden behind the building.
 [PAUSE 6]
 [FU] توجَدُ حَديقةٌ وَراءَ البِناية
 [PAUSE 3]
-[EN] Behind.
-[FU] وَراءَ
+[EN] Now negate it. There is no pool beneath the building.
+[PAUSE 8]
+[FU] لا يوجَدُ مَسبَحٌ تَحْتَ البِناية
 [PAUSE 3]
-[EN] Above.
-[FU] فَوْقَ
-[PAUSE 3]
-[EN] Beneath.
-[FU] تَحْتَ
-[PAUSE 3]
-[EN] Next to.
-[FU] بِجانِبِ
-[PAUSE 3]
-[EN] Say: the pool is beneath the apartment.
+[EN] Ask what it consists of.
 [PAUSE 5]
-[FU] المَسبَحُ تَحْتَ الشَّقّة
+[FU] مِمَّ تَتَكَوَّنُ الشَّقّة؟
 [PAUSE 3]
-[EN] The verbal noun of يوجَد is الوُجود — existence.
-[FU] الوُجود
+[FU] تَتَكَوَّنُ مِن مَطبَخٍ وَحَمّامٍ وَسُفرةٍ وَغُرفةِ نَوم.
+[PAUSE 1]
+[EN] Say that back, with the endings.
+[PAUSE 8]
+[FU] تَتَكَوَّنُ مِن مَطبَخٍ وَحَمّامٍ وَسُفرة
 [PAUSE 3]
-
-### Cycle 3 — Rooms and floors
-
-[EN] Kitchen. Its plural is مَطابِخ.
-[FU] مَطبَخ
-[PAUSE 3]
-[EN] Bathroom.
-[FU] حَمّام
-[PAUSE 3]
-[EN] The dining room.
-[FU] السُّفرة
-[PAUSE 3]
-[EN] Swimming pool.
-[FU] مَسبَح
-[PAUSE 3]
-[EN] Floor, storey. Plural طَوابِق.
-[FU] طابِق
-[PAUSE 3]
-[EN] Say: which floor is the apartment on?
-[PAUSE 5]
-[FU] في أَيِّ طابِقٍ الشَّقّة؟
-[PAUSE 3]
-[EN] To consist of.
-[FU] تَتَكَوَّنُ مِن
-[PAUSE 3]
-[FU] تَتَكَوَّنُ مِن
-[PAUSE 3]
-[EN] Say: the apartment consists of a kitchen, a bathroom and a dining room.
+[EN] Furnished.
+[FU] مَفروشة
+[PAUSE 2]
+[EN] Ask: is it furnished or empty? Use the question word for "or".
 [PAUSE 7]
-[FU] تَتَكَوَّنُ الشَّقّةُ مِن مَطبَخٍ وَحَمّامٍ وَسُفرة
+[FU] أَهِيَ مَفروشةٌ أَم فارِغة؟
 [PAUSE 3]
-[EN] Garden. Plural حَدائِق.
-[FU] حَديقة
+[EN] That was أَمْ. Ask another: upstairs or downstairs?
+[PAUSE 6]
+[FU] أَفَوْقُ أَم تَحْت؟
 [PAUSE 3]
-[EN] A public park.
-[FU] حَديقةٌ عامّة
+[EN] Which floor is it on?
+[PAUSE 6]
+[FU] في أَيِّ طابِقٍ هِيَ؟
+[PAUSE 3]
+[EN] Say: the third, and next to it is the public park.
+[PAUSE 8]
+[FU] الثّالِث، وَبِجانِبِها الحَديقةُ العامّة
 [PAUSE 3]
 
-### Cycle 4 — The move
+### Scene 3 — Moving, in the past and the future
 
-[EN] To move to a place. Form eight.
+[EN] To move. Form eight.
 [FU] اِنتَقَلَ
-[PAUSE 3]
-[EN] We moved.
-[FU] اِنتَقَلنا
-[PAUSE 3]
-[EN] Last year.
-[FU] السَّنةَ الماضية
-[PAUSE 3]
+[PAUSE 2]
 [EN] Say: we moved last year.
 [PAUSE 5]
 [FU] اِنتَقَلنا السَّنةَ الماضية
 [PAUSE 3]
+[EN] Now the negative past, with لَم and the jussive. We have not moved yet.
+[PAUSE 7]
+[FU] لَم نَنتَقِل بَعد
+[PAUSE 3]
+[EN] And the future: we will move next month.
+[PAUSE 6]
+[FU] سَنَنتَقِلُ الشَّهرَ القادِم
+[PAUSE 3]
 [EN] To rent. Form ten.
 [FU] اِستَأجَرَ
+[PAUSE 2]
+[EN] Say: we rented an apartment that consists of three rooms.
+[PAUSE 9]
+[FU] اِستَأجَرنا شَقَّةً تَتَكَوَّنُ مِن ثَلاثِ غُرَف
 [PAUSE 3]
-[EN] We rented.
-[FU] اِستَأجَرنا
-[PAUSE 3]
-[EN] Say: we rented a new apartment.
-[PAUSE 5]
-[FU] اِستَأجَرنا شَقَّةً جَديدة
+[EN] To leave behind.
+[FU] تَرَكَ
+[PAUSE 2]
+[EN] Say: we left the old apartment because there was no privacy in it.
+[PAUSE 10]
+[FU] تَرَكنا الشَّقّةَ القَديمةَ لِأَنَّهُ لَم تَكُن فيها خُصوصِيّة
 [PAUSE 3]
 [EN] Previously.
 [FU] مِن قَبل
-[PAUSE 3]
-[EN] Say: I had not lived here previously.
-[PAUSE 6]
-[FU] لَم أَسكُن هُنا مِن قَبل
-[PAUSE 3]
-[EN] To leave something behind.
-[FU] تَرَكَ
-[PAUSE 3]
-[EN] I left.
-[FU] تَرَكتُ
-[PAUSE 3]
-[EN] Say: I left the old apartment.
-[PAUSE 5]
-[FU] تَرَكتُ الشَّقّةَ القَديمة
+[PAUSE 2]
+[EN] Say: I had not lived in this area previously.
+[PAUSE 8]
+[FU] لَم أَسكُن في هٰذِهِ المَنطِقةِ مِن قَبل
 [PAUSE 3]
 [EN] Beginning.
 [FU] بِداية
-[PAUSE 3]
-[EN] End.
-[FU] نِهاية
-[PAUSE 3]
-[EN] Say: from the beginning to the end.
-[PAUSE 5]
-[FU] مِنَ البِدايةِ إِلى النِّهاية
-[PAUSE 3]
-
-### Cycle 5 — Hosting
-
-[EN] To cook. Its verbal noun is الطَّبْخ.
-[FU] طَبَخَ
-[PAUSE 3]
-[EN] She cooks.
-[FU] تَطبُخ
-[PAUSE 3]
-[EN] Say: my mother cooks in the kitchen.
-[PAUSE 5]
-[FU] تَطبُخُ أُمّي في المَطبَخ
-[PAUSE 3]
-[EN] To prepare, to get ready. Form four.
-[FU] أَعَدَّ
-[PAUSE 3]
-[FU] أَعَدَّ
-[PAUSE 3]
-[EN] We prepared.
-[FU] أَعْدَدنا
-[PAUSE 3]
-[EN] Say: we prepared the dining room.
-[PAUSE 5]
-[FU] أَعْدَدنا السُّفرة
-[PAUSE 3]
-[EN] To receive, to welcome. Form ten.
-[FU] اِستَقبَلَ
-[PAUSE 3]
-[EN] We welcome.
-[FU] نَستَقبِل
-[PAUSE 3]
-[EN] Say: we welcome the family.
-[PAUSE 5]
-[FU] نَستَقبِلُ الأَهل
-[PAUSE 3]
-[EN] Its verbal noun — a reception, a welcome.
-[FU] الاِستِقبال
-[PAUSE 3]
-[EN] The folks, the family.
-[FU] الأَهل
-[PAUSE 3]
-
-### Cycle 6 — Recall, in Fuṣḥā
-
-[EN] There is a garden.
-[PAUSE 4]
-[FU] توجَدُ حَديقة
 [PAUSE 2]
-[EN] We rented.
-[PAUSE 4]
-[FU] اِستَأجَرنا
-[PAUSE 2]
-[EN] To prepare.
-[PAUSE 4]
-[FU] أَعَدَّ
-[PAUSE 2]
-[EN] Beneath.
-[PAUSE 4]
-[FU] تَحْتَ
-[PAUSE 2]
-[EN] It consists of.
-[PAUSE 4]
-[FU] تَتَكَوَّنُ مِن
-[PAUSE 2]
-[EN] Now the sentence: we rented a new apartment, and it consists of three rooms.
-[PAUSE 8]
-[FU] اِستَأجَرنا شَقَّةً جَديدة، وَتَتَكَوَّنُ مِن ثَلاثِ غُرَف
+[EN] Say: it really is a new beginning.
+[PAUSE 6]
+[FU] إِنَّها حَقّاً بِدايةٌ جَديدة
 [PAUSE 3]
 
-### Cycle 7 — Family
+### Scene 4 — Neighbours and in-laws
 
-[EN] Fiancé. For a woman, خَطيبة.
-[FU] خَطيب
-[PAUSE 3]
-[EN] Engaged.
-[FU] مَخطوبة
-[PAUSE 3]
-[EN] Say: my sister is engaged.
-[PAUSE 5]
-[FU] أُختي مَخطوبة
+[EN] The neighbours.
+[FU] الجيران
+[PAUSE 2]
+[EN] Say: the neighbours are quiet, thank God.
+[PAUSE 6]
+[FU] الجيرانُ هادِئون، الحَمدُ لله
 [PAUSE 3]
 [EN] Mother-in-law.
 [FU] حَماة
+[PAUSE 2]
+[EN] Say: but my mother-in-law lives on the floor above us.
+[PAUSE 8]
+[FU] لٰكِنَّ حَماتي تَسكُنُ في الطّابِقِ الَّذي فَوْقَنا
 [PAUSE 3]
-[EN] Say: my mother-in-law lives on the floor above.
+[EN] In fact. Actually.
+[FU] في الواقِع
+[PAUSE 2]
+[EN] Say: in fact, that has two sides.
 [PAUSE 6]
-[FU] تَسكُنُ حَماتي في الطّابِقِ الَّذي فَوْقَنا
+[FU] في الواقِع، لِذٰلِكَ جانِبان
 [PAUSE 3]
-[EN] Generation. Plural أَجيال.
+[EN] Side, aspect.
+[FU] جانِب
+[PAUSE 2]
+[EN] Fiancé.
+[FU] خَطيب
+[PAUSE 2]
+[EN] Engaged.
+[FU] مَخطوبة
+[PAUSE 2]
+[EN] Say: my sister is engaged, and her fiancé is from Amman.
+[PAUSE 8]
+[FU] أُختي مَخطوبة، وَخَطيبُها مِن عَمّان
+[PAUSE 3]
+[EN] Generation.
 [FU] جيل
+[PAUSE 2]
+[EN] Say: every generation has its own ideas about marriage.
+[PAUSE 9]
+[FU] لِكُلِّ جيلٍ أَفكارُهُ عَنِ الزَّواج
 [PAUSE 3]
-[EN] Say: every generation has its own ideas.
-[PAUSE 6]
-[FU] لِكُلِّ جيلٍ أَفكارُهُ
-[PAUSE 3]
-[EN] To mention. To recall.
-[FU] ذَكَرَ
-[PAUSE 3]
-[EN] You mentioned.
-[FU] ذَكَرتَ
-[PAUSE 3]
-[EN] Say: you mentioned this last year.
-[PAUSE 6]
-[FU] ذَكَرتَ هٰذا السَّنةَ الماضية
-[PAUSE 3]
+[EN] By the way.
+[FU] عَلى فِكرة
+[PAUSE 2]
 
-### Cycle 8 — Difficulty
+### Scene 5 — The disagreement
 
-[EN] A disagreement.
-[FU] خِلاف
-[PAUSE 3]
-[EN] Say: a disagreement happened between them.
-[PAUSE 6]
-[FU] حَدَثَ خِلافٌ بَينَهُما
-[PAUSE 3]
+[EN] Listen.
+[FU] هَل سَمِعتَ ماذا حَدَثَ بَينَهُما؟
+[FU] لا. ماذا حَدَث؟
+[FU] حَدَثَ خِلافٌ كَبير. لٰكِن رُبَّما لا يَصِلُ الأَمرُ إِلى الطَّلاق.
+[PAUSE 1]
 [EN] To happen.
 [FU] حَدَثَ
+[PAUSE 2]
+[EN] Ask: what happened between them?
+[PAUSE 6]
+[FU] ماذا حَدَثَ بَينَهُما؟
 [PAUSE 3]
-[EN] Ask: what happened?
-[PAUSE 4]
-[FU] ماذا حَدَث؟
+[EN] A disagreement.
+[FU] خِلاف
+[PAUSE 2]
+[EN] Say: a serious disagreement happened.
+[PAUSE 6]
+[FU] حَدَثَ خِلافٌ كَبير
 [PAUSE 3]
+[EN] Perhaps. Maybe.
+[FU] رُبَّما
+[PAUSE 2]
 [EN] Divorce.
 [FU] الطَّلاق
+[PAUSE 2]
+[EN] Say: perhaps it will not reach divorce.
+[PAUSE 7]
+[FU] رُبَّما لا يَصِلُ الأَمرُ إِلى الطَّلاق
 [PAUSE 3]
-[EN] A solution. Plural حُلول.
+[EN] A solution.
 [FU] حَلّ
+[PAUSE 2]
+[EN] There must be. Literally: there is no escape that.
+[FU] لا بُدَّ أَن
 [PAUSE 3]
-[EN] Say: is there a solution?
-[PAUSE 4]
-[FU] هَل يوجَدُ حَلّ؟
+[EN] Say: there must be a solution.
+[PAUSE 6]
+[FU] لا بُدَّ أَن يوجَدَ حَلّ
 [PAUSE 3]
-[EN] To hope, to wish. Form five.
+[EN] To hope. Form five, and it takes أَن plus the subjunctive.
 [FU] تَمَنَّى
+[PAUSE 2]
+[EN] Say: I hope they find a solution before the end of the year.
+[PAUSE 10]
+[FU] أَتَمَنّى أَن يَجِدا حَلّاً قَبلَ نِهايةِ السَّنة
 [PAUSE 3]
-[EN] I hope.
-[FU] أَتَمَنّى
-[PAUSE 3]
-[EN] Say: I hope they find a solution.
-[PAUSE 6]
-[FU] أَتَمَنّى أَن يَجِدوا حَلّاً
-[PAUSE 3]
-[EN] Say: in the end, there is always a solution.
-[PAUSE 6]
-[FU] في النِّهاية، يوجَدُ دائِماً حَلّ
+[EN] End.
+[FU] نِهاية
+[PAUSE 2]
+[EN] To mention.
+[FU] ذَكَرَ
+[PAUSE 2]
+[EN] Say: please don't mention this in front of the family.
+[PAUSE 8]
+[FU] أَرجوكَ لا تَذكُر هٰذا أَمامَ الأَهل
 [PAUSE 3]
 
-### Cycle 9 — Independence
+### Scene 6 — Receiving guests
 
-[EN] Privacy.
-[FU] خُصوصِيّة
-[PAUSE 3]
-[EN] Independence.
-[FU] الاِستِقلال
-[PAUSE 3]
-[EN] Comfort, ease.
-[FU] راحة
-[PAUSE 3]
-[EN] Say: I want privacy and comfort.
-[PAUSE 5]
-[FU] أُريدُ خُصوصِيّةً وَراحة
-[PAUSE 3]
-[EN] The lack of. It negates the noun after it.
-[FU] عَدَم
-[PAUSE 3]
-[EN] Say: the lack of privacy is the problem.
+[EN] Ask: are you free on Friday?
 [PAUSE 6]
-[FU] عَدَمُ الخُصوصِيّةِ هُوَ المُشكِلة
+[FU] هَل أَنتَ فاضٍ يَومَ الجُمُعة؟
 [PAUSE 3]
-[EN] Idea. Plural أَفكار.
-[FU] فِكرة
+[EN] To receive, to welcome. Form ten.
+[FU] اِستَقبَلَ
+[PAUSE 2]
+[EN] Say: we will welcome the family on Friday.
+[PAUSE 7]
+[FU] سَنَستَقبِلُ الأَهلَ يَومَ الجُمُعة
 [PAUSE 3]
-[EN] Side, aspect. Plural جَوانِب.
-[FU] جانِب
+[EN] To prepare. Form four.
+[FU] أَعَدَّ
+[PAUSE 2]
+[EN] We prepared.
+[FU] أَعْدَدنا
+[PAUSE 2]
+[EN] Say: we must prepare everything before they arrive.
+[PAUSE 9]
+[FU] لا بُدَّ أَن نُعِدَّ كُلَّ شَيءٍ قَبلَ أَن يَصِلوا
 [PAUSE 3]
-[EN] Say: this idea has another side.
-[PAUSE 6]
-[FU] لِهٰذِهِ الفِكرةِ جانِبٌ آخَر
+[EN] To cook.
+[FU] طَبَخَ
+[PAUSE 2]
+[EN] Say: my wife will cook, and I will prepare the dining room.
+[PAUSE 9]
+[FU] سَتَطبُخُ زَوجَتي، وَسَأُعِدُّ أَنا السُّفرة
 [PAUSE 3]
 [EN] Forbidden.
 [FU] مَمنوع
+[PAUSE 2]
+[EN] Say: by the way, smoking is forbidden in the building.
+[PAUSE 8]
+[FU] عَلى فِكرة، التَّدخينُ مَمنوعٌ في البِناية
 [PAUSE 3]
-[EN] Say: it is forbidden to cook here.
+
+### Scene 7 — The reason underneath
+
+[EN] He asks why you moved at all.
+[FU] وَلٰكِن، لِماذا اِنتَقَلتُم أَصلاً؟
 [PAUSE 5]
-[FU] مَمنوعٌ الطَّبخُ هُنا
+[EN] Comfort, ease.
+[FU] راحة
+[PAUSE 2]
+[EN] Independence.
+[FU] الاِستِقلال
+[PAUSE 2]
+[EN] Say: I wanted comfort and a little independence.
+[PAUSE 7]
+[FU] كُنتُ أُريدُ الرّاحةَ وَقَليلاً مِنَ الاِستِقلال
 [PAUSE 3]
-
-### Cycle 10 — Either, or
-
+[EN] The lack of. It negates the verbal noun after it.
+[FU] عَدَم
+[PAUSE 2]
+[EN] Say: the lack of privacy was the real problem.
+[PAUSE 8]
+[FU] عَدَمُ الخُصوصِيّةِ كانَ هُوَ المُشكِلةَ الحَقيقِيّة
+[PAUSE 3]
+[EN] Privacy.
+[FU] خُصوصِيّة
+[PAUSE 2]
+[EN] Idea.
+[FU] فِكرة
+[PAUSE 2]
+[EN] Say: frankly, it was my wife's idea.
+[PAUSE 6]
+[FU] بِصَراحة، كانَت فِكرةَ زَوجَتي
+[PAUSE 3]
 [EN] Either… or.
 [FU] إمّا… أَو
+[PAUSE 2]
+[EN] Say: either we move, or we stay and say nothing.
+[PAUSE 9]
+[FU] إمّا أَن نَنتَقِل، أَو أَن نَبقى وَلا نَقولَ شَيئاً
 [PAUSE 3]
-[EN] Say: either the garden or the pool.
-[PAUSE 5]
-[FU] إمّا الحَديقةُ أَو المَسبَح
+[EN] Better.
+[FU] أَفضَل
+[PAUSE 2]
+[EN] Say: moving was better for everyone.
+[PAUSE 7]
+[FU] كانَ الاِنتِقالُ أَفضَلَ لِلجَميع
 [PAUSE 3]
-[EN] Or — in a question with two choices.
-[FU] أَمْ
-[PAUSE 3]
-[EN] Ask: upstairs or downstairs?
-[PAUSE 5]
-[FU] فَوْقُ أَم تَحْت؟
-[PAUSE 3]
-[EN] Ask: is it a new apartment or an old one?
-[PAUSE 6]
-[FU] أَهِيَ شَقَّةٌ جَديدةٌ أَم قَديمة؟
-[PAUSE 3]
-[EN] Church. Plural كَنائِس.
+
+### Scene 8 — Church, Lord, existence
+
+[EN] Church.
 [FU] كَنيسة
-[PAUSE 3]
-[EN] Say: the church is next to the public park.
-[PAUSE 6]
-[FU] الكَنيسةُ بِجانِبِ الحَديقةِ العامّة
+[PAUSE 2]
+[EN] Say: the church is next to the public park, and we go every Sunday.
+[PAUSE 10]
+[FU] الكَنيسةُ بِجانِبِ الحَديقةِ العامّة، وَنَذهَبُ إِليها كُلَّ أَحَد
 [PAUSE 3]
 [EN] The Lord.
 [FU] الرَّبّ
-[PAUSE 3]
-[EN] Simple.
-[FU] بَسيط
-[PAUSE 3]
-[EN] Unoccupied — this one you will hear spoken, not written.
-[FU] فاضي
-[PAUSE 3]
-
-### Cycle 11 — Answer freely
-
-[EN] Answer in Fuṣḥā. Where is your apartment?
-[PAUSE 6]
-[FU] شَقَّتي في الطّابِقِ الثّاني، بِجانِبِ الحَديقة
-[PAUSE 3]
-[EN] What does it consist of?
-[PAUSE 6]
-[FU] تَتَكَوَّنُ مِن مَطبَخٍ وَحَمّامٍ وَسُفرة
-[PAUSE 3]
-[EN] Is there a pool?
-[PAUSE 5]
-[FU] لا، لا يوجَدُ مَسبَح
-[PAUSE 3]
-[EN] When did you move?
-[PAUSE 5]
-[FU] اِنتَقَلنا السَّنةَ الماضية
-[PAUSE 3]
-[EN] Why did you leave the old apartment?
-[PAUSE 7]
-[FU] تَرَكتُها لِأَنَّهُ لَم تَكُن فيها خُصوصِيّة
-[PAUSE 3]
-[EN] What do you want now?
-[PAUSE 6]
-[FU] أُريدُ الرّاحةَ وَالاِستِقلال
-[PAUSE 3]
-[EN] Who are you welcoming this week?
-[PAUSE 6]
-[FU] نَستَقبِلُ الأَهلَ وَحَماتي
-[PAUSE 3]
-
-### Cycle 12 — The whole thing
-
-[EN] Here is the conversation in Fuṣḥā. You will understand all of it.
-[FU] مَرحَباً. ما هٰذا المَكان؟
-[PAUSE 1]
-[FU] هٰذِهِ شَقَّةٌ جَديدة. إيجارُها بَسيط.
-[PAUSE 1]
-[FU] في أَيِّ طابِق؟ فَوْقُ أَم تَحْت؟
-[PAUSE 1]
-[FU] فَوْق. وَتوجَدُ حَديقةٌ وَراءَ البِناية.
-[PAUSE 1]
-[FU] مَتى اِنتَقَلتُم؟
-[PAUSE 1]
-[FU] السَّنةَ الماضية. تَرَكنا شَقَّةً لَم تَكُن فيها خُصوصِيّة.
-[PAUSE 1]
-[FU] وَالآن؟
-[PAUSE 1]
-[FU] الآنَ لَدَينا راحةٌ وَاستِقلال. إِنَّها بِدايةٌ جَديدة.
-[PAUSE 1]
-[FU] أَتَمَنّى لَكُم كُلَّ خَير.
 [PAUSE 2]
-[EN] That is the end of Chapter One. Fifty-two words, in two registers.
+[EN] Existence — the verbal noun of يوجَد.
+[FU] الوُجود
+[PAUSE 3]
+[EN] Say: in fact, existence itself is a strange thing.
+[PAUSE 8]
+[FU] في الواقِع، الوُجودُ نَفسُهُ شَيءٌ غَريب
+[PAUSE 3]
+[EN] Place.
+[FU] مَكان
+[PAUSE 2]
+[EN] Say: in the end, a place is only a place. People are what matters.
+[PAUSE 10]
+[FU] في النِّهاية، المَكانُ مَكانٌ فَقَط. النّاسُ هُمُ المُهِمّ
+[PAUSE 3]
+
+### Scene 9 — Answer freely, in Fuṣḥā
+
+[EN] Where is the new apartment?
+[PAUSE 8]
+[FU] في الطّابِقِ الثّالِث، بِجانِبِ الحَديقة
+[PAUSE 2]
+[EN] What does it consist of?
+[PAUSE 8]
+[FU] تَتَكَوَّنُ مِن مَطبَخٍ وَحَمّامٍ وَسُفرة
+[PAUSE 2]
+[EN] Why is the rent cheap?
+[PAUSE 8]
+[FU] لِأَنَّها ما زالَت فارِغةً مُنذُ شَهرَين
+[PAUSE 2]
+[EN] Why did you leave the old apartment?
+[PAUSE 9]
+[FU] لِأَنَّهُ لَم تَكُن فيها خُصوصِيّة، وَكُنتُ أُريدُ الاِستِقلال
+[PAUSE 2]
+[EN] Who lives on the floor above?
+[PAUSE 7]
+[FU] حَماتي تَسكُنُ في الطّابِقِ الَّذي فَوْقَنا
+[PAUSE 2]
+[EN] What will you do on Friday?
+[PAUSE 8]
+[FU] سَنَستَقبِلُ الأَهلَ وَنُعِدُّ السُّفرة
+[PAUSE 2]
+[EN] And what do you hope for?
+[PAUSE 8]
+[FU] أَتَمَنّى أَن تَكونَ بِدايةً جَديدةً لِلجَميع
+[PAUSE 2]
+
+### Scene 10 — The whole conversation, at speed
+
+[EN] Once more, at speed. You should follow all of it now.
+[FU] تَفَضَّل. هٰذِهِ الشَّقَّةُ الَّتي حَدَّثتُكَ عَنها.
+[PAUSE 1]
+[FU] مِمَّ تَتَكَوَّن؟
+[PAUSE 1]
+[FU] مِن مَطبَخٍ وَحَمّامٍ وَسُفرة. وَتوجَدُ حَديقةٌ وَراءَ البِناية.
+[PAUSE 1]
+[FU] في أَيِّ طابِق؟ وَأَهِيَ مَفروشةٌ أَم فارِغة؟
+[PAUSE 1]
+[FU] الثّالِث، وَمَفروشة. ما زالَت فارِغةً مُنذُ شَهرَين، وَلِذٰلِكَ فَالإيجارُ أَرخَص.
+[PAUSE 1]
+[FU] وَلِماذا تُريدُ أَن تَترُكَ شَقَّتَك؟
+[PAUSE 1]
+[FU] بِصَراحة، لَم تَكُن فيها خُصوصِيّة. أُريدُ الرّاحةَ وَالاِستِقلال.
+[PAUSE 1]
+[FU] عَلى فِكرة، مَن يَسكُنُ فَوْق؟
+[PAUSE 1]
+[FU] حَماتي. في الواقِع، لِذٰلِكَ جانِبان.
+[PAUSE 1]
+[FU] لا بُدَّ أَنَّها بِدايةٌ جَديدة. أَتَمَنّى لَكُم كُلَّ خَير.
+[PAUSE 2]
+[EN] That is Chapter One. Fifty-two words, two registers, one story.
