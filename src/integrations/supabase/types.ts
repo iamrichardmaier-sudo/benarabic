@@ -110,6 +110,51 @@ export type Database = {
         }
         Relationships: []
       }
+      podcasts: {
+        Row: {
+          created_at: string
+          deck_id: string | null
+          fusha_seconds: number | null
+          fusha_url: string | null
+          icon: string
+          icon_url: string | null
+          id: string
+          shaami_seconds: number | null
+          shaami_url: string | null
+          sort_order: number
+          subtitle: string | null
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          deck_id?: string | null
+          fusha_seconds?: number | null
+          fusha_url?: string | null
+          icon?: string
+          icon_url?: string | null
+          id?: string
+          shaami_seconds?: number | null
+          shaami_url?: string | null
+          sort_order?: number
+          subtitle?: string | null
+          title: string
+        }
+        Update: {
+          created_at?: string
+          deck_id?: string | null
+          fusha_seconds?: number | null
+          fusha_url?: string | null
+          icon?: string
+          icon_url?: string | null
+          id?: string
+          shaami_seconds?: number | null
+          shaami_url?: string | null
+          sort_order?: number
+          subtitle?: string | null
+          title?: string
+        }
+        Relationships: []
+      }
       decks: {
         Row: {
           book_part_prefix: string | null

@@ -9,7 +9,7 @@
  * which are drawn, and a test holds them to each other.
  */
 export const WAZN_ICON_NAMES = [
-  'foundation', 'compass', 'scroll', 'lantern', 'bridge', 'anchor', 'feather', 'flame',
+  'mihrab', 'foundation', 'compass', 'scroll', 'lantern', 'bridge', 'anchor', 'feather', 'flame',
   'footprints', 'gem', 'leaf', 'lightbulb', 'map', 'mountain', 'ship', 'sparkles',
   'sprout', 'sun', 'tent', 'waves', 'wheat', 'book', 'key',
 ] as const;

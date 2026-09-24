@@ -6,7 +6,7 @@
  * map is complete — add a key and the build tells you it needs a drawing.
  */
 export const DECK_ICON_KEYS = [
-  'foundation', 'compass', 'scroll', 'lantern', 'bridge', 'anchor',
+  'mihrab', 'foundation', 'compass', 'scroll', 'lantern', 'bridge', 'anchor',
   'feather', 'flame', 'footprints', 'gem', 'leaf', 'lightbulb',
   'map', 'mountain', 'ship', 'sparkles', 'sprout', 'sun',
   'tent', 'waves', 'wheat', 'book', 'key',
