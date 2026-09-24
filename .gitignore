@@ -26,3 +26,6 @@ dist-ssr
 # Python bytecode, from the podcast build scripts
 __pycache__/
 *.pyc
+
+# Personal Claude Code permission overrides
+.claude/settings.local.json
