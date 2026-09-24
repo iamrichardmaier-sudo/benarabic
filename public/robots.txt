@@ -6,4 +6,4 @@ Allow: /
 Disallow: /auth
 Disallow: /.lovable/
 
-Sitemap: https://wazn.app/sitemap.xml
+Sitemap: https://waznarabic.com/sitemap.xml

@@ -1,8 +1,11 @@
 name: Deploy to GitHub Pages
 
+# Netlify is the canonical host (see SEO_BUILD_LOG.md, Phase 4) — it serves
+# waznarabic.com with real redirects and cache headers, which GitHub Pages
+# can't do. Auto-deploy here is disabled so the same content doesn't end up
+# indexed at two origins; kept as workflow_dispatch in case Netlify is ever
+# down and a manual GitHub Pages fallback is needed.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:

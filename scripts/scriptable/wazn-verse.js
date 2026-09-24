@@ -37,9 +37,8 @@
 
 // ---------------------------------------------------------------- config
 
-// Where Wazn's static Bible files live. Update this when the custom domain is
-// pointed at the site; the path after the origin stays the same.
-const BASE_URL = "https://iamrichardmaier-sudo.github.io/benarabic";
+// Where Wazn's static Bible files live.
+const BASE_URL = "https://waznarabic.com";
 
 const BRAND = "#C2622A";
 const CREAM = "#FDF8F2";

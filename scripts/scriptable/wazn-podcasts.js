@@ -58,7 +58,7 @@ const DEFAULT_EMAIL = "rbm66@byu.edu";
 // The live site. A podcast tap opens SITE_URL + "?podcast=<id>&register=<r>",
 // which the app reads on load to jump straight to that podcast's player --
 // see the deep-link effect in src/pages/Index.tsx.
-const SITE_URL = "https://iamrichardmaier-sudo.github.io/benarabic/";
+const SITE_URL = "https://waznarabic.com/";
 
 // Same Keychain keys as wazn-review.js, on purpose: signing in on either
 // script signs in on both.
