@@ -50,8 +50,7 @@ const SUPABASE_ANON_KEY =
 const DEFAULT_EMAIL = "rbm66@byu.edu";
 
 // The live site, opened by the logo button at the top of the review screen.
-// Update this when the custom domain is pointed at the app.
-const SITE_URL = "https://iamrichardmaier-sudo.github.io/benarabic/";
+const SITE_URL = "https://waznarabic.com/";
 
 const KEY_EMAIL = "wazn.email";
 const KEY_PASSWORD = "wazn.password";

@@ -25,8 +25,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(__dirname, '../..');
 const PUBLIC = path.join(REPO, 'public');
 
-// Update once the custom domain is live; everything canonical keys off this.
-const SITE = process.env.SITE_URL || 'https://wazn.app';
+// Everything canonical keys off this.
+const SITE = process.env.SITE_URL || 'https://waznarabic.com';
 const BRAND = 'Wazn';
 const APP_PATH = '/'; // the interactive app (study tool) lives at the root
 
