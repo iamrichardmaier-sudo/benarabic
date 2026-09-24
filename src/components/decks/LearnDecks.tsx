@@ -43,6 +43,21 @@ const LearnDecks = ({ onBack, onBuildDeck, onEditDeck }: LearnDecksProps) => {
     [decks, query],
   );
 
+  const ungrouped = useMemo(() => visible.filter((d) => !d.category), [visible]);
+
+  /** Decks that named a category, grouped, in the order the categories first
+   *  appear — so a new shelf does not reshuffle the ones already there. */
+  const shelves = useMemo(() => {
+    const byCategory = new Map<string, Deck[]>();
+    for (const deck of visible) {
+      if (!deck.category) continue;
+      const shelf = byCategory.get(deck.category);
+      if (shelf) shelf.push(deck);
+      else byCategory.set(deck.category, [deck]);
+    }
+    return [...byCategory.entries()];
+  }, [visible]);
+
   const toggle = (id: string) => {
     setSelected((prev) => {
       const next = new Set(prev);
@@ -64,6 +79,67 @@ const LearnDecks = ({ onBack, onBuildDeck, onEditDeck }: LearnDecksProps) => {
     } finally {
       setBusy(false);
     }
+  };
+
+  /** One deck, as it looks in the grid and on a shelf alike. */
+  const deckCard = (deck: Deck, extra = '') => {
+    const added = mine.has(deck.id);
+    const picked = selected.has(deck.id);
+    const title = mine.get(deck.id) || deck.title;
+    const ownedByViewer = !deck.isAdminDeck && deck.createdBy !== null;
+    const foundation = deck.icon === FOUNDATION_ICON && !deck.iconUrl;
+    return (
+      <div
+        key={deck.id}
+        className={`relative overflow-hidden rounded-2xl border bg-card transition-colors ${
+          picked ? 'border-primary ring-2 ring-primary/25' : 'border-border'
+        } ${added ? 'opacity-70' : ''} ${extra}`}
+      >
+        {/* Tapping the card opens the deck; the tick in the corner is for
+            taking several at once without opening any of them. */}
+        <button
+          onClick={() => (ownedByViewer && onEditDeck ? onEditDeck(deck) : setOpen(deck))}
+          className="flex w-full flex-col items-stretch text-start"
+        >
+          <span
+            className={`flex h-28 items-center justify-center ${
+              foundation ? 'bg-primary text-primary-foreground' : 'bg-muted/40 text-primary'
+            }`}
+          >
+            <DeckIcon
+              icon={deck.icon}
+              iconUrl={deck.iconUrl}
+              foundation={foundation}
+              size="face"
+            />
+          </span>
+          <span className="min-w-0 px-3 py-2.5">
+            <span className="block truncate text-sm font-semibold text-foreground">{title}</span>
+            <span className="block text-xs text-muted-foreground">
+              {deck.wordCount ?? 0} word{deck.wordCount === 1 ? '' : 's'}
+              {deck.status === 'draft' && ' · draft'}
+            </span>
+          </span>
+        </button>
+
+        {added ? (
+          <span className="absolute end-2 top-2 flex items-center gap-1 rounded-full bg-success px-2 py-0.5 text-[10px] font-semibold text-success-foreground">
+            <Check className="h-3 w-3" />
+            Added
+          </span>
+        ) : (
+          <label className="absolute end-2 top-2 cursor-pointer rounded-lg bg-background/85 p-1.5 backdrop-blur">
+            <input
+              type="checkbox"
+              checked={picked}
+              onChange={() => toggle(deck.id)}
+              aria-label={`Select ${deck.title}`}
+              className="block h-4 w-4 accent-primary"
+            />
+          </label>
+        )}
+      </div>
+    );
   };
 
   if (open) {
@@ -145,69 +221,33 @@ const LearnDecks = ({ onBack, onBuildDeck, onEditDeck }: LearnDecksProps) => {
       )}
 
       {!loading && (
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-          {visible.map((deck) => {
-            const added = mine.has(deck.id);
-            const picked = selected.has(deck.id);
-            const title = mine.get(deck.id) || deck.title;
-            const ownedByViewer = !deck.isAdminDeck && deck.createdBy !== null;
-            const foundation = deck.icon === FOUNDATION_ICON;
-            return (
-              <div
-                key={deck.id}
-                className={`relative overflow-hidden rounded-2xl border bg-card transition-colors ${
-                  picked ? 'border-primary ring-2 ring-primary/25' : 'border-border'
-                } ${added ? 'opacity-70' : ''}`}
-              >
-                {/* Tapping the card opens the deck; the tick in the corner is
-                    for taking several at once without opening any of them. */}
-                <button
-                  onClick={() => (ownedByViewer && onEditDeck ? onEditDeck(deck) : setOpen(deck))}
-                  className="flex w-full flex-col items-stretch text-start"
-                >
-                  <span
-                    className={`flex h-28 items-center justify-center ${
-                      foundation ? 'bg-primary text-primary-foreground' : 'bg-muted/40 text-primary'
-                    }`}
-                  >
-                    <DeckIcon icon={deck.icon} foundation={foundation} size="face" />
-                  </span>
-                  <span className="min-w-0 px-3 py-2.5">
-                    <span className="block truncate text-sm font-semibold text-foreground">
-                      {title}
-                    </span>
-                    <span className="block text-xs text-muted-foreground">
-                      {deck.wordCount ?? 0} word{deck.wordCount === 1 ? '' : 's'}
-                      {deck.status === 'draft' && ' · draft'}
-                    </span>
-                  </span>
-                </button>
+        <>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            {ungrouped.map((deck) => deckCard(deck))}
+            {visible.length === 0 && (
+              <p className="col-span-full px-4 py-10 text-center text-sm text-muted-foreground">
+                {query ? 'No deck matches that.' : 'No decks yet.'}
+              </p>
+            )}
+          </div>
 
-                {added ? (
-                  <span className="absolute end-2 top-2 flex items-center gap-1 rounded-full bg-success px-2 py-0.5 text-[10px] font-semibold text-success-foreground">
-                    <Check className="h-3 w-3" />
-                    Added
-                  </span>
-                ) : (
-                  <label className="absolute end-2 top-2 cursor-pointer rounded-lg bg-background/85 p-1.5 backdrop-blur">
-                    <input
-                      type="checkbox"
-                      checked={picked}
-                      onChange={() => toggle(deck.id)}
-                      aria-label={`Select ${deck.title}`}
-                      className="block h-4 w-4 accent-primary"
-                    />
-                  </label>
-                )}
+          {/* Themed sets live on their own shelf below the chapter decks, so
+              adding one never pushes the chapters off the first screen. A
+              shelf scrolls sideways rather than wrapping: a category is a
+              short list read along, not a second grid to scan down. */}
+          {shelves.map(([category, decks]) => (
+            <section key={category} className="space-y-2">
+              <h2 className="px-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                {category}
+              </h2>
+              <div className="-mx-5 overflow-x-auto px-5 pb-1">
+                <div className="flex w-max gap-3">
+                  {decks.map((deck) => deckCard(deck, 'w-40 shrink-0'))}
+                </div>
               </div>
-            );
-          })}
-          {visible.length === 0 && (
-            <p className="col-span-full px-4 py-10 text-center text-sm text-muted-foreground">
-              {query ? 'No deck matches that.' : 'No decks yet.'}
-            </p>
-          )}
-        </div>
+            </section>
+          ))}
+        </>
       )}
 
       {selected.size > 0 && (

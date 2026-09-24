@@ -75,7 +75,7 @@ const AdminDecks = ({ onBack }: { onBack: () => void }) => {
               onClick={() => setEditing(d)}
               className="flex w-full items-center gap-3 rounded-xl border border-border bg-card px-3 py-2.5 text-start"
             >
-              <DeckIcon icon={d.icon} size="sm" />
+              <DeckIcon icon={d.icon} iconUrl={d.iconUrl} size="sm" />
               <span className="min-w-0 flex-1">
                 <span className="block truncate text-sm font-semibold text-foreground">{d.title}</span>
                 <span className="block text-xs text-muted-foreground">
@@ -105,7 +105,8 @@ const AdminDecks = ({ onBack }: { onBack: () => void }) => {
               >
                 <DeckIcon
                   icon={deck.icon}
-                  foundation={deck.icon === FOUNDATION_ICON}
+                  iconUrl={deck.iconUrl}
+                  foundation={deck.icon === FOUNDATION_ICON && !deck.iconUrl}
                   size="sm"
                 />
                 <span className="min-w-0 flex-1">

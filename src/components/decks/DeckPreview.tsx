@@ -59,7 +59,12 @@ const DeckPreview = ({
       <BackButton onClick={onBack} label="Decks" />
 
       <div className="flex items-center gap-3">
-        <DeckIcon icon={deck.icon} foundation={deck.icon === FOUNDATION_ICON} size="lg" />
+        <DeckIcon
+          icon={deck.icon}
+          iconUrl={deck.iconUrl}
+          foundation={deck.icon === FOUNDATION_ICON && !deck.iconUrl}
+          size="lg"
+        />
         <div className="min-w-0 flex-1">
           <h2 className="truncate text-xl font-bold text-foreground">{deck.title}</h2>
           <p className="text-xs text-muted-foreground">

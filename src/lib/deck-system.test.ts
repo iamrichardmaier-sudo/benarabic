@@ -17,6 +17,8 @@ function deck(over: Partial<Deck> = {}): Deck {
     status: 'published',
     publishRequested: false,
     createdAt: '2026-09-17',
+    category: null,
+    iconUrl: null,
     ...over,
   };
 }
