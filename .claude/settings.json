@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run typecheck)",
+      "Bash(git fetch *)",
+      "Bash(npx vitest run *)",
+      "mcp__github__pull_request_read",
+      "mcp__ElevenLabs__creative_get_flow_run_status",
+      "Bash(npx eslint *)",
+      "Bash(npx tsc --noEmit *)",
+      "mcp__github__actions_list",
+      "mcp__Supabase__query_logs",
+      "mcp__ElevenLabs__creative_list_voices"
+    ]
+  }
+}
