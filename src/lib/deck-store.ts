@@ -197,6 +197,34 @@ export async function fetchDeckWords(deckId: string): Promise<Word[]> {
     .map(toWord);
 }
 
+export interface ListenCard {
+  arabic: string;
+  english: string;
+}
+
+/**
+ * A deck's words, in the shape "Listen to cards" speaks them -- only the
+ * ones this learner actually holds as flashcards (a shared deck can outrun
+ * what someone kept), and only the ones with an English gloss, since a card
+ * with nothing to say in English has nothing to pair the Arabic with.
+ */
+export async function fetchListenCards(deckId: string, userId: string): Promise<ListenCard[]> {
+  const words = await fetchDeckWords(deckId);
+  const wordIds = words.map((w) => w.id);
+  if (wordIds.length === 0) return [];
+
+  const { data, error } = await supabase
+    .from('flashcards')
+    .select('word,word_voweled,english')
+    .eq('user_id', userId)
+    .in('word_id', wordIds);
+  if (error) throw error;
+
+  return ((data ?? []) as { word: string; word_voweled: string | null; english: string | null }[])
+    .filter((r): r is typeof r & { english: string } => !!r.english)
+    .map((r) => ({ arabic: r.word_voweled || r.word, english: r.english }));
+}
+
 /** Search the whole shared bank, not just what the learner already holds. */
 export async function searchWords(query: string, limit = 40): Promise<Word[]> {
   const q = query.trim();
