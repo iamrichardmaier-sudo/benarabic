@@ -1,4 +1,10 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+// Deno.serve, not the deno.land/std serve() the project's older functions use:
+// every call through the old import failed with a bare, message-less
+// EDGE_FUNCTION_ERROR at the platform level -- before this function's own
+// try/catch ever ran, going by the total absence of its console.error output
+// even in the logs of other functions on this same project that do log
+// cleanly. Deno.serve is the runtime's own native server and what Supabase's
+// own function template uses today.
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -12,7 +18,7 @@ const VOICE_IDS: Record<string, string> = {
   en: "onwK4e9ZLuTAKqWW03F9", // Daniel -- Steady Broadcaster
 };
 
-serve(async (req) => {
+Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
@@ -81,11 +87,6 @@ serve(async (req) => {
     // only hands the caller a Blob for a Content-Type it special-cases, and
     // audio/mpeg is not one of them -- anything else is read back as text,
     // which corrupts binary audio. octet-stream is what the client expects.
-    //
-    // A plain Uint8Array body, not the raw ArrayBuffer: the edge runtime
-    // threw on an ArrayBuffer response body with no error this function's
-    // own try/catch ever saw -- just a bare EDGE_FUNCTION_ERROR at the
-    // platform level. A byte array is the least ambiguous BodyInit there is.
     const audio = new Uint8Array(await response.arrayBuffer());
     return new Response(audio, {
       headers: { ...corsHeaders, "Content-Type": "application/octet-stream" },
