@@ -81,7 +81,12 @@ serve(async (req) => {
     // only hands the caller a Blob for a Content-Type it special-cases, and
     // audio/mpeg is not one of them -- anything else is read back as text,
     // which corrupts binary audio. octet-stream is what the client expects.
-    const audio = await response.arrayBuffer();
+    //
+    // A plain Uint8Array body, not the raw ArrayBuffer: the edge runtime
+    // threw on an ArrayBuffer response body with no error this function's
+    // own try/catch ever saw -- just a bare EDGE_FUNCTION_ERROR at the
+    // platform level. A byte array is the least ambiguous BodyInit there is.
+    const audio = new Uint8Array(await response.arrayBuffer());
     return new Response(audio, {
       headers: { ...corsHeaders, "Content-Type": "application/octet-stream" },
     });
