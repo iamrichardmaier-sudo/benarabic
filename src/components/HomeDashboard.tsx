@@ -2,6 +2,8 @@ import { Flame, BookOpen, Layers, GraduationCap, ChevronRight, RotateCcw, Librar
 import { currentStreak } from '@/lib/streak';
 import { useBibleBooks } from '@/hooks/useBibleBooks';
 import HomeDeckShelves from '@/components/decks/HomeDeckShelves';
+import HomeDesktopColumns from '@/components/HomeDesktopColumns';
+import type { LearnDestination } from '@/components/LearnHub';
 
 interface HomeDashboardProps {
   userId?: string;
@@ -20,6 +22,8 @@ interface HomeDashboardProps {
   onBrowseDecks: () => void;
   onContinueReading: (bookCode: string, chapter: number) => void;
   onBrowseLibrary: () => void;
+  /** Desktop only: a drill or memorization tool tapped in the Practice column. */
+  onSelectPractice: (destination: LearnDestination) => void;
 }
 
 const BOOK_KEY = 'arabic-flashcards-bible-book';
@@ -41,7 +45,7 @@ function readStored(key: string): string | null {
 const HomeDashboard = ({
   userId, dueCount, nextWave, learnCount, deckSize,
   recentCount = 0, onPractice,
-  onReview, onLearn, onBrowseDecks, onContinueReading, onBrowseLibrary,
+  onReview, onLearn, onBrowseDecks, onContinueReading, onBrowseLibrary, onSelectPractice,
 }: HomeDashboardProps) => {
   const streak = currentStreak(userId);
   const { books } = useBibleBooks();
@@ -182,6 +186,7 @@ const HomeDashboard = ({
       </button>
 
       <HomeDeckShelves />
+      <HomeDesktopColumns onSelect={onSelectPractice} />
 
       {deckSize === 0 && (
         <p className="text-sm text-muted-foreground text-center px-4">

@@ -197,6 +197,57 @@ export async function fetchDeckWords(deckId: string): Promise<Word[]> {
     .map(toWord);
 }
 
+export interface DeckProgress {
+  learned: number;
+  total: number;
+}
+
+/**
+ * How far along this learner is in each deck they hold -- "learned" being a
+ * card past the new stage, i.e. reviewed at least once. Two queries rather
+ * than one joined one, matching how the rest of this file reaches through
+ * `deck_words`: fetch which words belong to which of the given decks, then
+ * fetch this learner's flashcards for all of those words in one pass, and
+ * count client-side.
+ */
+export async function fetchDeckProgress(
+  deckIds: string[],
+  userId: string,
+): Promise<Map<string, DeckProgress>> {
+  const progress = new Map<string, DeckProgress>();
+  if (deckIds.length === 0) return progress;
+
+  const { data: links, error: linkError } = await supabase
+    .from('deck_words')
+    .select('deck_id,word_id')
+    .in('deck_id', deckIds);
+  if (linkError) throw linkError;
+  const rows = (links ?? []) as { deck_id: string; word_id: string }[];
+
+  const wordIds = [...new Set(rows.map((r) => r.word_id))];
+  const { data: held, error: heldError } = wordIds.length
+    ? await supabase
+        .from('flashcards')
+        .select('word_id,learning_stage')
+        .eq('user_id', userId)
+        .in('word_id', wordIds)
+    : { data: [] as { word_id: string; learning_stage: string }[], error: null };
+  if (heldError) throw heldError;
+  const learnedWordIds = new Set(
+    (held ?? [])
+      .filter((r) => r.learning_stage !== 'new')
+      .map((r) => r.word_id),
+  );
+
+  for (const deckId of deckIds) progress.set(deckId, { learned: 0, total: 0 });
+  for (const row of rows) {
+    const p = progress.get(row.deck_id)!;
+    p.total += 1;
+    if (learnedWordIds.has(row.word_id)) p.learned += 1;
+  }
+  return progress;
+}
+
 export interface ListenCard {
   arabic: string;
   english: string;

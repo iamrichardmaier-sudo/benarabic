@@ -101,7 +101,10 @@ const HomeDeckShelves = () => {
   if (loading || visible.length === 0) return null;
 
   return (
-    <div className="space-y-4">
+    // The desktop layout covers decks in HomeDesktopColumns' Vocabulary
+    // column instead, styled as cards with a progress bar rather than a
+    // scrolling shelf.
+    <div className="space-y-4 lg:hidden">
       {shelf('Al-Kitab chapters', alKitab)}
       {shelf('Other decks', other)}
     </div>
