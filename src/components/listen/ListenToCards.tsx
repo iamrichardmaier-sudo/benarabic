@@ -22,6 +22,8 @@ interface Set {
 
 const ALL_SET: Set = { id: 'all', title: 'All my cards', count: 0, icon: FOUNDATION_ICON, iconUrl: null };
 
+const SPEEDS = [0.75, 1, 1.25, 1.5] as const;
+
 function reason(err: unknown): string {
   if (err instanceof Error) return err.message;
   if (err && typeof err === 'object' && 'message' in err) return String((err as { message: unknown }).message);
@@ -43,7 +45,7 @@ const ListenToCards = ({ cards, onBack }: { cards: FlashCard[]; onBack: () => vo
   const [gapSeconds, setGapSeconds] = useState(2);
   const [progress, setProgress] = useState({ done: 0, total: 0 });
   const [error, setError] = useState<string | null>(null);
-  const { state, play, toggle, stop } = useListenPlayer(chosen?.title ?? 'Listen to cards');
+  const { state, play, toggle, stop, setSpeed } = useListenPlayer(chosen?.title ?? 'Listen to cards');
 
   const cardsWithEnglish = useMemo(() => cards.filter((c) => c.english), [cards]);
 
@@ -251,6 +253,22 @@ const ListenToCards = ({ cards, onBack }: { cards: FlashCard[]; onBack: () => vo
               : state.playing ? <Pause className="h-7 w-7" />
               : <Play className="h-7 w-7 ps-1" />}
           </button>
+          <div className="flex items-center justify-center gap-1.5">
+            {SPEEDS.map((s) => (
+              <button
+                key={s}
+                onClick={() => setSpeed(s)}
+                aria-pressed={state.speed === s}
+                className={`rounded-full px-2.5 py-1 text-xs font-semibold transition-colors ${
+                  state.speed === s
+                    ? 'bg-primary text-primary-foreground'
+                    : 'border border-border text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                {s}×
+              </button>
+            ))}
+          </div>
           {state.error && <p className="text-xs text-destructive">{state.error}</p>}
           <p className="text-[11px] text-muted-foreground">
             Keeps playing with the screen off, on a loop, until you stop it here.

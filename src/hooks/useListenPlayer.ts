@@ -21,18 +21,22 @@ export interface ListenPlayerState {
   playing: boolean;
   loading: boolean;
   error: string | null;
+  speed: number;
 }
 
 export function useListenPlayer(title: string) {
   const [state, setState] = useState<ListenPlayerState>({
-    playing: false, loading: false, error: null,
+    playing: false, loading: false, error: null, speed: 1,
   });
   const urlRef = useRef<string | null>(null);
 
   const patch = (p: Partial<ListenPlayerState>) => setState((s) => ({ ...s, ...p }));
 
   /** Start looping a freshly generated track. Takes ownership of the URL --
-   *  it is revoked when a new one replaces it or `stop` is called. */
+   *  it is revoked when a new one replaces it or `stop` is called. The
+   *  element's playbackRate is untouched here on purpose: it is a property
+   *  of the persistent singleton, so a speed chosen for one track carries
+   *  over to the next rather than resetting to 1x every time. */
   const play = useCallback((url: string) => {
     if (urlRef.current) URL.revokeObjectURL(urlRef.current);
     urlRef.current = url;
@@ -41,6 +45,13 @@ export function useListenPlayer(title: string) {
     el.load();
     patch({ loading: true, error: null });
     el.play().catch((e) => patch({ error: String(e), playing: false }));
+  }, []);
+
+  /** Live-adjustable, since it is a property of already-generated audio --
+   *  no need to regenerate anything to hear it faster or slower. */
+  const setSpeed = useCallback((rate: number) => {
+    audio().playbackRate = rate;
+    patch({ speed: rate });
   }, []);
 
   const toggle = useCallback(() => {
@@ -103,5 +114,5 @@ export function useListenPlayer(title: string) {
   // screen closing, so this deliberately does not clean up the object URL --
   // only `stop` (called when the user leaves the screen on purpose) does.
 
-  return { state, play, toggle, stop };
+  return { state, play, toggle, stop, setSpeed };
 }
