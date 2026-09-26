@@ -432,7 +432,7 @@ const Index = () => {
     <DeckActionsContext.Provider value={{ addWord: addWordFromReader }}>
     <div className="min-h-screen bg-background flex flex-col">
       <header className="border-b border-border/60 bg-card/50 backdrop-blur-sm sticky top-0 z-10">
-        <div className={`mx-auto px-4 py-4 flex items-center justify-between w-full max-w-lg ${view === 'home' ? 'lg:max-w-5xl' : ''}`}>
+        <div className={`mx-auto px-4 py-4 flex items-center justify-between w-full max-w-lg ${view === 'home' ? 'lg:max-w-3xl' : ''}`}>
           <button
             onClick={() => selectTab('home')}
             aria-label="Wazn — go to Home"
@@ -478,7 +478,7 @@ const Index = () => {
         )}
       </header>
 
-      <main className={`flex-1 mx-auto w-full px-4 pt-8 pb-28 max-w-lg ${view === 'home' ? 'lg:max-w-5xl' : ''}`}>
+      <main className={`flex-1 mx-auto w-full px-4 pt-8 pb-28 max-w-lg ${view === 'home' ? 'lg:max-w-3xl' : ''}`}>
         {view === 'home' && (
           <>
             {cards.length === 0 && user?.email && (

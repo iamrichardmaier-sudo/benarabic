@@ -129,7 +129,7 @@ const HomeDesktopColumns = ({ onSelect }: { onSelect: (destination: LearnDestina
   };
 
   return (
-    <div className="hidden gap-6 lg:grid lg:grid-cols-2">
+    <div className="hidden gap-4 lg:grid lg:grid-cols-2">
       <section className="space-y-2">
         <h2 className="px-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
           Practice
