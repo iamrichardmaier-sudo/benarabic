@@ -1,6 +1,7 @@
 import { Flame, BookOpen, Layers, GraduationCap, ChevronRight, RotateCcw, LibraryBig } from 'lucide-react';
 import { currentStreak } from '@/lib/streak';
 import { useBibleBooks } from '@/hooks/useBibleBooks';
+import HomeDeckShelves from '@/components/decks/HomeDeckShelves';
 
 interface HomeDashboardProps {
   userId?: string;
@@ -179,6 +180,8 @@ const HomeDashboard = ({
         </span>
         <ChevronRight className="w-5 h-5 text-muted-foreground" />
       </button>
+
+      <HomeDeckShelves />
 
       {deckSize === 0 && (
         <p className="text-sm text-muted-foreground text-center px-4">

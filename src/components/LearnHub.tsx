@@ -1,6 +1,6 @@
 import {
   GraduationCap, BookOpen, RefreshCw, List,
-  Sparkles, Link2, Brain, ChevronRight, Search, Hash, LibraryBig, type LucideIcon,
+  Sparkles, Link2, Brain, Headphones, ChevronRight, Search, Hash, LibraryBig, type LucideIcon,
 } from 'lucide-react';
 import PodcastShelf from '@/components/podcasts/PodcastShelf';
 import type { Podcast } from '@/lib/podcasts';
@@ -8,7 +8,7 @@ import type { Podcast } from '@/lib/podcasts';
 export type LearnDestination =
   | 'learn' | 'review' | 'relearn' | 'deck' | 'lookup' | 'learnDecks'
   | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill'
-  | 'memorize';
+  | 'memorize' | 'listenCards';
 
 interface LearnHubProps {
   dueCount: number;
@@ -76,6 +76,7 @@ const LearnHub = ({
       title: 'Memorization',
       items: [
         { id: 'memorize', label: 'Memorize a transcript', icon: Brain, hint: 'Hide words and recall the passage' },
+        { id: 'listenCards', label: 'Listen to cards', icon: Headphones, hint: 'Play a set on a loop, hands-free' },
       ],
     },
   ];

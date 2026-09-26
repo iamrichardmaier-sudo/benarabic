@@ -15,6 +15,7 @@ import ConjugationDrill from '@/components/ConjugationDrill';
 import PrepositionDrill from '@/components/PrepositionDrill';
 import NumbersDrill from '@/components/NumbersDrill';
 import MemorizeTranscript from '@/components/MemorizeTranscript';
+import ListenToCards from '@/components/listen/ListenToCards';
 import WordLookup from '@/components/WordLookup';
 import { entryToCardFields, type DictionaryEntry } from '@/lib/dictionary';
 import Library from '@/components/library/Library';
@@ -50,7 +51,7 @@ import { useToast } from '@/hooks/use-toast';
 type View =
   | 'home' | 'learnHub' | 'library' | 'settings'
   | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
-  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize'
+  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize' | 'listenCards'
   | 'pdfToAudio'
   | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast';
 
@@ -651,6 +652,10 @@ const Index = () => {
         )}
 
         {view === 'memorize' && <MemorizeTranscript onBack={() => setView('learnHub')} />}
+
+        {view === 'listenCards' && (
+          <ListenToCards cards={cards} onBack={() => setView('learnHub')} />
+        )}
 
         {view === 'podcast' && podcast && (
           <PodcastPlayer
