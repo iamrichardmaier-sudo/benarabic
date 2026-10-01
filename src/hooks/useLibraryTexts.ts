@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
+import { useToast } from '@/hooks/use-toast';
 import type { TaggedSense } from '@/lib/reader-word';
 
 export interface LibraryText {
@@ -56,6 +57,7 @@ function rowToText(row: Row, currentUserId: string): LibraryText {
  */
 export function useLibraryTexts() {
   const { user } = useAuth();
+  const { toast } = useToast();
   const [texts, setTexts] = useState<LibraryText[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -79,12 +81,16 @@ export function useLibraryTexts() {
       // been applied emptied the library on sight.
       console.error('Could not load your library:', error);
       setError(error.message ?? 'Your library could not be loaded.');
+      // Not every screen that uses this hook renders `error` itself — the
+      // toast is what makes a failed load visible everywhere this is used,
+      // not just on the one screen that happens to check for it.
+      toast({ title: 'Your saved texts could not be loaded', variant: 'destructive' });
     } else {
       setError(null);
       setTexts((data as unknown as Row[]).map((row) => rowToText(row, user.id)));
     }
     setLoading(false);
-  }, [user]);
+  }, [user, toast]);
 
   useEffect(() => {
     refresh();

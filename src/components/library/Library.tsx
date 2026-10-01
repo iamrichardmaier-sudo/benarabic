@@ -5,6 +5,7 @@ import LibraryHome, { type LibraryDestination } from '@/components/LibraryHome';
 import BackButton from '@/components/BackButton';
 import ChapterReader from '@/components/library/ChapterReader';
 import ArabicInTheWild from '@/components/ArabicInTheWild';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useLibraryTexts, type LibraryText } from '@/hooks/useLibraryTexts';
 import { BOM_BOOKS, bomBook } from '@/lib/bom-books';
 import type { BibleBook } from '@/lib/bible-types';
@@ -110,7 +111,20 @@ const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
     setLevel({ kind: 'reader', bookCode, chapter });
   };
 
-  if (loading) return <p className="text-sm text-muted-foreground">Loading the Library…</p>;
+  if (loading) {
+    return (
+      <div className="space-y-5">
+        <div className="space-y-1">
+          <Skeleton className="h-7 w-28" />
+          <Skeleton className="h-4 w-56" />
+        </div>
+        <div className="space-y-px overflow-hidden rounded-2xl border border-border">
+          <Skeleton className="h-[4.25rem] w-full rounded-none" />
+          <Skeleton className="h-[4.25rem] w-full rounded-none" />
+        </div>
+      </div>
+    );
+  }
   if (error || !books) {
     return <p className="text-sm text-destructive">{error ?? 'Could not load the Library.'}</p>;
   }

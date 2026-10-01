@@ -3,6 +3,7 @@ import {
   Sparkles, Link2, Hash, Brain, Headphones, Check, type LucideIcon,
 } from 'lucide-react';
 import DeckIcon from '@/components/decks/DeckIcon';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useDeckLibrary } from '@/hooks/useDeckLibrary';
 import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/hooks/use-toast';
@@ -84,7 +85,7 @@ const HomeDesktopColumns = ({ onSelect }: { onSelect: (destination: LearnDestina
     }
   };
 
-  if (loading || visible.length === 0) return null;
+  if (!loading && visible.length === 0) return null;
 
   const deckCard = (deck: Deck) => {
     const added = mine.has(deck.id);
@@ -158,7 +159,11 @@ const HomeDesktopColumns = ({ onSelect }: { onSelect: (destination: LearnDestina
           Vocabulary
         </h2>
         <div className="space-y-2.5">
-          {visible.map(deckCard)}
+          {loading
+            ? Array.from({ length: 4 }, (_, i) => (
+                <Skeleton key={i} className="h-[4.5rem] w-full rounded-2xl" />
+              ))
+            : visible.map(deckCard)}
         </div>
       </section>
     </div>

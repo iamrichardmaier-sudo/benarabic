@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useAuth } from '@/hooks/useAuth';
+import { useToast } from '@/hooks/use-toast';
 import {
   fetchDecks, fetchUserDecks, addDecksToLearn, removeDeckFromLearn,
   isDeckAdmin, type Deck,
@@ -15,6 +16,7 @@ import type { DeckPlacement } from '@/lib/deck-placement';
  */
 export function useDeckLibrary() {
   const { user } = useAuth();
+  const { toast } = useToast();
   const [decks, setDecks] = useState<Deck[]>([]);
   const [mine, setMine] = useState<Map<string, string | null>>(new Map());
   const [admin, setAdmin] = useState(false);
@@ -40,13 +42,17 @@ export function useDeckLibrary() {
       setError(null);
     } catch (err) {
       // The list already on screen is left alone: a failed reload means the
-      // library could not be refreshed, not that the decks are gone.
+      // library could not be refreshed, not that the decks are gone. Several
+      // screens read this hook and not all of them render `error` — Home's
+      // deck shelves, for one — so the toast is what makes the failure
+      // visible no matter which of them was on screen when it happened.
       console.error('Could not load the deck library:', err);
       setError(err instanceof Error ? err.message : 'The decks could not be loaded.');
+      toast({ title: 'Your decks could not be loaded', variant: 'destructive' });
     } finally {
       setLoading(false);
     }
-  }, [user]);
+  }, [user, toast]);
 
   useEffect(() => {
     refresh();

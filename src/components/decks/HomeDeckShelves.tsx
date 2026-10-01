@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Check } from 'lucide-react';
 import DeckIcon from '@/components/decks/DeckIcon';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useDeckLibrary } from '@/hooks/useDeckLibrary';
 import { useToast } from '@/hooks/use-toast';
 import { FOUNDATION_ICON } from '@/lib/deck-icons';
@@ -98,7 +99,20 @@ const HomeDeckShelves = () => {
     );
   };
 
-  if (loading || visible.length === 0) return null;
+  if (loading) {
+    return (
+      <div className="space-y-2 lg:hidden">
+        <Skeleton className="h-3 w-28" />
+        <div className="flex gap-3">
+          {Array.from({ length: 3 }, (_, i) => (
+            <Skeleton key={i} className="h-[6.5rem] w-32 shrink-0 rounded-2xl" />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (visible.length === 0) return null;
 
   return (
     // The desktop layout covers decks in HomeDesktopColumns' Vocabulary
