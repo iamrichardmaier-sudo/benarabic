@@ -74,6 +74,36 @@ export function normalizeArabicIgnoreShortVowels(str: string): string {
   return normalizeArabicKeepVowels(stripShortVowels(str));
 }
 
+const SHORT_VOWEL_CLASS = 'ًٌٍَُِْ';
+const SHADDA = 'ّ';
+
+/**
+ * The pausal (waqf) form of a fully-voweled word: everything stays, except
+ * the one diacritic on the very last letter if it is a short vowel or
+ * tanwin. This is how a word is said when cited on its own rather than
+ * read in a sentence -- a dictionary entry or a flashcard, not a verse --
+ * and it is also the standard a reader expects when a single word is
+ * spoken in isolation.
+ *
+ * Two cases need more than a blind trailing-character strip:
+ * - Tanwin fath (ً) is written on the letter *before* a word-final bare
+ *   alef, not on the alef itself (كِتَابًا) -- the alef carries no mark of
+ *   its own and must stay, reading as a plain long "a" once the tanwin
+ *   is gone.
+ * - Shadda (ّ) marks gemination, not a vowel, so it is never dropped --
+ *   but whether it was typed before or after the vowel it sits with on
+ *   the same letter is not guaranteed, so both orders are handled.
+ */
+export function pausalForm(voweled: string): string {
+  const tanwinFathOnAlef = voweled.match(/ً(ا)$/);
+  if (tanwinFathOnAlef) return voweled.slice(0, -2) + tanwinFathOnAlef[1];
+
+  return voweled
+    .replace(new RegExp(`([${SHADDA}])([${SHORT_VOWEL_CLASS}])$`), '$1')
+    .replace(new RegExp(`([${SHORT_VOWEL_CLASS}])([${SHADDA}])$`), '$2')
+    .replace(new RegExp(`[${SHORT_VOWEL_CLASS}]$`), '');
+}
+
 /**
  * Check a user's plural answer against the list of accepted answers.
  * Returns true if any normalized answer matches.

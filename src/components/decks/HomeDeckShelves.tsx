@@ -1,11 +1,12 @@
 import { useMemo, useState } from 'react';
 import { Check } from 'lucide-react';
 import DeckIcon from '@/components/decks/DeckIcon';
+import AddDeckPopover from '@/components/decks/AddDeckPopover';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useDeckLibrary } from '@/hooks/useDeckLibrary';
 import { useToast } from '@/hooks/use-toast';
 import { FOUNDATION_ICON } from '@/lib/deck-icons';
-import { placementNote } from '@/lib/deck-placement';
+import { placementNote, type DeckPlacement } from '@/lib/deck-placement';
 import type { Deck } from '@/lib/deck-store';
 
 /**
@@ -33,12 +34,12 @@ const HomeDeckShelves = () => {
     [visible],
   );
 
-  const add = async (deck: Deck) => {
+  const add = async (deck: Deck, placement: DeckPlacement = 'learn') => {
     if (mine.has(deck.id) || busy) return;
     setBusy(deck.id);
     try {
-      const { newCards } = await addDecks([deck.id]);
-      toast({ title: `Added ${deck.title}`, description: placementNote('learn', newCards) });
+      const { newCards } = await addDecks([deck.id], placement);
+      toast({ title: `Added ${deck.title}`, description: placementNote(placement, newCards) });
     } catch (err) {
       toast({
         title: 'Could not add that deck',
@@ -53,10 +54,10 @@ const HomeDeckShelves = () => {
   const card = (deck: Deck) => {
     const added = mine.has(deck.id);
     const foundation = deck.icon === FOUNDATION_ICON && !deck.iconUrl;
-    return (
+    const button = (
       <button
         key={deck.id}
-        onClick={() => add(deck)}
+        type="button"
         disabled={busy === deck.id}
         className={`relative w-32 shrink-0 overflow-hidden rounded-2xl border text-start transition-all active:scale-95 ${
           added ? 'border-border opacity-70' : 'border-border hover:bg-muted/40'
@@ -82,6 +83,12 @@ const HomeDeckShelves = () => {
           </span>
         )}
       </button>
+    );
+    if (added) return button;
+    return (
+      <AddDeckPopover key={deck.id} busy={busy === deck.id} onAdd={(placement) => add(deck, placement)}>
+        {button}
+      </AddDeckPopover>
     );
   };
 

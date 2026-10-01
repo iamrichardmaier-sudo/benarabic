@@ -3,12 +3,13 @@ import {
   Sparkles, Link2, Hash, Brain, Headphones, Check, type LucideIcon,
 } from 'lucide-react';
 import DeckIcon from '@/components/decks/DeckIcon';
+import AddDeckPopover from '@/components/decks/AddDeckPopover';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useDeckLibrary } from '@/hooks/useDeckLibrary';
 import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/hooks/use-toast';
 import { FOUNDATION_ICON } from '@/lib/deck-icons';
-import { placementNote } from '@/lib/deck-placement';
+import { placementNote, type DeckPlacement } from '@/lib/deck-placement';
 import { fetchDeckProgress, type Deck, type DeckProgress } from '@/lib/deck-store';
 import type { LearnDestination } from '@/components/LearnHub';
 
@@ -68,12 +69,12 @@ const HomeDesktopColumns = ({ onSelect }: { onSelect: (destination: LearnDestina
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, addedIds.join(',')]);
 
-  const add = async (deck: Deck) => {
+  const add = async (deck: Deck, placement: DeckPlacement = 'learn') => {
     if (mine.has(deck.id) || busy) return;
     setBusy(deck.id);
     try {
-      const { newCards } = await addDecks([deck.id]);
-      toast({ title: `Added ${deck.title}`, description: placementNote('learn', newCards) });
+      const { newCards } = await addDecks([deck.id], placement);
+      toast({ title: `Added ${deck.title}`, description: placementNote(placement, newCards) });
     } catch (err) {
       toast({
         title: 'Could not add that deck',
@@ -95,10 +96,10 @@ const HomeDesktopColumns = ({ onSelect }: { onSelect: (destination: LearnDestina
     const learned = added ? (p?.learned ?? 0) : 0;
     const fraction = total > 0 ? learned / total : 0;
 
-    return (
+    const button = (
       <button
         key={deck.id}
-        onClick={() => add(deck)}
+        type="button"
         disabled={busy === deck.id}
         className="relative flex w-full items-center gap-3 overflow-hidden rounded-2xl border border-border bg-card p-4 text-start transition-all hover:border-primary/40 hover:shadow-sm"
       >
@@ -126,6 +127,12 @@ const HomeDesktopColumns = ({ onSelect }: { onSelect: (destination: LearnDestina
           </span>
         )}
       </button>
+    );
+    if (added) return button;
+    return (
+      <AddDeckPopover key={deck.id} busy={busy === deck.id} onAdd={(placement) => add(deck, placement)}>
+        {button}
+      </AddDeckPopover>
     );
   };
 

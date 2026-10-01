@@ -83,7 +83,10 @@ Deno.serve(async (req: Request) => {
       console.error("word_audio cache lookup failed, generating fresh:", cacheErr);
     }
 
-    const ELEVENLABS_API_KEY = Deno.env.get("ELEVENLABS_API_KEY");
+    // The secret is stored as ELEVEN_LABS_API in this project; the more
+    // conventional name is accepted too, so a future rename either way
+    // keeps working without another deploy.
+    const ELEVENLABS_API_KEY = Deno.env.get("ELEVEN_LABS_API") ?? Deno.env.get("ELEVENLABS_API_KEY");
     if (!ELEVENLABS_API_KEY) {
       return new Response(
         JSON.stringify({ error: "Speech service not configured" }),

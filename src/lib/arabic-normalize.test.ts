@@ -5,6 +5,7 @@ import {
   normalizeArabic,
   normalizeArabicIgnoreShortVowels,
   normalizeArabicKeepVowels,
+  pausalForm,
 } from './arabic-normalize';
 
 describe('stripShortVowels', () => {
@@ -70,6 +71,35 @@ describe('stripTatweel', () => {
 
   it('leaves text without tatweel untouched', () => {
     expect(stripTatweel('مِن')).toBe('مِن');
+  });
+});
+
+describe('pausalForm', () => {
+  it('drops a final fatha, damma or kasra', () => {
+    expect(pausalForm('كَتَبَ')).toBe('كَتَب');
+    expect(pausalForm('كَرِيمُ')).toBe('كَرِيم');
+    expect(pausalForm('بَيْتِ')).toBe('بَيْت');
+  });
+
+  it('drops tanwin fath, leaving the alef to read as a plain long a', () => {
+    expect(pausalForm('كِتَابًا')).toBe('كِتَابا');
+  });
+
+  it('drops tanwin damm and kasr entirely, leaving no vowel', () => {
+    expect(pausalForm('كِتَابٌ')).toBe('كِتَاب');
+    expect(pausalForm('كِتَابٍ')).toBe('كِتَاب');
+  });
+
+  it('leaves shadda in place -- it marks gemination, not a vowel', () => {
+    expect(pausalForm('حَقٌّ')).toBe('حَقّ');
+  });
+
+  it('leaves everything but the last letter untouched', () => {
+    expect(pausalForm('مُدَرِّسَة')).toBe('مُدَرِّسَة');
+  });
+
+  it('is a no-op on text with no final vowel to drop', () => {
+    expect(pausalForm('كتاب')).toBe('كتاب');
   });
 });
 
