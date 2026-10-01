@@ -67,9 +67,9 @@ const LearnHub = ({
     {
       title: 'Grammar',
       items: [
-        { id: 'conjugationDrill', label: 'Drill conjugations', icon: Sparkles, hint: 'Past, present and masdar by form' },
-        { id: 'prepositionDrill', label: 'Drill prepositions', icon: Link2, hint: 'Verbs that take a fixed preposition' },
-        { id: 'numbersDrill', label: 'Drill numbers and plurals', icon: Hash, hint: 'Counting, and the gender the numeral takes' },
+        { id: 'conjugationDrill', label: 'Drill conjugations', icon: Sparkles, hint: "Practice a verb's past, present and verbal-noun forms" },
+        { id: 'prepositionDrill', label: 'Drill prepositions', icon: Link2, hint: 'Verbs that always pair with one preposition' },
+        { id: 'numbersDrill', label: 'Drill numbers and plurals', icon: Hash, hint: 'Counting — Arabic numbers change with the noun’s gender' },
       ],
     },
     {

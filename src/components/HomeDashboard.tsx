@@ -86,8 +86,10 @@ const HomeDashboard = ({
         </div>
       </div>
 
-      {/* The single most useful next action, chosen for the user. */}
-      {primary && (
+      {/* The single most useful next action, chosen for the user. A brand-new
+          deck has no due/learnable cards yet, so it gets its own first step
+          here instead of leaving this slot empty. */}
+      {primary ? (
         <button
           onClick={primary.action}
           className="w-full flex items-center justify-between gap-3 rounded-2xl bg-primary text-primary-foreground px-5 py-4 font-semibold transition-all active:scale-95"
@@ -98,7 +100,23 @@ const HomeDashboard = ({
           </span>
           <ChevronRight className="w-5 h-5 opacity-80" />
         </button>
-      )}
+      ) : deckSize === 0 ? (
+        <button
+          onClick={onBrowseDecks}
+          className="w-full flex items-center justify-between gap-3 rounded-2xl bg-primary text-primary-foreground px-5 py-4 text-start font-semibold transition-all active:scale-95"
+        >
+          <span className="flex items-center gap-2.5">
+            <LibraryBig className="w-5 h-5" />
+            <span>
+              <span className="block">Browse decks to get started</span>
+              <span className="block text-xs font-normal opacity-80">
+                Pick a ready-made set of words, or read something in the Library
+              </span>
+            </span>
+          </span>
+          <ChevronRight className="w-5 h-5 opacity-80 shrink-0" />
+        </button>
+      ) : null}
 
       {resume && (
         <button
@@ -187,13 +205,6 @@ const HomeDashboard = ({
 
       <HomeDeckShelves />
       <HomeDesktopColumns onSelect={onSelectPractice} />
-
-      {deckSize === 0 && (
-        <p className="text-sm text-muted-foreground text-center px-4">
-          Your deck is empty. Pick up a deck in Learn Decks to get started, or read something in
-          the Library and tap any word you don't know.
-        </p>
-      )}
     </div>
   );
 };

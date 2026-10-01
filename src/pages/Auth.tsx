@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
-import { BookOpen, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
+import WaznLogo from '@/components/WaznLogo';
 
 type Mode = 'signIn' | 'signUp' | 'forgot' | 'reset';
 
@@ -121,9 +122,9 @@ const Auth = () => {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
       <div className="w-full max-w-sm space-y-8">
-        <div className="flex flex-col items-center gap-2">
-          <BookOpen className="w-10 h-10 text-primary" />
-          <h1 className="text-2xl font-bold text-foreground">بطاقات</h1>
+        <div className="flex flex-col items-center gap-2 text-primary">
+          <WaznLogo size={40} />
+          <h1 className="text-2xl font-bold text-foreground">Wazn</h1>
           <p className="text-sm text-muted-foreground text-center">{subtitle}</p>
         </div>
 

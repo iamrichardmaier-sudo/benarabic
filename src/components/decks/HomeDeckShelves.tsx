@@ -8,10 +8,10 @@ import { placementNote } from '@/lib/deck-placement';
 import type { Deck } from '@/lib/deck-store';
 
 /**
- * Two browsable shelves right on Home: the Al-Kitab chapters, and everything
- * else. Tapping an unadded deck takes it up immediately — Home is a place to
- * glance and go, not to stop and read a preview first. Learn Decks still has
- * the full browse-and-preview flow for anyone who wants it.
+ * Two browsable shelves right on Home: Book of Mormon chapter decks, and
+ * everything else. Tapping an unadded deck takes it up immediately — Home is
+ * a place to glance and go, not to stop and read a preview first. Learn
+ * Decks still has the full browse-and-preview flow for anyone who wants it.
  */
 const HomeDeckShelves = () => {
   const { decks, mine, loading, addDecks } = useDeckLibrary();
@@ -105,7 +105,7 @@ const HomeDeckShelves = () => {
     // column instead, styled as cards with a progress bar rather than a
     // scrolling shelf.
     <div className="space-y-4 lg:hidden">
-      {shelf('Al-Kitab chapters', alKitab)}
+      {shelf('Book of Mormon chapters', alKitab)}
       {shelf('Other decks', other)}
     </div>
   );

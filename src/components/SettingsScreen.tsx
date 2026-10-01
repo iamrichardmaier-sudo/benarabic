@@ -1,6 +1,7 @@
 import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages, AudioLines, FileJson, LayoutList, Plus } from 'lucide-react';
 import { usePreferences } from '@/hooks/usePreferences';
 import DialectToggle from '@/components/DialectToggle';
+import InfoHint from '@/components/InfoHint';
 import {
   setTextScale, setAudioRate, setTheme,
   TEXT_SCALE_MIN, TEXT_SCALE_MAX, TEXT_SCALE_STEP,
@@ -60,7 +61,16 @@ const SettingsScreen = ({
             <span className="flex items-center gap-2.5">
               <Languages className="w-5 h-5 text-primary shrink-0" />
               <span>
-                <span className="block text-sm text-foreground">Which Arabic to study</span>
+                <span className="flex items-center gap-1.5 text-sm text-foreground">
+                  Which Arabic to study
+                  <InfoHint label="What's the difference between Fusha and Shaami?">
+                    <strong className="text-foreground">Fusha</strong> is Modern Standard
+                    Arabic — the formal register used in writing, news and most teaching.{' '}
+                    <strong className="text-foreground">Shaami</strong> is the everyday spoken
+                    dialect of the Levant (Syria, Lebanon, Jordan, Palestine). Not every word
+                    has its own Shaami form, so cards without one still show their Fusha.
+                  </InfoHint>
+                </span>
                 <span className="block text-xs text-muted-foreground">
                   Cards without a separate Shaami form still show their Fusha, so nothing
                   drops out of the deck.
@@ -195,9 +205,9 @@ const SettingsScreen = ({
           >
             <Plus className="w-5 h-5 text-primary shrink-0" />
             <span className="min-w-0 flex-1">
-              <span className="block font-semibold text-foreground">Add words</span>
+              <span className="block font-semibold text-foreground">Add to My Deck</span>
               <span className="block text-xs text-muted-foreground">
-                Type a list, one word per line
+                Type a list, one word per line — straight into My Deck
               </span>
             </span>
             <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
@@ -208,9 +218,9 @@ const SettingsScreen = ({
           >
             <FileJson className="w-5 h-5 text-primary shrink-0" />
             <span className="min-w-0 flex-1">
-              <span className="block font-semibold text-foreground">Import words</span>
+              <span className="block font-semibold text-foreground">Import as a new deck</span>
               <span className="block text-xs text-muted-foreground">
-                Paste JSON, or copy a prompt for your own Claude
+                Paste JSON, or copy a prompt for your own Claude — creates its own deck
               </span>
             </span>
             <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />

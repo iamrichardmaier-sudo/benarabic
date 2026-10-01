@@ -33,7 +33,10 @@ export interface Preferences {
 }
 
 export const DIALECT_LABELS: Record<Dialect, string> = {
-  msa: 'MSA',
+  // "Fusha" throughout, not "MSA" — the one other place a register is named
+  // on screen (a card's "other forms" panel) already says Fusha, and a
+  // learner should only have to recognize one term for it.
+  msa: 'Fusha',
   shaami: 'Shaami',
   both: 'Both',
 };
