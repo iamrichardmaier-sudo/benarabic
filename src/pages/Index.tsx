@@ -224,8 +224,11 @@ const Index = () => {
     setView(TAB_HOME_VIEW[next]);
   };
 
+  /** Reachable from any screen via the header's word-count badge. Leaves the
+   *  active tab as it is, so BottomNav keeps showing where you actually came
+   *  from — forcing it to Settings used to land Back on a Settings screen
+   *  you never opened. */
   const goToDeck = () => {
-    setTab('settings');
     setView('deck');
   };
 

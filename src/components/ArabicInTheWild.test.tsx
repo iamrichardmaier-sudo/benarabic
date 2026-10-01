@@ -127,6 +127,7 @@ function entry(over: Partial<LibraryText> = {}): LibraryText {
     coverUrl: null,
     updatedAt: '2026-09-15',
     wordTags: {},
+    isOwn: true,
     ...over,
   };
 }

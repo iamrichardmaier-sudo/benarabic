@@ -7,6 +7,42 @@ import { useToast } from '@/hooks/use-toast';
 
 type Mode = 'signIn' | 'signUp' | 'forgot' | 'reset';
 
+/**
+ * Supabase/GoTrue error messages are written for a developer reading logs,
+ * not a reader staring at a login form. Known cases get a plain-language
+ * rewrite; anything unrecognized still shows the original message rather
+ * than a vague "something went wrong" that hides real information.
+ */
+export function friendlyAuthError(err: { message?: string; status?: number } | undefined, mode: Mode): string {
+  const raw = err?.message ?? '';
+  const lower = raw.toLowerCase();
+
+  if (lower.includes('invalid login credentials')) {
+    return "That email or password doesn't look right.";
+  }
+  if (lower.includes('already registered') || lower.includes('already exists')) {
+    return 'You already have an account with that email — try signing in instead.';
+  }
+  if (lower.includes('email not confirmed')) {
+    return "This email hasn't been confirmed yet — check your inbox for the link we sent.";
+  }
+  if (lower.includes('password') && lower.includes('6 characters')) {
+    return 'Your password needs to be at least 6 characters.';
+  }
+  if (err?.status === 429 || lower.includes('security purposes') || lower.includes('rate limit')) {
+    return "That's one too many tries — wait a minute and try again.";
+  }
+  if (lower.includes('failed to fetch') || lower.includes('network')) {
+    return "Couldn't reach the server — check your connection and try again.";
+  }
+  if (!raw) {
+    return mode === 'signUp'
+      ? 'Could not create your account. Please try again.'
+      : 'Something went wrong. Please try again.';
+  }
+  return raw;
+}
+
 const Auth = () => {
   const [mode, setMode] = useState<Mode>('signIn');
   const [email, setEmail] = useState('');
@@ -62,7 +98,7 @@ const Auth = () => {
         if (error) throw error;
       }
     } catch (err: any) {
-      toast({ title: err.message || 'Authentication error', variant: 'destructive' });
+      toast({ title: friendlyAuthError(err, mode), variant: 'destructive' });
     } finally {
       setLoading(false);
     }

@@ -5,8 +5,12 @@ import LibraryHome from './LibraryHome';
 import type { LibraryText } from '@/hooks/useLibraryTexts';
 
 const saved: LibraryText[] = [
-  { id: 'a', title: 'نص محفوظ', body: 'كلمات', english: '', coverUrl: 'data:image/jpeg;base64,xxx', updatedAt: '2026-09-15', wordTags: {} },
-  { id: 'b', title: 'بدون غلاف', body: 'كلمات', english: '', coverUrl: null, updatedAt: '2026-09-14', wordTags: {} },
+  { id: 'a', title: 'نص محفوظ', body: 'كلمات', english: '', coverUrl: 'data:image/jpeg;base64,xxx', updatedAt: '2026-09-15', wordTags: {}, isOwn: true },
+  { id: 'b', title: 'بدون غلاف', body: 'كلمات', english: '', coverUrl: null, updatedAt: '2026-09-14', wordTags: {}, isOwn: true },
+];
+
+const shared: LibraryText[] = [
+  { id: 'c', title: 'مقال عام', body: 'كلمات', english: '', coverUrl: null, updatedAt: '2026-09-16', wordTags: {}, isOwn: false },
 ];
 
 describe('LibraryHome', () => {
@@ -40,6 +44,25 @@ describe('LibraryHome', () => {
     render(<LibraryHome onSelect={() => {}} texts={saved} onOpenText={onOpenText} />);
     await user.click(screen.getByText('نص محفوظ'));
     expect(onOpenText).toHaveBeenCalledWith(saved[0]);
+  });
+
+  it('lists a text someone else published separately, never under "Yours"', () => {
+    render(
+      <LibraryHome onSelect={() => {}} texts={[...saved, ...shared]} onOpenText={() => {}} />,
+    );
+    expect(screen.getByText('Shared with everyone')).toBeInTheDocument();
+    expect(screen.getByText('مقال عام')).toBeInTheDocument();
+
+    // "Yours" still only lists what this reader actually saved.
+    const yours = screen.getByText('Yours').closest('section');
+    expect(yours).not.toBeNull();
+    expect(yours?.textContent).not.toContain('مقال عام');
+  });
+
+  it('shows only the shared section when nothing is the reader\'s own', () => {
+    render(<LibraryHome onSelect={() => {}} texts={shared} onOpenText={() => {}} />);
+    expect(screen.queryByText('Yours')).toBeNull();
+    expect(screen.getByText('Shared with everyone')).toBeInTheDocument();
   });
 });
 

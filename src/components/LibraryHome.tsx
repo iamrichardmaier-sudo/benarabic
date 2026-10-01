@@ -8,12 +8,44 @@ interface LibraryHomeProps {
   /** Last-read location, shown as a resume shortcut when one exists. */
   resume?: { label: string } | null;
   onResume?: () => void;
-  /** The reader's own saved texts. Private to them; never part of the app. */
+  /** The reader's own saved texts, plus any text someone else made public. */
   texts?: LibraryText[];
   /** Set when the list could not be loaded, so silence is never the answer. */
   textsError?: string | null;
   onOpenText?: (text: LibraryText) => void;
 }
+
+const TextGrid = ({
+  texts,
+  onOpenText,
+}: {
+  texts: LibraryText[];
+  onOpenText: (text: LibraryText) => void;
+}) => (
+  <div className="grid grid-cols-2 gap-3">
+    {texts.map((text) => (
+      <button
+        key={text.id}
+        onClick={() => onOpenText(text)}
+        className="overflow-hidden rounded-2xl border border-border bg-card text-start transition-all active:scale-95 hover:bg-muted/40"
+      >
+        {text.coverUrl ? (
+          <img src={text.coverUrl} alt="" className="aspect-square w-full object-cover" />
+        ) : (
+          <div className="flex aspect-square w-full items-center justify-center bg-muted/50">
+            <LibraryIcon className="h-8 w-8 text-muted-foreground/60" />
+          </div>
+        )}
+        <span
+          className="block truncate px-3 py-2 font-arabic text-sm font-semibold text-foreground"
+          dir="rtl"
+        >
+          {text.title}
+        </span>
+      </button>
+    ))}
+  </div>
+);
 
 /**
  * Library root: everything readable, as a list of "books". Reading of any kind
@@ -27,7 +59,11 @@ const LibraryHome = ({
   texts = [],
   textsError,
   onOpenText,
-}: LibraryHomeProps) => (
+}: LibraryHomeProps) => {
+  const ownTexts = texts.filter((t) => t.isOwn);
+  const sharedTexts = texts.filter((t) => !t.isOwn);
+
+  return (
   <div className="space-y-5">
     <div className="space-y-1">
       <h1 className="text-2xl font-bold text-foreground">Library</h1>
@@ -83,38 +119,21 @@ const LibraryHome = ({
       </p>
     )}
 
-    {texts.length > 0 && onOpenText && (
+    {ownTexts.length > 0 && onOpenText && (
       <section className="space-y-2">
         <h2 className="px-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
           Yours
         </h2>
-        <div className="grid grid-cols-2 gap-3">
-          {texts.map((text) => (
-            <button
-              key={text.id}
-              onClick={() => onOpenText(text)}
-              className="overflow-hidden rounded-2xl border border-border bg-card text-start transition-all active:scale-95 hover:bg-muted/40"
-            >
-              {text.coverUrl ? (
-                <img
-                  src={text.coverUrl}
-                  alt=""
-                  className="aspect-square w-full object-cover"
-                />
-              ) : (
-                <div className="flex aspect-square w-full items-center justify-center bg-muted/50">
-                  <LibraryIcon className="h-8 w-8 text-muted-foreground/60" />
-                </div>
-              )}
-              <span
-                className="block truncate px-3 py-2 font-arabic text-sm font-semibold text-foreground"
-                dir="rtl"
-              >
-                {text.title}
-              </span>
-            </button>
-          ))}
-        </div>
+        <TextGrid texts={ownTexts} onOpenText={onOpenText} />
+      </section>
+    )}
+
+    {sharedTexts.length > 0 && onOpenText && (
+      <section className="space-y-2">
+        <h2 className="px-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+          Shared with everyone
+        </h2>
+        <TextGrid texts={sharedTexts} onOpenText={onOpenText} />
       </section>
     )}
 
@@ -123,6 +142,7 @@ const LibraryHome = ({
       meaning on tap.
     </p>
   </div>
-);
+  );
+};
 
 export default LibraryHome;
