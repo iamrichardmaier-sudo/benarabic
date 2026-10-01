@@ -1,0 +1,16 @@
+{
+  "name": "Wazn — Learn Arabic through its roots and patterns",
+  "short_name": "Wazn",
+  "description": "Read real Arabic and see every word's root, form and meaning. Wazn maps a fully-vocalized corpus word by word, links words that share a root, and turns any of them into a spaced-repetition flashcard.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#FDF8F2",
+  "theme_color": "#C2622A",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

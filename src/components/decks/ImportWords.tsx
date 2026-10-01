@@ -75,7 +75,7 @@ const ImportWords = ({ onBack }: { onBack: () => void }) => {
       <BackButton onClick={onBack} label="Settings" />
 
       <div className="space-y-1">
-        <h2 className="text-xl font-bold text-foreground">Import words</h2>
+        <h2 className="text-xl font-bold text-foreground">Import as a new deck</h2>
         <p className="text-sm text-muted-foreground">
           Each import becomes its own deck, which you can rename afterwards. The next one will be
           called “{nextTitle}”.

@@ -3,6 +3,7 @@ import {
   Sparkles, Link2, Hash, Brain, Headphones, Check, type LucideIcon,
 } from 'lucide-react';
 import DeckIcon from '@/components/decks/DeckIcon';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useDeckLibrary } from '@/hooks/useDeckLibrary';
 import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/hooks/use-toast';
@@ -84,7 +85,7 @@ const HomeDesktopColumns = ({ onSelect }: { onSelect: (destination: LearnDestina
     }
   };
 
-  if (loading || visible.length === 0) return null;
+  if (!loading && visible.length === 0) return null;
 
   const deckCard = (deck: Deck) => {
     const added = mine.has(deck.id);
@@ -99,7 +100,7 @@ const HomeDesktopColumns = ({ onSelect }: { onSelect: (destination: LearnDestina
         key={deck.id}
         onClick={() => add(deck)}
         disabled={busy === deck.id}
-        className="relative flex items-center gap-3 overflow-hidden rounded-2xl border border-border bg-card p-4 text-start transition-all hover:border-primary/40 hover:shadow-sm"
+        className="relative flex w-full items-center gap-3 overflow-hidden rounded-2xl border border-border bg-card p-4 text-start transition-all hover:border-primary/40 hover:shadow-sm"
       >
         <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${
           foundation ? 'bg-primary text-primary-foreground' : 'bg-muted/60 text-primary'
@@ -158,7 +159,11 @@ const HomeDesktopColumns = ({ onSelect }: { onSelect: (destination: LearnDestina
           Vocabulary
         </h2>
         <div className="space-y-2.5">
-          {visible.map(deckCard)}
+          {loading
+            ? Array.from({ length: 4 }, (_, i) => (
+                <Skeleton key={i} className="h-[4.5rem] w-full rounded-2xl" />
+              ))
+            : visible.map(deckCard)}
         </div>
       </section>
     </div>

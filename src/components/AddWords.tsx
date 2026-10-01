@@ -47,6 +47,7 @@ const AddWords = ({ onAdd, isLoading, chapters = [], onBack }: AddWordsProps) =>
   return (
     <div className="w-full max-w-md mx-auto space-y-4">
       {onBack && <BackButton onClick={onBack} label="Settings" />}
+          <h1 className="text-xl font-bold text-foreground">Add to My Deck</h1>
           <div className="rounded-xl bg-muted/50 border border-border/50 p-3 text-xs text-muted-foreground space-y-1.5">
             <p className="font-medium text-foreground text-sm">Paste words in format: Fusha/Shaami | English (one per line)</p>
             <p className="font-arabic" dir="rtl">فِطِر / فَطَرَ | to eat breakfast</p>

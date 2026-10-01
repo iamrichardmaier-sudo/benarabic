@@ -115,7 +115,7 @@ const FocusReview = ({
               {card.imageUrl && (
                 <img
                   src={card.imageUrl}
-                  alt=""
+                  alt={card.english || ''}
                   className="mx-auto mb-4 max-h-[26vh] max-w-[78%] rounded-2xl object-cover"
                 />
               )}
@@ -147,7 +147,7 @@ const FocusReview = ({
                   {card.imageUrl && (
                     <img
                       src={card.imageUrl}
-                      alt=""
+                      alt={card.english || ''}
                       className="mx-auto max-h-[26vh] max-w-[78%] rounded-2xl object-cover"
                     />
                   )}

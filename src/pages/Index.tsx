@@ -27,11 +27,14 @@ import LearnDecks from '@/components/decks/LearnDecks';
 import DeckBuilder from '@/components/decks/DeckBuilder';
 import AdminDecks from '@/components/decks/AdminDecks';
 import ImportWords from '@/components/decks/ImportWords';
+import FeedbackForm from '@/components/FeedbackForm';
 import { useDeckLibrary } from '@/hooks/useDeckLibrary';
 import type { Deck } from '@/lib/deck-store';
 import BottomNav, { type Tab } from '@/components/BottomNav';
 import BackButton from '@/components/BackButton';
 import WaznLogo from '@/components/WaznLogo';
+import { Skeleton } from '@/components/ui/skeleton';
+import { useBrowserBack } from '@/hooks/useBrowserBack';
 import { recordStudyDay } from '@/lib/streak';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine, scheduleFields, nextWave } from '@/lib/spaced-repetition';
 import { queueAfterGrade, cardsCovered } from '@/lib/review-queue';
@@ -53,7 +56,7 @@ type View =
   | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
   | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize' | 'listenCards'
   | 'pdfToAudio'
-  | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast';
+  | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast' | 'feedback';
 
 const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
@@ -78,6 +81,16 @@ const Index = () => {
   const { signOut, user } = useAuth();
   const [tab, setTab] = useState<Tab>('home');
   const [view, setView] = useState<View>('home');
+  // Lets the hardware/browser back button undo a screen change the same way
+  // the in-app Back button does, instead of leaving the app. Tab and view
+  // are restored together so re-entering a screen this way can't leave
+  // BottomNav highlighting a different section than what's on screen.
+  useBrowserBack<{ tab: Tab; view: View }>(
+    { tab, view },
+    `${tab}:${view}`,
+    (restored) => { setTab(restored.tab); setView(restored.view); },
+    { tab: 'home', view: 'home' },
+  );
   const [reviewItems, setReviewItems] = useState<{ card: FlashCard; direction: ReviewDirection }[]>([]);
   /**
    * True while running the practice set rather than the day's reviews.
@@ -224,8 +237,11 @@ const Index = () => {
     setView(TAB_HOME_VIEW[next]);
   };
 
+  /** Reachable from any screen via the header's word-count badge. Leaves the
+   *  active tab as it is, so BottomNav keeps showing where you actually came
+   *  from — forcing it to Settings used to land Back on a Settings screen
+   *  you never opened. */
   const goToDeck = () => {
-    setTab('settings');
     setView('deck');
   };
 
@@ -420,9 +436,35 @@ const Index = () => {
   }, [reviewing]);
 
   if (loading) {
+    // Shaped like the Home screen it is about to become, rather than a
+    // centered sentence — this is the very first thing a freshly signed-up
+    // reader sees, so it is worth more than a blank moment.
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center text-muted-foreground">
-        Loading your flashcards...
+      <div className="min-h-screen bg-background flex flex-col">
+        <header className="border-b border-border/60 bg-card/50 backdrop-blur-sm sticky top-0 z-10">
+          <div className="mx-auto px-4 py-4 flex items-center justify-between w-full max-w-lg">
+            <span className="flex items-center text-primary">
+              <WaznLogo size={28} wordmark />
+            </span>
+          </div>
+        </header>
+        <main className="flex-1 overflow-y-auto">
+          <div className="mx-auto px-4 py-4 w-full max-w-lg space-y-5">
+            <div className="flex items-start justify-between gap-3">
+              <div className="space-y-2">
+                <Skeleton className="h-7 w-20" />
+                <Skeleton className="h-4 w-48" />
+              </div>
+              <Skeleton className="h-9 w-16 rounded-2xl shrink-0" />
+            </div>
+            <Skeleton className="h-16 w-full rounded-2xl" />
+            <div className="grid grid-cols-2 gap-3">
+              <Skeleton className="h-20 rounded-2xl" />
+              <Skeleton className="h-20 rounded-2xl" />
+            </div>
+            <Skeleton className="h-16 w-full rounded-2xl" />
+          </div>
+        </main>
       </div>
     );
   }
@@ -551,12 +593,15 @@ const Index = () => {
 
         {view === 'importWords' && <ImportWords onBack={() => setView('settings')} />}
 
+        {view === 'feedback' && <FeedbackForm onBack={() => setView('settings')} />}
+
         {view === 'settings' && (
           <SettingsScreen
             onOpenPdfToAudio={() => setView('pdfToAudio')}
             onOpenAddWords={() => setView('add')}
             onOpenImportWords={() => setView('importWords')}
             onOpenAdminDecks={isDeckAdmin ? () => setView('adminDecks') : undefined}
+            onOpenFeedback={() => setView('feedback')}
             email={user?.email}
             deckSize={cards.length}
             onSignOut={signOut}

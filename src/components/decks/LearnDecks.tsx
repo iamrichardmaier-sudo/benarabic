@@ -4,6 +4,7 @@ import BackButton from '@/components/BackButton';
 import DeckIcon from '@/components/decks/DeckIcon';
 import DeckPreview from '@/components/decks/DeckPreview';
 import PlacementPicker from '@/components/decks/PlacementPicker';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useDeckLibrary } from '@/hooks/useDeckLibrary';
 import { FOUNDATION_ICON } from '@/lib/deck-icons';
 import type { Deck } from '@/lib/deck-store';
@@ -215,8 +216,16 @@ const LearnDecks = ({ onBack, onBuildDeck, onEditDeck }: LearnDecksProps) => {
       )}
 
       {loading && (
-        <div className="flex justify-center py-10">
-          <Loader2 className="h-5 w-5 animate-spin text-primary" />
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {Array.from({ length: 6 }, (_, i) => (
+            <div key={i} className="overflow-hidden rounded-2xl border border-border bg-card">
+              <Skeleton className="h-28 w-full rounded-none" />
+              <div className="space-y-1.5 p-3">
+                <Skeleton className="h-3.5 w-3/4" />
+                <Skeleton className="h-2.5 w-1/2" />
+              </div>
+            </div>
+          ))}
         </div>
       )}
 

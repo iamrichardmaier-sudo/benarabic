@@ -14,6 +14,51 @@ export type Database = {
   }
   public: {
     Tables: {
+      account_deletion_requests: {
+        Row: {
+          email: string | null
+          id: string
+          requested_at: string
+          user_id: string
+        }
+        Insert: {
+          email?: string | null
+          id?: string
+          requested_at?: string
+          user_id?: string
+        }
+        Update: {
+          email?: string | null
+          id?: string
+          requested_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      feedback: {
+        Row: {
+          created_at: string
+          email: string | null
+          id: string
+          message: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          message: string
+          user_id?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string | null
+          id?: string
+          message?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       bible_word_tags: {
         Row: {
           bible_count: number

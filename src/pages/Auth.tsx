@@ -1,11 +1,48 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/integrations/supabase/client';
-import { BookOpen, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
+import WaznLogo from '@/components/WaznLogo';
 
 type Mode = 'signIn' | 'signUp' | 'forgot' | 'reset';
+
+/**
+ * Supabase/GoTrue error messages are written for a developer reading logs,
+ * not a reader staring at a login form. Known cases get a plain-language
+ * rewrite; anything unrecognized still shows the original message rather
+ * than a vague "something went wrong" that hides real information.
+ */
+export function friendlyAuthError(err: { message?: string; status?: number } | undefined, mode: Mode): string {
+  const raw = err?.message ?? '';
+  const lower = raw.toLowerCase();
+
+  if (lower.includes('invalid login credentials')) {
+    return "That email or password doesn't look right.";
+  }
+  if (lower.includes('already registered') || lower.includes('already exists')) {
+    return 'You already have an account with that email — try signing in instead.';
+  }
+  if (lower.includes('email not confirmed')) {
+    return "This email hasn't been confirmed yet — check your inbox for the link we sent.";
+  }
+  if (lower.includes('password') && lower.includes('6 characters')) {
+    return 'Your password needs to be at least 6 characters.';
+  }
+  if (err?.status === 429 || lower.includes('security purposes') || lower.includes('rate limit')) {
+    return "That's one too many tries — wait a minute and try again.";
+  }
+  if (lower.includes('failed to fetch') || lower.includes('network')) {
+    return "Couldn't reach the server — check your connection and try again.";
+  }
+  if (!raw) {
+    return mode === 'signUp'
+      ? 'Could not create your account. Please try again.'
+      : 'Something went wrong. Please try again.';
+  }
+  return raw;
+}
 
 const Auth = () => {
   const [mode, setMode] = useState<Mode>('signIn');
@@ -62,7 +99,7 @@ const Auth = () => {
         if (error) throw error;
       }
     } catch (err: any) {
-      toast({ title: err.message || 'Authentication error', variant: 'destructive' });
+      toast({ title: friendlyAuthError(err, mode), variant: 'destructive' });
     } finally {
       setLoading(false);
     }
@@ -85,9 +122,9 @@ const Auth = () => {
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
       <div className="w-full max-w-sm space-y-8">
-        <div className="flex flex-col items-center gap-2">
-          <BookOpen className="w-10 h-10 text-primary" />
-          <h1 className="text-2xl font-bold text-foreground">بطاقات</h1>
+        <div className="flex flex-col items-center gap-2 text-primary">
+          <WaznLogo size={40} />
+          <h1 className="text-2xl font-bold text-foreground">Wazn</h1>
           <p className="text-sm text-muted-foreground text-center">{subtitle}</p>
         </div>
 

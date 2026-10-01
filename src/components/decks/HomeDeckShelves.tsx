@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Check } from 'lucide-react';
 import DeckIcon from '@/components/decks/DeckIcon';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useDeckLibrary } from '@/hooks/useDeckLibrary';
 import { useToast } from '@/hooks/use-toast';
 import { FOUNDATION_ICON } from '@/lib/deck-icons';
@@ -8,10 +9,10 @@ import { placementNote } from '@/lib/deck-placement';
 import type { Deck } from '@/lib/deck-store';
 
 /**
- * Two browsable shelves right on Home: the Al-Kitab chapters, and everything
- * else. Tapping an unadded deck takes it up immediately — Home is a place to
- * glance and go, not to stop and read a preview first. Learn Decks still has
- * the full browse-and-preview flow for anyone who wants it.
+ * Two browsable shelves right on Home: Book of Mormon chapter decks, and
+ * everything else. Tapping an unadded deck takes it up immediately — Home is
+ * a place to glance and go, not to stop and read a preview first. Learn
+ * Decks still has the full browse-and-preview flow for anyone who wants it.
  */
 const HomeDeckShelves = () => {
   const { decks, mine, loading, addDecks } = useDeckLibrary();
@@ -98,14 +99,27 @@ const HomeDeckShelves = () => {
     );
   };
 
-  if (loading || visible.length === 0) return null;
+  if (loading) {
+    return (
+      <div className="space-y-2 lg:hidden">
+        <Skeleton className="h-3 w-28" />
+        <div className="flex gap-3">
+          {Array.from({ length: 3 }, (_, i) => (
+            <Skeleton key={i} className="h-[6.5rem] w-32 shrink-0 rounded-2xl" />
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  if (visible.length === 0) return null;
 
   return (
     // The desktop layout covers decks in HomeDesktopColumns' Vocabulary
     // column instead, styled as cards with a progress bar rather than a
     // scrolling shelf.
     <div className="space-y-4 lg:hidden">
-      {shelf('Al-Kitab chapters', alKitab)}
+      {shelf('Book of Mormon chapters', alKitab)}
       {shelf('Other decks', other)}
     </div>
   );
