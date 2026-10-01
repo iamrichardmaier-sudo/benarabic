@@ -64,6 +64,7 @@ const SpeakButton = ({ word, size = 18, className = '', autoSpeak = false }: Spe
       onClick={speak}
       className={`inline-flex items-center justify-center p-1.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted transition-colors ${speaking ? 'text-primary animate-pulse' : ''} ${className}`}
       title="Listen"
+      aria-label="Listen"
       type="button"
     >
       <Volume2 size={size} />

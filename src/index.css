@@ -128,6 +128,13 @@
     @apply bg-background text-foreground;
     font-family: var(--font-body);
   }
+
+  /* shadcn's Button already rings on focus-visible; this covers every plain
+     <button>/<a> elsewhere so keyboard focus is never invisible. */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
 }
 
 @layer utilities {

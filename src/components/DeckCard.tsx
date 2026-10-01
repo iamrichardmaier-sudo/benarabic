@@ -94,7 +94,7 @@ const DeckCard = ({
           {card.imageUrl && (
             <img
               src={card.imageUrl}
-              alt=""
+              alt={card.english || view.headline}
               className="h-16 w-16 rounded-xl object-cover"
               loading="lazy"
             />
@@ -166,6 +166,7 @@ const DeckCard = ({
             <button
               onClick={act(onSwap)}
               title="Swap Arabic and English"
+              aria-label="Swap Arabic and English"
               className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
               <ArrowLeftRight className="h-4 w-4" />
@@ -174,6 +175,7 @@ const DeckCard = ({
               onClick={act(onRefreshImage)}
               disabled={refreshing}
               title="Find a new image"
+              aria-label="Find a new image"
               className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground disabled:opacity-40"
             >
               {refreshing ? (
@@ -185,6 +187,7 @@ const DeckCard = ({
             <button
               onClick={act(onEdit)}
               title="Edit"
+              aria-label="Edit"
               className="rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
             >
               <Pencil className="h-4 w-4" />
@@ -212,6 +215,7 @@ const DeckCard = ({
               <button
                 onClick={act(() => setConfirmingDelete(true))}
                 title="Delete"
+                aria-label="Delete"
                 className="ms-auto rounded-lg p-1.5 text-muted-foreground transition-colors hover:bg-destructive/10 hover:text-destructive"
               >
                 <Trash2 className="h-4 w-4" />

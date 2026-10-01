@@ -27,6 +27,7 @@ import LearnDecks from '@/components/decks/LearnDecks';
 import DeckBuilder from '@/components/decks/DeckBuilder';
 import AdminDecks from '@/components/decks/AdminDecks';
 import ImportWords from '@/components/decks/ImportWords';
+import FeedbackForm from '@/components/FeedbackForm';
 import { useDeckLibrary } from '@/hooks/useDeckLibrary';
 import type { Deck } from '@/lib/deck-store';
 import BottomNav, { type Tab } from '@/components/BottomNav';
@@ -55,7 +56,7 @@ type View =
   | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
   | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize' | 'listenCards'
   | 'pdfToAudio'
-  | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast';
+  | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast' | 'feedback';
 
 const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
@@ -592,12 +593,15 @@ const Index = () => {
 
         {view === 'importWords' && <ImportWords onBack={() => setView('settings')} />}
 
+        {view === 'feedback' && <FeedbackForm onBack={() => setView('settings')} />}
+
         {view === 'settings' && (
           <SettingsScreen
             onOpenPdfToAudio={() => setView('pdfToAudio')}
             onOpenAddWords={() => setView('add')}
             onOpenImportWords={() => setView('importWords')}
             onOpenAdminDecks={isDeckAdmin ? () => setView('adminDecks') : undefined}
+            onOpenFeedback={() => setView('feedback')}
             email={user?.email}
             deckSize={cards.length}
             onSignOut={signOut}

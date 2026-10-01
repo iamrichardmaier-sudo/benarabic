@@ -1,7 +1,9 @@
-import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages, AudioLines, FileJson, LayoutList, Plus } from 'lucide-react';
+import { useState } from 'react';
+import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages, AudioLines, FileJson, LayoutList, Plus, MessageSquareWarning, UserX, Loader2 } from 'lucide-react';
 import { usePreferences } from '@/hooks/usePreferences';
 import DialectToggle from '@/components/DialectToggle';
 import InfoHint from '@/components/InfoHint';
+import { useAccountDeletion } from '@/hooks/useAccountDeletion';
 import {
   setTextScale, setAudioRate, setTheme,
   TEXT_SCALE_MIN, TEXT_SCALE_MAX, TEXT_SCALE_STEP,
@@ -22,6 +24,8 @@ interface SettingsScreenProps {
   onOpenImportWords: () => void;
   /** Deck management, present only for the account that can publish. */
   onOpenAdminDecks?: () => void;
+  /** Reporting a problem or asking for something — reachable only from here. */
+  onOpenFeedback: () => void;
 }
 
 const THEMES: { id: Theme; label: string; icon: typeof Sun }[] = [
@@ -40,9 +44,25 @@ const THEMES: { id: Theme; label: string; icon: typeof Sun }[] = [
  */
 const SettingsScreen = ({
   email, deckSize, onSignOut, onOpenDeck, onOpenPdfToAudio,
-  onOpenAddWords, onOpenImportWords, onOpenAdminDecks,
+  onOpenAddWords, onOpenImportWords, onOpenAdminDecks, onOpenFeedback,
 }: SettingsScreenProps) => {
   const prefs = usePreferences();
+  const { request: requestDeletion } = useAccountDeletion();
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [deleteError, setDeleteError] = useState<string | null>(null);
+
+  const handleConfirmDelete = async () => {
+    setDeleting(true);
+    setDeleteError(null);
+    try {
+      await requestDeletion();
+      onSignOut();
+    } catch (err) {
+      setDeleteError(err instanceof Error ? err.message : 'Could not send that. Please try again.');
+      setDeleting(false);
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -253,6 +273,19 @@ const SettingsScreen = ({
             </span>
             <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
           </button>
+          <button
+            onClick={onOpenFeedback}
+            className="w-full flex items-center gap-3 px-4 py-3.5 text-start border-t border-border transition-colors hover:bg-muted/40"
+          >
+            <MessageSquareWarning className="w-5 h-5 text-primary shrink-0" />
+            <span className="min-w-0 flex-1">
+              <span className="block font-semibold text-foreground">Send feedback</span>
+              <span className="block text-xs text-muted-foreground">
+                Report a bug, or tell us what's confusing
+              </span>
+            </span>
+            <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
+          </button>
         </div>
       </section>
 
@@ -266,6 +299,41 @@ const SettingsScreen = ({
             <LogOut className="w-5 h-5 shrink-0" />
             <span className="font-semibold">Sign out</span>
           </button>
+          {!confirmDelete ? (
+            <button
+              onClick={() => setConfirmDelete(true)}
+              className="w-full flex items-center gap-3 px-4 py-3.5 text-start text-destructive border-t border-border transition-colors hover:bg-muted/40"
+            >
+              <UserX className="w-5 h-5 shrink-0" />
+              <span className="font-semibold">Delete my account</span>
+            </button>
+          ) : (
+            <div className="space-y-2 border-t border-border p-4">
+              <p className="text-sm font-medium text-foreground">Delete your account?</p>
+              <p className="text-xs text-muted-foreground">
+                We'll delete your account and data within a few days — you'll be signed out now.
+                This can't be undone.
+              </p>
+              {deleteError && <p className="text-xs font-medium text-destructive">{deleteError}</p>}
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => setConfirmDelete(false)}
+                  disabled={deleting}
+                  className="rounded-xl border border-border py-2 text-sm font-semibold disabled:opacity-50"
+                >
+                  Keep my account
+                </button>
+                <button
+                  onClick={handleConfirmDelete}
+                  disabled={deleting}
+                  className="flex items-center justify-center gap-1.5 rounded-xl bg-destructive py-2 text-sm font-semibold text-destructive-foreground disabled:opacity-50"
+                >
+                  {deleting && <Loader2 className="h-3.5 w-3.5 animate-spin" />}
+                  Delete it
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
