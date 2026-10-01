@@ -100,7 +100,7 @@ const HomeDesktopColumns = ({ onSelect }: { onSelect: (destination: LearnDestina
         key={deck.id}
         onClick={() => add(deck)}
         disabled={busy === deck.id}
-        className="relative flex items-center gap-3 overflow-hidden rounded-2xl border border-border bg-card p-4 text-start transition-all hover:border-primary/40 hover:shadow-sm"
+        className="relative flex w-full items-center gap-3 overflow-hidden rounded-2xl border border-border bg-card p-4 text-start transition-all hover:border-primary/40 hover:shadow-sm"
       >
         <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${
           foundation ? 'bg-primary text-primary-foreground' : 'bg-muted/60 text-primary'
