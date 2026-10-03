@@ -51,6 +51,9 @@ interface DbRow {
   intensive_day: number | null;
   intensive_reps_done: number | null;
   next_review_at: string | null;
+  quran_example: string | null;
+  quran_example_en: string | null;
+  quran_reference: string | null;
 }
 
 function rowToCard(row: DbRow): FlashCard {
@@ -89,6 +92,9 @@ function rowToCard(row: DbRow): FlashCard {
     intensiveRepsDone: row.intensive_reps_done ?? 0,
     nextReviewAt: row.next_review_at,
     createdAt: row.created_at,
+    quranExample: row.quran_example,
+    quranExampleEn: row.quran_example_en,
+    quranReference: row.quran_reference,
   };
 }
 
@@ -124,6 +130,9 @@ function cardToRow(card: FlashCard) {
     intensive_day: card.intensiveDay ?? null,
     intensive_reps_done: card.intensiveRepsDone ?? 0,
     next_review_at: card.nextReviewAt ?? null,
+    quran_example: card.quranExample ?? null,
+    quran_example_en: card.quranExampleEn ?? null,
+    quran_reference: card.quranReference ?? null,
   };
 }
 
@@ -160,6 +169,9 @@ function toDbUpdates(updates: Partial<FlashCard>): Record<string, unknown> {
   if (updates.intensiveDay !== undefined) db.intensive_day = updates.intensiveDay;
   if (updates.intensiveRepsDone !== undefined) db.intensive_reps_done = updates.intensiveRepsDone;
   if (updates.nextReviewAt !== undefined) db.next_review_at = updates.nextReviewAt;
+  if (updates.quranExample !== undefined) db.quran_example = updates.quranExample;
+  if (updates.quranExampleEn !== undefined) db.quran_example_en = updates.quranExampleEn;
+  if (updates.quranReference !== undefined) db.quran_reference = updates.quranReference;
   return db;
 }
 

@@ -139,6 +139,7 @@ const DeckBuilder = ({ onBack, deck = null, admin = false, onSaved }: DeckBuilde
           pastTense: null, presentTense: null, masdarForm: null,
           gender: null, fushaPlural: null, shaamiPlural: null,
           companionForms: null, exampleSentence: null, exampleSentenceEn: null,
+          quranExample: null, quranExampleEn: null, quranReference: null,
         });
         added.push(word);
       }
