@@ -108,7 +108,8 @@ const WordDetail = ({ card, deck = [], includeCorpus = false, className = '' }: 
     companions.length > 0 ||
     sameRoot.length > 0 ||
     sameForm.length > 0 ||
-    corpusWords.length > 0;
+    corpusWords.length > 0 ||
+    !!card.quranExample;
 
   if (meta.length === 0 && !hasBody) return null;
 
@@ -132,6 +133,20 @@ const WordDetail = ({ card, deck = [], includeCorpus = false, className = '' }: 
           {forms.map((f) => (
             <Row key={f.label} label={f.label} value={f.value} />
           ))}
+        </Section>
+      )}
+
+      {card.quranExample && (
+        <Section title="From the Qur'an">
+          <p className="font-arabic text-lg leading-relaxed text-foreground" dir="rtl">
+            {card.quranExample}
+          </p>
+          {card.quranExampleEn && (
+            <p className="mt-1 text-sm text-muted-foreground">{card.quranExampleEn}</p>
+          )}
+          {card.quranReference && (
+            <p className="mt-1 text-xs text-muted-foreground/70">{card.quranReference}</p>
+          )}
         </Section>
       )}
 

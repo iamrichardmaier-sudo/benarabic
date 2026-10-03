@@ -63,6 +63,12 @@ export interface FlashCard {
    * See ./deck-placement.
    */
   placedAs?: 'review' | 'mastered' | null;
+  /** A verified Qur'an excerpt using this word or another form of its root. */
+  quranExample?: string | null;
+  /** English translation of quranExample. */
+  quranExampleEn?: string | null;
+  /** e.g. "Al-Baqarah 2:255". */
+  quranReference?: string | null;
 }
 
 export type Rating = 'again' | 'hard' | 'good' | 'easy';
