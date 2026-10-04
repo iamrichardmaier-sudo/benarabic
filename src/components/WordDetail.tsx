@@ -136,20 +136,6 @@ const WordDetail = ({ card, deck = [], includeCorpus = false, className = '' }: 
         </Section>
       )}
 
-      {card.quranExample && (
-        <Section title="From the Qur'an">
-          <p className="font-arabic text-lg leading-relaxed text-foreground" dir="rtl">
-            {card.quranExample}
-          </p>
-          {card.quranExampleEn && (
-            <p className="mt-1 text-sm text-muted-foreground">{card.quranExampleEn}</p>
-          )}
-          {card.quranReference && (
-            <p className="mt-1 text-xs text-muted-foreground/70">{card.quranReference}</p>
-          )}
-        </Section>
-      )}
-
       {companions.length > 0 && (
         <Section title="Word family">
           {companions.map((c, i) => (
@@ -179,6 +165,22 @@ const WordDetail = ({ card, deck = [], includeCorpus = false, className = '' }: 
           {sameForm.map((w) => (
             <Row key={w.ar} label={w.en} value={w.ar} />
           ))}
+        </Section>
+      )}
+
+      {/* Last on purpose: the answer ends with the verse, under everything
+          else the card knows about the word. */}
+      {card.quranExample && (
+        <Section title="Quranic reference">
+          <p className="font-arabic text-lg leading-relaxed text-foreground" dir="rtl">
+            {card.quranExample}
+          </p>
+          {card.quranExampleEn && (
+            <p className="mt-1 text-sm text-muted-foreground">{card.quranExampleEn}</p>
+          )}
+          {card.quranReference && (
+            <p className="mt-1 text-xs text-muted-foreground/70">{card.quranReference}</p>
+          )}
         </Section>
       )}
     </div>
