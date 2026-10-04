@@ -59,6 +59,11 @@ export interface Word {
   companionForms: CompanionForm[] | null;
   exampleSentence: string | null;
   exampleSentenceEn: string | null;
+  /** A verified Qur'an excerpt using this word or another form of its root. */
+  quranExample: string | null;
+  quranExampleEn: string | null;
+  /** e.g. "Al-Baqarah 2:255". */
+  quranReference: string | null;
 }
 
 /** Fields a brand-new word arrives with, before it has an id. */
@@ -99,13 +104,16 @@ interface WordRow {
   companion_forms: CompanionForm[] | null;
   example_sentence: string | null;
   example_sentence_en: string | null;
+  quran_example: string | null;
+  quran_example_en: string | null;
+  quran_reference: string | null;
 }
 
 const DECK_COLUMNS =
   'id,title,icon,book_part_prefix,chapter_range,is_public,is_admin_deck,created_by,status,publish_requested,created_at,category,icon_url';
 
 const WORD_COLUMNS =
-  'id,key,word,word_voweled,english,root,word_type,verb_form,past_tense,present_tense,masdar_form,gender,fusha_plural,shaami,shaami_plural,companion_forms,example_sentence,example_sentence_en';
+  'id,key,word,word_voweled,english,root,word_type,verb_form,past_tense,present_tense,masdar_form,gender,fusha_plural,shaami,shaami_plural,companion_forms,example_sentence,example_sentence_en,quran_example,quran_example_en,quran_reference';
 
 function toDeck(row: DeckRow): Deck {
   return {
@@ -145,6 +153,9 @@ function toWord(row: WordRow): Word {
     companionForms: row.companion_forms,
     exampleSentence: row.example_sentence,
     exampleSentenceEn: row.example_sentence_en,
+    quranExample: row.quran_example,
+    quranExampleEn: row.quran_example_en,
+    quranReference: row.quran_reference,
   };
 }
 
@@ -315,6 +326,9 @@ function cardRowsFor(words: Word[], userId: string, placement: DeckPlacement) {
     shaami: w.shaami,
     shaami_plural: w.shaamiPlural,
     companion_forms: w.companionForms,
+    quran_example: w.quranExample,
+    quran_example_en: w.quranExampleEn,
+    quran_reference: w.quranReference,
     ...schedule,
     tagged_at: w.root ? new Date().toISOString() : null,
   }));
@@ -509,6 +523,9 @@ export async function ensureWord(fields: NewWordFields): Promise<Word> {
       companion_forms: fields.companionForms,
       example_sentence: fields.exampleSentence,
       example_sentence_en: fields.exampleSentenceEn,
+      quran_example: fields.quranExample,
+      quran_example_en: fields.quranExampleEn,
+      quran_reference: fields.quranReference,
     } as never)
     .select(WORD_COLUMNS)
     .single();
@@ -547,6 +564,9 @@ export function wordToCard(word: Word): FlashCard {
     presentTense: word.presentTense,
     masdarForm: word.masdarForm,
     companionForms: word.companionForms,
+    quranExample: word.quranExample,
+    quranExampleEn: word.quranExampleEn,
+    quranReference: word.quranReference,
   };
 }
 

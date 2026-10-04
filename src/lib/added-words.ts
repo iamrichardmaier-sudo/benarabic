@@ -94,6 +94,9 @@ export async function importIntoNewDeck(
       companionForms: entry.companionForms ?? null,
       exampleSentence: null,
       exampleSentenceEn: null,
+      quranExample: entry.quranExample || null,
+      quranExampleEn: entry.quranExampleEn || null,
+      quranReference: entry.quranReference || null,
     });
     wordIds.push(word.id);
   }

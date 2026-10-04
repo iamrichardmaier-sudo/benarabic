@@ -276,6 +276,9 @@ export type Database = {
           masdar_form: string | null
           past_tense: string | null
           present_tense: string | null
+          quran_example: string | null
+          quran_example_en: string | null
+          quran_reference: string | null
           root: string | null
           shaami: string | null
           shaami_plural: string | null
@@ -299,6 +302,9 @@ export type Database = {
           masdar_form?: string | null
           past_tense?: string | null
           present_tense?: string | null
+          quran_example?: string | null
+          quran_example_en?: string | null
+          quran_reference?: string | null
           root?: string | null
           shaami?: string | null
           shaami_plural?: string | null
@@ -322,6 +328,9 @@ export type Database = {
           masdar_form?: string | null
           past_tense?: string | null
           present_tense?: string | null
+          quran_example?: string | null
+          quran_example_en?: string | null
+          quran_reference?: string | null
           root?: string | null
           shaami?: string | null
           shaami_plural?: string | null
@@ -355,6 +364,9 @@ export type Database = {
           preposition_sentence: string | null
           preposition_sentence_en: string | null
           present_tense: string | null
+          quran_example: string | null
+          quran_example_en: string | null
+          quran_reference: string | null
           root: string | null
           stage1_attempts: number
           stage2_attempts: number
@@ -390,6 +402,9 @@ export type Database = {
           preposition_sentence?: string | null
           preposition_sentence_en?: string | null
           present_tense?: string | null
+          quran_example?: string | null
+          quran_example_en?: string | null
+          quran_reference?: string | null
           root?: string | null
           stage1_attempts?: number
           stage2_attempts?: number
@@ -425,6 +440,9 @@ export type Database = {
           preposition_sentence?: string | null
           preposition_sentence_en?: string | null
           present_tense?: string | null
+          quran_example?: string | null
+          quran_example_en?: string | null
+          quran_reference?: string | null
           root?: string | null
           stage1_attempts?: number
           stage2_attempts?: number

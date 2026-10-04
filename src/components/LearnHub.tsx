@@ -1,6 +1,6 @@
 import {
   GraduationCap, BookOpen, RefreshCw, List,
-  Sparkles, Link2, Brain, Headphones, ChevronRight, Search, Hash, LibraryBig, type LucideIcon,
+  Sparkles, Link2, Brain, Headphones, ChevronRight, Search, Hash, LibraryBig, Network, type LucideIcon,
 } from 'lucide-react';
 import PodcastShelf from '@/components/podcasts/PodcastShelf';
 import type { Podcast } from '@/lib/podcasts';
@@ -8,7 +8,7 @@ import type { Podcast } from '@/lib/podcasts';
 export type LearnDestination =
   | 'learn' | 'review' | 'relearn' | 'deck' | 'lookup' | 'learnDecks'
   | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill'
-  | 'memorize' | 'listenCards';
+  | 'memorize' | 'listenCards' | 'rootExplorer';
 
 interface LearnHubProps {
   dueCount: number;
@@ -62,6 +62,16 @@ const LearnHub = ({
           hint: 'Reset cards you want to see again', disabled: deckSize === 0,
         },
         { id: 'deck', label: 'My deck', icon: List, hint: `${deckSize} word${deckSize === 1 ? '' : 's'}` },
+      ],
+    },
+    {
+      title: 'Explore',
+      items: [
+        {
+          id: 'rootExplorer', label: 'Browse by root', icon: Network,
+          hint: 'Every word you hold on a root, and the verb forms it takes',
+          disabled: deckSize === 0,
+        },
       ],
     },
     {

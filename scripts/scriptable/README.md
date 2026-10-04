@@ -5,7 +5,7 @@
 | Where | What it does |
 |---|---|
 | **Home-screen widget** | Shows how many cards are due and the next word in Arabic. Tapping it launches the review session. |
-| **Run in Scriptable** | A full-screen review session: tap the middle to flip, then the **left** third for *Again* and the **right** third for *Easy*. Words are read aloud, and the answer side shows the same word detail as the web app. |
+| **Run in Scriptable** | A full-screen review session: tap the middle to flip, then the **left** third for *Again* and the **right** third for *Easy*. Words are read aloud, and the answer side shows the same word detail as the web app, ending with a **Quranic reference** (verse, translation, citation) when the word has one. |
 
 ## Why the reviewing isn't inside the widget
 

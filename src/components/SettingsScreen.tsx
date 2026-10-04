@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages, AudioLines, FileJson, LayoutList, Plus, MessageSquareWarning, UserX, Loader2 } from 'lucide-react';
+import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages, AudioLines, FileJson, LayoutList, Plus, MessageSquareWarning, UserX, Loader2, ArrowLeftRight } from 'lucide-react';
 import { usePreferences } from '@/hooks/usePreferences';
 import DialectToggle from '@/components/DialectToggle';
 import InfoHint from '@/components/InfoHint';
@@ -22,6 +22,8 @@ interface SettingsScreenProps {
   onOpenAddWords: () => void;
   /** Importing words by JSON or by prompt — reachable only from here. */
   onOpenImportWords: () => void;
+  /** Anki export and import — reachable only from here. */
+  onOpenAnki: () => void;
   /** Deck management, present only for the account that can publish. */
   onOpenAdminDecks?: () => void;
   /** Reporting a problem or asking for something — reachable only from here. */
@@ -44,7 +46,7 @@ const THEMES: { id: Theme; label: string; icon: typeof Sun }[] = [
  */
 const SettingsScreen = ({
   email, deckSize, onSignOut, onOpenDeck, onOpenPdfToAudio,
-  onOpenAddWords, onOpenImportWords, onOpenAdminDecks, onOpenFeedback,
+  onOpenAddWords, onOpenImportWords, onOpenAnki, onOpenAdminDecks, onOpenFeedback,
 }: SettingsScreenProps) => {
   const prefs = usePreferences();
   const { request: requestDeletion } = useAccountDeletion();
@@ -241,6 +243,19 @@ const SettingsScreen = ({
               <span className="block font-semibold text-foreground">Import as a new deck</span>
               <span className="block text-xs text-muted-foreground">
                 Paste JSON, or copy a prompt for your own Claude — creates its own deck
+              </span>
+            </span>
+            <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
+          </button>
+          <button
+            onClick={onOpenAnki}
+            className="w-full flex items-center gap-3 px-4 py-3.5 text-start border-t border-border transition-colors hover:bg-muted/40"
+          >
+            <ArrowLeftRight className="w-5 h-5 text-primary shrink-0" />
+            <span className="min-w-0 flex-1">
+              <span className="block font-semibold text-foreground">Anki export and import</span>
+              <span className="block text-xs text-muted-foreground">
+                Take your deck with you, or bring one in
               </span>
             </span>
             <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />

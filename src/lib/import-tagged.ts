@@ -33,6 +33,10 @@ export interface TaggedImportEntry {
   gender?: 'm' | 'f' | null;
   /** Optional batch name, e.g. "Chapter 12", applied to every card imported. */
   group?: string | null;
+  /** A verse the word occurs in — carried when a deck comes back from an export. */
+  quranExample?: string | null;
+  quranExampleEn?: string | null;
+  quranReference?: string | null;
 }
 
 export interface ImportValidation {

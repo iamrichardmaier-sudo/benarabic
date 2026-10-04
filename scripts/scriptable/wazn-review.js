@@ -220,6 +220,7 @@ const CARD_COLUMNS = [
   "past_tense", "present_tense", "masdar_form", "companion_forms",
   "interval_days", "ease_factor", "next_review_date",
   "intensive_day", "intensive_reps_done", "next_review_at",
+  "quran_example", "quran_example_en", "quran_reference",
 ].join(",");
 
 // Deliberately shorter than CARD_COLUMNS: this one pulls every card in the
@@ -517,6 +518,9 @@ function reviewHTML(cards, practice) {
          gap:14px; padding:3px 0; }
   .row .lbl { font-size:12.5px; opacity:.6; line-height:1.35; }
   .row .val { font-size:19px; direction:rtl; white-space:nowrap; flex:none; }
+  .qur-ar { font-size:21px; direction:rtl; line-height:1.6; }
+  .qur-en { font-size:13.5px; opacity:.7; line-height:1.4; margin-top:4px; }
+  .qur-ref { font-size:11.5px; opacity:.45; margin-top:4px; }
   img { max-width:78%; max-height:26vh; border-radius:14px; margin-top:16px; }
   /* A row of its own rather than an overlay: the answer side scrolls now, and
      a floating hint would sit on top of whatever happened to scroll under it. */
@@ -600,6 +604,8 @@ function flip() {
   if (c.english) html += '<div class="en">' + esc(c.english) + '</div>';
   html += detail(c);
   if (c.image_url) html += '<img src="' + esc(c.image_url) + '">';
+  // Last of all, under the picture too, so the answer ends with the verse.
+  html += quranRef(c);
   $('#card').innerHTML = html;
   $('#scroll').scrollTop = 0;
   $('#tip').textContent = 'Left = Again   ·   Right = Easy';
@@ -621,6 +627,16 @@ function section(title, rows) {
 
 function listRows(items) {
   return (items || []).map((w) => row(esc(w.en), esc(w.ar))).join('');
+}
+
+/** The verse, if the word has one. Skipped words are stored as '' and read as
+ *  absent, same as null. */
+function quranRef(c) {
+  if (!c.quran_example) return '';
+  let body = '<div class="qur-ar" dir="rtl">' + esc(c.quran_example) + '</div>';
+  if (c.quran_example_en) body += '<div class="qur-en">' + esc(c.quran_example_en) + '</div>';
+  if (c.quran_reference) body += '<div class="qur-ref">' + esc(c.quran_reference) + '</div>';
+  return '<div class="detail">' + section('Quranic reference', body) + '</div>';
 }
 
 /** Everything the web app shows about a word, in the order it shows it: what

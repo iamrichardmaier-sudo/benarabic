@@ -21,6 +21,8 @@ import { entryToCardFields, type DictionaryEntry } from '@/lib/dictionary';
 import Library from '@/components/library/Library';
 import HomeDashboard from '@/components/HomeDashboard';
 import LearnHub, { type LearnDestination } from '@/components/LearnHub';
+import AnkiTransfer from '@/components/AnkiTransfer';
+import RootExplorer from '@/components/roots/RootExplorer';
 import SettingsScreen from '@/components/SettingsScreen';
 import PdfToAudio from '@/components/PdfToAudio';
 import LearnDecks from '@/components/decks/LearnDecks';
@@ -54,7 +56,7 @@ import { useToast } from '@/hooks/use-toast';
 type View =
   | 'home' | 'learnHub' | 'library' | 'settings'
   | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
-  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize' | 'listenCards'
+  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize' | 'listenCards' | 'rootExplorer' | 'anki'
   | 'pdfToAudio'
   | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast' | 'feedback';
 
@@ -591,6 +593,8 @@ const Index = () => {
 
         {view === 'adminDecks' && <AdminDecks onBack={() => setView('settings')} />}
 
+        {view === 'anki' && <AnkiTransfer cards={cards} onBack={() => setView('settings')} onImported={refetch} />}
+
         {view === 'importWords' && <ImportWords onBack={() => setView('settings')} />}
 
         {view === 'feedback' && <FeedbackForm onBack={() => setView('settings')} />}
@@ -600,6 +604,7 @@ const Index = () => {
             onOpenPdfToAudio={() => setView('pdfToAudio')}
             onOpenAddWords={() => setView('add')}
             onOpenImportWords={() => setView('importWords')}
+            onOpenAnki={() => setView('anki')}
             onOpenAdminDecks={isDeckAdmin ? () => setView('adminDecks') : undefined}
             onOpenFeedback={() => setView('feedback')}
             email={user?.email}
@@ -696,6 +701,8 @@ const Index = () => {
             onBack={() => setView('learnHub')}
           />
         )}
+
+        {view === 'rootExplorer' && <RootExplorer cards={cards} onBack={() => setView('learnHub')} />}
 
         {view === 'memorize' && <MemorizeTranscript onBack={() => setView('learnHub')} />}
 
