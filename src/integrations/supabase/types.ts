@@ -101,6 +101,36 @@ export type Database = {
         }
         Relationships: []
       }
+      daily_audios: {
+        Row: {
+          audio_date: string
+          audio_url: string
+          created_at: string
+          duration_secs: number | null
+          id: string
+          image_url: string | null
+          title: string
+        }
+        Insert: {
+          audio_date: string
+          audio_url: string
+          created_at?: string
+          duration_secs?: number | null
+          id?: string
+          image_url?: string | null
+          title: string
+        }
+        Update: {
+          audio_date?: string
+          audio_url?: string
+          created_at?: string
+          duration_secs?: number | null
+          id?: string
+          image_url?: string | null
+          title?: string
+        }
+        Relationships: []
+      }
       dictionary: {
         Row: {
           bible_occurrences: number

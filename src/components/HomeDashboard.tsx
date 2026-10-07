@@ -2,6 +2,7 @@ import { Flame, BookOpen, Layers, GraduationCap, ChevronRight, RotateCcw, Librar
 import { currentStreak } from '@/lib/streak';
 import { useBibleBooks } from '@/hooks/useBibleBooks';
 import HomeDeckShelves from '@/components/decks/HomeDeckShelves';
+import DailyAudios from '@/components/daily-audio/DailyAudios';
 import HomeDesktopColumns from '@/components/HomeDesktopColumns';
 import type { LearnDestination } from '@/components/LearnHub';
 
@@ -204,6 +205,7 @@ const HomeDashboard = ({
       </button>
 
       <HomeDeckShelves />
+      <DailyAudios />
       <HomeDesktopColumns onSelect={onSelectPractice} />
     </div>
   );
