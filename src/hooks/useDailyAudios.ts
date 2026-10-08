@@ -73,7 +73,9 @@ export function useDailyAudios() {
 
   useEffect(() => {
     let cancelled = false;
-    fetch(MANIFEST_URL)
+    // Bypass the HTTP cache: the manifest updates daily and GitHub Pages
+    // serves it with a 10-minute max-age, which hides new episodes.
+    fetch(MANIFEST_URL, { cache: 'no-store' })
       .then((res) => {
         if (!res.ok) throw new Error(`Could not load the daily audios (${res.status}).`);
         return res.json() as Promise<unknown>;
