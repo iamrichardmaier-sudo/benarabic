@@ -27,6 +27,23 @@ if (typeof Element !== "undefined" && !Element.prototype.setPointerCapture) {
   Element.prototype.hasPointerCapture = () => false;
 }
 
+// jsdom has no layout observers either; the Embla carousel subscribes to both
+// on mount and throws without them. Inert stubs are enough for rendering.
+class ObserverStub {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+  takeRecords() {
+    return [];
+  }
+}
+if (typeof globalThis.IntersectionObserver === "undefined") {
+  globalThis.IntersectionObserver = ObserverStub as unknown as typeof IntersectionObserver;
+}
+if (typeof globalThis.ResizeObserver === "undefined") {
+  globalThis.ResizeObserver = ObserverStub as unknown as typeof ResizeObserver;
+}
+
 Object.defineProperty(window, "matchMedia", {
   writable: true,
   value: (query: string) => ({

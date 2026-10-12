@@ -10,7 +10,7 @@ export interface DailyAudio {
   durationSecs: number | null;
 }
 
-/** How many of the latest episodes the Home section lists. */
+/** How many of the latest daily episodes the Daily Audios shelf lists. */
 export const EPISODE_LIMIT = 14;
 
 /**
@@ -48,7 +48,7 @@ function toEpisode(raw: unknown): DailyAudio | null {
   };
 }
 
-/** The playable episodes in a manifest, newest first, capped at the shelf size. */
+/** Every playable episode in a manifest, newest first. */
 export function parseManifest(json: unknown): DailyAudio[] {
   const list = json && typeof json === 'object' ? (json as { episodes?: unknown }).episodes : null;
   if (!Array.isArray(list)) throw new Error('The daily audio list is not in the expected format.');
@@ -56,18 +56,38 @@ export function parseManifest(json: unknown): DailyAudio[] {
     .map(toEpisode)
     .filter((e): e is DailyAudio => e !== null)
     // The publisher writes newest first, but order is cheap to guarantee.
-    .sort((a, b) => b.audioDate.localeCompare(a.audioDate))
-    .slice(0, EPISODE_LIMIT);
+    .sort((a, b) => b.audioDate.localeCompare(a.audioDate));
 }
 
 /**
- * The latest daily audios, newest first.
+ * A textbook chapter's audio exercises (e.g. `2026-10-08-chapter-ii`) rather
+ * than a daily lesson. Matched on the id, so newly published chapters are
+ * picked up with no change to the app.
+ */
+export const isChapterAudio = (episode: DailyAudio): boolean => /chapter/i.test(episode.id);
+
+/**
+ * The manifest split into its two shelves: the latest daily lessons, capped
+ * at the shelf size, and every chapter audio.
+ */
+export function splitEpisodes(all: DailyAudio[]): { daily: DailyAudio[]; chapters: DailyAudio[] } {
+  return {
+    daily: all.filter((e) => !isChapterAudio(e)).slice(0, EPISODE_LIMIT),
+    chapters: all.filter(isChapterAudio),
+  };
+}
+
+/**
+ * The latest daily audios and the chapter audios, each newest first.
  *
  * Whatever the manifest lists is what shows, so a new episode appears on the
  * next load with no change to the app.
  */
 export function useDailyAudios() {
-  const [episodes, setEpisodes] = useState<DailyAudio[]>([]);
+  const [episodes, setEpisodes] = useState<{ daily: DailyAudio[]; chapters: DailyAudio[] }>({
+    daily: [],
+    chapters: [],
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -82,7 +102,7 @@ export function useDailyAudios() {
       })
       .then((json) => {
         if (cancelled) return;
-        setEpisodes(parseManifest(json));
+        setEpisodes(splitEpisodes(parseManifest(json)));
         setError(null);
       })
       .catch((err) => {
@@ -98,5 +118,5 @@ export function useDailyAudios() {
     };
   }, []);
 
-  return { episodes, loading, error };
+  return { ...episodes, loading, error };
 }

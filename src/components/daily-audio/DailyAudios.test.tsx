@@ -1,9 +1,9 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import type { DailyAudio } from '@/hooks/useDailyAudios';
 
 const hook = vi.hoisted(() => ({
-  value: { episodes: [] as DailyAudio[], loading: false, error: null as string | null },
+  value: { daily: [] as DailyAudio[], chapters: [] as DailyAudio[], loading: false, error: null as string | null },
 }));
 vi.mock('@/hooks/useDailyAudios', () => ({ useDailyAudios: () => hook.value }));
 
@@ -31,7 +31,7 @@ const episode = (over: Partial<DailyAudio> = {}): DailyAudio => ({
 });
 
 beforeEach(() => {
-  hook.value = { episodes: [], loading: false, error: null };
+  hook.value = { daily: [], chapters: [], loading: false, error: null };
   player.start.mockReset();
   player.toggle.mockReset();
   player.tracks = [];
@@ -59,7 +59,7 @@ describe('DailyAudios', () => {
   });
 
   it('shows skeletons while loading', () => {
-    hook.value = { episodes: [], loading: true, error: null };
+    hook.value = { daily: [], chapters: [], loading: true, error: null };
     const { container } = render(<DailyAudios />);
     expect(container.querySelectorAll('.animate-pulse').length).toBeGreaterThan(0);
     expect(screen.queryByText(/first daily audio/)).not.toBeInTheDocument();
@@ -67,12 +67,13 @@ describe('DailyAudios', () => {
 
   it('lists episodes with title, date, duration and cover, in the order given', () => {
     hook.value = {
-      episodes: [episode(), episode({ id: 'e2', audioDate: '2026-10-07', title: 'Oct 7 — Earlier', durationSecs: null, imageUrl: null })],
+      daily: [episode(), episode({ id: 'e2', audioDate: '2026-10-07', title: 'Oct 7 — Earlier', durationSecs: null, imageUrl: null })],
+      chapters: [],
       loading: false,
       error: null,
     };
     const { container } = render(<DailyAudios />);
-    const rows = screen.getAllByRole('button');
+    const rows = screen.getAllByRole('button', { name: /^Play / });
     expect(rows[0]).toHaveAccessibleName('Play Oct 8 — At the Clothing Shop');
     expect(rows[1]).toHaveAccessibleName('Play Oct 7 — Earlier');
     expect(screen.getByText(/12:34/)).toBeInTheDocument();
@@ -82,16 +83,16 @@ describe('DailyAudios', () => {
   });
 
   it('starts an episode through the shared player with its URL and title', () => {
-    hook.value = { episodes: [episode()], loading: false, error: null };
+    hook.value = { daily: [episode()], chapters: [], loading: false, error: null };
     render(<DailyAudios />);
-    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByRole('button', { name: 'Play Oct 8 — At the Clothing Shop' }));
     expect(player.start).toHaveBeenCalledWith([
       { url: 'https://x/daily-audio/2026-10-08.mp3', label: 'Oct 8 — At the Clothing Shop' },
     ]);
   });
 
   it('toggles the active episode and shows playing state and progress', () => {
-    hook.value = { episodes: [episode()], loading: false, error: null };
+    hook.value = { daily: [episode()], chapters: [], loading: false, error: null };
     player.tracks = [{ url: 'https://x/daily-audio/2026-10-08.mp3', label: 'x' }];
     player.state = { ...player.state, playing: true, position: 30, duration: 120 };
     render(<DailyAudios />);
@@ -99,14 +100,60 @@ describe('DailyAudios', () => {
     expect(screen.getByText(/Playing/)).toBeInTheDocument();
     expect(screen.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '25');
 
-    fireEvent.click(screen.getByRole('button'));
+    fireEvent.click(screen.getByRole('button', { name: 'Pause Oct 8 — At the Clothing Shop' }));
     expect(player.toggle).toHaveBeenCalled();
     expect(player.start).not.toHaveBeenCalled();
   });
 
   it('says so when the list could not be loaded', () => {
-    hook.value = { episodes: [], loading: false, error: 'boom' };
+    hook.value = { daily: [], chapters: [], loading: false, error: 'boom' };
     render(<DailyAudios />);
     expect(screen.getByText('The daily audios could not be loaded.')).toBeInTheDocument();
+    // One failed fetch, one message: the AK II shelf stays out of the way.
+    expect(screen.queryByText('AK II Audios')).not.toBeInTheDocument();
+  });
+});
+
+describe('AK II Audios', () => {
+  const chapter = episode({
+    id: '2026-10-08-chapter-ii',
+    title: 'Oct 8 — Chapter II - Audio Exercises',
+    audioUrl: 'https://x/daily-audio/2026-10-08-chapter-ii.mp3',
+    imageUrl: null,
+  });
+
+  it('is hidden until a chapter audio is published', () => {
+    hook.value = { daily: [episode()], chapters: [], loading: false, error: null };
+    render(<DailyAudios />);
+    expect(screen.getByText('Daily Audios')).toBeInTheDocument();
+    expect(screen.queryByText('AK II Audios')).not.toBeInTheDocument();
+  });
+
+  it('shows skeletons under its heading while loading', () => {
+    hook.value = { daily: [], chapters: [], loading: true, error: null };
+    render(<DailyAudios />);
+    expect(screen.getByText('AK II Audios')).toBeInTheDocument();
+  });
+
+  it('lists the chapter audios on their own shelf, apart from the daily ones', () => {
+    hook.value = { daily: [episode()], chapters: [chapter], loading: false, error: null };
+    render(<DailyAudios />);
+
+    const daily = screen.getByRole('region', { name: 'Daily Audios' });
+    const akii = screen.getByRole('region', { name: 'AK II Audios' });
+    expect(within(daily).getAllByRole('button', { name: /^Play / })).toHaveLength(1);
+    expect(within(daily).getByRole('button', { name: 'Play Oct 8 — At the Clothing Shop' })).toBeInTheDocument();
+    expect(within(daily).queryByText(/Chapter II/)).not.toBeInTheDocument();
+    expect(within(akii).getAllByRole('button', { name: /^Play / })).toHaveLength(1);
+    expect(within(akii).getByRole('button', { name: 'Play Oct 8 — Chapter II - Audio Exercises' })).toBeInTheDocument();
+  });
+
+  it('plays a chapter through the same shared player', () => {
+    hook.value = { daily: [episode()], chapters: [chapter], loading: false, error: null };
+    render(<DailyAudios />);
+    fireEvent.click(screen.getByRole('button', { name: 'Play Oct 8 — Chapter II - Audio Exercises' }));
+    expect(player.start).toHaveBeenCalledWith([
+      { url: 'https://x/daily-audio/2026-10-08-chapter-ii.mp3', label: 'Oct 8 — Chapter II - Audio Exercises' },
+    ]);
   });
 });
