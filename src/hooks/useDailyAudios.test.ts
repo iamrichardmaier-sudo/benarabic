@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { renderHook, waitFor } from '@testing-library/react';
-import { useDailyAudios, parseManifest, splitEpisodes, isChapterAudio, MANIFEST_URL, type DailyAudio } from './useDailyAudios';
+import { useDailyAudios, parseManifest, splitEpisodes, isChapterAudio, isAkAudio, MANIFEST_URL, type DailyAudio } from './useDailyAudios';
 
 const manifest = {
   version: 1,
@@ -52,6 +52,7 @@ describe('useDailyAudios', () => {
         audioUrl: 'https://iamrichardmaier-sudo.github.io/wazn-daily-audio/audio/2026-10-07.mp3',
         imageUrl: 'https://iamrichardmaier-sudo.github.io/wazn-daily-audio/art/2026-10-07.png',
         durationSecs: 330,
+        collection: null,
       },
     ]);
     expect(result.current.chapters.map((e) => e.id)).toEqual(['2026-10-08-chapter-ii']);
@@ -129,8 +130,8 @@ describe('parseManifest', () => {
 });
 
 describe('splitEpisodes', () => {
-  const ep = (id: string, audioDate: string): DailyAudio => ({
-    id, audioDate, title: `T ${id}`, audioUrl: `https://x/${id}.mp3`, imageUrl: null, durationSecs: null,
+  const ep = (id: string, audioDate: string, collection: string | null = null): DailyAudio => ({
+    id, audioDate, title: `T ${id}`, audioUrl: `https://x/${id}.mp3`, imageUrl: null, durationSecs: null, collection,
   });
 
   it('recognises a chapter audio by its id, whatever the case or chapter', () => {
@@ -163,5 +164,18 @@ describe('splitEpisodes', () => {
     expect(daily[13].id).toBe('2026-09-07');
     expect(chapters).toHaveLength(20);
     expect(chapters[0].id).toBe('2026-09-20-chapter-20');
+  });
+
+  it('puts collection "ak" episodes on the AK II shelf, whatever their id', () => {
+    expect(isAkAudio(ep('2026-10-13-maha-qissa', '2026-10-13', 'ak'))).toBe(true);
+    expect(isAkAudio(ep('2026-10-13-maha-qissa', '2026-10-13', 'AK'))).toBe(true);
+    expect(isAkAudio(ep('2026-10-13', '2026-10-13', null))).toBe(false);
+    const { daily, chapters } = splitEpisodes([
+      ep('2026-10-13', '2026-10-13'),
+      ep('2026-10-13-maha-qissa', '2026-10-13', 'ak'),
+      ep('2026-10-08-chapter-ii', '2026-10-08'),
+    ]);
+    expect(daily.map((e) => e.id)).toEqual(['2026-10-13']);
+    expect(chapters.map((e) => e.id)).toEqual(['2026-10-13-maha-qissa', '2026-10-08-chapter-ii']);
   });
 });

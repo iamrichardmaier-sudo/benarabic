@@ -27,6 +27,7 @@ const episode = (over: Partial<DailyAudio> = {}): DailyAudio => ({
   audioUrl: 'https://x/daily-audio/2026-10-08.mp3',
   imageUrl: 'https://x/daily-audio-art/2026-10-08.png',
   durationSecs: 754,
+  collection: null,
   ...over,
 });
 

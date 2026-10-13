@@ -8,6 +8,8 @@ export interface DailyAudio {
   audioUrl: string;
   imageUrl: string | null;
   durationSecs: number | null;
+  /** Optional manifest collection tag (e.g. "ak" routes an episode to the AK II shelf). */
+  collection: string | null;
 }
 
 /** How many of the latest daily episodes the Daily Audios shelf lists. */
@@ -45,6 +47,7 @@ function toEpisode(raw: unknown): DailyAudio | null {
     audioUrl,
     imageUrl: text(e.image_url),
     durationSecs: secs,
+    collection: text(e.collection)?.toLowerCase() ?? null,
   };
 }
 
@@ -67,13 +70,20 @@ export function parseManifest(json: unknown): DailyAudio[] {
 export const isChapterAudio = (episode: DailyAudio): boolean => /chapter/i.test(episode.id);
 
 /**
+ * Anything that belongs on the AK II shelf: chapter audios plus episodes the
+ * publisher tagged with the "ak" collection (e.g. supplemental stories).
+ */
+export const isAkAudio = (episode: DailyAudio): boolean =>
+  isChapterAudio(episode) || episode.collection?.toLowerCase() === 'ak';
+
+/**
  * The manifest split into its two shelves: the latest daily lessons, capped
- * at the shelf size, and every chapter audio.
+ * at the shelf size, and everything for the AK II shelf.
  */
 export function splitEpisodes(all: DailyAudio[]): { daily: DailyAudio[]; chapters: DailyAudio[] } {
   return {
-    daily: all.filter((e) => !isChapterAudio(e)).slice(0, EPISODE_LIMIT),
-    chapters: all.filter(isChapterAudio),
+    daily: all.filter((e) => !isAkAudio(e)).slice(0, EPISODE_LIMIT),
+    chapters: all.filter(isAkAudio),
   };
 }
 
