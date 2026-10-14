@@ -3,6 +3,7 @@ import {
   Sparkles, Link2, Brain, Headphones, ChevronRight, Search, Hash, LibraryBig, Network, type LucideIcon,
 } from 'lucide-react';
 import PodcastShelf from '@/components/podcasts/PodcastShelf';
+import { Switch } from '@/components/ui/switch';
 import type { Podcast } from '@/lib/podcasts';
 
 export type LearnDestination =
@@ -12,7 +13,15 @@ export type LearnDestination =
 
 interface LearnHubProps {
   dueCount: number;
+  /** What Learn opens on right now — all that is waiting, or just the sentences. */
   learnCount: number;
+  /** Single words waiting to be learned. */
+  wordsWaiting?: number;
+  /** Sentence cards waiting to be learned. */
+  sentencesWaiting?: number;
+  /** Learn only the sentences. */
+  sentencesOnly?: boolean;
+  onSentencesOnlyChange?: (on: boolean) => void;
   deckSize: number;
   onSelect: (destination: LearnDestination) => void;
   /** Opens a podcast from the shelf at the foot of the screen. */
@@ -33,15 +42,28 @@ interface Item {
  * lives in Library; this screen never opens a text for its own sake.
  */
 const LearnHub = ({
-  dueCount, learnCount, deckSize, onSelect, onOpenPodcast,
+  dueCount, learnCount, wordsWaiting = 0, sentencesWaiting = 0,
+  sentencesOnly = false, onSentencesOnlyChange, deckSize, onSelect, onOpenPodcast,
 }: LearnHubProps) => {
+  // Offered whenever sentences are waiting, and kept while it is on so it can
+  // always be turned off — a switch that vanished while set would strand the
+  // learner on an empty queue.
+  const showSentenceSwitch = Boolean(onSentencesOnlyChange) && (sentencesWaiting > 0 || sentencesOnly);
+  const learnHint = learnCount === 0
+    ? (sentencesOnly ? 'No sentences waiting' : 'Nothing new right now')
+    : sentencesWaiting > 0
+      ? (sentencesOnly
+          ? `${sentencesWaiting} sentence${sentencesWaiting === 1 ? '' : 's'} waiting`
+          : `${wordsWaiting} word${wordsWaiting === 1 ? '' : 's'} · ${sentencesWaiting} sentence${sentencesWaiting === 1 ? '' : 's'} waiting`)
+      : `${learnCount} waiting`;
+
   const sections: { title: string; items: Item[] }[] = [
     {
       title: 'Flashcards',
       items: [
         {
           id: 'learn', label: 'Learn new words', icon: GraduationCap,
-          hint: learnCount > 0 ? `${learnCount} waiting` : 'Nothing new right now',
+          hint: learnHint,
           disabled: learnCount === 0,
         },
         {
@@ -121,6 +143,21 @@ const LearnHub = ({
                 <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
               </button>
             ))}
+            {section.title === 'Flashcards' && showSentenceSwitch && (
+              <label className="flex cursor-pointer items-center gap-3 border-t border-border px-4 py-3.5">
+                <span className="min-w-0 flex-1">
+                  <span className="block font-semibold text-foreground">Sentences only</span>
+                  <span className="block text-xs text-muted-foreground">
+                    Learn just the sentence cards — put the words in order
+                  </span>
+                </span>
+                <Switch
+                  checked={sentencesOnly}
+                  onCheckedChange={onSentencesOnlyChange}
+                  aria-label="Sentences only"
+                />
+              </label>
+            )}
           </div>
         </section>
       ))}

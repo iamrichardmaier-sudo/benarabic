@@ -38,7 +38,10 @@ import WaznLogo from '@/components/WaznLogo';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useBrowserBack } from '@/hooks/useBrowserBack';
 import { recordStudyDay } from '@/lib/streak';
-import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine, scheduleFields, nextWave } from '@/lib/spaced-repetition';
+import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine, scheduleFields, nextWave, isSentence } from '@/lib/spaced-repetition';
+import SentenceOrder from '@/components/SentenceOrder';
+import { useSentencesOnly } from '@/hooks/useSentencesOnly';
+import { learnQueue, learnSplit } from '@/lib/learn-filter';
 import { queueAfterGrade, cardsCovered } from '@/lib/review-queue';
 import { learnedRecently, RECENT_DAYS } from '@/lib/recent-words';
 import { DeckActionsContext, type NewWord } from '@/contexts/DeckActionsContext';
@@ -48,7 +51,6 @@ import { useAuth } from '@/hooks/useAuth';
 import { searchImage, backfillMissingImages } from '@/lib/unsplash';
 import { tagCards, tagUntaggedDeck, repairVerbMasdarPairs } from '@/lib/auto-tag-deck';
 import { markNeedsImage } from '@/lib/offline-cache';
-import GroupFilter from '@/components/GroupFilter';
 import type { TaggedImportEntry } from '@/lib/import-tagged';
 import { useToast } from '@/hooks/use-toast';
 
@@ -60,15 +62,12 @@ type View =
   | 'pdfToAudio'
   | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast' | 'feedback';
 
-const ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
-
-function readActiveGroup(): string | null {
-  try {
-    return localStorage.getItem(ACTIVE_GROUP_KEY);
-  } catch {
-    return null;
-  }
-}
+/**
+ * The chapter filter that used to sit under the header is gone, but a device
+ * that had one switched on still has it saved. Nothing reads it any more, so it
+ * is cleared once rather than left behind.
+ */
+const RETIRED_ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
 /** Supabase errors are plain objects, not Error instances — read .message off either. */
 function errorReason(err: unknown): string {
@@ -103,6 +102,8 @@ const Index = () => {
    * the opposite of what asking for more practice means.
    */
   const [practising, setPractising] = useState(false);
+  /** Learn only the sentence cards, when there are any waiting. */
+  const [sentencesOnly, setSentencesOnly] = useSentencesOnly();
   /** Full-screen, keyboard-driven review — the phone widget's session. */
   const [focusReview, setFocusReview] = useState(false);
   const [podcast, setPodcast] = useState<Podcast | null>(null);
@@ -119,13 +120,20 @@ const Index = () => {
   const backfillRan = useRef(false);
   const podcastLinkRan = useRef(false);
   const [podcastRegister, setPodcastRegister] = useState<Register | null>(null);
-  const [activeGroup, setActiveGroup] = useState<string | null>(readActiveGroup);
 
   // A Scriptable widget cannot run the app in place -- tapping a podcast in
   // its browse list is a URL open, same as every other deep link this app
   // gets. ?podcast=<id> lands straight on that podcast's player rather than
   // the browse-and-tap-around a fresh launch would otherwise need, and
   // &register= skips the picker too when the widget already asked.
+  useEffect(() => {
+    try {
+      localStorage.removeItem(RETIRED_ACTIVE_GROUP_KEY);
+    } catch {
+      /* nothing was saved, or storage is unavailable */
+    }
+  }, []);
+
   useEffect(() => {
     if (!user || podcastLinkRan.current) return;
     const params = new URLSearchParams(window.location.search);
@@ -271,38 +279,21 @@ const Index = () => {
     setLibraryResume((n) => n + 1);
   };
 
-  const chooseGroup = (group: string | null) => {
-    setActiveGroup(group);
-    try {
-      if (group === null) localStorage.removeItem(ACTIVE_GROUP_KEY);
-      else localStorage.setItem(ACTIVE_GROUP_KEY, group);
-    } catch {
-      /* the choice just will not persist */
-    }
-  };
-
   const groups = [...new Set(cards.map((c) => c.group).filter((g): g is string => !!g))].sort();
-  const groupCounts = groups.reduce<Record<string, number>>((acc, g) => {
-    acc[g] = cards.filter((c) => c.group === g).length;
-    return acc;
-  }, {});
-  // A filter naming a group that no longer exists would silently hide the whole
-  // deck, so fall back to everything.
-  const effectiveGroup = activeGroup && groups.includes(activeGroup) ? activeGroup : null;
-  /** What the study modes work from. The Deck view still lists everything. */
-  const studyCards = effectiveGroup ? cards.filter((c) => c.group === effectiveGroup) : cards;
+  /** What the study modes work from: the whole deck. */
+  const studyCards = cards;
 
   /**
-   * Review is deliberately global: the spaced-repetition schedule is a promise
-   * about the whole deck, so a card falling due must not be hidden just because
-   * a chapter filter happens to be set. Learning new words still respects the
-   * filter — that is a choice about what to study next, not a debt already owed.
+   * Review works from the whole deck: the spaced-repetition schedule is a
+   * promise about every card, so one falling due is never left out.
    */
   const openSession = (pool: FlashCard[], practice: boolean) => {
     const items: { card: FlashCard; direction: ReviewDirection }[] = [];
     for (const card of pool) {
+      // A sentence is one item, not one per direction: its exercise is the
+      // word ordering, which it runs twice by itself.
       items.push({ card, direction: 'ar-to-en' });
-      items.push({ card, direction: 'en-to-ar' });
+      if (!isSentence(card)) items.push({ card, direction: 'en-to-ar' });
     }
     for (let i = items.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -412,16 +403,24 @@ const Index = () => {
   const dueCount = getDueCards(cards).length;
   const upcomingWave = nextWave(cards);
   const recentlyLearned = learnedRecently(cards);
-  const learnCount = getLearnableCards(studyCards).length;
+  const learnable = getLearnableCards(studyCards);
+  const learnCards = learnQueue(learnable, sentencesOnly);
+  const learnWaiting = learnSplit(learnable);
+  // What Learn will actually open on, so the count and the session agree.
+  const learnCount = learnCards.length;
   const reviewDone = view === 'review' && currentIndex >= reviewItems.length;
   const hasKeyboard = useHasKeyboard();
   const reviewing = view === 'review' && !reviewDone && Boolean(reviewItems[currentIndex]);
+  // A sentence is reviewed by ordering its words, which has no flip to
+  // fullscreen and no grade keys, so Enter and the full-screen session stay
+  // out of its way.
+  const reviewingSentence = reviewing && isSentence(reviewItems[currentIndex].card);
 
   // Enter opens the full-screen session, from the review screen only. The
   // listener is hung here rather than inside FocusReview because the screen it
   // opens does not exist yet when the key is pressed.
   useEffect(() => {
-    if (!reviewing || focusReview) return;
+    if (!reviewing || focusReview || reviewingSentence) return;
     const handler = (e: KeyboardEvent) => {
       if (e.key !== 'Enter') return;
       e.preventDefault();
@@ -429,7 +428,7 @@ const Index = () => {
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [reviewing, focusReview]);
+  }, [reviewing, focusReview, reviewingSentence]);
 
   // A session that runs out closes the full screen with it, rather than
   // leaving an empty card behind for the arrow keys to grade.
@@ -507,19 +506,6 @@ const Index = () => {
             </button>
           </div>
         </div>
-        {/* The group filter narrows study, so it only belongs on study screens. */}
-        {tab === 'learn' && view !== 'memorize' && groups.length > 0 && (
-          <div className="max-w-lg mx-auto px-4 pb-3">
-            <GroupFilter
-              groups={groups}
-              active={effectiveGroup}
-              onChange={chooseGroup}
-              counts={groupCounts}
-              totalCount={cards.length}
-              compact
-            />
-          </div>
-        )}
       </header>
 
       <main className={`flex-1 mx-auto w-full px-4 pt-8 pb-28 max-w-lg ${view === 'home' ? 'lg:max-w-3xl' : ''}`}>
@@ -556,6 +542,10 @@ const Index = () => {
           <LearnHub
             dueCount={dueCount}
             learnCount={learnCount}
+            wordsWaiting={learnWaiting.words}
+            sentencesWaiting={learnWaiting.sentences}
+            sentencesOnly={sentencesOnly}
+            onSentencesOnlyChange={setSentencesOnly}
             deckSize={cards.length}
             onSelect={openLearnDestination}
             onOpenPodcast={(p) => { setPodcast(p); setPodcastRegister(null); setView('podcast'); }}
@@ -631,14 +621,28 @@ const Index = () => {
                 Practising this week&rsquo;s words. Nothing here changes when they next come up.
               </p>
             )}
-            <Flashcard
-              card={reviewItems[currentIndex].card}
-              direction={reviewItems[currentIndex].direction}
-              onRate={handleRate}
-              progress={{ current: currentIndex + 1, total: reviewItems.length }}
-              deck={cards}
-            />
-            {hasKeyboard && (
+            {reviewingSentence ? (
+              <div className="space-y-3">
+                <p className="text-center text-xs text-muted-foreground tabular-nums">
+                  {currentIndex + 1} / {reviewItems.length}
+                </p>
+                <SentenceOrder
+                  key={`${reviewItems[currentIndex].card.id}-${currentIndex}`}
+                  card={reviewItems[currentIndex].card}
+                  rounds={2}
+                  onDone={(correct) => handleRate(correct ? 'good' : 'again')}
+                />
+              </div>
+            ) : (
+              <Flashcard
+                card={reviewItems[currentIndex].card}
+                direction={reviewItems[currentIndex].direction}
+                onRate={handleRate}
+                progress={{ current: currentIndex + 1, total: reviewItems.length }}
+                deck={cards}
+              />
+            )}
+            {hasKeyboard && !reviewingSentence && (
               <button
                 onClick={() => setFocusReview(true)}
                 className="mx-auto block text-xs text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
@@ -667,7 +671,7 @@ const Index = () => {
 
         {view === 'learnCards' && (
           <LearningMode
-            cards={getLearnableCards(studyCards)}
+            cards={learnCards}
             allCards={cards}
             onUpdateCard={(id, updates) => handleUpdateCard(id, updates)}
             onBack={() => setView('learnHub')}
