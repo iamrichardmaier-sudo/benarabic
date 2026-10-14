@@ -1,5 +1,6 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
-import { FlashCard, graduateCard, acceptedAnswers, scheduleFields } from '@/lib/spaced-repetition';
+import { FlashCard, graduateCard, acceptedAnswers, scheduleFields, isSentence } from '@/lib/spaced-repetition';
+import SentenceOrder from '@/components/SentenceOrder';
 import { Progress } from '@/components/ui/progress';
 import { ArrowLeft, Check, X, Sparkles } from 'lucide-react';
 import SpeakButton, { speakArabic } from '@/components/SpeakButton';
@@ -105,6 +106,10 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
     };
   }, []);
 
+  // Sentences are never offered as multiple-choice answers: next to single
+  // words they would give the right answer away by length alone.
+  const wordCards = useMemo(() => allCards.filter((c) => !isSentence(c)), [allCards]);
+
   // Generate MC options based on direction
   const mcOptions = useMemo(() => {
     if (!currentCard || currentStage !== 1) return [];
@@ -112,7 +117,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
 
     if (isArabicOptions) {
       const correct = currentCard.word;
-      const others = allCards
+      const others = wordCards
         .filter((c) => c.id !== currentCard.id && c.word)
         .map((c) => c.word);
       const distractors = shuffleArray(others).slice(0, 3);
@@ -125,7 +130,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
       return shuffleArray([correct, ...distractors]);
     } else {
       const correct = currentCard.english || '';
-      const others = allCards
+      const others = wordCards
         .filter((c) => c.id !== currentCard.id && c.english)
         .map((c) => c.english!);
       const distractors = shuffleArray(others).slice(0, 3);
@@ -137,7 +142,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
       }
       return shuffleArray([correct, ...distractors]);
     }
-  }, [currentCard, currentStage, currentDirection, allCards]);
+  }, [currentCard, currentStage, currentDirection, wordCards]);
 
   const advanceToNext = useCallback(() => {
     if (autoAdvanceTimer.current) clearTimeout(autoAdvanceTimer.current);
@@ -216,6 +221,35 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
     } else {
       setAnswerState({ type: 'compare', userAnswer, correctAnswer: correct });
     }
+  };
+
+  /**
+   * A sentence card finished one round of word ordering.
+   *
+   * The two stages are the two rounds: the first ordering moves the card to
+   * stage 2, the second graduates it, and a miss in either puts it back at the
+   * end of its queue — the same shape as multiple choice and typing for a word.
+   */
+  const handleSentenceDone = (correct: boolean) => {
+    if (!currentCard) return;
+    if (currentStage === 1) {
+      onUpdateCard(currentCard.id, {
+        stage1Attempts: currentCard.stage1Attempts + 1,
+        learningStage: correct ? 'stage2' : 'stage1',
+      });
+      if (correct) setCompletedStage1((n) => n + 1);
+      else setStage1Queue((q) => [...q, { card: currentCard, direction: 'en-to-ar' }]);
+    } else {
+      onUpdateCard(currentCard.id, { stage2Attempts: currentCard.stage2Attempts + 1 });
+      if (correct) {
+        onUpdateCard(currentCard.id, scheduleFields(graduateCard(currentCard)));
+        setCompletedStage2((n) => n + 1);
+      } else {
+        setStage2Queue((q) => [...q, currentCard]);
+      }
+    }
+    setAnswerState({ type: 'unanswered' });
+    setCurrentIndex((i) => i + 1);
   };
 
   const handleCloseEnough = () => {
@@ -344,7 +378,10 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
   if (!currentCard) return null;
 
   const isArabicOptions = currentDirection === 'en-to-ar';
-  const stageLabel = currentStage === 1 ? 'Stage 1: Multiple Choice' : 'Stage 2: Type in Arabic';
+  const sentence = isSentence(currentCard);
+  const stageLabel = sentence
+    ? `Round ${currentStage} of 2: Put the words in order`
+    : currentStage === 1 ? 'Stage 1: Multiple Choice' : 'Stage 2: Type in Arabic';
   const completed = currentStage === 1 ? completedStage1 : completedStage2;
   const stageTotal = currentStage === 1 ? stage1Cards.length : totalLearnable;
   const remaining = stageTotal - completed;
@@ -371,10 +408,18 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
       </div>
 
       {/* Prompt */}
-      <PromptDisplay card={currentCard} direction={currentDirection} />
+      {sentence ? (
+        <SentenceOrder
+          key={`${currentCard.id}-${currentStage}-${currentIndex}`}
+          card={currentCard}
+          onDone={handleSentenceDone}
+        />
+      ) : (
+        <PromptDisplay card={currentCard} direction={currentDirection} />
+      )}
 
       {/* Stage 1: Multiple Choice */}
-      {currentStage === 1 && answerState.type === 'unanswered' && (
+      {!sentence && currentStage === 1 && answerState.type === 'unanswered' && (
         <div className="grid grid-cols-2 gap-3">
           {mcOptions.map((opt, i) => (
             <button
@@ -390,7 +435,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
       )}
 
       {/* Stage 2: Arabic Typing */}
-      {currentStage === 2 && answerState.type === 'unanswered' && (
+      {!sentence && currentStage === 2 && answerState.type === 'unanswered' && (
         <div className="space-y-3">
           <label className="text-sm text-muted-foreground font-medium">Type the Arabic word:</label>
           <input

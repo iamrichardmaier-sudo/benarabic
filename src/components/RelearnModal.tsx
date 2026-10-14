@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { FlashCard } from '@/lib/spaced-repetition';
+import { FlashCard, isSentence } from '@/lib/spaced-repetition';
 import { X } from 'lucide-react';
 import { Checkbox } from '@/components/ui/checkbox';
 import { sortChapterLabels } from '@/lib/chapter-sort';
@@ -14,15 +14,38 @@ const UNGROUPED = 'Ungrouped';
 
 const RelearnModal = ({ cards, onClose, onStartRelearn }: RelearnModalProps) => {
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
+  const [sentencesOnly, setSentencesOnly] = useState(false);
 
-  const allSelected = cards.length > 0 && selectedIds.size === cards.length;
+  const sentenceCount = useMemo(() => cards.filter(isSentence).length, [cards]);
+  // What the list shows. With "sentences" on, only those are listed, so
+  // Select All and the section toggles act on just them.
+  const shown = useMemo(() => (sentencesOnly ? cards.filter(isSentence) : cards), [cards, sentencesOnly]);
+
+  const allSelected = shown.length > 0 && shown.every((c) => selectedIds.has(c.id));
 
   const toggleAll = () => {
-    if (allSelected) {
-      setSelectedIds(new Set());
-    } else {
-      setSelectedIds(new Set(cards.map((c) => c.id)));
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      for (const c of shown) {
+        if (allSelected) next.delete(c.id);
+        else next.add(c.id);
+      }
+      return next;
+    });
+  };
+
+  /** Show only the sentences and select them all — or go back to the whole deck. */
+  const toggleSentences = () => {
+    if (sentencesOnly) {
+      setSentencesOnly(false);
+      return;
     }
+    setSentencesOnly(true);
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      for (const c of cards) if (isSentence(c)) next.add(c.id);
+      return next;
+    });
   };
 
   const toggleCard = (id: string) => {
@@ -51,7 +74,7 @@ const RelearnModal = ({ cards, onClose, onStartRelearn }: RelearnModalProps) => 
   // section headers and fall back to the flat list this screen used to show.
   const sections = useMemo(() => {
     const byGroup = new Map<string, FlashCard[]>();
-    for (const card of cards) {
+    for (const card of shown) {
       const key = card.group || UNGROUPED;
       const list = byGroup.get(key);
       if (list) list.push(card);
@@ -60,7 +83,7 @@ const RelearnModal = ({ cards, onClose, onStartRelearn }: RelearnModalProps) => 
     const namedGroups = sortChapterLabels([...byGroup.keys()].filter((g) => g !== UNGROUPED));
     const order = byGroup.has(UNGROUPED) ? [...namedGroups, UNGROUPED] : namedGroups;
     return order.map((name) => ({ name, cards: byGroup.get(name) as FlashCard[] }));
-  }, [cards]);
+  }, [shown]);
 
   const showSections = sections.length > 1;
 
@@ -78,18 +101,31 @@ const RelearnModal = ({ cards, onClose, onStartRelearn }: RelearnModalProps) => 
       </div>
 
       {/* Select All toggle */}
-      <div className="px-4 py-3 border-b border-border/50">
+      <div className="flex items-center justify-between gap-3 px-4 py-3 border-b border-border/50">
         <button
           onClick={toggleAll}
           className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
         >
           {allSelected ? 'Deselect All' : 'Select All'}
         </button>
+        {sentenceCount > 0 && (
+          <button
+            onClick={toggleSentences}
+            aria-pressed={sentencesOnly}
+            className={`rounded-full border px-3 py-1 text-xs font-semibold transition-colors ${
+              sentencesOnly
+                ? 'border-primary bg-primary text-primary-foreground'
+                : 'border-primary text-primary hover:bg-primary/10'
+            }`}
+          >
+            {sentencesOnly ? `Showing sentences (${sentenceCount}) · show all` : `Sentences (${sentenceCount})`}
+          </button>
+        )}
       </div>
 
       {/* Card list */}
       <div className="flex-1 overflow-y-auto px-4 py-2">
-        {cards.length === 0 ? (
+        {shown.length === 0 ? (
           <p className="text-muted-foreground text-center py-8">No cards in your deck.</p>
         ) : (
           <div className="space-y-4">
@@ -117,12 +153,25 @@ const RelearnModal = ({ cards, onClose, onStartRelearn }: RelearnModalProps) => 
                       checked={selectedIds.has(card.id)}
                       onCheckedChange={() => toggleCard(card.id)}
                     />
-                    <span className="font-arabic text-base font-semibold text-foreground flex-1" dir="rtl">
-                      {card.word}
-                    </span>
-                    <span className="text-sm text-muted-foreground truncate max-w-[40%] text-right">
-                      {card.english || '—'}
-                    </span>
+                    {isSentence(card) ? (
+                      // A sentence is long: let both lines wrap, English
+                      // under the Arabic, instead of squeezing two columns.
+                      <span className="flex-1 min-w-0 space-y-0.5">
+                        <span className="block font-arabic text-base font-semibold text-foreground" dir="rtl">
+                          {card.wordVoweled || card.word}
+                        </span>
+                        <span className="block text-sm text-muted-foreground">{card.english || '—'}</span>
+                      </span>
+                    ) : (
+                      <>
+                        <span className="font-arabic text-base font-semibold text-foreground flex-1" dir="rtl">
+                          {card.word}
+                        </span>
+                        <span className="text-sm text-muted-foreground truncate max-w-[40%] text-right">
+                          {card.english || '—'}
+                        </span>
+                      </>
+                    )}
                   </label>
                 ))}
               </div>

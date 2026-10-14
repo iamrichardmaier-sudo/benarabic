@@ -1,7 +1,7 @@
 import { supabase } from '@/integrations/supabase/client';
 import { isOnline } from '@/hooks/useOnlineStatus';
 import { readNeedsImage, unmarkNeedsImage, type CacheScope } from '@/lib/offline-cache';
-import type { FlashCard } from '@/lib/spaced-repetition';
+import { isSentence, type FlashCard } from '@/lib/spaced-repetition';
 
 export interface ImageLookup {
   imageUrl: string | null;
@@ -74,8 +74,9 @@ export async function backfillMissingImages(
 
   for (const id of pending) {
     const card = byId.get(id);
-    // Deleted since, or already has a picture — either way it's done.
-    if (!card || card.imageUrl) {
+    // Deleted since, already has a picture, or is a sentence (a picture search
+    // on a whole sentence returns noise) — either way it's done.
+    if (!card || card.imageUrl || isSentence(card)) {
       settled.push(id);
       continue;
     }

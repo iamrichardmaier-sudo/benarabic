@@ -2,7 +2,12 @@ import { today, daysFromNow } from './day';
 import { advanceIntensive, isIntensive, startIntensive, timeHasCome } from './intensive';
 
 export type LearningStage = 'new' | 'stage1' | 'stage2' | 'graduated';
-export type WordType = 'verb' | 'masdar' | 'noun' | 'adjective' | 'participle' | 'other';
+/**
+ * What a card is. 'sentence' is not a part of speech: it marks a whole
+ * sentence kept as a card, which is learned by putting its words in order
+ * rather than by recognising one word.
+ */
+export type WordType = 'verb' | 'masdar' | 'noun' | 'adjective' | 'participle' | 'other' | 'sentence';
 export type VerbForm = 'I' | 'II' | 'III' | 'IV' | 'V' | 'VI' | 'VII' | 'VIII' | 'IX' | 'X';
 
 export interface CompanionForm {
@@ -175,6 +180,11 @@ export function nextWave(
   // Everything within a few minutes of the first is one batch, not several.
   const count = waiting.filter((t) => t - at < 5 * 60 * 1000).length;
   return { at: new Date(at), count };
+}
+
+/** A sentence card, as opposed to a single word. */
+export function isSentence(card: Pick<FlashCard, 'wordType'>): boolean {
+  return card.wordType === 'sentence';
 }
 
 export function getLearnableCards(cards: FlashCard[]): FlashCard[] {

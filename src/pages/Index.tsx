@@ -38,7 +38,10 @@ import WaznLogo from '@/components/WaznLogo';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useBrowserBack } from '@/hooks/useBrowserBack';
 import { recordStudyDay } from '@/lib/streak';
-import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine, scheduleFields, nextWave } from '@/lib/spaced-repetition';
+import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine, scheduleFields, nextWave, isSentence } from '@/lib/spaced-repetition';
+import SentenceOrder from '@/components/SentenceOrder';
+import { useSentencesOnly } from '@/hooks/useSentencesOnly';
+import { learnQueue, learnSplit } from '@/lib/learn-filter';
 import { queueAfterGrade, cardsCovered } from '@/lib/review-queue';
 import { learnedRecently, RECENT_DAYS } from '@/lib/recent-words';
 import { DeckActionsContext, type NewWord } from '@/contexts/DeckActionsContext';
@@ -103,6 +106,8 @@ const Index = () => {
    * the opposite of what asking for more practice means.
    */
   const [practising, setPractising] = useState(false);
+  /** Learn only the sentence cards, when there are any waiting. */
+  const [sentencesOnly, setSentencesOnly] = useSentencesOnly();
   /** Full-screen, keyboard-driven review — the phone widget's session. */
   const [focusReview, setFocusReview] = useState(false);
   const [podcast, setPodcast] = useState<Podcast | null>(null);
@@ -301,8 +306,10 @@ const Index = () => {
   const openSession = (pool: FlashCard[], practice: boolean) => {
     const items: { card: FlashCard; direction: ReviewDirection }[] = [];
     for (const card of pool) {
+      // A sentence is one item, not one per direction: its exercise is the
+      // word ordering, which it runs twice by itself.
       items.push({ card, direction: 'ar-to-en' });
-      items.push({ card, direction: 'en-to-ar' });
+      if (!isSentence(card)) items.push({ card, direction: 'en-to-ar' });
     }
     for (let i = items.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -412,16 +419,24 @@ const Index = () => {
   const dueCount = getDueCards(cards).length;
   const upcomingWave = nextWave(cards);
   const recentlyLearned = learnedRecently(cards);
-  const learnCount = getLearnableCards(studyCards).length;
+  const learnable = getLearnableCards(studyCards);
+  const learnCards = learnQueue(learnable, sentencesOnly);
+  const learnWaiting = learnSplit(learnable);
+  // What Learn will actually open on, so the count and the session agree.
+  const learnCount = learnCards.length;
   const reviewDone = view === 'review' && currentIndex >= reviewItems.length;
   const hasKeyboard = useHasKeyboard();
   const reviewing = view === 'review' && !reviewDone && Boolean(reviewItems[currentIndex]);
+  // A sentence is reviewed by ordering its words, which has no flip to
+  // fullscreen and no grade keys, so Enter and the full-screen session stay
+  // out of its way.
+  const reviewingSentence = reviewing && isSentence(reviewItems[currentIndex].card);
 
   // Enter opens the full-screen session, from the review screen only. The
   // listener is hung here rather than inside FocusReview because the screen it
   // opens does not exist yet when the key is pressed.
   useEffect(() => {
-    if (!reviewing || focusReview) return;
+    if (!reviewing || focusReview || reviewingSentence) return;
     const handler = (e: KeyboardEvent) => {
       if (e.key !== 'Enter') return;
       e.preventDefault();
@@ -429,7 +444,7 @@ const Index = () => {
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [reviewing, focusReview]);
+  }, [reviewing, focusReview, reviewingSentence]);
 
   // A session that runs out closes the full screen with it, rather than
   // leaving an empty card behind for the arrow keys to grade.
@@ -556,6 +571,10 @@ const Index = () => {
           <LearnHub
             dueCount={dueCount}
             learnCount={learnCount}
+            wordsWaiting={learnWaiting.words}
+            sentencesWaiting={learnWaiting.sentences}
+            sentencesOnly={sentencesOnly}
+            onSentencesOnlyChange={setSentencesOnly}
             deckSize={cards.length}
             onSelect={openLearnDestination}
             onOpenPodcast={(p) => { setPodcast(p); setPodcastRegister(null); setView('podcast'); }}
@@ -631,14 +650,28 @@ const Index = () => {
                 Practising this week&rsquo;s words. Nothing here changes when they next come up.
               </p>
             )}
-            <Flashcard
-              card={reviewItems[currentIndex].card}
-              direction={reviewItems[currentIndex].direction}
-              onRate={handleRate}
-              progress={{ current: currentIndex + 1, total: reviewItems.length }}
-              deck={cards}
-            />
-            {hasKeyboard && (
+            {reviewingSentence ? (
+              <div className="space-y-3">
+                <p className="text-center text-xs text-muted-foreground tabular-nums">
+                  {currentIndex + 1} / {reviewItems.length}
+                </p>
+                <SentenceOrder
+                  key={`${reviewItems[currentIndex].card.id}-${currentIndex}`}
+                  card={reviewItems[currentIndex].card}
+                  rounds={2}
+                  onDone={(correct) => handleRate(correct ? 'good' : 'again')}
+                />
+              </div>
+            ) : (
+              <Flashcard
+                card={reviewItems[currentIndex].card}
+                direction={reviewItems[currentIndex].direction}
+                onRate={handleRate}
+                progress={{ current: currentIndex + 1, total: reviewItems.length }}
+                deck={cards}
+              />
+            )}
+            {hasKeyboard && !reviewingSentence && (
               <button
                 onClick={() => setFocusReview(true)}
                 className="mx-auto block text-xs text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
@@ -667,7 +700,7 @@ const Index = () => {
 
         {view === 'learnCards' && (
           <LearningMode
-            cards={getLearnableCards(studyCards)}
+            cards={learnCards}
             allCards={cards}
             onUpdateCard={(id, updates) => handleUpdateCard(id, updates)}
             onBack={() => setView('learnHub')}

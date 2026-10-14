@@ -145,12 +145,24 @@ export async function tagCards(cards: { id: string; word: string; shaami?: strin
   return summary;
 }
 
+/**
+ * Sentence cards are never sent to the tagger.
+ *
+ * It tags one word at a time — a root, a part of speech, forms — and would
+ * rewrite a sentence's type and invent a root for it. They are written already
+ * tagged, but this keeps them out whatever their `tagged_at` says. The filter
+ * is spelled out because a plain `neq` also drops rows whose type is null,
+ * which is most of the deck.
+ */
+const NOT_A_SENTENCE = 'word_type.is.null,word_type.neq.sentence';
+
 /** Backfill: tag every card in the user's deck that hasn't been tagged yet. */
 export async function tagUntaggedDeck(onProgress?: TagProgress): Promise<AutoTagSummary> {
   if (!isOnline()) return { tagged: 0, failed: 0 };
   const { data, error } = await supabase
     .from('flashcards')
     .select('id, word, shaami')
+    .or(NOT_A_SENTENCE)
     .is('tagged_at', null);
   if (error) throw error;
 
@@ -168,6 +180,7 @@ export async function countUntaggedCards(): Promise<number> {
   const { count, error } = await supabase
     .from('flashcards')
     .select('id', { count: 'exact', head: true })
+    .or(NOT_A_SENTENCE)
     .is('tagged_at', null);
   if (error) throw error;
   return count ?? 0;
@@ -182,7 +195,8 @@ export async function retagEntireDeck(onProgress?: TagProgress): Promise<AutoTag
   if (!isOnline()) return { tagged: 0, failed: 0 };
   const { data, error } = await supabase
     .from('flashcards')
-    .select('id, word, shaami');
+    .select('id, word, shaami')
+    .or(NOT_A_SENTENCE);
   if (error) throw error;
 
   const rows = (data ?? []) as DbRow[];
