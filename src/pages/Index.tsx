@@ -42,6 +42,7 @@ import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCar
 import SentenceOrder from '@/components/SentenceOrder';
 import { useSentencesOnly } from '@/hooks/useSentencesOnly';
 import { learnQueue, learnSplit } from '@/lib/learn-filter';
+import { splitDuplicates } from '@/lib/duplicates';
 import { queueAfterGrade, cardsCovered } from '@/lib/review-queue';
 import { learnedRecently, RECENT_DAYS } from '@/lib/recent-words';
 import { DeckActionsContext, type NewWord } from '@/contexts/DeckActionsContext';
@@ -188,30 +189,47 @@ const Index = () => {
   const handleAddWords = async (lines: string[], chapter: string) => {
     setIsLoading(true);
     try {
-      const newCards: FlashCard[] = [];
-      let imageError: string | null = null;
-      let imagesDeferred = false;
+      // Words already in the deck are left out before anything is looked up, so
+      // a repeat costs no image search and no tagging.
+      const candidates: FlashCard[] = [];
       for (const line of lines) {
-        const entries = parseWordLine(line);
-        for (const { fusha, shaami, english } of entries) {
+        for (const { fusha, shaami, english } of parseWordLine(line)) {
           if (!fusha) continue;
-          const searchQuery = english || fusha;
-          const { imageUrl, error, deferred } = await searchImage(searchQuery);
-          if (error && !imageError) imageError = error;
-          if (deferred) imagesDeferred = true;
-          newCards.push({ ...createCard(fusha, english, imageUrl, shaami), group: chapter || null });
+          candidates.push({ ...createCard(fusha, english, null, shaami), group: chapter || null });
         }
       }
-      await addCards(newCards);
+      const { fresh, duplicates } = splitDuplicates(cards, candidates);
+      const skippedNote = duplicates.length > 0
+        ? `${duplicates.length} already in your deck, skipped: ${duplicates.map((c) => c.word).join('، ')}`
+        : '';
+      if (fresh.length === 0) {
+        toast({ title: 'Nothing new to add', description: skippedNote || 'Add at least one word.' });
+        return;
+      }
+
+      let imageError: string | null = null;
+      let imagesDeferred = false;
+      const withImages: FlashCard[] = [];
+      for (const card of fresh) {
+        const { imageUrl, error, deferred } = await searchImage(card.english || card.word);
+        if (error && !imageError) imageError = error;
+        if (deferred) imagesDeferred = true;
+        withImages.push({ ...card, imageUrl });
+      }
+      const { added: newCards, skipped } = await addCards(withImages);
       if (imagesDeferred) markNeedsImage(user?.id, newCards.map((c) => c.id));
       const found = newCards.filter((c) => c.imageUrl).length;
+      const detail = imagesDeferred
+        ? 'Saved on this device — pictures and tags fill in when you reconnect.'
+        : imageError
+          ? `${found} images found — image lookup failed for the rest: ${imageError}`
+          : `${found} images found`;
+      const alsoSkipped = skipped.length > 0 && duplicates.length === 0
+        ? `${skipped.length} already in your deck, skipped`
+        : skippedNote;
       toast({
-        title: `Added ${newCards.length} word${newCards.length > 1 ? 's' : ''}`,
-        description: imagesDeferred
-          ? 'Saved on this device — pictures and tags fill in when you reconnect.'
-          : imageError
-            ? `${found} images found — image lookup failed for the rest: ${imageError}`
-            : `${found} images found`,
+        title: `Added ${newCards.length} word${newCards.length === 1 ? '' : 's'}`,
+        description: alsoSkipped ? `${detail}. ${alsoSkipped}` : detail,
       });
       setView('home');
       try {
@@ -318,7 +336,7 @@ const Index = () => {
    */
   const addWordFromReader = useCallback(
     async (word: NewWord) => {
-      await addCards([
+      const { added } = await addCards([
         {
           ...createCard(word.word, word.english ?? null, null, null),
           root: word.root ?? null,
@@ -327,6 +345,10 @@ const Index = () => {
           wordVoweled: word.word,
         },
       ]);
+      if (added.length === 0) {
+        toast({ title: `${word.word} is already in your deck` });
+        return;
+      }
       toast({ title: `Added ${word.word}`, description: 'It is waiting in Learn.' });
     },
     [addCards, toast],
@@ -354,7 +376,7 @@ const Index = () => {
   const handleAddFromDictionary = async (entry: DictionaryEntry) => {
     const fields = entryToCardFields(entry);
     try {
-      await addCards([
+      const { added } = await addCards([
         {
           ...createCard(fields.word, fields.english, null, null),
           root: fields.root,
@@ -364,7 +386,7 @@ const Index = () => {
           taggedAt: new Date().toISOString(),
         },
       ]);
-      toast({ title: `Added ${fields.word}` });
+      toast({ title: added.length === 0 ? `${fields.word} is already in your deck` : `Added ${fields.word}` });
     } catch (err) {
       console.error('Could not add the word:', err);
       toast({ title: 'Could not add that word', variant: 'destructive' });

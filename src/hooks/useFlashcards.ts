@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { splitDuplicates } from '@/lib/duplicates';
 import { supabase } from '@/integrations/supabase/client';
 import { FlashCard, CompanionForm } from '@/lib/spaced-repetition';
 import { loadCards } from '@/lib/storage';
@@ -205,6 +206,8 @@ export function useFlashcards() {
   const [loading, setLoading] = useState(true);
   const [pendingCount, setPendingCount] = useState(0);
   const { toast } = useToast();
+  const cardsRef = useRef<FlashCard[]>([]);
+  cardsRef.current = cards;
   const migrationRan = useRef(false);
   const syncing = useRef(false);
 
@@ -313,19 +316,29 @@ export function useFlashcards() {
     };
   }, [authLoading, scope, online, sync, runMigration]);
 
+  /**
+   * Adds cards, except words the deck already holds.
+   *
+   * Every way of adding a word comes through here, so this is the one place
+   * that keeps a word from being held twice. It returns what was added and
+   * what was skipped so the caller can say so.
+   */
   const addCards = useCallback(
-    async (newCards: FlashCard[]) => {
+    async (incoming: FlashCard[]): Promise<{ added: FlashCard[]; skipped: FlashCard[] }> => {
+      const { fresh: newCards, duplicates } = splitDuplicates(cardsRef.current, incoming);
+      if (newCards.length === 0) return { added: [], skipped: duplicates };
       applyCards((prev) => [...prev, ...newCards]);
       if (isOnline()) {
         const { error } = await supabase.from('flashcards').upsert(newCards.map(cardToRow) as never);
         if (!error) {
           await fetchCards();
-          return;
+          return { added: newCards, skipped: duplicates };
         }
         // A rejection the server explained is a real bug — let the UI show it.
         if (!isNetworkError(error)) throw error;
       }
       setPendingCount(queueMutation(scope, { kind: 'upsert', cards: newCards }));
+      return { added: newCards, skipped: duplicates };
     },
     [applyCards, scope, fetchCards],
   );
