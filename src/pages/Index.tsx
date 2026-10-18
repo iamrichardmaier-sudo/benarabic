@@ -23,6 +23,7 @@ import HomeDashboard from '@/components/HomeDashboard';
 import LearnHub, { type LearnDestination } from '@/components/LearnHub';
 import AnkiTransfer from '@/components/AnkiTransfer';
 import RootExplorer from '@/components/roots/RootExplorer';
+import FormsTab from '@/components/forms/FormsTab';
 import SettingsScreen from '@/components/SettingsScreen';
 import PdfToAudio from '@/components/PdfToAudio';
 import LearnDecks from '@/components/decks/LearnDecks';
@@ -59,7 +60,7 @@ import { useToast } from '@/hooks/use-toast';
 type View =
   | 'home' | 'learnHub' | 'library' | 'settings'
   | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
-  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize' | 'listenCards' | 'rootExplorer' | 'anki'
+  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize' | 'listenCards' | 'rootExplorer' | 'verbForms' | 'anki'
   | 'pdfToAudio'
   | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast' | 'feedback';
 
@@ -729,6 +730,8 @@ const Index = () => {
         )}
 
         {view === 'rootExplorer' && <RootExplorer cards={cards} onBack={() => setView('learnHub')} />}
+
+        {view === 'verbForms' && <FormsTab cards={cards} onBack={() => setView('learnHub')} />}
 
         {view === 'memorize' && <MemorizeTranscript onBack={() => setView('learnHub')} />}
 
