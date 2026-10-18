@@ -11,7 +11,7 @@ vi.mock('@/integrations/supabase/client', () => ({
 
 const rows: Conjugation[] = FORM_IDS.flatMap((form) =>
   ['ك-ت-ب', 'د-ر-س', 'ف-ت-ح'].map((root, i) => ({
-    id: `${form}${i}`, root, form, past: `${form}${root}`, present: 'p', masdar: 'm', meaning: 'x',
+    id: `${form}${i}`, root, form, past: `${form}${root}`, present: 'p', masdar: 'm', meaning: 'x', definition: null, usageNote: null,
     tier: 3, confidence: 'high' as const, weak: 'sound', source: 't', reviewed: false,
   })),
 );

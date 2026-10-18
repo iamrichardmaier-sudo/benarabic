@@ -13,7 +13,12 @@ export interface Conjugation {
   past: string;
   present: string;
   masdar: string | null;
+  /** A short gloss for answer options: the first senses of the full definition. */
   meaning: string | null;
+  /** The full researched definition, every sense. */
+  definition: string | null;
+  /** Register or usage notes found while researching the verb. */
+  usageNote: string | null;
   /** 0 = not attested, 1 rare, 2 occasional, 3 common, 4 very common. An estimate. */
   tier: number;
   confidence: Confidence;
@@ -30,6 +35,8 @@ interface Row {
   present: string;
   masdar: string | null;
   meaning_en: string | null;
+  definition_en: string | null;
+  usage_note: string | null;
   usage_tier: number;
   confidence: Confidence;
   weak_type: string;
@@ -41,7 +48,23 @@ interface Row {
 export const formsTable = (name: 'verb_conjugations' | 'form_quiz_results') =>
   (supabase as unknown as { from: (t: string) => ReturnType<typeof supabase.from> }).from(name);
 
-const CACHE_KEY = 'wazn-verb-conjugations-v1';
+const CACHE_KEY = 'wazn-verb-conjugations-v2';
+
+/**
+ * The first senses of a full definition, short enough to be an answer option.
+ * The first sense is always kept; more follow while they fit.
+ */
+export function shortDefinition(definition: string | null, limit = 80): string | null {
+  if (!definition) return null;
+  const senses = definition.split(';').map((x) => x.trim()).filter(Boolean);
+  if (senses.length === 0) return null;
+  let out = senses[0];
+  for (const next of senses.slice(1, 3)) {
+    if (`${out}; ${next}`.length > limit) break;
+    out = `${out}; ${next}`;
+  }
+  return out;
+}
 
 const toConjugation = (r: Row): Conjugation => ({
   id: r.id,
@@ -50,7 +73,9 @@ const toConjugation = (r: Row): Conjugation => ({
   past: r.past,
   present: r.present,
   masdar: r.masdar,
-  meaning: r.meaning_en,
+  meaning: shortDefinition(r.definition_en) ?? r.meaning_en,
+  definition: r.definition_en,
+  usageNote: r.usage_note,
   tier: r.usage_tier,
   confidence: r.confidence,
   weak: r.weak_type,

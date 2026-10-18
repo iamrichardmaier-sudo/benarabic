@@ -20,3 +20,15 @@ verbs named in the spec (استفاد، أفاد، وصل).
 
 Licence note: the generator is original code; no code or data was taken from Qutrub or any other
 conjugation library.
+
+## Definitions and usage (researched)
+
+Every stored row has `definition_en` (all senses, taken from the English Wiktionary entry for that
+exact verb form, with Lane's Lexicon used to check the few it lacks) and `usage_note` (register labels
+such as colloquial, archaic, classical). Answer options use only the first senses.
+
+- A form that no dictionary checked lists is set to confidence `low` and left out of quizzes and the
+  heat map (أَرْكَبَ, أَوْثَقَ). A verb filed under the wrong form was moved (اِسْتَلَمَ is Form VIII).
+- Usage tiers are estimates from: the register labels above, whether the form is in the deck, the
+  scripture dictionary counts, and judgement of modern usage. Social media and the Leipzig corpus
+  could not be queried from the build environment, so tiers are not corpus frequencies.

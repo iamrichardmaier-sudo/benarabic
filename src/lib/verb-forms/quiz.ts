@@ -18,6 +18,8 @@ export interface Explanation {
   present: string;
   masdar: string | null;
   meaning: string | null;
+  definition: string | null;
+  usageNote: string | null;
   summary: string;
   detail: string;
   clue: string;
@@ -64,6 +66,8 @@ export function explain(row: Conjugation, rootMeaning: string | null = null): Ex
     present: row.present,
     masdar: row.masdar,
     meaning: row.meaning,
+    definition: row.definition,
+    usageNote: row.usageNote,
     summary: fact.summary,
     detail: fact.detail,
     clue: fact.clue,
@@ -177,6 +181,14 @@ export interface MeaningOptions {
 }
 
 const norm = (s: string) => s.trim().toLowerCase();
+const firstSense = (s: string) => norm(s.split(';')[0].replace(/^to /, ''));
+/** Two glosses that open on the same sense would make a question unfair. */
+const overlaps = (a: string, b: string) => {
+  const x = firstSense(a);
+  const y = firstSense(b);
+  const within = (long: string, short: string) => ` ${long} `.includes(` ${short} `);
+  return x === y || within(x, y) || within(y, x);
+};
 
 /**
  * "What does this form mean?" The wrong answers are the other forms of the
@@ -208,7 +220,7 @@ export function buildMeanings(rows: Conjugation[], opts: MeaningOptions, rng: Rn
     const siblings = (byRoot.get(opts.keyOf(r.root)) ?? []).filter((s) => s !== r);
     const wrong: string[] = [];
     const add = (m: string | null) => {
-      if (m && norm(m) !== norm(r.meaning!) && !wrong.some((w) => norm(w) === norm(m)) && wrong.length < 3) wrong.push(m);
+      if (m && !overlaps(m, r.meaning!) && !wrong.some((w) => norm(w) === norm(m)) && wrong.length < 3) wrong.push(m);
     };
     shuffle(siblings, rng).forEach((s) => add(s.meaning));
     shuffle(pool.filter((p) => p.form !== r.form), rng).forEach((p) => add(p.meaning));

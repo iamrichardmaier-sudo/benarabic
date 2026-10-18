@@ -16,13 +16,13 @@ const ExplanationCard = ({ e }: { e: Explanation }) => (
           <dd className="font-arabic text-base" dir="rtl">{e.masdar}</dd>
         </>
       )}
-      {e.meaning && (
-        <>
-          <dt className="text-muted-foreground">Meaning</dt>
-          <dd>{e.meaning}</dd>
-        </>
-      )}
     </dl>
+    {(e.definition || e.meaning) && (
+      <p className="text-foreground">
+        <span className="font-semibold">Definition:</span> {e.definition ?? e.meaning}
+      </p>
+    )}
+    {e.usageNote && <p className="text-xs text-muted-foreground">Note: {e.usageNote}</p>}
     <div className="space-y-1 border-t border-border pt-3">
       <p className="font-semibold text-foreground">
         Form {e.form} <span className="font-arabic font-normal" dir="rtl">{e.pattern}</span> · {e.summary}

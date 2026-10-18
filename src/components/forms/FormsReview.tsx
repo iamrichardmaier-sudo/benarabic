@@ -8,7 +8,7 @@ interface FormsReviewProps {
   onChanged: () => void;
 }
 
-type Draft = { past: string; present: string; masdar: string; meaning: string; tier: number };
+type Draft = { past: string; present: string; masdar: string; definition: string; tier: number };
 
 /**
  * The admin's checklist: every stored paradigm the generator or the deck could
@@ -27,7 +27,7 @@ const FormsReview = ({ rows, onChanged }: FormsReviewProps) => {
   useEffect(() => setError(null), [rows]);
 
   const draft = (r: Conjugation): Draft =>
-    drafts[r.id] ?? { past: r.past, present: r.present, masdar: r.masdar ?? '', meaning: r.meaning ?? '', tier: r.tier };
+    drafts[r.id] ?? { past: r.past, present: r.present, masdar: r.masdar ?? '', definition: r.definition ?? r.meaning ?? '', tier: r.tier };
   const edit = (r: Conjugation, patch: Partial<Draft>) => setDrafts({ ...drafts, [r.id]: { ...draft(r), ...patch } });
 
   const save = async (r: Conjugation, confidence: 'high' | 'low') => {
@@ -39,7 +39,7 @@ const FormsReview = ({ rows, onChanged }: FormsReviewProps) => {
         past: d.past.trim(),
         present: d.present.trim(),
         masdar: d.masdar.trim() || null,
-        meaning_en: d.meaning.trim() || null,
+        definition_en: d.definition.trim() || null,
         usage_tier: d.tier,
         confidence,
         reviewed_by: user?.id ?? null,
@@ -72,7 +72,7 @@ const FormsReview = ({ rows, onChanged }: FormsReviewProps) => {
               <input className={`${field} font-arabic`} dir="rtl" aria-label="Past" value={d.past} onChange={(e) => edit(r, { past: e.target.value })} />
               <input className={`${field} font-arabic`} dir="rtl" aria-label="Present" value={d.present} onChange={(e) => edit(r, { present: e.target.value })} />
               <input className={`${field} font-arabic`} dir="rtl" aria-label="Verbal noun" value={d.masdar} onChange={(e) => edit(r, { masdar: e.target.value })} />
-              <input className={field} aria-label="Meaning" value={d.meaning} onChange={(e) => edit(r, { meaning: e.target.value })} />
+              <input className={`${field} col-span-2`} aria-label="Definition" value={d.definition} onChange={(e) => edit(r, { definition: e.target.value })} />
             </div>
             <div className="flex items-center gap-2">
               <label className="text-xs text-muted-foreground" htmlFor={`tier-${r.id}`}>Usage</label>
