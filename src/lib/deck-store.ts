@@ -1,6 +1,7 @@
 import { supabase } from '@/integrations/supabase/client';
 import { placementFields, type DeckPlacement } from '@/lib/deck-placement';
 import type { CompanionForm, FlashCard } from '@/lib/spaced-repetition';
+import { wordKey } from '@/lib/word-relations';
 
 /**
  * Decks: a shared list of words, taken up by a learner.
@@ -367,12 +368,17 @@ export async function addDecksToLearn(
 
   const { data: held, error: heldError } = await supabase
     .from('flashcards')
-    .select('word_id')
-    .not('word_id', 'is', null);
+    .select('word_id, word');
   if (heldError) throw heldError;
-  const alreadyHave = new Set(((held ?? []) as { word_id: string }[]).map((r) => r.word_id));
+  const rows = (held ?? []) as { word_id: string | null; word: string }[];
+  const alreadyHave = new Set(rows.map((r) => r.word_id).filter((id): id is string => !!id));
+  // A word typed in by hand has no word_id, so the same word arriving in a
+  // deck would otherwise be held a second time. Compare by the word itself too.
+  const heldWords = new Set(rows.map((r) => wordKey(r.word)));
 
-  const missing = [...wanted.values()].filter((w) => !alreadyHave.has(w.id));
+  const missing = [...wanted.values()].filter(
+    (w) => !alreadyHave.has(w.id) && !heldWords.has(wordKey(w.word)),
+  );
   if (missing.length > 0) {
     const { error } = await supabase
       .from('flashcards')

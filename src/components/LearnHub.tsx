@@ -1,6 +1,6 @@
 import {
   GraduationCap, BookOpen, RefreshCw, List,
-  Sparkles, Link2, Brain, Headphones, ChevronRight, Search, Hash, LibraryBig, Network, type LucideIcon,
+  Sparkles, Link2, Brain, Headphones, ChevronRight, Search, Hash, LibraryBig, Network, Shapes, type LucideIcon,
 } from 'lucide-react';
 import PodcastShelf from '@/components/podcasts/PodcastShelf';
 import { Switch } from '@/components/ui/switch';
@@ -9,7 +9,7 @@ import type { Podcast } from '@/lib/podcasts';
 export type LearnDestination =
   | 'learn' | 'review' | 'relearn' | 'deck' | 'lookup' | 'learnDecks'
   | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill'
-  | 'memorize' | 'listenCards' | 'rootExplorer';
+  | 'memorize' | 'listenCards' | 'rootExplorer' | 'verbForms';
 
 interface LearnHubProps {
   dueCount: number;
@@ -99,6 +99,7 @@ const LearnHub = ({
     {
       title: 'Grammar',
       items: [
+        { id: 'verbForms', label: 'Verb forms', icon: Shapes, hint: 'Identify the ten forms, their meanings and how much each is used' },
         { id: 'conjugationDrill', label: 'Drill conjugations', icon: Sparkles, hint: "Practice a verb's past, present and verbal-noun forms" },
         { id: 'prepositionDrill', label: 'Drill prepositions', icon: Link2, hint: 'Verbs that always pair with one preposition' },
         { id: 'numbersDrill', label: 'Drill numbers and plurals', icon: Hash, hint: 'Counting — Arabic numbers change with the noun’s gender' },
