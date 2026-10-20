@@ -176,3 +176,30 @@ describe('conjugate', () => {
     expectWord(c.past.hiya, 'سَوَّتْ');
   });
 });
+
+describe('defective verbs that are easy to get wrong', () => {
+  const c = (root: string, past: string, present: string) => conjugate({ root, past, present })!;
+
+  it('نَسِيَ drops its yāʾ before the masculine plural and keeps ā in the present', () => {
+    const v = c('ن-س-ي', 'نَسِيَ', 'يَنسى');
+    expect(v.past.ana).toBe('نَسِيتُ');
+    expect(v.past.hum).toBe('نَسُوا');
+    expect(v.present.anti).toBe('تَنسَيْنَ');
+    expect(v.present.hum).toBe('يَنسَوْنَ');
+    expect(v.present.hunna).toBe('يَنسَيْنَ');
+    expect(v.present.antuma).toBe('تَنسَيانِ');
+  });
+
+  it('يَدعو keeps its wāw for the feminine plural', () => {
+    const v = c('د-ع-و', 'دَعا', 'يَدعو');
+    expect(v.past.ana).toBe('دَعَوْتُ');
+    expect(v.present.hunna).toBe('يَدعونَ');
+    expect(v.present.anti).toBe('تَدعينَ');
+  });
+
+  it('a derived verb ending in alif maqsura takes one fatha, not two', () => {
+    const v = c('م-ن-ي', 'تَمَنَّى', 'يَتَمَنَّى');
+    expect(v.past.ana).toBe('تَمَنَّيْتُ'.normalize('NFC'));
+    expect(v.present.hum).toBe('يَتَمَنَّوْنَ'.normalize('NFC'));
+  });
+});

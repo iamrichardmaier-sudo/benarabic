@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildIdentify, buildMeanings, heatCells, shuffle } from './quiz';
+import { buildIdentify, buildMeanings, shuffle } from './quiz';
 import type { Conjugation } from './data';
 import { FORM_IDS, type FormId } from './generate';
 import { rootKey } from '@/lib/word-relations';
@@ -27,14 +27,25 @@ const ROOTS = ['ك-ت-ب', 'د-ر-س', 'ف-ت-ح', 'ع-ل-م'];
 const full = () => FORM_IDS.flatMap((f) => ROOTS.map((r) => row(r, f)));
 
 describe('buildIdentify', () => {
-  it('Level 1 is 30 questions, each form at least twice, with no repeats', () => {
+  it('Level 1 is 30 questions with no repeats', () => {
     const { questions, short } = buildIdentify(full(), 1);
     expect(short).toBe(false);
     expect(questions).toHaveLength(30);
     expect(new Set(questions.map((q) => q.prompt)).size).toBe(30);
-    for (const f of FORM_IDS) {
-      expect(questions.filter((q) => q.answer === f).length).toBeGreaterThanOrEqual(2);
+  });
+
+  it('asks Forms I and IX far less often than the others, but still asks them', () => {
+    const many = Array.from({ length: 6 }, (_, r) => FORM_IDS.flatMap((f) => Array.from({ length: 8 }, (_, i) => row(`r${r}-${i}`, f))));
+    const counts: Record<string, number> = {};
+    for (let run = 0; run < 200; run++) {
+      for (const q of buildIdentify(many.flat(), 1).questions) counts[q.answer] = (counts[q.answer] ?? 0) + 1;
     }
+    const others = ['II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'X'].map((f) => counts[f]);
+    const avgOther = others.reduce((a, b) => a + b, 0) / others.length;
+    expect(counts.I).toBeGreaterThan(0);
+    expect(counts.IX).toBeGreaterThan(0);
+    expect(counts.I).toBeLessThan(avgOther * 0.4);
+    expect(counts.IX).toBeLessThan(avgOther * 0.4);
   });
 
   it('Levels 2 and 3 never use a guessed row, and Level 2 never asks Form IX', () => {
@@ -68,6 +79,29 @@ describe('buildIdentify', () => {
   });
 });
 
+describe('Level 2 conjugations', () => {
+  it('shows real verbs in other persons and tenses, and says which', () => {
+    const rows = [
+      row('ق-و-ل', 'I', { past: 'قالَ', present: 'يَقول', weak: 'hollow' }),
+      row('ن-س-ي', 'I', { past: 'نَسِيَ', present: 'يَنسى', weak: 'defective' }),
+      row('ك-ت-ب', 'II', { past: 'كَتَّبَ', present: 'يُكَتِّب' }),
+    ];
+    const seen = new Set<string>();
+    for (let i = 0; i < 40; i++) {
+      for (const q of buildIdentify(rows, 2).questions) {
+        seen.add(q.prompt);
+        expect(q.explanation.shown?.text ?? q.prompt).toBe(q.prompt);
+      }
+    }
+    expect([...seen].some((p) => !['قالَ', 'يَقول', 'نَسِيَ', 'يَنسى'].includes(p))).toBe(true);
+  });
+
+  it('keeps hamza-medial and doubly weak roots in their dictionary form', () => {
+    const rows = [row('ج-ي-أ', 'I', { past: 'جاءَ', present: 'يَجيء', weak: 'mixed' })];
+    expect(buildIdentify(rows, 2).questions[0].prompt).toBe('يَجيء');
+  });
+});
+
 describe('buildMeanings', () => {
   const opts = { keyOf: rootKey, count: 8 };
 
@@ -90,16 +124,6 @@ describe('buildMeanings', () => {
     const qs = buildMeanings(full(), { ...opts, roots: new Set([rootKey('ك-ت-ب')]), hideVerb: true });
     expect(qs.length).toBeGreaterThan(0);
     expect(qs.every((q) => q.prompt === 'ك-ت-ب')).toBe(true);
-  });
-});
-
-describe('heatCells', () => {
-  it('returns all ten forms, with tier 0 where the root has no such verb', () => {
-    const cells = heatCells([row('ك-ت-ب', 'I', { tier: 4 }), row('ك-ت-ب', 'IV', { tier: 2 })]);
-    expect(cells.map((c) => c.form)).toEqual(FORM_IDS);
-    expect(cells[0].tier).toBe(4);
-    expect(cells[1].tier).toBe(0);
-    expect(cells[1].row).toBeNull();
   });
 });
 

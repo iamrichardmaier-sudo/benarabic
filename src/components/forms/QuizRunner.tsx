@@ -6,7 +6,7 @@ import ExplanationCard from '@/components/forms/ExplanationCard';
 
 interface QuizRunnerProps {
   title: string;
-  mode: 'identify' | 'meanings' | 'heatmap';
+  mode: 'identify' | 'meanings';
   level?: number;
   questions: Question[];
   onExit: () => void;
