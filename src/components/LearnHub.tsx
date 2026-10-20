@@ -99,7 +99,7 @@ const LearnHub = ({
     {
       title: 'Grammar',
       items: [
-        { id: 'verbForms', label: 'Verb forms', icon: Shapes, hint: 'Identify the ten forms, their meanings and how much each is used' },
+        { id: 'verbForms', label: 'Verb forms', icon: Shapes, hint: 'Identify the ten forms and tell their meanings apart' },
         { id: 'conjugationDrill', label: 'Drill conjugations', icon: Sparkles, hint: "Practice a verb's past, present and verbal-noun forms" },
         { id: 'prepositionDrill', label: 'Drill prepositions', icon: Link2, hint: 'Verbs that always pair with one preposition' },
         { id: 'numbersDrill', label: 'Drill numbers and plurals', icon: Hash, hint: 'Counting — Arabic numbers change with the noun’s gender' },

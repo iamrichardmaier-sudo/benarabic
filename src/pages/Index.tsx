@@ -731,7 +731,7 @@ const Index = () => {
 
         {view === 'rootExplorer' && <RootExplorer cards={cards} onBack={() => setView('learnHub')} />}
 
-        {view === 'verbForms' && <FormsTab cards={cards} onBack={() => setView('learnHub')} />}
+        {view === 'verbForms' && <FormsTab onBack={() => setView('learnHub')} />}
 
         {view === 'memorize' && <MemorizeTranscript onBack={() => setView('learnHub')} />}
 

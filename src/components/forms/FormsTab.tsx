@@ -1,10 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { BookOpenCheck, Flame, GraduationCap, ChevronRight, ShieldCheck, type LucideIcon } from 'lucide-react';
+import { BookOpenCheck, GraduationCap, ChevronRight, ShieldCheck, type LucideIcon } from 'lucide-react';
 import BackButton from '@/components/BackButton';
 import QuizRunner from '@/components/forms/QuizRunner';
-import HeatMapFlow from '@/components/forms/HeatMapFlow';
 import FormsReview from '@/components/forms/FormsReview';
-import type { FlashCard } from '@/lib/spaced-repetition';
 import { isDeckAdmin } from '@/lib/deck-store';
 import { loadRootMeanings } from '@/lib/morphology';
 import { loadConjugations, dropConjugationCache, type Conjugation } from '@/lib/verb-forms/data';
@@ -12,7 +10,6 @@ import { buildIdentify, buildMeanings, LEVELS, quizzable, type Level, type Quest
 import { rootKey } from '@/lib/word-relations';
 
 interface FormsTabProps {
-  cards: FlashCard[];
   onBack: () => void;
 }
 
@@ -21,7 +18,6 @@ type Screen =
   | { name: 'levels' }
   | { name: 'identify'; level: Level; questions: Question[]; short: boolean }
   | { name: 'meanings'; questions: Question[] }
-  | { name: 'heatmap' }
   | { name: 'review' };
 
 const Row = ({ icon: Icon, title, hint, onClick, disabled }: { icon: LucideIcon; title: string; hint: string; onClick: () => void; disabled?: boolean }) => (
@@ -40,11 +36,10 @@ const Row = ({ icon: Icon, title, hint, onClick, disabled }: { icon: LucideIcon;
 );
 
 /**
- * The Forms tab: identify the ten verb forms, tell their meanings apart, and
- * see how much each is used. Everything comes from stored paradigms; nothing
- * is conjugated on the device.
+ * The Forms tab: identify the ten verb forms and tell their meanings apart.
+ * Everything comes from stored paradigms; nothing is conjugated on the device.
  */
-const FormsTab = ({ cards, onBack }: FormsTabProps) => {
+const FormsTab = ({ onBack }: FormsTabProps) => {
   const [screen, setScreen] = useState<Screen>({ name: 'home' });
   const [rows, setRows] = useState<Conjugation[] | null>(null);
   const [rootMeanings, setRootMeanings] = useState<Record<string, string>>({});
@@ -117,13 +112,6 @@ const FormsTab = ({ cards, onBack }: FormsTabProps) => {
             />
           </div>
         );
-      case 'heatmap':
-        return (
-          <div className="space-y-3">
-            <BackButton onClick={home} label="Forms" />
-            <HeatMapFlow cards={cards} rows={trusted} rootMeanings={rootMeanings} onExit={home} />
-          </div>
-        );
       case 'review':
         return (
           <div className="space-y-3">
@@ -145,13 +133,12 @@ const FormsTab = ({ cards, onBack }: FormsTabProps) => {
             <div className="space-y-1">
               <h1 className="text-2xl font-bold text-foreground">Forms</h1>
               <p className="text-sm text-muted-foreground">
-                The ten Arabic verb forms: spot them, understand them, see how much each is used.
+                The ten Arabic verb forms: spot them and understand what each one does.
               </p>
             </div>
             <div className="space-y-2">
               <Row icon={GraduationCap} title="Learn and identify forms" hint="Three levels of 30 questions" onClick={() => setScreen({ name: 'levels' })} disabled={trusted.length === 0} />
               <Row icon={BookOpenCheck} title="Forms and meanings" hint="Which meaning goes with which form of a root" onClick={startMeanings} disabled={trusted.length === 0} />
-              <Row icon={Flame} title="Form usage heat map" hint="Flashcards from your own verbs" onClick={() => setScreen({ name: 'heatmap' })} disabled={trusted.length === 0} />
               {admin && (
                 <Row icon={ShieldCheck} title="Review generated forms" hint={`${pending} waiting`} onClick={() => setScreen({ name: 'review' })} />
               )}

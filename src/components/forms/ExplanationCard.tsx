@@ -7,6 +7,11 @@ const ExplanationCard = ({ e }: { e: Explanation }) => (
       <span className="font-arabic text-2xl" dir="rtl">{e.past}</span>
       <span className="text-xs text-muted-foreground">Root {e.root}{e.rootMeaning ? ` · ${e.rootMeaning}` : ''}</span>
     </div>
+    {e.shown && e.shown.text !== e.past && (
+      <p className="text-muted-foreground">
+        <span className="font-arabic text-lg text-foreground" dir="rtl">{e.shown.text}</span> is {e.shown.label} of this verb.
+      </p>
+    )}
     <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
       <dt className="text-muted-foreground">Present</dt>
       <dd className="font-arabic text-base" dir="rtl">{e.present}</dd>

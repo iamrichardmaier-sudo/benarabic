@@ -106,6 +106,17 @@ function trimFinalVowel(word: string): string {
 }
 
 /**
+ * The word with its last letter's short vowel set to `vowel`, keeping any
+ * shadda: تَمَنَّ + fatha stays one fatha, not two.
+ */
+function setVowel(word: string, vowel: string): string {
+  const trailing = word.match(/[ً-ْٰ]+$/);
+  if (!trailing) return word + vowel;
+  const shadda = trailing[0].includes(SHADDA) ? SHADDA : '';
+  return word.slice(0, word.length - trailing[0].length) + shadda + vowel;
+}
+
+/**
  * A geminate opened back out, for the endings that cannot carry one.
  *
  * يَمُرُّ + ‑نَ is يَمْرُرْنَ: the doubled consonant separates and the stem vowel
@@ -175,7 +186,7 @@ function pastStemBeforeConsonant(parts: VerbParts, cls: VerbClass): string | nul
   const last = base[base.length - 1];
   if (last === ALIF_MAQSURA || last === ALIF) {
     const weak = letterCount(base) === 3 && r[2] === WAW ? WAW : YA;
-    return base.slice(0, -1) + FATHA + weak + SUKUN;
+    return setVowel(base.slice(0, -1), FATHA) + weak + SUKUN;
   }
   return base;
 }
@@ -208,19 +219,28 @@ function pastChart(parts: VerbParts, cls: VerbClass): Chart | null {
   const shortened = defective && endsLong ? base.slice(0, -1) : base;
   const weak = r[2] === WAW ? WAW : YA;
 
+  // The فَعِلَ type keeps its yāʾ everywhere but the masculine plural, where
+  // it falls away before the wāw: نَسِيَ → نَسُوا.
+  const kasraYa = defective && !endsLong && base.endsWith(YA);
+  const vowelSuffix = (suffix: string) => setVowel(shortened, FATHA) + suffix;
+
   return {
     ana: stem + 'تُ',
     anta: stem + 'تَ',
     anti: stem + 'تِ',
     huwa: parts.past,
-    hiya: defective && endsLong ? shortened + FATHA + 'تْ' : base + FATHA + 'تْ',
+    hiya: defective && endsLong ? vowelSuffix('تْ') : base + FATHA + 'تْ',
     antuma: stem + 'تُما',
-    huma_m: defective && endsLong ? shortened + FATHA + weak + ALIF : base + ALIF,
-    huma_f: defective && endsLong ? shortened + FATHA + 'تا' : base + FATHA + 'تا',
+    huma_m: defective && endsLong ? vowelSuffix(weak + ALIF) : base + ALIF,
+    huma_f: defective && endsLong ? vowelSuffix('تا') : base + FATHA + 'تا',
     nahnu: stem + 'نا',
     antum: stem + 'تُم',
     antunna: stem + 'تُنَّ',
-    hum: defective && endsLong ? shortened + FATHA + WAW + ALIF : base + WAW + ALIF,
+    hum: defective && endsLong
+      ? vowelSuffix(WAW + ALIF)
+      : kasraYa
+        ? setVowel(base.slice(0, -1), DAMMA) + WAW + ALIF
+        : base + WAW + ALIF,
     hunna: stem + 'نَ',
   };
 }
@@ -236,9 +256,11 @@ function presentChart(parts: VerbParts, cls: VerbClass): Chart | null {
 
   const bare = trimFinalVowel(rest);
   const defective = cls === 'defective';
-  // يَمشي ends in a long yāʾ that the plural and second-person-feminine
-  // endings absorb: يَمشونَ, تَمشينَ.
+  // The weak letter a defective present ends in decides its endings:
+  // يَمشي → تَمشينَ / يَمشونَ, يَدعو → تَدعينَ / يَدعونَ, يَنسى → تَنسَيْنَ / يَنسَوْنَ.
+  const finalWeak = defective ? bare[bare.length - 1] : '';
   const stripWeak = defective ? bare.replace(/[يوى]$/, '') : bare;
+  const longA = finalWeak === ALIF_MAQSURA;
 
   let hunnaBody = bare + SUKUN;
   // A hollow verb shortens before the nūn of the feminine plural: يَقُلْنَ. A
@@ -252,26 +274,37 @@ function presentChart(parts: VerbParts, cls: VerbClass): Chart | null {
     hunnaBody =
       bare.slice(0, i).replace(/[ً-ْ]+$/, '') + short + bare.slice(i + 1) + SUKUN;
   } else if (defective) {
-    hunnaBody = stripWeak + YA;
+    hunnaBody = longA
+      ? setVowel(stripWeak, FATHA) + YA + SUKUN
+      : finalWeak === WAW
+        ? setVowel(stripWeak, '') + WAW
+        : setVowel(stripWeak, '') + YA;
   } else if (cls === 'doubled') {
     const broken = breakGemination(bare);
     if (!broken) return null;
     hunnaBody = broken;
   }
 
+  const plural = defective
+    ? (longA ? setVowel(stripWeak, FATHA) + WAW + SUKUN : setVowel(stripWeak, '') + WAW) + 'نَ'
+    : bare + WAW + 'نَ';
+  const dual = (longA ? setVowel(stripWeak, FATHA) + YA : bare) + ALIF + 'نِ';
+
   return {
     ana: withPrefix('ana', rest),
     anta: withPrefix('anta', rest),
-    anti: withPrefix('anti', (defective ? stripWeak : bare) + YA + 'نَ'),
+    anti: withPrefix('anti', defective
+      ? (longA ? setVowel(stripWeak, FATHA) + YA + SUKUN : setVowel(stripWeak, '') + YA) + 'نَ'
+      : bare + YA + 'نَ'),
     huwa: parts.present,
     hiya: withPrefix('hiya', rest),
-    antuma: withPrefix('antuma', bare + ALIF + 'نِ'),
-    huma_m: withPrefix('huma_m', bare + ALIF + 'نِ'),
-    huma_f: withPrefix('huma_f', bare + ALIF + 'نِ'),
+    antuma: withPrefix('antuma', dual),
+    huma_m: withPrefix('huma_m', dual),
+    huma_f: withPrefix('huma_f', dual),
     nahnu: withPrefix('nahnu', rest),
-    antum: withPrefix('antum', stripWeak + WAW + 'نَ'),
+    antum: withPrefix('antum', plural),
     antunna: withPrefix('antunna', hunnaBody + 'نَ'),
-    hum: withPrefix('hum', stripWeak + WAW + 'نَ'),
+    hum: withPrefix('hum', plural),
     hunna: withPrefix('hunna', hunnaBody + 'نَ'),
   };
 }
