@@ -185,8 +185,9 @@ export function canon(text: string): string {
   return text
     .replace(/([ًٌٍَُِ])ّ/g, 'ّ$1')
     .replace(/َ(?=ا)/g, '')
-    .replace(new RegExp(`ِ(?=ي(?![${MARK}]))`, 'g'), '')
-    .replace(new RegExp(`ُ(?=و(?![${MARK}]))`, 'g'), '');
+    // A و or ي followed by a vowel letter is a consonant (يُواصِل, اِخْتِيار), so its vowel stays.
+    .replace(new RegExp(`ِ(?=ي(?![${MARK}اىوي]))`, 'g'), '')
+    .replace(new RegExp(`ُ(?=و(?![${MARK}اىوي]))`, 'g'), '');
 }
 
 export function generateForm(root: string, form: FormId): Paradigm | null {

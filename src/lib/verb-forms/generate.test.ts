@@ -95,3 +95,11 @@ describe('final and medial hamza', () => {
     expect(generateForm('ي-ق-ظ', 'IV')!.past).toBe(canon('أَيْقَظَ'));
   });
 });
+
+describe('consonantal waw and ya', () => {
+  it('keeps the vowel before a و or ي that carries a long ā', () => {
+    expect(generateForm('و-ص-ل', 'III')!.present).toBe('يُواصِل');
+    expect(generateForm('و-ص-ل', 'III')!.masdar).toBe('مُواصَلة');
+    expect(generateForm('ب-ي-ع', 'VIII')!.masdar).toBe('اِبْتِياع');
+  });
+});
