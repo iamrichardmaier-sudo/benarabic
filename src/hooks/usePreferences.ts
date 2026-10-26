@@ -12,7 +12,9 @@ function getSnapshot(): Preferences {
     next.textScale !== snapshot.textScale ||
     next.audioRate !== snapshot.audioRate ||
     next.theme !== snapshot.theme ||
-    next.dialect !== snapshot.dialect
+    next.dialect !== snapshot.dialect ||
+    next.cardFont !== snapshot.cardFont ||
+    next.dailyGoal !== snapshot.dailyGoal
   ) {
     snapshot = next;
   }

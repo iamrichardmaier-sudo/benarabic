@@ -14,6 +14,7 @@ import {
   AUDIO_RATE_MIN, AUDIO_RATE_MAX, AUDIO_RATE_STEP,
 } from '@/lib/preferences';
 import { chapterWords } from '@/lib/bible-words';
+import { recordChapterRead } from '@/lib/reading-log';
 import ArabicWithTags from '@/components/ArabicWithTags';
 import BackButton from '@/components/BackButton';
 import type { BibleBook } from '@/lib/bible-types';
@@ -85,6 +86,8 @@ const ChapterReader = ({
   }, [audioUrl, prefs.audioRate]);
 
   const goNext = () => {
+    // Going on to the next chapter is the sign this one was read through.
+    recordChapterRead(`${work}:${book.code}:${chapter}`);
     if (chapter < book.chapters) onChangeChapter(chapter + 1);
     else onNextBook?.();
   };

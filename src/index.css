@@ -141,6 +141,10 @@
 }
 
 @layer utilities {
+  /* A flashcard's Arabic, in the script chosen in Settings (lib/card-fonts). */
+  .font-card {
+    font-family: var(--font-card, var(--font-arabic));
+  }
   .font-arabic {
     font-family: var(--font-arabic);
   }

@@ -8,21 +8,26 @@
  */
 import { supabase } from '@/integrations/supabase/client';
 import { levelFor } from './levels';
+import { today } from './streak';
 
 export interface ProgressSnapshot {
   /** XP the database has confirmed plus XP still waiting to be sent. */
   xp: number;
   background: string | null;
   loaded: boolean;
+  /** XP per local calendar day (yyyy-mm-dd), all devices and the widget, pending included. */
+  days: Readonly<Record<string, number>>;
 }
 
-// The generated Supabase types predate user_progress; this is the slice used here.
+// The generated Supabase types predate these tables; this is the slice used here.
+type DbError = { code?: string; message?: string } | null;
 type LooseClient = {
-  rpc: (fn: string, args: Record<string, unknown>) => Promise<{ data: unknown; error: { code?: string; message?: string } | null }>;
+  rpc: (fn: string, args: Record<string, unknown>) => Promise<{ data: unknown; error: DbError }>;
   from: (table: string) => {
     select: (cols: string) => {
       eq: (col: string, v: string) => {
-        maybeSingle: () => Promise<{ data: { xp: number; background: string | null } | null; error: { code?: string; message?: string } | null }>;
+        maybeSingle: () => Promise<{ data: { xp: number; background: string | null } | null; error: DbError }>;
+        gte: (col: string, v: string) => Promise<{ data: { day: string; xp: number }[] | null; error: DbError }>;
       };
     };
   };
@@ -34,12 +39,15 @@ const FLUSH_DELAY = 1500;
 
 let userId: string | null = null;
 let serverXp = 0;
-let pending = 0;
+/** XP not yet confirmed by the database, by the local day it was earned on. */
+let pending: Record<string, number> = {};
+/** XP per day as the database last reported it. */
+let serverDays: Record<string, number> = {};
 let background: string | null = null;
 let loaded = false;
 let flushing = false;
 let flushTimer: ReturnType<typeof setTimeout> | null = null;
-let snapshot: ProgressSnapshot = { xp: 0, background: null, loaded: false };
+let snapshot: ProgressSnapshot = { xp: 0, background: null, loaded: false, days: {} };
 const listeners = new Set<() => void>();
 
 const key = (name: string) => `wazn-${name}:${userId ?? 'anon'}`;
@@ -62,15 +70,42 @@ function writeLocal(name: string, value: string | null) {
   }
 }
 
+function readJson(name: string): Record<string, number> {
+  try {
+    const v = JSON.parse(localStorage.getItem(key(name)) || '{}');
+    const out: Record<string, number> = {};
+    if (v && typeof v === 'object') {
+      for (const [d, n] of Object.entries(v)) if (/^\d{4}-\d{2}-\d{2}$/.test(d) && Number(n) > 0) out[d] = Number(n);
+    }
+    return out;
+  } catch {
+    return {};
+  }
+}
+
+const sum = (r: Record<string, number>) => Object.values(r).reduce((a, b) => a + b, 0);
+
 function emit() {
-  snapshot = { xp: serverXp + pending, background, loaded };
+  const days: Record<string, number> = { ...serverDays };
+  for (const [d, n] of Object.entries(pending)) days[d] = (days[d] ?? 0) + n;
+  snapshot = { xp: serverXp + sum(pending), background, loaded, days };
   for (const l of listeners) l();
 }
 
+/** Days kept: enough for streaks and the freezes walk, small enough for storage. */
+const KEEP_DAYS = 400;
+
 function persist() {
-  writeLocal('xp-pending', pending > 0 ? String(pending) : null);
+  writeLocal('xp-pending-days', sum(pending) > 0 ? JSON.stringify(pending) : null);
   writeLocal('xp-confirmed', String(serverXp));
+  writeLocal('xp-days', JSON.stringify(serverDays));
   writeLocal('background', background);
+}
+
+function daysAgo(n: number): string {
+  const d = new Date();
+  d.setDate(d.getDate() - n);
+  return today(d);
 }
 
 export function subscribe(listener: () => void): () => void {
@@ -87,7 +122,14 @@ export async function loadProgress(id: string | null): Promise<void> {
   if (id === userId && loaded) return;
   userId = id;
   serverXp = readNum('xp-confirmed');
-  pending = readNum('xp-pending');
+  pending = readJson('xp-pending-days');
+  serverDays = readJson('xp-days');
+  // XP queued by the first version, before it was kept per day.
+  const legacy = readNum('xp-pending');
+  if (legacy > 0) {
+    pending[today()] = (pending[today()] ?? 0) + legacy;
+    writeLocal('xp-pending', null);
+  }
   try {
     background = localStorage.getItem(key('background'));
   } catch {
@@ -109,6 +151,16 @@ export async function loadProgress(id: string | null): Promise<void> {
   } catch {
     /* offline: keep the last known totals */
   }
+  try {
+    const { data, error } = await db.from('user_study_days').select('day, xp').eq('user_id', id).gte('day', daysAgo(KEEP_DAYS));
+    if (id !== userId) return;
+    if (!error && data) {
+      serverDays = {};
+      for (const r of data) if (r.xp > 0) serverDays[r.day] = r.xp;
+    }
+  } catch {
+    /* offline: keep the last known days */
+  }
   loaded = true;
   persist();
   emit();
@@ -118,7 +170,8 @@ export async function loadProgress(id: string | null): Promise<void> {
 /** Credit XP now; it is sent to the database shortly, in one batch. */
 export function addXp(amount: number): void {
   if (!(amount > 0)) return;
-  pending += Math.round(amount);
+  const d = today();
+  pending[d] = (pending[d] ?? 0) + Math.round(amount);
   persist();
   emit();
   if (flushTimer) clearTimeout(flushTimer);
@@ -127,18 +180,22 @@ export function addXp(amount: number): void {
 
 /** Send waiting XP. Safe to call at any time; does nothing when there is nothing to send. */
 export async function flush(): Promise<void> {
-  if (flushing || pending <= 0 || !userId) return;
+  if (flushing || sum(pending) <= 0 || !userId) return;
   if (typeof navigator !== 'undefined' && navigator.onLine === false) return;
   flushing = true;
   try {
-    while (pending > 0) {
-      const amount = Math.min(pending, BATCH_MAX);
-      const { data, error } = await db.rpc('add_xp', { amount });
-      if (error || typeof data !== 'number') break; // offline, or not deployed yet: try again later
-      pending -= amount;
-      serverXp = data;
-      persist();
-      emit();
+    send: for (const day of Object.keys(pending).sort()) {
+      while ((pending[day] ?? 0) > 0) {
+        const amount = Math.min(pending[day], BATCH_MAX);
+        const { data, error } = await db.rpc('add_xp', { amount, study_day: day });
+        if (error || typeof data !== 'number') break send; // offline, or not deployed yet: try again later
+        pending[day] -= amount;
+        if (pending[day] <= 0) delete pending[day];
+        serverXp = data;
+        serverDays[day] = (serverDays[day] ?? 0) + amount;
+        persist();
+        emit();
+      }
     }
   } catch {
     /* network: the XP stays pending */
@@ -170,8 +227,12 @@ export function markLevelSeen(level: number): void {
   writeLocal('level-seen', String(level));
 }
 
+export function currentUserId(): string | null {
+  return userId;
+}
+
 export function currentLevel(): number {
-  return levelFor(serverXp + pending);
+  return levelFor(serverXp + sum(pending));
 }
 
 if (typeof window !== 'undefined') {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { progressFor, MAX_LEVEL } from '@/lib/levels';
+import { progressFor, titleFor, MAX_LEVEL } from '@/lib/levels';
 
 interface LevelBarProps {
   xp: number;
@@ -21,7 +21,11 @@ const LevelBar = ({ xp, fromXp, compact = false }: LevelBarProps) => {
   return (
     <div className={compact ? 'space-y-1' : 'space-y-1.5'}>
       <div className="flex items-baseline justify-between gap-3">
-        <span className={`font-bold text-foreground ${compact ? 'text-sm' : 'text-base'}`}>Level {p.level}</span>
+        <span className={`flex items-baseline gap-2 font-bold text-foreground ${compact ? 'text-sm' : 'text-base'}`}>
+          Level {p.level}
+          <span className="font-arabic font-semibold text-primary" dir="rtl" lang="ar">{titleFor(p.level).ar}</span>
+          {!compact && <span className="text-xs font-normal text-muted-foreground">{titleFor(p.level).en}</span>}
+        </span>
         <span className="text-xs tabular-nums text-muted-foreground">
           {p.next === null
             ? `${xp.toLocaleString('en')} XP · top level`

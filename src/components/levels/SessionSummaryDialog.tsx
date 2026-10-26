@@ -4,7 +4,12 @@ import { Button } from '@/components/ui/button';
 import { BACKGROUNDS } from '@/components/backgrounds/backgrounds';
 import BackgroundThumb from '@/components/levels/BackgroundThumb';
 import LevelBar from '@/components/levels/LevelBar';
-import { levelFor } from '@/lib/levels';
+import { levelFor, titleFor } from '@/lib/levels';
+import { CARD_FONTS } from '@/lib/card-fonts';
+import type { BadgeDef } from '@/lib/badges';
+import BadgeIcon from '@/components/levels/BadgeIcon';
+import GoalRing from '@/components/levels/GoalRing';
+import { Check } from 'lucide-react';
 
 export interface SessionSummary {
   /** XP before and after; `earned` is absent for XP earned elsewhere (the widget). */
@@ -13,6 +18,10 @@ export interface SessionSummary {
   earned?: number;
   /** "Review", "Practice" or "Learn". */
   label?: string;
+  /** This session took today's XP past the daily goal. */
+  goalReached?: boolean;
+  /** Badges earned in this session. */
+  badges?: BadgeDef[];
 }
 
 interface Props {
@@ -28,6 +37,7 @@ const SessionSummaryDialog = ({ summary, onUseBackground, onClose }: Props) => {
   const unlocked = BACKGROUNDS.filter((b) => b.level > from && b.level <= to);
   const newest = unlocked[unlocked.length - 1];
   const levelUp = to > from;
+  const fonts = CARD_FONTS.filter((f) => f.level > from && f.level <= to);
 
   return (
     <Dialog open={summary !== null} onOpenChange={(open) => !open && onClose()}>
@@ -43,14 +53,57 @@ const SessionSummaryDialog = ({ summary, onUseBackground, onClose }: Props) => {
               <DialogTitle className="text-xl">
                 {levelUp ? `Level ${to}!` : `${summary.label ?? 'Session'} done`}
               </DialogTitle>
+              {levelUp && (
+                <p className="text-sm text-foreground">
+                  You are now a{/^[AEIOU]/.test(titleFor(to).en) ? 'n' : ''} {titleFor(to).en.toLowerCase()},{' '}
+                  <span className="font-arabic text-lg font-semibold text-primary" dir="rtl" lang="ar">{titleFor(to).ar}</span>
+                </p>
+              )}
               <DialogDescription>
                 {summary.earned !== undefined ? (
                   <span className="text-2xl font-bold text-primary tabular-nums">+{summary.earned} XP</span>
                 ) : (
-                  'You levelled up on the widget.'
+                  'Nice work. You reached a new level since you were last here.'
                 )}
               </DialogDescription>
             </DialogHeader>
+
+            {summary.goalReached && (
+              <div className="flex items-center gap-3 rounded-xl border border-success/40 bg-success/10 px-3 py-2">
+                <GoalRing value={1} goal={1} size={32}>
+                  <Check className="h-4 w-4 text-success" />
+                </GoalRing>
+                <p className="text-sm font-medium text-foreground">Daily goal reached</p>
+              </div>
+            )}
+
+            {summary.badges && summary.badges.length > 0 && (
+              <ul className="space-y-2">
+                {summary.badges.map((b) => (
+                  <li key={b.id} className="flex items-center gap-3 rounded-xl border border-border bg-muted/40 px-3 py-2">
+                    <BadgeIcon kind={b.icon} earned size={40} />
+                    <div className="min-w-0">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Badge earned</p>
+                      <p className="text-sm font-semibold text-foreground">
+                        {b.name} <span className="font-arabic font-normal text-primary" dir="rtl" lang="ar">{b.arabic}</span>
+                      </p>
+                      <p className="text-xs text-muted-foreground">{b.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {fonts.length > 0 && (
+              <p className="rounded-xl border border-border bg-muted/40 px-3 py-2 text-sm text-foreground">
+                New card script unlocked:{' '}
+                <span className="font-semibold">{fonts.map((f) => f.name).join(', ')}</span>{' '}
+                <span className="text-lg" style={{ fontFamily: `'${fonts[fonts.length - 1].family}', var(--font-arabic)` }} dir="rtl" lang="ar">
+                  {fonts[fonts.length - 1].arabic}
+                </span>
+                <span className="block text-xs text-muted-foreground">Choose it in Settings.</span>
+              </p>
+            )}
 
             <LevelBar xp={summary.endXp} fromXp={summary.startXp} />
 

@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useProgress } from '@/hooks/useProgress';
 import { applyTheme } from '@/lib/preferences';
+import { usePreferences } from '@/hooks/usePreferences';
+import { effectiveCardFont, loadCardFont } from '@/lib/card-fonts';
 import { levelFor } from '@/lib/levels';
 import { backgroundById } from './backgrounds';
 
@@ -21,6 +23,17 @@ const AppBackground = () => {
   const scene = bg.tone === 'dark';
 
   const art = Boolean(bg.Art);
+
+  // The flashcard script travels with the level too, so it is applied here.
+  const { cardFont } = usePreferences();
+  const font = effectiveCardFont(cardFont, levelFor(xp));
+  useEffect(() => {
+    loadCardFont(font);
+    const root = document.documentElement;
+    if (font.id === 'naskh') root.style.removeProperty('--font-card');
+    else root.style.setProperty('--font-card', `'${font.family}', var(--font-arabic)`);
+  }, [font]);
+
   useEffect(() => {
     const root = document.documentElement;
     root.classList.toggle('wz-scene', scene);

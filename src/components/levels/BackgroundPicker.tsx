@@ -5,6 +5,8 @@ import LevelBar from '@/components/levels/LevelBar';
 import { useProgress } from '@/hooks/useProgress';
 import { levelFor } from '@/lib/levels';
 import { setBackground } from '@/lib/progress';
+import DailyGoalPicker from '@/components/levels/DailyGoalPicker';
+import CardFontPicker from '@/components/levels/CardFontPicker';
 
 /** Settings: the learner's level, and every background, unlocked ones choosable. */
 const BackgroundPicker = () => {
@@ -17,6 +19,8 @@ const BackgroundPicker = () => {
   return (
     <div className="rounded-2xl border border-border bg-card px-4 py-3.5 space-y-4">
       <LevelBar xp={xp} />
+      <DailyGoalPicker />
+      <CardFontPicker />
       <div>
         <p className="text-sm text-foreground">Background</p>
         <p className="text-xs text-muted-foreground">

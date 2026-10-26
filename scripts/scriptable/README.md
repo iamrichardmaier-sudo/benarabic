@@ -135,8 +135,15 @@ sends the session's total in one call (`add_xp` in the database) and the closing
 shows it, e.g. *+120 XP · Level 4*. If the session reached a new level it says so; open
 Wazn to see the new background, which you can switch to there or in Settings.
 
-The XP table and level thresholds are copied from `src/lib/levels.ts` — keep the two in
-step.
+The session is sent with the phone's own date, so it counts toward that day's goal and your
+streak in the app.
+
+The widget also shows your level and how much XP is left to the next one, in the colours of
+the background you picked in the app (a deep night palette for the night scenes).
+
+The XP table, level thresholds and widget colours (`WIDGET_THEMES`, one row per background)
+are copied from the app — keep them in step; a test in `src/lib/levels.test.ts` checks that
+they match.
 
 ### The front-loaded phase
 

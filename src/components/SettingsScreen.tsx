@@ -4,6 +4,7 @@ import { usePreferences } from '@/hooks/usePreferences';
 import DialectToggle from '@/components/DialectToggle';
 import InfoHint from '@/components/InfoHint';
 import BackgroundPicker from '@/components/levels/BackgroundPicker';
+import BadgeShelf from '@/components/levels/BadgeShelf';
 import { useAccountDeletion } from '@/hooks/useAccountDeletion';
 import {
   setTextScale, setAudioRate, setTheme,
@@ -77,9 +78,14 @@ const SettingsScreen = ({
       {/* Level & background */}
       <section className="space-y-2" id="level">
         <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide px-1">
-          Level &amp; background
+          Level, goal &amp; style
         </h2>
         <BackgroundPicker />
+      </section>
+
+      <section className="space-y-2" id="badges">
+        <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide px-1">Badges</h2>
+        <BadgeShelf />
       </section>
 
       {/* Flashcards */}

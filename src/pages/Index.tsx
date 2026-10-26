@@ -41,9 +41,12 @@ import { addXp, getSnapshot, lastSeenLevel, loadProgress, markLevelSeen, setBack
 import { useProgress } from '@/hooks/useProgress';
 import { LEVEL_XP, levelFor, xpForGrade } from '@/lib/levels';
 import SessionSummaryDialog, { type SessionSummary } from '@/components/levels/SessionSummaryDialog';
+import { checkBadges } from '@/lib/badges';
+import { chaptersRead } from '@/lib/reading-log';
+import { readStreak, recordStudyDay, streakFromDays } from '@/lib/streak';
+import { readPreferences } from '@/lib/preferences';
 import { Skeleton } from '@/components/ui/skeleton';
 import { parsePath, pathFor, type View } from '@/lib/app-routes';
-import { recordStudyDay } from '@/lib/streak';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine, scheduleFields, nextWave, isSentence } from '@/lib/spaced-repetition';
 import SentenceOrder from '@/components/SentenceOrder';
 import { useSentencesOnly } from '@/hooks/useSentencesOnly';
@@ -125,7 +128,7 @@ const Index = () => {
    * has earned. When the learner leaves the session's screen, it is summed up
    * in the summary dialog, with any level reached and background unlocked.
    */
-  const session = useRef<{ label: string; startXp: number; earned: number } | null>(null);
+  const session = useRef<{ label: string; startXp: number; startDayXp: number; earned: number } | null>(null);
   const [summary, setSummary] = useState<SessionSummary | null>(null);
   const earn = useCallback((amount: number) => {
     addXp(amount);
@@ -133,13 +136,32 @@ const Index = () => {
   }, []);
   const startSession = (label: string) => {
     endSession();
-    session.current = { label, startXp: getSnapshot().xp, earned: 0 };
+    const snap = getSnapshot();
+    session.current = { label, startXp: snap.xp, startDayXp: snap.days[today()] ?? 0, earned: 0 };
   };
   const endSession = () => {
     const s = session.current;
     session.current = null;
     if (!s || s.earned <= 0) return;
-    setSummary({ label: s.label, startXp: s.startXp, endXp: s.startXp + s.earned, earned: s.earned });
+    const goal = readPreferences().dailyGoal;
+    setSummary({
+      label: s.label,
+      startXp: s.startXp,
+      endXp: s.startXp + s.earned,
+      earned: s.earned,
+      goalReached: s.startDayXp < goal && s.startDayXp + s.earned >= goal,
+      badges: newBadges(),
+    });
+  };
+  /** Badges reached just now (see lib/badges). */
+  const newBadges = () => {
+    const snap = getSnapshot();
+    return checkBadges({
+      cards,
+      longestStreak: streakFromDays(snap.days, readStreak(user?.id)).longest,
+      chaptersRead: chaptersRead(),
+      level: levelFor(snap.xp),
+    });
   };
   const closeSummary = () => {
     setSummary(null);
@@ -157,6 +179,14 @@ const Index = () => {
     // startSession/endSession only touch refs and setSummary.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view]);
+
+  // Badges reached outside a session (a chapter read, a streak carried over
+  // from the widget) are announced on the way back to Home.
+  useEffect(() => {
+    if (view !== 'home' || !progress.loaded || loading || session.current) return;
+    for (const b of newBadges()) toast({ title: `Badge earned: ${b.name}`, description: b.description });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [view, progress.loaded, loading]);
 
   // A level reached away from this screen (on the widget, or a session left
   // by closing the app) is celebrated once the totals arrive.

@@ -60,3 +60,30 @@ export function progressFor(xp: number): LevelProgress {
     toNext: next === null ? 0 : next - xp,
   };
 }
+
+/**
+ * A title for each level, from beginner to the most learned. Masculine forms,
+ * as a title on its own is usually given; each is a standard word for that
+ * stage of learning.
+ */
+export const LEVEL_TITLES: readonly { ar: string; en: string }[] = [
+  { ar: 'مُبْتَدِئ', en: 'Beginner' },
+  { ar: 'طَالِب', en: 'Student' },
+  { ar: 'مُتَعَلِّم', en: 'Learner' },
+  { ar: 'قَارِئ', en: 'Reader' },
+  { ar: 'مُثَابِر', en: 'Persevering' },
+  { ar: 'مُجْتَهِد', en: 'Diligent' },
+  { ar: 'بَاحِث', en: 'Researcher' },
+  { ar: 'كَاتِب', en: 'Writer' },
+  { ar: 'أَدِيب', en: 'Man of letters' },
+  { ar: 'مُتْقِن', en: 'Proficient' },
+  { ar: 'فَصِيح', en: 'Eloquent' },
+  { ar: 'بَلِيغ', en: 'Master of style' },
+  { ar: 'أُسْتَاذ', en: 'Master' },
+  { ar: 'عَالِم', en: 'Scholar' },
+  { ar: 'عَلَّامَة', en: 'Great scholar' },
+];
+
+export function titleFor(level: number): { ar: string; en: string } {
+  return LEVEL_TITLES[Math.min(Math.max(level, 1), MAX_LEVEL) - 1];
+}

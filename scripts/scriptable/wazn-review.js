@@ -103,12 +103,77 @@ async function addXp(token, amount) {
     const req = new Request(`${SUPABASE_URL}/rest/v1/rpc/add_xp`);
     req.method = "POST";
     req.headers = restHeaders(token);
-    req.body = JSON.stringify({ amount: amount });
+    // The local day, so the session counts toward today's goal and streak
+    // in the app wherever the phone is.
+    req.body = JSON.stringify({ amount: amount, study_day: isoDay() });
     const total = await req.loadJSON();
     return typeof total === "number" ? total : null;
   } catch {
     return null;
   }
+}
+
+/** The learner's XP and chosen background, or null when unavailable. */
+async function fetchProgress(token) {
+  try {
+    const req = new Request(`${SUPABASE_URL}/rest/v1/user_progress?select=xp,background`);
+    req.headers = restHeaders(token);
+    const rows = await req.loadJSON();
+    if (!Array.isArray(rows)) return null;
+    return { xp: rows[0] ? rows[0].xp : 0, bg: rows[0] ? rows[0].background : null };
+  } catch {
+    return null;
+  }
+}
+
+// Widget colours for each background in the app (src/components/backgrounds):
+// page, text and accent, plus a second page colour for the night scenes.
+// Add a row here when a background is added there.
+const WIDGET_THEMES = {
+  parchment: { bg: CREAM, ink: INK, accent: BRAND },
+  "star-lattice": { bg: CREAM, ink: INK, accent: BRAND },
+  trellis: { bg: CREAM, ink: INK, accent: "#A0522D" },
+  "hex-garden": { bg: CREAM, ink: INK, accent: "#8A6D1F" },
+  khatam: { bg: CREAM, ink: INK, accent: "#B5651D" },
+  zellige: { bg: "#FBF6EC", ink: INK, accent: "#1F7A74" },
+  arabesque: { bg: CREAM, ink: INK, accent: "#5F7F3A" },
+  "arches-dusk": { bg: "#FBEEE2", ink: INK, accent: "#C0582F" },
+  "lantern-glow": { bg: "#FDF5E4", ink: INK, accent: "#B8862A" },
+  "starry-night": { bg: "#26306B", bg2: "#0A0D24", ink: "#F3ECD8", accent: "#F2D48A" },
+  "desert-mosque": { bg: "#3B1F55", bg2: "#140A19", ink: "#F6E7DA", accent: "#F39C5A" },
+  "gold-girih": { bg: "#114747", bg2: "#082626", ink: "#F3ECD8", accent: "#D4AF37" },
+  alhambra: { bg: "#22336B", bg2: "#0D1636", ink: "#EFE8D6", accent: "#E8D8A8" },
+  "lantern-night": { bg: "#2B1650", bg2: "#120A24", ink: "#F6EAD2", accent: "#FFD27A" },
+  "celestial-dome": { bg: "#3A1D52", bg2: "#1B1446", ink: "#FFF6D0", accent: "#D4AF37" },
+};
+
+/** The theme for a background, falling back to plain when it is not unlocked yet. */
+function widgetTheme(bg, xp) {
+  const order = Object.keys(WIDGET_THEMES); // in level order, 1–15
+  const i = order.indexOf(bg || "parchment");
+  if (i < 0 || i + 1 > levelFor(xp || 0)) return WIDGET_THEMES.parchment;
+  return WIDGET_THEMES[bg];
+}
+
+/** A thin rounded progress bar, drawn as an image. */
+function barImage(fraction, color, track, width = 240, height = 8) {
+  const ctx = new DrawContext();
+  ctx.size = new Size(width, height);
+  ctx.opaque = false;
+  ctx.respectScreenScale = true;
+  const r = height / 2;
+  const back = new Path();
+  back.addRoundedRect(new Rect(0, 0, width, height), r, r);
+  ctx.addPath(back);
+  ctx.setFillColor(track);
+  ctx.fillPath();
+  const w = Math.max(height, Math.round(width * Math.min(Math.max(fraction, 0), 1)));
+  const front = new Path();
+  front.addRoundedRect(new Rect(0, 0, w, height), r, r);
+  ctx.addPath(front);
+  ctx.setFillColor(color);
+  ctx.fillPath();
+  return ctx.getImage();
 }
 
 /** "+40 XP · Level 3", plus a note when the session reached a new level. */
@@ -462,20 +527,29 @@ function writeCache(data) {
 
 function buildWidget(state) {
   const w = new ListWidget();
-  w.backgroundColor = new Color(CREAM);
+  const theme = widgetTheme(state.bg, state.xp);
+  const ink = theme.ink;
+  if (theme.bg2) {
+    const g = new LinearGradient();
+    g.colors = [new Color(theme.bg), new Color(theme.bg2)];
+    g.locations = [0, 1];
+    w.backgroundGradient = g;
+  } else {
+    w.backgroundColor = new Color(theme.bg);
+  }
   w.setPadding(14, 14, 14, 14);
 
   const header = w.addStack();
   header.centerAlignContent();
   const title = header.addText("WAZN");
   title.font = Font.boldSystemFont(11);
-  title.textColor = new Color(BRAND);
+  title.textColor = new Color(theme.accent);
   header.addSpacer();
 
   if (state.due > 0) {
     const badge = header.addText(String(state.due));
     badge.font = Font.boldSystemFont(13);
-    badge.textColor = new Color(BRAND);
+    badge.textColor = new Color(theme.accent);
   }
 
   w.addSpacer(6);
@@ -483,21 +557,21 @@ function buildWidget(state) {
   if (state.error) {
     const t = w.addText(state.error);
     t.font = Font.systemFont(12);
-    t.textColor = new Color(INK);
+    t.textColor = new Color(ink);
     t.minimumScaleFactor = 0.7;
   } else if (state.due === 0) {
     const t = w.addText("All caught up");
     t.font = Font.semiboldSystemFont(15);
-    t.textColor = new Color(INK);
+    t.textColor = new Color(ink);
     w.addSpacer(2);
     const s = w.addText("Nothing due right now.");
     s.font = Font.systemFont(11);
-    s.textColor = new Color(INK);
+    s.textColor = new Color(ink);
     s.textOpacity = 0.6;
   } else {
     const word = w.addText(state.word || "");
     word.font = Font.boldSystemFont(30);
-    word.textColor = new Color(INK);
+    word.textColor = new Color(ink);
     word.centerAlignText();
     word.minimumScaleFactor = 0.5;
     word.lineLimit = 2;
@@ -507,12 +581,36 @@ function buildWidget(state) {
       `${state.due} card${state.due === 1 ? "" : "s"} due · tap to review`,
     );
     hint.font = Font.systemFont(10);
-    hint.textColor = new Color(INK);
+    hint.textColor = new Color(ink);
     hint.textOpacity = 0.6;
     hint.centerAlignText();
   }
 
   w.addSpacer();
+
+  // Level and the bar to the next one, in the chosen background's colours.
+  if (typeof state.xp === "number") {
+    const level = levelFor(state.xp);
+    const floor = LEVEL_XP[level - 1];
+    const next = level < LEVEL_XP.length ? LEVEL_XP[level] : null;
+    const row = w.addStack();
+    row.centerAlignContent();
+    const lv = row.addText(`Level ${level}`);
+    lv.font = Font.semiboldSystemFont(10);
+    lv.textColor = new Color(theme.accent);
+    row.addSpacer();
+    const left = row.addText(next === null ? "Top level" : `${next - state.xp} XP to go`);
+    left.font = Font.systemFont(9);
+    left.textColor = new Color(ink);
+    left.textOpacity = 0.6;
+    w.addSpacer(3);
+    const bar = w.addImage(
+      barImage(next === null ? 1 : (state.xp - floor) / (next - floor), new Color(theme.accent), new Color(ink, 0.15)),
+    );
+    bar.imageSize = new Size(240, 6);
+    bar.resizable = true;
+  }
+
   // Tapping anywhere runs this same script, which then falls into review mode.
   w.url = `scriptable:///run?scriptName=${encodeURIComponent(Script.name())}`;
   return w;
@@ -1086,9 +1184,12 @@ async function runReview() {
 
   const saved = clearedIds.size;
   const stillDue = cards.filter((c) => !clearedIds.has(c.id));
+  const before = readCache() || {};
   writeCache({
     due: stillDue.length,
     word: stillDue.length ? stillDue[0].word : "",
+    xp: total !== null ? total : before.xp,
+    bg: before.bg,
     at: Date.now(),
   });
 
@@ -1106,14 +1207,21 @@ async function runReview() {
 if (config.runsInWidget) {
   const cached = readCache();
   let state = cached
-    ? { due: cached.due, word: cached.word }
+    ? { due: cached.due, word: cached.word, xp: cached.xp, bg: cached.bg }
     : { due: 0, word: "", error: "Open the script once to sign in." };
 
   try {
     const token = await signIn(false);
     if (token) {
-      const cards = await fetchDueCards(token);
+      const [cards, progress] = await Promise.all([fetchDueCards(token), fetchProgress(token)]);
       state = { due: cards.length, word: cards.length ? cards[0].word : "" };
+      if (progress) {
+        state.xp = progress.xp;
+        state.bg = progress.bg;
+      } else if (cached) {
+        state.xp = cached.xp;
+        state.bg = cached.bg;
+      }
       writeCache({ ...state, at: Date.now() });
     } else if (!cached) {
       state = { due: 0, word: "", error: "Tap to sign in to Wazn." };

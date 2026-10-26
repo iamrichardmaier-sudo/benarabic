@@ -124,7 +124,7 @@ const FocusReview = ({
           ) : (
             <>
               <p
-                className={`font-arabic font-bold leading-[1.35] ${flipped ? 'text-[44px]' : 'text-[56px]'}`}
+                className={`font-card font-bold leading-[1.35] ${flipped ? 'text-[44px]' : 'text-[56px]'}`}
                 dir="rtl"
               >
                 {headline}

@@ -30,7 +30,19 @@ export interface Preferences {
   audioRate: number;
   theme: Theme;
   dialect: Dialect;
+  /** Id of the script flashcards show their Arabic in (lib/card-fonts). */
+  cardFont: string;
+  /** XP to earn each day; the ring on Home fills toward it. */
+  dailyGoal: number;
 }
+
+/** The daily XP goals to choose from. A card graded "Good" is 10 XP. */
+export const DAILY_GOALS: { xp: number; label: string; hint: string }[] = [
+  { xp: 50, label: 'Casual', hint: 'about 5 cards' },
+  { xp: 150, label: 'Regular', hint: 'about 15 cards' },
+  { xp: 300, label: 'Serious', hint: 'about 30 cards' },
+  { xp: 600, label: 'Intense', hint: 'about 60 cards' },
+];
 
 export const DIALECT_LABELS: Record<Dialect, string> = {
   // "Fusha" throughout, not "MSA" — the one other place a register is named
@@ -56,9 +68,11 @@ const KEYS = {
   audioRate: 'arabic-flashcards-bible-audio-rate',
   theme: 'wazn-theme',
   dialect: 'wazn-dialect',
+  cardFont: 'wazn-card-font',
+  dailyGoal: 'wazn-daily-goal',
 } as const;
 
-const DEFAULTS: Preferences = { textScale: 1, audioRate: 1, theme: 'system', dialect: 'both' };
+const DEFAULTS: Preferences = { textScale: 1, audioRate: 1, theme: 'system', dialect: 'both', cardFont: 'naskh', dailyGoal: 150 };
 
 function clamp(n: number, lo: number, hi: number): number {
   return Math.min(hi, Math.max(lo, n));
@@ -90,7 +104,17 @@ export function readPreferences(): Preferences {
   } catch {
     /* fall through to default */
   }
+  let cardFont = DEFAULTS.cardFont;
+  try {
+    const f = localStorage.getItem(KEYS.cardFont);
+    if (f && /^[a-z0-9-]{1,40}$/.test(f)) cardFont = f;
+  } catch {
+    /* fall through to default */
+  }
+  const goal = readNumber(KEYS.dailyGoal, DEFAULTS.dailyGoal, 10, 5000);
   return {
+    cardFont,
+    dailyGoal: DAILY_GOALS.some((g) => g.xp === goal) ? goal : DEFAULTS.dailyGoal,
     textScale: readNumber(KEYS.textScale, DEFAULTS.textScale, TEXT_SCALE_MIN, TEXT_SCALE_MAX),
     audioRate: readNumber(KEYS.audioRate, DEFAULTS.audioRate, AUDIO_RATE_MIN, AUDIO_RATE_MAX),
     theme,
@@ -132,6 +156,14 @@ export function setAudioRate(value: number): number {
 
 export function setDialect(dialect: Dialect): void {
   write(KEYS.dialect, dialect);
+}
+
+export function setCardFont(id: string): void {
+  write(KEYS.cardFont, id);
+}
+
+export function setDailyGoal(xp: number): void {
+  write(KEYS.dailyGoal, String(xp));
 }
 
 export function setTheme(theme: Theme): void {

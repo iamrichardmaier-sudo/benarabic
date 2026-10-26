@@ -308,7 +308,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn }: Learnin
           <div className="flex flex-col items-center gap-2">
             <div className="flex items-center gap-2">
               <WordInfoPopover card={card}>
-                <p className="text-[48px] font-bold text-foreground font-arabic" dir="rtl">
+                <p className="text-[48px] font-bold text-foreground font-card" dir="rtl">
                   {card.word}
                 </p>
               </WordInfoPopover>
@@ -415,7 +415,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn }: Learnin
             <button
               key={i}
               onClick={() => handleMCAnswer(opt)}
-              className={`py-4 px-3 rounded-xl bg-secondary text-secondary-foreground text-xl transition-all active:scale-95 hover:bg-secondary/80 ${isArabicOptions ? 'font-arabic' : ''}`}
+              className={`py-4 px-3 rounded-xl bg-secondary text-secondary-foreground text-xl transition-all active:scale-95 hover:bg-secondary/80 ${isArabicOptions ? 'font-card' : ''}`}
               dir={isArabicOptions ? 'rtl' : 'ltr'}
             >
               {isArabicOptions ? opt : optionLabel(opt)}
@@ -492,7 +492,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn }: Learnin
               <div className="flex items-center gap-1.5 mt-1">
                 <span className="text-sm text-foreground">Correct answer:</span>
                 <span
-                  className={`text-lg font-semibold text-success ${answerState.isArabic ? 'font-arabic' : ''}`}
+                  className={`text-lg font-semibold text-success ${answerState.isArabic ? 'font-card' : ''}`}
                   dir={answerState.isArabic ? 'rtl' : 'ltr'}
                 >
                   {answerState.correctAnswer}

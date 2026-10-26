@@ -1,7 +1,10 @@
-import { Flame, BookOpen, Layers, GraduationCap, ChevronRight, RotateCcw, LibraryBig, Check, type LucideIcon } from 'lucide-react';
-import { currentStreak } from '@/lib/streak';
+import { Flame, Snowflake, BookOpen, Layers, GraduationCap, ChevronRight, RotateCcw, LibraryBig, Check, type LucideIcon } from 'lucide-react';
+import { today } from '@/lib/streak';
+import { useStreak, useTodayXp } from '@/hooks/useStreak';
+import { usePreferences } from '@/hooks/usePreferences';
+import GoalRing from '@/components/levels/GoalRing';
 import { useProgress } from '@/hooks/useProgress';
-import { progressFor } from '@/lib/levels';
+import { progressFor, titleFor } from '@/lib/levels';
 import { useBibleBooks } from '@/hooks/useBibleBooks';
 import HomeDeckShelves from '@/components/decks/HomeDeckShelves';
 import DailyAudios from '@/components/daily-audio/DailyAudios';
@@ -44,6 +47,13 @@ interface Step {
 const BOOK_KEY = 'arabic-flashcards-bible-book';
 const CHAPTER_KEY = 'arabic-flashcards-bible-chapter';
 
+/** The local date `n` days from today. */
+function dayOffset(n: number): string {
+  const d = new Date();
+  d.setDate(d.getDate() + n);
+  return today(d);
+}
+
 function readStored(key: string): string | null {
   try {
     return localStorage.getItem(key);
@@ -62,7 +72,16 @@ const HomeDashboard = ({
   recentCount = 0, onPractice,
   onReview, onLearn, onBrowseDecks, onContinueReading, onBrowseLibrary, onSelectPractice, onOpenLevel,
 }: HomeDashboardProps) => {
-  const streak = currentStreak(userId);
+  const streak = useStreak(userId);
+  const todayXp = useTodayXp();
+  const { dailyGoal } = usePreferences();
+  // Mention a freeze only while it is news: days covered yesterday or the day before.
+  const recentFrozen = streak.current > 0 ? streak.frozen.filter((d) => d >= dayOffset(-2)) : [];
+  const freezeNote =
+    recentFrozen.length === 0 ? null
+      : recentFrozen.length === 1
+        ? `A streak freeze covered ${recentFrozen[0] === dayOffset(-1) ? 'yesterday' : 'a missed day'}, so your streak is safe.`
+        : `Streak freezes covered ${recentFrozen.length} missed days, so your streak is safe.`;
   const level = progressFor(useProgress().xp);
   const { books } = useBibleBooks();
 
@@ -114,36 +133,64 @@ const HomeDashboard = ({
           <h1 className="text-2xl font-bold text-foreground">Today</h1>
           <p className="text-sm text-muted-foreground">{summary}</p>
         </div>
-        <div className="flex shrink-0 flex-col items-end gap-1.5">
-        <div
-          className="flex items-center gap-1.5 rounded-2xl border border-border bg-card px-3 py-2 shrink-0"
-          title={streak.longest > 0 ? `Longest streak: ${streak.longest} days` : undefined}
-        >
-          <Flame className={`w-4 h-4 ${streak.current > 0 ? 'text-primary' : 'text-muted-foreground/60'}`} />
-          {streak.current > 0 ? (
-            <>
-              <span className="font-bold text-foreground tabular-nums">{streak.current}</span>
-              <span className="text-xs text-muted-foreground">day{streak.current === 1 ? '' : 's'}</span>
-            </>
-          ) : (
-            // A big "0 days" greets you with what you haven't done; this
-            // invites the first day instead.
-            <span className="text-xs text-muted-foreground">Start a streak</span>
-          )}
-        </div>
-        <button
-          type="button"
-          onClick={onOpenLevel}
-          aria-label={`Level ${level.level}. Open level and backgrounds`}
-          className="flex w-full flex-col gap-1 rounded-2xl border border-border bg-card px-3 py-1.5 text-left transition-colors hover:border-primary/50"
-        >
-          <span className="text-xs font-semibold text-foreground">Level {level.level}</span>
-          <span className="block h-1 w-full overflow-hidden rounded-full bg-muted">
-            <span className="block h-full rounded-full bg-primary" style={{ width: `${level.fraction * 100}%` }} />
-          </span>
-        </button>
+        <div className="flex shrink-0 flex-col items-stretch gap-1.5">
+          <div
+            className="flex items-center gap-2.5 rounded-2xl border border-border bg-card px-2.5 py-2"
+            title={streak.longest > 0 ? `Longest streak: ${streak.longest} days` : undefined}
+          >
+            <GoalRing value={todayXp} goal={dailyGoal}>
+              <Flame className={`w-4 h-4 ${streak.current > 0 ? 'text-primary' : 'text-muted-foreground/60'}`} />
+            </GoalRing>
+            <div className="min-w-0">
+              <p className="flex items-center gap-1.5 leading-tight">
+                {streak.current > 0 ? (
+                  <>
+                    <span className="font-bold text-foreground tabular-nums">{streak.current}</span>
+                    <span className="text-xs text-muted-foreground">day{streak.current === 1 ? '' : 's'}</span>
+                  </>
+                ) : (
+                  // A big "0 days" greets you with what you haven't done; this
+                  // invites the first day instead.
+                  <span className="text-xs text-muted-foreground">Start a streak</span>
+                )}
+                {streak.freezes > 0 && (
+                  <span
+                    className="ms-0.5 flex items-center gap-0.5 text-xs font-semibold text-info"
+                    title={`${streak.freezes} streak freeze${streak.freezes === 1 ? '' : 's'}: each covers one missed day`}
+                  >
+                    <Snowflake className="h-3 w-3" />
+                    {streak.freezes}
+                  </span>
+                )}
+              </p>
+              <p className="text-[11px] tabular-nums text-muted-foreground">
+                {todayXp >= dailyGoal ? 'Goal met' : `${todayXp} / ${dailyGoal} XP`}
+              </p>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={onOpenLevel}
+            aria-label={`Level ${level.level}, ${titleFor(level.level).en}. Open level and backgrounds`}
+            className="flex w-full flex-col gap-1 rounded-2xl border border-border bg-card px-3 py-1.5 text-left transition-colors hover:border-primary/50"
+          >
+            <span className="flex items-baseline justify-between gap-2 text-xs font-semibold text-foreground">
+              Level {level.level}
+              <span className="font-arabic text-sm text-primary" dir="rtl" lang="ar">{titleFor(level.level).ar}</span>
+            </span>
+            <span className="block h-1 w-full overflow-hidden rounded-full bg-muted">
+              <span className="block h-full rounded-full bg-primary" style={{ width: `${level.fraction * 100}%` }} />
+            </span>
+          </button>
         </div>
       </div>
+
+      {freezeNote && (
+        <p className="-mt-2 flex items-center gap-1.5 text-xs text-muted-foreground">
+          <Snowflake className="h-3.5 w-3.5 shrink-0 text-info" />
+          {freezeNote}
+        </p>
+      )}
 
       <section aria-label="Today" className="overflow-hidden rounded-2xl border border-border bg-card">
         {steps.map((st, i) => {

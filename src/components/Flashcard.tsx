@@ -78,7 +78,7 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
     <div className="space-y-2">
       <div className="flex items-center justify-center gap-2">
         <WordInfoPopover card={card}>
-          <p className="font-arabic text-[48px] font-bold text-foreground leading-relaxed" dir="rtl">
+          <p className="font-card text-[48px] font-bold text-foreground leading-relaxed" dir="rtl">
             {view.headline}
           </p>
         </WordInfoPopover>
@@ -126,7 +126,7 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
     }
     return (
       <div className="space-y-4 text-center w-full">
-        <p className="font-arabic text-2xl text-muted-foreground" dir="rtl">
+        <p className="font-card text-2xl text-muted-foreground" dir="rtl">
           {view.headline}
         </p>
         <div className="w-full h-px bg-border" />

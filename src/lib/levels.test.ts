@@ -40,3 +40,15 @@ describe('the Scriptable widget', () => {
     expect(widget.LEVEL_XP).toEqual([...LEVEL_XP]);
   });
 });
+
+describe('the widget colours', () => {
+  it('has a theme for every background, in level order', async () => {
+    const { readFileSync } = await import('node:fs');
+    const { BACKGROUNDS } = await import('@/components/backgrounds/backgrounds');
+    const src = readFileSync('scripts/scriptable/wazn-review.js', 'utf8');
+    const start = src.indexOf('const WIDGET_THEMES = {');
+    const block = src.slice(start, src.indexOf('};', start));
+    const ids = [...block.matchAll(/^\s+"?([a-z-]+)"?:\s*\{/gm)].map((m) => m[1]);
+    expect(ids).toEqual(BACKGROUNDS.map((b) => b.id));
+  });
+});
