@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
+import { useState, useMemo, useCallback, useEffect, useRef, type ReactNode } from 'react';
 import { FlashCard, graduateCard, acceptedAnswers, scheduleFields, isSentence } from '@/lib/spaced-repetition';
 import SentenceOrder from '@/components/SentenceOrder';
 import { Progress } from '@/components/ui/progress';
@@ -14,6 +14,8 @@ interface LearningModeProps {
   allCards: FlashCard[];
   onUpdateCard: (id: string, updates: Partial<FlashCard>) => void;
   onBack: () => void;
+  /** Shown under Back, e.g. the vocab/sentences choice. */
+  header?: ReactNode;
 }
 
 type MCDirection = 'en-to-ar' | 'ar-to-en';
@@ -69,7 +71,7 @@ const AnswerDetail = ({ card, deck }: { card: FlashCard; deck: FlashCard[] }) =>
     </div>
   ) : null;
 
-const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModeProps) => {
+const LearningMode = ({ cards, allCards, onUpdateCard, onBack, header }: LearningModeProps) => {
   const stage1Cards = useMemo(() => cards.filter((c) => c.learningStage === 'new' || c.learningStage === 'stage1'), [cards]);
   const stage2Cards = useMemo(() => cards.filter((c) => c.learningStage === 'stage2'), [cards]);
 
@@ -396,6 +398,8 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
         <ArrowLeft className="w-4 h-4" />
         Back
       </button>
+
+      {header}
 
       {/* Progress */}
       <div className="space-y-1.5">

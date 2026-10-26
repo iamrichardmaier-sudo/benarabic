@@ -6,6 +6,7 @@ import {
   isDeckAdmin, type Deck,
 } from '@/lib/deck-store';
 import type { DeckPlacement } from '@/lib/deck-placement';
+import type { CardMix } from '@/lib/learn-filter';
 
 /**
  * The deck library: what exists, and what this learner has taken up.
@@ -59,9 +60,9 @@ export function useDeckLibrary() {
   }, [refresh]);
 
   const addDecks = useCallback(
-    async (deckIds: string[], placement: DeckPlacement = 'learn') => {
+    async (deckIds: string[], placement: DeckPlacement = 'learn', mix: CardMix = 'both') => {
       if (!user) throw new Error('Sign in to add decks.');
-      const result = await addDecksToLearn(deckIds, user.id, placement);
+      const result = await addDecksToLearn(deckIds, user.id, placement, mix);
       await refresh();
       return result;
     },

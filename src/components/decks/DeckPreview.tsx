@@ -9,14 +9,19 @@ import { useDeck } from '@/contexts/DeckContext';
 import { FOUNDATION_ICON } from '@/lib/deck-icons';
 import { fetchDeckWords, wordToCard, type Deck, type Word } from '@/lib/deck-store';
 import type { DeckPlacement } from '@/lib/deck-placement';
+import CardMixPicker from '@/components/CardMixPicker';
+import { countKind, learnSplit, type CardMix } from '@/lib/learn-filter';
 
 interface DeckPreviewProps {
   deck: Deck;
   /** True when this deck is already in the learner's Learn section. */
   added: boolean;
   onBack: () => void;
-  /** Takes the deck up, with the words starting where `placement` says. */
-  onAdd: (placement: DeckPlacement) => void;
+  /**
+   * Takes the deck up, with the words starting where `placement` says — all
+   * of them, or just the vocab or just the sentences.
+   */
+  onAdd: (placement: DeckPlacement, mix: CardMix) => Promise<{ newCards: number }> | void;
   onRemove: () => void;
   /** Present when the viewer owns the deck and can take words out of it. */
   onRemoveWord?: (wordId: string) => Promise<void>;
@@ -38,6 +43,10 @@ const DeckPreview = ({
   const [openWord, setOpenWord] = useState<string | null>(null);
   const [confirmRemove, setConfirmRemove] = useState(false);
   const [placement, setPlacement] = useState<DeckPlacement>('learn');
+  const [mix, setMix] = useState<CardMix>('both');
+  const [busy, setBusy] = useState(false);
+  const [addingMore, setAddingMore] = useState(false);
+  const [addNote, setAddNote] = useState<string | null>(null);
   const deckCards = useDeck();
 
   useEffect(() => {
@@ -53,6 +62,33 @@ const DeckPreview = ({
       cancelled = true;
     };
   }, [deck.id]);
+
+  const split = words ? learnSplit(words) : null;
+  // A choice only when the deck holds both kinds.
+  const mixed = Boolean(split && split.words > 0 && split.sentences > 0);
+  const chosen = mixed && split && mix !== 'both' ? split[mix] : null;
+  const addLabel = chosen === null ? 'Add this deck' : `Add ${countKind(chosen, mix as 'words' | 'sentences')}`;
+
+  const add = async () => {
+    setBusy(true);
+    setAddNote(null);
+    try {
+      const result = await onAdd(placement, mixed ? mix : 'both');
+      if (result && added) {
+        setAddNote(result.newCards > 0
+          ? `Added ${result.newCards} card${result.newCards === 1 ? '' : 's'}`
+          : 'You already have all of these');
+      }
+    } catch (err) {
+      setAddNote(err instanceof Error ? err.message : 'Those cards could not be added.');
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const mixPicker = mixed && split && (
+    <CardMixPicker value={mix} onChange={setMix} counts={split} label="Cards to add" />
+  );
 
   return (
     <div className="space-y-4">
@@ -83,13 +119,16 @@ const DeckPreview = ({
       {!added ? (
         <div className="space-y-2">
           <PlacementPicker value={placement} onChange={setPlacement} />
+          {mixPicker}
           <button
-            onClick={() => onAdd(placement)}
-            className="flex w-full items-center justify-center gap-1.5 rounded-xl bg-primary py-3 font-semibold text-primary-foreground transition-all active:scale-95"
+            onClick={add}
+            disabled={busy || chosen === 0}
+            className="flex w-full items-center justify-center gap-1.5 rounded-xl bg-primary py-3 font-semibold text-primary-foreground transition-all active:scale-95 disabled:opacity-50"
           >
-            <Plus className="h-4 w-4" />
-            Add this deck
+            {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
+            {addLabel}
           </button>
+          {addNote && <p className="text-center text-xs text-destructive">{addNote}</p>}
         </div>
       ) : !confirmRemove ? (
         <div className="space-y-2">
@@ -97,6 +136,31 @@ const DeckPreview = ({
             <Check className="h-4 w-4" />
             In your Learn section
           </p>
+          {/* Taking only the vocab (or only the sentences) leaves the rest
+              here to pick up later. Cards already held are skipped. */}
+          {mixed && !addingMore && (
+            <button
+              onClick={() => { setAddingMore(true); setAddNote(null); }}
+              className="flex w-full items-center justify-center gap-1.5 rounded-xl border border-border py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-muted/40"
+            >
+              <Plus className="h-4 w-4" />
+              Add more from this deck
+            </button>
+          )}
+          {mixed && addingMore && (
+            <div className="space-y-2 rounded-xl border border-border bg-card p-3">
+              {mixPicker}
+              <button
+                onClick={add}
+                disabled={busy || chosen === 0}
+                className="flex w-full items-center justify-center gap-1.5 rounded-xl bg-primary py-2.5 text-sm font-semibold text-primary-foreground transition-all active:scale-95 disabled:opacity-50"
+              >
+                {busy ? <Loader2 className="h-4 w-4 animate-spin" /> : <Plus className="h-4 w-4" />}
+                {chosen === null ? 'Add any missing cards' : addLabel}
+              </button>
+            </div>
+          )}
+          {addNote && <p className="text-center text-xs text-muted-foreground">{addNote}</p>}
           <button
             onClick={() => setConfirmRemove(true)}
             className="w-full text-xs text-muted-foreground underline hover:text-foreground"

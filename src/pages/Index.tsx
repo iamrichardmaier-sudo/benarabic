@@ -44,10 +44,11 @@ import { useBrowserBack } from '@/hooks/useBrowserBack';
 import { recordStudyDay } from '@/lib/streak';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine, scheduleFields, nextWave, isSentence } from '@/lib/spaced-repetition';
 import SentenceOrder from '@/components/SentenceOrder';
-import { useSentencesOnly } from '@/hooks/useSentencesOnly';
-import { learnQueue, learnSplit } from '@/lib/learn-filter';
+import { useCardMix } from '@/hooks/useCardMix';
+import CardMixPicker from '@/components/CardMixPicker';
+import { countKind, learnQueue, learnSplit, type CardMix } from '@/lib/learn-filter';
 import { splitDuplicates } from '@/lib/duplicates';
-import { queueAfterGrade, cardsCovered } from '@/lib/review-queue';
+import { queueAfterGrade, cardsCovered, sessionItems } from '@/lib/review-queue';
 import { learnedRecently, RECENT_DAYS } from '@/lib/recent-words';
 import { DeckActionsContext, type NewWord } from '@/contexts/DeckActionsContext';
 import { useFlashcards } from '@/hooks/useFlashcards';
@@ -109,8 +110,8 @@ const Index = () => {
    * the opposite of what asking for more practice means.
    */
   const [practising, setPractising] = useState(false);
-  /** Learn only the sentence cards, when there are any waiting. */
-  const [sentencesOnly, setSentencesOnly] = useSentencesOnly();
+  /** Study vocab, sentences or both — in Learn and in Review. */
+  const [cardMix, setCardMix] = useCardMix();
   /** Full-screen, keyboard-driven review — the phone widget's session. */
   const [focusReview, setFocusReview] = useState(false);
   const [podcast, setPodcast] = useState<Podcast | null>(null);
@@ -311,20 +312,9 @@ const Index = () => {
    * Review works from the whole deck: the spaced-repetition schedule is a
    * promise about every card, so one falling due is never left out.
    */
-  const openSession = (pool: FlashCard[], practice: boolean) => {
-    const items: { card: FlashCard; direction: ReviewDirection }[] = [];
-    for (const card of pool) {
-      // A sentence is one item, not one per direction: its exercise is the
-      // word ordering, which it runs twice by itself.
-      items.push({ card, direction: 'ar-to-en' });
-      if (!isSentence(card)) items.push({ card, direction: 'en-to-ar' });
-    }
-    for (let i = items.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [items[i], items[j]] = [items[j], items[i]];
-    }
+  const openSession = (pool: FlashCard[], practice: boolean, mix: CardMix = cardMix) => {
     setPractising(practice);
-    setReviewItems(items);
+    setReviewItems(sessionItems(pool, mix));
     setCurrentIndex(0);
     setView('review');
   };
@@ -333,6 +323,16 @@ const Index = () => {
 
   /** This week's words again, whether or not they are due. */
   const startPractice = () => openSession(learnedRecently(cards), true);
+
+  /**
+   * Switch between vocab, sentences and both. Mid-review, the session is
+   * rebuilt from what is still due (or still in this week's practice set),
+   * so a switch never repeats a card already graded today.
+   */
+  const changeCardMix = (mix: CardMix) => {
+    setCardMix(mix);
+    if (view === 'review') openSession(practising ? learnedRecently(cards) : getDueCards(cards), practising, mix);
+  };
 
   /**
    * A word sent to the deck from whatever is being read.
@@ -432,11 +432,26 @@ const Index = () => {
   const upcomingWave = nextWave(cards);
   const recentlyLearned = learnedRecently(cards);
   const learnable = getLearnableCards(studyCards);
-  const learnCards = learnQueue(learnable, sentencesOnly);
+  const learnCards = learnQueue(learnable, cardMix);
   const learnWaiting = learnSplit(learnable);
   // What Learn will actually open on, so the count and the session agree.
   const learnCount = learnCards.length;
   const reviewDone = view === 'review' && currentIndex >= reviewItems.length;
+  // What the session draws on before the vocab/sentences filter, for the
+  // picker's counts and for saying what the other kind still holds.
+  const reviewPool = view === 'review' ? (practising ? learnedRecently(cards) : getDueCards(cards)) : [];
+  const reviewSplit = learnSplit(reviewPool);
+  // The filter left nothing to go through, though the other kind is waiting.
+  const reviewFilteredEmpty = view === 'review' && reviewItems.length === 0 && reviewPool.length > 0;
+  // Offered when there is a choice to make, and kept while a filter is on so
+  // it can always be turned off.
+  const reviewMix = view === 'review' && ((reviewSplit.words > 0 && reviewSplit.sentences > 0) || cardMix !== 'both')
+    ? <CardMixPicker value={cardMix} onChange={changeCardMix} counts={reviewSplit} label="Cards to review" />
+    : null;
+  const learnSplitNow = learnSplit(learnable);
+  const learnMix = (learnSplitNow.words > 0 && learnSplitNow.sentences > 0) || cardMix !== 'both'
+    ? <CardMixPicker value={cardMix} onChange={setCardMix} counts={learnSplitNow} label="Cards to learn" />
+    : null;
   const hasKeyboard = useHasKeyboard();
   const reviewing = view === 'review' && !reviewDone && Boolean(reviewItems[currentIndex]);
   // A sentence is reviewed by ordering its words, which has no flip to
@@ -572,8 +587,9 @@ const Index = () => {
             learnCount={learnCount}
             wordsWaiting={learnWaiting.words}
             sentencesWaiting={learnWaiting.sentences}
-            sentencesOnly={sentencesOnly}
-            onSentencesOnlyChange={setSentencesOnly}
+            dueSplit={learnSplit(getDueCards(cards))}
+            cardMix={cardMix}
+            onCardMixChange={setCardMix}
             deckSize={cards.length}
             onSelect={openLearnDestination}
             onOpenPodcast={(p) => { setPodcast(p); setPodcastRegister(null); setView('podcast'); }}
@@ -644,6 +660,7 @@ const Index = () => {
         {view === 'review' && !reviewDone && reviewItems[currentIndex] && (
           <div className="space-y-4">
             <BackButton onClick={() => selectTab('home')} label="Home" />
+            {reviewMix}
             {practising && (
               <p className="rounded-xl border border-border bg-card px-3 py-2 text-center text-xs text-muted-foreground">
                 Practising this week&rsquo;s words. Nothing here changes when they next come up.
@@ -693,12 +710,45 @@ const Index = () => {
           />
         )}
 
-        {reviewDone && (
-          <ReviewComplete reviewed={cardsCovered(reviewItems)} onDone={() => selectTab('home')} />
+        {reviewFilteredEmpty && (
+          <div className="space-y-4">
+            <BackButton onClick={() => selectTab('home')} label="Home" />
+            {reviewMix}
+            <p className="rounded-2xl border border-border bg-card px-4 py-8 text-center text-sm text-muted-foreground">
+              No {cardMix === 'sentences' ? 'sentences' : 'vocab'} {practising ? 'to practise' : 'due'} right
+              now — {countKind(
+                cardMix === 'sentences' ? reviewSplit.words : reviewSplit.sentences,
+                cardMix === 'sentences' ? 'words' : 'sentences',
+              )} {practising ? 'to practise' : 'due'}.
+            </p>
+          </div>
         )}
 
-        {view === 'learnCards' && (
+        {reviewDone && !reviewFilteredEmpty && (
+          <div className="space-y-4">
+            {reviewPool.length > 0 && reviewMix}
+            <ReviewComplete reviewed={cardsCovered(reviewItems)} onDone={() => selectTab('home')} />
+          </div>
+        )}
+
+        {view === 'learnCards' && learnCards.length === 0 && learnable.length > 0 && (
+          <div className="space-y-4">
+            <BackButton onClick={() => setView('learnHub')} label="Learn" />
+            {learnMix}
+            <p className="rounded-2xl border border-border bg-card px-4 py-8 text-center text-sm text-muted-foreground">
+              No {cardMix === 'sentences' ? 'sentences' : 'vocab'} waiting to learn — {countKind(
+                cardMix === 'sentences' ? learnSplitNow.words : learnSplitNow.sentences,
+                cardMix === 'sentences' ? 'words' : 'sentences',
+              )} waiting.
+            </p>
+          </div>
+        )}
+
+        {view === 'learnCards' && (learnCards.length > 0 || learnable.length === 0) && (
           <LearningMode
+            // A new mix is a new session: the queues are built on arrival.
+            key={cardMix}
+            header={learnMix}
             cards={learnCards}
             allCards={cards}
             onUpdateCard={(id, updates) => handleUpdateCard(id, updates)}
