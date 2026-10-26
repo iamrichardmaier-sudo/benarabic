@@ -1,4 +1,4 @@
-import { Flame, BookOpen, Layers, GraduationCap, ChevronRight, RotateCcw, LibraryBig } from 'lucide-react';
+import { Flame, BookOpen, Layers, GraduationCap, ChevronRight, RotateCcw, LibraryBig, Check, type LucideIcon } from 'lucide-react';
 import { currentStreak } from '@/lib/streak';
 import { useBibleBooks } from '@/hooks/useBibleBooks';
 import HomeDeckShelves from '@/components/decks/HomeDeckShelves';
@@ -25,6 +25,16 @@ interface HomeDashboardProps {
   onBrowseLibrary: () => void;
   /** Desktop only: a drill or memorization tool tapped in the Practice column. */
   onSelectPractice: (destination: LearnDestination) => void;
+}
+
+interface Step {
+  key: 'review' | 'learn' | 'read';
+  icon: LucideIcon;
+  title: string;
+  detail: string;
+  /** Null when there is nothing to do here right now. */
+  action: (() => void) | null;
+  done: boolean;
 }
 
 const BOOK_KEY = 'arabic-flashcards-bible-book';
@@ -57,12 +67,6 @@ const HomeDashboard = ({
     ? { code: lastBook, chapter: lastChapter, name: books?.find((b) => b.code === lastBook)?.name ?? lastBook }
     : null;
 
-  const primary = dueCount > 0
-    ? { label: `Review ${dueCount} card${dueCount === 1 ? '' : 's'}`, icon: Layers, action: onReview }
-    : learnCount > 0
-      ? { label: `Learn ${learnCount} new word${learnCount === 1 ? '' : 's'}`, icon: GraduationCap, action: onLearn }
-      : null;
-
   // An empty queue that is only empty for another hour should say so, rather
   // than reading as "you're done" or as the app being broken.
   const waveLabel =
@@ -70,12 +74,40 @@ const HomeDashboard = ({
       ? `${nextWave.count} card${nextWave.count === 1 ? '' : 's'} come${nextWave.count === 1 ? 's' : ''} back at ${nextWave.at.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })}`
       : null;
 
+  /**
+   * Today, as three steps in the order they are worth doing: what the schedule
+   * is asking for, then new words, then reading. The first step with work in
+   * it is the highlighted one, so "what should I do next?" is answered by
+   * looking, and a finished step says so instead of disappearing.
+   */
+  const steps: Step[] = [
+    dueCount > 0
+      ? { key: 'review', icon: Layers, title: `Review ${dueCount} card${dueCount === 1 ? '' : 's'}`, detail: 'Due today', action: onReview, done: false }
+      : { key: 'review', icon: Layers, title: 'Reviews done', detail: waveLabel ?? (deckSize > 0 ? 'Nothing else is due today' : 'Cards you learn will come back here'), action: null, done: deckSize > 0 },
+    deckSize === 0
+      ? { key: 'learn', icon: LibraryBig, title: 'Pick your first deck', detail: 'A ready-made set of words to start learning', action: onBrowseDecks, done: false }
+      : learnCount > 0
+        ? { key: 'learn', icon: GraduationCap, title: `Learn new words`, detail: `${learnCount} waiting`, action: onLearn, done: false }
+        : { key: 'learn', icon: LibraryBig, title: 'Add new words', detail: 'Nothing new waiting. Browse decks for more', action: onBrowseDecks, done: false },
+    resume
+      ? { key: 'read', icon: BookOpen, title: `Continue ${resume.name} ${resume.chapter}`, detail: 'Pick up where you stopped reading', action: () => onContinueReading(resume.code, resume.chapter), done: false }
+      : { key: 'read', icon: BookOpen, title: 'Read something', detail: 'Scripture or any article, every word tappable', action: onBrowseLibrary, done: false },
+  ];
+  const nextKey = steps.find((st) => st.action && !st.done)?.key;
+
+  const summary = deckSize === 0
+    ? 'Start with a deck of words, or read something.'
+    : dueCount > 0 || learnCount > 0
+      ? [dueCount > 0 && `${dueCount} to review`, learnCount > 0 && `${learnCount} new waiting`].filter(Boolean).join(' · ')
+      : 'All caught up.';
+
   return (
     <div className="space-y-5">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-foreground">Wazn</h1>
-          <p className="text-sm text-muted-foreground">Arabic through its roots and patterns.</p>
+          {/* "Today", not the app's name again: the header already says Wazn. */}
+          <h1 className="text-2xl font-bold text-foreground">Today</h1>
+          <p className="text-sm text-muted-foreground">{summary}</p>
         </div>
         <div
           className="flex items-center gap-1.5 rounded-2xl border border-border bg-card px-3 py-2 shrink-0"
@@ -95,55 +127,47 @@ const HomeDashboard = ({
         </div>
       </div>
 
-      {/* The single most useful next action, chosen for the user. A brand-new
-          deck has no due/learnable cards yet, so it gets its own first step
-          here instead of leaving this slot empty. */}
-      {primary ? (
-        <button
-          onClick={primary.action}
-          className="w-full flex items-center justify-between gap-3 rounded-2xl bg-primary text-primary-foreground px-5 py-4 font-semibold transition-all active:scale-95"
-        >
-          <span className="flex items-center gap-2.5">
-            <primary.icon className="w-5 h-5" />
-            {primary.label}
-          </span>
-          <ChevronRight className="w-5 h-5 opacity-80" />
-        </button>
-      ) : deckSize === 0 ? (
-        <button
-          onClick={onBrowseDecks}
-          className="w-full flex items-center justify-between gap-3 rounded-2xl bg-primary text-primary-foreground px-5 py-4 text-start font-semibold transition-all active:scale-95"
-        >
-          <span className="flex items-center gap-2.5">
-            <LibraryBig className="w-5 h-5" />
-            <span>
-              <span className="block">Browse decks to get started</span>
-              <span className="block text-xs font-normal opacity-80">
-                Pick a ready-made set of words, or read something in the Library
+      <section aria-label="Today" className="overflow-hidden rounded-2xl border border-border bg-card">
+        {steps.map((st, i) => {
+          const isNext = st.key === nextKey;
+          const body = (
+            <>
+              <span
+                className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${
+                  st.done
+                    ? 'bg-success/15 text-success'
+                    : isNext
+                      ? 'bg-primary-foreground/20 text-primary-foreground'
+                      : 'bg-primary/10 text-primary'
+                }`}
+              >
+                {st.done ? <Check className="h-4 w-4" /> : <st.icon className="h-4 w-4" />}
               </span>
-            </span>
-          </span>
-          <ChevronRight className="w-5 h-5 opacity-80 shrink-0" />
-        </button>
-      ) : null}
-
-      {resume && (
-        <button
-          onClick={() => onContinueReading(resume.code, resume.chapter)}
-          className="w-full flex items-center justify-between gap-3 rounded-2xl border border-border bg-card px-5 py-4 text-start transition-colors hover:bg-muted/40"
-        >
-          <span className="flex items-center gap-2.5 min-w-0">
-            <BookOpen className="w-5 h-5 text-primary shrink-0" />
-            <span className="min-w-0">
-              <span className="block text-xs text-muted-foreground">Continue reading</span>
-              <span className="block font-semibold text-foreground truncate">
-                {resume.name} {resume.chapter}
+              <span className="min-w-0 flex-1">
+                <span className={`block font-semibold ${isNext ? 'text-primary-foreground' : 'text-foreground'}`}>{st.title}</span>
+                <span className={`block text-xs ${isNext ? 'text-primary-foreground/85' : 'text-muted-foreground'}`}>{st.detail}</span>
               </span>
-            </span>
-          </span>
-          <ChevronRight className="w-5 h-5 text-muted-foreground shrink-0" />
-        </button>
-      )}
+              {st.action && (
+                <ChevronRight className={`h-5 w-5 shrink-0 ${isNext ? 'text-primary-foreground/80' : 'text-muted-foreground'}`} />
+              )}
+            </>
+          );
+          const cls = `flex w-full items-center gap-3 px-4 py-3.5 text-start ${i > 0 ? 'border-t border-border' : ''} ${
+            isNext ? 'bg-primary' : ''
+          }`;
+          return st.action ? (
+            <button
+              key={st.key}
+              onClick={st.action}
+              className={`${cls} transition-colors ${isNext ? 'hover:bg-primary/90' : 'hover:bg-muted/40'} active:scale-[0.99]`}
+            >
+              {body}
+            </button>
+          ) : (
+            <div key={st.key} className={cls}>{body}</div>
+          );
+        })}
+      </section>
 
       {/* Extra practice on this week's words, whether or not they are due.
           Separate from Review because it changes nothing: it is exposure on
@@ -165,52 +189,6 @@ const HomeDashboard = ({
           <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
         </button>
       )}
-
-      <section className="space-y-2">
-        <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide px-1">Flashcards</h2>
-        <div className="grid grid-cols-2 gap-3">
-          <div className="rounded-2xl bg-card border border-border p-4 text-center space-y-0.5">
-            <p className="text-2xl font-bold text-foreground tabular-nums">{learnCount}</p>
-            <p className="text-xs text-muted-foreground">to learn</p>
-          </div>
-          <div className="rounded-2xl bg-card border border-border p-4 text-center space-y-0.5">
-            <p className="text-2xl font-bold text-foreground tabular-nums">{dueCount}</p>
-            <p className="text-xs text-muted-foreground">to review</p>
-            {waveLabel && <p className="text-[11px] leading-tight text-muted-foreground/80 pt-0.5">{waveLabel}</p>}
-          </div>
-        </div>
-        <div className="grid grid-cols-2 gap-2">
-          <button
-            onClick={onLearn}
-            disabled={learnCount === 0}
-            className="flex items-center justify-center gap-1.5 rounded-xl bg-secondary text-secondary-foreground py-3 text-sm font-semibold transition-all active:scale-95 disabled:opacity-40 disabled:pointer-events-none"
-          >
-            <GraduationCap className="w-4 h-4" />
-            Learn
-          </button>
-          <button
-            onClick={onBrowseDecks}
-            className="flex items-center justify-center gap-1.5 rounded-xl bg-secondary text-secondary-foreground py-3 text-sm font-semibold transition-all active:scale-95"
-          >
-            <LibraryBig className="w-4 h-4" />
-            Learn Decks
-          </button>
-        </div>
-      </section>
-
-      <button
-        onClick={onBrowseLibrary}
-        className="w-full flex items-center justify-between gap-3 rounded-2xl border border-border bg-card px-5 py-4 text-start transition-colors hover:bg-muted/40"
-      >
-        <span className="flex items-center gap-2.5">
-          <BookOpen className="w-5 h-5 text-primary" />
-          <span>
-            <span className="block font-semibold text-foreground">Library</span>
-            <span className="block text-xs text-muted-foreground">The Bible, articles, and more</span>
-          </span>
-        </span>
-        <ChevronRight className="w-5 h-5 text-muted-foreground" />
-      </button>
 
       <HomeDeckShelves />
       <DailyAudios />

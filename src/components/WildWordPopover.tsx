@@ -51,8 +51,8 @@ const WildWordPopover = ({ text, word, senses }: WildWordPopoverProps) => {
             e.preventDefault();
             setOpen(true);
           }}
-          className={`cursor-help rounded underline decoration-dotted underline-offset-4 transition-colors hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
-            primary ? 'decoration-primary/50' : 'decoration-muted-foreground/30'
+          className={`cursor-help rounded underline decoration-dotted underline-offset-[6px] transition-colors hover:bg-primary/10 hover:text-primary active:bg-primary/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
+            primary ? 'decoration-primary/20' : 'decoration-muted-foreground/15'
           }`}
         >
           {text}

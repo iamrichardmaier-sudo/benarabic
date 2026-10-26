@@ -1,6 +1,12 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { FlashCard } from '@/lib/spaced-repetition';
-import { Loader2, FileDown, Search } from 'lucide-react';
+import { Loader2, FileDown, Search, List, LayoutGrid, ChevronDown } from 'lucide-react';
+import {
+  cardStatus, countByStatus, dueIdSet, filterDeck, sortDeck,
+  FILTER_LABELS, SORT_LABELS, type DeckFilter, type DeckSort, type CardStatus,
+} from '@/lib/deck-view';
+import { dialectView } from '@/lib/dialect';
+import { usePreferences } from '@/hooks/usePreferences';
 import BackButton from '@/components/BackButton';
 import DeckCard from '@/components/DeckCard';
 import { searchDeck } from '@/lib/deck-search';
@@ -19,6 +25,35 @@ interface DeckListProps {
   /** The screen Back returns to, named on the button. */
   backLabel?: string;
 }
+
+const LAYOUT_KEY = 'wazn-deck-layout';
+const SORT_KEY = 'wazn-deck-sort';
+
+function readSaved<T extends string>(key: string, allowed: readonly T[], fallback: T): T {
+  try {
+    const v = localStorage.getItem(key) as T | null;
+    return v && allowed.includes(v) ? v : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function save(key: string, value: string) {
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    /* the choice just won't be remembered */
+  }
+}
+
+// Text stays dark (or white on the solid "Due" pill) so every label clears
+// 4.5:1; the colour lives in the outline.
+const STATUS_STYLE: Record<CardStatus['key'], string> = {
+  due: 'bg-primary text-primary-foreground',
+  new: 'border border-info/50 text-foreground',
+  learning: 'border border-warning/60 text-foreground',
+  known: 'text-muted-foreground',
+};
 
 function getCardColor(card: FlashCard): string | undefined {
   const isGreen = card.easeFactor >= 2.5 && card.stage2Attempts >= 3 && card.intervalDays >= 7;
@@ -49,10 +84,31 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack, backLabel = 'Back' }:
   // Only one card is turned over at a time: two open backs in a grid look like
   // a bug rather than a choice, and there is nothing to compare between them.
   const [flippedId, setFlippedId] = useState<string | null>(null);
+  const [filter, setFilter] = useState<DeckFilter>('all');
+  const [sort, setSort] = useState<DeckSort>(() =>
+    readSaved<DeckSort>(SORT_KEY, ['recent', 'az', 'next', 'root'], 'recent'));
+  // A list by default: one line per word keeps a deck of hundreds scannable,
+  // where the card grid made 145 words about 39,000 pixels of scrolling.
+  const [layout, setLayout] = useState<'list' | 'cards'>(() =>
+    readSaved<'list' | 'cards'>(LAYOUT_KEY, ['list', 'cards'], 'list'));
+  const { dialect } = usePreferences();
   const { toast } = useToast();
+  const editPanel = useRef<HTMLDivElement>(null);
 
-  const visible = useMemo(() => searchDeck(cards, query), [cards, query]);
+  const dueIds = useMemo(() => dueIdSet(cards), [cards]);
+  const searched = useMemo(() => searchDeck(cards, query), [cards, query]);
+  const counts = useMemo(() => countByStatus(searched, dueIds), [searched, dueIds]);
+  const visible = useMemo(
+    () => sortDeck(filterDeck(searched, filter, dueIds), sort),
+    [searched, filter, dueIds, sort],
+  );
   const editing = cards.find((c) => c.id === editingId) ?? null;
+
+  // The edit panel sits above the list; bring it into view when it opens,
+  // since the word being edited may be far down.
+  useEffect(() => {
+    if (editingId) editPanel.current?.scrollIntoView?.({ behavior: 'smooth', block: 'center' });
+  }, [editingId]);
 
   const startEdit = (card: FlashCard) => {
     setEditingId(card.id);
@@ -136,7 +192,8 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack, backLabel = 'Back' }:
             data.cell.styles.font = 'Amiri';
           }
           if (data.section === 'body') {
-            const card = cards[data.row.index];
+            // Rows follow `visible` (the filtered, sorted list), not `cards`.
+            const card = visible[data.row.index];
             if (card) {
               const color = getCardColor(card);
               if (color === '#e5ffe8') {
@@ -157,13 +214,29 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack, backLabel = 'Back' }:
     }
   };
 
+  const renderCard = (card: FlashCard) => (
+    <DeckCard
+      key={card.id}
+      card={card}
+      deck={cards}
+      flipped={layout === 'list' || flippedId === card.id}
+      onFlip={() => setFlippedId(flippedId === card.id ? null : card.id)}
+      onDelete={() => onDelete(card.id)}
+      onSwap={() => handleSwap(card)}
+      onRefreshImage={() => refreshImage(card)}
+      onEdit={() => startEdit(card)}
+      refreshing={refreshingId === card.id}
+      swapped={swappedId === card.id}
+    />
+  );
+
   return (
     <div className="w-full max-w-md lg:max-w-5xl mx-auto space-y-4">
       <BackButton label={backLabel} onClick={onBack} />
 
       <div className="flex items-center justify-between gap-3">
         <h2 className="text-xl font-bold text-foreground">
-          My Deck ({query ? `${visible.length} of ${cards.length}` : cards.length})
+          My Deck ({visible.length === cards.length ? cards.length : `${visible.length} of ${cards.length}`})
         </h2>
         <button
           onClick={exportPDF}
@@ -190,6 +263,54 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack, backLabel = 'Back' }:
             className="w-full rounded-full border border-border bg-card py-2 ps-9 pe-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
           />
         </div>
+
+        <div className="mt-2 flex flex-wrap items-center gap-2">
+          <div className="flex w-full min-w-0 gap-1.5 overflow-x-auto pb-0.5 sm:w-auto sm:flex-1" role="group" aria-label="Show">
+            {(Object.keys(FILTER_LABELS) as DeckFilter[]).map((f) => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                aria-pressed={filter === f}
+                className={`shrink-0 rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
+                  filter === f
+                    ? 'border-primary bg-primary text-primary-foreground'
+                    : 'border-border bg-card text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                {FILTER_LABELS[f]} <span className="tabular-nums opacity-80">{counts[f]}</span>
+              </button>
+            ))}
+          </div>
+          <label className="relative ms-auto shrink-0 sm:ms-0">
+            <span className="sr-only">Sort</span>
+            <select
+              value={sort}
+              onChange={(e) => { const v = e.target.value as DeckSort; setSort(v); save(SORT_KEY, v); }}
+              className="appearance-none rounded-full border border-border bg-card py-1 ps-3 pe-7 text-xs font-medium text-foreground focus:outline-none focus:ring-2 focus:ring-primary/30"
+            >
+              {(Object.keys(SORT_LABELS) as DeckSort[]).map((k) => (
+                <option key={k} value={k}>{SORT_LABELS[k]}</option>
+              ))}
+            </select>
+            <ChevronDown className="pointer-events-none absolute end-2 top-1/2 h-3 w-3 -translate-y-1/2 text-muted-foreground" />
+          </label>
+          <div className="flex shrink-0 rounded-full border border-border bg-card p-0.5" role="group" aria-label="Layout">
+            {([['list', List, 'List'], ['cards', LayoutGrid, 'Cards']] as const).map(([value, Icon, label]) => (
+              <button
+                key={value}
+                onClick={() => { setLayout(value); save(LAYOUT_KEY, value); }}
+                aria-pressed={layout === value}
+                aria-label={label}
+                title={label}
+                className={`rounded-full p-1.5 transition-colors ${
+                  layout === value ? 'bg-muted text-foreground' : 'text-muted-foreground hover:text-foreground'
+                }`}
+              >
+                <Icon className="h-3.5 w-3.5" />
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       {cards.length === 0 && (
@@ -197,14 +318,16 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack, backLabel = 'Back' }:
       )}
 
       {cards.length > 0 && visible.length === 0 && (
-        <p className="py-8 text-center text-muted-foreground">Nothing matches “{query}”.</p>
+        <p className="py-8 text-center text-muted-foreground">
+          {query ? `Nothing matches “${query}”${filter !== 'all' ? ` in ${FILTER_LABELS[filter]}` : ''}.` : `No ${FILTER_LABELS[filter].toLowerCase()} words right now.`}
+        </p>
       )}
 
       {/* Editing happens in a panel above the grid rather than inside a card:
           a text field on the back of a card that is mid-rotation is a fight
           with the animation, and the field would be clipped by the tile. */}
       {editing && (
-        <div className="space-y-2 rounded-2xl border border-primary/40 bg-card p-4">
+        <div ref={editPanel} className="space-y-2 rounded-2xl border border-primary/40 bg-card p-4">
           <p className="flex items-center gap-2 text-sm font-medium text-foreground">
             Editing
             <span className="font-arabic text-lg" dir="rtl">{editing.word}</span>
@@ -252,23 +375,50 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack, backLabel = 'Back' }:
         </div>
       )}
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((card) => (
-          <DeckCard
-            key={card.id}
-            card={card}
-            deck={cards}
-            flipped={flippedId === card.id}
-            onFlip={() => setFlippedId(flippedId === card.id ? null : card.id)}
-            onDelete={() => onDelete(card.id)}
-            onSwap={() => handleSwap(card)}
-            onRefreshImage={() => refreshImage(card)}
-            onEdit={() => startEdit(card)}
-            refreshing={refreshingId === card.id}
-            swapped={swappedId === card.id}
-          />
-        ))}
-      </div>
+      {layout === 'cards' ? (
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {visible.map((card) => renderCard(card))}
+        </div>
+      ) : (
+        visible.length > 0 && (
+          <ul className="overflow-hidden rounded-2xl border border-border bg-card">
+            {visible.map((card, i) => {
+              const status = cardStatus(card, dueIds);
+              const open = flippedId === card.id;
+              const view = dialectView(card, dialect);
+              return (
+                <li key={card.id} className={i > 0 ? 'border-t border-border' : ''}>
+                  <button
+                    onClick={() => setFlippedId(open ? null : card.id)}
+                    aria-expanded={open}
+                    className={`flex w-full items-center gap-3 px-4 py-2.5 text-start transition-colors hover:bg-muted/40 ${open ? 'bg-muted/40' : ''}`}
+                  >
+                    <span className="font-arabic w-28 shrink-0 truncate text-xl font-semibold leading-relaxed text-foreground" dir="rtl">
+                      {view.headline}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-sm text-foreground">{card.english || '—'}</span>
+                      {(card.root || card.verbForm) && (
+                        <span className="block truncate text-xs text-muted-foreground">
+                          {card.root && <span className="font-arabic text-[13px]" dir="rtl">{card.root}</span>}
+                          {card.root && card.verbForm && ' · '}
+                          {card.verbForm && `Form ${card.verbForm}`}
+                        </span>
+                      )}
+                    </span>
+                    <span className={`shrink-0 rounded-full px-2 py-0.5 text-[11px] font-medium tabular-nums ${STATUS_STYLE[status.key]}`}>
+                      {status.label}
+                    </span>
+                  </button>
+                  {/* The word's card, already turned over: forms, family and
+                      every action (edit, swap, image, delete) in one place. */}
+                  {open && <div className="px-3 pb-3">{renderCard(card)}</div>}
+                </li>
+              );
+            })}
+          </ul>
+        )
+      )}
     </div>
   );
 };

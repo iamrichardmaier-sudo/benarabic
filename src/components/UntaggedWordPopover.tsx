@@ -33,7 +33,7 @@ const UntaggedWordPopover = ({ text }: UntaggedWordPopoverProps) => {
             e.preventDefault();
             setOpen(true);
           }}
-          className="cursor-help rounded underline decoration-dotted decoration-muted-foreground/30 underline-offset-4 transition-colors hover:text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+          className="cursor-help rounded underline decoration-dotted decoration-muted-foreground/15 underline-offset-[6px] transition-colors hover:bg-primary/10 hover:text-primary active:bg-primary/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
         >
           {text}
         </button>

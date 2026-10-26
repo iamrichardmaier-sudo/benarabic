@@ -226,7 +226,7 @@ const ChapterReader = ({
                   }`}
                 >
                   <Columns2 className="w-4 h-4" />
-                  Side by side
+                  With English
                 </button>
                 <button
                   onClick={() => chooseMode('tap')}
@@ -282,7 +282,7 @@ const ChapterReader = ({
 
       {/* Reading area */}
       <div
-        className="rounded-2xl border border-border bg-card p-5 select-none"
+        className="rounded-2xl border border-border bg-card p-4 sm:p-5 select-none"
         style={{ '--bible-scale': prefs.textScale } as React.CSSProperties}
         onTouchStart={swipe.onTouchStart}
         onTouchEnd={swipe.onTouchEnd}
@@ -291,7 +291,10 @@ const ChapterReader = ({
         {error && <p className="text-sm text-destructive text-center py-8">{error}</p>}
 
         {verses && mode === 'side' && (
-          <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+          // Phones stack each verse (Arabic full width, English beneath):
+          // side by side squeezed the Arabic to a few words a line. From
+          // tablet width up the two columns return.
+          <div className="space-y-5 sm:space-y-3">
             {verses.map((v) => (
               <VerseRowPair key={v.v} verse={v} tags={wordTags} />
             ))}
@@ -367,18 +370,18 @@ const VerseRowPair = ({
   verse: { v: number; a: string; e: string };
   tags: Map<string, BibleWordTag>;
 }) => (
-  <>
+  // One grid per verse keeps a verse's two halves level with each other in
+  // the side-by-side layout, and lets them stack on a phone.
+  <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2 sm:gap-x-4">
     <p
-      className="text-muted-foreground"
-      style={{ fontSize: 'calc(0.875rem * var(--bible-scale, 1))' }}
+      className="order-2 text-muted-foreground sm:order-1 text-[calc(0.875rem*var(--bible-scale,1))]"
       dir="ltr"
     >
-      <span className="text-xs text-muted-foreground/70 align-super me-1">{verse.v}</span>
+      <span className="text-xs text-muted-foreground/70 align-super me-1 hidden sm:inline">{verse.v}</span>
       {verse.e}
     </p>
     <p
-      className="font-arabic text-foreground text-right"
-      style={{ fontSize: 'calc(1.125rem * var(--bible-scale, 1))' }}
+      className="order-1 font-arabic leading-loose text-foreground text-right sm:order-2 text-[calc(1.35rem*var(--bible-scale,1))] sm:text-[calc(1.125rem*var(--bible-scale,1))]"
       dir="rtl"
     >
       <ArabicWithTags text={verse.a} tags={tags} />
@@ -386,7 +389,7 @@ const VerseRowPair = ({
         {verse.v}
       </span>
     </p>
-  </>
+  </div>
 );
 
 export default ChapterReader;
