@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { FlashCard } from '@/lib/spaced-repetition';
-import { ArrowLeft, Loader2, FileDown, Search } from 'lucide-react';
+import { Loader2, FileDown, Search } from 'lucide-react';
+import BackButton from '@/components/BackButton';
 import DeckCard from '@/components/DeckCard';
 import { searchDeck } from '@/lib/deck-search';
 import { isoDay } from '@/lib/day';
@@ -15,6 +16,8 @@ interface DeckListProps {
   onDelete: (id: string) => void;
   onUpdateCard: (id: string, updates: Partial<Pick<FlashCard, 'imageUrl' | 'english' | 'word'>>) => void;
   onBack: () => void;
+  /** The screen Back returns to, named on the button. */
+  backLabel?: string;
 }
 
 function getCardColor(card: FlashCard): string | undefined {
@@ -35,7 +38,7 @@ function formatDate(dateStr: string | null | undefined): string {
   }
 }
 
-const DeckList = ({ cards, onDelete, onUpdateCard, onBack }: DeckListProps) => {
+const DeckList = ({ cards, onDelete, onUpdateCard, onBack, backLabel = 'Back' }: DeckListProps) => {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editEnglish, setEditEnglish] = useState('');
   const [editImageUrl, setEditImageUrl] = useState('');
@@ -156,13 +159,7 @@ const DeckList = ({ cards, onDelete, onUpdateCard, onBack }: DeckListProps) => {
 
   return (
     <div className="w-full max-w-md lg:max-w-5xl mx-auto space-y-4">
-      <button
-        onClick={onBack}
-        className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-      >
-        <ArrowLeft className="w-4 h-4" />
-        Back
-      </button>
+      <BackButton label={backLabel} onClick={onBack} />
 
       <div className="flex items-center justify-between gap-3">
         <h2 className="text-xl font-bold text-foreground">

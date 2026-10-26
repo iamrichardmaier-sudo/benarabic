@@ -98,7 +98,14 @@ const RootExplorer = ({ cards, onBack, initialRoot = null }: RootExplorerProps) 
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block truncate text-sm text-foreground">
-                    {meaning ?? <span className="text-muted-foreground">No gloss yet</span>}
+                    {meaning ?? (r.example ? (
+                      // No recorded meaning for the root: one of the learner's
+                      // own words on it says more than a placeholder would.
+                      <span className="text-muted-foreground">
+                        <span className="font-arabic text-foreground" dir="rtl">{r.example.word}</span>
+                        {r.example.english ? ` · ${r.example.english}` : ''}
+                      </span>
+                    ) : null)}
                   </span>
                   <span className="block text-xs text-muted-foreground">
                     {r.count} word{r.count === 1 ? '' : 's'}

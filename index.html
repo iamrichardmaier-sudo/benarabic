@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- viewport-fit=cover makes env(safe-area-inset-*) report real values, which the
+         tab bar uses to stay clear of the iPhone home indicator. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Wazn — Learn Arabic through its roots and patterns</title>
     <meta name="description" content="Read real Arabic and see every word's root, form and meaning. Wazn maps a fully-vocalized corpus word by word, links words that share a root, and turns any of them into a spaced-repetition flashcard.">
     <meta name="author" content="Wazn" />
@@ -29,14 +31,15 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <!-- One request for both faces: Inter for the interface, Noto Naskh for Arabic. -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Google Search Console: paste the verification meta tag here. -->
 
     <style>
       /* Static landing page: what logged-out visitors and search engines see at "/"
          before (and instead of) the app. React reuses this markup, see src/pages/Landing.tsx. */
       .lp{--lp-bg:hsl(36 33% 97%);--lp-card:hsl(36 40% 95%);--lp-fg:hsl(24 10% 15%);--lp-muted:hsl(24 8% 40%);
-        --lp-primary:hsl(24 70% 42%);--lp-border:hsl(36 20% 86%);
+        --lp-primary:hsl(24 70% 40%);--lp-border:hsl(36 20% 86%);
         background:var(--lp-bg);color:var(--lp-fg);min-height:100vh;
         font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
       @media (prefers-color-scheme:dark){.lp{--lp-bg:hsl(24 12% 10%);--lp-card:hsl(24 10% 14%);--lp-fg:hsl(36 20% 92%);

@@ -25,27 +25,38 @@ export interface RootSummary {
   forms: VerbForm[];
   /** Lower-cased glosses of the root's words, so an English search finds them. */
   gloss: string;
+  /**
+   * One of the learner's own words on this root, to stand in for the root's
+   * meaning when none is recorded: the Form I verb if they hold it, else any
+   * verb, else the first word.
+   */
+  example: { word: string; english: string | null } | null;
 }
 
 /** One entry per root the deck holds a word on, the fullest family first. */
 export function summariseRoots(cards: FlashCard[]): RootSummary[] {
-  const byKey = new Map<string, RootSummary & { formSet: Set<VerbForm> }>();
+  const byKey = new Map<string, RootSummary & { formSet: Set<VerbForm>; exampleRank: number }>();
 
   for (const card of cards) {
     const key = rootKey(card.root);
     if (!key || !card.root) continue;
     let entry = byKey.get(key);
     if (!entry) {
-      entry = { key, root: card.root, count: 0, forms: [], gloss: '', formSet: new Set() };
+      entry = { key, root: card.root, count: 0, forms: [], gloss: '', example: null, exampleRank: 9, formSet: new Set() };
       byKey.set(key, entry);
     }
     entry.count += 1;
     if (card.wordType === 'verb' && card.verbForm) entry.formSet.add(card.verbForm);
     if (card.english) entry.gloss += ` ${card.english.toLowerCase()}`;
+    const rank = !card.english ? 8 : card.wordType === 'verb' ? (card.verbForm === 'I' ? 0 : 1) : 2;
+    if (rank < entry.exampleRank) {
+      entry.exampleRank = rank;
+      entry.example = { word: card.wordVoweled || card.word, english: card.english };
+    }
   }
 
   return [...byKey.values()]
-    .map(({ formSet, ...rest }) => ({ ...rest, forms: VERB_FORMS.filter((f) => formSet.has(f)) }))
+    .map(({ formSet, exampleRank: _rank, ...rest }) => ({ ...rest, forms: VERB_FORMS.filter((f) => formSet.has(f)) }))
     .sort((a, b) => b.count - a.count || a.root.localeCompare(b.root, 'ar'));
 }
 

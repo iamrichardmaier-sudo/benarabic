@@ -117,7 +117,7 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
   if (nouns.length === 0) {
     return (
       <div className="space-y-4">
-        <BackButton onClick={onBack} />
+        <BackButton label="Learn" onClick={onBack} />
         <div className="rounded-xl border border-border/60 bg-card p-6 text-center">
           <Hash className="mx-auto mb-3 h-8 w-8 text-muted-foreground/60" />
           <p className="font-medium text-foreground">No nouns ready to drill yet</p>
@@ -136,7 +136,7 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
 
     return (
       <div className="space-y-4">
-        <BackButton onClick={onBack} />
+        <BackButton label="Learn" onClick={onBack} />
         <div className="space-y-1">
           <h1 className="text-2xl font-bold text-foreground">Numbers and plurals</h1>
           <p className="text-sm text-muted-foreground">
@@ -292,7 +292,7 @@ const NumbersDrill = ({ cards, onBack }: NumbersDrillProps) => {
       }}
     >
       <div className="flex items-center justify-between">
-        <BackButton onClick={() => setStarted(false)} />
+        <BackButton label="Ranges" onClick={() => setStarted(false)} />
         <button
           onClick={() => setReviewing((r) => !r)}
           disabled={missed.length === 0}

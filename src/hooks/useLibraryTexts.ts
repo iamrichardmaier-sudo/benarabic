@@ -55,15 +55,19 @@ function rowToText(row: Row, currentUserId: string): LibraryText {
  * app: a saved text is usually someone else's writing, kept for study, and
  * the app's own build is published for anyone to download.
  */
-export function useLibraryTexts() {
+export function useLibraryTexts(options: { showsErrorItself?: boolean } = {}) {
+  const { showsErrorItself = false } = options;
   const { user } = useAuth();
+  // The id, not the object: a new user object arrives on every session event
+  // and must not trigger another load of the same person's texts.
+  const userId = user?.id ?? null;
   const { toast } = useToast();
   const [texts, setTexts] = useState<LibraryText[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const refresh = useCallback(async () => {
-    if (!user) {
+    if (!userId) {
       setTexts([]);
       setLoading(false);
       return;
@@ -84,13 +88,17 @@ export function useLibraryTexts() {
       // Not every screen that uses this hook renders `error` itself — the
       // toast is what makes a failed load visible everywhere this is used,
       // not just on the one screen that happens to check for it.
-      toast({ title: 'Your saved texts could not be loaded', variant: 'destructive' });
+      // A screen that already shows the error in place gets no second,
+      // identical message on top of it.
+      if (!showsErrorItself) {
+        toast({ title: 'Your saved texts could not be loaded', variant: 'destructive' });
+      }
     } else {
       setError(null);
-      setTexts((data as unknown as Row[]).map((row) => rowToText(row, user.id)));
+      setTexts((data as unknown as Row[]).map((row) => rowToText(row, userId)));
     }
     setLoading(false);
-  }, [user, toast]);
+  }, [userId, toast, showsErrorItself]);
 
   useEffect(() => {
     refresh();

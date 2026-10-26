@@ -48,7 +48,8 @@ function WordRow({
   adding: boolean;
 }) {
   const subtitle = [
-    result.pos ? POS_LABELS[result.pos] ?? result.pos : null,
+    // Only named parts of speech are shown; the tagger's catch-all "other" says nothing.
+    result.pos && POS_LABELS[result.pos] ? POS_LABELS[result.pos] : null,
     result.verbForm ? `Form ${result.verbForm}` : null,
   ]
     .filter(Boolean)

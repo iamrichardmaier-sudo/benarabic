@@ -45,7 +45,7 @@ import Library from './Library';
 
 /** Drill from Library home all the way into Genesis 1. */
 async function openGenesis1(user: ReturnType<typeof userEvent.setup>) {
-  await user.click(screen.getByRole('button', { name: /The Bible/ }));
+  await user.click(screen.getByRole('button', { name: /Scripture/ }));
   await user.click(screen.getByRole('button', { name: /Old Testament/ }));
   await user.click(screen.getByRole('button', { name: /Genesis/ }));
   await user.click(screen.getByRole('button', { name: '1' }));
@@ -63,8 +63,8 @@ describe('Library drill-down', () => {
     render(<Library />);
 
     expect(screen.getByRole('heading', { name: 'Library' })).toBeInTheDocument();
-    await user.click(screen.getByRole('button', { name: /The Bible/ }));
-    expect(screen.getByRole('heading', { name: 'The Bible' })).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /Scripture/ }));
+    expect(screen.getByRole('heading', { name: 'Scripture' })).toBeInTheDocument();
 
     await user.click(screen.getByRole('button', { name: /Old Testament/ }));
     expect(screen.getByRole('heading', { name: 'Old Testament' })).toBeInTheDocument();
@@ -80,7 +80,7 @@ describe('Library drill-down', () => {
   it('puts New Testament books in their own section', async () => {
     const user = userEvent.setup();
     render(<Library />);
-    await user.click(screen.getByRole('button', { name: /The Bible/ }));
+    await user.click(screen.getByRole('button', { name: /Scripture/ }));
     await user.click(screen.getByRole('button', { name: /New Testament/ }));
     expect(screen.getByRole('button', { name: /Matthew/ })).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /Genesis/ })).not.toBeInTheDocument();
@@ -216,14 +216,14 @@ describe('Book of Mormon', () => {
   it('sits alongside the two testaments', async () => {
     const user = userEvent.setup();
     render(<Library />);
-    await user.click(screen.getByRole('button', { name: /The Bible/ }));
+    await user.click(screen.getByRole('button', { name: /Scripture/ }));
     expect(screen.getByRole('button', { name: /Book of Mormon/ })).toBeInTheDocument();
   });
 
   it('walks Book of Mormon \u2192 book \u2192 chapter \u2192 reader', async () => {
     const user = userEvent.setup();
     render(<Library />);
-    await user.click(screen.getByRole('button', { name: /The Bible/ }));
+    await user.click(screen.getByRole('button', { name: /Scripture/ }));
     await user.click(screen.getByRole('button', { name: /Book of Mormon/ }));
     expect(screen.getByRole('heading', { name: 'Book of Mormon' })).toBeInTheDocument();
 
@@ -240,9 +240,9 @@ describe('Book of Mormon', () => {
   it('comes back out to the section list', async () => {
     const user = userEvent.setup();
     render(<Library />);
-    await user.click(screen.getByRole('button', { name: /The Bible/ }));
+    await user.click(screen.getByRole('button', { name: /Scripture/ }));
     await user.click(screen.getByRole('button', { name: /Book of Mormon/ }));
-    await user.click(screen.getByRole('button', { name: /Back to The Bible/ }));
-    expect(screen.getByRole('heading', { name: 'The Bible' })).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /Back to Scripture/ }));
+    expect(screen.getByRole('heading', { name: 'Scripture' })).toBeInTheDocument();
   });
 });

@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
-import { ChevronLeft, Check, X } from 'lucide-react';
+import { Check, X } from 'lucide-react';
+import BackButton from '@/components/BackButton';
 import { FlashCard } from '@/lib/spaced-repetition';
 import { normalizeArabicKeepVowels, normalizeArabicIgnoreShortVowels } from '@/lib/arabic-normalize';
 import { VERB_FORM_GLOSSES, loadRootMeanings } from '@/lib/morphology';
@@ -70,16 +71,6 @@ const FIELDS: { key: 'past' | 'present' | 'masdar'; label: string; get: (item: D
   { key: 'present', label: 'Present Tense', get: (i) => i.presentTense },
   { key: 'masdar', label: 'Masdar', get: (i) => i.masdarForm },
 ];
-
-const BackLink = ({ label, onClick }: { label: string; onClick: () => void }) => (
-  <button
-    onClick={onClick}
-    className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
-  >
-    <ChevronLeft className="w-4 h-4" />
-    {label}
-  </button>
-);
 
 const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
   // Every verb eligible for drilling, one entry per root + form pair.
@@ -252,7 +243,7 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
     return (
       <div className="space-y-4">
         <div className="mb-2">
-          <BackLink label="Back" onClick={onBack} />
+          <BackButton label="Learn" onClick={onBack} />
         </div>
         <h2 className="text-xl font-bold text-foreground">Drill Conjugations</h2>
         <div className="rounded-2xl border border-border bg-card p-8 text-center space-y-2">
@@ -280,7 +271,7 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
     const allSelected = selectedForms.size === availableForms.length;
     return (
       <div className="space-y-4">
-        <BackLink label="Back" onClick={onBack} />
+        <BackButton label="Learn" onClick={onBack} />
 
         <div className="space-y-1">
           <h2 className="text-xl font-bold text-foreground">Drill Conjugations</h2>
@@ -382,7 +373,7 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
   if (index >= items.length) {
     return (
       <div className="space-y-4">
-        <BackLink label="Back" onClick={onBack} />
+        <BackButton label="Learn" onClick={onBack} />
         <div className="rounded-2xl border border-border bg-card p-8 text-center space-y-2">
           <p className="text-foreground font-medium">Drill complete!</p>
           <p className="text-sm text-muted-foreground">
@@ -402,7 +393,7 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <BackLink label="Forms" onClick={() => setPhase('select')} />
+        <BackButton label="Forms" onClick={() => setPhase('select')} />
         <span className="text-sm text-muted-foreground">{index + 1} / {items.length}</span>
       </div>
 

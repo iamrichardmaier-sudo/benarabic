@@ -16,7 +16,7 @@ const shared: LibraryText[] = [
 describe('LibraryHome', () => {
   it('shows nothing of the reader\'s own when they have saved nothing', () => {
     render(<LibraryHome onSelect={() => {}} />);
-    expect(screen.getByText('The Bible')).toBeInTheDocument();
+    expect(screen.getByText('Scripture')).toBeInTheDocument();
     expect(screen.queryByText('Yours')).toBeNull();
   });
 

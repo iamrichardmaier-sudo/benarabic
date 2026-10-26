@@ -3,7 +3,7 @@ import {
   summariseRoots, filterRoots, buildRootTree, fillPattern, rootVariants,
   verbFormRows, scriptureNotInDeck, meaningFor, type ScriptureWord,
 } from './root-tree';
-import type { FlashCard } from './spaced-repetition';
+import { createCard, type FlashCard } from './spaced-repetition';
 
 function card(over: Partial<FlashCard> & { id: string; word: string }): FlashCard {
   return {
@@ -28,6 +28,19 @@ const deck: FlashCard[] = [
   card({ id: '6', word: 'أخذ', wordVoweled: 'أَخَذَ', english: 'to take', root: 'أ-خ-ذ', wordType: 'verb', verbForm: 'I' }),
   card({ id: '7', word: 'بيت', english: 'house', root: null, wordType: 'noun' }),
 ];
+
+describe('summariseRoots example word', () => {
+  it('prefers the Form I verb, then any verb, then the first word', () => {
+    const mk = (word: string, english: string, wordType: FlashCard['wordType'], verbForm: FlashCard['verbForm'] = null) =>
+      ({ ...createCard(word, english), root: 'ك-ت-ب', wordType, verbForm });
+    const [r] = summariseRoots([
+      mk('كِتاب', 'book', 'noun'),
+      mk('كاتَبَ', 'to correspond', 'verb', 'III'),
+      mk('كَتَبَ', 'to write', 'verb', 'I'),
+    ]);
+    expect(r.example).toEqual({ word: 'كَتَبَ', english: 'to write' });
+  });
+});
 
 describe('summariseRoots', () => {
   it('groups cards by root, fullest family first, and skips rootless words', () => {

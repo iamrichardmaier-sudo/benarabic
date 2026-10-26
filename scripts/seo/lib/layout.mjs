@@ -15,7 +15,7 @@ gtag('js',new Date());gtag('config','${GA_ID}');</script>`
 
 const CSS = `
 :root{--bg:hsl(36 33% 97%);--card:hsl(36 40% 95%);--fg:hsl(24 10% 15%);
---muted:hsl(24 8% 40%);--primary:hsl(24 70% 42%);--border:hsl(36 20% 86%);--soft:hsl(24 70% 42% / .09)}
+--muted:hsl(24 8% 40%);--primary:hsl(24 70% 40%);--border:hsl(36 20% 86%);--soft:hsl(24 70% 40% / .09)}
 @media(prefers-color-scheme:dark){:root{--bg:hsl(24 12% 10%);--card:hsl(24 10% 14%);
 --fg:hsl(36 20% 92%);--muted:hsl(36 8% 66%);--primary:hsl(24 75% 60%);--border:hsl(24 10% 24%);--soft:hsl(24 75% 60% / .12)}}
 *{box-sizing:border-box}

@@ -90,9 +90,9 @@ const LibraryHome = ({
       >
         <BookOpen className="w-5 h-5 text-primary shrink-0" />
         <span className="min-w-0 flex-1">
-          <span className="block font-semibold text-foreground">The Bible</span>
+          <span className="block font-semibold text-foreground">Scripture</span>
           <span className="block text-xs text-muted-foreground truncate">
-            Fully vowelled Arabic with English alongside · 66 books, audio throughout
+            The Bible and the Book of Mormon, fully vowelled with English alongside
           </span>
         </span>
         <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />

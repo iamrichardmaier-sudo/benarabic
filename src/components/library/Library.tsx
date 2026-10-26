@@ -58,7 +58,7 @@ interface LibraryProps {
 }
 
 /**
- * The Library's navigation stack: Library → The Bible → Testament → book →
+ * The Library's navigation stack: Library → Scripture → Testament → book →
  * chapter list → reader, plus Articles as a sibling "book".
  *
  * Levels are held as explicit state rather than routes because the whole app is
@@ -68,7 +68,7 @@ interface LibraryProps {
 const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
   const { books, loading, error } = useBibleBooks();
   const [level, setLevel] = useState<Level>({ kind: 'home' });
-  const { texts, error: libraryError } = useLibraryTexts();
+  const { texts, error: libraryError } = useLibraryTexts({ showsErrorItself: true });
 
   // Tapping the already-active Library tab returns to the root.
   useEffect(() => {
@@ -145,7 +145,7 @@ const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
         chapter={level.chapter}
         crumbs={[
           { label: 'Library', onJump: () => setLevel({ kind: 'home' }) },
-          { label: 'The Bible', onJump: () => setLevel({ kind: 'sections' }) },
+          { label: 'Scripture', onJump: () => setLevel({ kind: 'sections' }) },
           {
             label: testament === 'ot' ? 'Old Testament' : 'New Testament',
             onJump: () => setLevel({ kind: 'books', testament }),
@@ -200,7 +200,7 @@ const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
     const list = level.testament === 'ot' ? books.slice(0, OT_COUNT) : books.slice(OT_COUNT);
     return (
       <div className="space-y-4">
-        <BackButton label="The Bible" onClick={() => setLevel({ kind: 'sections' })} />
+        <BackButton label="Scripture" onClick={() => setLevel({ kind: 'sections' })} />
         <h1 className="text-2xl font-bold text-foreground">
           {level.testament === 'ot' ? 'Old Testament' : 'New Testament'}
         </h1>
@@ -239,7 +239,7 @@ const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
         chapter={level.chapter}
         crumbs={[
           { label: 'Library', onJump: () => setLevel({ kind: 'home' }) },
-          { label: 'The Bible', onJump: () => setLevel({ kind: 'sections' }) },
+          { label: 'Scripture', onJump: () => setLevel({ kind: 'sections' }) },
           { label: 'Book of Mormon', onJump: () => setLevel({ kind: 'bomBooks' }) },
           {
             label: book.name,
@@ -296,7 +296,7 @@ const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
   if (level.kind === 'bomBooks') {
     return (
       <div className="space-y-4">
-        <BackButton label="The Bible" onClick={() => setLevel({ kind: 'sections' })} />
+        <BackButton label="Scripture" onClick={() => setLevel({ kind: 'sections' })} />
         <h1 className="text-2xl font-bold text-foreground">Book of Mormon</h1>
         <div className="rounded-2xl border border-border bg-card overflow-hidden">
           {BOM_BOOKS.map((b, i) => (
@@ -322,9 +322,11 @@ const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
     return (
       <div className="space-y-4">
         <BackButton label="Library" onClick={() => setLevel({ kind: 'home' })} />
-        <h1 className="text-2xl font-bold text-foreground">The Bible</h1>
+        {/* "Scripture", not "The Bible": the Book of Mormon is listed here too. */}
+        <h1 className="text-2xl font-bold text-foreground">Scripture</h1>
         <p className="text-sm text-muted-foreground">
-          Smith &amp; Van Dyke (1865), fully vowelled, with the King James Version alongside.
+          Fully vowelled Arabic with English alongside: the Smith &amp; Van Dyke Bible (1865)
+          with the King James Version, and the Book of Mormon.
         </p>
         <div className="rounded-2xl border border-border bg-card overflow-hidden">
           {(['ot', 'nt'] as Testament[]).map((t, i) => (

@@ -119,7 +119,7 @@ const FocusReview = ({
                   className="mx-auto mb-4 max-h-[26vh] max-w-[78%] rounded-2xl object-cover"
                 />
               )}
-              <p className="text-[32px] leading-snug text-muted-foreground">{card.english}</p>
+              <p className="text-[32px] leading-snug text-foreground">{card.english}</p>
             </>
           ) : (
             <>

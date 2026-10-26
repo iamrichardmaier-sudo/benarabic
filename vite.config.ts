@@ -20,17 +20,11 @@ export default defineConfig(({ mode }) => ({
     mode === "development" && componentTagger(),
     VitePWA({
       registerType: "autoUpdate",
-      manifest: {
-        name: "Arabic Flashcards",
-        short_name: "بطاقات",
-        description: "Spaced-repetition flashcards for Fusha and Shaami Arabic.",
-        lang: "en",
-        start_url: ".",
-        scope: ".",
-        display: "standalone",
-        background_color: "#ffffff",
-        theme_color: "#ffffff",
-      },
+      // The manifest is public/manifest.webmanifest (name "Wazn", the brand's
+      // orange, icons), linked from index.html. A generated one here used to
+      // overwrite it at build time, so the installed app was called
+      // "Arabic Flashcards" with a white title bar.
+      manifest: false,
       workbox: {
         // Precache the app shell so a cold start with no network still boots.
         globPatterns: ["**/*.{js,css,html,ico,png,svg,woff,woff2}"],

@@ -255,6 +255,10 @@ const Index = () => {
     settings: 'settings',
   };
 
+  const TAB_LABEL: Record<Tab, string> = {
+    home: 'Home', learn: 'Learn', library: 'Library', review: 'Home', settings: 'Settings',
+  };
+
   /** Tapping a tab always returns to that section's root, including the tab
    *  you are already on — the standard "tap again to go back up" shortcut. */
   const selectTab = (next: Tab) => {
@@ -661,7 +665,7 @@ const Index = () => {
                 card={reviewItems[currentIndex].card}
                 direction={reviewItems[currentIndex].direction}
                 onRate={handleRate}
-                progress={{ current: currentIndex + 1, total: reviewItems.length }}
+                progress={{ current: currentIndex + 1, total: reviewItems.length, cards: new Set(reviewItems.map((i) => i.card.id)).size }}
                 deck={cards}
               />
             )}
@@ -706,7 +710,10 @@ const Index = () => {
             cards={cards}
             onDelete={handleDelete}
             onUpdateCard={handleUpdateCard}
-            onBack={() => setView(tab === 'settings' ? 'settings' : 'learnHub')}
+            // Back returns to the root of the tab the deck was opened from: Home's
+            // header link used to drop you in the Learn tab instead.
+            onBack={() => setView(tab === 'review' ? 'home' : TAB_HOME_VIEW[tab])}
+            backLabel={tab === 'review' ? 'Home' : TAB_LABEL[tab]}
           />
         )}
 

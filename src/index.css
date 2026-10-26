@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,14 +13,17 @@
     --popover: 36 33% 97%;
     --popover-foreground: 24 10% 15%;
 
-    --primary: 24 70% 45%;
+    /* 40% lightness, not the original 45%: white text on the button and orange
+       text on the page both need 4.5:1 contrast to stay readable (45% gave 3.9). */
+    --primary: 24 70% 40%;
     --primary-foreground: 36 33% 97%;
 
     --secondary: 36 25% 90%;
     --secondary-foreground: 24 10% 25%;
 
     --muted: 36 20% 92%;
-    --muted-foreground: 24 8% 50%;
+    /* 40% gives 4.8–5.4:1 on every light surface; 50% was 3.6–3.7. */
+    --muted-foreground: 24 8% 40%;
 
     --accent: 36 30% 88%;
     --accent-foreground: 24 10% 20%;
@@ -42,11 +42,14 @@
 
     --border: 36 20% 88%;
     --input: 36 20% 88%;
-    --ring: 24 70% 45%;
+    --ring: 24 70% 40%;
 
     --radius: 0.75rem;
 
-    --font-arabic: 'Arial', 'Times New Roman', sans-serif;
+    /* Noto Naskh is loaded in index.html. Arial used to be first here, and since
+       iPhone, Mac and Windows all ship Arial with Arabic glyphs, every Arabic
+       word rendered in plain Arial even though a proper Naskh face was loaded. */
+    --font-arabic: 'Noto Naskh Arabic', 'Amiri', 'Geeza Pro', 'Traditional Arabic', serif;
     --font-body: 'Inter', sans-serif;
 
     --card-shadow: 0 2px 8px -2px hsl(24 20% 20% / 0.08), 0 6px 20px -4px hsl(24 20% 20% / 0.06);

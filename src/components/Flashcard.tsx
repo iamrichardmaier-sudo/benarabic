@@ -17,7 +17,8 @@ interface FlashcardProps {
   direction?: ReviewDirection;
   onRate: (rating: Rating) => void;
   /** Position in the current session, for the progress indicator. */
-  progress?: { current: number; total: number };
+  /** `cards` is how many distinct cards the session covers (each word is asked both ways). */
+  progress?: { current: number; total: number; cards?: number };
   /** The whole deck, so the answer can show words sharing a root or a form. */
   deck?: FlashCard[];
 }
@@ -60,7 +61,7 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
         />
       )}
       {card.english && (
-        <p className="text-[36px] text-muted-foreground text-center leading-snug">
+        <p className="text-[36px] text-foreground text-center leading-snug">
           {card.english}
         </p>
       )}
@@ -156,17 +157,42 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
           </div>
           <p className="text-xs text-muted-foreground text-center tabular-nums">
             {progress.current} of {progress.total}
+            {progress.cards !== undefined && progress.cards < progress.total && (
+              // Each word is asked in both directions, so a review of 48 cards
+              // is 96 prompts; say so rather than let the two numbers disagree.
+              <> · {progress.cards} card{progress.cards === 1 ? '' : 's'}, each asked both ways</>
+            )}
           </p>
         </div>
       )}
 
       <SwipeToGrade onGrade={handleRate} enabled={flipped}>
-        <button
-          onClick={() => setFlipped(!flipped)}
+        {/* A div acting as a button, not a <button>: the card holds its own
+            controls (listen, word info, forms), and a button inside a button
+            is invalid HTML; taps on those controls also flipped the card. */}
+        <div
+          role="button"
+          tabIndex={0}
+          aria-pressed={flipped}
+          aria-label={flipped ? 'Card answer. Tap to turn back' : 'Card. Tap to reveal the answer'}
+          onClick={(e) => {
+            const inner = (e.target as HTMLElement).closest('button, a, [role="button"], input');
+            if (inner && inner !== e.currentTarget) return;
+            setFlipped(!flipped);
+          }}
+          onKeyDown={(e) => {
+            if (e.target !== e.currentTarget) return;
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              // Enter on the review screen otherwise also opens full screen.
+              e.stopPropagation();
+              setFlipped(!flipped);
+            }
+          }}
           className="w-full min-h-[320px] rounded-2xl bg-card flashcard-shadow hover:flashcard-shadow-hover transition-all duration-300 flex flex-col items-center justify-center p-8 cursor-pointer border border-border/50 active:scale-[0.98]"
         >
           {!flipped ? renderFront() : renderBack()}
-        </button>
+        </div>
       </SwipeToGrade>
 
       {flipped && (

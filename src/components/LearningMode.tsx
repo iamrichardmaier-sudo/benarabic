@@ -2,12 +2,14 @@ import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
 import { FlashCard, graduateCard, acceptedAnswers, scheduleFields, isSentence } from '@/lib/spaced-repetition';
 import SentenceOrder from '@/components/SentenceOrder';
 import { Progress } from '@/components/ui/progress';
-import { ArrowLeft, Check, X, Sparkles } from 'lucide-react';
+import { Check, X, Sparkles } from 'lucide-react';
+import BackButton from '@/components/BackButton';
 import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import WordInfoPopover from '@/components/WordInfoPopover';
 import WordForms from '@/components/WordForms';
 import WordDetail from '@/components/WordDetail';
 import { hasWordDetail } from '@/lib/word-relations';
+import { pickDistractors, optionLabel } from '@/lib/distractors';
 
 interface LearningModeProps {
   cards: FlashCard[];
@@ -115,33 +117,18 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
     if (!currentCard || currentStage !== 1) return [];
     const isArabicOptions = currentDirection === 'en-to-ar';
 
-    if (isArabicOptions) {
-      const correct = currentCard.word;
-      const others = wordCards
-        .filter((c) => c.id !== currentCard.id && c.word)
-        .map((c) => c.word);
-      const distractors = shuffleArray(others).slice(0, 3);
-      const fallbacks = ['ماء', 'بيت', 'شجرة', 'شمس', 'طريق', 'طائر'];
-      while (distractors.length < 3) {
-        const fb = fallbacks.shift();
-        if (fb && fb !== correct && !distractors.includes(fb)) distractors.push(fb);
-        else if (!fb) break;
-      }
-      return shuffleArray([correct, ...distractors]);
-    } else {
-      const correct = currentCard.english || '';
-      const others = wordCards
-        .filter((c) => c.id !== currentCard.id && c.english)
-        .map((c) => c.english!);
-      const distractors = shuffleArray(others).slice(0, 3);
-      const fallbacks = ['water', 'house', 'tree', 'sun', 'road', 'bird'];
-      while (distractors.length < 3) {
-        const fb = fallbacks.shift();
-        if (fb && fb !== correct && !distractors.includes(fb)) distractors.push(fb);
-        else if (!fb) break;
-      }
-      return shuffleArray([correct, ...distractors]);
+    const field = isArabicOptions ? 'word' : 'english';
+    const correct = (isArabicOptions ? currentCard.word : currentCard.english) || '';
+    const distractors = pickDistractors(currentCard, wordCards, field);
+    // A very small deck may not have three other words yet.
+    const fallbacks = isArabicOptions
+      ? ['ماء', 'بيت', 'شجرة', 'شمس', 'طريق', 'طائر']
+      : ['water', 'house', 'tree', 'sun', 'road', 'bird'];
+    for (const fb of fallbacks) {
+      if (distractors.length >= 3) break;
+      if (fb !== correct && !distractors.includes(fb)) distractors.push(fb);
     }
+    return shuffleArray([correct, ...distractors]);
   }, [currentCard, currentStage, currentDirection, wordCards]);
 
   const advanceToNext = useCallback(() => {
@@ -330,7 +317,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
           <img src={card.imageUrl} alt={card.english || card.word} className="max-w-[400px] w-full rounded-xl object-cover aspect-video" />
         )}
         {card.english && (
-          <p className={card.imageUrl ? "text-2xl text-muted-foreground" : "text-[48px] font-bold text-muted-foreground"}>
+          <p className={card.imageUrl ? "text-2xl text-foreground" : "text-[48px] font-bold text-foreground"}>
             {card.english}
           </p>
         )}
@@ -389,13 +376,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
 
   return (
     <div className="w-full max-w-md mx-auto space-y-5">
-      <button
-        onClick={onBack}
-        className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-      >
-        <ArrowLeft className="w-4 h-4" />
-        Back
-      </button>
+      <BackButton label="Learn" onClick={onBack} />
 
       {/* Progress */}
       <div className="space-y-1.5">
@@ -428,7 +409,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
               className={`py-4 px-3 rounded-xl bg-secondary text-secondary-foreground text-xl transition-all active:scale-95 hover:bg-secondary/80 ${isArabicOptions ? 'font-arabic' : ''}`}
               dir={isArabicOptions ? 'rtl' : 'ltr'}
             >
-              {opt}
+              {isArabicOptions ? opt : optionLabel(opt)}
             </button>
           ))}
         </div>

@@ -81,9 +81,17 @@ const HomeDashboard = ({
           className="flex items-center gap-1.5 rounded-2xl border border-border bg-card px-3 py-2 shrink-0"
           title={streak.longest > 0 ? `Longest streak: ${streak.longest} days` : undefined}
         >
-          <Flame className={`w-4 h-4 ${streak.current > 0 ? 'text-primary' : 'text-muted-foreground/50'}`} />
-          <span className="font-bold text-foreground tabular-nums">{streak.current}</span>
-          <span className="text-xs text-muted-foreground">day{streak.current === 1 ? '' : 's'}</span>
+          <Flame className={`w-4 h-4 ${streak.current > 0 ? 'text-primary' : 'text-muted-foreground/60'}`} />
+          {streak.current > 0 ? (
+            <>
+              <span className="font-bold text-foreground tabular-nums">{streak.current}</span>
+              <span className="text-xs text-muted-foreground">day{streak.current === 1 ? '' : 's'}</span>
+            </>
+          ) : (
+            // A big "0 days" greets you with what you haven't done; this
+            // invites the first day instead.
+            <span className="text-xs text-muted-foreground">Start a streak</span>
+          )}
         </div>
       </div>
 
