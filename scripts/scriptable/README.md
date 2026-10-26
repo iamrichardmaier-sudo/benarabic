@@ -144,6 +144,10 @@ sends the session's total in one call (`add_xp` in the database) and the closing
 shows it, e.g. *+120 XP · Level 4*. If the session reached a new level it says so; open
 Wazn to see the new background, which you can switch to there or in Settings.
 
+If the XP cannot be saved (no signal, or the database has not been set up with the two
+migrations in `supabase/migrations/`), it is kept on the phone in the Keychain and sent
+with the next session; the closing message says how much is waiting. Nothing is lost.
+
 The session is sent with the phone's own date, so it counts toward that day's goal and your
 streak in the app.
 

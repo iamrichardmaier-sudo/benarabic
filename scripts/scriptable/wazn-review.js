@@ -96,21 +96,75 @@ function levelFor(xp) {
   return level;
 }
 
-/** Adds XP to the learner's total (add_xp in the database); returns the new total, or null. */
-async function addXp(token, amount) {
-  if (amount <= 0) return null;
+/** Sends one day's XP (add_xp in the database); returns the new total, or null on any failure. */
+async function sendXp(token, amount, day) {
   try {
     const req = new Request(`${SUPABASE_URL}/rest/v1/rpc/add_xp`);
     req.method = "POST";
     req.headers = restHeaders(token);
-    // The local day, so the session counts toward today's goal and streak
-    // in the app wherever the phone is.
-    req.body = JSON.stringify({ amount: amount, study_day: isoDay() });
+    // The local day it was earned, so it counts toward that day's goal and
+    // streak in the app wherever the phone is.
+    req.body = JSON.stringify({ amount: amount, study_day: day });
     const total = await req.loadJSON();
     return typeof total === "number" ? total : null;
   } catch {
     return null;
   }
+}
+
+// XP not yet accepted by the database, by the day it was earned. It waits on
+// the phone (in the Keychain) and is sent again after the next session, so
+// being offline, or the database not being set up yet, never loses any.
+const KEY_XP_PENDING = "wazn.xp-pending";
+
+function readPendingXp() {
+  try {
+    const v = Keychain.contains(KEY_XP_PENDING) ? JSON.parse(Keychain.get(KEY_XP_PENDING)) : {};
+    return v && typeof v === "object" ? v : {};
+  } catch {
+    return {};
+  }
+}
+
+function writePendingXp(pending) {
+  try {
+    if (Object.keys(pending).length) Keychain.set(KEY_XP_PENDING, JSON.stringify(pending));
+    else if (Keychain.contains(KEY_XP_PENDING)) Keychain.remove(KEY_XP_PENDING);
+  } catch {
+    /* kept in memory for this run only */
+  }
+}
+
+/**
+ * Queues this session's XP with anything still waiting, then sends it all.
+ * Returns the new total (null if nothing got through) and how much is still
+ * waiting.
+ */
+async function addXp(token, amount) {
+  const pending = readPendingXp();
+  if (amount > 0) {
+    const today = isoDay();
+    pending[today] = (Number(pending[today]) || 0) + amount;
+    writePendingXp(pending);
+  }
+  let total = null;
+  for (const day of Object.keys(pending).sort()) {
+    let left = Number(pending[day]) || 0;
+    while (left > 0) {
+      const chunk = Math.min(left, 2000); // add_xp takes at most 2000 per call
+      const t = await sendXp(token, chunk, day);
+      if (t === null) {
+        writePendingXp(pending);
+        return { total, waiting: Object.values(pending).reduce((a, b) => a + (Number(b) || 0), 0) };
+      }
+      total = t;
+      left -= chunk;
+      if (left > 0) pending[day] = left;
+      else delete pending[day];
+      writePendingXp(pending);
+    }
+  }
+  return { total, waiting: 0 };
 }
 
 /** The learner's XP and chosen background, or null when unavailable. */
@@ -177,9 +231,11 @@ function barImage(fraction, color, track, width = 240, height = 8) {
 }
 
 /** "+40 XP · Level 3", plus a note when the session reached a new level. */
-function xpLine(earned, total) {
-  if (earned <= 0) return "";
-  if (total === null) return `\n\n+${earned} XP`;
+function xpLine(earned, total, waiting) {
+  if (earned <= 0 && !waiting) return "";
+  if (total === null || waiting > 0) {
+    return `\n\n+${earned} XP. Not saved yet: ${waiting} XP is waiting on this phone and will be sent after your next session.`;
+  }
   const level = levelFor(total);
   const before = levelFor(total - earned);
   let line = `\n\n+${earned} XP \u00b7 Level ${level}`;
@@ -1382,8 +1438,9 @@ async function runReview() {
   // XP for every grade, sent in one call. It does not depend on the saves
   // above: the cards were studied either way.
   const earned = xpFor(graded, practice);
-  const total = await addXp(token, earned);
-  const xpNote = xpLine(earned, total);
+  const sent = await addXp(token, earned);
+  const total = sent.total;
+  const xpNote = xpLine(earned, total, sent.waiting);
 
   // A card whose last answer was "Again" was never really cleared, even
   // though a grade was written for it, so it still counts as due.
