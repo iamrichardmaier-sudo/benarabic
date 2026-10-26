@@ -150,7 +150,10 @@ export function applyTheme(theme: Theme = readPreferences().theme): void {
     typeof window !== 'undefined' &&
     typeof window.matchMedia === 'function' &&
     window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const dark = theme === 'dark' || (theme === 'system' && prefersDark);
+  // A night-scene background (html.wz-scene, see AppBackground) needs the
+  // dark palette whatever the theme setting says, or text would sit dark on dark.
+  const scene = document.documentElement.classList.contains('wz-scene');
+  const dark = scene || theme === 'dark' || (theme === 'system' && prefersDark);
   document.documentElement.classList.toggle('dark', dark);
 }
 

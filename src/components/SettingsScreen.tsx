@@ -3,6 +3,7 @@ import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Language
 import { usePreferences } from '@/hooks/usePreferences';
 import DialectToggle from '@/components/DialectToggle';
 import InfoHint from '@/components/InfoHint';
+import BackgroundPicker from '@/components/levels/BackgroundPicker';
 import { useAccountDeletion } from '@/hooks/useAccountDeletion';
 import {
   setTextScale, setAudioRate, setTheme,
@@ -72,6 +73,14 @@ const SettingsScreen = ({
         <h1 className="text-2xl font-bold text-foreground">Settings</h1>
         {email && <p className="text-sm text-muted-foreground">Signed in as {email}</p>}
       </div>
+
+      {/* Level & background */}
+      <section className="space-y-2" id="level">
+        <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide px-1">
+          Level &amp; background
+        </h2>
+        <BackgroundPicker />
+      </section>
 
       {/* Flashcards */}
       <section className="space-y-2">

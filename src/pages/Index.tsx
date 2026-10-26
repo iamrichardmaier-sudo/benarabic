@@ -36,6 +36,11 @@ import type { Deck } from '@/lib/deck-store';
 import BottomNav, { SideNav, type Tab } from '@/components/BottomNav';
 import BackButton from '@/components/BackButton';
 import WaznLogo from '@/components/WaznLogo';
+import AppBackground from '@/components/backgrounds/AppBackground';
+import { addXp, getSnapshot, lastSeenLevel, loadProgress, markLevelSeen, setBackground } from '@/lib/progress';
+import { useProgress } from '@/hooks/useProgress';
+import { LEVEL_XP, levelFor, xpForGrade } from '@/lib/levels';
+import SessionSummaryDialog, { type SessionSummary } from '@/components/levels/SessionSummaryDialog';
 import { Skeleton } from '@/components/ui/skeleton';
 import { parsePath, pathFor, type View } from '@/lib/app-routes';
 import { recordStudyDay } from '@/lib/streak';
@@ -108,6 +113,64 @@ const Index = () => {
   const [libraryReset, setLibraryReset] = useState(0);
   const [libraryResume, setLibraryResume] = useState(0);
   const { toast } = useToast();
+
+  // XP and the chosen background, for whoever is signed in.
+  useEffect(() => {
+    void loadProgress(user?.id ?? null);
+  }, [user?.id]);
+  const progress = useProgress();
+
+  /**
+   * The study session in progress (review, practice or learn) and the XP it
+   * has earned. When the learner leaves the session's screen, it is summed up
+   * in the summary dialog, with any level reached and background unlocked.
+   */
+  const session = useRef<{ label: string; startXp: number; earned: number } | null>(null);
+  const [summary, setSummary] = useState<SessionSummary | null>(null);
+  const earn = useCallback((amount: number) => {
+    addXp(amount);
+    if (session.current) session.current.earned += amount;
+  }, []);
+  const startSession = (label: string) => {
+    endSession();
+    session.current = { label, startXp: getSnapshot().xp, earned: 0 };
+  };
+  const endSession = () => {
+    const s = session.current;
+    session.current = null;
+    if (!s || s.earned <= 0) return;
+    setSummary({ label: s.label, startXp: s.startXp, endXp: s.startXp + s.earned, earned: s.earned });
+  };
+  const closeSummary = () => {
+    setSummary(null);
+    markLevelSeen(levelFor(getSnapshot().xp));
+  };
+
+  // Learn opens a session of its own; leaving review or Learn ends one.
+  const prevView = useRef<View | null>(null);
+  useEffect(() => {
+    const prev = prevView.current;
+    prevView.current = view;
+    if (prev === view) return;
+    if (prev === 'review' || prev === 'learnCards') endSession();
+    if (view === 'learnCards') startSession('Learn');
+    // startSession/endSession only touch refs and setSummary.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [view]);
+
+  // A level reached away from this screen (on the widget, or a session left
+  // by closing the app) is celebrated once the totals arrive.
+  useEffect(() => {
+    if (!progress.loaded || !user?.id) return;
+    const level = levelFor(progress.xp);
+    const seen = lastSeenLevel();
+    if (seen === null) markLevelSeen(level);
+    else if (level > seen && !session.current) {
+      setSummary((open) => open ?? { startXp: LEVEL_XP[seen - 1], endXp: progress.xp });
+    }
+    // Only when the totals (re)load, not on every XP earned in a session.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [progress.loaded, user?.id]);
   const { admin: isDeckAdmin } = useDeckLibrary();
   const backfillRan = useRef(false);
   const podcastLinkRan = useRef(false);
@@ -355,6 +418,7 @@ const Index = () => {
       [items[i], items[j]] = [items[j], items[i]];
     }
     setPractising(practice);
+    startSession(practice ? 'Practice' : 'Review');
     setReviewItems(items);
     setCurrentIndex(0);
     setView('review');
@@ -409,6 +473,7 @@ const Index = () => {
     }
     // Grading a card is a genuine study action, so it counts toward the streak.
     recordStudyDay(user?.id);
+    earn(xpForGrade(rating, practising));
     setReviewItems((items) => queueAfterGrade(items, currentIndex, rating));
     setCurrentIndex((i) => i + 1);
   };
@@ -542,7 +607,9 @@ const Index = () => {
   return (
     <DeckContext.Provider value={cards}>
     <DeckActionsContext.Provider value={{ addWord: addWordFromReader }}>
-    <div className="min-h-screen bg-background flex flex-col lg:ps-60">
+    <div className="isolate min-h-screen bg-background flex flex-col lg:ps-60">
+      <AppBackground />
+      <SessionSummaryDialog summary={summary} onClose={closeSummary} onUseBackground={(id) => void setBackground(id)} />
       {/* Phone and tablet header; on a laptop the sidebar carries all of this. */}
       <header className="border-b border-border/60 bg-card/50 backdrop-blur-sm sticky top-0 z-10 lg:hidden">
         <div className="mx-auto px-4 py-4 flex items-center justify-between w-full max-w-lg">
@@ -604,6 +671,7 @@ const Index = () => {
               onContinueReading={continueReading}
               onBrowseLibrary={() => selectTab('library')}
               onSelectPractice={openLearnDestination}
+              onOpenLevel={() => selectTab('settings')}
             />
           </>
         )}
@@ -754,6 +822,7 @@ const Index = () => {
             allCards={cards}
             onUpdateCard={(id, updates) => handleUpdateCard(id, updates)}
             onBack={() => setView('learnHub')}
+            onEarn={earn}
           />
         )}
 

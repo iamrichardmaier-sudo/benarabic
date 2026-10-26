@@ -118,7 +118,7 @@ Running the script with words due *and* words learned in the last seven days ask
 want. **Review** is the day's schedule as usual. **Practise** runs this week's words again
 whether or not any of them are due.
 
-Practice writes nothing — not the grades, not the intervals, not the widget's count. The
+Practice changes nothing on the schedule — not the grades, not the intervals, not the widget's count (it does earn half XP; see below). The
 point of it is extra exposure on demand, and moving the schedule there would push this
 week's words further out every time you ran the set again. The page says
 *Practice · nothing is rescheduled* along the top so there is never a question of whether
@@ -126,6 +126,17 @@ it counted.
 
 If only one of the two has anything in it, the script goes straight into that one rather
 than showing a menu with a single item.
+
+### XP and levels
+
+Every card graded here earns XP toward your Wazn level, the same as in the web app: 3 for
+*Again*, 10 for *Easy*, half that when practising. When you close the session the script
+sends the session's total in one call (`add_xp` in the database) and the closing message
+shows it, e.g. *+120 XP · Level 4*. If the session reached a new level it says so; open
+Wazn to see the new background, which you can switch to there or in Settings.
+
+The XP table and level thresholds are copied from `src/lib/levels.ts` — keep the two in
+step.
 
 ### The front-loaded phase
 

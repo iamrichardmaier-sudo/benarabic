@@ -181,3 +181,51 @@
     box-shadow: var(--card-shadow-hover);
   }
 }
+
+/* ------------------------------------------------------------------------
+   Level backgrounds (src/components/backgrounds). Only opacity and transform
+   are animated, which phones draw cheaply, and nothing moves for anyone who
+   has asked their device for reduced motion.
+   ------------------------------------------------------------------------ */
+@keyframes wz-twinkle { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+@keyframes wz-sway { 0%, 100% { transform: rotate(-3.5deg); } 50% { transform: rotate(3.5deg); } }
+@keyframes wz-glow { 0%, 100% { opacity: 0.65; } 50% { opacity: 1; } }
+@keyframes wz-spin { to { transform: rotate(360deg); } }
+@keyframes wz-spin-rev { to { transform: rotate(-360deg); } }
+@keyframes wz-ripple { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+@keyframes wz-shoot {
+  0%, 82% { transform: translate(0, 0); opacity: 0; }
+  86% { opacity: 1; }
+  100% { transform: translate(-260px, 130px); opacity: 0; }
+}
+@keyframes wz-sweep { 0% { transform: translateX(0); opacity: 0; } 30% { opacity: 0.5; } 60%, 100% { transform: translateX(240px); opacity: 0; } }
+
+.wz-twinkle { animation: wz-twinkle 4s ease-in-out infinite; }
+.wz-sway { animation: wz-sway 6s ease-in-out infinite; }
+.wz-glow { animation: wz-glow 3.2s ease-in-out infinite; }
+.wz-spin { animation: wz-spin 180s linear infinite; }
+.wz-spin-rev { animation: wz-spin-rev 240s linear infinite; }
+.wz-ripple { animation: wz-ripple 5s ease-in-out infinite; }
+.wz-shoot { animation: wz-shoot 11s ease-in infinite; }
+.wz-sweep { animation: wz-sweep 9s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wz-anim { animation: none !important; }
+}
+
+/* While a night scene is the background, cards let it show through a little. */
+html.wz-scene .bg-card {
+  background-color: hsl(var(--card) / 0.86);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* Text that sits straight on a decorated background gets a soft halo in the
+   page colour, so it reads over any pattern or scene. Text inside cards and
+   buttons has its own solid backing and is left alone. */
+html.wz-art main {
+  text-shadow: 0 0 2px hsl(var(--background) / 0.9), 0 0 12px hsl(var(--background) / 0.85);
+}
+html.wz-art main :is(.bg-card, .bg-primary, .bg-secondary, .bg-muted, .bg-destructive, .bg-background, [class*="bg-card/"], [class*="bg-primary/"], [class*="bg-muted/"], button, input, select, textarea) {
+  text-shadow: none;
+}

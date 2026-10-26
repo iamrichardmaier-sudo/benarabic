@@ -1,5 +1,7 @@
 import { Flame, BookOpen, Layers, GraduationCap, ChevronRight, RotateCcw, LibraryBig, Check, type LucideIcon } from 'lucide-react';
 import { currentStreak } from '@/lib/streak';
+import { useProgress } from '@/hooks/useProgress';
+import { progressFor } from '@/lib/levels';
 import { useBibleBooks } from '@/hooks/useBibleBooks';
 import HomeDeckShelves from '@/components/decks/HomeDeckShelves';
 import DailyAudios from '@/components/daily-audio/DailyAudios';
@@ -8,6 +10,8 @@ import type { LearnDestination } from '@/components/LearnHub';
 
 interface HomeDashboardProps {
   userId?: string;
+  /** Opens Settings at the level and background picker. */
+  onOpenLevel?: () => void;
   dueCount: number;
   /** The next batch waiting on its gap, when nothing is due this minute. */
   nextWave?: { at: Date; count: number } | null;
@@ -56,9 +60,10 @@ function readStored(key: string): string | null {
 const HomeDashboard = ({
   userId, dueCount, nextWave, learnCount, deckSize,
   recentCount = 0, onPractice,
-  onReview, onLearn, onBrowseDecks, onContinueReading, onBrowseLibrary, onSelectPractice,
+  onReview, onLearn, onBrowseDecks, onContinueReading, onBrowseLibrary, onSelectPractice, onOpenLevel,
 }: HomeDashboardProps) => {
   const streak = currentStreak(userId);
+  const level = progressFor(useProgress().xp);
   const { books } = useBibleBooks();
 
   const lastBook = readStored(BOOK_KEY);
@@ -109,6 +114,7 @@ const HomeDashboard = ({
           <h1 className="text-2xl font-bold text-foreground">Today</h1>
           <p className="text-sm text-muted-foreground">{summary}</p>
         </div>
+        <div className="flex shrink-0 flex-col items-end gap-1.5">
         <div
           className="flex items-center gap-1.5 rounded-2xl border border-border bg-card px-3 py-2 shrink-0"
           title={streak.longest > 0 ? `Longest streak: ${streak.longest} days` : undefined}
@@ -124,6 +130,18 @@ const HomeDashboard = ({
             // invites the first day instead.
             <span className="text-xs text-muted-foreground">Start a streak</span>
           )}
+        </div>
+        <button
+          type="button"
+          onClick={onOpenLevel}
+          aria-label={`Level ${level.level}. Open level and backgrounds`}
+          className="flex w-full flex-col gap-1 rounded-2xl border border-border bg-card px-3 py-1.5 text-left transition-colors hover:border-primary/50"
+        >
+          <span className="text-xs font-semibold text-foreground">Level {level.level}</span>
+          <span className="block h-1 w-full overflow-hidden rounded-full bg-muted">
+            <span className="block h-full rounded-full bg-primary" style={{ width: `${level.fraction * 100}%` }} />
+          </span>
+        </button>
         </div>
       </div>
 

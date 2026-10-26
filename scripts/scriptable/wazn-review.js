@@ -73,6 +73,55 @@ const REPS_PER_DAY = [4, 4, 4, 2, 2];
 const GAP_HOURS = 3;
 const EXIT_INTERVAL_DAYS = 3;
 
+// ----------------------------------------------------------------- levels
+
+// XP per graded card and the XP each level starts at. Mirrors XP_FOR_RATING
+// and LEVEL_XP in src/lib/levels.ts — keep the two in step. Practice earns
+// half, as in the web app.
+const XP_FOR_RATING = { again: 3, hard: 6, good: 10, easy: 10 };
+const LEVEL_XP = Array.from({ length: 15 }, (_, i) => 250 * i * i);
+
+function xpFor(graded, practice) {
+  let xp = 0;
+  for (const r of graded) {
+    const base = XP_FOR_RATING[r.rating] || 0;
+    xp += practice ? Math.ceil(base / 2) : base;
+  }
+  return xp;
+}
+
+function levelFor(xp) {
+  let level = 1;
+  for (let i = 0; i < LEVEL_XP.length; i++) if (xp >= LEVEL_XP[i]) level = i + 1;
+  return level;
+}
+
+/** Adds XP to the learner's total (add_xp in the database); returns the new total, or null. */
+async function addXp(token, amount) {
+  if (amount <= 0) return null;
+  try {
+    const req = new Request(`${SUPABASE_URL}/rest/v1/rpc/add_xp`);
+    req.method = "POST";
+    req.headers = restHeaders(token);
+    req.body = JSON.stringify({ amount: amount });
+    const total = await req.loadJSON();
+    return typeof total === "number" ? total : null;
+  } catch {
+    return null;
+  }
+}
+
+/** "+40 XP · Level 3", plus a note when the session reached a new level. */
+function xpLine(earned, total) {
+  if (earned <= 0) return "";
+  if (total === null) return `\n\n+${earned} XP`;
+  const level = levelFor(total);
+  const before = levelFor(total - earned);
+  let line = `\n\n+${earned} XP \u00b7 Level ${level}`;
+  if (level > before) line += `\nLevel up! Open Wazn to see your new background.`;
+  return line;
+}
+
 /** Mirrors reviewCard() in the web app. Keep the two in step. */
 function schedule(card, rating) {
   let interval = card.interval_days;
@@ -1007,6 +1056,12 @@ async function runReview() {
     }
   }
 
+  // XP for every grade, sent in one call. It does not depend on the saves
+  // above: the cards were studied either way.
+  const earned = xpFor(graded, practice);
+  const total = await addXp(token, earned);
+  const xpNote = xpLine(earned, total);
+
   // A card whose last answer was "Again" was never really cleared, even
   // though a grade was written for it, so it still counts as due.
   const lastRating = {};
@@ -1022,7 +1077,7 @@ async function runReview() {
     if (seen > 0) {
       const a = new Alert();
       a.title = "Practice done";
-      a.message = `${seen} word${seen === 1 ? "" : "s"} run again. Your schedule is unchanged.`;
+      a.message = `${seen} word${seen === 1 ? "" : "s"} run again. Your schedule is unchanged.` + xpNote;
       a.addAction("OK");
       await a.presentAlert();
     }
@@ -1037,10 +1092,10 @@ async function runReview() {
     at: Date.now(),
   });
 
-  if (saved > 0) {
+  if (saved > 0 || earned > 0) {
     const a = new Alert();
     a.title = "Saved";
-    a.message = `${saved} card${saved === 1 ? "" : "s"} updated.`;
+    a.message = `${saved} card${saved === 1 ? "" : "s"} updated.` + xpNote;
     a.addAction("OK");
     await a.presentAlert();
   }

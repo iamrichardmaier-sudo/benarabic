@@ -1,4 +1,5 @@
 import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
+import { XP_LEARN } from '@/lib/levels';
 import { FlashCard, graduateCard, acceptedAnswers, scheduleFields, isSentence } from '@/lib/spaced-repetition';
 import SentenceOrder from '@/components/SentenceOrder';
 import { Progress } from '@/components/ui/progress';
@@ -16,6 +17,8 @@ interface LearningModeProps {
   allCards: FlashCard[];
   onUpdateCard: (id: string, updates: Partial<FlashCard>) => void;
   onBack: () => void;
+  /** XP for each answer (see XP_LEARN in lib/levels). */
+  onEarn?: (xp: number) => void;
 }
 
 type MCDirection = 'en-to-ar' | 'ar-to-en';
@@ -71,7 +74,7 @@ const AnswerDetail = ({ card, deck }: { card: FlashCard; deck: FlashCard[] }) =>
     </div>
   ) : null;
 
-const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModeProps) => {
+const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn }: LearningModeProps) => {
   const stage1Cards = useMemo(() => cards.filter((c) => c.learningStage === 'new' || c.learningStage === 'stage1'), [cards]);
   const stage2Cards = useMemo(() => cards.filter((c) => c.learningStage === 'stage2'), [cards]);
 
@@ -160,6 +163,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
     const isArabicOptions = currentDirection === 'en-to-ar';
     const correct = isArabicOptions ? currentCard.word : (currentCard.english || '');
     const isCorrect = selected === correct;
+    onEarn?.(isCorrect ? XP_LEARN.choiceRight : XP_LEARN.choiceWrong);
 
     onUpdateCard(currentCard.id, {
       stage1Attempts: currentCard.stage1Attempts + 1,
@@ -201,6 +205,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
     const isMatch = variants.some((v) => v === normalizedUser);
 
     if (isMatch) {
+      onEarn?.(XP_LEARN.typedRight);
       const graduated = graduateCard(currentCard);
       onUpdateCard(currentCard.id, scheduleFields(graduated));
       setCompletedStage2((n) => n + 1);
@@ -219,6 +224,8 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
    */
   const handleSentenceDone = (correct: boolean) => {
     if (!currentCard) return;
+    if (currentStage === 1) onEarn?.(correct ? XP_LEARN.choiceRight : XP_LEARN.choiceWrong);
+    else onEarn?.(correct ? XP_LEARN.typedRight : XP_LEARN.typedWrong);
     if (currentStage === 1) {
       onUpdateCard(currentCard.id, {
         stage1Attempts: currentCard.stage1Attempts + 1,
@@ -241,6 +248,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
 
   const handleCloseEnough = () => {
     if (!currentCard) return;
+    onEarn?.(XP_LEARN.typedRight);
     const graduated = graduateCard(currentCard);
     onUpdateCard(currentCard.id, scheduleFields(graduated));
     setCompletedStage2((n) => n + 1);
@@ -249,6 +257,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack }: LearningModePro
 
   const handleTryAgain = () => {
     if (!currentCard) return;
+    onEarn?.(XP_LEARN.typedWrong);
     setStage2Queue((q) => [...q, currentCard]);
     setAnswerState({ type: 'unanswered' });
     setTypingInput('');
