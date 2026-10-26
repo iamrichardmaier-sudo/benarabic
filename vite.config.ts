@@ -39,7 +39,8 @@ export default defineConfig(({ mode }) => ({
         // them would bloat the install for pages a logged-in user never opens.
         globIgnores: [
           "root/**", "form/**", "roots/**", "forms/**", "guide/**",
-          "**/sitemap.xml",
+          "word/**", "words/**", "404.html",
+          "**/sitemap*.xml", "seo-manifest.json", "indexnow-pending.json",
           // The PDF-to-audio tool: a PDF reader, a voice model runtime and an
           // MP3 encoder, together several megabytes. It lives in Settings and
           // most sessions never open it, so it is fetched when it is asked for
@@ -113,7 +114,13 @@ export default defineConfig(({ mode }) => ({
         // Supabase reads and writes must never be served from cache — stale
         // decks and silently-swallowed writes are worse than a clean failure
         // that the pending-changes queue already knows how to handle.
-        navigateFallbackDenylist: [/^\/functions\//, /^\/rest\//, /^\/auth\//],
+        navigateFallbackDenylist: [
+          /^\/functions\//, /^\/rest\//, /^\/auth\//,
+          // The static reference pages are real files on the server. Without
+          // this, an installed app would answer them with its own shell and
+          // show "page not found" instead of the dictionary entry.
+          /^\/(word|words|root|roots|form|forms|guide)(\/|$)/,
+        ],
       },
     }),
   ].filter(Boolean),

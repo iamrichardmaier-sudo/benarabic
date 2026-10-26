@@ -30,10 +30,111 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Google Search Console: paste the verification meta tag here. -->
+
+    <style>
+      /* Static landing page: what logged-out visitors and search engines see at "/"
+         before (and instead of) the app. React reuses this markup, see src/pages/Landing.tsx. */
+      .lp{--lp-bg:hsl(36 33% 97%);--lp-card:hsl(36 40% 95%);--lp-fg:hsl(24 10% 15%);--lp-muted:hsl(24 8% 40%);
+        --lp-primary:hsl(24 70% 42%);--lp-border:hsl(36 20% 86%);
+        background:var(--lp-bg);color:var(--lp-fg);min-height:100vh;
+        font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+      @media (prefers-color-scheme:dark){.lp{--lp-bg:hsl(24 12% 10%);--lp-card:hsl(24 10% 14%);--lp-fg:hsl(36 20% 92%);
+        --lp-muted:hsl(36 8% 66%);--lp-primary:hsl(24 75% 60%);--lp-border:hsl(24 10% 24%)}}
+      .lp *{box-sizing:border-box}
+      .lp-wrap{max-width:56rem;margin:0 auto;padding:1.25rem 1rem 3rem}
+      .lp-top{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
+      .lp-brand{font-weight:700;font-size:1.15rem;color:var(--lp-fg);text-decoration:none;margin-inline-end:auto}
+      .lp-top a.lp-link{color:var(--lp-muted);text-decoration:none;font-size:.92rem}
+      .lp h1{font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.2;margin:2.5rem 0 .75rem}
+      .lp h2{font-size:1.2rem;margin:0 0 .35rem}
+      .lp p{margin:.4rem 0}
+      .lp-lead{font-size:1.1rem;color:var(--lp-muted);max-width:40rem}
+      .lp-ar{font-family:"Noto Naskh Arabic","Amiri",serif;direction:rtl}
+      .lp-cta{display:flex;gap:.6rem;flex-wrap:wrap;margin:1.4rem 0 2.2rem}
+      .lp-btn{display:inline-block;padding:.7rem 1.15rem;border-radius:.75rem;font-weight:600;text-decoration:none;
+        border:1px solid var(--lp-primary);color:var(--lp-primary)}
+      .lp-btn.lp-solid{background:var(--lp-primary);color:#fff}
+      .lp-grid{display:grid;gap:.8rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,22rem),1fr))}
+      .lp-card{display:block;background:var(--lp-card);border:1px solid var(--lp-border);border-radius:1rem;
+        padding:1rem 1.1rem;color:var(--lp-fg);text-decoration:none}
+      a.lp-card:hover{border-color:var(--lp-primary)}
+      .lp-card p{color:var(--lp-muted);font-size:.93rem}
+      .lp-sec{margin-top:2.4rem}
+      .lp p a{color:var(--lp-primary)}
+      .lp-foot{margin-top:3rem;font-size:.8rem;color:var(--lp-muted)}
+      /* A returning, signed-in user goes straight into the app: no landing flash. */
+      html.has-session #landing{display:none}
+    </style>
+    <script>
+      try {
+        for (var i = 0; i < localStorage.length; i++) {
+          if (/^sb-.*-auth-token$/.test(localStorage.key(i) || '')) {
+            document.documentElement.classList.add('has-session');
+            break;
+          }
+        }
+      } catch (e) {}
+    </script>
   </head>
 
   <body>
-    <div id="root"></div>
+    <div id="root"><div id="landing" class="lp"><div class="lp-wrap">
+      <nav class="lp-top" aria-label="Main">
+        <a class="lp-brand" href="/">Wazn</a>
+        <a class="lp-link" href="/words/">Dictionary</a>
+        <a class="lp-link" href="/roots/">Roots</a>
+        <a class="lp-link" href="/forms/">Verb forms</a>
+        <a class="lp-link" href="/auth">Sign in</a>
+      </nav>
+
+      <h1>Learn Arabic through its roots and patterns</h1>
+      <p class="lp-lead">Wazn is an Arabic dictionary and study app built around the way Arabic actually works:
+        a few root consonants, poured into patterns, give whole families of related words.
+        Look up a word and see its meanings, plurals, verb forms, conjugations and every relative that shares its root.</p>
+      <div class="lp-cta">
+        <a class="lp-btn lp-solid" href="/auth">Start learning free</a>
+        <a class="lp-btn" href="/words/">Browse the dictionary</a>
+      </div>
+
+      <div class="lp-grid">
+        <a class="lp-card" href="/words/">
+          <h2>Arabic–English dictionary</h2>
+          <p>Definitions with real example sentences, plurals and alternative plurals, full verb conjugations,
+            and pronunciation for thousands of Arabic words.</p>
+        </a>
+        <a class="lp-card" href="/words/most-common/">
+          <h2>Most common Arabic words</h2>
+          <p>The words you will meet most often, ranked by how often they are used, each linked to its full entry.</p>
+        </a>
+        <a class="lp-card" href="/roots/">
+          <h2>Arabic roots</h2>
+          <p>Pick a root like <span class="lp-ar">ك-ت-ب</span> and see every verb, noun and adjective built from it,
+            grouped by verb form.</p>
+        </a>
+        <a class="lp-card" href="/forms/">
+          <h2>The ten verb forms</h2>
+          <p>What each pattern from Form I to Form X does to a root's meaning, with real verbs for every form.</p>
+        </a>
+      </div>
+
+      <section class="lp-sec">
+        <h2>Why roots?</h2>
+        <p>Arabic builds vocabulary from roots. <span class="lp-ar">كَتَبَ</span> means "he wrote";
+          the same three letters give <span class="lp-ar">كِتَاب</span> "book", <span class="lp-ar">كَاتِب</span> "writer"
+          and <span class="lp-ar">مَكْتَبَة</span> "library". Learn the root and the pattern, and a new word is
+          half-learned before you meet it. <a href="/guide/arabic-root-system/">How the root system works →</a></p>
+      </section>
+
+      <section class="lp-sec">
+        <h2>The study app</h2>
+        <p>Turn any word into a spaced-repetition flashcard, drill conjugations, verb forms and prepositions,
+          and read real, fully-vowelled Arabic with every word tappable for its root and meaning.</p>
+        <div class="lp-cta"><a class="lp-btn lp-solid" href="/auth">Create a free account</a></div>
+      </section>
+
+      <p class="lp-foot">Dictionary entries are adapted from Wiktionary (CC BY-SA 4.0).</p>
+    </div></div></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

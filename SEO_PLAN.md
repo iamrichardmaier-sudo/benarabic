@@ -3,6 +3,18 @@
 Written 2026-10-26 after an audit of the repo and the live site (waznarabic.com).
 Follows on from `SEO_BUILD_LOG.md`, which covers the first batch of pages.
 
+## Status
+
+- **Phase 1 (basics): done.** Logged-out home page with real content, real 404s,
+  `/auth` kept out of search, IndexNow on every deploy, pages generated in the
+  build, sitemap index, breadcrumbs, validation, service-worker fix.
+  Waiting on: Search Console verification (see section 4).
+- **Phase 2 (word pages): first batch shipped.** Built on Wiktionary data rather
+  than the Bible glosses (see `scripts/seo/README.md`). SpanishDict-style pages:
+  numbered senses with examples, highlights, root family grouped by verb form
+  with each verb's nouns under it, conjugation tables, plurals and alternative
+  plurals, pronunciation button. Batch size in `scripts/seo/config.json`.
+
 ---
 
 ## 1. Where things stand

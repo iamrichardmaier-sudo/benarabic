@@ -8,13 +8,22 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import OAuthConsent from "./pages/OAuthConsent";
 import NotFound from "./pages/NotFound";
+import Landing from "./pages/Landing";
+import { hasStoredSession } from "@/lib/landing";
 
 const queryClient = new QueryClient();
 
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
+// The home route: the app for signed-in users, the public landing page for
+// everyone else (including search engines). Signed-out visitors used to be
+// redirected to /auth, which left the site's home page with no content.
+const HomeRoute = ({ children }: { children: React.ReactNode }) => {
   const { user, loading } = useAuth();
-  if (loading) return <div className="min-h-screen bg-background flex items-center justify-center text-muted-foreground">Loading...</div>;
-  if (!user) return <Navigate to="/auth" replace />;
+  if (loading) {
+    return hasStoredSession()
+      ? <div className="min-h-screen bg-background flex items-center justify-center text-muted-foreground">Loading...</div>
+      : <Landing />;
+  }
+  if (!user) return <Landing />;
   return <>{children}</>;
 };
 
@@ -37,7 +46,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
-          <Route path="/" element={<ProtectedRoute><Index /></ProtectedRoute>} />
+          <Route path="/" element={<HomeRoute><Index /></HomeRoute>} />
           <Route path="/auth" element={<AuthRoute><Auth /></AuthRoute>} />
           <Route path="/.lovable/oauth/consent" element={<OAuthConsent />} />
           <Route path="*" element={<NotFound />} />

@@ -1,9 +1,9 @@
 User-agent: *
 Allow: /
 
-# The interactive study tool sits behind auth and has nothing crawlable;
-# the public reference pages (roots, verb forms, guides) are the indexable layer.
-Disallow: /auth
+# /auth is crawlable on purpose: it answers with "X-Robots-Tag: noindex"
+# (netlify.toml), which keeps it out of search. Blocking it here would hide
+# that header and leave the bare URL indexable.
 Disallow: /.lovable/
 
 Sitemap: https://waznarabic.com/sitemap.xml

@@ -2,10 +2,24 @@
   command = "npm run build"
   publish = "dist"
 
-# Static SEO pages (public/root/**, public/form/**, public/roots, public/forms,
-# public/guide/**) are real files in the publish directory. Netlify matches
-# existing files BEFORE applying redirect rules, so the SPA fallback below does
-# not swallow them. Keep that fallback LAST for the same reason.
+[build.environment]
+  # The page generator uses fetch and top-level await.
+  NODE_VERSION = "20"
+
+[functions]
+  # deploy-succeeded.mjs pings IndexNow after each production deploy.
+  directory = "netlify/functions"
+
+# The reference pages (/word/**, /words/**, /root/**, /roots/**, /form/**,
+# /forms/**, /guide/**) are static files generated at build time by
+# scripts/seo/generate.mjs. Netlify serves an existing file BEFORE applying
+# redirect rules, so the rules below only fire for paths with no page, and the
+# SPA fallback at the end must stay last.
+
+[[headers]]
+  for = "/word/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/root/*"
@@ -18,10 +32,16 @@
     Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
-  for = "/sitemap.xml"
+  for = "/sitemap*.xml"
   [headers.values]
     Content-Type = "application/xml; charset=utf-8"
     Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  # The login screen is not a page anyone should land on from search.
+  for = "/auth"
+  [headers.values]
+    X-Robots-Tag = "noindex"
 
 [[headers]]
   for = "/assets/*"
@@ -32,6 +52,43 @@
   for = "/bible/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+# A mistyped or retired reference URL returns a real 404, not the app shell
+# with a 200 (which search engines treat as a low-quality "soft 404").
+[[redirects]]
+  from = "/word/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/words/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/root/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/roots/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/form/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/forms/*"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/guide/*"
+  to = "/404.html"
+  status = 404
 
 # SPA fallback — must remain the final rule.
 [[redirects]]

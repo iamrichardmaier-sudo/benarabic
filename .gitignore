@@ -29,3 +29,16 @@ __pycache__/
 
 # Personal Claude Code permission overrides
 .claude/settings.local.json
+
+# Reference pages generated at build time by scripts/seo/generate.mjs
+/public/word/
+/public/words/
+/public/root/
+/public/roots/
+/public/form/
+/public/forms/
+/public/guide/
+/public/404.html
+/public/sitemap*.xml
+/public/seo-manifest.json
+/public/indexnow-pending.json
