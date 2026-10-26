@@ -25,7 +25,7 @@ const CardFontPicker = () => {
         <p className="text-sm text-foreground">Flashcard script</p>
         <p className="text-xs text-muted-foreground">How the Arabic on your cards is written. New scripts unlock as you level up.</p>
       </div>
-      <ul className="grid grid-cols-2 gap-2 sm:grid-cols-3" role="radiogroup" aria-label="Flashcard script">
+      <ul className="grid grid-cols-3 gap-2 sm:grid-cols-5" role="radiogroup" aria-label="Flashcard script">
         {CARD_FONTS.map((f) => {
           const locked = f.level > level;
           const selected = f.id === current;
@@ -44,14 +44,14 @@ const CardFontPicker = () => {
                 }`}
               >
                 <span
-                  className={`text-[30px] leading-[1.6] text-foreground ${locked ? 'opacity-35 blur-[1px]' : ''}`}
+                  className={`h-14 text-[26px] leading-[2] text-foreground ${locked ? 'opacity-35 blur-[1px]' : ''}`}
                   style={{ fontFamily: `'${f.family}', var(--font-arabic)` }}
                   dir="rtl"
                   lang="ar"
                 >
                   {SAMPLE}
                 </span>
-                <span className="flex items-center gap-1 text-xs font-medium text-foreground">
+                <span className="flex items-center gap-1 text-center text-[11px] font-medium leading-tight text-foreground">
                   {locked && <Lock className="h-3 w-3" />}
                   {f.name}
                 </span>

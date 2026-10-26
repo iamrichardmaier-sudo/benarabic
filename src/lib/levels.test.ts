@@ -52,3 +52,12 @@ describe('the widget colours', () => {
     expect(ids).toEqual(BACKGROUNDS.map((b) => b.id));
   });
 });
+
+describe('card scripts', () => {
+  it('unlocks one script per level, starting with Naskh', async () => {
+    const { CARD_FONTS } = await import('./card-fonts');
+    expect(CARD_FONTS.map((f) => f.level)).toEqual(LEVEL_XP.map((_, i) => i + 1));
+    expect(CARD_FONTS[0].id).toBe('naskh');
+    expect(new Set(CARD_FONTS.map((f) => f.id)).size).toBe(CARD_FONTS.length);
+  });
+});
