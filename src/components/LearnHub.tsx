@@ -121,6 +121,9 @@ const LearnHub = ({
         <p className="text-sm text-muted-foreground">Practice drills and flashcards.</p>
       </div>
 
+      {/* Two columns on a laptop: the sections are independent, and one long
+          column left most of a wide screen empty. */}
+      <div className="space-y-6 lg:grid lg:grid-cols-2 lg:items-start lg:gap-6 lg:space-y-0">
       {sections.map((section) => (
         <section key={section.title} className="space-y-2">
           <h2 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide px-1">
@@ -162,6 +165,7 @@ const LearnHub = ({
           </div>
         </section>
       ))}
+      </div>
 
       <PodcastShelf onOpen={onOpenPodcast} />
     </div>

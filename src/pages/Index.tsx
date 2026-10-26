@@ -33,7 +33,7 @@ import ImportWords from '@/components/decks/ImportWords';
 import FeedbackForm from '@/components/FeedbackForm';
 import { useDeckLibrary } from '@/hooks/useDeckLibrary';
 import type { Deck } from '@/lib/deck-store';
-import BottomNav, { type Tab } from '@/components/BottomNav';
+import BottomNav, { SideNav, type Tab } from '@/components/BottomNav';
 import BackButton from '@/components/BackButton';
 import WaznLogo from '@/components/WaznLogo';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -61,6 +61,9 @@ import { useToast } from '@/hooks/use-toast';
  * that had one switched on still has it saved. Nothing reads it any more, so it
  * is cleared once rather than left behind.
  */
+/** Screens that use the full width on a laptop; the rest keep a reading width. */
+const WIDE_VIEWS = new Set<View>(['home', 'learnHub', 'library', 'deck', 'learnDecks', 'rootExplorer', 'lookup', 'verbForms']);
+
 const RETIRED_ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
 /** Supabase errors are plain objects, not Error instances — read .message off either. */
@@ -539,9 +542,10 @@ const Index = () => {
   return (
     <DeckContext.Provider value={cards}>
     <DeckActionsContext.Provider value={{ addWord: addWordFromReader }}>
-    <div className="min-h-screen bg-background flex flex-col">
-      <header className="border-b border-border/60 bg-card/50 backdrop-blur-sm sticky top-0 z-10">
-        <div className={`mx-auto px-4 py-4 flex items-center justify-between w-full max-w-lg ${view === 'home' ? 'lg:max-w-3xl' : ''}`}>
+    <div className="min-h-screen bg-background flex flex-col lg:ps-60">
+      {/* Phone and tablet header; on a laptop the sidebar carries all of this. */}
+      <header className="border-b border-border/60 bg-card/50 backdrop-blur-sm sticky top-0 z-10 lg:hidden">
+        <div className="mx-auto px-4 py-4 flex items-center justify-between w-full max-w-lg">
           <button
             onClick={() => selectTab('home')}
             aria-label="Wazn — go to Home"
@@ -574,7 +578,7 @@ const Index = () => {
         </div>
       </header>
 
-      <main className={`flex-1 mx-auto w-full px-4 pt-8 pb-28 max-w-lg ${view === 'home' ? 'lg:max-w-3xl' : ''}`}>
+      <main className={`flex-1 mx-auto w-full px-4 pt-8 pb-28 max-w-lg lg:px-8 lg:pt-10 lg:pb-12 ${WIDE_VIEWS.has(view) ? 'lg:max-w-4xl' : 'lg:max-w-2xl'}`}>
         {view === 'home' && (
           <>
             {cards.length === 0 && user?.email && (
@@ -812,6 +816,16 @@ const Index = () => {
       )}
 
       <BottomNav active={tab} onSelect={selectTab} dueCount={dueCount} />
+      <SideNav
+        active={tab}
+        onSelect={selectTab}
+        dueCount={dueCount}
+        deckSize={cards.length}
+        onOpenDeck={goToDeck}
+        deckOpen={view === 'deck'}
+        online={online}
+        pendingCount={pendingCount}
+      />
     </div>
     </DeckActionsContext.Provider>
     </DeckContext.Provider>
