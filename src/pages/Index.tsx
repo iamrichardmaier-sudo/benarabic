@@ -37,7 +37,7 @@ import BottomNav, { type Tab } from '@/components/BottomNav';
 import BackButton from '@/components/BackButton';
 import WaznLogo from '@/components/WaznLogo';
 import { Skeleton } from '@/components/ui/skeleton';
-import { useBrowserBack } from '@/hooks/useBrowserBack';
+import { parsePath, pathFor, type View } from '@/lib/app-routes';
 import { recordStudyDay } from '@/lib/streak';
 import { FlashCard, Rating, createCard, reviewCard, getDueCards, getLearnableCards, parseWordLine, scheduleFields, nextWave, isSentence } from '@/lib/spaced-repetition';
 import SentenceOrder from '@/components/SentenceOrder';
@@ -55,14 +55,6 @@ import { tagCards, tagUntaggedDeck, repairVerbMasdarPairs } from '@/lib/auto-tag
 import { markNeedsImage } from '@/lib/offline-cache';
 import type { TaggedImportEntry } from '@/lib/import-tagged';
 import { useToast } from '@/hooks/use-toast';
-
-/** A tab's root screen, plus every screen reachable beneath it. */
-type View =
-  | 'home' | 'learnHub' | 'library' | 'settings'
-  | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
-  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize' | 'listenCards' | 'rootExplorer' | 'verbForms' | 'anki'
-  | 'pdfToAudio'
-  | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast' | 'feedback';
 
 /**
  * The chapter filter that used to sit under the header is gone, but a device
@@ -82,18 +74,13 @@ function errorReason(err: unknown): string {
 const Index = () => {
   const { cards, loading, addCards, updateCard, deleteCard, refetch, online, pendingCount } = useFlashcards();
   const { signOut, user } = useAuth();
-  const [tab, setTab] = useState<Tab>('home');
-  const [view, setView] = useState<View>('home');
-  // Lets the hardware/browser back button undo a screen change the same way
-  // the in-app Back button does, instead of leaving the app. Tab and view
-  // are restored together so re-entering a screen this way can't leave
-  // BottomNav highlighting a different section than what's on screen.
-  useBrowserBack<{ tab: Tab; view: View }>(
-    { tab, view },
-    `${tab}:${view}`,
-    (restored) => { setTab(restored.tab); setView(restored.view); },
-    { tab: 'home', view: 'home' },
-  );
+  // The screen comes from the address, so a refresh, a bookmark or a shared
+  // link opens where it points (see lib/app-routes).
+  const [initial] = useState(() => parsePath(window.location.pathname) ?? { tab: 'home' as Tab, view: 'home' as View });
+  const [tab, setTab] = useState<Tab>(initial.tab);
+  const [view, setView] = useState<View>(initial.view);
+  /** Where in the Library the address points ("bible/John/3"). */
+  const [libraryPath, setLibraryPath] = useState(initial.libraryPath ?? '');
   const [reviewItems, setReviewItems] = useState<{ card: FlashCard; direction: ReviewDirection }[]>([]);
   /**
    * True while running the practice set rather than the day's reviews.
@@ -122,6 +109,45 @@ const Index = () => {
   const backfillRan = useRef(false);
   const podcastLinkRan = useRef(false);
   const [podcastRegister, setPodcastRegister] = useState<Register | null>(null);
+
+  // Each screen change becomes a history entry with its own address, so the
+  // browser's Back walks back through screens instead of leaving the app.
+  // When the address already matches (we got here by Back/Forward, or the
+  // page just loaded) nothing is pushed. The tab is kept in the entry's
+  // state because a few screens (My Deck, decks) can be reached from more
+  // than one tab.
+  const url = pathFor({ tab, view, libraryPath, podcastId: podcast?.id ?? initial.podcastId });
+  useEffect(() => {
+    if (window.location.pathname === url) {
+      window.history.replaceState({ ...(window.history.state ?? {}), waznTab: tab }, '');
+      return;
+    }
+    window.history.pushState({ waznTab: tab }, '', url);
+  }, [url, tab]);
+
+  useEffect(() => {
+    const onPop = (e: PopStateEvent) => {
+      const loc = parsePath(window.location.pathname) ?? { tab: 'home' as Tab, view: 'home' as View };
+      setTab((e.state?.waznTab as Tab | undefined) ?? loc.tab);
+      setView(loc.view);
+      if (loc.view === 'library') setLibraryPath(loc.libraryPath ?? '');
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
+
+  // Opened straight onto a podcast's address: fetch it, or fall back to Learn.
+  useEffect(() => {
+    if (initial.view !== 'podcast' || !initial.podcastId || !user) return;
+    fetchPodcastById(initial.podcastId)
+      .then((found) => {
+        if (found) setPodcast(found);
+        else setView('learnHub');
+      })
+      .catch(() => setView('learnHub'));
+    // Only the address the app was opened on.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   // A Scriptable widget cannot run the app in place -- tapping a podcast in
   // its browse list is a URL open, same as every other deep link this app
@@ -265,6 +291,8 @@ const Index = () => {
     // Re-tapping Library while already there means "back to the top of the
     // Library", which only the Library itself can act on — hence the token.
     if (next === 'library' && tab === 'library') setLibraryReset((n) => n + 1);
+    // A tab opens at its root; for the Library that is its front page.
+    if (next === 'library') setLibraryPath('');
     setTab(next);
     if (next === 'review') return startReview();
     setView(TAB_HOME_VIEW[next]);
@@ -299,6 +327,7 @@ const Index = () => {
     }
     setTab('library');
     setView('library');
+    setLibraryPath(`bible/${bookCode}/${chapter}`);
     setLibraryResume((n) => n + 1);
   };
 
@@ -329,6 +358,16 @@ const Index = () => {
   };
 
   const startReview = () => openSession(getDueCards(cards), false);
+
+  // Opened on /review: start the day's review as soon as the deck is in.
+  const reviewOpened = useRef(false);
+  useEffect(() => {
+    if (initial.view !== 'review' || loading || reviewOpened.current) return;
+    reviewOpened.current = true;
+    startReview();
+    // startReview reads the deck, which is ready once loading is false.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading]);
 
   /** This week's words again, whether or not they are due. */
   const startPractice = () => openSession(learnedRecently(cards), true);
@@ -580,7 +619,12 @@ const Index = () => {
         )}
 
         {view === 'library' && (
-          <Library resetToken={libraryReset} resumeToken={libraryResume} />
+          <Library
+            resetToken={libraryReset}
+            resumeToken={libraryResume}
+            path={libraryPath}
+            onPathChange={setLibraryPath}
+          />
         )}
 
         {view === 'pdfToAudio' && <PdfToAudio onBack={() => setView('settings')} />}
@@ -626,7 +670,11 @@ const Index = () => {
             onOpenFeedback={() => setView('feedback')}
             email={user?.email}
             deckSize={cards.length}
-            onSignOut={signOut}
+            onSignOut={() => {
+              // Back to the public front page, not a sign-in screen for /settings.
+              window.history.replaceState(null, '', '/');
+              return signOut();
+            }}
             onOpenDeck={() => setView('deck')}
           />
         )}

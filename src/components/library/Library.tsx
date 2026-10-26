@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
 import { ChevronRight, BookOpen } from 'lucide-react';
 import { useBibleBooks } from '@/hooks/useBibleBooks';
 import LibraryHome, { type LibraryDestination } from '@/components/LibraryHome';
@@ -9,6 +9,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { useLibraryTexts, type LibraryText } from '@/hooks/useLibraryTexts';
 import { BOM_BOOKS, bomBook } from '@/lib/bom-books';
 import type { BibleBook } from '@/lib/bible-types';
+import { libraryPathFor, parseLibraryPath, type LibraryPlace } from '@/lib/library-path';
 
 const OT_COUNT = 39;
 const BOOK_KEY = 'arabic-flashcards-bible-book';
@@ -55,6 +56,17 @@ interface LibraryProps {
   resetToken?: number;
   /** Increments when another screen asks the Library to open where it left off. */
   resumeToken?: number;
+  /**
+   * Where the address says the Library is ("bible/John/3", see library-path).
+   * When it changes from outside (the browser's Back, a shared link) the
+   * Library goes there; its own moves are reported through onPathChange.
+   */
+  path?: string;
+  onPathChange?: (path: string) => void;
+}
+
+function placeOf(level: Level): LibraryPlace {
+  return level.kind === 'saved' ? { kind: 'saved', textId: level.text.id } : level;
 }
 
 /**
@@ -65,10 +77,75 @@ interface LibraryProps {
  * a single authenticated screen; this keeps back behaviour predictable and lets
  * the bottom-nav tab reset the stack without a router round-trip.
  */
-const Library = ({ resetToken = 0, resumeToken = 0 }: LibraryProps) => {
+const Library = ({ resetToken = 0, resumeToken = 0, path, onPathChange }: LibraryProps) => {
   const { books, loading, error } = useBibleBooks();
   const [level, setLevel] = useState<Level>({ kind: 'home' });
-  const { texts, error: libraryError } = useLibraryTexts({ showsErrorItself: true });
+  const { texts, loading: textsLoading, error: libraryError } = useLibraryTexts({ showsErrorItself: true });
+  const currentPath = libraryPathFor(placeOf(level));
+  // Until an incoming address has been applied, the front page on screen is
+  // a placeholder, not a move to report: reporting it would overwrite a deep
+  // link such as bible/John/3 before the book list had even loaded.
+  const applied = useRef(path === undefined || parseLibraryPath(path).kind === 'home');
+
+  // Report every move, so the address always says where the reader is.
+  useEffect(() => {
+    if (!applied.current) return;
+    onPathChange?.(currentPath);
+    // onPathChange is a fresh function each render of the parent.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPath]);
+
+  // Follow the address when it changes from outside. Waits for the book list
+  // (and, for a saved text, the reader's texts) so a link opened cold still
+  // lands on the right page; anything that no longer exists falls back to the
+  // Library's front page rather than an empty screen.
+  useEffect(() => {
+    if (path === undefined || !books) return;
+    if (path === currentPath) {
+      applied.current = true;
+      return;
+    }
+    const place = parseLibraryPath(path);
+    const go = (next: Level) => {
+      applied.current = true;
+      // Landing where we already are (e.g. a dead link falling back to the
+      // front page) changes no state, so report it here instead.
+      if (libraryPathFor(placeOf(next)) === currentPath) onPathChange?.(currentPath);
+      setLevel(next);
+    };
+    switch (place.kind) {
+      case 'chapters':
+      case 'reader': {
+        const b = books.find((x) => x.code === place.bookCode);
+        if (!b) return go({ kind: 'home' });
+        if (place.kind === 'reader') {
+          const chapter = Math.min(place.chapter, b.chapters);
+          writeStored(BOOK_KEY, b.code);
+          writeStored(CHAPTER_KEY, String(chapter));
+          return go({ kind: 'reader', bookCode: b.code, chapter });
+        }
+        return go(place);
+      }
+      case 'bomChapters':
+      case 'bomReader': {
+        const b = bomBook(place.bookCode);
+        if (!b) return go({ kind: 'home' });
+        return go(place.kind === 'bomReader'
+          ? { ...place, chapter: Math.min(place.chapter, b.chapters) }
+          : place);
+      }
+      case 'saved': {
+        const text = texts.find((t) => t.id === place.textId);
+        if (text) go({ kind: 'saved', text });
+        else if (!textsLoading) go({ kind: 'articles' }); // deleted, or not this account's
+        return;
+      }
+      default:
+        return go(place);
+    }
+    // currentPath is read, not reacted to: only an outside change should move us.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [path, books, texts, textsLoading]);
 
   // Tapping the already-active Library tab returns to the root.
   useEffect(() => {
