@@ -34,6 +34,9 @@ import FeedbackForm from '@/components/FeedbackForm';
 import { useDeckLibrary } from '@/hooks/useDeckLibrary';
 import type { Deck } from '@/lib/deck-store';
 import BottomNav, { type Tab } from '@/components/BottomNav';
+import NowPlayingBar from '@/components/daily-audio/NowPlayingBar';
+import { useBarEpisode } from '@/hooks/useNowPlaying';
+import VideoPlayerView from '@/components/daily-audio/VideoPlayerView';
 import BackButton from '@/components/BackButton';
 import WaznLogo from '@/components/WaznLogo';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -84,6 +87,8 @@ const Index = () => {
   const { signOut, user } = useAuth();
   const [tab, setTab] = useState<Tab>('home');
   const [view, setView] = useState<View>('home');
+  /** A shelf episode in the play bar, which needs room under the page. */
+  const barEpisode = useBarEpisode();
   // Lets the hardware/browser back button undo a screen change the same way
   // the in-app Back button does, instead of leaving the app. Tab and view
   // are restored together so re-entering a screen this way can't leave
@@ -531,7 +536,7 @@ const Index = () => {
         </div>
       </header>
 
-      <main className={`flex-1 mx-auto w-full px-4 pt-8 pb-28 max-w-lg ${view === 'home' ? 'lg:max-w-3xl' : ''}`}>
+      <main className={`flex-1 mx-auto w-full px-4 pt-8 ${barEpisode ? 'pb-56' : 'pb-28'} max-w-lg ${view === 'home' ? 'lg:max-w-3xl' : ''}`}>
         {view === 'home' && (
           <>
             {cards.length === 0 && user?.email && (
@@ -756,7 +761,8 @@ const Index = () => {
         />
       )}
 
-      <BottomNav active={tab} onSelect={selectTab} dueCount={dueCount} />
+      <BottomNav active={tab} onSelect={selectTab} dueCount={dueCount} accessory={<NowPlayingBar />} />
+      <VideoPlayerView />
     </div>
     </DeckActionsContext.Provider>
     </DeckContext.Provider>

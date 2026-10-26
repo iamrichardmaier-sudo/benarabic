@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { Home, GraduationCap, Library, Layers, Settings, type LucideIcon } from 'lucide-react';
 
 export type Tab = 'home' | 'learn' | 'library' | 'review' | 'settings';
@@ -7,6 +8,8 @@ interface BottomNavProps {
   onSelect: (tab: Tab) => void;
   /** Due-card count, surfaced as a badge on Review so it's visible everywhere. */
   dueCount?: number;
+  /** Rides on top of the tabs, e.g. the now-playing bar. */
+  accessory?: ReactNode;
 }
 
 const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
@@ -23,8 +26,10 @@ const TABS: { id: Tab; label: string; icon: LucideIcon }[] = [
  * handled by the caller as "jump back to this section's root", matching the
  * drill-down convention users expect from library apps.
  */
-const BottomNav = ({ active, onSelect, dueCount = 0 }: BottomNavProps) => (
-  <nav className="fixed inset-x-0 bottom-0 z-20 border-t border-border/60 bg-card/95 backdrop-blur-sm">
+const BottomNav = ({ active, onSelect, dueCount = 0, accessory }: BottomNavProps) => (
+  <div className="fixed inset-x-0 bottom-0 z-20">
+  {accessory}
+  <nav className="border-t border-border/60 bg-card/95 backdrop-blur-sm">
     <div className="max-w-lg mx-auto grid grid-cols-5 gap-1 px-2 py-2 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
       {TABS.map(({ id, label, icon: Icon }) => {
         const isActive = active === id;
@@ -60,6 +65,7 @@ const BottomNav = ({ active, onSelect, dueCount = 0 }: BottomNavProps) => (
       })}
     </div>
   </nav>
+  </div>
 );
 
 export default BottomNav;
