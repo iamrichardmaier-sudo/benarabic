@@ -100,4 +100,26 @@ describe('SentenceOrder', () => {
     await user.click(screen.getByRole('button', { name: 'Continue' }));
     expect(onDone).toHaveBeenCalledExactlyOnceWith(false);
   });
+
+  it('has a slider that joins neighbouring words into bigger chunks, down to two', async () => {
+    localStorage.removeItem('wazn-sentence-pieces');
+    const user = userEvent.setup();
+    const onDone = vi.fn();
+    render(<SentenceOrder card={card} onDone={onDone} />);
+    const slider = screen.getByRole('slider', { name: 'Chunk size' });
+    expect(slider).toHaveAttribute('aria-valuetext', 'Every word');
+    slider.focus();
+    await user.keyboard('{ArrowLeft}{ArrowLeft}{ArrowLeft}');
+    expect(slider).toHaveAttribute('aria-valuenow', '2');
+    const tiles = within(screen.getByLabelText('Word bank')).getAllByRole('button');
+    expect(tiles).toHaveLength(2);
+    // Two chunks of two words, placed in order.
+    await user.click(within(screen.getByLabelText('Word bank')).getByRole('button', { name: `${words[0]} ${words[1]}` }));
+    await user.click(within(screen.getByLabelText('Word bank')).getByRole('button', { name: `${words[2]} ${words[3]}` }));
+    await user.click(screen.getByRole('button', { name: 'Check' }));
+    expect(screen.getByText('Correct!')).toBeInTheDocument();
+    // The choice is kept for the next sentence.
+    expect(localStorage.getItem('wazn-sentence-pieces')).toBe('2');
+    localStorage.removeItem('wazn-sentence-pieces');
+  });
 });

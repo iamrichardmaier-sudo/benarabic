@@ -44,8 +44,56 @@ export function shuffleTiles(tiles: string[], rng: () => number = Math.random): 
   return solvable ? [...tiles.slice(1), tiles[0]] : out;
 }
 
-/** Whether the words placed, in that order, are the sentence. */
+/**
+ * Whether the tiles placed, in that order, make the sentence. A tile may be a
+ * chunk of several words; what is compared is the words they add up to.
+ */
 export function isCorrectOrder(placed: string[], sentence: string): boolean {
   const answer = tokenize(sentence).map(key);
-  return placed.length === answer.length && placed.every((t, i) => key(t) === answer[i]);
+  const words = placed.flatMap((t) => t.split(/\s+/)).filter((t) => t.length > 0);
+  return words.length === answer.length && words.every((t, i) => key(t) === answer[i]);
+}
+
+/**
+ * The words grouped into `pieces` runs of neighbouring words, as even as
+ * possible (the longer runs first). Fewer pieces is easier: each tile carries
+ * more of the sentence already in order. It never goes below two pieces, or
+ * there would be nothing left to order, nor above one piece per word.
+ */
+export function chunkWords(words: string[], pieces: number): string[] {
+  const n = words.length;
+  if (n <= 2) return [...words];
+  const m = Math.min(Math.max(Math.round(pieces), 2), n);
+  const base = Math.floor(n / m);
+  const extra = n % m;
+  const out: string[] = [];
+  let at = 0;
+  for (let i = 0; i < m; i++) {
+    const size = base + (i < extra ? 1 : 0);
+    out.push(words.slice(at, at + size).join(' '));
+    at += size;
+  }
+  return out;
+}
+
+// The chunk size last chosen, kept for the next sentence: 'all' (a tile per
+// word) or a number of pieces, clamped to each sentence's length.
+const PIECES_KEY = 'wazn-sentence-pieces';
+
+export function readPieces(): number | 'all' {
+  try {
+    const v = localStorage.getItem(PIECES_KEY);
+    const n = Number(v);
+    return v !== null && v !== 'all' && Number.isInteger(n) && n >= 2 ? n : 'all';
+  } catch {
+    return 'all';
+  }
+}
+
+export function savePieces(value: number | 'all'): void {
+  try {
+    localStorage.setItem(PIECES_KEY, String(value));
+  } catch {
+    /* kept for this sentence only */
+  }
 }

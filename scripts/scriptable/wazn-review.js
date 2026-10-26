@@ -618,7 +618,21 @@ function buildWidget(state) {
 
 // -------------------------------------------------------- review session
 
-function reviewHTML(cards, practice) {
+// The sentence chunk size last chosen on the slider ('all' = a tile per word,
+// or a number of pieces), kept between sessions like the web app does.
+const KEY_PIECES = "wazn.sentence-pieces";
+
+function savedPieces() {
+  try {
+    const v = Keychain.contains(KEY_PIECES) ? Keychain.get(KEY_PIECES) : "all";
+    const n = Number(v);
+    return v !== "all" && Number.isInteger(n) && n >= 2 ? n : "all";
+  } catch {
+    return "all";
+  }
+}
+
+function reviewHTML(cards, practice, pieces) {
   // Cards are injected as JSON rather than templated into markup, so a word
   // containing a quote or an angle bracket cannot break the page.
   const payload = JSON.stringify(cards).replace(/</g, "\\u003c");
@@ -686,6 +700,41 @@ function reviewHTML(cards, practice) {
   #done h2 { font-size:26px; margin:0; }
   #done p { opacity:.6; margin:0; font-size:15px; }
   #done .btn { background:${BRAND}; padding:14px 34px; flex:none; }
+
+  /* Sentence cards: put the words back in order (mirrors SentenceOrder.tsx). */
+  .sq { padding:18px 16px; border-radius:18px; background:#fff;
+        box-shadow:0 1px 6px rgba(0,0,0,.07); }
+  .rd { font-size:10.5px; font-weight:700; letter-spacing:.09em; opacity:.45;
+        text-transform:uppercase; }
+  .sen { font-size:21px; line-height:1.35; margin-top:6px; }
+  .hint { font-size:12px; opacity:.5; margin-top:6px; }
+  .chunk { margin-top:14px; }
+  .chl { display:flex; justify-content:space-between; align-items:baseline;
+         font-size:11.5px; opacity:.6; }
+  .chl b { font-size:12.5px; opacity:1; color:${INK}; }
+  .chunk input { width:100%; margin:8px 0 0; accent-color:${BRAND}; }
+  .ans { display:flex; flex-wrap:wrap; gap:8px; align-items:center;
+         min-height:64px; margin-top:14px; padding:10px; border-radius:16px;
+         border:1.5px dashed rgba(0,0,0,.18); background:rgba(0,0,0,.025); }
+  .ans .empty { direction:ltr; font-size:13px; opacity:.45; padding:0 4px; }
+  .bank { display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+          margin-top:14px; }
+  .tile { font-size:23px; line-height:1.5; padding:5px 12px; border-radius:13px;
+          background:rgba(194,98,42,.12); color:${INK}; }
+  .ans .tile { background:${BRAND}; color:#fff; }
+  .tile.used { opacity:.22; }
+  .srow { display:flex; gap:10px; margin-top:16px; }
+  .sbtn { flex:1; padding:14px 0; border-radius:15px; font-size:16px;
+          font-weight:700; text-align:center; background:${BRAND}; color:#fff; }
+  .sbtn.ghost { flex:none; padding:14px 18px; background:transparent; color:${INK};
+                border:1.5px solid rgba(0,0,0,.15); font-weight:600; }
+  .sbtn.off { opacity:.35; }
+  .ok, .bad { margin-top:16px; padding:12px 14px; border-radius:14px;
+              font-weight:700; text-align:start; }
+  .ok { background:rgba(46,125,82,.12); color:#2E7D52; }
+  .bad { background:rgba(192,57,43,.1); color:#C0392B; }
+  .bad .ar { color:${INK}; margin-top:6px; font-size:30px; text-align:center; }
+  .result-next { margin-top:10px; }
 </style></head>
 <body>
 <div id="app">
@@ -727,6 +776,154 @@ const CARDS = ${payload};
 const results = [];
 let i = 0, flipped = false;
 
+/* ------------------------------------------------------- sentence cards */
+
+// A sentence is not flipped and graded: its exercise is putting the words
+// back in order, twice with a fresh shuffle, as in the web app's review.
+// The slider joins neighbouring words into bigger chunks, down to two pieces.
+const SENT_ROUNDS = 2;
+let PIECES = ${JSON.stringify(pieces || "all")};
+let S = null;
+
+function isSentence(c) { return Boolean(c) && c.word_type === 'sentence'; }
+
+const EDGE = /^[\\s\u061F?!.,\u060C\u061B;:"'\u201C\u201D\u00AB\u00BB()]+|[\\s\u061F?!.,\u060C\u061B;:"'\u201C\u201D\u00AB\u00BB()]+$/g;
+function tokenize(text) {
+  return String(text || '').split(/\\s+/).map((t) => t.replace(EDGE, '')).filter((t) => t.length > 0);
+}
+/** Mirrors normalizeArabic() in the web app: harakat, tatweel and the usual
+ *  letter variants do not count against an answer. */
+function norm(t) {
+  return String(t).replace(/\u0640/g, '').replace(/[\u064B-\u065F\u0670]/g, '')
+    .replace(/[\u0623\u0625\u0622\u0671]/g, '\u0627').replace(/\u0649/g, '\u064A')
+    .replace(/\u0629/g, '\u0647').trim().replace(/\\s+/g, ' ');
+}
+/** Mirrors chunkWords(): neighbouring words in even runs, longer first. */
+function chunk(words, pieces) {
+  const n = words.length;
+  if (n <= 2) return words.slice();
+  const m = Math.min(Math.max(Math.round(pieces), 2), n);
+  const base = Math.floor(n / m), extra = n % m, out = [];
+  let at = 0;
+  for (let k = 0; k < m; k++) {
+    const size = base + (k < extra ? 1 : 0);
+    out.push(words.slice(at, at + size).join(' '));
+    at += size;
+  }
+  return out;
+}
+/** A shuffle that is never already the answer, when another order exists. */
+function shuffleTiles(tiles) {
+  const solved = tiles.map(norm).join(' ');
+  const solvable = new Set(tiles.map(norm)).size > 1;
+  let out = tiles.slice();
+  for (let attempt = 0; attempt < 20; attempt++) {
+    out = tiles.slice();
+    for (let k = out.length - 1; k > 0; k--) {
+      const j = Math.floor(Math.random() * (k + 1));
+      const tmp = out[k]; out[k] = out[j]; out[j] = tmp;
+    }
+    if (!solvable || out.map(norm).join(' ') !== solved) return out;
+  }
+  return solvable ? tiles.slice(1).concat([tiles[0]]) : out;
+}
+function piecesLabel() {
+  return S.pieces >= S.words.length ? 'Every word' : S.pieces + ' pieces';
+}
+
+function startSentence(c) {
+  const words = tokenize(c.word_voweled || c.word);
+  const pieces = PIECES === 'all' ? words.length : Math.min(Math.max(PIECES, 2), words.length);
+  S = { card: c, words: words, pieces: pieces, round: 1, placed: [], result: 'idle', tiles: [] };
+  S.tiles = shuffleTiles(chunk(words, pieces));
+  drawSentence();
+}
+
+function drawSentence() {
+  let h = '<div class="sq"><div class="rd">Round ' + S.round + ' of ' + SENT_ROUNDS + '</div>' +
+    '<div class="sen">' + esc(S.card.english || '\u2014') + '</div>' +
+    '<div class="hint">Tap the words in order, right to left.</div>';
+  if (S.words.length > 2) {
+    h += '<div class="chunk"><div class="chl"><span>Bigger chunks</span><b id="plabel">' + piecesLabel() +
+      '</b><span>Every word</span></div><input id="pieces" type="range" min="2" max="' + S.words.length +
+      '" step="1" value="' + S.pieces + '" aria-label="Chunk size"></div>';
+  }
+  h += '</div><div id="stiles"></div>';
+  $('#card').innerHTML = h;
+  const range = $('#pieces');
+  if (range) range.addEventListener('input', () => setPieces(Number(range.value)));
+  drawTiles();
+}
+
+/** Everything below the slider, redrawn on each tap so the slider keeps its drag. */
+function drawTiles() {
+  const open = S.result === 'idle';
+  let h = '<div class="ans" dir="rtl">';
+  S.placed.forEach((t, at) => { h += '<span class="tile" data-s="un" data-i="' + at + '">' + esc(S.tiles[t]) + '</span>'; });
+  if (!S.placed.length) h += '<span class="empty">Your sentence goes here</span>';
+  h += '</div>';
+  if (open) {
+    h += '<div class="bank" dir="rtl">';
+    S.tiles.forEach((t, k) => {
+      h += '<span class="tile' + (S.placed.indexOf(k) >= 0 ? ' used' : '') + '" data-s="pl" data-i="' + k + '">' + esc(t) + '</span>';
+    });
+    h += '</div><div class="srow"><div class="sbtn ghost" data-s="clear">Clear</div>' +
+      '<div class="sbtn' + (S.placed.length === S.tiles.length ? '' : ' off') + '" data-s="check">Check</div></div>';
+  } else if (S.result === 'right') {
+    h += '<div class="ok">Correct!</div>' +
+      '<div class="sbtn result-next" data-s="next">' + (S.round < SENT_ROUNDS ? 'Next round' : 'Continue') + '</div>';
+  } else {
+    h += '<div class="bad">Not quite. The sentence is:<div class="ar" dir="rtl">' +
+      esc(S.card.word_voweled || S.card.word) + '</div></div>' + speaker() +
+      '<div class="sbtn result-next" data-s="next">Continue</div>';
+  }
+  $('#stiles').innerHTML = h;
+  const range = $('#pieces');
+  if (range) range.disabled = !open;
+}
+
+function setPieces(v) {
+  if (!S || S.result !== 'idle' || v === S.pieces) return;
+  S.pieces = v;
+  PIECES = v >= S.words.length ? 'all' : v;
+  ping('pieces?v=' + PIECES);
+  S.tiles = shuffleTiles(chunk(S.words, v));
+  S.placed = [];
+  $('#plabel').textContent = piecesLabel();
+  drawTiles();
+}
+
+function sentenceAct(act, k) {
+  if (!S) return;
+  if (S.result === 'idle') {
+    if (act === 'pl' && S.placed.indexOf(k) < 0) S.placed.push(k);
+    else if (act === 'un') S.placed.splice(k, 1);
+    else if (act === 'clear') S.placed = [];
+    else if (act === 'check') {
+      if (S.placed.length !== S.tiles.length) return;
+      const got = [];
+      S.placed.forEach((t) => { S.tiles[t].split(' ').forEach((w) => { if (w) got.push(norm(w)); }); });
+      const ok = got.length === S.words.length && S.words.every((w, at) => norm(w) === got[at]);
+      S.result = ok ? 'right' : 'wrong';
+      say(spoken(S.card));
+    }
+    drawTiles();
+    return;
+  }
+  if (act !== 'next') return;
+  if (S.result === 'wrong') { flipped = true; grade('again'); return; }
+  if (S.round < SENT_ROUNDS) {
+    S.round += 1;
+    S.tiles = shuffleTiles(chunk(S.words, S.pieces));
+    S.placed = [];
+    S.result = 'idle';
+    drawSentence();
+    return;
+  }
+  flipped = true;
+  grade('easy');
+}
+
 const $ = (s) => document.querySelector(s);
 
 function render() {
@@ -736,6 +933,15 @@ function render() {
   $('#tip').textContent = 'Tap to flip';
   $('#count').textContent = (i + 1) + '/' + CARDS.length;
   $('#fill').style.width = ((i / CARDS.length) * 100) + '%';
+  if (isSentence(c)) {
+    // No reading aloud here: hearing the sentence would give the order away.
+    $('#tip').textContent = '';
+    $('footer').style.visibility = 'hidden';
+    $('#scroll').scrollTop = 0;
+    startSentence(c);
+    return;
+  }
+  S = null;
   $('#card').innerHTML = '<div class="ar">' + esc(c.word) + '</div>' + speaker();
   $('#scroll').scrollTop = 0;
   $('footer').style.visibility = 'hidden';
@@ -744,7 +950,7 @@ function render() {
 
 function flip() {
   const c = CARDS[i];
-  if (!c) return;
+  if (!c || isSentence(c)) return;
   flipped = !flipped;
   if (!flipped) return render();
   let html = '<div class="ar sm">' + esc(c.word_voweled || c.word) + '</div>' + speaker();
@@ -936,6 +1142,8 @@ function esc(s) {
 
 document.addEventListener('click', (e) => {
   if (e.target.closest('[data-nav="site"]')) { ping('open-site'); return; }
+  const st = e.target.closest('[data-s]');
+  if (st) { sentenceAct(st.dataset.s, Number(st.dataset.i)); return; }
   const act = e.target.closest('[data-act]');
   if (!act) return;
   const a = act.dataset.act;
@@ -959,7 +1167,9 @@ scroll.addEventListener('click', (e) => {
   // A tap that ended a scroll is not a grade.
   if (dragged) { dragged = false; return; }
   // The speaker button and anything else with its own job is handled above.
-  if (e.target.closest('[data-act],[data-nav]')) return;
+  if (e.target.closest('[data-act],[data-nav],[data-s],input')) return;
+  // A sentence is answered with its tiles, never by tapping the card.
+  if (isSentence(CARDS[i])) return;
   if (!flipped) { flip(); return; }
 
   const x = e.clientX / scroll.clientWidth;
@@ -997,10 +1207,13 @@ async function runReview() {
   }
 
   // The widget face counts what is owed, so it is written from the due set
-  // whichever session is chosen.
+  // whichever session is chosen. The level shown on it is kept as it was.
+  const prior = readCache() || {};
   writeCache({
     due: due.length,
     word: due.length ? due[0].word : "",
+    xp: prior.xp,
+    bg: prior.bg,
     at: Date.now(),
   });
 
@@ -1053,7 +1266,7 @@ async function runReview() {
   let saveQueue = Promise.resolve();
 
   const wv = new WebView();
-  await wv.loadHTML(reviewHTML(cards, practice));
+  await wv.loadHTML(reviewHTML(cards, practice, savedPieces()));
 
   // The page cannot call back into Scriptable mid-session, so it navigates to
   // a wazn:// URL instead and this handler intercepts it. Returning false
@@ -1067,6 +1280,18 @@ async function runReview() {
   wv.shouldAllowRequest = (request) => {
     const url = String((request && request.url) || "");
     if (!url.startsWith("wazn://")) return true;
+
+    if (url.startsWith("wazn://pieces")) {
+      const m = url.match(/[?&]v=([^&]+)/);
+      if (m) {
+        try {
+          Keychain.set(KEY_PIECES, decodeURIComponent(m[1]));
+        } catch (e) {
+          /* the slider just starts at every word next time */
+        }
+      }
+      return false;
+    }
 
     if (url.startsWith("wazn://open-site")) {
       Safari.open(SITE_URL);

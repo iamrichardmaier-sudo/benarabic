@@ -2,7 +2,8 @@ import { useMemo, useState } from 'react';
 import { Check, RotateCcw, X } from 'lucide-react';
 import SpeakButton from '@/components/SpeakButton';
 import type { FlashCard } from '@/lib/spaced-repetition';
-import { isCorrectOrder, shuffleTiles, tokenize } from '@/lib/sentence-order';
+import { Slider } from '@/components/ui/slider';
+import { chunkWords, isCorrectOrder, readPieces, savePieces, shuffleTiles, tokenize } from '@/lib/sentence-order';
 
 interface SentenceOrderProps {
   card: FlashCard;
@@ -29,8 +30,16 @@ const SentenceOrder = ({ card, rounds = 1, onDone }: SentenceOrderProps) => {
   const sentence = card.wordVoweled || card.word;
   const words = useMemo(() => tokenize(sentence), [sentence]);
 
+  // Chunk size: from one tile per word down to two pieces of the sentence.
+  const canChunk = words.length > 2;
+  const [pieces, setPieces] = useState(() => {
+    const saved = readPieces();
+    return saved === 'all' ? words.length : Math.min(saved, words.length);
+  });
+  const chunks = useMemo(() => chunkWords(words, pieces), [words, pieces]);
+
   const [round, setRound] = useState(1);
-  const [tiles, setTiles] = useState(() => shuffleTiles(words));
+  const [tiles, setTiles] = useState(() => shuffleTiles(chunks));
   const [placed, setPlaced] = useState<number[]>([]);
   const [result, setResult] = useState<'idle' | 'right' | 'wrong'>('idle');
 
@@ -53,12 +62,20 @@ const SentenceOrder = ({ card, rounds = 1, onDone }: SentenceOrderProps) => {
     if (result === 'wrong') return onDone(false);
     if (round < rounds) {
       setRound((r) => r + 1);
-      setTiles(shuffleTiles(words));
+      setTiles(shuffleTiles(chunks));
       setPlaced([]);
       setResult('idle');
       return;
     }
     onDone(true);
+  };
+
+  const changePieces = (next: number) => {
+    if (!open || next === pieces) return;
+    setPieces(next);
+    savePieces(next >= words.length ? 'all' : next);
+    setTiles(shuffleTiles(chunkWords(words, next)));
+    setPlaced([]);
   };
 
   const lastRound = round >= rounds;
@@ -74,6 +91,29 @@ const SentenceOrder = ({ card, rounds = 1, onDone }: SentenceOrderProps) => {
         <p className="text-xl text-foreground leading-snug">{card.english || '—'}</p>
         <p className="text-xs text-muted-foreground">Tap the words in order, right to left.</p>
       </div>
+
+      {canChunk && (
+        <div className="space-y-1.5 px-1">
+          <div className="flex items-baseline justify-between text-xs text-muted-foreground">
+            <span>Bigger chunks</span>
+            <span className="font-medium text-foreground tabular-nums">
+              {pieces >= words.length ? 'Every word' : `${pieces} pieces`}
+            </span>
+            <span>Every word</span>
+          </div>
+          <Slider
+            dir="ltr"
+            min={2}
+            max={words.length}
+            step={1}
+            value={[pieces]}
+            onValueChange={([v]) => changePieces(v)}
+            disabled={!open}
+            thumbLabel="Chunk size"
+            thumbValueText={pieces >= words.length ? 'Every word' : `${pieces} pieces`}
+          />
+        </div>
+      )}
 
       <div
         aria-label="Your sentence"
@@ -120,7 +160,7 @@ const SentenceOrder = ({ card, rounds = 1, onDone }: SentenceOrderProps) => {
           </button>
           <button
             onClick={check}
-            disabled={placed.length !== words.length}
+            disabled={placed.length !== tiles.length}
             className="flex-1 rounded-xl bg-primary py-3 font-semibold text-primary-foreground transition-all active:scale-95 disabled:opacity-40"
           >
             Check

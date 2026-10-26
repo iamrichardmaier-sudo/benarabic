@@ -127,6 +127,15 @@ it counted.
 If only one of the two has anything in it, the script goes straight into that one rather
 than showing a menu with a single item.
 
+### Sentence cards
+
+A sentence card is not flipped. As in the web app, the English is the question and the
+Arabic words are tiles to tap into order, right to left. It runs twice with a fresh shuffle;
+both right is *Easy*, a miss is *Again*. The slider above the tiles joins neighbouring words
+into bigger chunks, from one tile per word down to two pieces, and the script remembers the
+setting (in the Keychain) for the next sentence. The sentence is only read aloud once you
+have checked your answer, so hearing it never gives the order away.
+
 ### XP and levels
 
 Every card graded here earns XP toward your Wazn level, the same as in the web app: 3 for

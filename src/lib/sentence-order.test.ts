@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { tokenize, shuffleTiles, isCorrectOrder } from './sentence-order';
+import { tokenize, shuffleTiles, isCorrectOrder, chunkWords } from './sentence-order';
 
 const q = 'قَدّيش بِدَّك تِبقى بِأَمريكا؟';
 
@@ -48,5 +48,25 @@ describe('isCorrectOrder', () => {
 
   it('does not penalise missing vowels or alef variants', () => {
     expect(isCorrectOrder(['قديش', 'بدك', 'تبقى', 'بامريكا'], q)).toBe(true);
+  });
+});
+
+describe('chunkWords', () => {
+  const w = ['a', 'b', 'c', 'd', 'e'];
+  it('keeps one tile per word at the most', () => {
+    expect(chunkWords(w, 5)).toEqual(w);
+    expect(chunkWords(w, 99)).toEqual(w);
+  });
+  it('groups neighbouring words evenly, longer runs first', () => {
+    expect(chunkWords(w, 3)).toEqual(['a b', 'c d', 'e']);
+    expect(chunkWords(w, 2)).toEqual(['a b c', 'd e']);
+  });
+  it('never goes below two pieces', () => {
+    expect(chunkWords(w, 1)).toEqual(['a b c', 'd e']);
+    expect(chunkWords(['a', 'b'], 1)).toEqual(['a', 'b']);
+  });
+  it('checks chunks by the words they add up to', () => {
+    expect(isCorrectOrder(['أنا أحب', 'القهوة'], 'أنا أحب القهوة.')).toBe(true);
+    expect(isCorrectOrder(['القهوة', 'أنا أحب'], 'أنا أحب القهوة.')).toBe(false);
   });
 });
