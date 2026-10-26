@@ -187,6 +187,8 @@ const MemorizeTranscript = ({ onBack }: MemorizeTranscriptProps) => {
                           the transcript already displayed directly below. */}
                       <video
                         key={selected.videoUrl}
+                        data-title={selected.title}
+                        data-subtitle="Video"
                         src={`${import.meta.env.BASE_URL}${selected.videoUrl}`}
                         controls
                         playsInline

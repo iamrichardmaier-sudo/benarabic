@@ -9,7 +9,7 @@ import { useAccountDeletion } from '@/hooks/useAccountDeletion';
 import {
   setTextScale, setAudioRate, setTheme,
   TEXT_SCALE_MIN, TEXT_SCALE_MAX, TEXT_SCALE_STEP,
-  AUDIO_RATE_MIN, AUDIO_RATE_MAX, AUDIO_RATE_STEP,
+  AUDIO_RATE_MIN, AUDIO_RATE_MAX, AUDIO_RATE_STEP, formatRate,
   type Theme,
 } from '@/lib/preferences';
 
@@ -188,11 +188,11 @@ const SettingsScreen = ({
               <Volume2 className="w-5 h-5 text-primary shrink-0" />
               <span>
                 <span className="block font-semibold text-foreground">Playback speed</span>
-                <span className="block text-xs text-muted-foreground">Chapter narration</span>
+                <span className="block text-xs text-muted-foreground">Every audio and video in the app</span>
               </span>
             </span>
             <span className="text-sm text-muted-foreground tabular-nums shrink-0">
-              {Math.round(prefs.audioRate * 100)}%
+              {formatRate(prefs.audioRate)}
             </span>
           </div>
           <input

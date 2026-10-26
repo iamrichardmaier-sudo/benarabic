@@ -233,3 +233,29 @@ html.wz-art main {
 html.wz-art main :is(.bg-card, .bg-primary, .bg-secondary, .bg-muted, .bg-destructive, .bg-background, [class*="bg-card/"], [class*="bg-primary/"], [class*="bg-muted/"], button, input, select, textarea) {
   text-shadow: none;
 }
+
+/* The play bar's scrubber: a thin line that fills as the audio plays. */
+.wz-scrub {
+  -webkit-appearance: none;
+  appearance: none;
+  background: linear-gradient(to right, hsl(var(--primary)) var(--wz-fill, 0%), hsl(var(--muted)) var(--wz-fill, 0%));
+  background-size: 100% 4px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+}
+.wz-scrub::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: hsl(var(--primary));
+}
+.wz-scrub::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 9999px;
+  background: hsl(var(--primary));
+}
+.wz-scrub:disabled::-webkit-slider-thumb { visibility: hidden; }

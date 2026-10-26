@@ -37,6 +37,9 @@ import BottomNav, { SideNav, type Tab } from '@/components/BottomNav';
 import BackButton from '@/components/BackButton';
 import WaznLogo from '@/components/WaznLogo';
 import AppBackground from '@/components/backgrounds/AppBackground';
+import NowPlayingBar from '@/components/NowPlayingBar';
+import { installMediaWatcher } from '@/lib/now-playing';
+import { useNowPlaying } from '@/hooks/useNowPlaying';
 import { addXp, getSnapshot, lastSeenLevel, loadProgress, markLevelSeen, setBackground } from '@/lib/progress';
 import { useProgress } from '@/hooks/useProgress';
 import { LEVEL_XP, levelFor, xpForGrade } from '@/lib/levels';
@@ -122,6 +125,11 @@ const Index = () => {
     void loadProgress(user?.id ?? null);
   }, [user?.id]);
   const progress = useProgress();
+
+  // The play bar follows any audio or video that starts, on any screen.
+  useEffect(() => installMediaWatcher(), []);
+  // The podcast screen has the full player; the bar would only repeat it.
+  const showPlayBar = useNowPlaying().active && view !== 'podcast';
 
   /**
    * The study session in progress (review, practice or learn) and the XP it
@@ -639,6 +647,7 @@ const Index = () => {
     <DeckActionsContext.Provider value={{ addWord: addWordFromReader }}>
     <div className="isolate min-h-screen bg-background flex flex-col lg:ps-60">
       <AppBackground />
+      <NowPlayingBar hidden={!showPlayBar} />
       <SessionSummaryDialog summary={summary} onClose={closeSummary} onUseBackground={(id) => void setBackground(id)} />
       {/* Phone and tablet header; on a laptop the sidebar carries all of this. */}
       <header className="border-b border-border/60 bg-card/50 backdrop-blur-sm sticky top-0 z-10 lg:hidden">
@@ -675,7 +684,7 @@ const Index = () => {
         </div>
       </header>
 
-      <main className={`flex-1 mx-auto w-full px-4 pt-8 pb-28 max-w-lg lg:px-8 lg:pt-10 lg:pb-12 ${WIDE_VIEWS.has(view) ? 'lg:max-w-4xl' : 'lg:max-w-2xl'}`}>
+      <main className={`flex-1 mx-auto w-full px-4 pt-8 max-w-lg lg:px-8 lg:pt-10 ${showPlayBar ? 'pb-48 lg:pb-32' : 'pb-28 lg:pb-12'} ${WIDE_VIEWS.has(view) ? 'lg:max-w-4xl' : 'lg:max-w-2xl'}`}>
         {view === 'home' && (
           <>
             {cards.length === 0 && user?.email && (

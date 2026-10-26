@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { registerMedia } from '@/lib/now-playing';
 
 export interface Track {
   url: string;
@@ -20,6 +21,8 @@ function audio(): HTMLAudioElement {
     // Tells iOS this is a long-form listen rather than an effect, which is
     // part of what keeps it running with the screen off.
     element.setAttribute('playsinline', '');
+    // It never joins the page, so the play bar is told about it directly.
+    registerMedia(element);
   }
   return element;
 }
@@ -43,6 +46,8 @@ export function usePodcastPlayer(title: string) {
     offset: 0, loading: false, error: null,
   });
   const queue = useRef<Track[]>([]);
+  const titleRef = useRef(title);
+  titleRef.current = title;
   const at = useRef(0);
   const lengths = useRef<number[]>([]);
 
@@ -53,6 +58,9 @@ export function usePodcastPlayer(title: string) {
     if (!track) return;
     const el = audio();
     at.current = i;
+    // What the play bar shows.
+    el.dataset.title = track.label;
+    el.dataset.subtitle = titleRef.current;
     el.src = track.url;
     el.load();
     patch({

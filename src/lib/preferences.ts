@@ -26,7 +26,7 @@ export type Dialect = 'msa' | 'shaami' | 'both';
 export interface Preferences {
   /** Reading text scale, 0.8–1.3. */
   textScale: number;
-  /** Chapter-audio playback rate, 0.75–1.0. */
+  /** Listening speed for every audio and video in the app, 0.5–2. */
   audioRate: number;
   theme: Theme;
   dialect: Dialect;
@@ -57,9 +57,14 @@ export const TEXT_SCALE_MIN = 0.8;
 export const TEXT_SCALE_MAX = 1.3;
 export const TEXT_SCALE_STEP = 0.1;
 
-export const AUDIO_RATE_MIN = 0.75;
-export const AUDIO_RATE_MAX = 1;
+export const AUDIO_RATE_MIN = 0.5;
+export const AUDIO_RATE_MAX = 2;
 export const AUDIO_RATE_STEP = 0.05;
+
+/** A speed as people say it: 0.75×, 1×, 1.5×. */
+export function formatRate(rate: number): string {
+  return `${Number(rate.toFixed(2))}×`;
+}
 
 // Existing keys are kept verbatim so preferences already saved on a device
 // survive this refactor rather than silently resetting.

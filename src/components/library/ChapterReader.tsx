@@ -11,7 +11,7 @@ import { useChapterSwipe } from '@/hooks/useChapterSwipe';
 import {
   setTextScale, setAudioRate,
   TEXT_SCALE_MIN, TEXT_SCALE_MAX, TEXT_SCALE_STEP,
-  AUDIO_RATE_MIN, AUDIO_RATE_MAX, AUDIO_RATE_STEP,
+  AUDIO_RATE_MIN, AUDIO_RATE_MAX, AUDIO_RATE_STEP, formatRate,
 } from '@/lib/preferences';
 import { chapterWords } from '@/lib/bible-words';
 import { recordChapterRead } from '@/lib/reading-log';
@@ -249,7 +249,7 @@ const ChapterReader = ({
             <div className="rounded-xl border border-border bg-card p-3 space-y-2">
               {/* No caption track: this is narration of Arabic text already on
                   screen, so a transcript would duplicate the page itself. */}
-              <audio ref={audioRef} key={audioUrl} controls preload="none" className="w-full h-9" src={audioUrl}>
+              <audio ref={audioRef} key={audioUrl} controls preload="none" className="w-full h-9" src={audioUrl} data-title={`${book.name} ${chapter}`} data-subtitle="Chapter audio">
                 Your browser does not support audio playback.
               </audio>
               <div className="flex items-center gap-2">
@@ -265,7 +265,7 @@ const ChapterReader = ({
                   className="flex-1 accent-primary"
                 />
                 <span className="text-xs text-muted-foreground tabular-nums w-9 text-end">
-                  {Math.round(prefs.audioRate * 100)}%
+                  {formatRate(prefs.audioRate)}
                 </span>
               </div>
             </div>
