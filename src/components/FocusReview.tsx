@@ -7,6 +7,7 @@ import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import WordDetail from '@/components/WordDetail';
 import { focusAction, focusHint } from '@/lib/focus-keys';
 import { dialectView } from '@/lib/dialect';
+import CardScene from '@/components/CardScene';
 import { usePreferences } from '@/hooks/usePreferences';
 
 interface FocusReviewProps {
@@ -112,12 +113,14 @@ const FocusReview = ({
         <div className="m-auto w-full max-w-2xl text-center">
           {showEnglishFirst ? (
             <>
-              {card.imageUrl && (
+              {card.imageUrl ? (
                 <img
                   src={card.imageUrl}
                   alt={card.english || ''}
                   className="mx-auto mb-4 max-h-[26vh] max-w-[78%] rounded-2xl object-cover"
                 />
+              ) : card.english && (
+                <CardScene card={card} className="mb-4" />
               )}
               <p className="text-[32px] leading-snug text-muted-foreground">{card.english}</p>
             </>
@@ -139,6 +142,7 @@ const FocusReview = ({
             <div className="mt-3 space-y-3 text-start">
               {direction === 'ar-to-en' ? (
                 <>
+                  {card.english && !card.imageUrl && <CardScene card={card} size="md" />}
                   {card.english && (
                     <p className="text-center text-[24px] leading-snug text-muted-foreground">
                       {card.english}

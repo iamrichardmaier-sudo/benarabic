@@ -8,6 +8,7 @@ import WordInfoPopover from '@/components/WordInfoPopover';
 import WordForms from '@/components/WordForms';
 import WordDetail from '@/components/WordDetail';
 import { hasWordDetail } from '@/lib/word-relations';
+import CardScene from '@/components/CardScene';
 
 interface LearningModeProps {
   cards: FlashCard[];
@@ -328,8 +329,10 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack, header }: Learnin
     // Default: show image + English
     return (
       <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-6 flex flex-col items-center justify-center min-h-[200px] gap-3">
-        {card.imageUrl && (
+        {card.imageUrl ? (
           <img src={card.imageUrl} alt={card.english || card.word} className="max-w-[400px] w-full rounded-xl object-cover aspect-video" />
+        ) : card.english && (
+          <CardScene card={card} size="md" />
         )}
         {card.english && (
           <p className={card.imageUrl ? "text-2xl text-muted-foreground" : "text-[48px] font-bold text-muted-foreground"}>

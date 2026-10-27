@@ -1,3 +1,6 @@
 project_id = "fphpcfecgnfoogfaeihu"
 [functions.enrich-words]
 verify_jwt = false
+
+[functions.assign-scenes]
+verify_jwt = false

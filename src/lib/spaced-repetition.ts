@@ -20,6 +20,8 @@ export interface FlashCard {
   word: string;
   english: string | null;
   imageUrl: string | null;
+  /** Key of the little animated scene shown with the meaning (see ./card-scenes). */
+  scene?: string | null;
   nextReviewDate: string;
   intervalDays: number;
   easeFactor: number;
