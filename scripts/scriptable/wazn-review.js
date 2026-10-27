@@ -96,7 +96,10 @@ function levelFor(xp) {
   return level;
 }
 
-/** Sends one day's XP (add_xp in the database); returns the new total, or null on any failure. */
+/**
+ * Sends one day's XP (add_xp in the database). `ok` is whether the database
+ * took it; `total` is the new total when the reply could be read.
+ */
 async function sendXp(token, amount, day) {
   try {
     const req = new Request(`${SUPABASE_URL}/rest/v1/rpc/add_xp`);
@@ -105,10 +108,17 @@ async function sendXp(token, amount, day) {
     // The local day it was earned, so it counts toward that day's goal and
     // streak in the app wherever the phone is.
     req.body = JSON.stringify({ amount: amount, study_day: day });
-    const total = await req.loadJSON();
-    return typeof total === "number" ? total : null;
+    // Read as text, not loadJSON(): add_xp answers with a bare number such
+    // as 1270, which iOS's JSON parser refuses. That refusal used to look like
+    // a failed save, so XP the database HAD taken was queued and sent again.
+    // Success is judged by the HTTP status instead.
+    const text = await req.loadString();
+    const status = req.response ? Number(req.response.statusCode) : 0;
+    if (!(status >= 200 && status < 300)) return { ok: false, total: null };
+    const total = Number(String(text || "").trim());
+    return { ok: true, total: Number.isFinite(total) ? total : null };
   } catch {
-    return null;
+    return { ok: false, total: null };
   }
 }
 
@@ -135,12 +145,57 @@ function writePendingXp(pending) {
   }
 }
 
+// Set once the queue left by the version with the loadJSON bug has been
+// checked against the database (see reconcilePendingXp).
+const KEY_XP_CHECKED = "wazn.xp-queue-checked";
+
+/**
+ * One-off clean-up after the loadJSON bug. That version kept every session's
+ * XP queued even though the database had taken it, and sent it again each
+ * time. A queued day whose total in the database already covers it was
+ * delivered, so it is dropped rather than sent yet again. If the database
+ * cannot be asked, nothing is dropped and it is tried next time.
+ */
+async function reconcilePendingXp(token) {
+  try {
+    if (Keychain.contains(KEY_XP_CHECKED)) return;
+  } catch {
+    return;
+  }
+  const pending = readPendingXp();
+  const days = Object.keys(pending).filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d));
+  if (days.length) {
+    try {
+      const req = new Request(
+        `${SUPABASE_URL}/rest/v1/user_study_days?select=day,xp&day=in.(${days.join(",")})`,
+      );
+      req.headers = restHeaders(token);
+      const rows = await req.loadJSON();
+      if (!Array.isArray(rows)) return; // not reachable now: check next time
+      const onServer = {};
+      for (const r of rows) onServer[r.day] = Number(r.xp) || 0;
+      for (const d of days) {
+        if ((onServer[d] || 0) >= (Number(pending[d]) || 0)) delete pending[d];
+      }
+      writePendingXp(pending);
+    } catch {
+      return;
+    }
+  }
+  try {
+    Keychain.set(KEY_XP_CHECKED, "1");
+  } catch {
+    /* checked again next time, which is harmless */
+  }
+}
+
 /**
  * Queues this session's XP with anything still waiting, then sends it all.
- * Returns the new total (null if nothing got through) and how much is still
+ * Returns the new total (null if it could not be read) and how much is still
  * waiting.
  */
 async function addXp(token, amount) {
+  await reconcilePendingXp(token);
   const pending = readPendingXp();
   if (amount > 0) {
     const today = isoDay();
@@ -152,12 +207,12 @@ async function addXp(token, amount) {
     let left = Number(pending[day]) || 0;
     while (left > 0) {
       const chunk = Math.min(left, 2000); // add_xp takes at most 2000 per call
-      const t = await sendXp(token, chunk, day);
-      if (t === null) {
+      const sent = await sendXp(token, chunk, day);
+      if (!sent.ok) {
         writePendingXp(pending);
         return { total, waiting: Object.values(pending).reduce((a, b) => a + (Number(b) || 0), 0) };
       }
-      total = t;
+      if (sent.total !== null) total = sent.total;
       left -= chunk;
       if (left > 0) pending[day] = left;
       else delete pending[day];
@@ -209,6 +264,12 @@ function widgetTheme(bg, xp) {
   return WIDGET_THEMES[bg];
 }
 
+/** Room inside the widget for a full-width row, in points (padding taken off). */
+function widgetContentWidth() {
+  const family = (typeof config !== "undefined" && config.widgetFamily) || "small";
+  return family === "medium" || family === "large" || family === "extraLarge" ? 290 : 124;
+}
+
 /** A thin rounded progress bar, drawn as an image. */
 function barImage(fraction, color, track, width = 240, height = 8) {
   const ctx = new DrawContext();
@@ -233,9 +294,10 @@ function barImage(fraction, color, track, width = 240, height = 8) {
 /** "+40 XP · Level 3", plus a note when the session reached a new level. */
 function xpLine(earned, total, waiting) {
   if (earned <= 0 && !waiting) return "";
-  if (total === null || waiting > 0) {
+  if (waiting > 0) {
     return `\n\n+${earned} XP. Not saved yet: ${waiting} XP is waiting on this phone and will be sent after your next session.`;
   }
+  if (total === null) return `\n\n+${earned} XP`;
   const level = levelFor(total);
   const before = levelFor(total - earned);
   let line = `\n\n+${earned} XP \u00b7 Level ${level}`;
@@ -660,11 +722,14 @@ function buildWidget(state) {
     left.textColor = new Color(ink);
     left.textOpacity = 0.6;
     w.addSpacer(3);
+    // Sized to the widget: anything wider than the space inside a small
+    // widget (about 130 points) stretches the whole widget, which then gets
+    // cut off on both sides, text and all.
+    const barWidth = widgetContentWidth();
     const bar = w.addImage(
-      barImage(next === null ? 1 : (state.xp - floor) / (next - floor), new Color(theme.accent), new Color(ink, 0.15)),
+      barImage(next === null ? 1 : (state.xp - floor) / (next - floor), new Color(theme.accent), new Color(ink, 0.15), barWidth, 6),
     );
-    bar.imageSize = new Size(240, 6);
-    bar.resizable = true;
+    bar.imageSize = new Size(barWidth, 6);
   }
 
   // Tapping anywhere runs this same script, which then falls into review mode.
