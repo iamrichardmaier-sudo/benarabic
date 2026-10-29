@@ -152,18 +152,51 @@ var delete_flashcard_default = defineTool4({
   }
 });
 
+// src/lib/mcp/tools/get-study-xp.ts
+import { createClient as createClient5 } from "npm:@supabase/supabase-js@^2.95.3";
+import { defineTool as defineTool5 } from "npm:@lovable.dev/mcp-js@0.23.0";
+import { z as z5 } from "npm:zod@^4.4.3";
+function clientFor5(ctx) {
+  return createClient5(process.env.SUPABASE_URL, process.env.SUPABASE_PUBLISHABLE_KEY, {
+    global: { headers: { Authorization: `Bearer ${ctx.getToken()}` } },
+    auth: { persistSession: false, autoRefreshToken: false }
+  });
+}
+var get_study_xp_default = defineTool5({
+  name: "get_study_xp",
+  title: "Get study XP",
+  description: "The signed-in learner's XP: the all-time total and the XP earned on each study day over the last few days (days with no study are left out).",
+  inputSchema: {
+    days: z5.number().int().min(1).max(90).optional().describe("How many recent days to include. Defaults to 7.")
+  },
+  annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
+  handler: async ({ days }, ctx) => {
+    if (!ctx.isAuthenticated()) return { content: [{ type: "text", text: "Not authenticated" }], isError: true };
+    const db = clientFor5(ctx);
+    const since = new Date(Date.now() - (days ?? 7) * 864e5).toISOString().slice(0, 10);
+    const [total, daily] = await Promise.all([
+      db.from("user_progress").select("xp").maybeSingle(),
+      db.from("user_study_days").select("day, xp").gte("day", since).order("day", { ascending: true })
+    ]);
+    const error = total.error ?? daily.error;
+    if (error) return { content: [{ type: "text", text: error.message }], isError: true };
+    const result = { total_xp: total.data?.xp ?? 0, days: daily.data ?? [] };
+    return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }], structuredContent: result };
+  }
+});
+
 // src/lib/mcp/index.ts
 var projectRef = "fphpcfecgnfoogfaeihu";
 var mcp_default = defineMcp({
   name: "arabic-flashcards-mcp",
   title: "Arabic Flashcards",
   version: "0.1.0",
-  instructions: "Tools for the user's Arabic flashcard deck. Use list_flashcards to browse cards, get_due_cards to see what is due for spaced-repetition review today, create_flashcard to add new Arabic/English words, and delete_flashcard to remove one. All actions are scoped to the signed-in user.",
+  instructions: "Tools for the user's Arabic flashcard deck. Use list_flashcards to browse cards, get_due_cards to see what is due for spaced-repetition review today, create_flashcard to add new Arabic/English words, delete_flashcard to remove one, and get_study_xp for the learner's XP per study day. All actions are scoped to the signed-in user.",
   auth: auth.oauth.issuer({
     issuer: `https://${projectRef}.supabase.co/auth/v1`,
     acceptedAudiences: "authenticated"
   }),
-  tools: [list_flashcards_default, get_due_cards_default, create_flashcard_default, delete_flashcard_default]
+  tools: [list_flashcards_default, get_due_cards_default, create_flashcard_default, delete_flashcard_default, get_study_xp_default]
 });
 
 // lovable-mcp-supabase-entry.ts
