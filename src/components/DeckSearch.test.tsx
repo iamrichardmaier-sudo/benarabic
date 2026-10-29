@@ -44,7 +44,7 @@ describe('DeckSearch', () => {
     render(<DeckSearch cards={deck} onLookUp={onLookUp} />);
     fireEvent.change(screen.getByRole('searchbox'), { target: { value: 'camel' } });
     expect(screen.getByText('Nothing in your deck matches “camel”.')).toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: 'Look it up in the dictionary' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Open the dictionary' }));
     expect(onLookUp).toHaveBeenCalledWith('camel');
     fireEvent.click(screen.getByRole('button', { name: 'Clear search' }));
     expect(screen.queryByRole('region', { name: 'Search results' })).not.toBeInTheDocument();
@@ -70,10 +70,10 @@ describe('FormExplorer', () => {
 });
 
 describe('LearnHub', () => {
-  it('offers Browse by form in Explore', () => {
+  it('offers browsing by form in Explore', () => {
     const onSelect = vi.fn();
     render(<LearnHub dueCount={0} learnCount={0} deckSize={3} onSelect={onSelect} onOpenPodcast={() => {}} />);
-    fireEvent.click(screen.getByRole('button', { name: /Browse by form/ }));
+    fireEvent.click(screen.getByRole('button', { name: /^By form/ }));
     expect(onSelect).toHaveBeenCalledWith('formExplorer');
   });
 });

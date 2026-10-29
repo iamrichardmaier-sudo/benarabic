@@ -73,7 +73,7 @@ export function renderWord(e, ctx) {
 ${gloss ? `<p class="tr">${esc(headline(e, 80) || shortGloss(gloss, 80))}</p>` : ''}
 <p>${pills}</p>
 </div>
-<div><a class="cta" href="${APP_PATH}">+ Add to my flashcards</a></div>
+<div><a class="cta" href="/learn/dictionary/${slug}/?add=1" data-app="/learn/dictionary/${slug}/?add=1">+ Add to my flashcards</a></div>
 </div>
 ${alsoSpelled}`;
 
@@ -121,7 +121,7 @@ ${commonHtml ? `<h3>Most common words from the same root</h3><div class="hl">${c
 
   // --------------------------------------------------------- dictionary
   const exHtml = (ex) => `<div class="ex"><span class="ar" lang="ar">${esc(ex.ar)}</span><span class="en">${esc(ex.en)}</span>${ex.ref ? `<span class="ref">${esc(ex.ref.replace(/:$/, ''))}</span>` : ''}</div>`;
-  const lbl = (labels) => (labels?.length ? ` <span class="lbl">(${esc(labels.join(', '))})</span>` : '');
+  const lbl = (labels) => (labels?.length ? ` <span class="lbl">${esc(labels.join(', '))}</span>` : '');
   let sensesHtml = '';
   if (e.senses?.length) {
     sensesHtml = `<ol class="senses">${e.senses.map((s) => `<li>${esc(s.head)}${lbl(s.labels)}
@@ -305,5 +305,5 @@ ${corpus.length ? `<h3>From a fully vowelled text</h3>${corpusHtml}` : ''}
   if (corpus.length) credits.push(CREDIT_BIBLE);
   credits.push(CREDIT_FREQUENCY);
 
-  return { path, html: shell({ title, description, path, body, jsonLd, crumbs, credits }) };
+  return { path, html: shell({ title, description, path, body, jsonLd, crumbs, credits, appPath: `/learn/dictionary/${slug}/` }) };
 }

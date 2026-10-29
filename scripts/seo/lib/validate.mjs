@@ -34,7 +34,8 @@ export function validate(pages, { site, extraPaths = [] }) {
 
     for (const m of html.matchAll(/href="(\/[^"#?]*)/g)) {
       const href = m[1];
-      if (!paths.has(href) && !/^\/(assets|bible)\//.test(href)) {
+      // /learn/… is the signed-in app (the dictionary hand-off), not a page here.
+      if (!paths.has(href) && !/^\/(assets|bible|learn)\//.test(href)) {
         errors.push(`${where}: broken internal link ${href}`);
       }
     }

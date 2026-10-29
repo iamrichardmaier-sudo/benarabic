@@ -26,6 +26,15 @@ describe('app routes', () => {
     expect(parsePath('/library')).toEqual({ tab: 'library', view: 'library', libraryPath: '' });
   });
 
+  it('addresses the dictionary, its words and its roots', () => {
+    expect(pathFor({ tab: 'learn', view: 'dictionary' })).toBe('/learn/dictionary');
+    expect(pathFor({ tab: 'learn', view: 'dictionary', dictPath: 'kitab' })).toBe('/learn/dictionary/kitab');
+    expect(parsePath('/learn/dictionary/kitab/')).toEqual({ tab: 'learn', view: 'dictionary', dictPath: 'kitab' });
+    const root = pathFor({ tab: 'learn', view: 'dictionary', dictPath: 'root/ك-ت-ب' });
+    expect(root).toBe(`/learn/dictionary/root/${encodeURIComponent('ك-ت-ب')}`);
+    expect(parsePath(root)).toEqual({ tab: 'learn', view: 'dictionary', dictPath: 'root/ك-ت-ب' });
+  });
+
   it('addresses a podcast by id', () => {
     expect(pathFor({ tab: 'learn', view: 'podcast', podcastId: 'abc' })).toBe('/learn/podcast/abc');
     expect(parsePath('/learn/podcast/abc')).toEqual({ tab: 'learn', view: 'podcast', podcastId: 'abc' });

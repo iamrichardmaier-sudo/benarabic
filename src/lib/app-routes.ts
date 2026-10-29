@@ -14,7 +14,7 @@ export type View =
   | 'home' | 'learnHub' | 'library' | 'settings'
   | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
   | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize' | 'listenCards' | 'rootExplorer' | 'formExplorer' | 'verbForms' | 'anki'
-  | 'pdfToAudio'
+  | 'pdfToAudio' | 'dictionary'
   | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast' | 'feedback';
 
 export interface AppLocation {
@@ -24,9 +24,11 @@ export interface AppLocation {
   libraryPath?: string;
   /** The podcast open in the player. */
   podcastId?: string;
+  /** Inside the dictionary: "" (search), "<word>" or "root/<root>". */
+  dictPath?: string;
 }
 
-const PATHS: Record<Exclude<View, 'library' | 'podcast'>, string> = {
+const PATHS: Record<Exclude<View, 'library' | 'podcast' | 'dictionary'>, string> = {
   home: '/',
   learnHub: '/learn',
   learnCards: '/learn/new-words',
@@ -68,6 +70,10 @@ export function pathFor(loc: AppLocation): string {
     const sub = (loc.libraryPath || '').replace(/^\/+|\/+$/g, '');
     return sub ? `/library/${sub}` : '/library';
   }
+  if (loc.view === 'dictionary') {
+    const sub = (loc.dictPath || '').replace(/^\/+|\/+$/g, '');
+    return sub ? `/learn/dictionary/${sub.split('/').map(encodeURIComponent).join('/')}` : '/learn/dictionary';
+  }
   if (loc.view === 'podcast') {
     return loc.podcastId ? `/learn/podcast/${encodeURIComponent(loc.podcastId)}` : '/learn';
   }
@@ -79,6 +85,10 @@ export function parsePath(pathname: string): AppLocation | null {
   const path = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
   if (path === '/library' || path.startsWith('/library/')) {
     return { tab: 'library', view: 'library', libraryPath: decodeURIComponent(path.slice('/library/'.length)) };
+  }
+  if (path === '/learn/dictionary' || path.startsWith('/learn/dictionary/')) {
+    const sub = path.slice('/learn/dictionary/'.length).split('/').map((x) => decodeURIComponent(x)).join('/');
+    return { tab: 'learn', view: 'dictionary', dictPath: sub };
   }
   const podcast = path.match(/^\/learn\/podcast\/([^/]+)$/);
   if (podcast) return { tab: 'learn', view: 'podcast', podcastId: decodeURIComponent(podcast[1]) };

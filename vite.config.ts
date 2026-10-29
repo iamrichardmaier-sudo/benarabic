@@ -33,7 +33,7 @@ export default defineConfig(({ mode }) => ({
         // them would bloat the install for pages a logged-in user never opens.
         globIgnores: [
           "root/**", "form/**", "roots/**", "forms/**", "guide/**",
-          "word/**", "words/**", "404.html",
+          "word/**", "words/**", "dict/**", "404.html",
           "**/sitemap*.xml", "seo-manifest.json", "indexnow-pending.json",
           // The PDF-to-audio tool: a PDF reader, a voice model runtime and an
           // MP3 encoder, together several megabytes. It lives in Settings and
@@ -82,6 +82,18 @@ export default defineConfig(({ mode }) => ({
             },
           },
           {
+            // The app's dictionary (/dict/, written by scripts/seo): the
+            // search index and the entries opened so far work offline, and a
+            // rebuilt dictionary is picked up on the next visit.
+            urlPattern: ({ url }) => url.pathname.startsWith("/dict/"),
+            handler: "StaleWhileRevalidate",
+            options: {
+              cacheName: "dictionary",
+              expiration: { maxEntries: 300, maxAgeSeconds: 60 * 60 * 24 * 90 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+          {
             // Book of Mormon chapters, same reasoning as the Bible below: the
             // text never changes, and 239 chapters would bloat the install if
             // they were precached instead.
@@ -113,7 +125,7 @@ export default defineConfig(({ mode }) => ({
           // The static reference pages are real files on the server. Without
           // this, an installed app would answer them with its own shell and
           // show "page not found" instead of the dictionary entry.
-          /^\/(word|words|root|roots|form|forms|guide)(\/|$)/,
+          /^\/(word|words|root|roots|form|forms|guide|dict)(\/|$)/,
         ],
       },
     }),
