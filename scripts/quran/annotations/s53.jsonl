@@ -1,0 +1,149 @@
+{"w":"مَواخِر","en":"ships ploughing through waves","root":"م-خ-ر","type":"noun","kind":"plural","src":"msa","note":"Plural of the active participle ماخِرة, said of ships cleaving the water. Occurs in the Qur'an at 16:14."}
+{"w":"مَخاض","en":"labour pains","root":"م-خ-ض","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"19:23:1-2","qen":"then the pains of childbirth drove her"}
+{"w":"مَخَضَ","en":"to churn","root":"م-خ-ض","type":"verb","kind":"verb","form":"I","past":"مَخَضَ","pres":"يَمْخُضُ","masdar":"مَخْض","src":"msa"}
+{"w":"تَمَخَّضَ","en":"to be in labour, to give rise","root":"م-خ-ض","type":"verb","kind":"verb","form":"V","past":"تَمَخَّضَ","pres":"يَتَمَخَّضُ","masdar":"تَمَخُّض","src":"msa"}
+{"w":"مَدَّ","en":"to extend, to stretch out","root":"م-د-د","type":"verb","kind":"verb","form":"I","past":"مَدَّ","pres":"يَمُدُّ","masdar":"مَدّ","src":"quran","q":"13:3:3-4","qen":"who spread out the earth"}
+{"w":"أَمَدَّ","en":"to supply, to reinforce","root":"م-د-د","type":"verb","kind":"verb","form":"IV","past":"أَمَدَّ","pres":"يُمِدُّ","masdar":"إِمْداد","src":"quran","q":"3:124:7-12","qen":"that your Lord should reinforce you with three thousand angels"}
+{"w":"مَدّ","en":"extension; high tide","root":"م-د-د","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"quran","q":"19:75:6-9","qen":"let the Merciful extend it for him at length"}
+{"w":"مَمْدود","en":"extended, stretched out","root":"م-د-د","type":"participle","kind":"passive participle","form":"I","src":"quran","q":"56:30:1-2","qen":"and shade extended"}
+{"w":"مُمِدّ","en":"one who supplies, reinforcer","root":"م-د-د","type":"participle","kind":"active participle","form":"IV","gender":"m","noplural":true,"src":"quran","q":"8:9:7-10","qen":"I will reinforce you with a thousand angels"}
+{"w":"مَدَد","en":"help, reinforcement","root":"م-د-د","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"18:109:15-18","qen":"even if we brought the like of it as reinforcement"}
+{"w":"مُدَّة","en":"period, duration","root":"م-د-د","type":"noun","kind":"noun","gender":"f","plural":"مُدَد","src":"quran","q":"9:4:14-18","qen":"so fulfil their treaty with them until their term"}
+{"w":"مِداد","en":"ink","root":"م-د-د","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"18:109:3-7","qen":"if the sea were ink for the words of my Lord"}
+{"w":"مَدَّدَ","en":"to prolong, to extend","root":"م-د-د","type":"verb","kind":"verb","form":"II","past":"مَدَّدَ","pres":"يُمَدِّدُ","masdar":"تَمْديد","src":"msa"}
+{"w":"تَمْديد","en":"extension, prolongation","root":"م-د-د","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"اِمْتَدَّ","en":"to extend, to stretch out","root":"م-د-د","type":"verb","kind":"verb","form":"VIII","past":"اِمْتَدَّ","pres":"يَمْتَدُّ","masdar":"اِمْتِداد","src":"msa"}
+{"w":"اِسْتَمَدَّ","en":"to derive, to draw (from)","root":"م-د-د","type":"verb","kind":"verb","form":"X","past":"اِسْتَمَدَّ","pres":"يَسْتَمِدُّ","masdar":"اِسْتِمداد","src":"msa"}
+{"w":"مادَّة","en":"matter, substance, subject","root":"م-د-د","type":"noun","kind":"noun","gender":"f","plural":"مَوادّ","src":"msa"}
+{"w":"مَدينة","en":"city","root":"م-د-ن","type":"noun","kind":"noun","gender":"f","plural":"مُدُن","src":"quran","q":"7:123:13-17","qen":"in the city to drive its people out of it"}
+{"skip":"مَدَآئِن","why":"plural of مَدينة"}
+{"w":"مَدَنِيّ","en":"civil, urban","root":"م-د-ن","type":"adjective","kind":"relative adjective","plural":"مَدَنِيّون","src":"msa"}
+{"w":"مَدَنِيَّة","en":"civilization","root":"م-د-ن","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"تَمَدَّنَ","en":"to become civilized","root":"م-د-ن","type":"verb","kind":"verb","form":"V","past":"تَمَدَّنَ","pres":"يَتَمَدَّنُ","masdar":"تَمَدُّن","src":"msa"}
+{"w":"اِمْرَأَة","en":"woman","root":"م-ر-أ","type":"noun","kind":"noun","gender":"f","plural":"نِساء","src":"quran","q":"2:282:61-62","qen":"then one man and two women"}
+{"skip":"ٱمْرَأَت","why":"اِمْرَأَة in construct form"}
+{"w":"اِمْرُؤ","en":"man, person","root":"م-ر-أ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"4:176:7-9","qen":"if a man dies","note":"Literary word; the plural is supplied by other roots."}
+{"skip":"ٱمْرِئ","why":"اِمْرُؤ in the genitive"}
+{"skip":"ٱمْرَأ","why":"اِمْرُؤ in the accusative"}
+{"w":"مَرْء","en":"man, person","root":"م-ر-أ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"2:102:40-42","qen":"between a man and his wife"}
+{"w":"مَريء","en":"wholesome, pleasant","root":"م-ر-أ","type":"adjective","kind":"adjective","noplural":true,"src":"msa","note":"In modern usage the same spelling is also the noun for the oesophagus. Occurs in the Qur'an at 4:4."}
+{"w":"مَريء","en":"oesophagus","root":"م-ر-أ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُرُوءَة","en":"manliness, chivalry","root":"م-ر-أ","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"مَرْجان","en":"coral","root":"م-ر-ج","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"quran","q":"55:22:3-4","qen":"pearls and coral"}
+{"w":"مَرَجَ","en":"to let loose, to release","root":"م-ر-ج","type":"verb","kind":"verb","form":"I","past":"مَرَجَ","pres":"يَمْرُجُ","masdar":"مَرْج","src":"quran","q":"25:53:1-4","qen":"it is He who set the two seas free"}
+{"w":"مارِج","en":"flame, blaze","root":"م-ر-ج","type":"participle","kind":"active participle","form":"I","gender":"m","noplural":true,"src":"quran","q":"55:15:3-6","qen":"from a blaze of fire","note":"Rare outside scripture."}
+{"w":"مَريج","en":"confused, unsettled","root":"م-ر-ج","type":"adjective","kind":"adjective","noplural":true,"src":"quran","q":"50:5:7-9","qen":"so they are in a confused state of affairs"}
+{"w":"مَرْج","en":"meadow","root":"م-ر-ج","type":"noun","kind":"noun","gender":"m","plural":"مُروج","src":"msa"}
+{"w":"مَرِحَ","en":"to be merry, to exult","root":"م-ر-ح","type":"verb","kind":"verb","form":"I","past":"مَرِحَ","pres":"يَمْرَحُ","masdar":"مَرَح","src":"quran","q":"40:75:10-11","qen":"and because you used to exult","note":"In scripture the sense is boastful, unjustified exultation."}
+{"w":"مَرَح","en":"merriment, exuberance","root":"م-ر-ح","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"In 17:37 it means arrogant swagger. Occurs in the Qur'an at 17:37."}
+{"w":"مَرِح","en":"merry, lively","root":"م-ر-ح","type":"adjective","kind":"adjective","noplural":true,"src":"msa"}
+{"w":"مَرَدَ","en":"to be defiant, to persist","root":"م-ر-د","type":"verb","kind":"verb","form":"I","past":"مَرَدَ","pres":"يَمْرُدُ","masdar":"مُرود","src":"quran","q":"9:101:6-11","qen":"and from the people of Madinah, who persist in hypocrisy"}
+{"w":"مارِد","en":"rebellious; giant, demon","root":"م-ر-د","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"مَرَدَة","src":"quran","q":"37:7:4-5","qen":"every rebellious devil"}
+{"w":"مَريد","en":"rebellious, obstinate","root":"م-ر-د","type":"adjective","kind":"intensive adjective","noplural":true,"src":"quran","q":"4:117:8-11","qen":"and they only call upon a rebellious devil"}
+{"w":"مُمَرَّد","en":"smoothed, paved","root":"م-ر-د","type":"participle","kind":"passive participle","form":"II","noplural":true,"src":"quran","q":"27:44:13-17","qen":"it is a palace paved smooth with glass"}
+{"w":"تَمَرَّدَ","en":"to rebel","root":"م-ر-د","type":"verb","kind":"verb","form":"V","past":"تَمَرَّدَ","pres":"يَتَمَرَّدُ","masdar":"تَمَرُّد","src":"msa"}
+{"w":"تَمَرُّد","en":"rebellion","root":"م-ر-د","type":"masdar","kind":"masdar","form":"V","gender":"m","src":"msa"}
+{"w":"مُتَمَرِّد","en":"rebellious; rebel","root":"م-ر-د","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَمَرِّدون","src":"msa"}
+{"w":"أَمْرَد","en":"beardless","root":"م-ر-د","type":"adjective","kind":"adjective","plural":"مُرْد","src":"msa"}
+{"skip":"مُدَّت","why":"مُدَّة, the lemma spelled without its final letter"}
+{"skip":"مَّرِيٓـٔ","why":"same word as the entry مَريء"}
+{"skip":"V:I","why":"مَرَّ to pass is already in the bank; its other forms are inflections"}
+{"skip":"مَرَّة","why":"already in the bank (مَرّة, a time, once)"}
+{"skip":"مَرَّٰت","why":"plural of مَرّة, already in the bank"}
+{"w":"مَرّ","en":"passing, passage","root":"م-ر-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"quran","q":"27:88:6-8","qen":"while they pass by like the passing of clouds"}
+{"w":"مِرَّة","en":"bile","root":"م-ر-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"quran","q":"53:6:1-2","qen":"one of great strength","note":"In 53:6 it means soundness and strength (ذو مِرَّة); the everyday sense is bile."}
+{"w":"مُسْتَمِرّ","en":"continuous, ongoing","root":"م-ر-ر","type":"participle","kind":"active participle","form":"X","gender":"m","plural":"مُسْتَمِرّون","src":"quran","q":"54:2:6-7","qen":"and say, a continuing magic"}
+{"w":"اِسْتَمَرَّ","en":"to continue","root":"م-ر-ر","type":"verb","kind":"verb","form":"X","past":"اِسْتَمَرَّ","pres":"يَسْتَمِرُّ","masdar":"اِسْتِمْرار","src":"msa"}
+{"w":"اِسْتِمْرار","en":"continuation","root":"م-ر-ر","type":"masdar","kind":"masdar","form":"X","gender":"m","src":"msa"}
+{"w":"مارّ","en":"passer-by; passing","root":"م-ر-ر","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"مارّة","src":"msa"}
+{"w":"مَمَرّ","en":"passage, corridor","root":"م-ر-ر","type":"noun","kind":"noun of place","gender":"m","plural":"مَمَرّات","src":"msa"}
+{"w":"مَرَّرَ","en":"to pass (something) on","root":"م-ر-ر","type":"verb","kind":"verb","form":"II","past":"مَرَّرَ","pres":"يُمَرِّرُ","masdar":"تَمْرير","src":"msa"}
+{"w":"تَمْرير","en":"passing","root":"م-ر-ر","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"مُرّ","en":"bitter","root":"م-ر-ر","type":"adjective","kind":"adjective","noplural":true,"src":"msa"}
+{"w":"مَرارة","en":"bitterness","root":"م-ر-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"skip":"مَّرِيض","why":"already in the bank (مَريض, sick)"}
+{"w":"مَرَض","en":"disease, illness","root":"م-ر-ض","type":"noun","kind":"noun","gender":"m","plural":"أَمْراض","src":"quran","q":"2:10:1-3","qen":"in their hearts is a disease"}
+{"w":"مَرِضَ","en":"to fall ill","root":"م-ر-ض","type":"verb","kind":"verb","form":"I","past":"مَرِضَ","pres":"يَمْرَضُ","masdar":"مَرَض","src":"quran","q":"26:80:1-2","qen":"and when I fall ill"}
+{"w":"مَرَّضَ","en":"to nurse the sick","root":"م-ر-ض","type":"verb","kind":"verb","form":"II","past":"مَرَّضَ","pres":"يُمَرِّضُ","masdar":"تَمْريض","src":"msa"}
+{"w":"تَمْريض","en":"nursing","root":"م-ر-ض","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"مُمَرِّض","en":"nurse","root":"م-ر-ض","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُمَرِّضون","src":"msa"}
+{"w":"مَرَضِيّ","en":"pathological, morbid","root":"م-ر-ض","type":"adjective","kind":"relative adjective","noplural":true,"src":"msa"}
+{"w":"تَمارَضَ","en":"to feign illness","root":"م-ر-ض","type":"verb","kind":"verb","form":"VI","past":"تَمارَضَ","pres":"يَتَمارَضُ","masdar":"تَمارُض","src":"msa"}
+{"w":"مَرِن","en":"flexible, supple","root":"م-ر-ن","type":"adjective","kind":"adjective","noplural":true,"src":"msa"}
+{"w":"مُرونة","en":"flexibility","root":"م-ر-ن","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"مَرَّنَ","en":"to train, to accustom","root":"م-ر-ن","type":"verb","kind":"verb","form":"II","past":"مَرَّنَ","pres":"يُمَرِّنُ","masdar":"تَمْرين","src":"msa"}
+{"skip":"V:I","why":"form I مَرى is not a separate common lexeme; the Qur'anic forms are III and VIII"}
+{"w":"اِمْتَرَى","en":"to doubt","root":"م-ر-ي","type":"verb","kind":"verb","form":"VIII","past":"اِمْتَرَى","pres":"يَمْتَرِي","masdar":"اِمْتِراء","src":"msa","note":"Qur'anic: occurs at 6:2."}
+{"w":"مُمْتَرِي","en":"doubter","root":"م-ر-ي","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُمْتَرُون","src":"quran","q":"2:147:4-7","qen":"so do not be among the doubters"}
+{"w":"مارَى","en":"to dispute, to argue","root":"م-ر-ي","type":"verb","kind":"verb","form":"III","past":"مارَى","pres":"يُمارِي","masdar":"مُماراة","src":"quran","q":"42:18:16-19","qen":"those who dispute about the Hour"}
+{"w":"مِرْية","en":"doubt","root":"م-ر-ي","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"quran","q":"11:17:26-30","qen":"so do not be in doubt about it"}
+{"w":"مِراء","en":"argument, wrangling","root":"م-ر-ي","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"18:22:23-28","qen":"so do not argue about them except with plain argument"}
+{"skip":"مريم","why":"a personal name (Mary), belongs to the rootless shard"}
+{"w":"مِزاج","en":"mixture; temperament, mood","root":"م-ز-ج","type":"noun","kind":"noun","gender":"m","plural":"أَمْزِجة","src":"quran","q":"76:5:6-8","qen":"whose mixture is camphor"}
+{"w":"مَزَجَ","en":"to mix, to blend","root":"م-ز-ج","type":"verb","kind":"verb","form":"I","past":"مَزَجَ","pres":"يَمْزُجُ","masdar":"مَزْج","src":"msa"}
+{"w":"مَمْزوج","en":"mixed, blended","root":"م-ز-ج","type":"participle","kind":"passive participle","form":"I","noplural":true,"src":"msa"}
+{"w":"مَزيج","en":"mixture, blend","root":"م-ز-ج","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِمْتَزَجَ","en":"to blend, to mingle","root":"م-ز-ج","type":"verb","kind":"verb","form":"VIII","past":"اِمْتَزَجَ","pres":"يَمْتَزِجُ","masdar":"اِمْتِزاج","src":"msa"}
+{"w":"مَزَّقَ","en":"to tear apart, to shred","root":"م-ز-ق","type":"verb","kind":"verb","form":"II","past":"مَزَّقَ","pres":"يُمَزِّقُ","masdar":"تَمْزيق","src":"quran","q":"34:7:9-12","qen":"when you have been utterly torn to pieces"}
+{"w":"مُمَزَّق","en":"torn, shredded","root":"م-ز-ق","type":"participle","kind":"passive participle","form":"II","noplural":true,"src":"quran","q":"34:7:11-12","qen":"every complete disintegration"}
+{"w":"تَمْزيق","en":"tearing, shredding","root":"م-ز-ق","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"تَمَزَّقَ","en":"to be torn apart","root":"م-ز-ق","type":"verb","kind":"verb","form":"V","past":"تَمَزَّقَ","pres":"يَتَمَزَّقُ","masdar":"تَمَزُّق","src":"msa"}
+{"w":"مُزْن","en":"rain clouds","root":"م-ز-ن","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"quran","q":"56:69:3-4","qen":"Is it you who sent it down from the rain clouds"}
+{"w":"مَسَحَ","en":"to wipe, to stroke","root":"م-س-ح","type":"verb","kind":"verb","form":"I","past":"مَسَحَ","pres":"يَمْسَحُ","masdar":"مَسْح","src":"quran","q":"4:43:42-44","qen":"then wipe your faces and your hands"}
+{"w":"مَسْح","en":"wiping; survey","root":"م-س-ح","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"quran","q":"38:33:3-4","qen":"and began stroking them"}
+{"w":"مَسيحِيّ","en":"Christian","root":"م-س-ح","type":"adjective","kind":"relative adjective","plural":"مَسيحِيّون","src":"msa"}
+{"w":"مِساحة","en":"area, surface","root":"م-س-ح","type":"noun","kind":"noun","gender":"f","plural":"مِساحات","src":"msa"}
+{"w":"مَسَخَ","en":"to transform, to disfigure","root":"م-س-خ","type":"verb","kind":"verb","form":"I","past":"مَسَخَ","pres":"يَمْسَخُ","masdar":"مَسْخ","src":"quran","q":"36:67:1-5","qen":"and if We willed, We would transform them where they stand"}
+{"w":"مَسَّ","en":"to touch","root":"م-س-س","type":"verb","kind":"verb","form":"I","past":"مَسَّ","pres":"يَمَسُّ","masdar":"مَسّ","src":"quran","q":"2:80:2-4","qen":"the Fire will never touch us"}
+{"w":"مَسّ","en":"touch; madness","root":"م-س-س","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"quran","q":"2:275:12-13","qen":"from the touch","note":"In 2:275 it is the touch of possession by a demon, i.e. madness."}
+{"w":"تَماسَّ","en":"to touch one another","root":"م-س-س","type":"verb","kind":"verb","form":"VI","past":"تَماسَّ","pres":"يَتَماسُّ","masdar":"تَماسّ","src":"msa","note":"Qur'anic: occurs at 58:3."}
+{"w":"مِساس","en":"touching, contact","root":"م-س-س","type":"masdar","kind":"masdar","form":"III","gender":"m","src":"quran","q":"20:97:9-10","qen":"there is no touching","note":"The verbal noun of ماسَّ; in 20:97 the phrase means 'untouchable'."}
+{"w":"ماسَّ","en":"to touch, to be in contact with","root":"م-س-س","type":"verb","kind":"verb","form":"III","past":"ماسَّ","pres":"يُماسُّ","masdar":"مُماسّة","src":"msa"}
+{"w":"أَمْسَكَ","en":"to hold, to withhold","root":"م-س-ك","type":"verb","kind":"verb","form":"IV","past":"أَمْسَكَ","pres":"يُمْسِكُ","masdar":"إِمْساك","src":"quran","q":"2:231:6-7","qen":"then keep them with kindness"}
+{"w":"إِمْساك","en":"holding, withholding","root":"م-س-ك","type":"masdar","kind":"masdar","form":"IV","gender":"m","src":"quran","q":"2:229:3-4","qen":"then holding on with kindness","note":"In modern medical usage it also means constipation."}
+{"w":"اِسْتَمْسَكَ","en":"to hold fast","root":"م-س-ك","type":"verb","kind":"verb","form":"X","past":"اِسْتَمْسَكَ","pres":"يَسْتَمْسِكُ","masdar":"اِسْتِمْساك","src":"quran","q":"2:256:15-18","qen":"has grasped the firmest handle"}
+{"w":"مُمْسِك","en":"one who holds or withholds","root":"م-س-ك","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُمْسِكون","src":"quran","q":"35:2:7-9","qen":"none can withhold it"}
+{"skip":"مُمْسِكَٰت","why":"feminine plural of مُمْسِك"}
+{"w":"مُسْتَمْسِك","en":"holding fast","root":"م-س-ك","type":"participle","kind":"active participle","form":"X","gender":"m","plural":"مُسْتَمْسِكون","src":"quran","q":"43:21:6-8","qen":"so they are holding fast to it"}
+{"w":"مِسْك","en":"musk","root":"م-س-ك","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"83:26:1-2","qen":"its seal is musk"}
+{"w":"مَسَّكَ","en":"to hold fast","root":"م-س-ك","type":"verb","kind":"verb","form":"II","past":"مَسَّكَ","pres":"يُمَسِّكُ","masdar":"تَمْسيك","src":"quran","q":"7:170:1-3","qen":"those who hold fast to the Book","note":"Rare outside this verse; the usual verb is تَمَسَّكَ (V)."}
+{"w":"تَمَسَّكَ","en":"to cling to, to hold on","root":"م-س-ك","type":"verb","kind":"verb","form":"V","past":"تَمَسَّكَ","pres":"يَتَمَسَّكُ","masdar":"تَمَسُّك","src":"msa"}
+{"w":"تَماسَكَ","en":"to hold together, to keep one's composure","root":"م-س-ك","type":"verb","kind":"verb","form":"VI","past":"تَماسَكَ","pres":"يَتَماسَكُ","masdar":"تَماسُك","src":"msa"}
+{"w":"مَسَكَ","en":"to grab, to seize","root":"م-س-ك","type":"verb","kind":"verb","form":"I","past":"مَسَكَ","pres":"يَمْسِكُ","masdar":"مَسْك","src":"msa"}
+{"w":"أَمْسى","en":"to reach evening, to become","root":"م-س-و","type":"verb","kind":"verb","form":"IV","past":"أَمْسى","pres":"يُمْسي","masdar":"إِمْساء","src":"quran","q":"30:17:3-4","qen":"when you reach the evening"}
+{"w":"أَمْشاج","en":"mingled (fluids)","root":"م-ش-ج","type":"noun","kind":"plural","src":"quran","q":"76:2:5-6","qen":"from a drop of mingled fluids","note":"Plural of مَشيج; in 76:2 it describes the mixed fluids of the human drop."}
+{"w":"مَشْعَر","en":"site of rites, sense","root":"م-ش-ع-ر","type":"noun","kind":"noun of place","gender":"m","plural":"مَشاعِر","src":"msa","note":"In 2:198 it is the sacred rites site at Muzdalifah; the plural مَشاعِر is also used for feelings. Qur'anic: occurs at 2:198."}
+{"w":"مَشى","en":"to walk","root":"م-ش-ي","type":"verb","kind":"verb","form":"I","past":"مَشى","pres":"يَمْشي","masdar":"مَشْي","src":"quran","q":"2:20:8-9","qen":"they walk in it"}
+{"w":"مَشْي","en":"walking, gait","root":"م-ش-ي","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"quran","q":"31:19:1-3","qen":"and be moderate in your walk"}
+{"w":"مَشّاء","en":"going about a lot","root":"م-ش-ي","type":"adjective","kind":"intensive adjective","noplural":true,"src":"quran","q":"68:11:1-3","qen":"a slanderer, going about with gossip"}
+{"w":"ماشِيَة","en":"livestock, cattle","root":"م-ش-ي","type":"noun","kind":"collective noun","gender":"f","plural":"مَواشٍ","src":"msa"}
+{"w":"مِشْية","en":"manner of walking, gait","root":"م-ش-ي","type":"noun","kind":"noun of instance","gender":"f","noplural":true,"src":"msa"}
+{"w":"مَمْشى","en":"walkway","root":"م-ش-ي","type":"noun","kind":"noun of place","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَماشى","en":"to go along with, to keep pace","root":"م-ش-ي","type":"verb","kind":"verb","form":"VI","past":"تَماشى","pres":"يَتَماشى","masdar":"تَماشٍ","src":"msa"}
+{"w":"مِصْر","en":"large city, metropolis","root":"م-ص-ر","type":"noun","kind":"noun","gender":"m","plural":"أَمْصار","src":"quran","q":"2:61:32-33","qen":"go down to a city","note":"In modern usage the same spelling is the name of Egypt."}
+{"w":"مُضْغَة","en":"morsel of flesh, embryo stage","root":"م-ض-غ","type":"noun","kind":"noun","gender":"f","plural":"مُضَغ","src":"quran","q":"22:5:21-22","qen":"then from a chewed-like lump"}
+{"w":"مَضَغَ","en":"to chew","root":"م-ض-غ","type":"verb","kind":"verb","form":"I","past":"مَضَغَ","pres":"يَمْضَغُ","masdar":"مَضْغ","src":"msa"}
+{"w":"مَضى","en":"to pass, to go on","root":"م-ض-ي","type":"verb","kind":"verb","form":"I","past":"مَضى","pres":"يَمْضي","masdar":"مُضِيّ","src":"quran","q":"8:38:13-16","qen":"then the example of the earlier peoples has already passed"}
+{"w":"مُضِيّ","en":"passing, going forward","root":"م-ض-ي","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"quran","q":"36:67:6-8","qen":"then they could not go forward"}
+{"w":"أَمْضى","en":"to sign; to spend (time)","root":"م-ض-ي","type":"verb","kind":"verb","form":"IV","past":"أَمْضى","pres":"يُمْضي","masdar":"إِمْضاء","src":"msa"}
+{"skip":"مَّطَر","why":"already in the bank (مَطَر, rain)"}
+{"w":"أَمْطَرَ","en":"to rain, to shower","root":"م-ط-ر","type":"verb","kind":"verb","form":"IV","past":"أَمْطَرَ","pres":"يُمْطِرُ","masdar":"إِمْطار","src":"quran","q":"7:84:1-3","qen":"and We rained a rain upon them"}
+{"w":"مُمْطِر","en":"rainy, bringing rain","root":"م-ط-ر","type":"participle","kind":"active participle","form":"IV","gender":"m","noplural":true,"src":"quran","q":"46:24:8-9","qen":"this is a cloud bringing us rain"}
+{"w":"مِمْطَر","en":"raincoat","root":"م-ط-ر","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَماطِر","src":"msa"}
+{"w":"تَمَطَّى","en":"to stretch oneself, to swagger","root":"م-ط-و","type":"verb","kind":"verb","form":"V","past":"تَمَطَّى","pres":"يَتَمَطَّى","masdar":"تَمَطٍّ","src":"quran","q":"75:33:4-5","qen":"to his family, swaggering proudly"}
+{"w":"اِمْتَطى","en":"to mount, to ride","root":"م-ط-و","type":"verb","kind":"verb","form":"VIII","past":"اِمْتَطى","pres":"يَمْتَطي","masdar":"اِمْتِطاء","src":"msa"}
+{"skip":"مَع","why":"already in the bank (مَعَ, with)"}
+{"w":"مَعْز","en":"goats","root":"م-ع-ز","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa","note":"Qur'anic: occurs at 6:143."}
+{"w":"ماعُون","en":"small kindnesses; vessel","root":"م-ع-ن","type":"noun","kind":"noun","gender":"m","plural":"مَواعين","src":"quran","q":"107:7:1-2","qen":"and withhold small acts of help","note":"In 107:7 it means small neighbourly aid; elsewhere a household vessel or dish."}
+{"w":"أَمْعَنَ","en":"to examine closely","root":"م-ع-ن","type":"verb","kind":"verb","form":"IV","past":"أَمْعَنَ","pres":"يُمْعِنُ","masdar":"إِمْعان","src":"msa"}
+{"w":"تَمَعَّنَ","en":"to scrutinize, to ponder","root":"م-ع-ن","type":"verb","kind":"verb","form":"V","past":"تَمَعَّنَ","pres":"يَتَمَعَّنُ","masdar":"تَمَعُّن","src":"msa"}
+{"skip":"مع","why":"same word as the entry مَعَ"}
+{"w":"أَمْعاء","en":"intestines","root":"م-ع-ي","type":"noun","kind":"plural","src":"msa","note":"Plural of مِعًى. Qur'anic: occurs at 47:15."}
+{"w":"مَقْت","en":"loathing, hatred","root":"م-ق-ت","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"4:22:14-15","qen":"an indecency and an abomination"}
+{"w":"مَقَتَ","en":"to loathe, to abhor","root":"م-ق-ت","type":"verb","kind":"verb","form":"I","past":"مَقَتَ","pres":"يَمْقُتُ","masdar":"مَقْت","src":"msa"}
+{"w":"مَمْقوت","en":"loathed, hateful","root":"م-ق-ت","type":"participle","kind":"passive participle","form":"I","noplural":true,"src":"msa"}
+{"w":"مَكَثَ","en":"to stay, to remain","root":"م-ك-ث","type":"verb","kind":"verb","form":"I","past":"مَكَثَ","pres":"يَمْكُثُ","masdar":"مُكوث","src":"quran","q":"13:17:36-38","qen":"it stays on the earth"}
+{"w":"مُكْث","en":"staying, lingering","root":"م-ك-ث","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"quran","q":"17:106:6-7","qen":"so that you may recite it slowly"}
+{"w":"ماكِث","en":"staying, remaining","root":"م-ك-ث","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"ماكِثون","src":"quran","q":"18:3:1-3","qen":"staying in it forever"}
+{"skip":"مُمْتَرِين","why":"plural of the entry مُمْتَرِي"}
+{"skip":"مَّٰكِثِين","why":"plural of the entry ماكِث"}

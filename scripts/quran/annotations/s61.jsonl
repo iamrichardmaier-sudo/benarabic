@@ -1,0 +1,210 @@
+{"w":"وَرَق","en":"leaves, paper","root":"و-ر-ق","type":"noun","kind":"collective noun","gender":"m","plural":"أَوْراق","src":"quran","q":"7:22:12-14","qen":"with leaves of the Garden","note":"In scripture it means tree leaves; in modern usage it is also paper."}
+{"w":"وَرِق","en":"silver, silver coins","root":"و-ر-ق","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"Occurs once in scripture, in 18:19 (the Companions of the Cave), meaning silver coin."}
+{"w":"وَرَّاق","en":"stationer, papermaker","root":"و-ر-ق","type":"noun","kind":"noun","gender":"m","plural":"وَرَّاقون","src":"msa"}
+{"w":"وَرَقِيّ","en":"paper, of paper","root":"و-ر-ق","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"أَوْرَقَ","en":"to put forth leaves","root":"و-ر-ق","type":"verb","kind":"verb","form":"IV","past":"أَوْرَقَ","pres":"يُورِقُ","masdar":"إيراق","src":"msa"}
+{"skip":"وَرَقَة","why":"the bank already holds وَرَقة (leaf, page)"}
+{"w":"وارَى","en":"to hide, to bury","root":"و-ر-ي","type":"verb","kind":"verb","form":"III","past":"وارَى","pres":"يُوارِي","masdar":"مُوارَاة","src":"quran","q":"5:31:9-11","qen":"how he might cover his brother's shame"}
+{"w":"تَوارَى","en":"to hide oneself, to disappear","root":"و-ر-ي","type":"verb","kind":"verb","form":"VI","past":"تَوارَى","pres":"يَتَوارَى","masdar":"تَوارٍ","src":"quran","q":"16:59:1-3","qen":"He hides himself from the people"}
+{"w":"أَوْرَى","en":"to kindle (a fire)","root":"و-ر-ي","type":"verb","kind":"verb","form":"IV","past":"أَوْرَى","pres":"يُورِي","masdar":"إيراء","src":"msa","note":"Occurs once in scripture (56:71, the fire that you kindle)."}
+{"w":"مُورِي","en":"one who strikes fire","root":"و-ر-ي","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُورِيات","src":"quran","q":"100:2:1-2","qen":"by those that strike sparks of fire"}
+{"skip":"مُورِيَٰت","why":"plural of مُورِي"}
+{"w":"وَرَّى","en":"to conceal, to speak evasively","root":"و-ر-ي","type":"verb","kind":"verb","form":"II","past":"وَرَّى","pres":"يُوَرِّي","masdar":"تَوْرِيَة","src":"msa"}
+{"w":"تَوْرِيَة","en":"double meaning, pun","root":"و-ر-ي","type":"masdar","kind":"masdar","form":"II","gender":"f","src":"msa"}
+{"skip":"وَرَآء","why":"the bank already holds وَراءَ (behind)"}
+{"skip":"وَرَآئ","why":"spelling variant of وَراء, which the bank holds"}
+{"w":"وِزْر","en":"burden, sin","root":"و-ز-ر","type":"noun","kind":"noun","gender":"m","plural":"أَوْزار","src":"quran","q":"6:31:19-23","qen":"while they carry their burdens on their backs"}
+{"w":"وَزَرَ","en":"to bear a burden","root":"و-ز-ر","type":"verb","kind":"verb","form":"I","past":"وَزَرَ","pres":"يَزِرُ","masdar":"وِزْر","src":"quran","q":"6:164:16-19","qen":"no bearer of burdens bears the burden of another"}
+{"w":"وازِر","en":"bearer of a burden","root":"و-ز-ر","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"وازِرون","src":"quran","q":"6:164:16-19","qen":"no bearer of burdens bears the burden of another"}
+{"skip":"وَازِرَة","why":"feminine of وازِر"}
+{"w":"وَزير","en":"minister, vizier","root":"و-ز-ر","type":"noun","kind":"noun","gender":"m","plural":"وُزَراء","src":"quran","q":"20:29:1-3","qen":"and appoint for me a minister","see":[{"w":"مُسْتَشار","label":"Synonym (adviser)"}]}
+{"w":"وَزَر","en":"refuge, shelter","root":"و-ز-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"75:11:2-3","qen":"there is no refuge"}
+{"w":"اِسْتَوْزَرَ","en":"to appoint as minister","root":"و-ز-ر","type":"verb","kind":"verb","form":"X","past":"اِسْتَوْزَرَ","pres":"يَسْتَوْزِرُ","masdar":"اِسْتِيزار","src":"msa"}
+{"w":"وَزَعَ","en":"to restrain, to marshal","root":"و-ز-ع","type":"verb","kind":"verb","form":"I","past":"وَزَعَ","pres":"يَزَعُ","masdar":"وَزْع","src":"quran","q":"27:17:8-9","qen":"and they were held in ranks","note":"In 27:17 the passive describes troops being held back and ordered in ranks; in modern usage, to distribute is form II."}
+{"w":"أَوْزَعَ","en":"to inspire, to prompt","root":"و-ز-ع","type":"verb","kind":"verb","form":"IV","past":"أَوْزَعَ","pres":"يُوزِعُ","masdar":"إيزاع","src":"quran","q":"27:19:6-10","qen":"My Lord, inspire me to give thanks for Your favour"}
+{"w":"تَوْزيع","en":"distribution","root":"و-ز-ع","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"مُوَزِّع","en":"distributor","root":"و-ز-ع","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُوَزِّعون","src":"msa"}
+{"w":"مُوَزَّع","en":"distributed","root":"و-ز-ع","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"تَوَزَّعَ","en":"to be distributed, to be divided up","root":"و-ز-ع","type":"verb","kind":"verb","form":"V","past":"تَوَزَّعَ","pres":"يَتَوَزَّعُ","masdar":"تَوَزُّع","src":"msa"}
+{"w":"وَزَنَ","en":"to weigh","root":"و-ز-ن","type":"verb","kind":"verb","form":"I","past":"وَزَنَ","pres":"يَزِنُ","masdar":"وَزْن","src":"quran","q":"17:35:5-7","qen":"and weigh with the straight balance"}
+{"w":"وَزْن","en":"weight, weighing","root":"و-ز-ن","type":"noun","kind":"noun","gender":"m","plural":"أَوْزان","src":"quran","q":"7:8:1-3","qen":"And the weighing that day is the truth"}
+{"w":"مِيزان","en":"scale, balance","root":"و-ز-ن","type":"noun","kind":"noun","gender":"m","plural":"مَوازين","src":"quran","q":"6:152:12-15","qen":"and give full measure and weight with justice"}
+{"w":"مَوْزون","en":"weighed, balanced","root":"و-ز-ن","type":"participle","kind":"passive participle","form":"I","src":"quran","q":"15:19:9-11","qen":"of every thing in due balance"}
+{"w":"وازَنَ","en":"to balance, to weigh against","root":"و-ز-ن","type":"verb","kind":"verb","form":"III","past":"وازَنَ","pres":"يُوازِنُ","masdar":"مُوازَنة","src":"msa"}
+{"w":"مُوازَنة","en":"balancing, comparison","root":"و-ز-ن","type":"masdar","kind":"masdar","form":"III","gender":"f","src":"msa"}
+{"w":"تَوازَنَ","en":"to be balanced","root":"و-ز-ن","type":"verb","kind":"verb","form":"VI","past":"تَوازَنَ","pres":"يَتَوازَنُ","masdar":"تَوازُن","src":"msa"}
+{"w":"تَوازُن","en":"balance, equilibrium","root":"و-ز-ن","type":"masdar","kind":"masdar","form":"VI","gender":"m","src":"msa"}
+{"w":"مُتَوازِن","en":"balanced","root":"و-ز-ن","type":"participle","kind":"active participle","form":"VI","src":"msa"}
+{"w":"اِتَّزَنَ","en":"to be steady, to regain balance","root":"و-ز-ن","type":"verb","kind":"verb","form":"VIII","past":"اِتَّزَنَ","pres":"يَتَّزِنُ","masdar":"اِتِّزان","src":"msa"}
+{"w":"مِيزانِيَّة","en":"budget","root":"و-ز-ن","type":"noun","kind":"noun","gender":"f","plural":"مِيزانِيّات","src":"msa"}
+{"w":"وَسِخَ","en":"to be dirty","root":"و-س-خ","type":"verb","kind":"verb","form":"I","past":"وَسِخَ","pres":"يَوْسَخُ","masdar":"وَسَخ","src":"msa"}
+{"w":"وَسَخ","en":"dirt, filth","root":"و-س-خ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"وَساخَة","en":"dirtiness","root":"و-س-خ","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"وَسَّخَ","en":"to make dirty","root":"و-س-خ","type":"verb","kind":"verb","form":"II","past":"وَسَّخَ","pres":"يُوَسِّخُ","masdar":"تَوْسيخ","src":"msa"}
+{"w":"اِتَّسَخَ","en":"to get dirty","root":"و-س-خ","type":"verb","kind":"verb","form":"VIII","past":"اِتَّسَخَ","pres":"يَتَّسِخُ","masdar":"اِتِّساخ","src":"msa"}
+{"w":"مُتَّسِخ","en":"dirty, soiled","root":"و-س-خ","type":"participle","kind":"active participle","form":"VIII","src":"msa"}
+{"w":"أَوْسَخ","en":"dirtier","root":"و-س-خ","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"وَسَطَ","en":"to penetrate the middle","root":"و-س-ط","type":"verb","kind":"verb","form":"I","past":"وَسَطَ","pres":"يَسِطُ","masdar":"وَسْط","src":"msa","note":"Occurs once in scripture, in 100:5, of horses plunging into the midst of the enemy."}
+{"w":"أَوْسَط","en":"middlemost, average","root":"و-س-ط","type":"adjective","kind":"comparative","src":"quran","q":"5:89:16-19","qen":"from the average of what you feed your families"}
+{"w":"وُسْطَى","en":"middle (feminine)","root":"و-س-ط","type":"adjective","kind":"comparative","src":"quran","q":"2:238:4-5","qen":"and the middle prayer"}
+{"skip":"وَسَط","why":"the bank already holds وَسَط (middle)"}
+{"w":"وَسيط","en":"mediator, intermediary","root":"و-س-ط","type":"noun","kind":"noun","gender":"m","plural":"وُسَطاء","src":"msa"}
+{"w":"واسِطَة","en":"means, intermediary","root":"و-س-ط","type":"noun","kind":"noun","gender":"f","plural":"وَسائِط","src":"msa"}
+{"w":"وِساطَة","en":"mediation","root":"و-س-ط","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"تَوَسَّطَ","en":"to mediate, to be in the middle","root":"و-س-ط","type":"verb","kind":"verb","form":"V","past":"تَوَسَّطَ","pres":"يَتَوَسَّطُ","masdar":"تَوَسُّط","src":"msa"}
+{"w":"مُتَوَسِّط","en":"average, medium","root":"و-س-ط","type":"participle","kind":"active participle","form":"V","src":"msa"}
+{"w":"وَسَّطَ","en":"to make an intermediary","root":"و-س-ط","type":"verb","kind":"verb","form":"II","past":"وَسَّطَ","pres":"يُوَسِّطُ","masdar":"تَوْسيط","src":"msa"}
+{"w":"وَسَطِيّ","en":"moderate, centrist","root":"و-س-ط","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"وَسِعَ","en":"to encompass, to hold","root":"و-س-ع","type":"verb","kind":"verb","form":"I","past":"وَسِعَ","pres":"يَسَعُ","masdar":"سَعَة","src":"quran","q":"2:255:41-44","qen":"His Throne encompasses the heavens and the earth"}
+{"w":"سَعَة","en":"room, abundance","root":"و-س-ع","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"quran","q":"2:247:21-25","qen":"and was not given abundance of wealth"}
+{"w":"وُسْع","en":"capacity, ability","root":"و-س-ع","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"2:233:19-21","qen":"No soul is burdened beyond its capacity"}
+{"skip":"وسع","why":"same word as وُسْع"}
+{"w":"مُوسِع","en":"well-off, wealthy","root":"و-س-ع","type":"participle","kind":"active participle","form":"IV","gender":"m","src":"quran","q":"2:236:15-17","qen":"upon the well-off according to his means"}
+{"skip":"وَٰسِع","why":"the bank already holds واسِع (wide)"}
+{"skip":"وَٰسِعَة","why":"feminine of واسِع, which the bank holds"}
+{"w":"وَسَّعَ","en":"to widen, to expand","root":"و-س-ع","type":"verb","kind":"verb","form":"II","past":"وَسَّعَ","pres":"يُوَسِّعُ","masdar":"تَوْسيع","src":"msa"}
+{"w":"تَوْسيع","en":"widening, expansion","root":"و-س-ع","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"اِتَّسَعَ","en":"to become wide, to expand","root":"و-س-ع","type":"verb","kind":"verb","form":"VIII","past":"اِتَّسَعَ","pres":"يَتَّسِعُ","masdar":"اِتِّساع","src":"msa"}
+{"w":"اِتِّساع","en":"width, expansion","root":"و-س-ع","type":"masdar","kind":"masdar","form":"VIII","gender":"m","src":"msa"}
+{"w":"تَوَسَّعَ","en":"to expand, to extend","root":"و-س-ع","type":"verb","kind":"verb","form":"V","past":"تَوَسَّعَ","pres":"يَتَوَسَّعُ","masdar":"تَوَسُّع","src":"msa"}
+{"w":"وَسيع","en":"wide, spacious","root":"و-س-ع","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"أَوْسَع","en":"wider, more spacious","root":"و-س-ع","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"مَوْسوعَة","en":"encyclopedia","root":"و-س-ع","type":"noun","kind":"noun","gender":"f","plural":"مَوْسوعات","src":"msa"}
+{"w":"وَسَقَ","en":"to gather, to collect","root":"و-س-ق","type":"verb","kind":"verb","form":"I","past":"وَسَقَ","pres":"يَسِقُ","masdar":"وَسْق","src":"quran","q":"84:17:1-3","qen":"and the night and what it gathers"}
+{"w":"اِتَّسَقَ","en":"to be full, to be consistent","root":"و-س-ق","type":"verb","kind":"verb","form":"VIII","past":"اِتَّسَقَ","pres":"يَتَّسِقُ","masdar":"اِتِّساق","src":"quran","q":"84:18:1-3","qen":"and the moon when it becomes full","note":"In 84:18 it describes the moon becoming full; in modern usage, to be consistent or in harmony."}
+{"w":"اِتِّساق","en":"consistency, harmony","root":"و-س-ق","type":"masdar","kind":"masdar","form":"VIII","gender":"m","src":"msa"}
+{"w":"مُتَّسِق","en":"consistent, harmonious","root":"و-س-ق","type":"participle","kind":"active participle","form":"VIII","src":"msa"}
+{"w":"وَسْق","en":"wasq, a load measure","root":"و-س-ق","type":"noun","kind":"noun","gender":"m","plural":"أَوْسُق","src":"msa"}
+{"w":"وَسيلَة","en":"means, way to something","root":"و-س-ل","type":"noun","kind":"noun","gender":"f","plural":"وَسائِل","src":"quran","q":"5:35:7-9","qen":"and seek the means of approach to Him"}
+{"w":"تَوَسَّلَ","en":"to implore, to resort to","root":"و-س-ل","type":"verb","kind":"verb","form":"V","past":"تَوَسَّلَ","pres":"يَتَوَسَّلُ","masdar":"تَوَسُّل","src":"msa"}
+{"w":"تَوَسُّل","en":"pleading, supplication","root":"و-س-ل","type":"masdar","kind":"masdar","form":"V","gender":"m","src":"msa"}
+{"w":"وَسَمَ","en":"to mark, to brand","root":"و-س-م","type":"verb","kind":"verb","form":"I","past":"وَسَمَ","pres":"يَسِمُ","masdar":"وَسْم","src":"quran","q":"68:16:1-3","qen":"We shall brand him on the snout"}
+{"w":"وَسْم","en":"marking, brand","root":"و-س-م","type":"noun","kind":"noun","gender":"m","plural":"وُسوم","src":"msa"}
+{"skip":"سيم","why":"سِيما (mark) is a defective noun the radical check cannot accept; left out"}
+{"skip":"اسم","why":"اِسْم (name) belongs to root س-م-و, not this root"}
+{"w":"مُتَوَسِّم","en":"one who discerns by signs","root":"و-س-م","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَوَسِّمون","src":"quran","q":"15:75:4-5","qen":"surely in that are signs for those who discern"}
+{"skip":"مُتَوَسِّمِين","why":"plural of مُتَوَسِّم"}
+{"w":"تَوَسَّمَ","en":"to discern, to read the signs","root":"و-س-م","type":"verb","kind":"verb","form":"V","past":"تَوَسَّمَ","pres":"يَتَوَسَّمُ","masdar":"تَوَسُّم","src":"msa"}
+{"w":"مَوْسِم","en":"season","root":"و-س-م","type":"noun","kind":"noun of place","gender":"m","plural":"مَواسِم","src":"msa"}
+{"w":"وَسيم","en":"handsome","root":"و-س-م","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"وِسام","en":"medal, badge of honour","root":"و-س-م","type":"noun","kind":"noun","gender":"m","plural":"أَوْسِمَة","src":"msa"}
+{"w":"سِمَة","en":"trait, distinguishing mark","root":"و-س-م","type":"noun","kind":"noun","gender":"f","plural":"سِمات","src":"msa"}
+{"w":"مَوْسوم","en":"marked, entitled","root":"و-س-م","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"اِتَّسَمَ","en":"to be characterized by","root":"و-س-م","type":"verb","kind":"verb","form":"VIII","past":"اِتَّسَمَ","pres":"يَتَّسِمُ","masdar":"اِتِّسام","src":"msa"}
+{"w":"سِنَة","en":"drowsiness","root":"و-س-ن","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa","note":"In scripture it occurs in the Throne Verse (2:255)."}
+{"w":"وَسِنَ","en":"to doze off","root":"و-س-ن","type":"verb","kind":"verb","form":"I","past":"وَسِنَ","pres":"يَوْسَنُ","masdar":"وَسَن","src":"msa"}
+{"w":"وَسَن","en":"drowsiness","root":"و-س-ن","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"وَسْنان","en":"drowsy, half asleep","root":"و-س-ن","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"وَسْوَسَ","en":"to whisper evil suggestions","root":"و-س-و-س","type":"verb","kind":"verb","form":"II","past":"وَسْوَسَ","pres":"يُوَسْوِسُ","masdar":"وَسْوَسَة","src":"quran","q":"7:20:1-3","qen":"Then Satan whispered to them"}
+{"w":"وَسْواس","en":"whisperer, obsession","root":"و-س-و-س","type":"noun","kind":"noun","gender":"m","plural":"وَساوِس","src":"quran","q":"114:4:2-3","qen":"from the evil of the whisperer"}
+{"w":"وَسْوَسَة","en":"whispering, evil suggestion","root":"و-س-و-س","type":"masdar","kind":"masdar","form":"II","gender":"f","plural":"وَساوِس","src":"msa"}
+{"w":"وَشَى","en":"to inform on, to slander","root":"و-ش-ي","type":"verb","kind":"verb","form":"I","past":"وَشَى","pres":"يَشِي","masdar":"وِشاية","src":"msa"}
+{"w":"وِشاية","en":"informing, slander","root":"و-ش-ي","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"واشِي","en":"informer, slanderer","root":"و-ش-ي","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"وُشاة","src":"msa"}
+{"w":"وَشْي","en":"embroidered design","root":"و-ش-ي","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"وَشَّى","en":"to embroider, to adorn","root":"و-ش-ي","type":"verb","kind":"verb","form":"II","past":"وَشَّى","pres":"يُوَشِّي","masdar":"تَوْشِية","src":"msa"}
+{"w":"واصِب","en":"constant, permanent","root":"و-ص-ب","type":"participle","kind":"active participle","form":"I","src":"quran","q":"16:52:6-8","qen":"and to Him is religion, constant"}
+{"w":"وَصَب","en":"pain, exhaustion","root":"و-ص-ب","type":"noun","kind":"noun","gender":"m","plural":"أَوْصاب","src":"msa"}
+{"w":"وَصيد","en":"threshold, entrance yard","root":"و-ص-د","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"18:18:10-13","qen":"and their dog stretching its forelegs at the entrance"}
+{"w":"مُؤْصَد","en":"closed, sealed","root":"و-ص-د","type":"participle","kind":"passive participle","form":"IV","src":"msa","note":"In scripture it occurs once, in 104:8, of the Fire closed over the doomed."}
+{"skip":"مُّؤْصَدَة","why":"feminine of مُؤْصَد"}
+{"w":"أَوْصَدَ","en":"to close, to lock","root":"و-ص-د","type":"verb","kind":"verb","form":"IV","past":"أَوْصَدَ","pres":"يُوصِدُ","masdar":"إيصاد","src":"msa"}
+{"skip":"شِيَة","why":"defective noun (blemish, from وشي) that the radical check cannot accept; left out"}
+{"w":"وَصَفَ","en":"to describe","root":"و-ص-ف","type":"verb","kind":"verb","form":"I","past":"وَصَفَ","pres":"يَصِفُ","masdar":"وَصْف","src":"quran","q":"21:112:8-10","qen":"against what you describe","note":"In scripture it is often used for people attributing false things to God."}
+{"skip":"يصف","why":"same word as وَصَفَ"}
+{"w":"وَصْف","en":"description","root":"و-ص-ف","type":"masdar","kind":"masdar","form":"I","gender":"m","plural":"أَوْصاف","src":"quran","q":"6:139:18-19","qen":"He will repay them for their attribution"}
+{"w":"صِفَة","en":"attribute, quality","root":"و-ص-ف","type":"noun","kind":"noun","gender":"f","plural":"صِفات","src":"msa"}
+{"w":"واصِف","en":"one who describes","root":"و-ص-ف","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"واصِفون","src":"msa"}
+{"w":"مَوْصوف","en":"described","root":"و-ص-ف","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"وَصْفَة","en":"prescription, recipe","root":"و-ص-ف","type":"noun","kind":"noun","gender":"f","plural":"وَصْفات","src":"msa"}
+{"w":"اِتَّصَفَ","en":"to be characterized by","root":"و-ص-ف","type":"verb","kind":"verb","form":"VIII","past":"اِتَّصَفَ","pres":"يَتَّصِفُ","masdar":"اِتِّصاف","src":"msa"}
+{"w":"مُسْتَوْصَف","en":"clinic, dispensary","root":"و-ص-ف","type":"noun","kind":"noun of place","gender":"m","plural":"مُسْتَوْصَفات","src":"msa"}
+{"skip":"V:I","why":"وَصَلَ is already in the bank"}
+{"w":"وَصَّلَ","en":"to connect, to convey","root":"و-ص-ل","type":"verb","kind":"verb","form":"II","past":"وَصَّلَ","pres":"يُوَصِّلُ","masdar":"تَوْصيل","src":"quran","q":"28:51:2-4","qen":"We have conveyed the word to them"}
+{"w":"وَصيلَة","en":"wasila, a dedicated she-camel","root":"و-ص-ل","type":"noun","kind":"noun","gender":"f","plural":"وَصائِل","src":"quran","q":"5:103:8-9","qen":"nor a wasila","note":"A pre-Islamic dedicated animal; the word is not common in modern usage."}
+{"w":"وَصْل","en":"joining, connection","root":"و-ص-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"أَوْصَلَ","en":"to deliver, to take to","root":"و-ص-ل","type":"verb","kind":"verb","form":"IV","past":"أَوْصَلَ","pres":"يُوصِلُ","masdar":"إِيصال","src":"msa"}
+{"w":"إِيصال","en":"delivery, receipt","root":"و-ص-ل","type":"masdar","kind":"masdar","form":"IV","gender":"m","plural":"إِيصالات","src":"msa"}
+{"w":"وَاصَلَ","en":"to continue, to keep on","root":"و-ص-ل","type":"verb","kind":"verb","form":"III","past":"وَاصَلَ","pres":"يُواصِلُ","masdar":"مُواصَلة","src":"msa"}
+{"w":"تَواصَلَ","en":"to stay in touch","root":"و-ص-ل","type":"verb","kind":"verb","form":"VI","past":"تَواصَلَ","pres":"يَتَواصَلُ","masdar":"تَواصُل","src":"msa"}
+{"w":"تَواصُل","en":"communication, contact","root":"و-ص-ل","type":"masdar","kind":"masdar","form":"VI","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِتَّصَلَ","en":"to contact, to be connected","root":"و-ص-ل","type":"verb","kind":"verb","form":"VIII","past":"اِتَّصَلَ","pres":"يَتَّصِلُ","masdar":"اِتِّصال","src":"msa"}
+{"w":"اِتِّصال","en":"contact, telephone call","root":"و-ص-ل","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِتِّصالات","src":"msa"}
+{"w":"وُصول","en":"arrival","root":"و-ص-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَوْصيل","en":"connecting, delivery","root":"و-ص-ل","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"صِلَة","en":"link, tie","root":"و-ص-ل","type":"noun","kind":"noun","gender":"f","plural":"صِلات","src":"msa"}
+{"w":"وُصْلَة","en":"joint, connecting piece","root":"و-ص-ل","type":"noun","kind":"noun","gender":"f","plural":"وُصَل","src":"msa"}
+{"w":"واصِل","en":"arriving","root":"و-ص-ل","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"واصِلون","src":"msa"}
+{"w":"مُتَّصِل","en":"connected, continuous","root":"و-ص-ل","type":"participle","kind":"active participle","form":"VIII","src":"msa"}
+{"w":"مُتَواصِل","en":"continuous, ongoing","root":"و-ص-ل","type":"participle","kind":"active participle","form":"VI","src":"msa"}
+{"w":"وَصَّى","en":"to enjoin, to charge","root":"و-ص-ي","type":"verb","kind":"verb","form":"II","past":"وَصَّى","pres":"يُوَصِّي","masdar":"تَوْصِيَة","src":"quran","q":"2:132:1-4","qen":"And Abraham enjoined it on his sons"}
+{"w":"أَوْصَى","en":"to instruct, to bequeath","root":"و-ص-ي","type":"verb","kind":"verb","form":"IV","past":"أَوْصَى","pres":"يُوصِي","masdar":"إيصاء","src":"quran","q":"4:11:1-4","qen":"God instructs you concerning your children"}
+{"skip":"V:I","why":"the form I tokens are inflections of أَوْصَى and وَصَّى (such as يُوصِينَ and يُوصَى)"}
+{"w":"وَصِيَّة","en":"will, bequest","root":"و-ص-ي","type":"noun","kind":"noun","gender":"f","plural":"وَصايا","src":"quran","q":"2:180:8-11","qen":"if he leaves wealth, a bequest to the parents"}
+{"w":"مُوصِي","en":"testator, one who bequeaths","root":"و-ص-ي","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُوصون","src":"msa","note":"Occurs once in scripture, in 2:182, of a testator."}
+{"skip":"مُّوص","why":"same word as مُوصِي, without the final yaa"}
+{"w":"تَوْصِيَة","en":"recommendation","root":"و-ص-ي","type":"masdar","kind":"masdar","form":"II","gender":"f","plural":"تَوْصِيات","src":"quran","q":"36:50:2-3","qen":"they will be unable to make a bequest"}
+{"w":"تَواصَى","en":"to enjoin one another","root":"و-ص-ي","type":"verb","kind":"verb","form":"VI","past":"تَواصَى","pres":"يَتَواصَى","masdar":"تَواصٍ","src":"quran","q":"103:3:6-7","qen":"and enjoin one another to truth"}
+{"skip":"تواص","why":"same word as تَواصَى"}
+{"w":"وَصِيّ","en":"guardian, executor of a will","root":"و-ص-ي","type":"noun","kind":"noun","gender":"m","plural":"أَوْصِياء","src":"msa"}
+{"w":"وِصاية","en":"guardianship","root":"و-ص-ي","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"اِسْتَوْصَى","en":"to treat well, to ask advice about","root":"و-ص-ي","type":"verb","kind":"verb","form":"X","past":"اِسْتَوْصَى","pres":"يَسْتَوْصِي","masdar":"اِسْتيصاء","src":"msa","note":"Used with بِ and خَيْرًا in the sense of treating someone well."}
+{"w":"وَضَعَ","en":"to put, to place, to give birth","root":"و-ض-ع","type":"verb","kind":"verb","form":"I","past":"وَضَعَ","pres":"يَضَعُ","masdar":"وَضْع","src":"quran","q":"3:36:1-3","qen":"So when she delivered her, she said","note":"In 3:36 it means to give birth; the common sense is to put or place."}
+{"w":"مَواضِع","en":"places, spots","root":"و-ض-ع","type":"noun","kind":"plural","gender":"m","src":"quran","q":"4:46:5-7","qen":"distort the words from their places"}
+{"w":"مَوْضِع","en":"place, spot","root":"و-ض-ع","type":"noun","kind":"noun of place","gender":"m","plural":"مَواضِع","src":"msa"}
+{"w":"مَوْضوع","en":"placed, set down","root":"و-ض-ع","type":"participle","kind":"passive participle","form":"I","src":"quran","q":"88:14:1-2","qen":"and cups set in place","note":"As a noun it means subject or topic, which the bank already holds; as an adjective it can also mean fabricated."}
+{"skip":"مَّوْضُوعَة","why":"feminine of مَوْضوع"}
+{"w":"أَوْضَعَ","en":"to hasten, to rush about","root":"و-ض-ع","type":"verb","kind":"verb","form":"IV","past":"أَوْضَعَ","pres":"يُوضِعُ","masdar":"إيضاع","src":"quran","q":"9:47:8-9","qen":"and would have rushed about in your midst"}
+{"w":"تَواضَعَ","en":"to be humble","root":"و-ض-ع","type":"verb","kind":"verb","form":"VI","past":"تَواضَعَ","pres":"يَتَواضَعُ","masdar":"تَواضُع","src":"msa"}
+{"w":"تَواضُع","en":"humility, modesty","root":"و-ض-ع","type":"masdar","kind":"masdar","form":"VI","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُتَواضِع","en":"humble, modest","root":"و-ض-ع","type":"participle","kind":"active participle","form":"VI","src":"msa"}
+{"w":"وَضيع","en":"lowly, base","root":"و-ض-ع","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"وَضْعِيّ","en":"man-made, positive","root":"و-ض-ع","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"وَضْعِيَّة","en":"situation, position","root":"و-ض-ع","type":"noun","kind":"noun","gender":"f","plural":"وَضْعِيّات","src":"msa"}
+{"w":"مَوْضوعِيّ","en":"objective","root":"و-ض-ع","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"مَوْضوعِيَّة","en":"objectivity","root":"و-ض-ع","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"مَوْضون","en":"woven, inlaid","root":"و-ض-ن","type":"participle","kind":"passive participle","form":"I","src":"quran","q":"56:15:1-3","qen":"upon couches interwoven"}
+{"skip":"مَّوْضُونَة","why":"feminine of مَوْضون"}
+{"w":"وَطِئَ","en":"to tread on","root":"و-ط-أ","type":"verb","kind":"verb","form":"I","past":"وَطِئَ","pres":"يَطَأُ","masdar":"وَطْء","src":"quran","q":"9:120:31-33","qen":"nor do they tread any ground"}
+{"w":"وَاطَأَ","en":"to agree with, to match","root":"و-ط-أ","type":"verb","kind":"verb","form":"III","past":"وَاطَأَ","pres":"يُواطِئُ","masdar":"مُواطَأة","src":"quran","q":"9:37:14-15","qen":"to match the number"}
+{"w":"مَوْطِئ","en":"foothold, place of treading","root":"و-ط-أ","type":"noun","kind":"noun of place","gender":"m","plural":"مَواطِئ","src":"quran","q":"9:120:32-33","qen":"tread any ground"}
+{"w":"وَطْء","en":"treading, pressure","root":"و-ط-أ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"73:6:4-6","qen":"it is firmer in impact"}
+{"w":"وَطَّأَ","en":"to smooth, to prepare the way","root":"و-ط-أ","type":"verb","kind":"verb","form":"II","past":"وَطَّأَ","pres":"يُوَطِّئُ","masdar":"تَوْطِئة","src":"msa"}
+{"w":"تَوْطِئَة","en":"preface, preparation","root":"و-ط-أ","type":"masdar","kind":"masdar","form":"II","gender":"f","src":"msa"}
+{"w":"تَواطَأَ","en":"to collude","root":"و-ط-أ","type":"verb","kind":"verb","form":"VI","past":"تَواطَأَ","pres":"يَتَواطَأُ","masdar":"تَواطُؤ","src":"msa"}
+{"w":"تَواطُؤ","en":"collusion","root":"و-ط-أ","type":"masdar","kind":"masdar","form":"VI","gender":"m","noplural":true,"src":"msa"}
+{"w":"وَطَر","en":"need, wish, purpose","root":"و-ط-ر","type":"noun","kind":"noun","gender":"m","plural":"أَوْطار","src":"quran","q":"33:37:27-30","qen":"when Zayd had fulfilled his need of her"}
+{"w":"مَواطِن","en":"places, regions","root":"و-ط-ن","type":"noun","kind":"plural","gender":"m","src":"quran","q":"9:25:4-6","qen":"in many places"}
+{"w":"مَوْطِن","en":"homeland, place of residence","root":"و-ط-ن","type":"noun","kind":"noun of place","gender":"m","plural":"مَواطِن","src":"msa"}
+{"w":"وَطَن","en":"homeland, country","root":"و-ط-ن","type":"noun","kind":"noun","gender":"m","plural":"أَوْطان","src":"msa"}
+{"w":"وَطَنِيّ","en":"national, patriotic","root":"و-ط-ن","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"وَطَنِيَّة","en":"patriotism, nationalism","root":"و-ط-ن","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"مُواطِن","en":"citizen","root":"و-ط-ن","type":"participle","kind":"active participle","form":"III","gender":"m","plural":"مُواطِنون","src":"msa"}
+{"w":"مُواطَنَة","en":"citizenship","root":"و-ط-ن","type":"masdar","kind":"masdar","form":"III","gender":"f","noplural":true,"src":"msa"}
+{"w":"وَطَّنَ","en":"to settle, to localize","root":"و-ط-ن","type":"verb","kind":"verb","form":"II","past":"وَطَّنَ","pres":"يُوَطِّنُ","masdar":"تَوْطين","src":"msa"}
+{"w":"اِسْتَوْطَنَ","en":"to settle in, to colonize","root":"و-ط-ن","type":"verb","kind":"verb","form":"X","past":"اِسْتَوْطَنَ","pres":"يَسْتَوْطِنُ","masdar":"اِسْتيطان","src":"msa"}
+{"w":"اِسْتيطان","en":"settlement, colonization","root":"و-ط-ن","type":"masdar","kind":"masdar","form":"X","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُسْتَوْطِن","en":"settler","root":"و-ط-ن","type":"participle","kind":"active participle","form":"X","gender":"m","plural":"مُسْتَوْطِنون","src":"msa"}
+{"w":"مُسْتَوْطَنَة","en":"settlement, colony","root":"و-ط-ن","type":"participle","kind":"passive participle","form":"X","gender":"f","plural":"مُسْتَوْطَنات","src":"msa"}
+{"w":"وَظَّفَ","en":"to employ, to utilize","root":"و-ظ-ف","type":"verb","kind":"verb","form":"II","past":"وَظَّفَ","pres":"يُوَظِّفُ","masdar":"تَوْظيف","src":"msa"}
+{"w":"تَوْظيف","en":"employment, utilization","root":"و-ظ-ف","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُوَظِّف","en":"employer, one who hires","root":"و-ظ-ف","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُوَظِّفون","src":"msa"}
+{"w":"تَوَظَّفَ","en":"to get a job","root":"و-ظ-ف","type":"verb","kind":"verb","form":"V","past":"تَوَظَّفَ","pres":"يَتَوَظَّفُ","masdar":"تَوَظُّف","src":"msa"}
+{"w":"وَظيفِيّ","en":"functional, job-related","root":"و-ظ-ف","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"وَعَدَ","en":"to promise","root":"و-ع-د","type":"verb","kind":"verb","form":"I","past":"وَعَدَ","pres":"يَعِدُ","masdar":"وَعْد","src":"quran","q":"48:29:45-48","qen":"God has promised those who believe"}
+{"skip":"وَعْد","why":"the bank already holds وَعد"}
+{"skip":"مَّوْعِد","why":"the bank already holds مَوعِد"}
+{"skip":"وعد","why":"same word as وَعْد, which the bank holds"}
+{"skip":"اما","why":"the tokens are the passive يُوعَدُونَ of وَعَدَ"}
+{"w":"مِيعاد","en":"appointed time, appointment","root":"و-ع-د","type":"noun","kind":"noun","gender":"m","plural":"مَواعيد","src":"quran","q":"3:9:11-13","qen":"God does not break the appointment"}
+{"w":"وَعيد","en":"threat","root":"و-ع-د","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"14:14:9-10","qen":"and fears My warning"}
+{"skip":"وعيد","why":"same word as وَعيد"}
+{"w":"مَوْعِدَة","en":"promise","root":"و-ع-د","type":"noun","kind":"noun","gender":"f","plural":"مَواعِد","src":"quran","q":"9:114:8-10","qen":"a promise he had made to him"}
+{"w":"مَوْعود","en":"promised","root":"و-ع-د","type":"participle","kind":"passive participle","form":"I","src":"quran","q":"85:2:1-2","qen":"and the Promised Day"}
+{"w":"وَاعَدَ","en":"to make an appointment with","root":"و-ع-د","type":"verb","kind":"verb","form":"III","past":"وَاعَدَ","pres":"يُواعِدُ","masdar":"مُواعَدة","src":"quran","q":"2:51:2-5","qen":"We appointed Moses forty nights"}
+{"w":"أَوْعَدَ","en":"to threaten","root":"و-ع-د","type":"verb","kind":"verb","form":"IV","past":"أَوْعَدَ","pres":"يُوعِدُ","masdar":"إيعاد","src":"quran","q":"7:86:3-5","qen":"do not sit on every path, threatening"}
+{"w":"تَواعَدَ","en":"to make a mutual appointment","root":"و-ع-د","type":"verb","kind":"verb","form":"VI","past":"تَواعَدَ","pres":"يَتَواعَدُ","masdar":"تَواعُد","src":"quran","q":"8:42:11-13","qen":"had you made an appointment, you would have differed"}
+{"w":"تَوَعَّدَ","en":"to threaten","root":"و-ع-د","type":"verb","kind":"verb","form":"V","past":"تَوَعَّدَ","pres":"يَتَوَعَّدُ","masdar":"تَوَعُّد","src":"msa"}
+{"w":"واعِد","en":"promising","root":"و-ع-د","type":"participle","kind":"active participle","form":"I","src":"msa"}
+{"w":"مُواعَدة","en":"making an appointment","root":"و-ع-د","type":"masdar","kind":"masdar","form":"III","gender":"f","src":"msa"}
+{"skip":"وَطْـٔ","why":"same word as وَطْء, with a tatweel"}

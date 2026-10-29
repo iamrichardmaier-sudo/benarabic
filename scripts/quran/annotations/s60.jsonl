@@ -1,0 +1,171 @@
+{"w":"مَهِيل","en":"poured out, loose (of sand)","root":"ه-ي-ل","type":"participle","kind":"passive participle","form":"I","src":"msa","note":"Describes the mountains turning into a crumbling, flowing dune on the Day of Judgement. Occurs once in the Qur'an (73:14)."}
+{"w":"هالَ","en":"to pour, to heap up","root":"ه-ي-ل","type":"verb","kind":"verb","form":"I","past":"هالَ","pres":"يَهيلُ","masdar":"هَيْل","src":"msa"}
+{"w":"اِنْهالَ","en":"to pour down, to collapse","root":"ه-ي-ل","type":"verb","kind":"verb","form":"VII","past":"اِنْهالَ","pres":"يَنْهالُ","masdar":"اِنْهِيال","src":"msa"}
+{"w":"هامَ","en":"to roam, to be madly in love","root":"ه-ي-م","type":"verb","kind":"verb","form":"I","past":"هامَ","pres":"يَهيمُ","masdar":"هُيام","src":"quran","q":"26:225:3-7","qen":"that they wander in every valley","note":"In the Qur'an it means to wander aimlessly; in modern usage it often means to be infatuated."}
+{"w":"هِيم","en":"thirsty camels","root":"ه-ي-م","type":"noun","kind":"plural","gender":"m","noplural":true,"src":"quran","q":"56:55:1-3","qen":"drinking like thirsty camels"}
+{"w":"هُيام","en":"passionate love, infatuation","root":"ه-ي-م","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"skip":"رءا","why":"unclassified lemma for وَتَرَى, a form of رأى, a different root (ر-أ-ي)"}
+{"w":"مَوْءُودَة","en":"girl buried alive","root":"و-أ-د","type":"participle","kind":"passive participle","form":"I","gender":"f","src":"quran","q":"81:8:1-3","qen":"when the girl buried alive is asked","note":"Refers to the pre-Islamic practice of burying unwanted baby girls."}
+{"w":"وَأَدَ","en":"to bury alive","root":"و-أ-د","type":"verb","kind":"verb","form":"I","past":"وَأَدَ","pres":"يَئِدُ","masdar":"وَأْد","src":"msa"}
+{"w":"مَوْئِل","en":"refuge, shelter","root":"و-أ-ل","type":"noun","kind":"noun of place","gender":"m","noplural":true,"src":"msa","note":"Occurs once in the Qur'an (18:58)."}
+{"w":"أَوْبار","en":"camel hair","root":"و-ب-ر","type":"noun","kind":"plural","gender":"m","noplural":true,"src":"quran","q":"16:80:19-21","qen":"from their wool, their camel hair and their fur"}
+{"w":"وَبَر","en":"camel hair, fur","root":"و-ب-ر","type":"noun","kind":"noun","gender":"m","plural":"أَوْبار","src":"msa"}
+{"w":"مَوْبِق","en":"place of destruction","root":"و-ب-ق","type":"noun","kind":"noun of place","gender":"m","noplural":true,"src":"quran","q":"18:52:11-13","qen":"and We placed between them a place of destruction","note":"Commentators also read it as a barrier or abyss separating the idols from their worshippers."}
+{"w":"أَوْبَقَ","en":"to destroy, to ruin","root":"و-ب-ق","type":"verb","kind":"verb","form":"IV","past":"أَوْبَقَ","pres":"يُوبِقُ","masdar":"إيباق","src":"quran","q":"42:34:1-4","qen":"or He wrecks them for what they earned"}
+{"w":"وَبال","en":"evil consequence, ruin","root":"و-ب-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"Occurs in the Qur'an (5:95, 59:15, 64:5, 65:9)."}
+{"w":"وابِل","en":"downpour, heavy rain","root":"و-ب-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"2:264:25-27","qen":"and a downpour strikes it and leaves it bare"}
+{"w":"وَبيل","en":"ruinous, grievous","root":"و-ب-ل","type":"adjective","kind":"adjective","src":"quran","q":"73:16:4-6","qen":"so We seized him with a grievous seizing"}
+{"w":"وَبْل","en":"heavy rain","root":"و-ب-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَوْتاد","en":"stakes, pegs","root":"و-ت-د","type":"noun","kind":"plural","gender":"m","noplural":true,"src":"quran","q":"38:12:6-8","qen":"and Pharaoh, lord of the stakes","note":"Often understood as tent pegs or as stakes used for torture."}
+{"w":"وَتَد","en":"peg, stake","root":"و-ت-د","type":"noun","kind":"noun","gender":"m","plural":"أَوْتاد","src":"msa"}
+{"w":"وَتَّدَ","en":"to fix with pegs, to wedge","root":"و-ت-د","type":"verb","kind":"verb","form":"II","past":"وَتَّدَ","pres":"يُوَتِّدُ","masdar":"تَوْتيد","src":"msa"}
+{"w":"تَتْرى","en":"in succession, one after another","root":"و-ت-ر","type":"other","kind":"adverb","src":"quran","q":"23:44:2-4","qen":"We sent Our messengers one after another"}
+{"w":"وَتْر","en":"odd (number), single","root":"و-ت-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"89:3:1-2","qen":"and the even and the odd"}
+{"w":"وَتَرَ","en":"to deprive, to wrong","root":"و-ت-ر","type":"verb","kind":"verb","form":"I","past":"وَتَرَ","pres":"يَتِرُ","masdar":"تِرَة","src":"msa","note":"Occurs in the Qur'an as يَتِرَكُمْ (47:35), meaning to deprive. Modern usage also includes stringing a bow."}
+{"w":"وَتَر","en":"string (of an instrument)","root":"و-ت-ر","type":"noun","kind":"noun","gender":"m","plural":"أَوْتار","src":"msa"}
+{"w":"تَوَتَّرَ","en":"to become tense","root":"و-ت-ر","type":"verb","kind":"verb","form":"V","past":"تَوَتَّرَ","pres":"يَتَوَتَّرُ","masdar":"تَوَتُّر","src":"msa"}
+{"w":"تَوَتُّر","en":"tension","root":"و-ت-ر","type":"masdar","kind":"masdar","form":"V","gender":"m","src":"msa"}
+{"w":"مُتَوَتِّر","en":"tense, strained","root":"و-ت-ر","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَوَتِّرون","src":"msa"}
+{"w":"تَواتَرَ","en":"to recur in succession","root":"و-ت-ر","type":"verb","kind":"verb","form":"VI","past":"تَواتَرَ","pres":"يَتَواتَرُ","masdar":"تَواتُر","src":"msa"}
+{"w":"وَتيرة","en":"pace, rhythm","root":"و-ت-ر","type":"noun","kind":"noun","gender":"f","plural":"وَتائِر","src":"msa"}
+{"w":"وَتين","en":"aorta","root":"و-ت-ن","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"69:46:2-4","qen":"then We would cut from him the aorta"}
+{"w":"مِيثاق","en":"covenant, charter","root":"و-ث-ق","type":"noun","kind":"noun","gender":"m","plural":"مَواثيق","src":"quran","q":"2:27:5-7","qen":"after its binding covenant"}
+{"w":"مَوْثِق","en":"solemn pledge","root":"و-ث-ق","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"12:66:5-7","qen":"until you give me a pledge"}
+{"w":"وُثْقى","en":"firmest","root":"و-ث-ق","type":"adjective","kind":"comparative","noplural":true,"src":"quran","q":"2:256:16-18","qen":"has grasped the firmest handhold","note":"Feminine of أَوْثَق, used in scripture of the 'firmest handhold'."}
+{"w":"وَثاق","en":"bond, fetter","root":"و-ث-ق","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"47:4:10-11","qen":"then tighten the bonds"}
+{"w":"واثَقَ","en":"to bind by a pledge","root":"و-ث-ق","type":"verb","kind":"verb","form":"III","past":"واثَقَ","pres":"يُواثِقُ","masdar":"مُواثَقة","src":"quran","q":"5:7:5-8","qen":"and His covenant with which He bound you"}
+{"w":"أَوْثَقَ","en":"to bind firmly, to tie up","root":"و-ث-ق","type":"verb","kind":"verb","form":"IV","past":"أَوْثَقَ","pres":"يُوثِقُ","masdar":"إيثاق","src":"quran","q":"89:26:1-4","qen":"and none will bind as firmly as He binds"}
+{"w":"وَثيق","en":"firm, solid, close","root":"و-ث-ق","type":"adjective","kind":"adjective","plural":"وِثاق","src":"msa"}
+{"w":"وَثيقة","en":"document","root":"و-ث-ق","type":"noun","kind":"noun","gender":"f","plural":"وَثائِق","src":"msa"}
+{"w":"ثِقة","en":"trust, confidence","root":"و-ث-ق","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"مَوْثوق","en":"reliable, trusted","root":"و-ث-ق","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"وَثَّقَ","en":"to document, to authenticate","root":"و-ث-ق","type":"verb","kind":"verb","form":"II","past":"وَثَّقَ","pres":"يُوَثِّقُ","masdar":"تَوْثيق","src":"msa"}
+{"w":"تَوْثيق","en":"documentation, notarization","root":"و-ث-ق","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"مُوَثِّق","en":"notary","root":"و-ث-ق","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُوَثِّقون","src":"msa"}
+{"w":"وَثائِقِيّ","en":"documentary","root":"و-ث-ق","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"أَوْثان","en":"idols","root":"و-ث-ن","type":"noun","kind":"plural","gender":"m","noplural":true,"src":"quran","q":"22:30:19-21","qen":"avoid the filth of the idols"}
+{"w":"وَثَن","en":"idol","root":"و-ث-ن","type":"noun","kind":"noun","gender":"m","plural":"أَوْثان","src":"msa"}
+{"w":"وَثَنِيّ","en":"pagan, idolatrous","root":"و-ث-ن","type":"adjective","kind":"relative adjective","plural":"وَثَنِيّون","src":"msa"}
+{"w":"وَثَنِيَّة","en":"paganism, idolatry","root":"و-ث-ن","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"وَجَبَ","en":"to be obligatory, to be due","root":"و-ج-ب","type":"verb","kind":"verb","form":"I","past":"وَجَبَ","pres":"يَجِبُ","masdar":"وُجوب","src":"quran","q":"22:36:15-17","qen":"then when they fall on their sides","note":"In 22:36 it describes sacrificed camels falling down; the modern sense is 'to be necessary'."}
+{"w":"وُجوب","en":"obligation, necessity","root":"و-ج-ب","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"واجِب","en":"duty, obligation","root":"و-ج-ب","type":"noun","kind":"noun","gender":"m","plural":"واجِبات","src":"msa"}
+{"w":"وَجْبة","en":"meal","root":"و-ج-ب","type":"noun","kind":"noun","gender":"f","plural":"وَجَبات","src":"msa"}
+{"w":"أَوْجَبَ","en":"to make obligatory, to require","root":"و-ج-ب","type":"verb","kind":"verb","form":"IV","past":"أَوْجَبَ","pres":"يُوجِبُ","masdar":"إِيجاب","src":"msa"}
+{"w":"إِيجاب","en":"affirmation, positive response","root":"و-ج-ب","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُوجِب","en":"cause, reason","root":"و-ج-ب","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُوجِبات","src":"msa"}
+{"w":"مُوجَب","en":"positive","root":"و-ج-ب","type":"participle","kind":"passive participle","form":"IV","src":"msa"}
+{"w":"إيجابِيّ","en":"positive, constructive","root":"و-ج-ب","type":"adjective","kind":"relative adjective","src":"msa"}
+{"skip":"V:I:وجد","why":"وَجَدَ is already in the bank"}
+{"skip":"وجد","why":"unclassified lemma, same word as وَجَدَ already in the bank"}
+{"w":"وُجْد","en":"means, ability","root":"و-ج-د","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"65:6:5-6","qen":"according to your means"}
+{"w":"مَوْجود","en":"existing, present","root":"و-ج-د","type":"participle","kind":"passive participle","form":"I","plural":"مَوْجودون","src":"msa"}
+{"w":"أَوْجَدَ","en":"to bring into being, to create","root":"و-ج-د","type":"verb","kind":"verb","form":"IV","past":"أَوْجَدَ","pres":"يُوجِدُ","masdar":"إِيجاد","src":"msa"}
+{"w":"إِيجاد","en":"creating, bringing into being","root":"و-ج-د","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَواجَدَ","en":"to be present, to be found","root":"و-ج-د","type":"verb","kind":"verb","form":"VI","past":"تَواجَدَ","pres":"يَتَواجَدُ","masdar":"تَواجُد","src":"msa"}
+{"w":"وَجْد","en":"deep emotion, passion","root":"و-ج-د","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"وِجْدان","en":"conscience, inner feeling","root":"و-ج-د","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"وُجودِيّ","en":"existential","root":"و-ج-د","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"أَوْجَسَ","en":"to feel inwardly, to sense with fear","root":"و-ج-س","type":"verb","kind":"verb","form":"IV","past":"أَوْجَسَ","pres":"يُوجِسُ","masdar":"إيجاس","src":"quran","q":"11:70:7-10","qen":"and he felt a fear of them inwardly"}
+{"w":"تَوَجَّسَ","en":"to be wary of, to sense","root":"و-ج-س","type":"verb","kind":"verb","form":"V","past":"تَوَجَّسَ","pres":"يَتَوَجَّسُ","masdar":"تَوَجُّس","src":"msa"}
+{"w":"واجِف","en":"throbbing, trembling","root":"و-ج-ف","type":"participle","kind":"active participle","form":"I","plural":"واجِفون","src":"quran","q":"79:8:1-3","qen":"hearts that day will be trembling"}
+{"w":"أَوْجَفَ","en":"to spur on (a mount)","root":"و-ج-ف","type":"verb","kind":"verb","form":"IV","past":"أَوْجَفَ","pres":"يُوجِفُ","masdar":"إيجاف","src":"quran","q":"59:6:7-11","qen":"you spurred no horses against it"}
+{"w":"وَجِلَ","en":"to be afraid, to tremble with fear","root":"و-ج-ل","type":"verb","kind":"verb","form":"I","past":"وَجِلَ","pres":"يَوْجَلُ","masdar":"وَجَل","src":"quran","q":"8:2:7-8","qen":"their hearts tremble"}
+{"w":"وَجِل","en":"afraid, fearful","root":"و-ج-ل","type":"adjective","kind":"adjective","plural":"وَجِلون","src":"quran","q":"15:52:7-9","qen":"we are afraid of you"}
+{"skip":"وَجِلَة","why":"feminine singular of وَجِل"}
+{"skip":"وَجِلُون","why":"masculine plural of وَجِل"}
+{"w":"وَجَل","en":"fear, dread","root":"و-ج-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"وَجْه","en":"face","root":"و-ج-ه","type":"noun","kind":"noun","gender":"m","plural":"وُجوه","src":"quran","q":"2:112:2-5","qen":"whoever submits his face to God"}
+{"skip":"وجه","why":"unclassified lemma, same word as وَجْه"}
+{"w":"وَجيه","en":"distinguished, notable","root":"و-ج-ه","type":"adjective","kind":"adjective","plural":"وُجَهاء","src":"quran","q":"3:45:16-19","qen":"honoured in this world and the next"}
+{"w":"وَجَّهَ","en":"to direct, to turn toward","root":"و-ج-ه","type":"verb","kind":"verb","form":"II","past":"وَجَّهَ","pres":"يُوَجِّهُ","masdar":"تَوْجيه","src":"quran","q":"6:79:2-3","qen":"I have turned my face"}
+{"w":"وِجْهة","en":"direction, destination","root":"و-ج-ه","type":"noun","kind":"noun","gender":"f","plural":"وِجْهات","src":"quran","q":"2:148:1-3","qen":"and everyone has a direction"}
+{"w":"تَوَجَّهَ","en":"to head toward, to turn to","root":"و-ج-ه","type":"verb","kind":"verb","form":"V","past":"تَوَجَّهَ","pres":"يَتَوَجَّهُ","masdar":"تَوَجُّه","src":"quran","q":"28:22:1-4","qen":"and when he headed toward Midian"}
+{"w":"واجَهَ","en":"to face, to confront","root":"و-ج-ه","type":"verb","kind":"verb","form":"III","past":"واجَهَ","pres":"يُواجِهُ","masdar":"مُواجَهة","src":"msa"}
+{"w":"اِتَّجَهَ","en":"to head toward","root":"و-ج-ه","type":"verb","kind":"verb","form":"VIII","past":"اِتَّجَهَ","pres":"يَتَّجِهُ","masdar":"اِتِّجاه","src":"msa"}
+{"w":"اِتِّجاه","en":"direction, trend","root":"و-ج-ه","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِتِّجاهات","src":"msa"}
+{"w":"مُتَّجِه","en":"heading, directed toward","root":"و-ج-ه","type":"participle","kind":"active participle","form":"VIII","src":"msa"}
+{"w":"واجِهة","en":"facade, front","root":"و-ج-ه","type":"noun","kind":"noun","gender":"f","plural":"واجِهات","src":"msa"}
+{"w":"جِهة","en":"side, direction, party","root":"و-ج-ه","type":"noun","kind":"noun","gender":"f","plural":"جِهات","src":"msa"}
+{"w":"واحِد","en":"one, single","root":"و-ح-د","type":"adjective","kind":"adjective","noplural":true,"src":"quran","q":"13:16:43-45","qen":"and He is the One, the Subduer","note":"As a divine name, الواحِد 'the One'; also used as the numeral one."}
+{"skip":"وَٰحِدَة","why":"feminine of واحِد"}
+{"skip":"وحد","why":"unclassified lemma, same word as واحِد"}
+{"skip":"احد","why":"أَحَد belongs to root أ-ح-د"}
+{"skip":"من","why":"أَحَدًا belongs to root أ-ح-د"}
+{"skip":"وَحِيد","why":"وَحيد is already in the bank"}
+{"w":"وَحْد","en":"alone, by oneself","root":"و-ح-د","type":"other","kind":"adverb","src":"quran","q":"7:70:3-5","qen":"to worship God alone","note":"Used only with a pronoun suffix, as in وَحْدَهُ 'he alone'."}
+{"w":"وَحَّدَ","en":"to unify, to declare as one","root":"و-ح-د","type":"verb","kind":"verb","form":"II","past":"وَحَّدَ","pres":"يُوَحِّدُ","masdar":"تَوْحيد","src":"msa"}
+{"w":"تَوْحيد","en":"unification, monotheism","root":"و-ح-د","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُوَحِّد","en":"monotheist, unifier","root":"و-ح-د","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُوَحِّدون","src":"msa"}
+{"w":"اِتَّحَدَ","en":"to unite, to merge","root":"و-ح-د","type":"verb","kind":"verb","form":"VIII","past":"اِتَّحَدَ","pres":"يَتَّحِدُ","masdar":"اِتِّحاد","src":"msa"}
+{"w":"اِتِّحاد","en":"union, federation","root":"و-ح-د","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِتِّحادات","src":"msa"}
+{"w":"مُتَّحِد","en":"united","root":"و-ح-د","type":"participle","kind":"active participle","form":"VIII","src":"msa"}
+{"w":"أَوْحَد","en":"unique, sole","root":"و-ح-د","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"وَحْدة","en":"unity, unit","root":"و-ح-د","type":"noun","kind":"noun","gender":"f","plural":"وَحَدات","src":"msa"}
+{"w":"وَحْدانِيَّة","en":"oneness (of God)","root":"و-ح-د","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"وُحوش","en":"wild beasts","root":"و-ح-ش","type":"noun","kind":"plural","gender":"m","noplural":true,"src":"quran","q":"81:5:1-3","qen":"and when the wild beasts are gathered"}
+{"w":"وَحْش","en":"wild animal, beast","root":"و-ح-ش","type":"noun","kind":"noun","gender":"m","plural":"وُحوش","src":"msa"}
+{"w":"وَحْشِيّ","en":"wild, savage","root":"و-ح-ش","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"وَحْشة","en":"loneliness, desolation","root":"و-ح-ش","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"مُوحِش","en":"desolate, dreary","root":"و-ح-ش","type":"participle","kind":"active participle","form":"IV","src":"msa"}
+{"w":"تَوَحَّشَ","en":"to become wild, to grow unsociable","root":"و-ح-ش","type":"verb","kind":"verb","form":"V","past":"تَوَحَّشَ","pres":"يَتَوَحَّشُ","masdar":"تَوَحُّش","src":"msa"}
+{"skip":"مَوْءُدَة","why":"same word as مَوْءُودَة"}
+{"skip":"تَتْرَا","why":"spelling variant of تَتْرى"}
+{"skip":"مِّيثَٰق","why":"spelling variant of مِيثاق"}
+{"skip":"أَوْثَٰن","why":"plural of وَثَن, already listed as أَوْثان"}
+{"skip":"وَاجِفَة","why":"feminine of واجِف"}
+{"skip":"حال","why":"unclassified lemma for وَحِيلَ, a form of حال (root ح-و-ل)"}
+{"w":"وَحْل","en":"mud","root":"و-ح-ل","type":"noun","kind":"noun","gender":"m","plural":"أَوْحال","src":"msa"}
+{"w":"أَوْحى","en":"to reveal, to inspire","root":"و-ح-ي","type":"verb","kind":"verb","form":"IV","past":"أَوْحى","pres":"يُوحي","masdar":"إِيحاء","src":"quran","q":"42:3:1-3","qen":"Thus He reveals to you"}
+{"w":"وَحْي","en":"revelation, inspiration","root":"و-ح-ي","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"11:37:3-4","qen":"under Our eyes and Our revelation"}
+{"skip":"قال","why":"unclassified lemma for يُوحَى, the passive of أَوْحى"}
+{"w":"إِيحاء","en":"suggestion, inspiration","root":"و-ح-ي","type":"masdar","kind":"masdar","form":"IV","gender":"m","plural":"إِيحاءات","src":"msa"}
+{"w":"اِسْتَوْحى","en":"to draw inspiration from","root":"و-ح-ي","type":"verb","kind":"verb","form":"X","past":"اِسْتَوْحى","pres":"يَسْتَوْحي","masdar":"اِسْتيحاء","src":"msa"}
+{"w":"وَدَّ","en":"to wish, to love","root":"و-د-د","type":"verb","kind":"verb","form":"I","past":"وَدَّ","pres":"يَوَدُّ","masdar":"وُدّ","src":"quran","q":"2:96:9-14","qen":"each of them wishes he could live a thousand years","note":"In the Qur'an it mostly means to wish or long for; modern usage also means to like or love."}
+{"w":"وادَّ","en":"to show affection to, to befriend","root":"و-د-د","type":"verb","kind":"verb","form":"III","past":"وادَّ","pres":"يُوادُّ","masdar":"مُوادَّة","src":"quran","q":"58:22:7-11","qen":"those who show love to whoever opposes God"}
+{"skip":"ود","why":"unclassified lemma for يُوَادُّونَ, a form of وادَّ"}
+{"w":"مَوَدَّة","en":"affection, friendship","root":"و-د-د","type":"noun","kind":"noun","gender":"f","plural":"مَوَدّات","src":"quran","q":"4:73:10-12","qen":"there had been no affection between you and him"}
+{"w":"وَدود","en":"loving, affectionate","root":"و-د-د","type":"adjective","kind":"intensive adjective","plural":"أَوِدّاء","src":"quran","q":"11:90:7-9","qen":"my Lord is Merciful and Loving","note":"Al-Wadud, 'the Loving', is also one of the names of God."}
+{"w":"وُدّ","en":"affection, love","root":"و-د-د","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"Occurs in the Qur'an in 19:96, 'the Most Merciful will grant them affection'."}
+{"skip":"وَدّ","why":"Wadd, the name of an idol; a proper name"}
+{"skip":"كان","why":"unclassified lemma for لَيْتَنِي, a different word"}
+{"w":"تَوَدَّدَ","en":"to seek affection, to ingratiate oneself","root":"و-د-د","type":"verb","kind":"verb","form":"V","past":"تَوَدَّدَ","pres":"يَتَوَدَّدُ","masdar":"تَوَدُّد","src":"msa"}
+{"w":"وِداد","en":"friendship, affection","root":"و-د-د","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُسْتَوْدَع","en":"depository, resting place","root":"و-د-ع","type":"participle","kind":"passive participle","form":"X","gender":"m","plural":"مُسْتَوْدَعات","src":"quran","q":"6:98:7-8","qen":"a place of rest and a place of deposit","note":"In scripture, the 'place of deposit' means the womb or the grave; in modern usage it means a warehouse or depot."}
+{"skip":"V:I:ودع","why":"وَدَعْ in 33:48 is وَ plus the imperative دَعْ of يَدَعُ, whose past tense is obsolete"}
+{"w":"وَدَّعَ","en":"to bid farewell","root":"و-د-ع","type":"verb","kind":"verb","form":"II","past":"وَدَّعَ","pres":"يُوَدِّعُ","masdar":"تَوْديع","src":"quran","q":"93:3:1-3","qen":"your Lord has not forsaken you","note":"In 93:3 it means to abandon; in modern usage, to say goodbye."}
+{"w":"وَداع","en":"farewell","root":"و-د-ع","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"وَديعة","en":"deposit, trust","root":"و-د-ع","type":"noun","kind":"noun","gender":"f","plural":"وَدائِع","src":"msa"}
+{"w":"أَوْدَعَ","en":"to deposit, to entrust","root":"و-د-ع","type":"verb","kind":"verb","form":"IV","past":"أَوْدَعَ","pres":"يُودِعُ","masdar":"إيداع","src":"msa"}
+{"w":"اِسْتَوْدَعَ","en":"to deposit, to entrust","root":"و-د-ع","type":"verb","kind":"verb","form":"X","past":"اِسْتَوْدَعَ","pres":"يَسْتَوْدِعُ","masdar":"اِسْتيداع","src":"msa"}
+{"w":"وَدْق","en":"rain, downpour","root":"و-د-ق","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"24:43:13-15","qen":"and you see the rain come out of its midst"}
+{"w":"وادِي","en":"valley","root":"و-د-ي","type":"noun","kind":"noun","gender":"m","plural":"أَوْدِية","src":"quran","q":"26:225:5-7","qen":"in every valley they roam"}
+{"skip":"وَاد","why":"same word as وادِي, written without the final ي"}
+{"skip":"أَوْدِيَة","why":"plural of وادِي, already listed"}
+{"w":"وَدى","en":"to pay blood money for","root":"و-د-ي","type":"verb","kind":"verb","form":"I","past":"وَدى","pres":"يَدي","masdar":"دِيَة","src":"msa"}
+{"skip":"V:I:وذر","why":"the verb يَذَرُ 'to leave' has no used past tense, only the present and the imperative ذَرْ, so no voweled citation form exists"}
+{"w":"وَرِثَ","en":"to inherit","root":"و-ر-ث","type":"verb","kind":"verb","form":"I","past":"وَرِثَ","pres":"يَرِثُ","masdar":"إِرْث","src":"quran","q":"4:11:39-40","qen":"and his parents inherit from him"}
+{"w":"أَوْرَثَ","en":"to make heir, to bequeath","root":"و-ر-ث","type":"verb","kind":"verb","form":"IV","past":"أَوْرَثَ","pres":"يُورِثُ","masdar":"إيراث","src":"quran","q":"7:43:32-33","qen":"that Paradise you have been made to inherit"}
+{"w":"وارِث","en":"heir, inheritor","root":"و-ر-ث","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"وَرَثة","src":"quran","q":"15:23:5-6","qen":"and We are the Inheritors"}
+{"w":"مِيراث","en":"inheritance, heritage","root":"و-ر-ث","type":"noun","kind":"noun","gender":"m","plural":"مَواريث","src":"quran","q":"3:180:23-24","qen":"and to God belongs the inheritance"}
+{"skip":"ولد","why":"unclassified lemma for يَرِثُهَا, a form of وَرِثَ"}
+{"w":"إِرْث","en":"inheritance, legacy","root":"و-ر-ث","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"وِراثة","en":"heredity, inheriting","root":"و-ر-ث","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"وِراثِيّ","en":"hereditary, genetic","root":"و-ر-ث","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"وَرَّثَ","en":"to bequeath, to make heir","root":"و-ر-ث","type":"verb","kind":"verb","form":"II","past":"وَرَّثَ","pres":"يُوَرِّثُ","masdar":"تَوْريث","src":"msa"}
+{"w":"تَوارَثَ","en":"to inherit from one another","root":"و-ر-ث","type":"verb","kind":"verb","form":"VI","past":"تَوارَثَ","pres":"يَتَوارَثُ","masdar":"تَوارُث","src":"msa"}
+{"w":"مَوْروث","en":"inherited","root":"و-ر-ث","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"وَرَدَ","en":"to arrive, to come to","root":"و-ر-د","type":"verb","kind":"verb","form":"I","past":"وَرَدَ","pres":"يَرِدُ","masdar":"وُرود","src":"quran","q":"21:99:5-6","qen":"they would not have come to it"}
+{"w":"أَوْرَدَ","en":"to bring to, to cite","root":"و-ر-د","type":"verb","kind":"verb","form":"IV","past":"أَوْرَدَ","pres":"يُورِدُ","masdar":"إِيراد","src":"quran","q":"11:98:5-6","qen":"and leads them into the Fire","note":"In scripture it means to lead to a watering place or to the Fire; in modern usage, to cite or mention."}
+{"w":"وارِد","en":"arriving, coming in","root":"و-ر-د","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"وُرّاد","src":"quran","q":"12:19:3-4","qen":"and they sent their water-drawer","note":"In 12:19 it is the one sent to draw water; in modern usage, incoming or mentioned."}
+{"w":"وِرْد","en":"watering place, daily recitation","root":"و-ر-د","type":"noun","kind":"noun","gender":"m","plural":"أَوْراد","src":"quran","q":"11:98:7-9","qen":"and wretched is the place led to","note":"In 11:98 it means a watering place, here the Fire; in modern usage, a devotional daily recitation."}
+{"w":"مَوْرود","en":"arrived at, visited","root":"و-ر-د","type":"participle","kind":"passive participle","form":"I","src":"quran","q":"11:98:8-9","qen":"the place led to"}
+{"w":"وَريد","en":"vein","root":"و-ر-د","type":"noun","kind":"noun","gender":"m","plural":"أَوْرِدة","src":"quran","q":"50:16:13-14","qen":"closer than the jugular vein"}
+{"w":"وَرْدة","en":"rose, flower","root":"و-ر-د","type":"noun","kind":"noun","gender":"f","plural":"وُرود","src":"quran","q":"55:37:4-6","qen":"and it turns rose-coloured like oil","note":"In 55:37 it is used as an adjective, meaning rose-red."}
+{"w":"مَوْرِد","en":"source, resource","root":"و-ر-د","type":"noun","kind":"noun of place","gender":"m","plural":"مَوارِد","src":"msa"}
+{"w":"وُرود","en":"arrival, coming","root":"و-ر-د","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"إِيراد","en":"revenue, income","root":"و-ر-د","type":"masdar","kind":"masdar","form":"IV","gender":"m","plural":"إيرادات","src":"msa"}
+{"w":"اِسْتَوْرَدَ","en":"to import","root":"و-ر-د","type":"verb","kind":"verb","form":"X","past":"اِسْتَوْرَدَ","pres":"يَسْتَوْرِدُ","masdar":"اِسْتيراد","src":"msa"}
+{"skip":"مِيرَٰث","why":"spelling variant of مِيراث"}
+{"skip":"دِيَة","why":"real word (blood money, from وَدى) but the validator rejects it under و-د-ي because the initial و dropped; add by hand"}
+{"skip":"تُّرَاث","why":"real word (heritage, from وَرِثَ) but the validator rejects it under و-ر-ث because the initial و became ت; add by hand"}

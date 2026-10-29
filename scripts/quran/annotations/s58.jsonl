@@ -1,0 +1,160 @@
+{"w":"نَقْع","en":"dust","root":"ن-ق-ع","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"100:4:1-3","qen":"and raise dust with it","note":"Rare in modern usage; it means raised dust, and also standing water."}
+{"w":"مُسْتَنْقَع","en":"swamp, marsh","root":"ن-ق-ع","type":"noun","kind":"noun","gender":"m","plural":"مُسْتَنْقَعات","src":"msa"}
+{"w":"نَقَلَ","en":"to transport, to carry over","root":"ن-ق-ل","type":"verb","kind":"verb","form":"I","past":"نَقَلَ","pres":"يَنْقُلُ","masdar":"نَقْل","src":"msa"}
+{"w":"نَقْل","en":"transport, transfer","root":"ن-ق-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"ناقِل","en":"carrier, transmitter","root":"ن-ق-ل","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"ناقِلون","src":"msa"}
+{"w":"مَنْقول","en":"transported, transmitted","root":"ن-ق-ل","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"اِنْتِقال","en":"moving, transition","root":"ن-ق-ل","type":"masdar","kind":"masdar","form":"VIII","gender":"m","src":"msa"}
+{"w":"تَنَقَّلَ","en":"to move around","root":"ن-ق-ل","type":"verb","kind":"verb","form":"V","past":"تَنَقَّلَ","pres":"يَتَنَقَّلُ","masdar":"تَنَقُّل","src":"msa"}
+{"w":"نَقّالة","en":"stretcher","root":"ن-ق-ل","type":"noun","kind":"noun","gender":"f","plural":"نَقّالات","src":"msa"}
+{"w":"تَناقَلَ","en":"to pass on to one another","root":"ن-ق-ل","type":"verb","kind":"verb","form":"VI","past":"تَناقَلَ","pres":"يَتَناقَلُ","masdar":"تَناقُل","src":"msa"}
+{"w":"نَقَمَ","en":"to resent, to hold a grudge","root":"ن-ق-م","type":"verb","kind":"verb","form":"I","past":"نَقَمَ","pres":"يَنْقِمُ","masdar":"نَقْم","src":"quran","q":"5:59:6-10","qen":"do you resent us except that we believed"}
+{"w":"اِنْتَقَمَ","en":"to take revenge","root":"ن-ق-م","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَقَمَ","pres":"يَنْتَقِمُ","masdar":"اِنْتِقام","src":"quran","q":"5:95:44-47","qen":"and whoever returns, God will take vengeance on him"}
+{"w":"اِنْتِقام","en":"revenge, retribution","root":"ن-ق-م","type":"masdar","kind":"masdar","form":"VIII","gender":"m","src":"quran","q":"3:4:16-18","qen":"God is Almighty, Lord of retribution"}
+{"w":"مُنْتَقِم","en":"avenger","root":"ن-ق-م","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُنْتَقِمون","src":"quran","q":"32:22:10-13","qen":"We will take retribution on the wrongdoers"}
+{"skip":"مُنتَقِمُون","why":"plural of مُنْتَقِم"}
+{"w":"نِقْمة","en":"vengeance, calamity","root":"ن-ق-م","type":"noun","kind":"noun","gender":"f","plural":"نِقَم","src":"msa"}
+{"w":"ناكِب","en":"deviating, turning aside","root":"ن-ك-ب","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"ناكِبون","src":"quran","q":"23:74:1-8","qen":"those who do not believe in the Hereafter are deviating from the path"}
+{"skip":"نَٰكِبُون","why":"plural of ناكِب"}
+{"w":"مَنْكِب","en":"shoulder","root":"ن-ك-ب","type":"noun","kind":"noun","gender":"m","plural":"مَناكِب","src":"quran","q":"67:15:7-9","qen":"so walk in its tracts","note":"In 67:15 the plural means the paths or regions of the earth; the usual sense is shoulder."}
+{"w":"نَكْبة","en":"disaster, misfortune","root":"ن-ك-ب","type":"noun","kind":"noun","gender":"f","plural":"نَكَبات","src":"msa"}
+{"w":"مَنْكوب","en":"afflicted, stricken","root":"ن-ك-ب","type":"participle","kind":"passive participle","form":"I","gender":"m","plural":"مَنْكوبون","src":"msa"}
+{"w":"نَكَثَ","en":"to break a pledge","root":"ن-ك-ث","type":"verb","kind":"verb","form":"I","past":"نَكَثَ","pres":"يَنْكُثُ","masdar":"نَكْث","src":"quran","q":"7:135:9-11","qen":"behold, they break their word"}
+{"w":"نَكْث","en":"breaking a pledge","root":"ن-ك-ث","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"أَنْكاث","en":"unraveled strands","root":"ن-ك-ث","type":"noun","kind":"plural","gender":"m","src":"quran","q":"16:92:4-9","qen":"who undid her spun thread into untwisted strands"}
+{"w":"نَكَحَ","en":"to marry","root":"ن-ك-ح","type":"verb","kind":"verb","form":"I","past":"نَكَحَ","pres":"يَنْكِحُ","masdar":"نِكاح","src":"quran","q":"2:221:1-3","qen":"And do not marry idolatrous women"}
+{"w":"نِكاح","en":"marriage","root":"ن-ك-ح","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"2:235:27-30","qen":"and do not resolve on the marriage tie"}
+{"w":"أَنْكَحَ","en":"to give in marriage","root":"ن-ك-ح","type":"verb","kind":"verb","form":"IV","past":"أَنْكَحَ","pres":"يُنْكِحُ","masdar":"إِنْكاح","src":"quran","q":"2:221:13-15","qen":"and do not give your women in marriage to idolaters"}
+{"w":"اِسْتَنْكَحَ","en":"to take in marriage","root":"ن-ك-ح","type":"verb","kind":"verb","form":"X","past":"اِسْتَنْكَحَ","pres":"يَسْتَنْكِحُ","masdar":"اِسْتِنْكاح","src":"quran","q":"33:50:36-39","qen":"if the Prophet wishes to take her in marriage"}
+{"w":"نَكِد","en":"scanty, hard","root":"ن-ك-د","type":"adjective","kind":"adjective","src":"quran","q":"7:58:9-12","qen":"does not come out except sparsely","note":"In modern usage it describes a gloomy, difficult or bad-tempered person."}
+{"w":"نَكَد","en":"misery, gloom","root":"ن-ك-د","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَنْكَرَ","en":"to deny, to disown","root":"ن-ك-ر","type":"verb","kind":"verb","form":"IV","past":"أَنْكَرَ","pres":"يُنْكِرُ","masdar":"إِنْكار","src":"quran","q":"13:36:10-12","qen":"who deny part of it"}
+{"w":"إِنْكار","en":"denial","root":"ن-ك-ر","type":"masdar","kind":"masdar","form":"IV","gender":"m","src":"msa"}
+{"w":"نَكِرَ","en":"to not recognize, to find strange","root":"ن-ك-ر","type":"verb","kind":"verb","form":"I","past":"نَكِرَ","pres":"يَنْكَرُ","masdar":"نَكَر","src":"quran","q":"11:70:2-7","qen":"he saw their hands did not reach it, and found them strange"}
+{"w":"نَكَّرَ","en":"to disguise","root":"ن-ك-ر","type":"verb","kind":"verb","form":"II","past":"نَكَّرَ","pres":"يُنَكِّرُ","masdar":"تَنْكير","src":"quran","q":"27:41:2-4","qen":"Disguise her throne for her"}
+{"w":"تَنَكَّرَ","en":"to disguise oneself","root":"ن-ك-ر","type":"verb","kind":"verb","form":"V","past":"تَنَكَّرَ","pres":"يَتَنَكَّرُ","masdar":"تَنَكُّر","src":"msa"}
+{"w":"اِسْتَنْكَرَ","en":"to condemn, to disapprove","root":"ن-ك-ر","type":"verb","kind":"verb","form":"X","past":"اِسْتَنْكَرَ","pres":"يَسْتَنْكِرُ","masdar":"اِسْتِنْكار","src":"msa"}
+{"w":"مُنْكَر","en":"wrongdoing, vice","root":"ن-ك-ر","type":"participle","kind":"passive participle","form":"IV","gender":"m","plural":"مُنْكَرات","src":"quran","q":"3:104:7-11","qen":"enjoining what is right and forbidding what is wrong"}
+{"w":"مُنْكِر","en":"denier, not recognizing","root":"ن-ك-ر","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُنْكِرون","src":"quran","q":"12:58:6-9","qen":"he knew them, but they did not recognize him"}
+{"skip":"مُنكِرُون","why":"plural of مُنْكِر"}
+{"skip":"مُّنكِرَة","why":"feminine of مُنْكِر"}
+{"w":"نَكير","en":"denial, disapproval","root":"ن-ك-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"42:47:18-21","qen":"and you will have no way to deny","note":"In 22:44 and similar verses it means God's disapproval shown as punishment."}
+{"skip":"نَّكِير","why":"same word as نَكير"}
+{"w":"نُكْر","en":"dreadful, terrible","root":"ن-ك-ر","type":"adjective","kind":"adjective","src":"quran","q":"18:74:14-16","qen":"you have done a dreadful thing"}
+{"skip":"نُّكُر","why":"variant vowelling of نُكْر"}
+{"w":"أَنْكَر","en":"harsher, more disagreeable","root":"ن-ك-ر","type":"adjective","kind":"comparative","src":"quran","q":"31:19:7-9","qen":"the most disagreeable of voices"}
+{"w":"نَكِرة","en":"indefinite noun","root":"ن-ك-ر","type":"noun","kind":"noun","gender":"f","plural":"نَكِرات","src":"msa","note":"A grammatical term for a noun without the definite article."}
+{"w":"ناكِس","en":"bowing the head","root":"ن-ك-س","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"ناكِسون","src":"quran","q":"32:12:4-6","qen":"the guilty bowing their heads"}
+{"skip":"نَاكِسُوا","why":"plural of ناكِس"}
+{"w":"نَكَسَ","en":"to turn upside down","root":"ن-ك-س","type":"verb","kind":"verb","form":"I","past":"نَكَسَ","pres":"يَنْكُسُ","masdar":"نَكْس","src":"quran","q":"21:65:1-4","qen":"then they were turned over on their heads"}
+{"w":"نَكَّسَ","en":"to reverse, to lower","root":"ن-ك-س","type":"verb","kind":"verb","form":"II","past":"نَكَّسَ","pres":"يُنَكِّسُ","masdar":"تَنْكيس","src":"quran","q":"36:68:1-5","qen":"whoever We grant long life, We reverse him in creation"}
+{"w":"اِنْتَكَسَ","en":"to relapse","root":"ن-ك-س","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَكَسَ","pres":"يَنْتَكِسُ","masdar":"اِنْتِكاس","src":"msa"}
+{"w":"نَكْسة","en":"setback, relapse","root":"ن-ك-س","type":"noun","kind":"noun of instance","gender":"f","plural":"نَكَسات","src":"msa"}
+{"w":"نَكَصَ","en":"to turn back, to retreat","root":"ن-ك-ص","type":"verb","kind":"verb","form":"I","past":"نَكَصَ","pres":"يَنْكِصُ","masdar":"نُكوص","src":"quran","q":"8:48:18-21","qen":"when the two forces came in sight, he turned on his heels"}
+{"w":"اِسْتَنْكَفَ","en":"to disdain, to refuse out of pride","root":"ن-ك-ف","type":"verb","kind":"verb","form":"X","past":"اِسْتَنْكَفَ","pres":"يَسْتَنْكِفُ","masdar":"اِسْتِنْكاف","src":"quran","q":"4:172:2-7","qen":"the Messiah would never disdain to be a servant of God"}
+{"w":"نَكال","en":"exemplary punishment","root":"ن-ك-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"2:66:1-3","qen":"We made it an exemplary punishment"}
+{"w":"أَنْكال","en":"heavy shackles","root":"ن-ك-ل","type":"noun","kind":"plural","gender":"m","src":"quran","q":"73:12:1-3","qen":"With Us are heavy shackles"}
+{"w":"نَكَّلَ","en":"to punish severely","root":"ن-ك-ل","type":"verb","kind":"verb","form":"II","past":"نَكَّلَ","pres":"يُنَكِّلُ","masdar":"تَنْكيل","src":"msa","note":"Usually followed by بِ, as in نَكَّلَ بِهِ."}
+{"w":"تَنْكيل","en":"severe punishment","root":"ن-ك-ل","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"quran","q":"4:84:19-22","qen":"and God is stronger in might and in punishment"}
+{"skip":"من","why":"function word that slipped through"}
+{"skip":"أَنكَٰث","why":"same word as أَنْكاث"}
+{"w":"نَمارِق","en":"cushions","root":"ن-م-ر-ق","type":"noun","kind":"plural","gender":"m","src":"msa","note":"Occurs in the Qur'an at 88:15; the singular is نُمْرُقة."}
+{"w":"نَمْل","en":"ants","root":"ن-م-ل","type":"noun","kind":"collective noun","gender":"m","src":"quran","q":"27:18:3-6","qen":"until they came upon the valley of the ants"}
+{"w":"نَمْلة","en":"ant","root":"ن-م-ل","type":"noun","kind":"noun","gender":"f","plural":"نَمْل","src":"quran","q":"27:18:7-8","qen":"an ant said"}
+{"w":"أَنامِل","en":"fingertips","root":"ن-م-ل","type":"noun","kind":"plural","gender":"f","src":"quran","q":"3:119:16-18","qen":"they bite their fingertips at you"}
+{"w":"أُنْمُلة","en":"fingertip","root":"ن-م-ل","type":"noun","kind":"noun","gender":"f","plural":"أَنامِل","src":"msa"}
+{"w":"نَمِيم","en":"malicious gossip","root":"ن-م-م","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"68:11:1-3","qen":"a slanderer who goes about spreading gossip"}
+{"w":"نَميمة","en":"tale-bearing, gossip","root":"ن-م-م","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"نَمّام","en":"tale-bearer","root":"ن-م-م","type":"adjective","kind":"intensive adjective","plural":"نَمّامون","src":"msa"}
+{"skip":"ما","why":"function word (أَنَّمَا) that slipped through"}
+{"w":"نَما","en":"to grow","root":"ن-م-و","type":"verb","kind":"verb","form":"I","past":"نَما","pres":"يَنْمو","masdar":"نُمُوّ","src":"msa"}
+{"w":"نُمُوّ","en":"growth","root":"ن-م-و","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"نَمّى","en":"to develop, to foster","root":"ن-م-و","type":"verb","kind":"verb","form":"II","past":"نَمّى","pres":"يُنَمّي","masdar":"تَنْمِيَة","src":"msa"}
+{"w":"تَنْمِيَة","en":"development","root":"ن-م-و","type":"masdar","kind":"masdar","form":"II","gender":"f","src":"msa"}
+{"w":"اِنْتَمى","en":"to belong to","root":"ن-م-و","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَمى","pres":"يَنْتَمي","masdar":"اِنْتِماء","src":"msa"}
+{"w":"مِنْهاج","en":"clear way, method","root":"ن-ه-ج","type":"noun","kind":"noun","gender":"m","plural":"مَناهِج","src":"quran","q":"5:48:28-29","qen":"a law and a clear way"}
+{"w":"نَهْج","en":"way, approach","root":"ن-ه-ج","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَنْهَج","en":"method, curriculum","root":"ن-ه-ج","type":"noun","kind":"noun","gender":"m","plural":"مَناهِج","src":"msa"}
+{"w":"نَهْر","en":"river","root":"ن-ه-ر","type":"noun","kind":"noun","gender":"m","plural":"أَنْهار","src":"quran","q":"2:25:8-12","qen":"gardens beneath which rivers flow"}
+{"skip":"نَهَر","why":"same word as نَهْر"}
+{"skip":"نهر","why":"same word as نَهْر (plural أَنْهار)"}
+{"skip":"نَهَار","why":"already in the bank as النَّهار"}
+{"skip":"نهار","why":"already in the bank as النَّهار"}
+{"skip":"بلغ","why":"misassigned lemma; the word is نَهار, already in the bank"}
+{"w":"نَهَرَ","en":"to scold, to rebuke","root":"ن-ه-ر","type":"verb","kind":"verb","form":"I","past":"نَهَرَ","pres":"يَنْهَرُ","masdar":"نَهْر","src":"quran","q":"17:23:20-21","qen":"and do not rebuke them"}
+{"w":"نُهَيْر","en":"rivulet, small stream","root":"ن-ه-ر","type":"noun","kind":"diminutive","gender":"m","plural":"نُهَيْرات","src":"msa"}
+{"w":"نَهَى","en":"to forbid","root":"ن-ه-ي","type":"verb","kind":"verb","form":"I","past":"نَهَى","pres":"يَنْهَى","masdar":"نَهْي","src":"quran","q":"7:20:12-15","qen":"What has your Lord forbidden you from this tree"}
+{"skip":"نَهَىٰ","why":"the verb نَهَى, already an entry"}
+{"skip":"V:VIII","why":"اِنْتَهى is already in the bank"}
+{"skip":"من","why":"function word that slipped through"}
+{"w":"نَهْي","en":"prohibition","root":"ن-ه-ي","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"ناهِي","en":"forbidding, one who forbids","root":"ن-ه-ي","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"ناهون","src":"quran","q":"9:112:7-11","qen":"those who enjoin what is right and forbid what is wrong"}
+{"skip":"نَّاهُون","why":"plural of ناهِي"}
+{"w":"مُنْتَهِي","en":"one who desists","root":"ن-ه-ي","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُنْتَهون","src":"quran","q":"5:91:18-20","qen":"so will you not desist"}
+{"skip":"مُّنتَهُون","why":"plural of مُنْتَهِي"}
+{"w":"مُنْتَهى","en":"end point, limit","root":"ن-ه-ي","type":"participle","kind":"passive participle","form":"VIII","gender":"m","noplural":true,"src":"quran","q":"53:14:1-3","qen":"by the Lote Tree of the Utmost Boundary"}
+{"w":"نُهى","en":"intellects, reason","root":"ن-ه-ي","type":"noun","kind":"plural","gender":"m","src":"quran","q":"20:54:7-9","qen":"in that are signs for those of understanding"}
+{"w":"تَناهى","en":"to forbid one another","root":"ن-ه-ي","type":"verb","kind":"verb","form":"VI","past":"تَناهى","pres":"يَتَناهى","masdar":"تَناهِي","src":"quran","q":"5:79:2-6","qen":"they did not forbid one another any wrong they did","note":"In modern usage it also means to reach an end or an extreme."}
+{"w":"أَنْهى","en":"to finish, to end","root":"ن-ه-ي","type":"verb","kind":"verb","form":"IV","past":"أَنْهى","pres":"يُنْهي","masdar":"إِنْهاء","src":"msa"}
+{"w":"اِنْتِهاء","en":"ending, completion","root":"ن-ه-ي","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"w":"نِهائِيّ","en":"final","root":"ن-ه-ي","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"ناءَ","en":"to be weighed down, to weigh heavily","root":"ن-و-أ","type":"verb","kind":"verb","form":"I","past":"ناءَ","pres":"يَنوءُ","masdar":"نَوْء","src":"quran","q":"28:76:13-16","qen":"whose keys would weigh heavily on a band of strong men","note":"Mostly literary; in 28:76 the keys weigh down the strong men."}
+{"w":"أَنابَ","en":"to turn in repentance","root":"ن-و-ب","type":"verb","kind":"verb","form":"IV","past":"أَنابَ","pres":"يُنيبُ","masdar":"إِنابة","src":"quran","q":"11:88:35-36","qen":"and to Him I turn"}
+{"w":"مُنيب","en":"repentant, turning to God","root":"ن-و-ب","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُنيبون","src":"quran","q":"11:75:3-5","qen":"was forbearing, tender, and turning to God"}
+{"w":"نابَ","en":"to stand in for, to substitute","root":"ن-و-ب","type":"verb","kind":"verb","form":"I","past":"نابَ","pres":"يَنوبُ","masdar":"نِيابة","src":"msa"}
+{"w":"نائِب","en":"deputy, representative","root":"ن-و-ب","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"نُوّاب","src":"msa"}
+{"w":"نِيابة","en":"deputyship, acting on behalf","root":"ن-و-ب","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"نَوْبة","en":"turn, shift, attack","root":"ن-و-ب","type":"noun","kind":"noun of instance","gender":"f","plural":"نَوْبات","src":"msa"}
+{"w":"تَناوَبَ","en":"to take turns","root":"ن-و-ب","type":"verb","kind":"verb","form":"VI","past":"تَناوَبَ","pres":"يَتَناوَبُ","masdar":"تَناوُب","src":"msa"}
+{"skip":"نَار","why":"already in the bank as نار"}
+{"skip":"بين","why":"misassigned lemma; the word is نار, already in the bank"}
+{"w":"نُور","en":"light","root":"ن-و-ر","type":"noun","kind":"noun","gender":"m","plural":"أَنْوار","src":"quran","q":"6:1:7-9","qen":"and made the darkness and the light","see":[{"w":"ضَوْء","label":"Synonym (light)"},{"w":"ظَلام","label":"Opposite (darkness)"}]}
+{"w":"مُنير","en":"luminous, illuminating","root":"ن-و-ر","type":"participle","kind":"active participle","form":"IV","gender":"m","src":"quran","q":"3:184:11-12","qen":"and the enlightening Book"}
+{"w":"أَنارَ","en":"to light up, to illuminate","root":"ن-و-ر","type":"verb","kind":"verb","form":"IV","past":"أَنارَ","pres":"يُنيرُ","masdar":"إِنارة","src":"msa"}
+{"w":"إِنارة","en":"lighting, illumination","root":"ن-و-ر","type":"masdar","kind":"masdar","form":"IV","gender":"f","noplural":true,"src":"msa"}
+{"w":"نَوَّرَ","en":"to illuminate, to enlighten","root":"ن-و-ر","type":"verb","kind":"verb","form":"II","past":"نَوَّرَ","pres":"يُنَوِّرُ","masdar":"تَنْوير","src":"msa"}
+{"w":"تَنْوير","en":"enlightenment","root":"ن-و-ر","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُنَوَّر","en":"illuminated, enlightened","root":"ن-و-ر","type":"participle","kind":"passive participle","form":"II","gender":"m","src":"msa"}
+{"w":"مَنارة","en":"lighthouse, minaret","root":"ن-و-ر","type":"noun","kind":"noun of place","gender":"f","plural":"مَنائِر","src":"msa"}
+{"w":"نَيِّر","en":"bright, luminous","root":"ن-و-ر","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"نُورانِيّ","en":"radiant, luminous","root":"ن-و-ر","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"تَناوُش","en":"reaching, attaining","root":"ن-و-ش","type":"masdar","kind":"masdar","form":"VI","gender":"m","noplural":true,"src":"quran","q":"34:52:4-9","qen":"how can they attain it from a faraway place"}
+{"w":"تَناوَشَ","en":"to reach for one another","root":"ن-و-ش","type":"verb","kind":"verb","form":"VI","past":"تَناوَشَ","pres":"يَتَناوَشُ","masdar":"تَناوُش","src":"msa"}
+{"w":"مَناص","en":"refuge, escape","root":"ن-و-ص","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"38:3:8-10","qen":"but it was no time for escape"}
+{"w":"نَاقَة","en":"she-camel","root":"ن-و-ق","type":"noun","kind":"noun","gender":"f","plural":"نُوق","src":"quran","q":"7:73:20-24","qen":"this is God's she-camel, a sign for you"}
+{"w":"نَوْم","en":"sleep","root":"ن-و-م","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"quran","q":"2:255:9-12","qen":"neither drowsiness nor sleep overtakes Him"}
+{"w":"مَنام","en":"sleep, dream","root":"ن-و-م","type":"noun","kind":"noun","gender":"m","plural":"مَنامات","src":"quran","q":"8:43:1-5","qen":"when God showed them to you in your dream"}
+{"w":"نائِم","en":"asleep, sleeping","root":"ن-و-م","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"نائِمون","src":"quran","q":"7:97:8-9","qen":"while they were asleep"}
+{"skip":"نَآئِمُون","why":"plural of نائِم"}
+{"w":"نَوَّمَ","en":"to put to sleep","root":"ن-و-م","type":"verb","kind":"verb","form":"II","past":"نَوَّمَ","pres":"يُنَوِّمُ","masdar":"تَنْويم","src":"msa"}
+{"w":"نَوْمة","en":"a sleep, nap","root":"ن-و-م","type":"noun","kind":"noun of instance","gender":"f","plural":"نَوْمات","src":"msa"}
+{"w":"نَؤُوم","en":"sleepy, fond of sleeping","root":"ن-و-م","type":"adjective","kind":"intensive adjective","src":"msa"}
+{"w":"نُون","en":"fish; the letter nun","root":"ن-و-ن","type":"noun","kind":"noun","gender":"m","plural":"نِينان","src":"quran","q":"21:87:1-2","qen":"and the Man of the Fish","note":"In 21:87 ذو النون, the one of the fish, is the prophet Jonah."}
+{"w":"نَوى","en":"date stones","root":"ن-و-ي","type":"noun","kind":"collective noun","gender":"m","src":"quran","q":"6:95:3-5","qen":"God is the splitter of the grain and the date-stone","note":"The singular is نَواة."}
+{"w":"نَواة","en":"stone, kernel, nucleus","root":"ن-و-ي","type":"noun","kind":"noun","gender":"f","plural":"نَوًى","src":"msa"}
+{"w":"نِيَّة","en":"intention","root":"ن-و-ي","type":"noun","kind":"noun","gender":"f","plural":"نِيّات","src":"msa"}
+{"w":"اِنْتَوى","en":"to intend, to plan","root":"ن-و-ي","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَوى","pres":"يَنْتَوي","masdar":"اِنْتِواء","src":"msa"}
+{"w":"نالَ","en":"to attain, to obtain","root":"ن-ي-ل","type":"verb","kind":"verb","form":"I","past":"نالَ","pres":"يَنالُ","masdar":"نَيْل","src":"quran","q":"9:120:37-40","qen":"nor do they gain anything from an enemy"}
+{"w":"نَيْل","en":"attainment, obtaining","root":"ن-ي-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"quran","q":"9:120:37-40","qen":"nor do they gain anything from an enemy"}
+{"w":"مَنال","en":"reach, attainment","root":"ن-ي-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"Common in the phrase سَهْل المَنال, easy to reach."}
+{"w":"هَبَطَ","en":"to go down, to descend","root":"ه-ب-ط","type":"verb","kind":"verb","form":"I","past":"هَبَطَ","pres":"يَهْبِطُ","masdar":"هُبوط","src":"quran","q":"2:36:8-11","qen":"and We said, go down, some of you enemies to others"}
+{"w":"هُبوط","en":"descent, landing","root":"ه-ب-ط","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَهْبِط","en":"landing place","root":"ه-ب-ط","type":"noun","kind":"noun of place","gender":"m","plural":"مَهابِط","src":"msa"}
+{"w":"هَباء","en":"fine dust, dust particles","root":"ه-ب-و","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"25:23:7-9","qen":"and We made it scattered dust"}
+{"w":"هاتِ","en":"bring! give me!","root":"ه-ت-ي","type":"other","kind":"expression","src":"msa","note":"An imperative used as a fixed command, plural هاتوا; it occurs in the Qur'an, e.g. 2:111."}
+{"w":"تَهَجَّدَ","en":"to pray at night","root":"ه-ج-د","type":"verb","kind":"verb","form":"V","past":"تَهَجَّدَ","pres":"يَتَهَجَّدُ","masdar":"تَهَجُّد","src":"quran","q":"17:79:1-4","qen":"and during part of the night, pray with it"}
+{"w":"هَجَرَ","en":"to leave, to abandon","root":"ه-ج-ر","type":"verb","kind":"verb","form":"I","past":"هَجَرَ","pres":"يَهْجُرُ","masdar":"هَجْر","src":"quran","q":"73:10:5-7","qen":"and part from them gracefully"}
+{"w":"هَجْر","en":"abandonment, parting","root":"ه-ج-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"quran","q":"73:10:5-7","qen":"and part from them gracefully"}
+{"w":"مَهْجور","en":"abandoned, forsaken","root":"ه-ج-ر","type":"participle","kind":"passive participle","form":"I","gender":"m","plural":"مَهْجورون","src":"quran","q":"25:30:7-10","qen":"my people have taken this Quran as something abandoned"}
+{"skip":"V:III","why":"هاجَرَ is already in the bank"}
+{"skip":"مُهَاجِر","why":"already in the bank as مُهاجِر"}
+{"skip":"هاجر","why":"already in the bank as هاجَرَ"}
+{"skip":"مُهَٰجِرَٰت","why":"feminine plural of مُهاجِر, already in the bank"}
+{"w":"هِجْران","en":"abandonment, estrangement","root":"ه-ج-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"هَجَّرَ","en":"to displace, to expel","root":"ه-ج-ر","type":"verb","kind":"verb","form":"II","past":"هَجَّرَ","pres":"يُهَجِّرُ","masdar":"تَهْجير","src":"msa"}
+{"w":"تَهْجير","en":"forced displacement","root":"ه-ج-ر","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُهَجَّر","en":"displaced","root":"ه-ج-ر","type":"participle","kind":"passive participle","form":"II","gender":"m","plural":"مُهَجَّرون","src":"msa"}
+{"w":"هاجِرة","en":"midday heat","root":"ه-ج-ر","type":"noun","kind":"noun","gender":"f","plural":"هَواجِر","src":"msa"}
+{"w":"هِجْرِيّ","en":"Hijri, of the Hijra","root":"ه-ج-ر","type":"adjective","kind":"relative adjective","src":"msa","note":"Used for the Islamic calendar, التَّقْويم الهِجْرِيّ."}
+{"w":"هَجَعَ","en":"to sleep at night","root":"ه-ج-ع","type":"verb","kind":"verb","form":"I","past":"هَجَعَ","pres":"يَهْجَعُ","masdar":"هُجوع","src":"quran","q":"51:17:1-6","qen":"they used to sleep only a little of the night"}
+{"skip":"V:I","why":"the Qur'anic فَتَهَجَّدْ is the derived verb تَهَجَّدَ (form V), already an entry"}

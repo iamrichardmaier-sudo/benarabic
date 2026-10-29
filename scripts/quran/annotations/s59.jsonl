@@ -1,0 +1,182 @@
+{"w":"هَدَأَ","en":"to be calm, to quiet down","root":"ه-د-أ","type":"verb","kind":"verb","form":"I","past":"هَدَأَ","pres":"يَهْدَأُ","masdar":"هُدوء","src":"msa"}
+{"w":"هَدَّأَ","en":"to calm, to soothe","root":"ه-د-أ","type":"verb","kind":"verb","form":"II","past":"هَدَّأَ","pres":"يُهَدِّئُ","masdar":"تَهْدِئَة","src":"msa"}
+{"w":"هُدوء","en":"calm, quietness","root":"ه-د-أ","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"تَهْدِئَة","en":"calming, de-escalation","root":"ه-د-أ","type":"masdar","kind":"masdar","form":"II","gender":"f","src":"msa"}
+{"w":"مُهَدِّئ","en":"sedative, soothing","root":"ه-د-أ","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُهَدِّئات","src":"msa"}
+{"w":"هَدّ","en":"crash, collapse, demolition","root":"ه-د-د","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"هَدَّ","en":"to demolish, to crush","root":"ه-د-د","type":"verb","kind":"verb","form":"I","past":"هَدَّ","pres":"يَهُدُّ","masdar":"هَدّ","src":"msa"}
+{"w":"هَدَّدَ","en":"to threaten","root":"ه-د-د","type":"verb","kind":"verb","form":"II","past":"هَدَّدَ","pres":"يُهَدِّدُ","masdar":"تَهْديد","src":"msa"}
+{"w":"تَهْديد","en":"threat","root":"ه-د-د","type":"masdar","kind":"masdar","form":"II","gender":"m","plural":"تَهْديدات","src":"msa"}
+{"w":"هَدَّمَ","en":"to demolish, to raze","root":"ه-د-م","type":"verb","kind":"verb","form":"II","past":"هَدَّمَ","pres":"يُهَدِّمُ","masdar":"تَهْديم","src":"quran","q":"22:40:18-19","qen":"monasteries would have been demolished"}
+{"w":"هَدَمَ","en":"to tear down, to demolish","root":"ه-د-م","type":"verb","kind":"verb","form":"I","past":"هَدَمَ","pres":"يَهْدِمُ","masdar":"هَدْم","src":"msa"}
+{"w":"هَدْم","en":"demolition","root":"ه-د-م","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"هادِم","en":"destroyer, demolishing","root":"ه-د-م","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"هادِمون","src":"msa"}
+{"w":"هُدْهُد","en":"hoopoe","root":"ه-د-ه-د","type":"noun","kind":"noun","gender":"m","plural":"هَداهِد","src":"quran","q":"27:20:3-8","qen":"and he said, why do I not see the hoopoe"}
+{"w":"هَدَى","en":"to guide","root":"ه-د-ي","type":"verb","kind":"verb","form":"I","past":"هَدَى","pres":"يَهْدي","masdar":"هِداية","src":"quran","q":"1:6:1-3","qen":"Guide us to the straight path"}
+{"w":"هُدًى","en":"guidance","root":"ه-د-ي","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"2:2:5-7","qen":"in it is guidance for the God-fearing"}
+{"w":"هِداية","en":"guidance","root":"ه-د-ي","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"اِهْتَدَى","en":"to be guided","root":"ه-د-ي","type":"verb","kind":"verb","form":"VIII","past":"اِهْتَدَى","pres":"يَهْتَدي","masdar":"اِهْتِداء","src":"quran","q":"2:53:6-7","qen":"so that you may be guided"}
+{"w":"مُهْتَدِي","en":"rightly guided","root":"ه-د-ي","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُهْتَدون","src":"quran","q":"2:16:10-11","qen":"and they were not guided"}
+{"w":"هادِي","en":"guide","root":"ه-د-ي","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"هُداة","src":"quran","q":"13:7:13-15","qen":"and for every people a guide"}
+{"w":"أَهْدَى","en":"better guided","root":"ه-د-ي","type":"adjective","kind":"comparative","src":"quran","q":"4:51:15-20","qen":"these are better guided in path than those who believe"}
+{"w":"هَدْي","en":"sacrificial animal","root":"ه-د-ي","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"2:196:8-10","qen":"then whatever offering is easy","note":"In the Qur'an it is the animal offered at the pilgrimage."}
+{"w":"مَهْدِيّ","en":"rightly guided","root":"ه-د-ي","type":"participle","kind":"passive participle","form":"I","gender":"m","plural":"مَهْدِيّون","src":"msa"}
+{"w":"تَهادَى","en":"to exchange gifts","root":"ه-د-ي","type":"verb","kind":"verb","form":"VI","past":"تَهادَى","pres":"يَتَهادَى","masdar":"تَهادٍ","src":"msa"}
+{"w":"اِسْتَهْدَى","en":"to seek guidance","root":"ه-د-ي","type":"verb","kind":"verb","form":"X","past":"اِسْتَهْدَى","pres":"يَسْتَهْدي","masdar":"اِسْتِهْداء","src":"msa"}
+{"w":"هَرَب","en":"flight, fleeing","root":"ه-ر-ب","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"72:12:10-11","qen":"nor can we escape Him by flight"}
+{"w":"هَرَبَ","en":"to flee, to escape","root":"ه-ر-ب","type":"verb","kind":"verb","form":"I","past":"هَرَبَ","pres":"يَهْرُبُ","masdar":"هُروب","src":"msa"}
+{"w":"هُروب","en":"fleeing, escape","root":"ه-ر-ب","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"هارِب","en":"fugitive, escaping","root":"ه-ر-ب","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"هارِبون","src":"msa"}
+{"w":"هَرَّبَ","en":"to smuggle","root":"ه-ر-ب","type":"verb","kind":"verb","form":"II","past":"هَرَّبَ","pres":"يُهَرِّبُ","masdar":"تَهْريب","src":"msa"}
+{"w":"تَهْريب","en":"smuggling","root":"ه-ر-ب","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَهَرَّبَ","en":"to evade, to dodge","root":"ه-ر-ب","type":"verb","kind":"verb","form":"V","past":"تَهَرَّبَ","pres":"يَتَهَرَّبُ","masdar":"تَهَرُّب","src":"msa"}
+{"w":"مَهْرَب","en":"escape route, refuge","root":"ه-ر-ب","type":"noun","kind":"noun of place","gender":"m","plural":"مَهارِب","src":"msa"}
+{"w":"هَرِعَ","en":"to rush, to hurry","root":"ه-ر-ع","type":"verb","kind":"verb","form":"I","past":"هَرِعَ","pres":"يَهْرَعُ","masdar":"هَرَع","src":"quran","q":"11:78:1-4","qen":"and his people came rushing to him","note":"The Qur'an uses the passive yuhra'un, 'they are driven in haste'."}
+{"w":"اِسْتَهْزَأَ","en":"to mock","root":"ه-ز-أ","type":"verb","kind":"verb","form":"X","past":"اِسْتَهْزَأَ","pres":"يَسْتَهْزِئُ","masdar":"اِسْتِهْزاء","src":"quran","q":"2:15:1-3","qen":"Allah mocks them"}
+{"w":"هُزُؤ","en":"mockery","root":"ه-ز-أ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"2:67:12-13","qen":"do you take us in mockery"}
+{"w":"مُسْتَهْزِئ","en":"mocker","root":"ه-ز-أ","type":"participle","kind":"active participle","form":"X","gender":"m","plural":"مُسْتَهْزِئون","src":"quran","q":"2:14:15-16","qen":"we are only mockers"}
+{"w":"هَزِئَ","en":"to mock, to jeer","root":"ه-ز-أ","type":"verb","kind":"verb","form":"I","past":"هَزِئَ","pres":"يَهْزَأُ","masdar":"هُزْء","src":"msa"}
+{"w":"اِسْتِهْزاء","en":"mockery, ridicule","root":"ه-ز-أ","type":"masdar","kind":"masdar","form":"X","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِهْتَزَّ","en":"to shake, to tremble","root":"ه-ز-ز","type":"verb","kind":"verb","form":"VIII","past":"اِهْتَزَّ","pres":"يَهْتَزُّ","masdar":"اِهْتِزاز","src":"quran","q":"22:5:61-64","qen":"when We send down water upon it, it stirs"}
+{"w":"هَزَّ","en":"to shake","root":"ه-ز-ز","type":"verb","kind":"verb","form":"I","past":"هَزَّ","pres":"يَهُزُّ","masdar":"هَزّ","src":"msa"}
+{"w":"هَزّ","en":"shaking","root":"ه-ز-ز","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"اِهْتِزاز","en":"vibration, quivering","root":"ه-ز-ز","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِهْتِزازات","src":"msa"}
+{"w":"هَزَّة","en":"tremor, shake","root":"ه-ز-ز","type":"noun","kind":"noun of instance","gender":"f","plural":"هَزّات","src":"msa"}
+{"w":"هَزْل","en":"jest, joking","root":"ه-ز-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"86:14:1-3","qen":"and it is not a jest"}
+{"w":"هَزَلَ","en":"to joke","root":"ه-ز-ل","type":"verb","kind":"verb","form":"I","past":"هَزَلَ","pres":"يَهْزِلُ","masdar":"هَزْل","src":"msa"}
+{"w":"هَزيل","en":"thin, feeble","root":"ه-ز-ل","type":"adjective","kind":"adjective","plural":"هِزال","src":"msa"}
+{"w":"هُزال","en":"leanness, emaciation","root":"ه-ز-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"هَزْلِيّ","en":"comic, humorous","root":"ه-ز-ل","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"مَهْزَلَة","en":"farce, travesty","root":"ه-ز-ل","type":"noun","kind":"noun","gender":"f","plural":"مَهازِل","src":"msa"}
+{"w":"هَزَمَ","en":"to defeat","root":"ه-ز-م","type":"verb","kind":"verb","form":"I","past":"هَزَمَ","pres":"يَهْزِمُ","masdar":"هَزيمَة","src":"quran","q":"2:251:1-3","qen":"so they defeated them by God's leave"}
+{"w":"مَهْزوم","en":"defeated","root":"ه-ز-م","type":"participle","kind":"passive participle","form":"I","gender":"m","plural":"مَهْزومون","src":"quran","q":"38:11:1-4","qen":"a host there that will be defeated"}
+{"w":"هَزيمَة","en":"defeat","root":"ه-ز-م","type":"masdar","kind":"masdar","form":"I","gender":"f","plural":"هَزائِم","src":"msa"}
+{"w":"اِنْهَزَمَ","en":"to be defeated, to flee in defeat","root":"ه-ز-م","type":"verb","kind":"verb","form":"VII","past":"اِنْهَزَمَ","pres":"يَنْهَزِمُ","masdar":"اِنْهِزام","src":"msa"}
+{"w":"مُنْهَزِم","en":"defeated, routed","root":"ه-ز-م","type":"participle","kind":"active participle","form":"VII","gender":"m","plural":"مُنْهَزِمون","src":"msa"}
+{"w":"هَشَّ","en":"to beat down leaves","root":"ه-ش-ش","type":"verb","kind":"verb","form":"I","past":"هَشَّ","pres":"يَهُشُّ","masdar":"هَشّ","src":"msa","note":"The Qur'anic sense is knocking down foliage with a staff; in modern usage the verb also means to be cheerful."}
+{"w":"هَشيم","en":"dry crumbled stalks","root":"ه-ش-م","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"18:45:14-15","qen":"and it becomes dry stubble"}
+{"w":"هَشَمَ","en":"to smash, to crush","root":"ه-ش-م","type":"verb","kind":"verb","form":"I","past":"هَشَمَ","pres":"يَهْشِمُ","masdar":"هَشْم","src":"msa"}
+{"w":"هَشَّمَ","en":"to shatter","root":"ه-ش-م","type":"verb","kind":"verb","form":"II","past":"هَشَّمَ","pres":"يُهَشِّمُ","masdar":"تَهْشيم","src":"msa"}
+{"w":"هَضيم","en":"tender, delicate","root":"ه-ض-م","type":"adjective","kind":"adjective","src":"quran","q":"26:148:3-4","qen":"its spathe is tender"}
+{"w":"هَضْم","en":"digestion","root":"ه-ض-م","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"20:112:10-11","qen":"nor any deprivation","note":"In the Qur'an it means being wronged or deprived of one's due; in modern usage it is digestion."}
+{"w":"هَضَمَ","en":"to digest","root":"ه-ض-م","type":"verb","kind":"verb","form":"I","past":"هَضَمَ","pres":"يَهْضِمُ","masdar":"هَضْم","src":"msa"}
+{"w":"مُهْطِع","en":"hurrying with head raised","root":"ه-ط-ع","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُهْطِعون","src":"quran","q":"14:43:1-3","qen":"racing ahead, heads raised"}
+{"skip":"هل","why":"interrogative particle, function word"}
+{"w":"هَلوع","en":"anxious, fretful","root":"ه-ل-ع","type":"adjective","kind":"intensive adjective","src":"quran","q":"70:19:2-4","qen":"man was created anxious"}
+{"w":"هَلَع","en":"panic, anxiety","root":"ه-ل-ع","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"مُهْتَدِى","why":"same word as the entry مُهْتَدٍ"}
+{"skip":"ان","why":"unclassified token of اِهْتَدَى (Ta-ha 20:135), already an entry"}
+{"skip":"هَدِيَّة","why":"already in the bank"}
+{"skip":"مُسْتَهْزِءُون","why":"plural of the entry مُسْتَهْزِئ"}
+{"skip":"هُزُو","why":"same word as the entry هُزُؤ, Qur'anic spelling"}
+{"skip":"مُهْطِعِين","why":"plural of the entry مُهْطِع"}
+{"w":"أَهْلَكَ","en":"to destroy, to ruin","root":"ه-ل-ك","type":"verb","kind":"verb","form":"IV","past":"أَهْلَكَ","pres":"يُهْلِكُ","masdar":"إِهْلاك","src":"quran","q":"2:205:8-10","qen":"and destroys the crops and offspring"}
+{"w":"هَلَكَ","en":"to perish, to be destroyed","root":"ه-ل-ك","type":"verb","kind":"verb","form":"I","past":"هَلَكَ","pres":"يَهْلِكُ","masdar":"هَلاك","src":"quran","q":"6:47:11-14","qen":"will any be destroyed except the wrongdoing people","note":"This verse has the passive; the active also means to die in the Qur'an (4:176)."}
+{"w":"هَلاك","en":"destruction, ruin","root":"ه-ل-ك","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُهْلِك","en":"destroyer, destroying","root":"ه-ل-ك","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُهْلِكون","src":"quran","q":"6:131:4-7","qen":"your Lord would not destroy the towns"}
+{"w":"هالِك","en":"perishing, doomed","root":"ه-ل-ك","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"هالِكون","src":"quran","q":"28:88:11-15","qen":"everything is perishing except His Face"}
+{"w":"تَهْلُكَة","en":"destruction, peril","root":"ه-ل-ك","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"quran","q":"2:195:5-9","qen":"and do not throw yourselves into destruction"}
+{"w":"مَهْلِك","en":"destruction, time of destruction","root":"ه-ل-ك","type":"noun","kind":"noun of place","gender":"m","noplural":true,"src":"quran","q":"18:59:6-8","qen":"and We set a time for their destruction"}
+{"w":"مُهْلَك","en":"destroyed","root":"ه-ل-ك","type":"participle","kind":"passive participle","form":"IV","gender":"m","plural":"مُهْلَكون","src":"quran","q":"23:48:2-4","qen":"so they were among the destroyed"}
+{"w":"اِسْتَهْلَكَ","en":"to consume, to use up","root":"ه-ل-ك","type":"verb","kind":"verb","form":"X","past":"اِسْتَهْلَكَ","pres":"يَسْتَهْلِكُ","masdar":"اِسْتِهْلاك","src":"msa"}
+{"w":"اِسْتِهْلاك","en":"consumption","root":"ه-ل-ك","type":"masdar","kind":"masdar","form":"X","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُسْتَهْلِك","en":"consumer","root":"ه-ل-ك","type":"participle","kind":"active participle","form":"X","gender":"m","plural":"مُسْتَهْلِكون","src":"msa"}
+{"skip":"مُهْلِكِى","why":"مُهْلِك with the pronoun suffix ي"}
+{"skip":"الا","why":"unclassified token of هالِك (Al-Qasas 28:88), already an entry"}
+{"skip":"اهلك","why":"unclassified token of أَهْلَكَ, already an entry"}
+{"skip":"مسيح","why":"unclassified token of يُهْلَكُ (Al-Ahqaf 46:35), same verb as هَلَكَ"}
+{"skip":"هلك","why":"unclassified token of هَلَكَ, already an entry"}
+{"skip":"هَالِك","why":"same word as the entry هالِك"}
+{"skip":"مُهْلَكِين","why":"plural of the entry مُهْلَك"}
+{"w":"أَهَلَّ","en":"to cry out, to announce","root":"ه-ل-ل","type":"verb","kind":"verb","form":"IV","past":"أَهَلَّ","pres":"يُهِلُّ","masdar":"إِهْلال","src":"msa","note":"In 2:173 it is passive (uhilla), 'proclaimed' over an animal; the verb also means to sight the new moon or to begin the pilgrim's cry."}
+{"w":"أَهِلَّة","en":"new moons, crescents","root":"ه-ل-ل","type":"noun","kind":"plural","gender":"m","src":"quran","q":"2:189:1-3","qen":"they ask you about the new moons"}
+{"w":"هِلال","en":"crescent, new moon","root":"ه-ل-ل","type":"noun","kind":"noun","gender":"m","plural":"أَهِلَّة","src":"msa"}
+{"w":"هَلَّلَ","en":"to cheer, to chant tahlil","root":"ه-ل-ل","type":"verb","kind":"verb","form":"II","past":"هَلَّلَ","pres":"يُهَلِّلُ","masdar":"تَهْليل","src":"msa"}
+{"w":"اِسْتَهَلَّ","en":"to begin, to open","root":"ه-ل-ل","type":"verb","kind":"verb","form":"X","past":"اِسْتَهَلَّ","pres":"يَسْتَهِلُّ","masdar":"اِسْتِهْلال","src":"msa"}
+{"skip":"صلوة","why":"unclassified token of the particle هَلْ, function word"}
+{"w":"هامِد","en":"lifeless, barren","root":"ه-م-د","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"هامِدون","src":"msa","note":"The Qur'anic form is the feminine hamida."}
+{"skip":"هَامِدَة","why":"feminine of the entry هامِد"}
+{"w":"هَمَدَ","en":"to die down, to become lifeless","root":"ه-م-د","type":"verb","kind":"verb","form":"I","past":"هَمَدَ","pres":"يَهْمُدُ","masdar":"هُمود","src":"msa"}
+{"w":"اِنْهَمَرَ","en":"to pour down","root":"ه-م-ر","type":"verb","kind":"verb","form":"VII","past":"اِنْهَمَرَ","pres":"يَنْهَمِرُ","masdar":"اِنْهِمار","src":"msa"}
+{"w":"مُنْهَمِر","en":"pouring down","root":"ه-م-ر","type":"participle","kind":"active participle","form":"VII","gender":"m","src":"quran","q":"54:11:4-5","qen":"with water pouring down"}
+{"w":"هَمَّاز","en":"slanderer, backbiter","root":"ه-م-ز","type":"adjective","kind":"intensive adjective","plural":"هَمَّازون","src":"quran","q":"68:11:1-3","qen":"a slanderer, going about with gossip"}
+{"w":"هُمَزَة","en":"backbiter","root":"ه-م-ز","type":"adjective","kind":"intensive adjective","src":"msa"}
+{"w":"هَمْزَة","en":"hamza; goad, incitement","root":"ه-م-ز","type":"noun","kind":"noun","gender":"f","plural":"هَمَزات","src":"quran","q":"23:97:6-7","qen":"the incitements of the devils","note":"In 23:97 the plural means the prodding suggestions of devils; in modern usage it is the letter hamza."}
+{"skip":"هَمَزَٰت","why":"plural of the entry هَمْزَة"}
+{"w":"هَمَزَ","en":"to prod, to pronounce with hamza","root":"ه-م-ز","type":"verb","kind":"verb","form":"I","past":"هَمَزَ","pres":"يَهْمِزُ","masdar":"هَمْز","src":"msa"}
+{"w":"مِهْماز","en":"spur","root":"ه-م-ز","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَهاميز","src":"msa"}
+{"w":"مَهْموز","en":"hamzated","root":"ه-م-ز","type":"participle","kind":"passive participle","form":"I","gender":"m","src":"msa"}
+{"w":"هَمْس","en":"whisper, faint sound","root":"ه-م-س","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"20:108:11-13","qen":"you hear nothing but a faint whisper"}
+{"w":"هَمَسَ","en":"to whisper","root":"ه-م-س","type":"verb","kind":"verb","form":"I","past":"هَمَسَ","pres":"يَهْمِسُ","masdar":"هَمْس","src":"msa"}
+{"w":"تَهامَسَ","en":"to whisper to one another","root":"ه-م-س","type":"verb","kind":"verb","form":"VI","past":"تَهامَسَ","pres":"يَتَهامَسُ","masdar":"تَهامُس","src":"msa"}
+{"w":"مَهْموس","en":"whispered, voiceless","root":"ه-م-س","type":"participle","kind":"passive participle","form":"I","gender":"m","src":"msa"}
+{"w":"هَمَّ","en":"to intend, to concern","root":"ه-م-م","type":"verb","kind":"verb","form":"I","past":"هَمَّ","pres":"يَهُمُّ","masdar":"هَمّ","src":"quran","q":"5:11:9-15","qen":"when a people were about to stretch out their hands against you","note":"In the Qur'an it means to be about to do something; in modern usage, to concern or matter to someone."}
+{"w":"أَهَمَّ","en":"to worry, to concern","root":"ه-م-م","type":"verb","kind":"verb","form":"IV","past":"أَهَمَّ","pres":"يُهِمُّ","src":"quran","q":"3:154:14-15","qen":"their own selves worried them"}
+{"skip":"هم","why":"unclassified pronoun token, function word"}
+{"skip":"من","why":"unclassified preposition token, function word"}
+{"skip":"انتم","why":"unclassified pronoun token, function word"}
+{"skip":"ان","why":"unclassified particle token, function word"}
+{"w":"هَمّ","en":"worry, concern","root":"ه-م-م","type":"noun","kind":"noun","gender":"m","plural":"هُموم","src":"msa"}
+{"w":"هِمَّة","en":"determination, zeal","root":"ه-م-م","type":"noun","kind":"noun","gender":"f","plural":"هِمَم","src":"msa"}
+{"w":"اِهْتَمَّ","en":"to be interested in, to care","root":"ه-م-م","type":"verb","kind":"verb","form":"VIII","past":"اِهْتَمَّ","pres":"يَهْتَمُّ","masdar":"اِهْتِمام","src":"msa"}
+{"w":"اِهْتِمام","en":"interest, attention","root":"ه-م-م","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِهْتِمامات","src":"msa"}
+{"w":"مُهْتَمّ","en":"interested, concerned","root":"ه-م-م","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُهْتَمّون","src":"msa"}
+{"w":"أَهَمِّيَّة","en":"importance","root":"ه-م-م","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"هامّ","en":"important","root":"ه-م-م","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"أَهَمّ","en":"more important, most important","root":"ه-م-م","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"مَهْموم","en":"worried, distressed","root":"ه-م-م","type":"participle","kind":"passive participle","form":"I","gender":"m","plural":"مَهْمومون","src":"msa"}
+{"w":"مُهَيْمِن","en":"guardian, overseer","root":"ه-م-ن","type":"participle","kind":"active participle","form":"II","gender":"m","src":"quran","q":"5:48:11-12","qen":"and a guardian over it","note":"From the quadriliteral verb haymana, 'to dominate, to oversee'; it is one of God's names in 59:23."}
+{"w":"هَنيء","en":"wholesome, pleasant","root":"ه-ن-أ","type":"adjective","kind":"adjective","src":"quran","q":"4:4:12-14","qen":"then eat it with wholesome ease"}
+{"skip":"هَنِيٓـٔ","why":"same word as the entry هَنيء, Qur'anic spelling"}
+{"skip":"هنالك","why":"adverb of place, function word"}
+{"w":"هَنَّأَ","en":"to congratulate","root":"ه-ن-أ","type":"verb","kind":"verb","form":"II","past":"هَنَّأَ","pres":"يُهَنِّئُ","masdar":"تَهْنِئَة","src":"msa"}
+{"w":"تَهْنِئَة","en":"congratulation","root":"ه-ن-أ","type":"masdar","kind":"masdar","form":"II","gender":"f","plural":"تَهانِئ","src":"msa"}
+{"w":"هَناء","en":"bliss, comfort","root":"ه-ن-أ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"هَنْدَسَة","en":"engineering, geometry","root":"ه-ن-د-س","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"هَنْدَسِيّ","en":"geometric, engineering","root":"ه-ن-د-س","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"هادَ","en":"to become Jewish, to repent","root":"ه-و-د","type":"verb","kind":"verb","form":"I","past":"هادَ","pres":"يَهودُ","src":"quran","q":"2:62:4-5","qen":"and those who became Jews","note":"In the Qur'an hādū means 'became Jews'; in 7:156 hudnā means 'we have turned back in repentance'."}
+{"w":"هَوادَة","en":"leniency, indulgence","root":"ه-و-د","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"هارٍ","en":"crumbling, about to collapse","root":"ه-و-ر","type":"adjective","kind":"adjective","src":"quran","q":"9:109:16-17","qen":"a crumbling bank"}
+{"w":"اِنْهارَ","en":"to collapse, to fall apart","root":"ه-و-ر","type":"verb","kind":"verb","form":"VII","past":"اِنْهارَ","pres":"يَنْهارُ","masdar":"اِنْهِيار","src":"quran","q":"9:109:17-19","qen":"crumbling, so it collapsed with him"}
+{"w":"اِنْهِيار","en":"collapse","root":"ه-و-ر","type":"masdar","kind":"masdar","form":"VII","gender":"m","plural":"اِنْهِيارات","src":"msa"}
+{"w":"تَهَوَّرَ","en":"to be reckless","root":"ه-و-ر","type":"verb","kind":"verb","form":"V","past":"تَهَوَّرَ","pres":"يَتَهَوَّرُ","masdar":"تَهَوُّر","src":"msa"}
+{"w":"مُتَهَوِّر","en":"reckless, rash","root":"ه-و-ر","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَهَوِّرون","src":"msa"}
+{"w":"أَهانَ","en":"to humiliate, to insult","root":"ه-و-ن","type":"verb","kind":"verb","form":"IV","past":"أَهانَ","pres":"يُهينُ","masdar":"إِهانَة","src":"quran","q":"89:16:8-10","qen":"and says, my Lord has humiliated me"}
+{"w":"مُهين","en":"humiliating, insulting","root":"ه-و-ن","type":"participle","kind":"active participle","form":"IV","gender":"m","src":"quran","q":"2:90:25-27","qen":"and for the disbelievers is a humiliating punishment"}
+{"w":"مُهان","en":"humiliated, insulted","root":"ه-و-ن","type":"participle","kind":"passive participle","form":"IV","gender":"m","src":"quran","q":"25:69:6-8","qen":"and abide therein humiliated"}
+{"w":"هُون","en":"humiliation, disgrace","root":"ه-و-ن","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"6:93:36-38","qen":"you will be repaid with the punishment of humiliation"}
+{"w":"هَيِّن","en":"easy, light","root":"ه-و-ن","type":"adjective","kind":"adjective","src":"quran","q":"19:9:5-7","qen":"it is easy for Me"}
+{"w":"أَهْوَن","en":"easier, lighter","root":"ه-و-ن","type":"adjective","kind":"comparative","src":"quran","q":"30:27:7-9","qen":"and it is easier for Him"}
+{"w":"هَوْن","en":"gentleness, ease","root":"ه-و-ن","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"25:63:4-7","qen":"who walk on the earth gently"}
+{"w":"هانَ","en":"to be easy, to be disgraced","root":"ه-و-ن","type":"verb","kind":"verb","form":"I","past":"هانَ","pres":"يَهونُ","masdar":"هَوان","src":"msa"}
+{"w":"هَوان","en":"humiliation, contempt","root":"ه-و-ن","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"إِهانَة","en":"insult, humiliation","root":"ه-و-ن","type":"masdar","kind":"masdar","form":"IV","gender":"f","plural":"إِهانات","src":"msa"}
+{"w":"هَوَّنَ","en":"to make easier, to ease","root":"ه-و-ن","type":"verb","kind":"verb","form":"II","past":"هَوَّنَ","pres":"يُهَوِّنُ","masdar":"تَهْوين","src":"msa"}
+{"w":"اِسْتَهانَ","en":"to belittle, to disregard","root":"ه-و-ن","type":"verb","kind":"verb","form":"X","past":"اِسْتَهانَ","pres":"يَسْتَهينُ","masdar":"اِسْتِهانَة","src":"msa"}
+{"w":"تَهاوَنَ","en":"to be negligent, to treat lightly","root":"ه-و-ن","type":"verb","kind":"verb","form":"VI","past":"تَهاوَنَ","pres":"يَتَهاوَنُ","masdar":"تَهاوُن","src":"msa"}
+{"w":"هَوِيَ","en":"to love, to desire","root":"ه-و-ي","type":"verb","kind":"verb","form":"I","past":"هَوِيَ","pres":"يَهْوَى","masdar":"هَوًى","src":"quran","q":"2:87:20-23","qen":"with what your souls do not desire"}
+{"w":"هَوَى","en":"to fall, to plunge","root":"ه-و-ي","type":"verb","kind":"verb","form":"I","past":"هَوَى","pres":"يَهْوي","masdar":"هُوِيّ","src":"quran","q":"53:1:1-3","qen":"by the star when it descends"}
+{"w":"هَوًى","en":"desire, passion","root":"ه-و-ي","type":"noun","kind":"noun","gender":"m","plural":"أَهْواء","src":"quran","q":"38:26:12-14","qen":"and do not follow desire","note":"The Qur'an usually uses the plural ahwā' for base whims that lead astray."}
+{"skip":"أَهْوَآء","why":"plural of the entry هَوًى"}
+{"w":"هَواء","en":"air","root":"ه-و-ي","type":"noun","kind":"noun","gender":"m","plural":"أَهْوِيَة","src":"quran","q":"14:43:8-9","qen":"and their hearts are void","note":"In 14:43 it means empty and void, as hearts left hollow by terror; in modern usage it is air."}
+{"skip":"وهو","why":"unclassified pronoun token, function word"}
+{"skip":"هي","why":"unclassified pronoun token, function word"}
+{"w":"هاوِيَة","en":"abyss, pit","root":"ه-و-ي","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"quran","q":"101:9:1-2","qen":"his refuge will be a bottomless pit","note":"In the Qur'an al-Hāwiya is a name of Hell."}
+{"w":"اِسْتَهْوَى","en":"to lure away, to captivate","root":"ه-و-ي","type":"verb","kind":"verb","form":"X","past":"اِسْتَهْوَى","pres":"يَسْتَهْوي","masdar":"اِسْتِهْواء","src":"quran","q":"6:71:18-20","qen":"like one whom the devils have lured away"}
+{"w":"هُوَّة","en":"chasm, gap","root":"ه-و-ي","type":"noun","kind":"noun","gender":"f","plural":"هُوًى","src":"msa"}
+{"w":"تَهْوِيَة","en":"ventilation","root":"ه-و-ي","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"هاوٍ","en":"amateur, enthusiast","root":"ه-و-ي","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"هُواة","src":"msa"}
+{"w":"تَهاوَى","en":"to collapse, to fall one after another","root":"ه-و-ي","type":"verb","kind":"verb","form":"VI","past":"تَهاوَى","pres":"يَتَهاوَى","masdar":"تَهاوٍ","src":"msa"}
+{"w":"هَيْئَة","en":"form, appearance, body","root":"ه-ي-أ","type":"noun","kind":"noun","gender":"f","plural":"هَيْئات","src":"quran","q":"3:49:16-17","qen":"like the form of a bird"}
+{"w":"هَيَّأَ","en":"to prepare, to make ready","root":"ه-ي-أ","type":"verb","kind":"verb","form":"II","past":"هَيَّأَ","pres":"يُهَيِّئُ","masdar":"تَهْيِئَة","src":"quran","q":"18:10:12-13","qen":"and prepare for us"}
+{"w":"تَهَيَّأَ","en":"to get ready","root":"ه-ي-أ","type":"verb","kind":"verb","form":"V","past":"تَهَيَّأَ","pres":"يَتَهَيَّأُ","masdar":"تَهَيُّؤ","src":"msa"}
+{"w":"مُهَيَّأ","en":"prepared, ready","root":"ه-ي-أ","type":"participle","kind":"passive participle","form":"II","gender":"m","src":"msa"}
+{"w":"هَيْتَ","en":"come here","root":"ه-ي-ت","type":"other","kind":"expression","src":"quran","q":"12:23:11-12","qen":"and she said, come here"}
+{"skip":"V:I","why":"hayta is an interjection meaning 'come', entered as an expression"}
+{"w":"هاجَ","en":"to be stirred up, to rage","root":"ه-ي-ج","type":"verb","kind":"verb","form":"I","past":"هاجَ","pres":"يَهيجُ","masdar":"هَيَجان","src":"quran","q":"39:21:19-20","qen":"then it withers","note":"In 39:21 crops yahīju, turn dry; in modern usage the verb means to be agitated."}
+{"w":"هَيَجان","en":"agitation, frenzy","root":"ه-ي-ج","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"هائِج","en":"raging, agitated","root":"ه-ي-ج","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"هائِجون","src":"msa"}
+{"w":"هَيَّجَ","en":"to stir up, to provoke","root":"ه-ي-ج","type":"verb","kind":"verb","form":"II","past":"هَيَّجَ","pres":"يُهَيِّجُ","masdar":"تَهْييج","src":"msa"}
+{"w":"اِهْتاجَ","en":"to become agitated","root":"ه-ي-ج","type":"verb","kind":"verb","form":"VIII","past":"اِهْتاجَ","pres":"يَهْتاجُ","masdar":"اِهْتِياج","src":"msa"}
+{"skip":"مُّهْتَد","why":"same word as the entry مُهْتَدِي"}
+{"skip":"هَيْـَٔة","why":"same word as the entry هَيْئَة, Qur'anic spelling"}

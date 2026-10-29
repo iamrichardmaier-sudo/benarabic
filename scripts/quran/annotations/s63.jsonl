@@ -1,0 +1,110 @@
+{"w":"وَهَبَ","en":"to give, to grant","root":"و-ه-ب","type":"verb","kind":"verb","form":"I","past":"وَهَبَ","pres":"يَهَبُ","masdar":"هِبَة","src":"quran","q":"3:8:8-12","qen":"and grant us mercy from Yourself"}
+{"w":"وَهَّاب","en":"bestower, ever-giving","root":"و-ه-ب","type":"adjective","kind":"intensive adjective","src":"quran","q":"3:8:13-15","qen":"You are the Bestower","note":"Used in the Qur'an as a name of God; in general usage, one who gives generously."}
+{"w":"هِبَة","en":"gift, donation","root":"و-ه-ب","type":"masdar","kind":"masdar","form":"I","gender":"f","plural":"هِبات","src":"msa"}
+{"w":"مَوْهُوب","en":"gifted, talented","root":"و-ه-ب","type":"participle","kind":"passive participle","form":"I","gender":"m","plural":"مَوْهُوبون","src":"msa"}
+{"w":"واهِب","en":"giver, donor","root":"و-ه-ب","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"واهِبون","src":"msa"}
+{"w":"مَوْهِبَة","en":"talent, gift","root":"و-ه-ب","type":"noun","kind":"noun","gender":"f","plural":"مَواهِب","src":"msa"}
+{"skip":"وَهَّاب","why":"same adjective as the entry above (noun and adjective tokens)"}
+{"w":"وَهَّاج","en":"blazing, glowing","root":"و-ه-ج","type":"adjective","kind":"intensive adjective","src":"quran","q":"78:13:1-3","qen":"and We made a blazing lamp"}
+{"w":"تَوَهَّجَ","en":"to glow, to blaze","root":"و-ه-ج","type":"verb","kind":"verb","form":"V","past":"تَوَهَّجَ","pres":"يَتَوَهَّجُ","masdar":"تَوَهُّج","src":"msa"}
+{"w":"تَوَهُّج","en":"glow, incandescence","root":"و-ه-ج","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"وَهَج","en":"glare, blazing heat","root":"و-ه-ج","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"مغفرة","why":"belongs to root غ-ف-ر (74:56); not a word of و-ه-ل"}
+{"w":"وَهْلَة","en":"first moment, first instant","root":"و-ه-ل","type":"noun","kind":"noun","gender":"f","plural":"وَهَلات","src":"msa","note":"Mostly in the phrase لِأَوَّلِ وَهْلَة, at first glance."}
+{"w":"وَهَنَ","en":"to grow weak","root":"و-ه-ن","type":"verb","kind":"verb","form":"I","past":"وَهَنَ","pres":"يَهِنُ","masdar":"وَهْن","src":"quran","q":"3:146:8-9","qen":"yet they did not weaken"}
+{"w":"وَهْن","en":"weakness, frailty","root":"و-ه-ن","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"31:14:4-8","qen":"his mother carried him in weakness upon weakness"}
+{"skip":"ان","why":"the particle إِنَّ (6:165), not a word of و-ه-ن"}
+{"w":"أَوْهَنَ","en":"to weaken","root":"و-ه-ن","type":"verb","kind":"verb","form":"IV","past":"أَوْهَنَ","pres":"يُوهِنُ","masdar":"إِيهان","src":"msa"}
+{"w":"وَهَّنَ","en":"to weaken, to enfeeble","root":"و-ه-ن","type":"verb","kind":"verb","form":"II","past":"وَهَّنَ","pres":"يُوَهِّنُ","masdar":"تَوْهين","src":"msa"}
+{"w":"مُوهِن","en":"weakening","root":"و-ه-ن","type":"participle","kind":"active participle","form":"IV","gender":"m","src":"quran","q":"8:18:2-6","qen":"and that God weakens the plotting of the disbelievers"}
+{"w":"أَوْهَن","en":"weakest, frailest","root":"و-ه-ن","type":"adjective","kind":"comparative","src":"quran","q":"29:41:12-14","qen":"and the frailest of houses"}
+{"w":"وَاهِيَة","en":"frail, feeble","root":"و-ه-ي","type":"participle","kind":"active participle","form":"I","gender":"f","src":"quran","q":"69:16:1-5","qen":"and the sky splits open, and that day it is frail"}
+{"w":"وَهَى","en":"to be weak, to be flimsy","root":"و-ه-ي","type":"verb","kind":"verb","form":"I","past":"وَهَى","pres":"يَهِي","masdar":"وَهْي","src":"msa"}
+{"skip":"هذا","why":"the particle هَا (47:38), not a word of و-ه-ي"}
+{"skip":"كان","why":"يَكُ is a form of كان (root ك-و-ن), not a word of و-ي-ك"}
+{"w":"وَيْل","en":"woe, ruin","root":"و-ي-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"2:79:1-4","qen":"So woe to those who write the Book"}
+{"skip":"وَيْلَتَىٰٓ","why":"وَيْل with the pronoun suffix ي, in the call يا وَيْلَتي"}
+{"skip":"وَيْلَت","why":"وَيْل in the call يا وَيْلَتَنا with the suffix نا"}
+{"skip":"ويل","why":"same word as the entry وَيْل"}
+{"w":"يَئِسَ","en":"to despair, to give up hope","root":"ي-أ-س","type":"verb","kind":"verb","form":"I","past":"يَئِسَ","pres":"يَيْأَسُ","masdar":"يَأْس","src":"quran","q":"5:3:31-36","qen":"Today those who disbelieve have despaired of your religion"}
+{"w":"اسْتَيْأَسَ","en":"to lose all hope","root":"ي-أ-س","type":"verb","kind":"verb","form":"X","past":"اسْتَيْأَسَ","pres":"يَسْتَيْئِسُ","masdar":"اسْتِيئاس","src":"quran","q":"12:80:1-3","qen":"So when they had lost all hope of him"}
+{"w":"يَؤُوس","en":"despairing, hopeless","root":"ي-أ-س","type":"adjective","kind":"intensive adjective","src":"msa","note":"Occurs in the Qur'an at 11:9 and 41:49 as a description of man in hardship."}
+{"w":"يَأْس","en":"despair, hopelessness","root":"ي-أ-س","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"يائِس","en":"despairing, hopeless","root":"ي-أ-س","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"يائِسون","src":"msa"}
+{"w":"مَيْؤُوس","en":"hopeless, desperate","root":"ي-أ-س","type":"participle","kind":"passive participle","form":"I","gender":"m","src":"msa","note":"Usually in the phrase مَيْؤُوس مِنْه, hopeless."}
+{"skip":"يئس","why":"same verb as the entry يَئِسَ"}
+{"skip":"يئسوا","why":"inflected form of يَئِسَ"}
+{"skip":"يَـُٔوس","why":"noun and adjective tokens are the same word as the entry يَؤُوس"}
+{"w":"يابِس","en":"dry","root":"ي-ب-س","type":"participle","kind":"active participle","form":"I","gender":"m","src":"quran","q":"6:59:25-27","qen":"nor anything moist or dry"}
+{"skip":"يَابِسَٰت","why":"feminine plural of يابِس"}
+{"w":"يَبَس","en":"dryness, dry ground","root":"ي-ب-س","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"20:77:9-13","qen":"and strike for them a dry path through the sea"}
+{"w":"يابِسَة","en":"dry land, land","root":"ي-ب-س","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa","note":"Usually with the article, اليابِسَة, land as opposed to sea."}
+{"w":"يَبِسَ","en":"to dry up, to become dry","root":"ي-ب-س","type":"verb","kind":"verb","form":"I","past":"يَبِسَ","pres":"يَيْبَسُ","masdar":"يُبُوسَة","src":"msa"}
+{"w":"تَيَبَّسَ","en":"to stiffen, to dry out","root":"ي-ب-س","type":"verb","kind":"verb","form":"V","past":"تَيَبَّسَ","pres":"يَتَيَبَّسُ","masdar":"تَيَبُّس","src":"msa"}
+{"w":"يَتِيم","en":"orphan","root":"ي-ت-م","type":"noun","kind":"noun","gender":"m","plural":"يَتامى","src":"quran","q":"93:6:1-3","qen":"Did He not find you an orphan"}
+{"w":"يَتِمَ","en":"to be orphaned","root":"ي-ت-م","type":"verb","kind":"verb","form":"I","past":"يَتِمَ","pres":"يَيْتَمُ","masdar":"يُتْم","src":"msa"}
+{"w":"يُتْم","en":"orphanhood","root":"ي-ت-م","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"يَتَّمَ","en":"to orphan","root":"ي-ت-م","type":"verb","kind":"verb","form":"II","past":"يَتَّمَ","pres":"يُيَتِّمُ","masdar":"تَيْتيم","src":"msa"}
+{"skip":"عقدة","why":"belongs to root ع-ق-د (36:83 tagging error), not a word of ي-د-و"}
+{"skip":"يد","why":"same word as the entry يَد (root ي-د-ي)"}
+{"w":"يَد","en":"hand","root":"ي-د-ي","type":"noun","kind":"noun","gender":"f","plural":"أَيْدي","src":"quran","q":"3:182:1-4","qen":"That is for what your hands have sent forward"}
+{"skip":"أَيْد","why":"plural of يَد"}
+{"w":"يَدَوِيّ","en":"manual, handmade","root":"ي-د-ي","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"يَسير","en":"easy, slight","root":"ي-س-ر","type":"adjective","kind":"adjective","src":"quran","q":"4:30:10-13","qen":"and that is easy for God"}
+{"skip":"يَسِير","why":"adjective and noun tokens (a little) are the same word as the entry يَسير"}
+{"w":"يَسَّرَ","en":"to make easy","root":"ي-س-ر","type":"verb","kind":"verb","form":"II","past":"يَسَّرَ","pres":"يُيَسِّرُ","masdar":"تَيْسير","src":"quran","q":"19:97:1-3","qen":"We have only made it easy in your tongue"}
+{"w":"تَيَسَّرَ","en":"to be easy, to become available","root":"ي-س-ر","type":"verb","kind":"verb","form":"V","past":"تَيَسَّرَ","pres":"يَتَيَسَّرُ","masdar":"تَيَسُّر","src":"quran","q":"73:20:26-30","qen":"so recite what is easy of the Qur'an"}
+{"skip":"تيسر","why":"same verb as the entry تَيَسَّرَ"}
+{"w":"اسْتَيْسَرَ","en":"to be obtainable, to be easy","root":"ي-س-ر","type":"verb","kind":"verb","form":"X","past":"اسْتَيْسَرَ","pres":"يَسْتَيْسِرُ","masdar":"اسْتِيسار","src":"quran","q":"2:196:7-10","qen":"then whatever offering is obtainable"}
+{"w":"يُسْر","en":"ease","root":"ي-س-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"2:185:28-31","qen":"God intends ease for you"}
+{"skip":"يُسْرَىٰ","why":"feminine form of أَيْسَر with the sense of يُسْر, ease"}
+{"w":"مَيْسِر","en":"gambling, game of chance","root":"ي-س-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"2:219:3-4","qen":"about wine and games of chance","note":"The pre-Islamic arrow-drawing game of chance; in modern usage also gambling in general."}
+{"w":"مَيْسَرَة","en":"ease, prosperity","root":"ي-س-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"quran","q":"2:280:5-7","qen":"then a delay until a time of ease"}
+{"w":"مَيْسُور","en":"easy, affordable","root":"ي-س-ر","type":"participle","kind":"passive participle","form":"I","gender":"m","src":"quran","q":"17:28:11-12","qen":"then speak to them a gentle word","note":"In 17:28 a kind, easy word; in modern usage, feasible or affordable."}
+{"w":"يَسُرَ","en":"to be easy","root":"ي-س-ر","type":"verb","kind":"verb","form":"I","past":"يَسُرَ","pres":"يَيْسُرُ","masdar":"يُسْر","src":"msa"}
+{"w":"تَيْسير","en":"facilitation, making easy","root":"ي-س-ر","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُيَسَّر","en":"facilitated, made easy","root":"ي-س-ر","type":"participle","kind":"passive participle","form":"II","gender":"m","src":"msa"}
+{"w":"أَيْسَر","en":"easier, left","root":"ي-س-ر","type":"adjective","kind":"comparative","src":"msa","note":"Also the usual word for left side or left-handed, as in الجانِب الأَيْسَر."}
+{"skip":"يَغُوث","why":"proper name, belongs to the rootless shard"}
+{"w":"يَقْطين","en":"gourd, squash","root":"ي-ق-ط-ن","type":"noun","kind":"noun","gender":"m","plural":"يَقاطين","src":"msa","note":"Occurs once in the Qur'an (37:146), the plant that sheltered Jonah."}
+{"w":"أَيْقاظ","en":"awake (plural)","root":"ي-ق-ظ","type":"noun","kind":"plural","gender":"m","src":"quran","q":"18:18:1-2","qen":"And you would think them awake"}
+{"w":"يَقِظ","en":"awake, alert","root":"ي-ق-ظ","type":"adjective","kind":"adjective","plural":"أَيْقاظ","src":"msa"}
+{"w":"يَقْظان","en":"awake, vigilant","root":"ي-ق-ظ","type":"adjective","kind":"adjective","plural":"أَيْقاظ","src":"msa"}
+{"w":"يَقَظَة","en":"wakefulness, alertness","root":"ي-ق-ظ","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"اسْتَيْقَظَ","en":"to wake up","root":"ي-ق-ظ","type":"verb","kind":"verb","form":"X","past":"اسْتَيْقَظَ","pres":"يَسْتَيْقِظُ","masdar":"اسْتِيقاظ","src":"msa"}
+{"w":"تَيَقَّظَ","en":"to be alert, to wake up","root":"ي-ق-ظ","type":"verb","kind":"verb","form":"V","past":"تَيَقَّظَ","pres":"يَتَيَقَّظُ","masdar":"تَيَقُّظ","src":"msa"}
+{"w":"إِيقاظ","en":"waking someone up","root":"ي-ق-ظ","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَيْقَنَ","en":"to be certain","root":"ي-ق-ن","type":"verb","kind":"verb","form":"IV","past":"أَيْقَنَ","pres":"يُوقِنُ","masdar":"إِيقان","src":"quran","q":"2:4:10-12","qen":"and of the Hereafter they are certain"}
+{"w":"اسْتَيْقَنَ","en":"to be convinced","root":"ي-ق-ن","type":"verb","kind":"verb","form":"X","past":"اسْتَيْقَنَ","pres":"يَسْتَيْقِنُ","masdar":"اسْتِيقان","src":"quran","q":"27:14:1-4","qen":"and they denied them, though their souls were convinced"}
+{"w":"يَقين","en":"certainty","root":"ي-ق-ن","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"15:99:1-5","qen":"and worship your Lord until the certainty comes to you","note":"In 15:99 the certainty is death; in general, certainty."}
+{"skip":"يَقِين","why":"adjective tokens are the same word as the entry يَقين"}
+{"skip":"يقين","why":"same word as the entry يَقين"}
+{"skip":"يوقن","why":"inflected form of أَيْقَنَ"}
+{"w":"مُوقِن","en":"certain, firmly believing","root":"ي-ق-ن","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُوقِنون","src":"quran","q":"6:75:7-9","qen":"and so that he would be of those with certainty"}
+{"w":"مُسْتَيْقِن","en":"convinced, sure","root":"ي-ق-ن","type":"participle","kind":"active participle","form":"X","gender":"m","plural":"مُسْتَيْقِنون","src":"quran","q":"45:32:20-22","qen":"and we are not convinced"}
+{"w":"تَيَقَّنَ","en":"to be sure of","root":"ي-ق-ن","type":"verb","kind":"verb","form":"V","past":"تَيَقَّنَ","pres":"يَتَيَقَّنُ","masdar":"تَيَقُّن","src":"msa"}
+{"w":"يَقينِيّ","en":"certain, definite","root":"ي-ق-ن","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"يَمّ","en":"sea","root":"ي-م-م","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"7:136:3-5","qen":"and We drowned them in the sea"}
+{"w":"تَيَمَّمَ","en":"to head for, to perform tayammum","root":"ي-م-م","type":"verb","kind":"verb","form":"V","past":"تَيَمَّمَ","pres":"يَتَيَمَّمُ","masdar":"تَيَمُّم","src":"quran","q":"4:43:36-41","qen":"and find no water, then seek clean earth","note":"In 4:43 it is the dry ablution with clean earth; in 2:267 it means to aim at."}
+{"skip":"V:I","why":"the tokens tagged form I (فتيمموا) are the same verb تَيَمَّمَ, form V"}
+{"skip":"V:V","why":"same verb as the entry تَيَمَّمَ"}
+{"w":"يَمَّمَ","en":"to direct, to turn toward","root":"ي-م-م","type":"verb","kind":"verb","form":"II","past":"يَمَّمَ","pres":"يُيَمِّمُ","masdar":"تَيْمِيم","src":"msa"}
+{"w":"تَيَمُّم","en":"tayammum, dry ablution","root":"ي-م-م","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"skip":"يَمِين","why":"already in the bank (يَمين)"}
+{"w":"أَيْمَن","en":"right-hand, more to the right","root":"ي-م-ن","type":"adjective","kind":"adjective","src":"quran","q":"19:52:3-5","qen":"from the right side of the mountain"}
+{"w":"مَيْمَنَة","en":"right side","root":"ي-م-ن","type":"noun","kind":"noun","gender":"f","plural":"مَيامِن","src":"quran","q":"56:8:1-2","qen":"So the companions of the right"}
+{"w":"مَيْمون","en":"auspicious, blessed","root":"ي-م-ن","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"يُمْن","en":"good fortune, blessing","root":"ي-م-ن","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَيَمَّنَ","en":"to seek good omen","root":"ي-م-ن","type":"verb","kind":"verb","form":"V","past":"تَيَمَّنَ","pres":"يَتَيَمَّنُ","masdar":"تَيَمُّن","src":"msa"}
+{"w":"يَنْع","en":"ripeness, ripening","root":"ي-ن-ع","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"6:99:37-38","qen":"when it bears fruit and ripens"}
+{"w":"أَيْنَعَ","en":"to ripen","root":"ي-ن-ع","type":"verb","kind":"verb","form":"IV","past":"أَيْنَعَ","pres":"يُونِعُ","masdar":"إِينَاع","src":"msa"}
+{"w":"يانِع","en":"ripe","root":"ي-ن-ع","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"يَهُودِيّ","en":"Jew, Jewish","root":"ي-ه-و-د","type":"adjective","kind":"relative adjective","plural":"يَهُود","src":"msa","note":"The Qur'an uses the plural اليَهود, for example 2:113."}
+{"w":"يَهُودِيَّة","en":"Judaism","root":"ي-ه-و-د","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"skip":"يَوْم","why":"already in the bank (يَوم)"}
+{"skip":"يوم","why":"already in the bank (يَوم)"}
+{"skip":"يومئذ","why":"function word يَوْمَئِذ, not a separate lexeme"}
+{"skip":"جند","why":"tagging error on الْيَوْمُ (70:44), same as يَوْم"}
+{"w":"يَوْمِيّ","en":"daily","root":"ي-و-م","type":"adjective","kind":"relative adjective","src":"msa"}
+{"skip":"مُّوقِنِين","why":"plural of مُوقِن"}
+{"skip":"مُسْتَيْقِنِين","why":"plural of مُسْتَيْقِن"}
