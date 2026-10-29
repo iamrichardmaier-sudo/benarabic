@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Souq al-Qamar</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Reem+Kufi:wght@500;700&family=Amiri:wght@400;700&display=swap">
+<style>
+/* Layout: one full-screen canvas (the souq) with parchment panels floating at the edges. */
+:root {
+  --paper: #fbf1dc;
+  --paper-2: #f3e2bf;
+  --ink: #4a3226;
+  --ink-soft: #7a5a45;
+  --teal: #2f7a78;
+  --saffron: #d99a2b;
+  --rose: #c4566b;
+  --shade: rgba(74, 50, 38, 0.28);
+  --ground: #e9d3a4;
+  --font-hand: "Patrick Hand", "Comic Sans MS", "Segoe Print", system-ui, sans-serif;
+  --font-display: "Reem Kufi", "Patrick Hand", system-ui, sans-serif;
+  --font-arabic: "Amiri", "Geeza Pro", "Noto Naskh Arabic", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #2c221c; --paper-2: #3a2d24; --ink: #f2e3c6; --ink-soft: #cbb291;
+    --shade: rgba(0, 0, 0, 0.45); --ground: #1d1814; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #2c221c; --paper-2: #3a2d24; --ink: #f2e3c6; --ink-soft: #cbb291;
+  --shade: rgba(0, 0, 0, 0.45); --ground: #1d1814; color-scheme: dark;
+}
+html, body { height: 100%; margin: 0; overflow: hidden; }
+body {
+  background: var(--ground); color: var(--ink); font-family: var(--font-hand); font-size: 17px;
+  -webkit-tap-highlight-color: transparent; user-select: none; -webkit-user-select: none;
+}
+#world { position: fixed; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; cursor: default; }
+
+.panel {
+  background: var(--paper); border: 2px solid var(--ink); border-radius: 14px 10px 16px 12px;
+  box-shadow: 3px 4px 0 var(--shade);
+}
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, a:focus-visible, select:focus-visible { outline: 3px solid var(--saffron); outline-offset: 2px; }
+
+/* HUD */
+#hud {
+  position: fixed; top: calc(10px + env(safe-area-inset-top, 0px)); left: max(12px, env(safe-area-inset-left, 0px));
+  padding: 8px 14px 10px; max-width: min(320px, calc(100vw - 140px)); pointer-events: none;
+}
+#hud h1 { margin: 0; font-family: var(--font-display); font-size: 21px; font-weight: 700; line-height: 1.1; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+#hud h1 .ar { font-family: var(--font-arabic); font-weight: 700; font-size: 20px; color: var(--teal); }
+#hud .line { font-size: 15px; color: var(--ink-soft); display: flex; gap: 10px; flex-wrap: wrap; font-variant-numeric: tabular-nums; }
+#tools {
+  position: fixed; top: calc(10px + env(safe-area-inset-top, 0px)); right: max(12px, env(safe-area-inset-right, 0px));
+  display: flex; gap: 8px;
+}
+.tool { width: 46px; height: 46px; display: grid; place-items: center; font-size: 20px; padding: 0; background: var(--paper); }
+.tool[aria-pressed="true"] { background: var(--paper-2); }
+#hint {
+  position: fixed; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); left: 50%; transform: translateX(-50%);
+  padding: 6px 14px; font-size: 15px; color: var(--ink-soft); white-space: nowrap; pointer-events: none; transition: opacity .6s;
+}
+
+/* Side sheets: places list + room */
+.sheet {
+  position: fixed; z-index: 20; top: calc(8px + env(safe-area-inset-top, 0px)); bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+  right: max(8px, env(safe-area-inset-right, 0px)); width: min(440px, calc(100vw - 16px));
+  display: flex; flex-direction: column; overflow: hidden;
+  transform: translateX(110%); transition: transform .35s cubic-bezier(.2,.9,.3,1.1);
+}
+.sheet.open { transform: none; }
+@media (prefers-reduced-motion: reduce) { .sheet { transition: none; } }
+.sheet header { display: flex; align-items: center; gap: 10px; padding: 12px 14px 8px; border-bottom: 2px dashed var(--shade); }
+.sheet header h2 { margin: 0; font-family: var(--font-display); font-size: 22px; flex: 1; min-width: 0; text-wrap: balance; }
+.sheet header .ar { font-family: var(--font-arabic); color: var(--teal); font-size: 20px; }
+.sheet .body { overflow-y: auto; padding: 12px 14px 18px; display: flex; flex-direction: column; gap: 14px; user-select: text; -webkit-user-select: text; }
+.close { width: 38px; height: 38px; background: var(--paper-2); border: 2px solid var(--ink); border-radius: 50%; font-size: 18px; line-height: 1; }
+
+#roomArt { width: 100%; aspect-ratio: 16 / 9; max-width: 100%; border: 2px solid var(--ink); border-radius: 10px; display: block; background: var(--paper-2); }
+
+.place-list { display: flex; flex-direction: column; gap: 8px; }
+.place-btn {
+  display: grid; grid-template-columns: 34px 1fr auto; align-items: center; gap: 10px; text-align: left;
+  background: var(--paper-2); border: 2px solid var(--ink); border-radius: 10px 12px 9px 13px; padding: 8px 10px;
+}
+.place-btn .ico { font-size: 22px; text-align: center; }
+.place-btn .who { font-size: 14px; color: var(--ink-soft); }
+.place-btn .badge { font-family: var(--font-display); color: var(--rose); font-size: 20px; }
+
+.card { border: 2px solid var(--ink); border-radius: 12px 10px 14px 11px; padding: 12px; background: var(--paper-2); display: flex; flex-direction: column; gap: 8px; }
+.card .top { display: grid; grid-template-columns: 64px 1fr; gap: 12px; align-items: center; }
+.card canvas.portrait { width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--ink); background: var(--paper); }
+.card h3 { margin: 0; font-family: var(--font-display); font-size: 20px; line-height: 1.1; }
+.card .job { color: var(--ink-soft); font-size: 15px; }
+.card p { margin: 0; line-height: 1.35; }
+.status { display: inline-flex; align-items: center; gap: 6px; font-size: 15px; padding: 1px 10px; border-radius: 999px; border: 1.5px solid var(--ink); width: fit-content; }
+.status.working { background: color-mix(in srgb, var(--saffron) 35%, transparent); }
+.status.idle { background: color-mix(in srgb, var(--teal) 22%, transparent); }
+.status.msg { background: color-mix(in srgb, var(--rose) 30%, transparent); }
+.hearts { font-size: 20px; letter-spacing: 2px; color: var(--rose); }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; text-align: center; font-variant-numeric: tabular-nums; }
+.stats div { border: 1.5px dashed var(--shade); border-radius: 8px; padding: 4px 2px; }
+.stats b { display: block; font-family: var(--font-display); font-size: 19px; }
+.stats span { font-size: 12px; color: var(--ink-soft); letter-spacing: .04em; text-transform: uppercase; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn { background: var(--paper); border: 2px solid var(--ink); border-radius: 9px 11px 8px 12px; padding: 5px 12px; text-decoration: none; color: var(--ink); font-size: 16px; display: inline-flex; align-items: center; gap: 6px; }
+.btn.primary { background: var(--teal); color: #fff8ea; }
+.addr { font-size: 14px; display: flex; gap: 6px; align-items: center; flex-wrap: wrap; word-break: break-all; }
+.addr code { background: var(--paper); border: 1.5px solid var(--shade); border-radius: 6px; padding: 1px 6px; font-size: 13px; }
+.talk { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.talk select { font: inherit; font-size: 15px; background: var(--paper); color: var(--ink); border: 2px solid var(--ink); border-radius: 8px; padding: 3px 6px; }
+.log { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 15px; }
+.log li { border-left: 3px solid var(--saffron); padding-left: 8px; line-height: 1.3; }
+.log time { color: var(--ink-soft); font-size: 13px; display: block; }
+.note { font-size: 14px; color: var(--ink-soft); line-height: 1.4; margin: 0; }
+h4 { margin: 0; font-family: var(--font-display); font-size: 17px; }
+
+#toasts { position: fixed; z-index: 30; left: 50%; transform: translateX(-50%); top: calc(70px + env(safe-area-inset-top, 0px)); display: flex; flex-direction: column; gap: 6px; align-items: center; pointer-events: none; }
+.toast { padding: 6px 14px; font-size: 16px; animation: pop .35s ease-out; }
+@keyframes pop { from { transform: scale(.8); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .toast { animation: none; } }
+
+@media (max-width: 520px) {
+  #hud h1 { font-size: 18px; }
+  #hud .line { font-size: 13px; }
+  .tool { width: 40px; height: 40px; font-size: 18px; }
+  .sheet { left: max(8px, env(safe-area-inset-left, 0px)); width: auto; }
+}
+</style>
+</head>
+<body>
+<canvas id="world" aria-label="The souq. Tap the ground to walk, tap a building to go inside."></canvas>
+
+<div id="hud" class="panel">
+  <h1><span id="vName">Souq al-Qamar</span><span class="ar" id="vNameAr" lang="ar">سوق القمر</span></h1>
+  <div class="line"><span id="clock">--:--</span><span id="weather">…</span></div>
+  <div class="line"><span id="place"></span></div>
+</div>
+
+<div id="tools">
+  <button class="tool panel" id="btnPlaces" aria-label="Places" title="Places">🗺️</button>
+  <button class="tool panel" id="btnSound" aria-label="Sound" aria-pressed="false" title="Sound">🔇</button>
+</div>
+
+<div id="hint" class="panel">Tap the ground to walk · tap a building to go in</div>
+
+<aside id="placesSheet" class="sheet panel" aria-label="Places" aria-hidden="true">
+  <header><h2>Places in the souq</h2><button class="close" data-close="placesSheet" aria-label="Close">✕</button></header>
+  <div class="body"><div class="place-list" id="placeList"></div></div>
+</aside>
+
+<aside id="roomSheet" class="sheet panel" aria-label="Room" aria-hidden="true">
+  <header><h2 id="roomTitle">Room</h2><span class="ar" id="roomTitleAr" lang="ar"></span><button class="close" data-close="roomSheet" aria-label="Close">✕</button></header>
+  <div class="body" id="roomBody">
+    <canvas id="roomArt" width="640" height="360"></canvas>
+    <div id="roomContent"></div>
+  </div>
+</aside>
+
+<div id="toasts" aria-live="polite"></div>
+
+<script src="config.js"></script>
+<script src="data/agents.js"></script>
+<script src="data/state.js"></script>
+<script src="js/core.js"></script>
+<script src="js/art.js"></script>
+<script src="js/world.js"></script>
+<script src="js/sky.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/agents.js"></script>
+<script src="js/room.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
