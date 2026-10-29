@@ -53,6 +53,7 @@ database, git, or any other file.
 | `q`, `qen` | the Qur'an excerpt. `q` is `"c:v:first-last"`, word numbers from the `verse` command. Required for `src: quran`; for `msa` words add one only if a verse genuinely shows that same word. Choose the **shortest span (usually 3 to 9 words, never more than 14)** that makes sense and clearly contains the word. `qen` is your own plain-English rendering of exactly that span (a phrase, not a whole verse), no Arabic. Never type the Arabic of the verse; the pipeline copies it. |
 | `see` | optional, up to 2 semantic links outside the root: `[{"w": "صَحيفة", "label": "Synonym (page, scroll)"}]`. Labels: `Synonym (...)`, `Opposite (...)`, `Often paired with (...)`. Only well-known, certain pairs. |
 | `note` | optional, one sentence on usage or on a Qur'anic sense that differs from modern usage |
+| `override` | rare escape hatch, a one-line reason. The validator rejects a word that lacks its root's letters (فَم, "mouth", has lost the ه of ف-و-ه) and an excerpt with no word of the root according to the corpus's single root assignment (فَواق, فُوم and a few others are assigned another root). If you are **certain** the word is of this root and the verse really contains it, set `"override": "why"`; it is reported for review. Use it for at most a handful of entries, never to silence a doubt: when in doubt, leave the word out. |
 
 Homographs that share one bare spelling (a verb and a participle with the same letters) are normal;
 write both, the merge step disambiguates. Do not invent disambiguators.
