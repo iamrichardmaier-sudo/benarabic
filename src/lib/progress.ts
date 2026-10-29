@@ -1,5 +1,6 @@
 /**
- * The learner's XP and chosen background, shared by every screen.
+ * The learner's XP, chosen background and chosen flashcard script, shared by
+ * every screen and by the iOS widget, which reads the same row.
  *
  * XP shows the moment it is earned and is sent to the database in batches
  * (add_xp in supabase/migrations/..._add_user_progress.sql). Until a batch is
@@ -8,6 +9,7 @@
  */
 import { supabase } from '@/integrations/supabase/client';
 import { levelFor } from './levels';
+import { readPreferences, setCardFont as setLocalCardFont } from './preferences';
 import { today } from './streak';
 
 export interface ProgressSnapshot {
@@ -26,7 +28,7 @@ type LooseClient = {
   from: (table: string) => {
     select: (cols: string) => {
       eq: (col: string, v: string) => {
-        maybeSingle: () => Promise<{ data: { xp: number; background: string | null } | null; error: DbError }>;
+        maybeSingle: () => Promise<{ data: { xp: number; background: string | null; card_font?: string | null } | null; error: DbError }>;
         gte: (col: string, v: string) => Promise<{ data: { day: string; xp: number }[] | null; error: DbError }>;
       };
     };
@@ -139,7 +141,11 @@ export async function loadProgress(id: string | null): Promise<void> {
   emit();
   if (!id) return;
   try {
-    const { data, error } = await db.from('user_progress').select('xp, background').eq('user_id', id).maybeSingle();
+    let res = await db.from('user_progress').select('xp, background, card_font').eq('user_id', id).maybeSingle();
+    // Before the card_font migration is deployed the column does not exist;
+    // that must not cost the XP read.
+    if (res.error) res = await db.from('user_progress').select('xp, background').eq('user_id', id).maybeSingle();
+    const { data, error } = res;
     if (id !== userId) return;
     if (!error) {
       serverXp = data?.xp ?? 0;
@@ -147,6 +153,11 @@ export async function loadProgress(id: string | null): Promise<void> {
       if (data?.background !== undefined && !localStorage.getItem(key('background-dirty'))) {
         background = data?.background ?? null;
       }
+      // The script chosen on another device, or in the widget, follows the
+      // account here. Same rule: an unsent choice made on this device wins.
+      const font = data?.card_font;
+      if (localStorage.getItem(key('card-font-dirty'))) void setCardFont(readPreferences().cardFont);
+      else if (font && font !== readPreferences().cardFont) setLocalCardFont(font);
     }
   } catch {
     /* offline: keep the last known totals */
@@ -212,6 +223,18 @@ export async function setBackground(id: string | null): Promise<void> {
   try {
     const { error } = await db.rpc('set_background', { background_id: id });
     if (!error) writeLocal('background-dirty', null);
+  } catch {
+    /* kept on this device; sent with the next choice */
+  }
+}
+
+/** Choose the flashcard script: shown at once, and saved to the account so the widget and other devices follow. */
+export async function setCardFont(id: string): Promise<void> {
+  setLocalCardFont(id);
+  writeLocal('card-font-dirty', '1');
+  try {
+    const { error } = await db.rpc('set_card_font', { font_id: id });
+    if (!error) writeLocal('card-font-dirty', null);
   } catch {
     /* kept on this device; sent with the next choice */
   }

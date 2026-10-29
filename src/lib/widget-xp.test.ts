@@ -7,7 +7,7 @@ const src = readFileSync('scripts/scriptable/wazn-review.js', 'utf8');
 const slice = (from: string, to: string) => src.slice(src.indexOf(from), src.indexOf(to));
 const code = [
   slice('function isoDay(', '// ------------------------------------------------------------------ auth'),
-  slice('/**\n * Sends one day\'s XP', '/** The learner\'s XP and chosen background'),
+  slice('/**\n * Sends one day\'s XP', '/** The learner\'s XP, chosen background'),
 ].join('\n');
 
 interface Call { url: string; method: string; body?: string }

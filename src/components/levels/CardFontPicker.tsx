@@ -4,7 +4,7 @@ import { CARD_FONTS, effectiveCardFont, loadCardFont } from '@/lib/card-fonts';
 import { usePreferences } from '@/hooks/usePreferences';
 import { useProgress } from '@/hooks/useProgress';
 import { levelFor } from '@/lib/levels';
-import { setCardFont } from '@/lib/preferences';
+import { setCardFont } from '@/lib/progress';
 
 const SAMPLE = 'كِتَابٌ';
 
@@ -38,7 +38,7 @@ const CardFontPicker = () => {
                 disabled={locked}
                 aria-label={locked ? `${f.name}, unlocks at level ${f.level}` : `${f.name}: ${f.blurb}`}
                 title={f.blurb}
-                onClick={() => setCardFont(f.id)}
+                onClick={() => void setCardFont(f.id)}
                 className={`relative flex w-full flex-col items-center gap-0.5 rounded-xl border-2 px-2 pb-2 pt-1 transition-colors disabled:cursor-not-allowed ${
                   selected ? 'border-primary bg-primary/5' : 'border-border/60 hover:enabled:border-primary/50'
                 }`}

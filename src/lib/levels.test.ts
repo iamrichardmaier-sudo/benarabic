@@ -53,6 +53,27 @@ describe('the widget colours', () => {
   });
 });
 
+describe('the widget scripts', () => {
+  it('match the app\'s card scripts: same ids, levels and Google Fonts families, in order', async () => {
+    const { readFileSync } = await import('node:fs');
+    const { CARD_FONTS } = await import('./card-fonts');
+    const src = readFileSync('scripts/scriptable/wazn-review.js', 'utf8');
+    const start = src.indexOf('const WIDGET_FONTS = [');
+    const block = src.slice(start, src.indexOf('];', start));
+    const rows = [...block.matchAll(/\{ id: "([a-z-]+)", level: (\d+),.*?family: "([^"]+)"/g)].map((m) => [m[1], Number(m[2]), m[3]]);
+    expect(rows).toEqual(CARD_FONTS.map((f) => [f.id, f.level, f.family]));
+  });
+
+  it('have a rendered background for every level, at every widget size', async () => {
+    const { existsSync } = await import('node:fs');
+    const { BACKGROUNDS } = await import('@/components/backgrounds/backgrounds');
+    const missing = BACKGROUNDS.flatMap((b) =>
+      ['small', 'medium', 'large'].map((s) => `public/widget/bg/${b.id}-${s}.jpg`).filter((f) => !existsSync(f)),
+    );
+    expect(missing).toEqual([]);
+  });
+});
+
 describe('card scripts', () => {
   it('unlocks one script per level, starting with Naskh', async () => {
     const { CARD_FONTS } = await import('./card-fonts');

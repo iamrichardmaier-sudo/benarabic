@@ -141,8 +141,9 @@ have checked your answer, so hearing it never gives the order away.
 Every card graded here earns XP toward your Wazn level, the same as in the web app: 3 for
 *Again*, 10 for *Easy*, half that when practising. When you close the session the script
 sends the session's total in one call (`add_xp` in the database) and the closing message
-shows it, e.g. *+120 XP · Level 4*. If the session reached a new level it says so; open
-Wazn to see the new background, which you can switch to there or in Settings.
+shows it, e.g. *+120 XP · Level 4*. If the session reached a new level it says so; the new
+background and script can be picked straight from the widget (see below) or in the app's
+Settings.
 
 If the XP cannot be saved (no signal, or the database has not been set up with the two
 migrations in `supabase/migrations/`), it is kept on the phone in the Keychain and sent
@@ -151,12 +152,52 @@ with the next session; the closing message says how much is waiting. Nothing is 
 The session is sent with the phone's own date, so it counts toward that day's goal and your
 streak in the app.
 
-The widget also shows your level and how much XP is left to the next one, in the colours of
-the background you picked in the app (a deep night palette for the night scenes).
+The widget also shows your level and how much XP is left to the next one.
 
-The XP table, level thresholds and widget colours (`WIDGET_THEMES`, one row per background)
-are copied from the app — keep them in step; a test in `src/lib/levels.test.ts` checks that
-they match.
+The XP table, level thresholds, widget colours (`WIDGET_THEMES`, one row per background) and
+scripts (`WIDGET_FONTS`, one row per card script) are copied from the app — keep them in
+step; tests in `src/lib/levels.test.ts` check that they match.
+
+### Font and background
+
+What you unlock by levelling up shows on the widget too, and can be changed from it.
+
+- **The background** is the app's own art, not a colour that hints at it. Each level
+  background is rendered from the app's drawings at the three widget sizes
+  (`scripts/widget-art/render.mjs`, into `public/widget/bg/`) and served with the site; the
+  widget fetches the one it needs once and keeps it. A soft wash is baked in behind the
+  word, the header and the level bar so text never fights a lantern or a dome.
+- **The word** is drawn in the script your cards use. None of the level scripts ship with
+  iOS, and a widget can only use installed fonts, so a hidden WebView loads the script from
+  Google Fonts (only the glyphs of that word), draws it onto a canvas and hands back an
+  image. The last drawing is kept, so a refresh with the same word costs nothing. If the
+  script cannot be drawn — no signal on the very first refresh, say — the widget uses the
+  nearest face iOS has (`ios` in `WIDGET_FONTS`) rather than showing nothing.
+- **The review session** sets the cards in the same script.
+
+**Changing them.** The picker lists every background (with its art) and every script (with
+the word drawn in it), what is unlocked, and the level each locked one opens at. A preview
+at the top shows the widget as it will look. It opens from:
+
+- the **Aa** in the top corner of a **medium or large** widget (a small widget has only one
+  tap target, which belongs to the review);
+- the **Aa** at the top of the review session — tap it, and the picker opens when you swipe
+  the session down;
+- **Font & background** on the *All caught up* message.
+
+Both choices are saved to your account (`set_background`, `set_card_font`), the same as
+choosing them in the app's Settings — so the app follows a choice made on the phone, and
+the widget follows one made in the app. The widget shows a change on its next refresh,
+which iOS schedules.
+
+To re-render the art after a background is added or redrawn:
+
+```sh
+node scripts/widget-art/render.mjs
+```
+
+then bump `BG_ART_VERSION` in `wazn-review.js` so phones fetch the new drawings instead of
+keeping the cached ones.
 
 ### The front-loaded phase
 
