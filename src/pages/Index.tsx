@@ -26,6 +26,7 @@ import RootExplorer from '@/components/roots/RootExplorer';
 import FormsTab from '@/components/forms/FormsTab';
 import FormExplorer from '@/components/forms/FormExplorer';
 import DeckSearch from '@/components/DeckSearch';
+import DictionaryScreen from '@/components/dictionary/DictionaryScreen';
 import SettingsScreen from '@/components/SettingsScreen';
 import PdfToAudio from '@/components/PdfToAudio';
 import LearnDecks from '@/components/decks/LearnDecks';
@@ -77,7 +78,7 @@ import { useToast } from '@/hooks/use-toast';
  * is cleared once rather than left behind.
  */
 /** Screens that use the full width on a laptop; the rest keep a reading width. */
-const WIDE_VIEWS = new Set<View>(['home', 'learnHub', 'library', 'deck', 'learnDecks', 'rootExplorer', 'lookup', 'verbForms']);
+const WIDE_VIEWS = new Set<View>(['home', 'learnHub', 'library', 'deck', 'learnDecks', 'rootExplorer', 'lookup', 'verbForms', 'dictionary']);
 
 const RETIRED_ACTIVE_GROUP_KEY = 'arabic-flashcards-active-group';
 
@@ -99,17 +100,29 @@ const Index = () => {
   const [view, setView] = useState<View>(initial.view);
   /** Where in the Library the address points ("bible/John/3"). */
   const [libraryPath, setLibraryPath] = useState(initial.libraryPath ?? '');
-  /** What the dictionary opens on when arriving from a deck search that found nothing. */
-  const [lookupQuery, setLookupQuery] = useState('');
-  const lookUp = (query: string) => {
-    setLookupQuery(query);
-    setTab('learn');
-    setView('lookup');
-  };
-  // A query carried over from a deck search is for that one visit.
+  /** Where in the dictionary the address points: "", a word, or "root/<root>". */
+  const [dictPath, setDictPath] = useState(initial.dictPath ?? '');
+  /** A search carried into the dictionary from Home or Learn. */
+  const [dictQuery, setDictQuery] = useState('');
+  /**
+   * Arrived from a public dictionary page's "Add to my flashcards"
+   * (/learn/dictionary/<word>?add=1): the word is added once it has loaded.
+   * The flag is read once and dropped from the address, so a refresh does not
+   * add it again.
+   */
+  const [dictAutoAdd, setDictAutoAdd] = useState(
+    () => initial.view === 'dictionary' && new URLSearchParams(window.location.search).get('add') === '1',
+  );
   useEffect(() => {
-    if (view !== 'lookup') setLookupQuery('');
-  }, [view]);
+    if (!new URLSearchParams(window.location.search).has('add')) return;
+    window.history.replaceState(window.history.state, '', window.location.pathname);
+  }, []);
+  const openDictionary = useCallback((target: { word?: string; root?: string; query?: string } = {}) => {
+    setDictQuery(target.query ?? '');
+    setDictPath(target.word ?? (target.root ? `root/${target.root}` : ''));
+    setTab('learn');
+    setView('dictionary');
+  }, []);
   const [reviewItems, setReviewItems] = useState<{ card: FlashCard; direction: ReviewDirection }[]>([]);
   /**
    * True while running the practice set rather than the day's reviews.
@@ -235,7 +248,7 @@ const Index = () => {
   // page just loaded) nothing is pushed. The tab is kept in the entry's
   // state because a few screens (My Deck, decks) can be reached from more
   // than one tab.
-  const url = pathFor({ tab, view, libraryPath, podcastId: podcast?.id ?? initial.podcastId });
+  const url = pathFor({ tab, view, libraryPath, dictPath, podcastId: podcast?.id ?? initial.podcastId });
   useEffect(() => {
     if (window.location.pathname === url) {
       window.history.replaceState({ ...(window.history.state ?? {}), waznTab: tab }, '');
@@ -250,6 +263,7 @@ const Index = () => {
       setTab((e.state?.waznTab as Tab | undefined) ?? loc.tab);
       setView(loc.view);
       if (loc.view === 'library') setLibraryPath(loc.libraryPath ?? '');
+      if (loc.view === 'dictionary') setDictPath(loc.dictPath ?? '');
     };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
@@ -431,6 +445,7 @@ const Index = () => {
       case 'review': return startReview();
       case 'relearn': return setShowRelearnModal(true);
       case 'learnDecks': return setView('learnDecks');
+      case 'dictionary': return openDictionary();
       default: return setView(destination as View);
     }
   };
@@ -505,7 +520,11 @@ const Index = () => {
           root: word.root ?? null,
           wordType: (word.wordType as FlashCard['wordType']) ?? null,
           verbForm: (word.verbForm as FlashCard['verbForm']) ?? null,
-          wordVoweled: word.word,
+          wordVoweled: word.wordVoweled ?? word.word,
+          fushaPlural: word.fushaPlural ?? null,
+          pastTense: word.pastTense ?? null,
+          presentTense: word.presentTense ?? null,
+          masdarForm: word.masdarForm ?? null,
         },
       ]);
       if (added.length === 0) {
@@ -673,7 +692,7 @@ const Index = () => {
 
   return (
     <DeckContext.Provider value={cards}>
-    <DeckActionsContext.Provider value={{ addWord: addWordFromReader }}>
+    <DeckActionsContext.Provider value={{ addWord: addWordFromReader, openDictionary }}>
     <div className="isolate min-h-screen bg-background flex flex-col lg:ps-60">
       <AppBackground />
       <NowPlayingBar hidden={!showPlayBar} />
@@ -716,7 +735,7 @@ const Index = () => {
       <main className={`flex-1 mx-auto w-full px-4 pt-8 max-w-lg lg:px-8 lg:pt-10 ${showPlayBar ? 'pb-48 lg:pb-32' : 'pb-28 lg:pb-12'} ${WIDE_VIEWS.has(view) ? 'lg:max-w-4xl' : 'lg:max-w-2xl'}`}>
         {view === 'home' && (
           <>
-            <DeckSearch cards={cards} onLookUp={lookUp} className="mb-6" />
+            <DeckSearch cards={cards} onLookUp={(q) => openDictionary({ query: q })} onOpenWord={(ref) => openDictionary({ word: ref })} className="mb-6" />
             {cards.length === 0 && user?.email && (
               <div className="rounded-xl border border-border/60 bg-muted/50 p-4 mb-5 text-sm text-muted-foreground space-y-1">
                 <p className="text-foreground font-medium">This account has no cards yet.</p>
@@ -745,8 +764,6 @@ const Index = () => {
           </>
         )}
 
-        {view === 'learnHub' && <DeckSearch cards={cards} onLookUp={lookUp} className="mb-6" />}
-
         {view === 'learnHub' && (
           <LearnHub
             dueCount={dueCount}
@@ -759,6 +776,7 @@ const Index = () => {
             deckSize={cards.length}
             onSelect={openLearnDestination}
             onOpenPodcast={(p) => { setPodcast(p); setPodcastRegister(null); setView('podcast'); }}
+            search={<DeckSearch cards={cards} onLookUp={(q) => openDictionary({ query: q })} onOpenWord={(ref) => openDictionary({ word: ref })} />}
           />
         )}
 
@@ -956,11 +974,24 @@ const Index = () => {
           <NumbersDrill cards={studyCards} onBack={() => setView('learnHub')} />
         )}
 
+        {view === 'dictionary' && (
+          <DictionaryScreen
+            path={dictPath}
+            onPathChange={(p) => { setDictQuery(''); setDictPath(p); }}
+            deck={cards}
+            onAdd={addWordFromReader}
+            onBack={() => setView('learnHub')}
+            initialQuery={dictQuery}
+            onSearchBible={() => setView('lookup')}
+            autoAdd={dictAutoAdd && !loading}
+            onAutoAdded={() => setDictAutoAdd(false)}
+          />
+        )}
+
         {view === 'lookup' && (
           <WordLookup
             deck={cards}
-            initialQuery={lookupQuery}
-            onBack={() => { setLookupQuery(''); setView('learnHub'); }}
+            onBack={() => openDictionary()}
           />
         )}
 

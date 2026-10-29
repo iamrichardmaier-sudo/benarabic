@@ -88,6 +88,7 @@ ${othersHtml}
       title, description, path, body, jsonLd,
       crumbs: [['Roots', '/roots/'], [root, path]],
       credits: [CREDIT_WIKTIONARY(''), CREDIT_FREQUENCY],
+      appPath: `/learn/dictionary/root/${encodeURIComponent(root)}/`,
     }),
   };
 }

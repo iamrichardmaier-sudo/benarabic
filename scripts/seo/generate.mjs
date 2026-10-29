@@ -34,6 +34,7 @@ import {
 } from './lib/site-pages.mjs';
 import { FORM_LIST } from './lib/forms.mjs';
 import { validate } from './lib/validate.mjs';
+import { appData } from './lib/app-data.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO = path.resolve(__dirname, '../..');
@@ -169,7 +170,7 @@ if (errors.length) {
 
 // ------------------------------------------------------------------- write
 
-const GENERATED_DIRS = ['word', 'words', 'root', 'roots', 'form', 'forms', 'guide'];
+const GENERATED_DIRS = ['word', 'words', 'root', 'roots', 'form', 'forms', 'guide', 'dict'];
 for (const d of GENERATED_DIRS) fs.rmSync(path.join(PUBLIC, d), { recursive: true, force: true });
 
 for (const p of pages) {
@@ -179,6 +180,15 @@ for (const p of pages) {
 }
 fs.writeFileSync(path.join(PUBLIC, '404.html'), render404());
 fs.writeFileSync(path.join(PUBLIC, 'words/search.json'), JSON.stringify(searchIndex(words, ctx)));
+
+// Every entry, not just the published ones, for the app's dictionary screens.
+{
+  const { index, shards } = appData(dict, { wordSlug });
+  fs.mkdirSync(path.join(PUBLIC, 'dict/s'), { recursive: true });
+  fs.writeFileSync(path.join(PUBLIC, 'dict/index.json'), JSON.stringify(index));
+  shards.forEach((s, n) => fs.writeFileSync(path.join(PUBLIC, `dict/s/${n}.json`), JSON.stringify(s)));
+  console.log(`  app dictionary: ${index.length} entries in ${shards.length} shards`);
+}
 
 // ------------------------------------------- lastmod, sitemaps and IndexNow
 

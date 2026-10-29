@@ -249,7 +249,7 @@ const WordLookup = ({ deck, onAdd, onBack, initialQuery = '' }: WordLookupProps)
 
   return (
     <div className="w-full max-w-md mx-auto space-y-4">
-      <BackButton onClick={onBack} label="Learn" />
+      <BackButton onClick={onBack} label="Dictionary" />
 
       <div className="space-y-1">
         <h1 className="text-2xl font-bold text-foreground">Look up a word</h1>

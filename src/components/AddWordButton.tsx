@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Check, Plus, Loader2 } from 'lucide-react';
 import { useDeck } from '@/contexts/DeckContext';
 import { useDeckActions, type NewWord } from '@/contexts/DeckActionsContext';
+import DictionaryLink from '@/components/dictionary/DictionaryLink';
 import { wordKey } from '@/lib/word-relations';
 
 /**
@@ -37,16 +38,22 @@ const AddWordButton = ({ word }: { word: NewWord }) => {
     }
   };
 
+  const lookUp = <DictionaryLink word={word.word} className="w-full justify-center py-0.5" />;
+
   if (held) {
     return (
-      <p className="flex items-center justify-center gap-1.5 rounded-lg bg-success/10 py-1.5 text-xs font-medium text-success">
-        <Check className="h-3.5 w-3.5" />
-        In your cards
-      </p>
+      <div className="space-y-1.5">
+        <p className="flex items-center justify-center gap-1.5 rounded-lg bg-success/10 py-1.5 text-xs font-medium text-success">
+          <Check className="h-3.5 w-3.5" />
+          In your cards
+        </p>
+        {lookUp}
+      </div>
     );
   }
 
   return (
+    <div className="space-y-1.5">
     <button
       type="button"
       onClick={onClick}
@@ -60,6 +67,8 @@ const AddWordButton = ({ word }: { word: NewWord }) => {
       )}
       Add to my cards
     </button>
+    {lookUp}
+    </div>
   );
 };
 

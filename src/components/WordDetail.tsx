@@ -6,6 +6,7 @@ import { dialectView, showsShaamiRows } from '@/lib/dialect';
 import { usePreferences } from '@/hooks/usePreferences';
 import type { BibleWordTag } from '@/hooks/useBibleWordTags';
 import { Row, Section } from '@/components/WordSections';
+import DictionaryLink from '@/components/dictionary/DictionaryLink';
 
 interface WordDetailProps {
   card: FlashCard;
@@ -182,6 +183,10 @@ const WordDetail = ({ card, deck = [], includeCorpus = false, className = '' }: 
             <p className="mt-1 text-xs text-muted-foreground/70">{card.quranReference}</p>
           )}
         </Section>
+      )}
+
+      {card.wordType !== 'sentence' && (
+        <DictionaryLink word={card.wordVoweled || card.word} className="pt-1" />
       )}
     </div>
   );

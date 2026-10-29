@@ -7,6 +7,12 @@ export interface NewWord {
   root?: string | null;
   wordType?: string | null;
   verbForm?: string | null;
+  /** The voweled spelling, when `word` is not already voweled. */
+  wordVoweled?: string | null;
+  fushaPlural?: string | null;
+  pastTense?: string | null;
+  presentTense?: string | null;
+  masdarForm?: string | null;
 }
 
 interface DeckActions {
@@ -17,6 +23,12 @@ interface DeckActions {
    * it — and the button that calls it is simply not rendered there.
    */
   addWord?: (word: NewWord) => Promise<void>;
+  /**
+   * Open the dictionary: on a search (pass the query),
+   * a word (its slug or id), or a root ("root/ك-ت-ب"). Undefined where there
+   * is no app around the component, and the link is then not shown.
+   */
+  openDictionary?: (target: { word?: string; root?: string; query?: string }) => void;
 }
 
 /**

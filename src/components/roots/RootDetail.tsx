@@ -4,6 +4,7 @@ import BackButton from '@/components/BackButton';
 import SpeakButton from '@/components/SpeakButton';
 import WordDetail from '@/components/WordDetail';
 import { useDeckActions } from '@/contexts/DeckActionsContext';
+import DictionaryLink from '@/components/dictionary/DictionaryLink';
 import type { FlashCard, VerbForm } from '@/lib/spaced-repetition';
 import { VERB_FORM_GLOSSES } from '@/lib/morphology';
 import { entriesForRoots, entryToCardFields, type DictionaryEntry } from '@/lib/dictionary';
@@ -262,6 +263,8 @@ const RootDetail = ({ root, cards, meaning, onBack }: RootDetailProps) => {
           </div>
         </section>
       )}
+
+      <DictionaryLink root={root} className="px-1" />
     </div>
   );
 };
