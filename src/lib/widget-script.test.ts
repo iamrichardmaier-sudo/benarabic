@@ -7,11 +7,11 @@ import { readFileSync } from 'node:fs';
 // rather than on the phone.
 describe('the Scriptable review page', () => {
   const src = readFileSync('scripts/scriptable/wazn-review.js', 'utf8');
-  const start = src.indexOf('function reviewHTML(');
+  const start = src.indexOf('function scriptCSS(');
   const end = src.indexOf('\nasync function runReview');
   const consts = (src.match(/^const (BRAND|CREAM|INK) = .*$/gm) ?? []).join('\n');
   const reviewHTML = new Function(`${consts}\n${src.slice(start, end)}\nreturn reviewHTML;`)() as (
-    cards: unknown[], practice: boolean, pieces: number | 'all',
+    cards: unknown[], practice: boolean, pieces: number | 'all', font?: { id: string; family: string; tall?: boolean },
   ) => string;
 
   it('builds, and its script parses', () => {
@@ -19,5 +19,14 @@ describe('the Scriptable review page', () => {
     const script = html.slice(html.lastIndexOf('<script>') + 8, html.lastIndexOf('</script>'));
     expect(() => new Function(script)).not.toThrow();
     expect(script).toContain('let PIECES = 3;');
+  });
+
+  it('sets the cards in the chosen script', () => {
+    const html = reviewHTML([{ id: 'a', word: 'كتاب' }], true, 'all', { id: 'nastaliq', family: 'Gulzar', tall: true });
+    expect(html).toContain('family=Gulzar:wght@400;700');
+    expect(html).toContain(".ar, .tile, .row .val { font-family:'Gulzar'");
+    expect(html).toContain('line-height:1.9');
+    const script = html.slice(html.lastIndexOf('<script>') + 8, html.lastIndexOf('</script>'));
+    expect(() => new Function(script)).not.toThrow();
   });
 });

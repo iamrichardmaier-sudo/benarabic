@@ -204,7 +204,7 @@ describe('the widget can practise this week\'s words', () => {
 
   it('says on the page that nothing is being rescheduled', () => {
     expect(SOURCE).toContain('nothing is rescheduled');
-    expect(SOURCE).toContain('function reviewHTML(cards, practice, pieces)');
+    expect(SOURCE).toContain('function reviewHTML(cards, practice, pieces, font)');
   });
 
   it('offers a choice only when there is a choice to make', () => {

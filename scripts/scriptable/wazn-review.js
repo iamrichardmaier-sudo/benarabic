@@ -7,8 +7,10 @@
  * ---------------------------------------------------------------------------
  * Two modes in one file:
  *
- *   WIDGET   Shows how many cards are due and the next word's Arabic. Tapping
- *            it launches the review session below.
+ *   WIDGET   Shows how many cards are due and the next word's Arabic, drawn in
+ *            the script and over the background chosen for this level. Tapping
+ *            it launches the review session below; the Aa on a medium or
+ *            large widget opens the font and background picker.
  *
  *   IN APP   A full-screen review session. Tap the middle to flip; once the
  *            answer is showing, tap the LEFT third for "Again" and the RIGHT
@@ -222,16 +224,32 @@ async function addXp(token, amount) {
   return { total, waiting: 0 };
 }
 
-/** The learner's XP and chosen background, or null when unavailable. */
+/** The learner's XP, chosen background and chosen script, or null when unavailable. */
 async function fetchProgress(token) {
   try {
-    const req = new Request(`${SUPABASE_URL}/rest/v1/user_progress?select=xp,background`);
+    const req = new Request(`${SUPABASE_URL}/rest/v1/user_progress?select=xp,background,card_font`);
     req.headers = restHeaders(token);
     const rows = await req.loadJSON();
     if (!Array.isArray(rows)) return null;
-    return { xp: rows[0] ? rows[0].xp : 0, bg: rows[0] ? rows[0].background : null };
+    const r = rows[0] || {};
+    return { xp: r.xp || 0, bg: r.background || null, font: r.card_font || null };
   } catch {
     return null;
+  }
+}
+
+/** Calls a database function that answers with nothing. True when it was taken. */
+async function callRpc(token, fn, body) {
+  try {
+    const req = new Request(`${SUPABASE_URL}/rest/v1/rpc/${fn}`);
+    req.method = "POST";
+    req.headers = restHeaders(token);
+    req.body = JSON.stringify(body);
+    await req.loadString();
+    const status = req.response ? Number(req.response.statusCode) : 0;
+    return status >= 200 && status < 300;
+  } catch {
+    return false;
   }
 }
 
@@ -239,29 +257,239 @@ async function fetchProgress(token) {
 // page, text and accent, plus a second page colour for the night scenes.
 // Add a row here when a background is added there.
 const WIDGET_THEMES = {
-  parchment: { bg: CREAM, ink: INK, accent: BRAND },
-  "star-lattice": { bg: CREAM, ink: INK, accent: BRAND },
-  trellis: { bg: CREAM, ink: INK, accent: "#A0522D" },
-  "hex-garden": { bg: CREAM, ink: INK, accent: "#8A6D1F" },
-  khatam: { bg: CREAM, ink: INK, accent: "#B5651D" },
-  zellige: { bg: "#FBF6EC", ink: INK, accent: "#1F7A74" },
-  arabesque: { bg: CREAM, ink: INK, accent: "#5F7F3A" },
-  "arches-dusk": { bg: "#FBEEE2", ink: INK, accent: "#C0582F" },
-  "lantern-glow": { bg: "#FDF5E4", ink: INK, accent: "#B8862A" },
-  "starry-night": { bg: "#26306B", bg2: "#0A0D24", ink: "#F3ECD8", accent: "#F2D48A" },
-  "desert-mosque": { bg: "#3B1F55", bg2: "#140A19", ink: "#F6E7DA", accent: "#F39C5A" },
-  "gold-girih": { bg: "#114747", bg2: "#082626", ink: "#F3ECD8", accent: "#D4AF37" },
-  alhambra: { bg: "#22336B", bg2: "#0D1636", ink: "#EFE8D6", accent: "#E8D8A8" },
-  "lantern-night": { bg: "#2B1650", bg2: "#120A24", ink: "#F6EAD2", accent: "#FFD27A" },
-  "celestial-dome": { bg: "#3A1D52", bg2: "#1B1446", ink: "#FFF6D0", accent: "#D4AF37" },
+  parchment: { bg: CREAM, ink: INK, accent: BRAND, name: "Parchment" },
+  "star-lattice": { bg: CREAM, ink: INK, accent: BRAND, name: "Star Lattice" },
+  trellis: { bg: CREAM, ink: INK, accent: "#A0522D", name: "Moroccan Trellis" },
+  "hex-garden": { bg: CREAM, ink: INK, accent: "#8A6D1F", name: "Hexagon Garden" },
+  khatam: { bg: CREAM, ink: INK, accent: "#B5651D", name: "Khatam" },
+  zellige: { bg: "#FBF6EC", ink: INK, accent: "#1F7A74", name: "Zellige" },
+  arabesque: { bg: CREAM, ink: INK, accent: "#5F7F3A", name: "Arabesque" },
+  "arches-dusk": { bg: "#FBEEE2", ink: INK, accent: "#C0582F", name: "Arches at Dusk" },
+  "lantern-glow": { bg: "#FDF5E4", ink: INK, accent: "#B8862A", name: "Lantern Glow" },
+  "starry-night": { bg: "#26306B", bg2: "#0A0D24", ink: "#F3ECD8", accent: "#F2D48A", name: "Starry Night" },
+  "desert-mosque": { bg: "#3B1F55", bg2: "#140A19", ink: "#F6E7DA", accent: "#F39C5A", name: "Desert Mosque" },
+  "gold-girih": { bg: "#114747", bg2: "#082626", ink: "#F3ECD8", accent: "#D4AF37", name: "Gold Girih" },
+  alhambra: { bg: "#22336B", bg2: "#0D1636", ink: "#EFE8D6", accent: "#E8D8A8", name: "Alhambra Courtyard" },
+  "lantern-night": { bg: "#2B1650", bg2: "#120A24", ink: "#F6EAD2", accent: "#FFD27A", name: "Night of Lanterns" },
+  "celestial-dome": { bg: "#3A1D52", bg2: "#1B1446", ink: "#FFF6D0", accent: "#D4AF37", name: "Celestial Dome" },
 };
+
+/** The id of the background to show: the chosen one, or plain when it is not unlocked yet. */
+function widgetBgId(bg, xp) {
+  const order = Object.keys(WIDGET_THEMES); // in level order, 1–15
+  const id = bg || "parchment"; // null is the default plain one
+  const i = order.indexOf(id);
+  if (i < 0 || i + 1 > levelFor(xp || 0)) return "parchment";
+  return id;
+}
 
 /** The theme for a background, falling back to plain when it is not unlocked yet. */
 function widgetTheme(bg, xp) {
-  const order = Object.keys(WIDGET_THEMES); // in level order, 1–15
-  const i = order.indexOf(bg || "parchment");
-  if (i < 0 || i + 1 > levelFor(xp || 0)) return WIDGET_THEMES.parchment;
-  return WIDGET_THEMES[bg];
+  return WIDGET_THEMES[widgetBgId(bg, xp)];
+}
+
+// The scripts a card's Arabic can be shown in, one unlocked per level.
+// Mirrors CARD_FONTS in src/lib/card-fonts.ts (id, level, name, Google Fonts
+// family) — keep the two in step; src/lib/levels.test.ts checks they match.
+//
+// `ios` is the nearest face iOS ships, used only when the real script cannot
+// be drawn: the first refresh with no signal, or a refresh iOS cuts short.
+// The real script is drawn from Google Fonts (see drawArabic below), so on
+// any normal refresh the widget shows the same letters the app does.
+const WIDGET_FONTS = [
+  { id: "naskh", level: 1, name: "Naskh", blurb: "Clear everyday print", family: "Noto Naskh Arabic", ios: null },
+  { id: "scheherazade", level: 2, name: "Scheherazade", blurb: "Roomy book Naskh", family: "Scheherazade New", ios: "TimesNewRomanPS-BoldMT" },
+  { id: "amiri", level: 3, name: "Amiri", blurb: "Classic book Naskh", family: "Amiri", ios: "TimesNewRomanPS-BoldMT" },
+  { id: "messiri", level: 4, name: "Messiri", blurb: "Round, open display face", family: "El Messiri", ios: "AlNile-Bold" },
+  { id: "kufi", level: 5, name: "Kufi", blurb: "Square, geometric letters", family: "Reem Kufi", ios: "DamascusBold" },
+  { id: "mushaf", level: 6, name: "Mu\u1e63\u1e25af Naskh", blurb: "Set like a printed mu\u1e63\u1e25af", family: "Amiri Quran", ios: "DiwanMishafi" },
+  { id: "ruqah", level: 7, name: "Ruq\u02bfah", blurb: "Quick handwriting", family: "Aref Ruqaa", ios: "Farah" },
+  { id: "kufam", level: 8, name: "Wide Kufi", blurb: "Long, light baselines", family: "Kufam", ios: "DamascusLight" },
+  { id: "katibeh", level: 9, name: "Katibeh", blurb: "Tall, high-contrast display", family: "Katibeh", ios: "DamascusSemiBold" },
+  { id: "nastaliq", level: 10, name: "Nasta\u02bfl\u012bq", blurb: "Sweeping, hanging script", family: "Gulzar", ios: "NotoNastaliqUrdu", tall: true },
+  { id: "kano", level: 11, name: "Kano", blurb: "West African hand", family: "Alkalami", ios: "Farah" },
+  { id: "vibes", level: 12, name: "Vibes", blurb: "Light, looping freehand", family: "Vibes", ios: "Farah" },
+  { id: "rakkas", level: 13, name: "Rakkas", blurb: "Bold, dancing display", family: "Rakkas", ios: "DamascusBold" },
+  { id: "jali-nastaliq", level: 14, name: "Jali Nasta\u02bfl\u012bq", blurb: "Nasta\u02bfl\u012bq at its grandest", family: "Noto Nastaliq Urdu", ios: "NotoNastaliqUrdu-Bold", tall: true },
+  { id: "qahiri", level: 15, name: "Manuscript Kufi", blurb: "Early Qur\u02beanic Kufi", family: "Qahiri", ios: "DamascusBold" },
+];
+
+/** The script to show: the chosen one if the level allows it, else Naskh. */
+function widgetFont(id, xp) {
+  const f = WIDGET_FONTS.find((x) => x.id === id) || WIDGET_FONTS[0];
+  return f.level <= levelFor(xp || 0) ? f : WIDGET_FONTS[0];
+}
+
+/** The iOS stand-in for a script, at a size. */
+function fallbackFont(f, size) {
+  if (!f || !f.ios) return Font.boldSystemFont(size);
+  try {
+    return new Font(f.ios, size);
+  } catch {
+    return Font.boldSystemFont(size);
+  }
+}
+
+// ------------------------------------------------------------- the art
+
+// The level backgrounds, drawn from the app's own art at the three widget
+// sizes (scripts/widget-art/render.mjs) and served with the site. Fetched
+// once per background and size, then kept in the cache folder. Bump the
+// version when the art is re-rendered so phones fetch the new drawings.
+const BG_ART_VERSION = 1;
+
+/** "small" | "medium" | "large" — which rendering of the art fits this widget. */
+function artSize() {
+  const family = (typeof config !== "undefined" && config.widgetFamily) || "small";
+  if (family === "medium") return "medium";
+  if (family === "large" || family === "extraLarge") return "large";
+  return "small";
+}
+
+function cacheDir(name) {
+  const fm = FileManager.local();
+  const dir = fm.joinPath(fm.cacheDirectory(), name);
+  if (!fm.fileExists(dir)) fm.createDirectory(dir, true);
+  return dir;
+}
+
+/** A background's art, from the cache or the site. Null for plain parchment, or offline on first use. */
+async function backgroundArt(id, size) {
+  if (!id || id === "parchment") return null;
+  const fm = FileManager.local();
+  const file = fm.joinPath(cacheDir("wazn-bg"), `v${BG_ART_VERSION}-${id}-${size}.jpg`);
+  try {
+    if (fm.fileExists(file)) return fm.readImage(file);
+  } catch {
+    /* a damaged cache file is fetched again below */
+  }
+  try {
+    const img = await new Request(`${SITE_URL}widget/bg/${id}-${size}.jpg`).loadImage();
+    fm.writeImage(file, img);
+    return img;
+  } catch {
+    return null;
+  }
+}
+
+// ------------------------------------------------------ drawing a script
+
+// None of the level scripts ship with iOS, and a widget can only use fonts
+// the system has. So the word is drawn rather than typeset: a hidden WebView
+// loads the script from Google Fonts, draws the word onto a canvas, and hands
+// back a PNG. Only the glyphs of the words being drawn are fetched (the
+// `text=` subset), a few kilobytes, the same way the app's previews load.
+//
+// The page reports a job as failed rather than drawing it in a substitute
+// face, so a script that did not arrive falls back to the iOS stand-in
+// openly instead of passing off the wrong letters as the right ones.
+const DRAW_JS = `
+(async function () {
+  const JOBS = __JOBS__;
+  const out = JOBS.map(function () { return null; });
+  let finished = false;
+  function finish() { if (!finished) { finished = true; completion(JSON.stringify(out)); } }
+  setTimeout(finish, __TIMEOUT__);
+  try {
+    await Promise.all(JOBS.map(function (j) {
+      return document.fonts.load('400 ' + j.size + 'px "' + j.family + '"', j.text).catch(function () {});
+    }));
+    const ready = {};
+    document.fonts.forEach(function (f) {
+      if (f.status === 'loaded') ready[f.family.replace(/["']/g, '')] = true;
+    });
+    JOBS.forEach(function (j, n) {
+      if (!ready[j.family]) return;
+      const S = 3;
+      const c = document.createElement('canvas');
+      c.width = Math.round(j.width * S);
+      c.height = Math.round(j.height * S);
+      const ctx = c.getContext('2d');
+      ctx.scale(S, S);
+      ctx.direction = 'rtl';
+      ctx.textAlign = 'center';
+      ctx.fillStyle = j.color;
+      // Shrink until the word fits both ways, measuring the ink itself:
+      // vowel marks and the deep descenders of Nasta'liq go well outside a
+      // font's nominal line, and a clipped mark is a misspelt word.
+      let size = j.size, m = null;
+      for (; size >= j.min; size -= 1) {
+        ctx.font = '400 ' + size + 'px "' + j.family + '"';
+        m = ctx.measureText(j.text);
+        const w = m.actualBoundingBoxLeft + m.actualBoundingBoxRight;
+        const h = m.actualBoundingBoxAscent + m.actualBoundingBoxDescent;
+        if (w <= j.width * 0.96 && h <= j.height * 0.92) break;
+      }
+      const asc = m.actualBoundingBoxAscent, desc = m.actualBoundingBoxDescent;
+      const x = j.width / 2 + (m.actualBoundingBoxLeft - m.actualBoundingBoxRight) / 2;
+      ctx.fillText(j.text, x, j.height / 2 + (asc - desc) / 2);
+      out[n] = c.toDataURL('image/png').split(',')[1];
+    });
+  } catch (e) {}
+  finish();
+})();
+`;
+
+/**
+ * Draws Arabic in level scripts. Each job is { text, family, color, width,
+ * height, size, min } in points; the answer is one Image per job, or null for
+ * a job that could not be drawn.
+ */
+async function drawArabic(jobs, timeoutMs) {
+  if (!jobs.length) return [];
+  try {
+    const glyphs = {};
+    for (const j of jobs) glyphs[j.family] = (glyphs[j.family] || "") + j.text;
+    const links = Object.keys(glyphs)
+      .map((family) => {
+        const text = [...new Set([...glyphs[family]])].join("");
+        return `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=${encodeURIComponent(family).replace(/%20/g, "+")}&text=${encodeURIComponent(text)}&display=block">`;
+      })
+      .join("");
+    const wv = new WebView();
+    await wv.loadHTML(`<!doctype html><html><head><meta charset="utf-8">${links}</head><body></body></html>`, SITE_URL);
+    const js = DRAW_JS.replace("__JOBS__", JSON.stringify(jobs)).replace("__TIMEOUT__", String(timeoutMs));
+    const raw = await wv.evaluateJavaScript(js, true);
+    const list = JSON.parse(raw || "[]");
+    return jobs.map((_, n) => (list[n] ? Image.fromData(Data.fromBase64String(list[n])) : null));
+  } catch {
+    return jobs.map(() => null);
+  }
+}
+
+/**
+ * The widget's word, drawn in the chosen script. The last drawing is kept per
+ * widget size, so a refresh that shows the same word in the same script
+ * costs nothing.
+ */
+async function widgetWordImage(word, font, color, width, height) {
+  if (!word) return null;
+  const fm = FileManager.local();
+  const dir = cacheDir("wazn-word");
+  const size = artSize();
+  const keyFile = fm.joinPath(dir, `${size}.json`);
+  const imgFile = fm.joinPath(dir, `${size}.png`);
+  const key = JSON.stringify([word, font.family, color, width, height]);
+  try {
+    if (fm.fileExists(keyFile) && fm.readString(keyFile) === key && fm.fileExists(imgFile)) {
+      return fm.readImage(imgFile);
+    }
+  } catch {
+    /* draw it again */
+  }
+  const [img] = await drawArabic(
+    [{ text: word, family: font.family, color, width, height, size: font.tall ? 30 : 34, min: 14 }],
+    9000,
+  );
+  if (img) {
+    try {
+      fm.writeImage(imgFile, img);
+      fm.writeString(keyFile, key);
+    } catch {
+      /* drawn, just not kept */
+    }
+  }
+  return img;
 }
 
 /** Room inside the widget for a full-width row, in points (padding taken off). */
@@ -301,7 +529,7 @@ function xpLine(earned, total, waiting) {
   const level = levelFor(total);
   const before = levelFor(total - earned);
   let line = `\n\n+${earned} XP \u00b7 Level ${level}`;
-  if (level > before) line += `\nLevel up! Open Wazn to see your new background.`;
+  if (level > before) line += `\nLevel up! A new background and script are unlocked \u2014 tap Aa to try them.`;
   return line;
 }
 
@@ -643,11 +871,23 @@ function writeCache(data) {
 
 // ---------------------------------------------------------------- widget
 
-function buildWidget(state) {
+/** The run URL for this script, optionally straight into one of its screens. */
+function runUrl(mode) {
+  const base = `scriptable:///run/${encodeURIComponent(Script.name())}`;
+  return mode ? `${base}?mode=${mode}` : base;
+}
+
+function buildWidget(state, art) {
   const w = new ListWidget();
   const theme = widgetTheme(state.bg, state.xp);
   const ink = theme.ink;
-  if (theme.bg2) {
+  art = art || {};
+  if (art.bg) {
+    // The art carries its own colours; the flat ones stay as the fallback
+    // underneath in case iOS ever draws the widget before the image.
+    w.backgroundColor = new Color(theme.bg);
+    w.backgroundImage = art.bg;
+  } else if (theme.bg2) {
     const g = new LinearGradient();
     g.colors = [new Color(theme.bg), new Color(theme.bg2)];
     g.locations = [0, 1];
@@ -670,6 +910,20 @@ function buildWidget(state) {
     badge.textColor = new Color(theme.accent);
   }
 
+  // Font and background, one tap away. Only on the larger sizes: iOS gives a
+  // small widget a single tap target, which belongs to the review.
+  if (artSize() !== "small") {
+    header.addSpacer(10);
+    const style = header.addStack();
+    style.setPadding(2, 7, 2, 7);
+    style.cornerRadius = 7;
+    style.backgroundColor = new Color(theme.accent, 0.16);
+    style.url = runUrl("style");
+    const aa = style.addText("Aa");
+    aa.font = Font.semiboldSystemFont(11);
+    aa.textColor = new Color(theme.accent);
+  }
+
   w.addSpacer(6);
 
   if (state.error) {
@@ -687,12 +941,18 @@ function buildWidget(state) {
     s.textColor = new Color(ink);
     s.textOpacity = 0.6;
   } else {
-    const word = w.addText(state.word || "");
-    word.font = Font.boldSystemFont(30);
-    word.textColor = new Color(ink);
-    word.centerAlignText();
-    word.minimumScaleFactor = 0.5;
-    word.lineLimit = 2;
+    if (art.word) {
+      const img = w.addImage(art.word);
+      img.imageSize = art.wordSize;
+      img.centerAlignImage();
+    } else {
+      const word = w.addText(state.word || "");
+      word.font = fallbackFont(widgetFont(state.font, state.xp), 30);
+      word.textColor = new Color(ink);
+      word.centerAlignText();
+      word.minimumScaleFactor = 0.5;
+      word.lineLimit = 2;
+    }
 
     w.addSpacer(4);
     const hint = w.addText(
@@ -733,8 +993,29 @@ function buildWidget(state) {
   }
 
   // Tapping anywhere runs this same script, which then falls into review mode.
-  w.url = `scriptable:///run?scriptName=${encodeURIComponent(Script.name())}`;
+  w.url = runUrl();
   return w;
+}
+
+/** Everything the widget draws rather than types: the art, and the word in its script. */
+async function widgetArt(state) {
+  const art = { bg: null, word: null, wordSize: null };
+  const theme = widgetTheme(state.bg, state.xp);
+  const [bg, word] = await Promise.all([
+    backgroundArt(widgetBgId(state.bg, state.xp), artSize()),
+    state.due > 0 && state.word && !state.error
+      ? (async () => {
+          const width = widgetContentWidth();
+          const height = artSize() === "large" ? 96 : 54;
+          const img = await widgetWordImage(state.word, widgetFont(state.font, state.xp), theme.ink, width, height);
+          if (img) art.wordSize = new Size(width, height);
+          return img;
+        })()
+      : null,
+  ]);
+  art.bg = bg;
+  art.word = word;
+  return art;
 }
 
 // -------------------------------------------------------- review session
@@ -753,7 +1034,20 @@ function savedPieces() {
   }
 }
 
-function reviewHTML(cards, practice, pieces) {
+/** CSS that sets the card's Arabic in the chosen script, as the app's cards are. */
+function scriptCSS(font) {
+  if (!font) return "";
+  const family = `'${font.family}', -apple-system, system-ui, sans-serif`;
+  // Only Naskh has a bold; the rest would be smeared by a fake one.
+  const weight = font.id === "naskh" ? 700 : 400;
+  return `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=${encodeURIComponent(font.family).replace(/%20/g, "+")}:wght@400;700&display=swap">
+<style>
+  .ar, .tile, .row .val { font-family:${family}; }
+  .ar { font-weight:${weight}; ${font.tall ? "line-height:1.9;" : ""} }
+</style>`;
+}
+
+function reviewHTML(cards, practice, pieces, font) {
   // Cards are injected as JSON rather than templated into markup, so a word
   // containing a quote or an angle bracket cannot break the page.
   const payload = JSON.stringify(cards).replace(/</g, "\\u003c");
@@ -856,7 +1150,10 @@ function reviewHTML(cards, practice, pieces) {
   .bad { background:rgba(192,57,43,.1); color:#C0392B; }
   .bad .ar { color:${INK}; margin-top:6px; font-size:30px; text-align:center; }
   .result-next { margin-top:10px; }
-</style></head>
+  #style { flex:none; font-size:12px; font-weight:700; color:${BRAND};
+           padding:4px 9px; border-radius:9px; background:rgba(194,98,42,.12); }
+  #style.on { background:${BRAND}; color:#fff; }
+</style>${scriptCSS(font)}</head>
 <body>
 <div id="app">
   <header>
@@ -873,6 +1170,7 @@ function reviewHTML(cards, practice, pieces) {
     </span>
     <div id="bar"><div id="fill"></div></div>
     <span id="count"></span>
+    <span id="style" data-nav="style" title="Font and background">Aa</span>
   </header>
   <div id="quitline"><span id="quit">${practice ? "Practice \u00b7 nothing is rescheduled" : "Swipe down when you\u2019re done"}</span></div>
   <main>
@@ -895,6 +1193,9 @@ function reviewHTML(cards, practice, pieces) {
 <script>
 const CARDS = ${payload};
 const results = [];
+// Set by the Aa button. A page cannot close itself, so the choice is read
+// after the session is swiped away, and the picker opens then.
+let wantStyle = false;
 let i = 0, flipped = false;
 
 /* ------------------------------------------------------- sentence cards */
@@ -1263,6 +1564,14 @@ function esc(s) {
 
 document.addEventListener('click', (e) => {
   if (e.target.closest('[data-nav="site"]')) { ping('open-site'); return; }
+  if (e.target.closest('[data-nav="style"]')) {
+    wantStyle = !wantStyle;
+    $('#style').classList.toggle('on', wantStyle);
+    $('#quit').textContent = wantStyle
+      ? 'Font & background open when you swipe down'
+      : (${practice ? "'Practice \u00b7 nothing is rescheduled'" : "'Swipe down when you\u2019re done'"});
+    return;
+  }
   const st = e.target.closest('[data-s]');
   if (st) { sentenceAct(st.dataset.s, Number(st.dataset.i)); return; }
   const act = e.target.closest('[data-act]');
@@ -1335,6 +1644,7 @@ async function runReview() {
     word: due.length ? due[0].word : "",
     xp: prior.xp,
     bg: prior.bg,
+    font: prior.font,
     at: Date.now(),
   });
 
@@ -1343,7 +1653,8 @@ async function runReview() {
     a.title = "All caught up";
     a.message = "Nothing is due, and nothing new this week to run again.";
     a.addAction("OK");
-    await a.presentAlert();
+    a.addAction("Font & background");
+    if ((await a.presentAlert()) === 1) await runStyle(token);
     return;
   }
 
@@ -1387,7 +1698,8 @@ async function runReview() {
   let saveQueue = Promise.resolve();
 
   const wv = new WebView();
-  await wv.loadHTML(reviewHTML(cards, practice, savedPieces()));
+  const look = readCache() || {};
+  await wv.loadHTML(reviewHTML(cards, practice, savedPieces(), widgetFont(look.font, look.xp)));
 
   // The page cannot call back into Scriptable mid-session, so it navigates to
   // a wazn:// URL instead and this handler intercepts it. Returning false
@@ -1473,6 +1785,13 @@ async function runReview() {
   // dangling if the user swipes down instead of reaching the end.
   await wv.present(true);
 
+  let wantStyle = false;
+  try {
+    wantStyle = (await wv.evaluateJavaScript("String(wantStyle)", false)) === "true";
+  } catch {
+    /* the page was gone; nothing was asked for */
+  }
+
   let graded = [];
   try {
     const raw = await wv.evaluateJavaScript("JSON.stringify(results)", false);
@@ -1526,6 +1845,7 @@ async function runReview() {
       a.addAction("OK");
       await a.presentAlert();
     }
+    if (wantStyle) await runStyle(token);
     return;
   }
 
@@ -1537,6 +1857,7 @@ async function runReview() {
     word: stillDue.length ? stillDue[0].word : "",
     xp: total !== null ? total : before.xp,
     bg: before.bg,
+    font: before.font,
     at: Date.now(),
   });
 
@@ -1547,6 +1868,230 @@ async function runReview() {
     a.addAction("OK");
     await a.presentAlert();
   }
+  if (wantStyle) await runStyle(token);
+}
+
+// ------------------------------------------------- font and background
+
+/**
+ * The picker for the two things a level unlocks: the background behind the
+ * widget, and the script the cards are written in. Both are saved to the
+ * account (set_background, set_card_font), so the app follows a choice made
+ * here and the widget follows one made in the app.
+ */
+async function runStyle(token) {
+  token = token || (await signIn(true));
+  if (!token) {
+    const a = new Alert();
+    a.title = "Could not sign in";
+    a.message = "Check your email and password, then run the script again.";
+    a.addAction("OK");
+    await a.presentAlert();
+    return;
+  }
+
+  const cached = readCache() || {};
+  const progress = await fetchProgress(token);
+  const xp = progress ? progress.xp : cached.xp || 0;
+  const level = levelFor(xp);
+  let bg = widgetBgId(progress ? progress.bg : cached.bg, xp);
+  let font = widgetFont(progress ? progress.font : cached.font, xp).id;
+
+  const ids = Object.keys(WIDGET_THEMES);
+  const SAMPLE = "\u0643\u0650\u062a\u064e\u0627\u0628\u064c"; // كِتَابٌ, as in the app's picker
+  const word = cached.word || SAMPLE;
+
+  // Everything is drawn before the table opens: a UITable cannot wait on a
+  // network call per row. The previews are the word in every script, in
+  // both inks, so switching between light and night art redraws nothing.
+  const LIGHT = INK;
+  const NIGHT = "#F6EAD2";
+  const jobs = [];
+  for (const f of WIDGET_FONTS) {
+    jobs.push({ text: SAMPLE, family: f.family, color: LIGHT, width: 92, height: 46, size: 26, min: 12 });
+  }
+  for (const f of WIDGET_FONTS) {
+    for (const color of [LIGHT, NIGHT]) {
+      jobs.push({ text: word, family: f.family, color, width: 300, height: 74, size: f.tall ? 34 : 40, min: 14 });
+    }
+  }
+  const [drawn, thumbs, wide] = await Promise.all([
+    drawArabic(jobs, 15000),
+    Promise.all(ids.map((id) => backgroundArt(id, "small"))),
+    Promise.all(ids.map((id) => backgroundArt(id, "medium"))),
+  ]);
+  const sample = {};
+  const preview = {};
+  WIDGET_FONTS.forEach((f, n) => {
+    sample[f.id] = drawn[n];
+    preview[f.id] = { [LIGHT]: drawn[WIDGET_FONTS.length + n * 2], [NIGHT]: drawn[WIDGET_FONTS.length + n * 2 + 1] };
+  });
+
+  /** The widget as it will look, at medium size. */
+  function previewImage() {
+    const theme = WIDGET_THEMES[bg];
+    const ink = theme.bg2 ? NIGHT : LIGHT;
+    const W = 364;
+    const H = 170;
+    const ctx = new DrawContext();
+    ctx.size = new Size(W, H);
+    ctx.respectScreenScale = true;
+    ctx.opaque = false;
+    const clip = new Path();
+    clip.addRoundedRect(new Rect(0, 0, W, H), 22, 22);
+    ctx.addPath(clip);
+    ctx.setFillColor(new Color(theme.bg2 || theme.bg));
+    ctx.fillPath();
+    const art = wide[ids.indexOf(bg)];
+    if (art) ctx.drawImageInRect(art, new Rect(0, 0, W, H));
+    ctx.setFont(Font.boldSystemFont(11));
+    ctx.setTextColor(new Color(theme.accent));
+    ctx.drawText("WAZN", new Point(16, 14));
+    const img = preview[font] && preview[font][ink];
+    if (img) {
+      ctx.drawImageInRect(img, new Rect((W - 300) / 2, (H - 74) / 2, 300, 74));
+    } else {
+      ctx.setFont(fallbackFont(widgetFont(font, xp), 34));
+      ctx.setTextColor(new Color(theme.ink));
+      ctx.setTextAlignedCenter();
+      ctx.drawTextInRect(word, new Rect(16, (H - 50) / 2, W - 32, 50));
+    }
+    ctx.setFont(Font.semiboldSystemFont(10));
+    ctx.setTextColor(new Color(theme.accent));
+    ctx.setTextAlignedLeft();
+    ctx.drawText(`Level ${level}`, new Point(16, H - 26));
+    return ctx.getImage();
+  }
+
+  const PAGE = new Color(CREAM);
+  const DIM = new Color(INK, 0.38);
+  const table = new UITable();
+  table.showSeparators = true;
+
+  async function choose(kind, id) {
+    const before = kind === "bg" ? bg : font;
+    if (kind === "bg") bg = id;
+    else font = id;
+    render();
+    const ok =
+      kind === "bg"
+        ? await callRpc(token, "set_background", { background_id: id === "parchment" ? null : id })
+        : await callRpc(token, "set_card_font", { font_id: id });
+    if (!ok) {
+      if (kind === "bg") bg = before;
+      else font = before;
+      render();
+      const a = new Alert();
+      a.title = "Not saved";
+      a.message = "That change could not be saved. Check your connection and try again.";
+      a.addAction("OK");
+      await a.presentAlert();
+    }
+  }
+
+  async function locked(what, at) {
+    const a = new Alert();
+    a.title = `Unlocks at level ${at}`;
+    a.message = `You are level ${level}. Keep reviewing to unlock this ${what}.`;
+    a.addAction("OK");
+    await a.presentAlert();
+  }
+
+  function heading(text) {
+    const r = new UITableRow();
+    r.height = 44;
+    r.backgroundColor = PAGE;
+    const c = r.addText(text.toUpperCase());
+    c.titleFont = Font.boldSystemFont(11);
+    c.titleColor = new Color(INK, 0.5);
+    return r;
+  }
+
+  function check(r, on) {
+    const c = r.addText(on ? "\u2713" : "");
+    c.widthWeight = 12;
+    c.rightAligned();
+    c.titleFont = Font.boldSystemFont(17);
+    c.titleColor = new Color(BRAND);
+  }
+
+  function render() {
+    table.removeAllRows();
+
+    const top = new UITableRow();
+    top.height = 200;
+    top.backgroundColor = PAGE;
+    top.isHeader = true;
+    const pic = top.addImage(previewImage());
+    pic.centerAligned();
+    table.addRow(top);
+
+    table.addRow(heading("Background"));
+    ids.forEach((id, n) => {
+      const theme = WIDGET_THEMES[id];
+      const open = n + 1 <= level;
+      const r = new UITableRow();
+      r.height = 64;
+      r.backgroundColor = PAGE;
+      r.dismissOnSelect = false;
+      const thumb = thumbs[n];
+      if (thumb) {
+        const c = r.addImage(thumb);
+        c.widthWeight = 16;
+      } else {
+        const c = r.addText("");
+        c.widthWeight = 16;
+      }
+      const t = r.addText(theme.name, open ? `Level ${n + 1}` : `Unlocks at level ${n + 1}`);
+      t.widthWeight = 72;
+      t.titleFont = Font.semiboldSystemFont(16);
+      t.titleColor = open ? new Color(INK) : DIM;
+      t.subtitleFont = Font.systemFont(12);
+      t.subtitleColor = DIM;
+      check(r, id === bg);
+      r.onSelect = () => (open ? choose("bg", id) : locked("background", n + 1));
+      table.addRow(r);
+    });
+
+    table.addRow(heading("Script"));
+    WIDGET_FONTS.forEach((f) => {
+      const open = f.level <= level;
+      const r = new UITableRow();
+      r.height = 64;
+      r.backgroundColor = PAGE;
+      r.dismissOnSelect = false;
+      const img = sample[f.id];
+      if (img && open) {
+        const c = r.addImage(img);
+        c.widthWeight = 26;
+      } else {
+        const c = r.addText(open ? SAMPLE : "\u{1F512}");
+        c.widthWeight = 26;
+        c.centerAligned();
+        c.titleFont = open ? fallbackFont(f, 22) : Font.systemFont(16);
+        c.titleColor = new Color(INK);
+      }
+      const t = r.addText(f.name, open ? f.blurb : `Unlocks at level ${f.level}`);
+      t.widthWeight = 62;
+      t.titleFont = Font.semiboldSystemFont(16);
+      t.titleColor = open ? new Color(INK) : DIM;
+      t.subtitleFont = Font.systemFont(12);
+      t.subtitleColor = DIM;
+      check(r, f.id === font);
+      r.onSelect = () => (open ? choose("font", f.id) : locked("script", f.level));
+      table.addRow(r);
+    });
+
+    table.reload();
+  }
+
+  render();
+  await table.present(false);
+
+  // The widget picks the choice up on its next refresh; the cache makes that
+  // refresh right even if it has no signal.
+  const now = readCache() || {};
+  writeCache({ ...now, xp, bg: bg === "parchment" ? null : bg, font, at: Date.now() });
 }
 
 // ------------------------------------------------------------------ main
@@ -1554,7 +2099,7 @@ async function runReview() {
 if (config.runsInWidget) {
   const cached = readCache();
   let state = cached
-    ? { due: cached.due, word: cached.word, xp: cached.xp, bg: cached.bg }
+    ? { due: cached.due, word: cached.word, xp: cached.xp, bg: cached.bg, font: cached.font }
     : { due: 0, word: "", error: "Open the script once to sign in." };
 
   try {
@@ -1565,9 +2110,11 @@ if (config.runsInWidget) {
       if (progress) {
         state.xp = progress.xp;
         state.bg = progress.bg;
+        state.font = progress.font;
       } else if (cached) {
         state.xp = cached.xp;
         state.bg = cached.bg;
+        state.font = cached.font;
       }
       writeCache({ ...state, at: Date.now() });
     } else if (!cached) {
@@ -1577,7 +2124,18 @@ if (config.runsInWidget) {
     // Offline or the token failed: the cached counts are better than an error.
   }
 
-  Script.setWidget(buildWidget(state));
+  // The art and the drawn word are extras: if either fails the widget still
+  // shows, in flat colours and the nearest iOS face.
+  let art = null;
+  try {
+    art = await widgetArt(state);
+  } catch {
+    art = null;
+  }
+  Script.setWidget(buildWidget(state, art));
+  Script.complete();
+} else if (args.queryParameters && args.queryParameters.mode === "style") {
+  await runStyle(null);
   Script.complete();
 } else {
   await runReview();
