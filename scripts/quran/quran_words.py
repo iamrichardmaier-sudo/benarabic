@@ -66,7 +66,8 @@ def canon_root(r):
 
 
 def fold_root(r):
-    return re.sub(r'[-\s]', '', canon_root(r))
+    # Tatweel is stripped too: the bank holds one root typed as ف-هـ-م.
+    return re.sub(r'[-\sـ]', '', canon_root(r))
 
 
 def drop_paren(w):
@@ -232,7 +233,12 @@ def check_entry(work, e, shard_roots, errors, warns, where):
         elif fold_root(root) not in shard_roots:
             err(f'root {root} is not in this shard')
         elif t != 'other' and not has_root(w, root):
-            err(f'"{w}" does not contain the radicals of {root} (wrong root, or wrong word?)')
+            if e.get('override'):
+                warn(f'override ({e["override"]}): "{w}" lacks the radicals of {root}')
+            else:
+                err(f'"{w}" does not contain the radicals of {root} (wrong root, or wrong word?). '
+                    f'If the word really belongs to this root (a dropped radical, as in فَم from ف-و-ه), '
+                    f'add "override": "<why>"')
     elif not e.get('rootless'):
         err('root missing (use "root": null together with "rootless": true only for names, loanwords, numbers)')
 
@@ -287,7 +293,11 @@ def check_entry(work, e, shard_roots, errors, warns, where):
                 if root and root == canon_root(root):
                     roots_in = {work.root_of_token(tk) for tk in toks}
                     if canon_root(root) not in {r for r in roots_in if r}:
-                        err(f'q: no word in {c}:{v}:{i}-{j} has root {root}')
+                        if e.get('override'):
+                            warn(f'override ({e["override"]}): the corpus gives no word of {c}:{v}:{i}-{j} the root {root}')
+                        else:
+                            err(f'q: no word in {c}:{v}:{i}-{j} has root {root} according to the corpus. If you are sure '
+                                f'the verse has the word (the corpus assigns another root), add "override": "<why>"')
                 if not e.get('qen'):
                     err('q needs "qen", your own English rendering of exactly that span')
     if e.get('qen') and re.search('[؀-ۿ]', e['qen']):
