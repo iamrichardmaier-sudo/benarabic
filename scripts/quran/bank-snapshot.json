@@ -1,0 +1,8705 @@
+[
+{
+"key": "ابتدائي/ه",
+"word": "اِبتِدائيّ/ة",
+"word_voweled": "اِبتِدائيّ/ة",
+"english": "primary, elementary",
+"root": "ب-د-أ",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "ابن ج. ابناء / ابن ج. ولاد",
+"word": "اِبْن ج. أَبناء / اِبْن ج. وْلاد",
+"word_voweled": "اِبن",
+"english": "son",
+"root": "ب-ن-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ابن عم ج. ابناء عم / ابن عم ج. ولاد عم",
+"word": "اِبْن عَمّ ج. أَبناء عَمّ / اِبْن عَمّ ج. وْلاد عَمّ",
+"word_voweled": "اِبن عَمّ",
+"english": "cousin (male, paternal)",
+"root": "ع-م-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ابيض",
+"word": "أَبيَض",
+"word_voweled": "أَبيَض",
+"english": "white",
+"root": "ب-ي-ض",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "ابيض/بيضا",
+"word": "أبيَض/بيضا",
+"word_voweled": "أَبيَض/بيضا",
+"english": "White",
+"root": "ب-ي-ض",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "اتخذ",
+"word": "اِتَّخَذَ",
+"word_voweled": "اِتَّخَذَ",
+"english": "to take, adopt (a decision)",
+"root": "أ-خ-ذ",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "اتعلم اللغات",
+"word": "أتعلم اللغات",
+"word_voweled": "أَتَعَلَّم اللُّغات",
+"english": "I learn languages",
+"root": "ع-ل-م",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "اتفرج",
+"word": "أتفرج",
+"word_voweled": "أَتَفَرَّج",
+"english": "I watch",
+"root": "ف-ر-ج",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "اتي",
+"word": "أَتى",
+"word_voweled": "أَتى",
+"english": "to come",
+"root": "أ-ت-ي",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "اجابه",
+"word": "إجابة",
+"word_voweled": "إِجابة",
+"english": "answer",
+"root": "ج-و-ب",
+"word_type": "masdar",
+"verb_form": "IV"
+},
+{
+"key": "اجازه",
+"word": "إجازة",
+"word_voweled": "إِجازة",
+"english": "vacation (from work)",
+"root": "ج-و-ز",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "اجتماعي/ه",
+"word": "اِجتِماعِيّ/ة",
+"word_voweled": "اِجتِماعِيّ/ة",
+"english": "social",
+"root": "ج-م-ع",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "اجل",
+"word": "أَجَّلَ",
+"word_voweled": "أَجَّلَ",
+"english": "to postpone",
+"root": "أ-ج-ل",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "اجنبي",
+"word": "أجنبي",
+"word_voweled": "أَجنَبِيّ",
+"english": "foreign; a foreigner",
+"root": "ج-ن-ب",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "احب",
+"word": "أحب",
+"word_voweled": "أَحَبَّ",
+"english": "to like, to love",
+"root": "ح-ب-ب",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "احتلال",
+"word": "احتلال",
+"word_voweled": "اِحتِلال",
+"english": "occupation (military)",
+"root": "ح-ل-ل",
+"word_type": "masdar",
+"verb_form": "VIII"
+},
+{
+"key": "احد",
+"word": "أَحَد",
+"word_voweled": "أَحَد",
+"english": "someone",
+"root": "أ-ح-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "احسن",
+"word": "أَحسَن",
+"word_voweled": "أَحسَن",
+"english": "the best",
+"root": "ح-س-ن",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "احفظ / احفظ",
+"word": "اِحفَظ / أَحفَظ",
+"word_voweled": "أَحفَظ",
+"english": "I memorize",
+"root": "ح-ف-ظ",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "احلي",
+"word": "أحلى",
+"word_voweled": "أَحلى",
+"english": "sweeter, nicer, the best (elative of حُلو)",
+"root": "ح-ل-و",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "احمر",
+"word": "أَحمَر",
+"word_voweled": "أَحمَر",
+"english": "red",
+"root": "ح-م-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "احمر/حمرا",
+"word": "أحمَر/حَمرا",
+"word_voweled": "أَحمَر/حَمرا",
+"english": "Red",
+"root": "ح-م-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "احيانا",
+"word": "أَحْياناً",
+"word_voweled": "أَحياناً",
+"english": "sometimes",
+"root": "ح-ي-ن",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "اخت",
+"word": "أُخت",
+"word_voweled": "أُخت",
+"english": "sister",
+"root": "أ-خ-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "اختبر",
+"word": "اِختَبَرَ",
+"word_voweled": "اِختَبَرَ",
+"english": "to experience, to go through",
+"root": "خ-ب-ر",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "اخذ",
+"word": "أَخَذَ",
+"word_voweled": "أَخَذَ",
+"english": "to take",
+"root": "أ-خ-ذ",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "اخر",
+"word": "آخِر",
+"word_voweled": "آخِر",
+"english": "the last",
+"root": "أ-خ-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "اخضر",
+"word": "أَخضَر",
+"word_voweled": "أَخضَر",
+"english": "green",
+"root": "خ-ض-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "اخضر/خضرا",
+"word": "أخضَر/خَضرا",
+"word_voweled": "أَخضَر/خَضرا",
+"english": "Green",
+"root": "خ-ض-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "اخي",
+"word": "أخي",
+"word_voweled": "أَخي",
+"english": "my brother",
+"root": "أ-خ-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "اخيرا",
+"word": "أَخيراً",
+"word_voweled": "أَخيراً",
+"english": "finally, at last",
+"root": "أ-خ-ر",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "اداره الاعمال",
+"word": "إدارة الأعمال",
+"word_voweled": "إِدارة الأَعمال",
+"english": "business administration",
+"root": "د-و-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ادرس / بدرس / بادرس",
+"word": "أَدرُس / بِدرُس / بادرُس",
+"word_voweled": "أَدرُس",
+"english": "I study",
+"root": "د-ر-س",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "اديش وزنك / —",
+"word": "اديش وزنك / —",
+"word_voweled": "أَديش وَزنَك",
+"english": "how much do you weigh?",
+"root": "و-ز-ن",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "اذا",
+"word": "إذا",
+"word_voweled": "إِذا",
+"english": "if (+ past tense verb)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "اراد",
+"word": "أَرادَ",
+"word_voweled": "أَرادَ",
+"english": "to want",
+"root": "ر-و-د",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "اراميه",
+"word": "آرامِيّة",
+"word_voweled": "آرامِيّة",
+"english": "Aramaic (the language)",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ارتبط",
+"word": "اِرتَبَطَ",
+"word_voweled": "اِرتَبَطَ",
+"english": "to be linked, connected",
+"root": "ر-ب-ط",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "ارتفع",
+"word": "ارتفع",
+"word_voweled": "اِرتَفَعَ",
+"english": "to rise, go up, increase",
+"root": "ر-ف-ع",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "ارجع / يرجع — رجع",
+"word": "أرجع / يِرجَع — رِجِع",
+"word_voweled": "يِرجَع",
+"english": "to return — he returned / he returns",
+"root": "ر-ج-ع",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "ارز / رز",
+"word": "أَرُز / رُز",
+"word_voweled": "أَرُزّ / رُزّ",
+"english": "Rice",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ارسل",
+"word": "أَرسَلَ",
+"word_voweled": "أَرسَلَ",
+"english": "to send",
+"root": "ر-س-ل",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "ارضي",
+"word": "أَرضى",
+"word_voweled": "أَرضى",
+"english": "to please, satisfy",
+"root": "ر-ض-ي",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "اريكه / كنبايه",
+"word": "أريكة / كنباية",
+"word_voweled": "أَريكة / كَنَباية",
+"english": "Sofa",
+"root": "أ-ر-ك",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ازداد",
+"word": "ازداد",
+"word_voweled": "اِزدادَ",
+"english": "to increase, become larger (of a number)",
+"root": "ز-ي-د",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "ازرق",
+"word": "أَزرَق",
+"word_voweled": "أَزرَق",
+"english": "blue",
+"root": "ز-ر-ق",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "اساسي",
+"word": "أَساسِيّ",
+"word_voweled": "أَساسِيّ",
+"english": "basic, fundamental",
+"root": "أ-س-س",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "اسافر / اسافر",
+"word": "اسافِر / أُسافِر",
+"word_voweled": "أُسافِر",
+"english": "travel",
+"root": "س-ف-ر",
+"word_type": "verb",
+"verb_form": "III"
+},
+{
+"key": "اسبوع / اسبوع ج. اسابيع",
+"word": "إسبوع / أُسْبوع ج. أَسابيع",
+"word_voweled": "أُسبوع",
+"english": "week",
+"root": "س-ب-ع",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "استاجر",
+"word": "اِستَأجَرَ",
+"word_voweled": "اِستَأجَرَ",
+"english": "to rent",
+"root": "أ-ج-ر",
+"word_type": "verb",
+"verb_form": "X"
+},
+{
+"key": "استخدم",
+"word": "اِستَخدَمَ",
+"word_voweled": "اِستَخدَمَ",
+"english": "to use",
+"root": "خ-د-م",
+"word_type": "verb",
+"verb_form": "X"
+},
+{
+"key": "استراحه",
+"word": "استراحة",
+"word_voweled": "اِستِراحة",
+"english": "rest period, break",
+"root": "ر-و-ح",
+"word_type": "noun",
+"verb_form": "X"
+},
+{
+"key": "استشهد",
+"word": "استشهد",
+"word_voweled": "اِستَشهَدَ",
+"english": "to die as a martyr (used in the passive: اُستُشهِدَ, he was martyred)",
+"root": "ش-ه-د",
+"word_type": "verb",
+"verb_form": "X"
+},
+{
+"key": "استعد",
+"word": "اِستَعَدَّ",
+"word_voweled": "اِستَعَدَّ",
+"english": "to get ready for, prepare oneself for",
+"root": "ع-د-د",
+"word_type": "verb",
+"verb_form": "X"
+},
+{
+"key": "استعمل",
+"word": "اِستَعمَلَ",
+"word_voweled": "اِستَعمَلَ",
+"english": "to use",
+"root": "ع-م-ل",
+"word_type": "verb",
+"verb_form": "X"
+},
+{
+"key": "استقبل",
+"word": "اِستَقبَلَ",
+"word_voweled": "اِستَقبَلَ",
+"english": "to receive, to welcome someone",
+"root": "ق-ب-ل",
+"word_type": "verb",
+"verb_form": "X"
+},
+{
+"key": "استقر",
+"word": "اِستَقَرَّ",
+"word_voweled": "اِسْتَقَرَّ",
+"english": "to settle down, become stable",
+"root": "ق-ر-ر",
+"word_type": "verb",
+"verb_form": "X"
+},
+{
+"key": "استقلال",
+"word": "اِستِقلال",
+"word_voweled": "اِستِقلال",
+"english": "independence",
+"root": "ق-ل-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "استلم",
+"word": "اِستَلَمَ",
+"word_voweled": "اِستَلَمَ",
+"english": "to receive",
+"root": "س-ل-م",
+"word_type": "verb",
+"verb_form": "X"
+},
+{
+"key": "استمتع ب",
+"word": "استمتع بـ",
+"word_voweled": "اِستَمتَعَ بِـ",
+"english": "to enjoy",
+"root": "م-ت-ع",
+"word_type": "verb",
+"verb_form": "X"
+},
+{
+"key": "اسره",
+"word": "أُسرة",
+"word_voweled": "أُسرة",
+"english": "family",
+"root": "أ-س-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "اسس",
+"word": "أَسَّسَ",
+"word_voweled": "أَسَّسَ",
+"english": "to found, establish",
+"root": "أ-س-س",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "اسقي الزرع / —",
+"word": "أسقي الزرع / —",
+"word_voweled": "اِسقِ الزَّرع",
+"english": "water the plants! (imperative)",
+"root": "س-ق-ي",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "اسكان",
+"word": "إِسكان",
+"word_voweled": "إِسكان",
+"english": "housing",
+"root": "س-ك-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "اسكن / ساكن / ساكنه / ساكن / ساكنه",
+"word": "أَسكُن / ساكِن / ساكِنة / ساكِن / ساكِنة",
+"word_voweled": "أَسكُن",
+"english": "I live, reside",
+"root": "س-ك-ن",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "اسود",
+"word": "أَسوَد",
+"word_voweled": "أَسوَد",
+"english": "black",
+"root": "س-و-د",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "اسود/سودا",
+"word": "أسوَد/سودا",
+"word_voweled": "أَسوَد/سودا",
+"english": "Black",
+"root": "س-و-د",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "اشار",
+"word": "أَشارَ",
+"word_voweled": "أَشارَ",
+"english": "to indicate, point to",
+"root": "ش-و-ر",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "اشترك",
+"word": "اشترك",
+"word_voweled": "اِشتَرَكَ",
+"english": "to share, take part in, have in common",
+"root": "ش-ر-ك",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "اشتري",
+"word": "اِشتَرى",
+"word_voweled": "اِشتَرى",
+"english": "to buy",
+"root": "ش-ر-ي",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "اشوف",
+"word": "اَشوف",
+"word_voweled": "أَشوف",
+"english": "I see",
+"root": "ش-و-ف",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "اصبح",
+"word": "أصبح",
+"word_voweled": "أَصبَحَ",
+"english": "to become",
+"root": "ص-ب-ح",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "اصفر",
+"word": "أَصفَر",
+"word_voweled": "أَصفَر",
+"english": "yellow",
+"root": "ص-ف-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "اصفر/صفرا",
+"word": "أصفَر/صَفرا",
+"word_voweled": "أَصفَر/صَفرا",
+"english": "Yellow",
+"root": "ص-ف-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "اصلح",
+"word": "أَصلَحَ",
+"word_voweled": "أَصلَحَ",
+"english": "to fix, repair",
+"root": "ص-ل-ح",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "اضاف",
+"word": "أَضافَ",
+"word_voweled": "أَضافَ",
+"english": "to add",
+"root": "ض-ي-ف",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "اطعم / يطعم — اطعم",
+"word": "أطعم / يُطعِم — أطعَمَ",
+"word_voweled": "يُطعِم",
+"english": "to feed — he fed / he feeds",
+"root": "ط-ع-م",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "اطعمي / —",
+"word": "أطعمي / —",
+"word_voweled": "أَطعِمي",
+"english": "feed me! (imperative, said to a female)",
+"root": "ط-ع-م",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "اطفا",
+"word": "أَطفَأَ",
+"word_voweled": "أَطفَأَ",
+"english": "to turn off, switch off",
+"root": "ط-ف-أ",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "اعاد",
+"word": "أعاد",
+"word_voweled": "أَعادَ",
+"english": "to repeat, redo; to return (something)",
+"root": "ع-و-د",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "اعجب",
+"word": "أعجب",
+"word_voweled": "أَعجَبَ",
+"english": "to please, appeal to (أَعجَبَني: I liked it)",
+"root": "ع-ج-ب",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "اعد",
+"word": "أَعَدَّ",
+"word_voweled": "أَعَدَّ",
+"english": "to prepare, get (something) ready",
+"root": "ع-د-د",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "اعدادي/ه",
+"word": "إعدادِيّ/ة",
+"word_voweled": "إِعدادِيّ/ة",
+"english": "preparatory school",
+"root": "ع-د-د",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "اعرف / بعرف",
+"word": "أَعْرِف / بَعرِف",
+"word_voweled": "أَعرِف",
+"english": "I know",
+"root": "ع-ر-ف",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "اعطي",
+"word": "أَعطى",
+"word_voweled": "أَعطى",
+"english": "to give",
+"root": "ع-ط-و",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "اعمل",
+"word": "أَعمَل",
+"word_voweled": "أَعمَل",
+"english": "I work",
+"root": "ع-م-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "اغلق",
+"word": "أَغلَقَ",
+"word_voweled": "أَغلَقَ",
+"english": "to close, to shut",
+"root": "غ-ل-ق",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "افسد",
+"word": "أَفسَدَ",
+"word_voweled": "أَفسَدَ",
+"english": "to spoil, corrupt",
+"root": "ف-س-د",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "افضل",
+"word": "أَفضَل",
+"word_voweled": "أَفضَل",
+"english": "better, best",
+"root": "ف-ض-ل",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "اكبر",
+"word": "أَكْبَر",
+"word_voweled": "أَكبَر",
+"english": "the biggest or oldest",
+"root": "ك-ب-ر",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "اكثر",
+"word": "أكثر",
+"word_voweled": "أَكثَر",
+"english": "more",
+"root": "ك-ث-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "اكمل",
+"word": "أكمل",
+"word_voweled": "أَكمَلَ",
+"english": "to complete, finish (something)",
+"root": "ك-م-ل",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "الا",
+"word": "أَلّا",
+"word_voweled": "أَلّا",
+"english": "not to",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "الادب",
+"word": "الأدب",
+"word_voweled": "الأَدَب",
+"english": "literature",
+"root": "أ-د-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الارضي / الارض",
+"word": "الأرضي / الأرض",
+"word_voweled": "الأَرض",
+"english": "the land, the ground",
+"root": "أ-ر-ض",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الاستقلال",
+"word": "الاِستِقلال",
+"word_voweled": "الاِستِقلال",
+"english": "independence",
+"root": "ق-ل-ل",
+"word_type": "masdar",
+"verb_form": null
+},
+{
+"key": "الاسره / العيله",
+"word": "الأُسرة / العيلة",
+"word_voweled": "الأُسرة",
+"english": "(nuclear) family",
+"root": "أ-س-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الاصفر",
+"word": "الأصفر",
+"word_voweled": "الأَصفَر",
+"english": "the yellow (one)",
+"root": "ص-ف-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "الاقتصاد",
+"word": "الاِقتِصاد",
+"word_voweled": "الاِقتِصاد",
+"english": "economics, economy",
+"root": "ق-ص-د",
+"word_type": "masdar",
+"verb_form": "VIII"
+},
+{
+"key": "الام",
+"word": "أُمّ",
+"word_voweled": "أُمّ",
+"english": "mother",
+"root": "أ-م-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الامم المتحده",
+"word": "الأُمَم المُتَّحِدة",
+"word_voweled": "الأُمَم المُتَّحِدة",
+"english": "United Nations",
+"root": "أ-م-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الان / هلق",
+"word": "الآن / هَلَّق",
+"word_voweled": "الآن",
+"english": "now",
+"root": "أ-و-ن",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "الاهل",
+"word": "الأَهل",
+"word_voweled": "الأَهل",
+"english": "folks, family",
+"root": "أ-ه-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "البحر الابيض المتوسط",
+"word": "البحر الأبيض المتوسط",
+"word_voweled": "البَحر الأَبيَض المُتَوَسِّط",
+"english": "the Mediterranean Sea",
+"root": "ب-ح-ر",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "البصل",
+"word": "البصل",
+"word_voweled": "البَصَل",
+"english": "the onion",
+"root": "ب-ص-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "البندوره",
+"word": "البندورة",
+"word_voweled": "البَندورة",
+"english": "the tomato",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "التاريخ / التاريخ",
+"word": "التاريخ / التاريخ",
+"word_voweled": "التّاريخ",
+"english": "history",
+"root": "أ-ر-خ",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "التجاره",
+"word": "التِّجارة",
+"word_voweled": "التِّجارة",
+"english": "commerce, trade",
+"root": "ت-ج-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "التحق ب",
+"word": "اِلتَحَقَ بـِ",
+"word_voweled": "اِلتَحَقَ بِـ",
+"english": "he joined, entered",
+"root": "ل-ح-ق",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "الترجمه من... الي / الترجمه من... ل",
+"word": "التَرجَمة مِن... إلى / التَرجَمة مِن... لـ",
+"word_voweled": "التَّرجَمة مِن... إلى",
+"english": "translation (from...to)",
+"root": "ت-ر-ج-م",
+"word_type": "masdar",
+"verb_form": null
+},
+{
+"key": "التصوير",
+"word": "التَّصْوير",
+"word_voweled": "التَّصوير",
+"english": "photography",
+"root": "ص-و-ر",
+"word_type": "masdar",
+"verb_form": "II"
+},
+{
+"key": "التي",
+"word": "الَّتي",
+"word_voweled": "الَّتي",
+"english": "who, which (f.)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "الثوم",
+"word": "الثوم",
+"word_voweled": "الثّوم",
+"english": "the garlic",
+"root": "ث-و-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الجري",
+"word": "الجَري",
+"word_voweled": "الجَري",
+"english": "running",
+"root": "ج-ر-ي",
+"word_type": "masdar",
+"verb_form": "I"
+},
+{
+"key": "الجزائر",
+"word": "الجزائر",
+"word_voweled": "الجَزائِر",
+"english": "Algeria",
+"root": "ج-ز-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الجو",
+"word": "الجَوّ",
+"word_voweled": "الجَوّ",
+"english": "weather",
+"root": "ج-و-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الحاسوب",
+"word": "الحاسوب",
+"word_voweled": "الحاسوب",
+"english": "the computer",
+"root": "ح-س-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الحصول علي",
+"word": "الحُصول على",
+"word_voweled": "الحُصول على",
+"english": "to obtain/obtaining",
+"root": "ح-ص-ل",
+"word_type": "masdar",
+"verb_form": "I"
+},
+{
+"key": "الحقوق / الحقوق",
+"word": "الحُقوق / الحُقوق",
+"word_voweled": "الحُقوق",
+"english": "law (as a field of study)",
+"root": "ح-ق-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الحياه",
+"word": "الحَياة",
+"word_voweled": "الحَياة",
+"english": "life",
+"root": "ح-ي-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الخارجيه / الخارجيه",
+"word": "الخارْجِيّة / الخارِجِيّة",
+"word_voweled": "الخارِجِيّة",
+"english": "foreign affairs",
+"root": "خ-ر-ج",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الخجل",
+"word": "الخَجَل",
+"word_voweled": "الخَجَل",
+"english": "shyness, embarrassment",
+"root": "خ-ج-ل",
+"word_type": "masdar",
+"verb_form": "I"
+},
+{
+"key": "الخريف",
+"word": "الخَريف",
+"word_voweled": "الخَريف",
+"english": "autumn",
+"root": "خ-ر-ف",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الدين / الدين",
+"word": "الدّين / الدّين",
+"word_voweled": "الدّين",
+"english": "religion",
+"root": "د-ي-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الذي",
+"word": "الَّذي",
+"word_voweled": "الَّذي",
+"english": "who, which (m.)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "الذين",
+"word": "الَّذين",
+"word_voweled": "الَّذين",
+"english": "who, which (pl.)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "الرب",
+"word": "الرَّبّ",
+"word_voweled": "الرَّبّ",
+"english": "God, (our) Lord",
+"root": "ر-ب-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الربيع",
+"word": "الرَّبيع",
+"word_voweled": "الرَّبيع",
+"english": "spring",
+"root": "ر-ب-ع",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الرطوبه",
+"word": "الرُّطوبة",
+"word_voweled": "الرُّطوبة",
+"english": "humidity",
+"root": "ر-ط-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الرقص",
+"word": "الرَّقص",
+"word_voweled": "الرَّقص",
+"english": "dancing",
+"root": "ر-ق-ص",
+"word_type": "masdar",
+"verb_form": "I"
+},
+{
+"key": "الرياضه",
+"word": "الرِّياضة",
+"word_voweled": "الرِّياضة",
+"english": "sports",
+"root": "ر-و-ض",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الزحمه / الازدحام",
+"word": "الزحَّمة / الاِزدِحام",
+"word_voweled": "الاِزدِحام",
+"english": "crowding, crowdedness",
+"root": "ز-ح-م",
+"word_type": "masdar",
+"verb_form": "VIII"
+},
+{
+"key": "السباحه",
+"word": "السِّباحة",
+"word_voweled": "السِّباحة",
+"english": "swimming",
+"root": "س-ب-ح",
+"word_type": "masdar",
+"verb_form": "I"
+},
+{
+"key": "السفر",
+"word": "السَّفَر",
+"word_voweled": "السَّفَر",
+"english": "traveling",
+"root": "س-ف-ر",
+"word_type": "masdar",
+"verb_form": "I"
+},
+{
+"key": "السنه الماضيه",
+"word": "السَّنة الماضية",
+"word_voweled": "السَّنة الماضية",
+"english": "last year",
+"root": "م-ض-ي",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "السياحه",
+"word": "السِّياحة",
+"word_voweled": "السِّياحة",
+"english": "tourism",
+"root": "س-ي-ح",
+"word_type": "masdar",
+"verb_form": "I"
+},
+{
+"key": "الشتويه / الشتاء",
+"word": "الشِّتوِيِّة / الشِّتاء",
+"word_voweled": "الشِّتاء",
+"english": "winter",
+"root": "ش-ت-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الشرق الاوسط / الشرق الاوسط",
+"word": "الشَرق الأَوسَط / الشَرق الأَوسَط",
+"word_voweled": "الشَّرق الأَوسَط",
+"english": "the Middle East",
+"root": "ش-ر-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الشطرنج",
+"word": "الشَّطَرَنْج",
+"word_voweled": "الشَّطَرَنج",
+"english": "chess",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الصلاه",
+"word": "الصلاة",
+"word_voweled": "الصَّلاة",
+"english": "(ritual) prayer",
+"root": "ص-ل-و",
+"word_type": "masdar",
+"verb_form": "II"
+},
+{
+"key": "الصيف",
+"word": "الصَّيف",
+"word_voweled": "الصَّيف",
+"english": "summer",
+"root": "ص-ي-ف",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الصيف / الصيف",
+"word": "الصَيف / الصَيف",
+"word_voweled": "الصَّيف",
+"english": "Summer",
+"root": "ص-ي-ف",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الضهر / الظهر",
+"word": "الضُّهْر / الظُّهر",
+"word_voweled": "الظُّهر",
+"english": "noon",
+"root": "ظ-ه-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الطب / الطب",
+"word": "الطِّبّ / الطِّبّ",
+"word_voweled": "الطِّبّ",
+"english": "medicine (the profession)",
+"root": "ط-ب-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الطبخ",
+"word": "الطبخ",
+"word_voweled": "الطَّبخ",
+"english": "Cooking",
+"root": "ط-ب-خ",
+"word_type": "masdar",
+"verb_form": "I"
+},
+{
+"key": "الطفوله",
+"word": "الطُّفولة",
+"word_voweled": "الطُّفولة",
+"english": "childhood",
+"root": "ط-ف-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الطقس / الطقس، الجو",
+"word": "الطَقس / الطَقس، الجَوّ",
+"word_voweled": "الطَّقس، الجَوّ",
+"english": "Weather",
+"root": "ط-ق-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "العالم",
+"word": "العالَم",
+"word_voweled": "العالَم",
+"english": "the world",
+"root": "ع-ل-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "العشا",
+"word": "العَشا",
+"word_voweled": "العَشاء",
+"english": "dinner",
+"root": "ع-ش-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "العشا / العشاء",
+"word": "العَشا / العَشاء",
+"word_voweled": "العَشاء",
+"english": "dinner",
+"root": "ع-ش-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "العلوم السياسيه / العلوم السياسيه",
+"word": "العُلوم السِّياسِيّة / العُلوم السِّياسِيّة",
+"word_voweled": "العُلوم السِّياسِيّة",
+"english": "political science",
+"root": "س-و-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "العهد الجديد",
+"word": "العَهد الجَديد",
+"word_voweled": "العَهد الجَديد",
+"english": "the New Testament",
+"root": "ع-ه-د",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "العهد القديم",
+"word": "العَهد القَديم",
+"word_voweled": "العَهد القَديم",
+"english": "the Old Testament",
+"root": "ع-ه-د",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "الغدا / الغداء",
+"word": "الغَدا / الغَداء",
+"word_voweled": "الغَداء",
+"english": "lunch",
+"root": "غ-د-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الغربه",
+"word": "الغُربة",
+"word_voweled": "الغُربة",
+"english": "longing for one's native land; feeling of being a stranger; homesickness",
+"root": "غ-ر-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الغناء",
+"word": "الغِناء",
+"word_voweled": "الغِناء",
+"english": "Singing",
+"root": "غ-ن-ي",
+"word_type": "masdar",
+"verb_form": "I"
+},
+{
+"key": "الكتاب المقدس",
+"word": "الكِتاب المُقَدَّس",
+"word_voweled": "الكِتاب المُقَدَّس",
+"english": "the Bible",
+"root": "ك-ت-ب",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "اللحم",
+"word": "اللحم",
+"word_voweled": "اللَّحم",
+"english": "the meat",
+"root": "ل-ح-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الله",
+"word": "اللّٰه",
+"word_voweled": "اللّٰه",
+"english": "Allah, God",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الله اعلم",
+"word": "الله أعلم",
+"word_voweled": "اللّٰه أَعلَم",
+"english": "God knows best",
+"root": "ع-ل-م",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "الله معك",
+"word": "اللّٰه معك",
+"word_voweled": "اللّٰه معك",
+"english": "goodbye (to someone who is leaving; lit. \"God be with you\")",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "الله يبارك فيك",
+"word": "اللّٰه يبارِك فيك",
+"word_voweled": "اللّٰه يبارِك فيك",
+"english": "God bless you (the reply to مَبروك)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "الله يرحمها / رحمها الله",
+"word": "اللّٰه يِرحَمها / رَحِمَها اللّٰه",
+"word_voweled": "اللّٰه يِرحَمها",
+"english": "May God rest her soul",
+"root": "ر-ح-م",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "الله يسلمك!",
+"word": "اللّه يِسَلّمَـِك!",
+"word_voweled": "اللّٰه يِسَلّمَك",
+"english": "Response to سلامتك",
+"root": "س-ل-م",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "الله يعافيك",
+"word": "اللّٰه يعافيك",
+"word_voweled": "اللّٰه يعافيك",
+"english": "may God give you good health too (the reply to يَعطيك العافية)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "الليل / الليل",
+"word": "اللَيل / اللَيل",
+"word_voweled": "اللَّيل",
+"english": "night",
+"root": "ل-ي-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الليله",
+"word": "الليلة",
+"word_voweled": "اللَّيلة",
+"english": "tonight",
+"root": "ل-ي-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الماضي/ه",
+"word": "الماضي/ة",
+"word_voweled": "الماضي/ة",
+"english": "past, last",
+"root": "م-ض-ي",
+"word_type": "participle",
+"verb_form": null
+},
+{
+"key": "المبادئ والعهود",
+"word": "المَبادِئ والعُهود",
+"word_voweled": "المَبادِئ والعُهود",
+"english": "Doctrine and Covenants",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "المحل محلك!",
+"word": "المَحَلّ مَحَلّك!",
+"word_voweled": "المَحَلّ مَحَلّك!",
+"english": "the entire store is at your service! (lit. \"the place is your place\")",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "المده كانت",
+"word": "المدّة كانت",
+"word_voweled": "المُدّة كانَت",
+"english": "the period was",
+"root": "م-د-د",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "المساء / المسا",
+"word": "المَساء / المَسا",
+"word_voweled": "المَساء",
+"english": "evening",
+"root": "م-س-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "المسيحيه",
+"word": "المَسيحِيّة",
+"word_voweled": "المَسيحِيّة",
+"english": "Christianity",
+"root": "م-س-ح",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "المشكله انو البراد تبعنا معطل من شهر، فما رح نقدر نحط الكيكه فيه، ولازم نصلحو او نستعمل براد الجيران.",
+"word": "المُشكِلة إنّو البَرّاد تَبَعنا مُعَطَّل مِن شَهر، فما رَح نِقدَر نِحُطّ الكيكة فيه، ولازِم نِصَلِّحو أو نِستَعمِل بَرّاد الجيران.",
+"word_voweled": "المُشكِلة إنّو البَرّاد تَبَعنا مُعَطَّل مِن شَهر، فما رَح نِقدَر نِحُطّ الكيكة فيه، ولازِم نِصَلِّحو أو نِستَعمِل بَرّاد الجيران.",
+"english": "The problem is that our fridge has been broken for a month, so we won't be able to put the cake in it, and we need to fix it or use the neighbours' fridge.",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "الناس / الناس",
+"word": "الناس / الناس",
+"word_voweled": "النّاس",
+"english": "people",
+"root": "أ-ن-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "النهار / النهار",
+"word": "النَهار / النَهار",
+"word_voweled": "النَّهار",
+"english": "daytime",
+"root": "ن-ه-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الهام",
+"word": "إلهام",
+"word_voweled": "إلهام",
+"english": "inspiration",
+"root": "ل-ه-م",
+"word_type": "masdar",
+"verb_form": "IV"
+},
+{
+"key": "الوجود",
+"word": "الوُجود",
+"word_voweled": "الوُجود",
+"english": "existence",
+"root": "و-ج-د",
+"word_type": "masdar",
+"verb_form": null
+},
+{
+"key": "الوحده",
+"word": "الوِحدة",
+"word_voweled": "الوِحدة",
+"english": "loneliness",
+"root": "و-ح-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "الي",
+"word": "إِلى",
+"word_voweled": "إِلى",
+"english": "to, towards",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "اليوم / اليوم",
+"word": "اليَوم / اليَوم",
+"word_voweled": "اليَوم",
+"english": "today",
+"root": "ي-و-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ام",
+"word": "أَم",
+"word_voweled": "أَمْ",
+"english": "or (in questions)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "ام ج. امات / ام ج. امهات",
+"word": "إِمّ ج. إِمّات / أُمّ ج. أُمَّهات",
+"word_voweled": "أُمّ",
+"english": "mother",
+"root": "أ-م-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "اما ... او",
+"word": "إمّا ... أَو",
+"word_voweled": "إمّا ... أَو",
+"english": "either … or",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "امام",
+"word": "أَمامَ",
+"word_voweled": "أَمامَ",
+"english": "in front of, before",
+"root": "أ-م-م",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "امان",
+"word": "أَمان",
+"word_voweled": "أَمان",
+"english": "safety",
+"root": "أ-م-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "امبارح / امس",
+"word": "امبارِح / أَمْس",
+"word_voweled": "أَمس / اِمبارِح",
+"english": "yesterday",
+"root": "أ-م-س",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "امتحان",
+"word": "اِمتِحان",
+"word_voweled": "اِمتِحان",
+"english": "Test, examination",
+"root": "م-ح-ن",
+"word_type": "masdar",
+"verb_form": "VIII"
+},
+{
+"key": "امتلك",
+"word": "اِمتَلَكَ",
+"word_voweled": "اِمتَلَكَ",
+"english": "to acquire, own",
+"root": "م-ل-ك",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "امّا",
+"word": "إِمّا",
+"word_voweled": "إِمّا",
+"english": "either...or",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "ان",
+"word": "أَن / إِنَّ",
+"word_voweled": "أَن / إِنَّ",
+"english": "that (conj., before a verb) / indeed, verily",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "انا",
+"word": "أَنا",
+"word_voweled": "أَنا",
+"english": "I",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "انت معصب؟",
+"word": "أنت مْعَصِّب؟",
+"word_voweled": "أنت مْعَصِّب؟",
+"english": "Are you upset? Are you angry? (Shaami)",
+"root": "ع-ص-ب",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "انتشر",
+"word": "انتشر",
+"word_voweled": "اِنتَشَرَ",
+"english": "to be spread out, to spread (intransitive)",
+"root": "ن-ش-ر",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "انتقل",
+"word": "اِنتَقَلَ",
+"word_voweled": "اِنتَقَلَ",
+"english": "to move to",
+"root": "ن-ق-ل",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "انتهي",
+"word": "اِنتَهى",
+"word_voweled": "اِنتَهى",
+"english": "to end, finish",
+"root": "ن-ه-ي",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "انتهي من",
+"word": "اِنتَهى من",
+"word_voweled": "اِنْتَهى من",
+"english": "to finish (something)",
+"root": "ن-ه-ي",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "انسب",
+"word": "أنسب",
+"word_voweled": "أَنسَب",
+"english": "more suitable, most suitable (elative of مُناسِب)",
+"root": "ن-س-ب",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "انقطع",
+"word": "اِنقَطَعَ",
+"word_voweled": "اِنقَطَعَ",
+"english": "to be cut off",
+"root": "ق-ط-ع",
+"word_type": "verb",
+"verb_form": "VII"
+},
+{
+"key": "اهدي",
+"word": "أَهدى",
+"word_voweled": "أَهدى",
+"english": "to gift, to give as a gift",
+"root": "ه-د-ي",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "اهلا وسهلا / اهلا وسهلا",
+"word": "أَهلاً وَسَهلاً / أَهلاً وَسَهلاً",
+"word_voweled": "أَهلاً وَسَهلاً",
+"english": "Welcome",
+"root": "أ-ه-ل",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "او",
+"word": "أو",
+"word_voweled": "أَو",
+"english": "or",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "اوقات",
+"word": "أوقات",
+"word_voweled": "أَوقات",
+"english": "times (plural)",
+"root": "و-ق-ت",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "اول",
+"word": "أَوَّل",
+"word_voweled": "أَوَّل",
+"english": "first",
+"root": "أ-و-ل",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "اول / اولي",
+"word": "أوَّل / أُولى",
+"word_voweled": "أَوَّل / أولى",
+"english": "first (adj.)",
+"root": "أ-و-ل",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "اي",
+"word": "أَيّ",
+"word_voweled": "أَيّ",
+"english": "any, which",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "اي (يعني)",
+"word": "أَيْ (يَعني)",
+"word_voweled": "أَيْ",
+"english": "i.e., that is (to say)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "اي . ه ؟",
+"word": "أَيّ . ة ؟",
+"word_voweled": "أَيّ/أَيّة",
+"english": "which?",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "ايجار",
+"word": "إيجار",
+"word_voweled": "إيجار",
+"english": "rent",
+"root": "أ-ج-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ايضا / كمان",
+"word": "أَيضاً / كَمان",
+"word_voweled": "أَيضاً",
+"english": "also",
+"root": "أ-ي-ض",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "ايمان",
+"word": "إيمان",
+"word_voweled": "إيمان",
+"english": "faith",
+"root": "أ-م-ن",
+"word_type": "masdar",
+"verb_form": "IV"
+},
+{
+"key": "ايمتي؟ / متي؟",
+"word": "إيمتى؟ / مَتى؟",
+"word_voweled": "مَتى",
+"english": "when?",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "اين",
+"word": "أين",
+"word_voweled": "أَينَ",
+"english": "where",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "ب",
+"word": "بِـ",
+"word_voweled": "بِـ",
+"english": "with, by, in (attached preposition)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "باب",
+"word": "باب",
+"word_voweled": "باب",
+"english": "door",
+"root": "ب-و-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "بارد / بارد",
+"word": "بارِد / بارِد",
+"word_voweled": "بارِد",
+"english": "cold (adj.)",
+"root": "ب-ر-د",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "بارك الله فيك / الله يبارك فيك/لك",
+"word": "بارَكَ اللّٰهُ فيك / اللّٰه يِبارِك فيك/لِك",
+"word_voweled": "بارَكَ اللّٰهُ فيك",
+"english": "response to مَبْروك",
+"root": "ب-ر-ك",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "باستمرار",
+"word": "باستمرار",
+"word_voweled": "بِاستِمرار",
+"english": "continuously",
+"root": "م-ر-ر",
+"word_type": "other",
+"verb_form": "X"
+},
+{
+"key": "باع",
+"word": "باعَ",
+"word_voweled": "باعَ",
+"english": "to sell",
+"root": "ب-ي-ع",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "بالاضافه الي",
+"word": "بِالإضافة إلى",
+"word_voweled": "بِالإِضافة إلى",
+"english": "in addition to",
+"root": "ض-ي-ف",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بالطبع",
+"word": "بِالطَّبع",
+"word_voweled": "بِالطَّبع",
+"english": "of course, naturally",
+"root": "ط-ب-ع",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بالنسبه ال / بالنسبه ل",
+"word": "بالنِّسبة إلـ / بالنِّسبة لـِ",
+"word_voweled": "بِالنِّسبة إلى",
+"english": "as far as ___ is concerned",
+"root": "ن-س-ب",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بتذكر / اتذكر",
+"word": "بِتذَكَّر / أتَذَكَّر",
+"word_voweled": "أَتَذَكَّر",
+"english": "I remember",
+"root": "ذ-ك-ر",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "بتنسي",
+"word": "بتنسى",
+"word_voweled": "بِتِنسى",
+"english": "you forget/she forgets",
+"root": "ن-س-ي",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "بجانب",
+"word": "بِجانِب",
+"word_voweled": "بِجانِب",
+"english": "next to, beside",
+"root": "ج-ن-ب",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بحث",
+"word": "بحث",
+"word_voweled": "بَحَثَ",
+"english": "to look for, search for",
+"root": "ب-ح-ث",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "بحر",
+"word": "بَحر",
+"word_voweled": "بَحر",
+"english": "sea",
+"root": "ب-ح-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "بخاطرك",
+"word": "بِخاطِرك",
+"word_voweled": "بِخاطِرك",
+"english": "goodbye (said upon leaving, a polite farewell)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بخير / بخير",
+"word": "بِخَير / بِخير",
+"word_voweled": "بِخَير",
+"english": "Well",
+"root": "خ-ي-ر",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بد",
+"word": "بُدّ",
+"word_voweled": "بُدّ",
+"english": "way out, escape (لا بُدّ = must)",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "بدا",
+"word": "بَدا",
+"word_voweled": "بَدا",
+"english": "to seem, appear",
+"root": "ب-د-و",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "بدا / بدا",
+"word": "بَدا / بَدَأَ",
+"word_voweled": "بَدَأَ",
+"english": "to begin",
+"root": "ب-د-أ",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "بدايه",
+"word": "بِداية",
+"word_voweled": "بِداية",
+"english": "beginning",
+"root": "ب-د-أ",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "بدر",
+"word": "بَدر",
+"word_voweled": "بَدر",
+"english": "full moon",
+"root": "ب-د-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "بده / يريد ان",
+"word": "بِدُّه / يُريد أنْ",
+"word_voweled": "يُريد أَن",
+"english": "he wants to",
+"root": "ر-و-د",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "برامج",
+"word": "برامج",
+"word_voweled": "بَرامِج",
+"english": "Programs",
+"root": "ب-ر-م-ج",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "برتغاليه",
+"word": "بُرتُغالِيّة",
+"word_voweled": "بُرتُغالِيّة",
+"english": "Portuguese (the language)",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "بردان/ه",
+"word": "بَردان/ة",
+"word_voweled": "بَردان/ة",
+"english": "Cold",
+"root": "ب-ر-د",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "بركه",
+"word": "بَرَكة",
+"word_voweled": "بَرَكة",
+"english": "blessing",
+"root": "ب-ر-ك",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "برنامج ج. برامج",
+"word": "بَرنامَج ج. بَرامِج",
+"word_voweled": "بَرنامَج",
+"english": "program",
+"root": "ب-ر-م-ج",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "بس / فقط",
+"word": "بَسّ / فَقَط",
+"word_voweled": "فَقَط",
+"english": "only",
+"root": "ف-ق-ط",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بسبب",
+"word": "بِسَبَب",
+"word_voweled": "بِسَبَب",
+"english": "because of",
+"root": "س-ب-ب",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بسرعه",
+"word": "بسرعة",
+"word_voweled": "بِسُرْعة",
+"english": "quickly, in a hurry",
+"root": "س-ر-ع",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بسيط",
+"word": "بَسيط",
+"word_voweled": "بَسيط",
+"english": "simple",
+"root": "ب-س-ط",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "بصراحه",
+"word": "بصراحة",
+"word_voweled": "بِصَراحة",
+"english": "frankly, honestly",
+"root": "ص-ر-ح",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بصوت عال",
+"word": "بِصَوتٍ عالٍ",
+"word_voweled": "بِصَوتٍ عالٍ",
+"english": "aloud, out loud",
+"root": "ص-و-ت",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بعد / بعد",
+"word": "بَعد / بَعدَ",
+"word_voweled": "بَعدَ",
+"english": "after",
+"root": "ب-ع-د",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بعد الضهر / بعد الظهر",
+"word": "بَعد الضُّهْر / بَعدَ الظُّهْر",
+"word_voweled": "بَعدَ الظُّهر",
+"english": "afternoon",
+"root": "ظ-ه-ر",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بعد ما / بعد ان",
+"word": "بعد ما / بَعدَ أنْ",
+"word_voweled": "بَعدَ أَن",
+"english": "after (followed by verb)",
+"root": "ب-ع-د",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بعد هيك / بعد ذلك",
+"word": "بَعد هيك / بَعدَ ذٰلِكَ",
+"word_voweled": "بَعدَ ذٰلِكَ",
+"english": "after that",
+"root": "ب-ع-د",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بعدين / ثم",
+"word": "بَعدين / ثُمَّ",
+"word_voweled": "ثُمَّ",
+"english": "then, after that",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بعض",
+"word": "بَعض",
+"word_voweled": "بَعض",
+"english": "some (of)",
+"root": "ب-ع-ض",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بعضهم البعض",
+"word": "بَعضُهُم البَعض",
+"word_voweled": "بَعضُهُم البَعض",
+"english": "each other (بَعضـ + pronoun + البَعض)",
+"root": "ب-ع-ض",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بعيد/ه عن",
+"word": "بِعيد/ة عَن",
+"word_voweled": "بَعيد/ة عَن",
+"english": "Far from",
+"root": "ب-ع-د",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "بفضل",
+"word": "بِفَضل",
+"word_voweled": "بِفَضل",
+"english": "thanks to",
+"root": "ف-ض-ل",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "بقي",
+"word": "بقي",
+"word_voweled": "بَقِيَ",
+"english": "to remain, stay",
+"root": "ب-ق-ي",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "بكرا رح نسافر عند صاحبي لانو عيد ميلادو، ولازم ارتب الشنطه واغسل قميصي الازرق قبل ما نوصل.",
+"word": "بُكرا رَح نِسافِر عَنَد صاحبي لأنّو عيد مِيلادو، ولازِم أرَتِّب الشَّنطة وأغسِل قَميصي الأزرَق قَبل ما نِوصَل.",
+"word_voweled": "بُكرا رَح نِسافِر عَنَد صاحبي لأنّو عيد مِيلادو، ولازِم أرَتِّب الشَّنطة وأغسِل قَميصي الأزرَق قَبل ما نِوصَل.",
+"english": "Tomorrow we're going to my friend's because it's his birthday, and I have to pack the bag and wash my blue shirt before we get there.",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "بلد",
+"word": "بلد",
+"word_voweled": "بَلَد",
+"english": "country, land",
+"root": "ب-ل-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "بلد / بلد",
+"word": "بَلَد / بَلَد",
+"word_voweled": "بَلَد",
+"english": "country",
+"root": "ب-ل-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "بلش",
+"word": "بَلَّش",
+"word_voweled": "بَلَّش",
+"english": "to start (Shaami)",
+"root": "ب-ل-ش",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "بنايه",
+"word": "بِناية",
+"word_voweled": "بِناية",
+"english": "Building",
+"root": "ب-ن-ي",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "بنت",
+"word": "بِنِت",
+"word_voweled": "بِنِت",
+"english": "Girl",
+"root": "ب-ن-ت",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "بنطلون",
+"word": "بنطلون",
+"word_voweled": "بَنطَلون",
+"english": "(a pair of) pants",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "بيت",
+"word": "بَيت",
+"word_voweled": "بَيت",
+"english": "house",
+"root": "ب-ي-ت",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "بيزعل / محزن/ه",
+"word": "بيزَعِّل / مُحْزِن/ة",
+"word_voweled": "مُحزِن/ة",
+"english": "saddening, distressing",
+"root": "ح-ز-ن",
+"word_type": "participle",
+"verb_form": "IV"
+},
+{
+"key": "بيسيكلت",
+"word": "بيسيكلت",
+"word_voweled": "بيسيكلِت",
+"english": "Bicycle",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "بين",
+"word": "بَيْنَ",
+"word_voweled": "بَيْنَ",
+"english": "between, among",
+"root": "ب-ي-ن",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "تأجيل",
+"word": "تَأجيل",
+"word_voweled": "تَأجيل",
+"english": "postponement",
+"root": "أ-ج-ل",
+"word_type": "masdar",
+"verb_form": "II"
+},
+{
+"key": "تاني/ه / اخر ، اخري",
+"word": "تاني/ة / آخَر ، أُخرى",
+"word_voweled": "آخَر / أُخرى",
+"english": "other",
+"root": "أ-خ-ر",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "تبادل",
+"word": "تَبادَلَ",
+"word_voweled": "تَبادَلَ",
+"english": "to exchange (news, opinions, etc.)",
+"root": "ب-د-ل",
+"word_type": "verb",
+"verb_form": "VI"
+},
+{
+"key": "تبرير",
+"word": "تبرير",
+"word_voweled": "تَبرير",
+"english": "justification/reasoning",
+"root": "ب-ر-ر",
+"word_type": "masdar",
+"verb_form": "II"
+},
+{
+"key": "تتعمد",
+"word": "تْتَعَمَّد",
+"word_voweled": "تْتَعَمَّد",
+"english": "to be baptized",
+"root": "ع-م-د",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تجربه",
+"word": "تَجْرِبة",
+"word_voweled": "تَجْرِبة",
+"english": "(an) experience",
+"root": "ج-ر-ب",
+"word_type": "masdar",
+"verb_form": "II"
+},
+{
+"key": "تجمع",
+"word": "تَجَمَّعَ",
+"word_voweled": "تَجَمَّعَ",
+"english": "to gather together",
+"root": "ج-م-ع",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تحت",
+"word": "تَحْتَ",
+"word_voweled": "تَحْتَ",
+"english": "beneath, below",
+"root": "ت-ح-ت",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "تحجج",
+"word": "تَحَجَّجَ",
+"word_voweled": "تَحَجَّجَ",
+"english": "to make excuses",
+"root": "ح-ج-ج",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تحقيق",
+"word": "تَحقيق",
+"word_voweled": "تَحقيق",
+"english": "investigative report",
+"root": "ح-ق-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "تحول",
+"word": "تَحَوَّلَ",
+"word_voweled": "تَحَوَّلَ",
+"english": "to turn into, transform",
+"root": "ح-و-ل",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تخرجت / تخرجت",
+"word": "تْخَرَّجت / تَخَرَّجْتُ",
+"word_voweled": "تَخَرَّجتُ",
+"english": "graduated from",
+"root": "خ-ر-ج",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تدخل",
+"word": "تَدَخَّلَ",
+"word_voweled": "تَدَخَّلَ",
+"english": "to interfere",
+"root": "د-خ-ل",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تدريب",
+"word": "تدريب",
+"word_voweled": "تَدريب",
+"english": "training, practice",
+"root": "د-ر-ب",
+"word_type": "masdar",
+"verb_form": "II"
+},
+{
+"key": "ترتيب",
+"word": "تَرتيب",
+"word_voweled": "تَرتيب",
+"english": "arrangement",
+"root": "ر-ت-ب",
+"word_type": "masdar",
+"verb_form": null
+},
+{
+"key": "ترك",
+"word": "تَرَكَ",
+"word_voweled": "تَرَكَ",
+"english": "to leave (someone or something)",
+"root": "ت-ر-ك",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "تزوج",
+"word": "تَزَوَّجَ",
+"word_voweled": "تَزَوَّجَ",
+"english": "to get married",
+"root": "ز-و-ج",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تسكن / ساكنه / ساكنه",
+"word": "تَسكُن / ساكِنة / ساكِنة",
+"word_voweled": "تَسكُن / ساكِنة",
+"english": "she lives, resides",
+"root": "س-ك-ن",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "تشريح",
+"word": "تشريح",
+"word_voweled": "تَشريح",
+"english": "anatomy/dissection",
+"root": "ش-ر-ح",
+"word_type": "masdar",
+"verb_form": "II"
+},
+{
+"key": "تصليحات",
+"word": "تَصليحات",
+"word_voweled": "تَصليحات",
+"english": "repairs",
+"root": "ص-ل-ح",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "تعبان/ه",
+"word": "تَعبان/ة",
+"word_voweled": "تَعبان/ة",
+"english": "Tired",
+"root": "ت-ع-ب",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "تعرف علي",
+"word": "تَعَرَّفَ على",
+"word_voweled": "تَعَرَّفَ عَلى",
+"english": "to get to know, meet",
+"root": "ع-ر-ف",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تعلق",
+"word": "تَعَلَّقَ",
+"word_voweled": "تَعَلَّقَ",
+"english": "to be related, connected to",
+"root": "ع-ل-ق",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تعلم",
+"word": "تعلم",
+"word_voweled": "تَعَلَّمَ",
+"english": "to learn",
+"root": "ع-ل-م",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تعليم",
+"word": "تعليم",
+"word_voweled": "تَعليم",
+"english": "education, teaching",
+"root": "ع-ل-م",
+"word_type": "masdar",
+"verb_form": "II"
+},
+{
+"key": "تعمل / بتشتغل / بتشتغل",
+"word": "تَعمَل / بِتِشتَغِل / بِتِشتَغِل",
+"word_voweled": "تَعمَل / بِتِشتَغِل",
+"english": "she works",
+"root": "ع-م-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "تغيب عن",
+"word": "تَغَيَّبَ عن",
+"word_voweled": "تَغَيَّبَ عن",
+"english": "to be absent from, miss",
+"root": "غ-ي-ب",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تغير",
+"word": "تَغَيَّرَ",
+"word_voweled": "تَغَيَّرَ",
+"english": "to change (intransitive)",
+"root": "غ-ي-ر",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تفاهم",
+"word": "تَفاهُم",
+"word_voweled": "تَفاهُم",
+"english": "mutual understanding",
+"root": "ف-هـ-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "تقعد",
+"word": "تقعد",
+"word_voweled": "تِقعُد",
+"english": "to sit",
+"root": "ق-ع-د",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "تكون من",
+"word": "تَكَوَّنَ من",
+"word_voweled": "تَكَوَّنَ من",
+"english": "to consist of, to be made up of",
+"root": "ك-و-ن",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تلج / ثلج",
+"word": "تَلج / ثَلج",
+"word_voweled": "ثَلج",
+"english": "snow",
+"root": "ث-ل-ج",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "تلفاز / تلفزيون",
+"word": "تلفاز / تلفزيون",
+"word_voweled": "تِلفاز / تِلفِزيون",
+"english": "TV",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "تمتع",
+"word": "تَمَتَّعَ",
+"word_voweled": "تَمَتَّعَ",
+"english": "to enjoy",
+"root": "م-ت-ع",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تمرين",
+"word": "تَمرين",
+"word_voweled": "تَمْرين",
+"english": "Exercise",
+"root": "م-ر-ن",
+"word_type": "masdar",
+"verb_form": "II"
+},
+{
+"key": "تمكن من",
+"word": "تَمَكَّنَ مِن",
+"word_voweled": "تَمَكَّنَ مِن",
+"english": "to be able to",
+"root": "م-ك-ن",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تمني",
+"word": "تَمَنَّى",
+"word_voweled": "تَمَنَّى",
+"english": "to hope, wish (for someone to)",
+"root": "م-ن-ي",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "تنوره",
+"word": "تنورة",
+"word_voweled": "تَنّورة",
+"english": "skirt",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "توجيه",
+"word": "تَوجيه",
+"word_voweled": "تَوجيه",
+"english": "guidance",
+"root": "و-ج-ه",
+"word_type": "masdar",
+"verb_form": "II"
+},
+{
+"key": "توصل",
+"word": "تَوَصَّلَ",
+"word_voweled": "تَوَصَّلَ",
+"english": "to reach, arrive at (a conclusion)",
+"root": "و-ص-ل",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "توقف",
+"word": "توقف",
+"word_voweled": "تَوَقَّفَ",
+"english": "to stop, come to a halt",
+"root": "و-ق-ف",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "ثانوي / ثانوي/ه",
+"word": "ثانوي / ثانَوِيّ/ة",
+"word_voweled": "ثانَوِيّ/ة",
+"english": "secondary",
+"root": "ث-ن-ي",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "ثلاجه / تلاجه",
+"word": "ثلاجة / تلاجة",
+"word_voweled": "ثَلّاجة",
+"english": "refrigerator, fridge",
+"root": "ث-ل-ج",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جاء",
+"word": "جاء",
+"word_voweled": "جاءَ",
+"english": "to come",
+"root": "ج-ي-أ",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "جار",
+"word": "جار",
+"word_voweled": "جار",
+"english": "neighbour",
+"root": "ج-و-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جاليه",
+"word": "جالية",
+"word_voweled": "جالِية",
+"english": "community of immigrants, expatriate community",
+"root": "ج-ل-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جامع",
+"word": "جامع",
+"word_voweled": "جامِع",
+"english": "mosque",
+"root": "ج-م-ع",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جانب",
+"word": "جانِب",
+"word_voweled": "جانِب",
+"english": "side",
+"root": "ج-ن-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جبل",
+"word": "جَبَل",
+"word_voweled": "جَبَل",
+"english": "mountain",
+"root": "ج-ب-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جبنه / جبنه",
+"word": "جبنة / جُبنة",
+"word_voweled": "جُبنة",
+"english": "cheese",
+"root": "ج-ب-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جد ج. اجداد / جد ج. جدود",
+"word": "جَدّ ج. أَجْداد / جِدّ ج. جْدود",
+"word_voweled": "جَدّ",
+"english": "grandfather",
+"root": "ج-د-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جده ج. جدات / ست، تيته",
+"word": "جَدّة ج. جَدّات / سِتّ، تيتة",
+"word_voweled": "جَدّة",
+"english": "grandmother",
+"root": "ج-د-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جدولك",
+"word": "جدولك",
+"word_voweled": "جَدوَلَك",
+"english": "Your schedule",
+"root": "ج-د-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جديد",
+"word": "جَديد",
+"word_voweled": "جَديد",
+"english": "new",
+"root": "ج-د-د",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "جرب",
+"word": "جَرَّبَ",
+"word_voweled": "جَرَّبَ",
+"english": "to try",
+"root": "ج-ر-ب",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "جريده ج. جرايد / جريده ج. جرائد",
+"word": "جَريدة ج. جَرايد / جَريدة ج. جَرائِد",
+"word_voweled": "جَريدة",
+"english": "newspaper",
+"root": "ج-ر-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جزر / جزر",
+"word": "جَزَر / جَزَر",
+"word_voweled": "جَزَر",
+"english": "Carrot",
+"root": "ج-ز-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جعل",
+"word": "جَعَلَ",
+"word_voweled": "جَعَلَ",
+"english": "to make, cause to become",
+"root": "ج-ع-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "جمعا",
+"word": "جَمعاً",
+"word_voweled": "جَمعاً",
+"english": "the reply to حَرَماً (the wish after prayer)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "جمله",
+"word": "جِملة",
+"word_voweled": "جُملة",
+"english": "Sentence",
+"root": "ج-م-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جميع",
+"word": "جَميع",
+"word_voweled": "جَميع",
+"english": "all, everyone",
+"root": "ج-م-ع",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جميعا",
+"word": "جَميعاً",
+"word_voweled": "جَميعاً",
+"english": "all together",
+"root": "ج-م-ع",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "جنسيه",
+"word": "جِنسيّة",
+"word_voweled": "جِنسِيّة",
+"english": "nationality",
+"root": "ج-ن-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جنه",
+"word": "جنة",
+"word_voweled": "جَنّة",
+"english": "paradise, heaven",
+"root": "ج-ن-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جنوب",
+"word": "جنوب",
+"word_voweled": "جَنوب",
+"english": "south",
+"root": "ج-ن-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جهد",
+"word": "جهد",
+"word_voweled": "جُهد",
+"english": "effort",
+"root": "ج-ه-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جوامع",
+"word": "جوامع",
+"word_voweled": "جَوامِع",
+"english": "mosques (plural)",
+"root": "ج-م-ع",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جوله",
+"word": "جَولة",
+"word_voweled": "جَولة",
+"english": "tour",
+"root": "ج-و-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جيش ج. جيوش / جيش ج. جيوش",
+"word": "جَيْش ج. جُيوش / جيش ج. جيوش",
+"word_voweled": "جَيش",
+"english": "army",
+"root": "ج-ي-ش",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "جيعان /ه",
+"word": "جيعان /ة",
+"word_voweled": "جيعان/ة",
+"english": "Hungry",
+"root": "ج-و-ع",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "جيل",
+"word": "جيل",
+"word_voweled": "جيل",
+"english": "generation",
+"root": "ج-ي-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حائط",
+"word": "حائِط",
+"word_voweled": "حائِط",
+"english": "wall",
+"root": "ح-و-ط",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حادث ج. حوادث / حادث ج. حوادث",
+"word": "حادِث ج. حَوادِث / حادِث ج. حَوادِث",
+"word_voweled": "حادِث",
+"english": "accident",
+"root": "ح-د-ث",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حاضر!",
+"word": "حاضِر!",
+"word_voweled": "حاضِر!",
+"english": "at your service! (answering a request: right away, as you wish)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "حاله",
+"word": "حالة",
+"word_voweled": "حالة",
+"english": "case, condition",
+"root": "ح-و-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حب",
+"word": "حُبّ",
+"word_voweled": "حُبّ",
+"english": "love",
+"root": "ح-ب-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حتي",
+"word": "حَتّى",
+"word_voweled": "حَتّى",
+"english": "until, even",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "حد",
+"word": "حد",
+"word_voweled": "حَدّ",
+"english": "border, limit",
+"root": "ح-د-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حدث",
+"word": "حَدَثَ",
+"word_voweled": "حَدَثَ",
+"english": "to happen",
+"root": "ح-د-ث",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "حدد",
+"word": "حدد",
+"word_voweled": "حَدَّدَ",
+"english": "to determine, set (e.g., a time, topic)",
+"root": "ح-د-د",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "حديقه",
+"word": "حَديقة",
+"word_voweled": "حَديقة",
+"english": "garden, yard, park",
+"root": "ح-د-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حديقه عامه",
+"word": "حَديقة عامّة",
+"word_voweled": "حَديقة عامّة",
+"english": "public park",
+"root": "ح-د-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حذاء",
+"word": "حذاء",
+"word_voweled": "حِذاء",
+"english": "(a pair of) shoes",
+"root": "ح-ذ-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حرب",
+"word": "حرب",
+"word_voweled": "حَرب",
+"english": "war",
+"root": "ح-ر-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حرما",
+"word": "حَرَماً",
+"word_voweled": "حَرَماً",
+"english": "a wish said to someone who has just finished praying: may you pray at the Great Mosque in Mecca",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "حرير",
+"word": "حَرير",
+"word_voweled": "حَرير",
+"english": "silk",
+"root": "ح-ر-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حريه",
+"word": "حرية",
+"word_voweled": "حُرِّيَّة",
+"english": "freedom",
+"root": "ح-ر-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حساب",
+"word": "حِساب",
+"word_voweled": "حِساب",
+"english": "account (على حِساب = at the expense of)",
+"root": "ح-س-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حسن",
+"word": "حَسَن",
+"word_voweled": "حَسَن",
+"english": "good, beautiful",
+"root": "ح-س-ن",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "حصلت علي",
+"word": "حَصَلْتُ على",
+"word_voweled": "حَصَلتُ على",
+"english": "I obtained",
+"root": "ح-ص-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "حقا / فعلا / والله",
+"word": "حَقاً / فِعلاً / واللَه",
+"word_voweled": "حَقّاً / فِعلاً",
+"english": "really!, truly",
+"root": "ح-ق-ق",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "حكايه",
+"word": "حِكاية",
+"word_voweled": "حِكاية",
+"english": "story",
+"root": "ح-ك-ي",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حكومه",
+"word": "حكومة",
+"word_voweled": "حُكومة",
+"english": "government",
+"root": "ح-ك-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حكومه ج. –ات",
+"word": "حُكومة ج. –ات",
+"word_voweled": "حُكومة",
+"english": "government",
+"root": "ح-ك-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حكي",
+"word": "حَكى",
+"word_voweled": "حَكى",
+"english": "to tell, narrate",
+"root": "ح-ك-ي",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "حل",
+"word": "حَلّ",
+"word_voweled": "حَلّ",
+"english": "solution",
+"root": "ح-ل-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حلم",
+"word": "حُلم",
+"word_voweled": "حُلْم",
+"english": "dream",
+"root": "ح-ل-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حلمت",
+"word": "حِلِمت",
+"word_voweled": "حِلِمت",
+"english": "I dreamed",
+"root": "ح-ل-م",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "حلو / حلويات",
+"word": "حِلو / حَلَوِيّات",
+"word_voweled": "حَلَوِيّات",
+"english": "sweets, desserts",
+"root": "ح-ل-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حلو/حلوه",
+"word": "حِلو/حِلوة",
+"word_voweled": "حِلو/حِلوة",
+"english": "Beautiful (masc./fem.)",
+"root": "ح-ل-و",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "حمام",
+"word": "حَمّام",
+"word_voweled": "حَمّام",
+"english": "bathroom, bath, bathhouse",
+"root": "ح-م-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حماه",
+"word": "حَماة",
+"word_voweled": "حَماة",
+"english": "mother-in-law",
+"root": "ح-م-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حوالي / حوالي",
+"word": "حَوالي / حَوالَيْ",
+"word_voweled": "حَوالَي",
+"english": "around, about",
+"root": "ح-و-ل",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "حياه",
+"word": "حَياة",
+"word_voweled": "حَياة",
+"english": "life",
+"root": "ح-ي-ي",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "حيث",
+"word": "حَيث",
+"word_voweled": "حَيث",
+"english": "where, whereas",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "حيوانات الحيوانات",
+"word": "حيوانات الحيوانات",
+"word_voweled": "الحَيَوانات",
+"english": "animals",
+"root": "ح-ي-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "خائف",
+"word": "خائف",
+"word_voweled": "خائِف",
+"english": "afraid, scared (of)",
+"root": "خ-و-ف",
+"word_type": "participle",
+"verb_form": "I"
+},
+{
+"key": "خاتم / خاتم",
+"word": "خاتم / خاتَم",
+"word_voweled": "خاتَم",
+"english": "ring (jewelry)",
+"root": "خ-ت-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "خاص",
+"word": "خاصّ",
+"word_voweled": "خاصّ",
+"english": "private, special, one's own",
+"root": "خ-ص-ص",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "خاص/ه",
+"word": "خاصّ/ة",
+"word_voweled": "خاصّ/ة",
+"english": "special; private",
+"root": "خ-ص-ص",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "خاف",
+"word": "خاف",
+"word_voweled": "خافَ",
+"english": "to fear, be afraid of",
+"root": "خ-و-ف",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "خاله / خاله",
+"word": "خالة / خالة",
+"word_voweled": "خالة",
+"english": "maternal aunt",
+"root": "خ-و-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "خدمه",
+"word": "خِدمة",
+"word_voweled": "خِدمة",
+"english": "service (to offer a service)",
+"root": "خ-د-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "خزانه",
+"word": "خِزانة",
+"word_voweled": "خِزانة",
+"english": "closet, cupboard",
+"root": "خ-ز-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "خسر",
+"word": "خَسِرَ",
+"word_voweled": "خَسِرَ",
+"english": "to lose",
+"root": "خ-س-ر",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "خصوصيه",
+"word": "خُصوصِيّة",
+"word_voweled": "خُصوصِيّة",
+"english": "privacy",
+"root": "خ-ص-ص",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "خضار",
+"word": "خُضار",
+"word_voweled": "خُضار",
+"english": "vegetables",
+"root": "خ-ض-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "خطا",
+"word": "خطأ",
+"word_voweled": "خَطَأ",
+"english": "mistake, error",
+"root": "خ-ط-أ",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "خطبت ل",
+"word": "خُطِبَت لِـ",
+"word_voweled": "خُطِبَت لِـ",
+"english": "she got engaged to",
+"root": "خ-ط-ب",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "خطيب",
+"word": "خَطيب",
+"word_voweled": "خَطيب",
+"english": "fiancé (f. خَطيبة fiancée)",
+"root": "خ-ط-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "خطيبتي",
+"word": "خَطيبتي",
+"word_voweled": "خَطيبتي",
+"english": "my fiancée",
+"root": "خ-ط-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "خلاف",
+"word": "خِلاف",
+"word_voweled": "خِلاف",
+"english": "disagreement, dispute",
+"root": "خ-ل-ف",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "خلصان/ه",
+"word": "خَلْصان/ة",
+"word_voweled": "خَلْصان/ة",
+"english": "Exhausted",
+"root": "خ-ل-ص",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "خلف",
+"word": "خَلفَ",
+"word_voweled": "خَلفَ",
+"english": "behind, after",
+"root": "خ-ل-ف",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "خمس",
+"word": "خَمس",
+"word_voweled": "خَمس",
+"english": "five",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "خوف",
+"word": "خوف",
+"word_voweled": "خَوف",
+"english": "fear",
+"root": "خ-و-ف",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "دائم",
+"word": "دائِم",
+"word_voweled": "دائِم",
+"english": "permanent, constant",
+"root": "د-و-م",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "دائما",
+"word": "دائما",
+"word_voweled": "دائِماً",
+"english": "always",
+"root": "د-و-م",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "دائما / دايما",
+"word": "دائِماً / دايماً",
+"word_voweled": "دائِماً / دايماً",
+"english": "always",
+"root": "د-و-م",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "داخل",
+"word": "داخِل",
+"word_voweled": "داخِل",
+"english": "inside",
+"root": "د-خ-ل",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "داعي",
+"word": "داعي",
+"word_voweled": "داعي",
+"english": "a preacher, one who calls people to a faith; also \"need, reason\" in Shaami",
+"root": "د-ع-و",
+"word_type": "participle",
+"verb_form": "I"
+},
+{
+"key": "دخلت / دخلت",
+"word": "دَخَلتْ / دَخَلْتُ",
+"word_voweled": "دَخَلتُ",
+"english": "I entered",
+"root": "د-خ-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "دخن / دخن",
+"word": "دَخَّن / دَخَّنَ",
+"word_voweled": "دَخَّنَ",
+"english": "to smoke",
+"root": "د-خ-ن",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "دراسه",
+"word": "دِراسة",
+"word_voweled": "دِراسة",
+"english": "study, research",
+"root": "د-ر-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "درج",
+"word": "دَرَج",
+"word_voweled": "دَرَج",
+"english": "stairs",
+"root": "د-ر-ج",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "درجه",
+"word": "دَرَجة",
+"word_voweled": "دَرَجة",
+"english": "degree",
+"root": "د-ر-ج",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "درجه الحراره",
+"word": "دَرَجة الحَرارة",
+"word_voweled": "دَرَجة الحَرارة",
+"english": "temperature",
+"root": "ح-ر-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "درس",
+"word": "دَرس",
+"word_voweled": "دَرس",
+"english": "Lesson",
+"root": "د-ر-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "دش / دش",
+"word": "دُش / دُش",
+"word_voweled": "دُشّ",
+"english": "Shower",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "دوله ج. دول",
+"word": "دَولة ج. دُوَل",
+"word_voweled": "دَولة",
+"english": "nation-state",
+"root": "د-و-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "دولي/ه",
+"word": "دَوليّ/ة",
+"word_voweled": "دَوليّ/ة",
+"english": "international",
+"root": "د-و-ل",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "ذكر",
+"word": "ذَكَرَ",
+"word_voweled": "ذَكَرَ",
+"english": "to mention; to recall",
+"root": "ذ-ك-ر",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "ذلك",
+"word": "ذلِكَ",
+"word_voweled": "ذلِكَ",
+"english": "that (m.)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "ذهب",
+"word": "ذهب",
+"word_voweled": "ذَهَبَ",
+"english": "to go",
+"root": "ذ-ه-ب",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "ذهب (اسم)",
+"word": "ذَهَب (اسم)",
+"word_voweled": "ذَهَب",
+"english": "gold",
+"root": "ذ-ه-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ذهبي",
+"word": "ذَهَبِيّ",
+"word_voweled": "ذَهَبِيّ",
+"english": "golden, gold (in color)",
+"root": "ذ-ه-ب",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "رئيس الوزراء",
+"word": "رَئيس الوُزَراء",
+"word_voweled": "رَئيس الوُزَراء",
+"english": "prime minister",
+"root": "ر-أ-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "رئيس ج. رؤساء",
+"word": "رَئيس ج. رُؤَساء",
+"word_voweled": "رَئيس",
+"english": "president, head",
+"root": "ر-أ-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "رائع",
+"word": "رائع",
+"word_voweled": "رائِع/ة",
+"english": "wonderful, amazing",
+"root": "ر-و-ع",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "راحه",
+"word": "راحة",
+"word_voweled": "راحة",
+"english": "comfort, ease",
+"root": "ر-و-ح",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "راغب",
+"word": "راغِب",
+"word_voweled": "راغِب",
+"english": "desiring, wishing",
+"root": "ر-غ-ب",
+"word_type": "participle",
+"verb_form": "I"
+},
+{
+"key": "راي",
+"word": "رَأى",
+"word_voweled": "رَأى",
+"english": "to see, think",
+"root": "ر-أ-ي",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "راي ج. اراء",
+"word": "رَأي ج. آراء",
+"word_voweled": "رَأي",
+"english": "opinion about",
+"root": "ر-أ-ي",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ربما",
+"word": "رُبَّما",
+"word_voweled": "رُبَّما",
+"english": "perhaps, maybe",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "ربي",
+"word": "ربى",
+"word_voweled": "رَبّى",
+"english": "to raise, bring up (children)",
+"root": "ر-ب-ي",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "رتب",
+"word": "رَتَّبَ",
+"word_voweled": "رَتَّبَ",
+"english": "to tidy up, arrange",
+"root": "ر-ت-ب",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "رجال",
+"word": "رِجّال",
+"word_voweled": "رِجّال",
+"english": "Man",
+"root": "ر-ج-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "رجع / عاد الي",
+"word": "رِجِع / عادَ الى",
+"word_voweled": "عادَ إلى",
+"english": "to return",
+"root": "ع-و-د",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "رجع من / الي",
+"word": "رَجَعَ من / إلى",
+"word_voweled": "رَجَعَ",
+"english": "to return (from / to)",
+"root": "ر-ج-ع",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "رح / س",
+"word": "رَح / سـَ",
+"word_voweled": "رَح / سَـ",
+"english": "future tense prefix",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "رخيص",
+"word": "رَخيص",
+"word_voweled": "رَخيص",
+"english": "cheap",
+"root": "ر-خ-ص",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "رساله ج. رسائل / مكتوب ج. مكاتيب",
+"word": "رِسالة ج. رَسائل / مَكتوب ج. مَكاتيب",
+"word_voweled": "رِسالة",
+"english": "letter",
+"root": "ر-س-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "رسم",
+"word": "رَسَمَ",
+"word_voweled": "رَسَمَ",
+"english": "to draw",
+"root": "ر-س-م",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "رسم (اسم)",
+"word": "رَسْم (اسم)",
+"word_voweled": "رَسْم",
+"english": "drawing (plural رُسوم also means fees)",
+"root": "ر-س-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "رغب في",
+"word": "رَغِبَ في",
+"word_voweled": "رَغِبَ في",
+"english": "to desire, wish to",
+"root": "ر-غ-ب",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "رف",
+"word": "رَفّ",
+"word_voweled": "رَفّ",
+"english": "shelf",
+"root": "ر-ف-ف",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "رفض / رفض",
+"word": "رَفَضْ / رَفَضَ",
+"word_voweled": "رَفَضَ",
+"english": "he refused",
+"root": "ر-ف-ض",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "رفيق ج. رفقات / صديق ج. اصدقاء",
+"word": "رفيق ج. رِفقات / صَديق ج. أَصدِقاء",
+"word_voweled": "صَديق",
+"english": "friend (m.)",
+"root": "ص-د-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "رفيقه / صديقه ج. صديقات",
+"word": "رفيقة / صَديقة ج. صَديقات",
+"word_voweled": "صَديقة",
+"english": "friend (f.)",
+"root": "ص-د-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ركن",
+"word": "رُكن",
+"word_voweled": "رُكن",
+"english": "corner, pillar",
+"root": "ر-ك-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "رمادي",
+"word": "رَمادِيّ",
+"word_voweled": "رَمادِيّ",
+"english": "grey",
+"root": "ر-م-د",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "رمز",
+"word": "رَمز",
+"word_voweled": "رَمز",
+"english": "symbol",
+"root": "ر-م-ز",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "رمي",
+"word": "رَمى",
+"word_voweled": "رَمى",
+"english": "to throw, to throw away",
+"root": "ر-م-ي",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "روي",
+"word": "رَوى",
+"word_voweled": "رَوى",
+"english": "to narrate, tell",
+"root": "ر-و-ي",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "زار",
+"word": "زارَ",
+"word_voweled": "زارَ",
+"english": "to visit",
+"root": "ز-و-ر",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "زبائن / زبائن",
+"word": "زبائن / زَبائِن",
+"word_voweled": "زَبائِن",
+"english": "customers (plural)",
+"root": "ز-ب-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "زبون / زبون",
+"word": "زبون / زَبون",
+"word_voweled": "زَبون",
+"english": "customer (singular)",
+"root": "ز-ب-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "زعلان / ه",
+"word": "زَعلان / ة",
+"word_voweled": "زَعلان/ة",
+"english": "Upset (angry or sad)",
+"root": "ز-ع-ل",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "زغير/ه",
+"word": "زغير/ة",
+"word_voweled": "زْغير/ة",
+"english": "Small; young",
+"root": "ص-غ-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "زميله ج. زمايل / زميله ج. زميلات",
+"word": "زَميلة ج. زَمايل / زَميلة ج. زَميلات",
+"word_voweled": "زَميلة",
+"english": "classmate, colleague (f.)",
+"root": "ز-م-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "زواج",
+"word": "زَواج",
+"word_voweled": "زَواج",
+"english": "marriage",
+"root": "ز-و-ج",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "زوج ج. ازواج / جوز",
+"word": "زَوْج ج. أَزْواج / جُوز",
+"word_voweled": "زَوج",
+"english": "husband",
+"root": "ز-و-ج",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "زوجه ج. زوجات / مره",
+"word": "زَوْجة ج. زَوْجات / مَرَة",
+"word_voweled": "زَوجة",
+"english": "wife",
+"root": "ز-و-ج",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "زي بعض",
+"word": "زَيّ بَعْض",
+"word_voweled": "زَيّ بَعْض",
+"english": "the same, alike (Shaami)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "سادس/ه",
+"word": "سادِس/ة",
+"word_voweled": "سادِس/ة",
+"english": "sixth",
+"root": "س-د-س",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "سال",
+"word": "سَأَلَ",
+"word_voweled": "سَأَلَ",
+"english": "to ask (a question)",
+"root": "س-أ-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "سباحه",
+"word": "سباحة",
+"word_voweled": "السِّباحة",
+"english": "Swimming",
+"root": "س-ب-ح",
+"word_type": "masdar",
+"verb_form": "I"
+},
+{
+"key": "سبب",
+"word": "سَبَّبَ",
+"word_voweled": "سَبَّبَ",
+"english": "to cause",
+"root": "س-ب-ب",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "سبق",
+"word": "سَبَقَ",
+"word_voweled": "سَبَقَ",
+"english": "to precede",
+"root": "س-ب-ق",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "ستاره / ستاره",
+"word": "ستارة / ستارة",
+"word_voweled": "سِتارة",
+"english": "Curtain",
+"root": "س-ت-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "سجاده / سجاده",
+"word": "سجادة / سجادة",
+"word_voweled": "سَجّادة",
+"english": "Rug",
+"root": "س-ج-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "سرير",
+"word": "سرير",
+"word_voweled": "سَرير",
+"english": "bed",
+"root": "س-ر-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "سرير / سرير",
+"word": "سرير / سرير",
+"word_voweled": "سَرير",
+"english": "Bed",
+"root": "س-ر-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "سعر",
+"word": "سِعر",
+"word_voweled": "سِعر",
+"english": "price",
+"root": "س-ع-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "سفره",
+"word": "سُفرة",
+"word_voweled": "السُّفرة",
+"english": "dining (room), dining table",
+"root": "س-ف-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "سقف",
+"word": "سَقف",
+"word_voweled": "سَقف",
+"english": "ceiling, roof",
+"root": "س-ق-ف",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "سكن",
+"word": "سَكَنَ",
+"word_voweled": "سَكَنَ",
+"english": "to reside, live in",
+"root": "س-ك-ن",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "سلامتك!",
+"word": "سَلامتَـِك!",
+"word_voweled": "سَلامتَك",
+"english": "Feel better! Get well soon!",
+"root": "س-ل-م",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "سلطه",
+"word": "سَلَطة",
+"word_voweled": "سَلَطة",
+"english": "salad",
+"root": "س-ل-ط",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "سمح",
+"word": "سمح",
+"word_voweled": "سَمَحَ",
+"english": "to permit (someone: لِـ) (to do: بِـ)",
+"root": "س-م-ح",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "سمع",
+"word": "سَمِعَ",
+"word_voweled": "سَمِعَ",
+"english": "to hear",
+"root": "س-م-ع",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "سمك",
+"word": "سَمَك",
+"word_voweled": "سَمَك",
+"english": "fish",
+"root": "س-م-ك",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "سمك / سمك",
+"word": "سَمَك / سَمَك",
+"word_voweled": "سَمَك",
+"english": "Fish",
+"root": "س-م-ك",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "سنتين / سنتان",
+"word": "سِنْتين / سَنَتانِ",
+"word_voweled": "سَنَتانِ",
+"english": "two years",
+"root": "س-ن-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "سنه / سنه",
+"word": "سَنة / سِنة",
+"word_voweled": "سَنة",
+"english": "year",
+"root": "س-ن-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "سهر",
+"word": "سهر",
+"word_voweled": "سَهِرَ",
+"english": "to stay up late",
+"root": "س-ه-ر",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "سهل/ه",
+"word": "سَهِل/ة",
+"word_voweled": "سَهِل/ة",
+"english": "Easy",
+"root": "س-ه-ل",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "سوق",
+"word": "سوق",
+"word_voweled": "سوق",
+"english": "market",
+"root": "س-و-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "سيئ",
+"word": "سَيِّئ",
+"word_voweled": "سَيِّئ",
+"english": "bad",
+"root": "س-و-أ",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "شاب",
+"word": "شابّ",
+"word_voweled": "شابّ",
+"english": "young man",
+"root": "ش-ب-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شاشه",
+"word": "شاشة",
+"word_voweled": "شاشة",
+"english": "screen",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شان",
+"word": "شَأن",
+"word_voweled": "شَأن",
+"english": "affair, matter",
+"root": "ش-أ-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شباب",
+"word": "شَباب",
+"word_voweled": "شَباب",
+"english": "Young people",
+"root": "ش-ب-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شباك",
+"word": "شِبّاك",
+"word_voweled": "شِبّاك",
+"english": "Window",
+"root": "ش-ب-ك",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شتي / مطر",
+"word": "شِتي / مَطَر",
+"word_voweled": "مَطَر",
+"english": "rain",
+"root": "م-ط-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شجع علي",
+"word": "شَجَّعَ على",
+"word_voweled": "شَجَّعَ على",
+"english": "to encourage (someone) to",
+"root": "ش-ج-ع",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "شخص",
+"word": "شَخص",
+"word_voweled": "شَخص",
+"english": "person",
+"root": "ش-خ-ص",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شخصيه",
+"word": "شخصية",
+"word_voweled": "شَخصِيّة",
+"english": "personality, character",
+"root": "ش-خ-ص",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شراء",
+"word": "شِراء",
+"word_voweled": "شِراء",
+"english": "buying, purchase",
+"root": "ش-ر-ي",
+"word_type": "masdar",
+"verb_form": "VIII"
+},
+{
+"key": "شرشف",
+"word": "شَرشَف",
+"word_voweled": "شَرشَف",
+"english": "(bed) sheet",
+"root": "ش-ر-ش-ف",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شركه ج. -ات / شركه ج. –ات",
+"word": "شِرْكة ج. -ات / شَرِكة ج. –ات",
+"word_voweled": "شَرِكة",
+"english": "company",
+"root": "ش-ر-ك",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شعب",
+"word": "شَعب",
+"word_voweled": "شَعب",
+"english": "a people, a nation",
+"root": "ش-ع-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شعر",
+"word": "شَعَرَ",
+"word_voweled": "شَعَرَ",
+"english": "to feel",
+"root": "ش-ع-ر",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "شغل",
+"word": "شَغَّلَ",
+"word_voweled": "شَغَّلَ",
+"english": "to turn on, to run (a machine)",
+"root": "ش-غ-ل",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "شغوف",
+"word": "شغوف",
+"word_voweled": "شَغوف",
+"english": "passionate (about), deeply fond of",
+"root": "ش-غ-ف",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "شقه",
+"word": "شَقّة",
+"word_voweled": "شَقّة",
+"english": "apartment",
+"root": "ش-ق-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شمال",
+"word": "شمال",
+"word_voweled": "شَمال",
+"english": "north",
+"root": "ش-م-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شهر",
+"word": "شَهْر",
+"word_voweled": "شَهْر",
+"english": "month",
+"root": "ش-ه-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شو احلي شي اذا ربيت ولادك بامريكا؟",
+"word": "شو أَحلى شي إذا ربّيت ولادَك بِأَمريكا؟",
+"word_voweled": "شو أَحلى شي إذا ربّيت ولادَك بِأَمريكا؟",
+"english": "What is the best part of raising your children in the United States?",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "شو احلي شي عجبك بيوتا؟",
+"word": "شو أَحلى شي عَجَبَك بِيوتا؟",
+"word_voweled": "شو أَحلى شي عَجَبَك بِيوتا؟",
+"english": "What has been your favorite thing about Utah?",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "شو اكتر الاشيا اللي بتحب تعملها هون؟",
+"word": "شو أَكتَر الأَشيا اللي بِتحِبّ تِعمِلها هون؟",
+"word_voweled": "شو أَكتَر الأَشيا اللي بِتحِبّ تِعمِلها هون؟",
+"english": "What are the things you most like to do here?",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "شو اكتر شي خايف منو اذا ربيت ولادك بامريكا؟",
+"word": "شو أَكتَر شي خايف مِنُّو إذا ربّيت ولادَك بِأَمريكا؟",
+"word_voweled": "شو أَكتَر شي خايف مِنُّو إذا ربّيت ولادَك بِأَمريكا؟",
+"english": "What are you most afraid of if you raise your children in the United States?",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "شو الشروط؟",
+"word": "شو الشُّروط؟",
+"word_voweled": "شو الشُّروط؟",
+"english": "What are the conditions? What are the requirements? (Shaami)",
+"root": "ش-ر-ط",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "شو نكهه العلكه اللي بتمك؟",
+"word": "شو نَكهِة العِلْكة اللي بْتِمَّك؟",
+"word_voweled": "شو نَكهِة العِلْكة اللي بْتِمَّك؟",
+"english": "What flavour is the gum in your mouth? (Shaami)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "شوب / حار",
+"word": "شوب / حارّ",
+"word_voweled": "حارّ",
+"english": "hot (adj.)",
+"root": "ح-ر-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "شوب/ه",
+"word": "شَوِّب/ة",
+"word_voweled": "شَوِّب/ة",
+"english": "Hot",
+"root": "ش-و-ب",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "شوبك",
+"word": "شوبَك",
+"word_voweled": "شو بَك",
+"english": "What's wrong (with you)?",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "شوربه",
+"word": "شوربة",
+"word_voweled": "شوربة",
+"english": "soup",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شوي",
+"word": "شوَيّ",
+"word_voweled": "شْوَيّ",
+"english": "A little",
+"root": "ش-و-ي",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "شوي / قليلا",
+"word": "شوَيّ / قَليلاً",
+"word_voweled": "قَليلاً",
+"english": "a little bit",
+"root": "ق-ل-ل",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "شوي شوي",
+"word": "شْوَيّ شْوَيّ",
+"word_voweled": "شْوَيّ شْوَيّ",
+"english": "slowly, little by little (Shaami)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "شيء",
+"word": "شيء",
+"word_voweled": "شَيء",
+"english": "thing",
+"root": "ش-ي-ء",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "شيق",
+"word": "شَيِّق",
+"word_voweled": "شَيِّق",
+"english": "interesting",
+"root": "ش-و-ق",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "صالح",
+"word": "صالِح",
+"word_voweled": "صالِح",
+"english": "righteous, good",
+"root": "ص-ل-ح",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "صباح الخير / صباح الخير",
+"word": "صَباح الخَير / صَباح الخير",
+"word_voweled": "صَباح الخَير",
+"english": "Good morning",
+"root": "ص-ب-ح",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "صباح الورد",
+"word": "صباح الورد",
+"word_voweled": "صَباح الوَرد",
+"english": "Good morning",
+"root": "ص-ب-ح",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "صبر",
+"word": "صَبر",
+"word_voweled": "صَبر",
+"english": "patience",
+"root": "ص-ب-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "صح",
+"word": "صَح",
+"word_voweled": "صَحّ",
+"english": "Right; correct",
+"root": "ص-ح-ح",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "صحا",
+"word": "صحا",
+"word_voweled": "صَحا",
+"english": "to wake up",
+"root": "ص-ح-و",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "صحيح!؟",
+"word": "صَحيح!؟",
+"word_voweled": "صَحيح",
+"english": "really?! or For real?!",
+"root": "ص-ح-ح",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "صديق",
+"word": "صَديق",
+"word_voweled": "صَديق",
+"english": "friend",
+"root": "ص-د-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "صعب/ه",
+"word": "صَعب/ة",
+"word_voweled": "صَعب/ة",
+"english": "Difficult; hard",
+"root": "ص-ع-ب",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "صغير",
+"word": "صَغير",
+"word_voweled": "صَغير",
+"english": "small, young",
+"root": "ص-غ-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "صف",
+"word": "صَف",
+"word_voweled": "صَفّ",
+"english": "Class",
+"root": "ص-ف-ف",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "صفحه",
+"word": "صَفحة",
+"word_voweled": "صَفحة",
+"english": "Page",
+"root": "ص-ف-ح",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "صلي",
+"word": "صلى",
+"word_voweled": "صَلَّى",
+"english": "to pray, do ritual prayers",
+"root": "ص-ل-و",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "صوره ج. صور / صوره ج. صور",
+"word": "صورة ج. صُوَر / صورة ج. صُوَر",
+"word_voweled": "صورة",
+"english": "picture",
+"root": "ص-و-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "صيدليه",
+"word": "صَيْدَلِيَّة",
+"word_voweled": "صَيْدَلِيَّة",
+"english": "pharmacy",
+"root": "ص-ي-د-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ضابط ج. ضباط / ظابط ج. ظباط",
+"word": "ضابِط ج. ضُبّاط / ظابِط ج. ظُبّاط",
+"word_voweled": "ضابِط",
+"english": "officer",
+"root": "ض-ب-ط",
+"word_type": "participle",
+"verb_form": null
+},
+{
+"key": "طائره",
+"word": "طائرة",
+"word_voweled": "طائِرة",
+"english": "airplane",
+"root": "ط-ي-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "طابق",
+"word": "طابِق",
+"word_voweled": "طابِق",
+"english": "floor, story",
+"root": "ط-ب-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "طاوله",
+"word": "طاولة",
+"word_voweled": "طاوِلة",
+"english": "Table",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "طاوله / طاوله",
+"word": "طاولة / طاولة",
+"word_voweled": "طاوِلة",
+"english": "Table",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "طبخ",
+"word": "طَبَخَ",
+"word_voweled": "طَبَخَ",
+"english": "to cook",
+"root": "ط-ب-خ",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "طبعا",
+"word": "طَبْعاً",
+"word_voweled": "طَبْعاً",
+"english": "of course, naturally",
+"root": "ط-ب-ع",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "طبيعه",
+"word": "طبيعة",
+"word_voweled": "طَبيعة",
+"english": "nature",
+"root": "ط-ب-ع",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "طرف",
+"word": "طَرَف",
+"word_voweled": "طَرَف",
+"english": "side, party",
+"root": "ط-ر-ف",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "طريق",
+"word": "طريق",
+"word_voweled": "طَريق",
+"english": "road, path, way",
+"root": "ط-ر-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "طلاق",
+"word": "طَلاق",
+"word_voweled": "الطَّلاق",
+"english": "divorce",
+"root": "ط-ل-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "طلع / خرج من",
+"word": "طِلِع / خَرَجَ من",
+"word_voweled": "خَرَجَ مِن",
+"english": "to leave (a place)",
+"root": "خ-ر-ج",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "طلع / نزل",
+"word": "طِلِع / نَزَل",
+"word_voweled": "نَزَلَ",
+"english": "to leave (the house); to stay (in a hotel)",
+"root": "ن-ز-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "طول / طوال",
+"word": "طول / طِوال",
+"word_voweled": "طَوال",
+"english": "throughout",
+"root": "ط-و-ل",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "طويل/طويله",
+"word": "طَويل/طَويلة",
+"word_voweled": "طَويل/طَويلة",
+"english": "Tall, long (masc./fem.)",
+"root": "ط-و-ل",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "طيب",
+"word": "طَيِّب",
+"word_voweled": "طَيِّب",
+"english": "Tayyib",
+"root": "ط-ي-ب",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "ظن ان",
+"word": "ظَنَّ أَنَّ",
+"word_voweled": "ظَنَّ أَنَّ",
+"english": "to think that, believe",
+"root": "ظ-ن-ن",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "عائله",
+"word": "عائِلة",
+"word_voweled": "عائِلة",
+"english": "family",
+"root": "ع-ي-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "عاده",
+"word": "عادة",
+"word_voweled": "عادَةً",
+"english": "usually",
+"root": "ع-و-د",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "عاش",
+"word": "عاشَ",
+"word_voweled": "عاشَ",
+"english": "to live",
+"root": "ع-ي-ش",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "عاطفي/ه",
+"word": "عاطِفيّ/ة",
+"word_voweled": "عاطِفيّ/ة",
+"english": "emotional, romantic",
+"root": "ع-ط-ف",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "عالي/ه",
+"word": "عالِي/ة",
+"word_voweled": "عالي/ة",
+"english": "high",
+"root": "ع-ل-و",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "عام",
+"word": "عام",
+"word_voweled": "عام",
+"english": "year (= سنة)",
+"root": "ع-و-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "عام/ه",
+"word": "عامّ/ة",
+"word_voweled": "عامّ/ة",
+"english": "general, public",
+"root": "ع-م-م",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "عاني",
+"word": "عانى",
+"word_voweled": "عانى",
+"english": "to suffer",
+"root": "ع-ن-ي",
+"word_type": "verb",
+"verb_form": "III"
+},
+{
+"key": "عبد",
+"word": "عَبد",
+"word_voweled": "عَبد",
+"english": "servant, slave",
+"root": "ع-ب-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "عجبتك تجربه الهجره، ولو لفتره؟",
+"word": "عَجَبَتَك تَجرِبِة الهِجرة، وَلَو لِفترة؟",
+"word_voweled": "عَجَبَتَك تَجرِبِة الهِجرة، وَلَو لِفترة؟",
+"english": "Did you like the experience of immigrating, even if only for a while?",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "عدم",
+"word": "عَدَم",
+"word_voweled": "عَدَم",
+"english": "non-, lack of (negates a verbal noun)",
+"root": "ع-د-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "عده",
+"word": "عِدّة",
+"word_voweled": "عِدّة",
+"english": "several (+ indefinite plural noun)",
+"root": "ع-د-د",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "عشاء / عشا",
+"word": "عَشاء / عَشا",
+"word_voweled": "عَشاء",
+"english": "Dinner",
+"root": "ع-ش-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "عشرون",
+"word": "عِشرون",
+"word_voweled": "عِشرون",
+"english": "twenty",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "عطشان/ه",
+"word": "عَطشان/ة",
+"word_voweled": "عَطشان/ة",
+"english": "Thirsty",
+"root": "ع-ط-ش",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "عطله",
+"word": "عُطلة",
+"word_voweled": "عُطلة",
+"english": "holiday, vacation (official)",
+"root": "ع-ط-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "علاقه",
+"word": "عَلاقة",
+"word_voweled": "عَلاقة",
+"english": "relationship; relations (between)",
+"root": "ع-ل-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "علق",
+"word": "عَلَّقَ",
+"word_voweled": "عَلَّقَ",
+"english": "to hang (something) up",
+"root": "ع-ل-ق",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "علكه الجبس",
+"word": "عِلْكِة الجِبْس",
+"word_voweled": "عِلْكِة الجِبْس",
+"english": "gypsum gum — a hard, chalky chewing gum",
+"root": "ج-ب-س",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "علم",
+"word": "علم",
+"word_voweled": "عَلَّمَ",
+"english": "to teach, educate (someone)",
+"root": "ع-ل-م",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "علم الانسان / علم الانسان",
+"word": "عِلْم الإنْسان / عِلْم الإنْسان",
+"word_voweled": "عِلم الإِنسان",
+"english": "anthropology",
+"root": "أ-ن-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "علم النفس / علم النفس",
+"word": "عِلْم النَّفْس / عِلْم النَّفْس",
+"word_voweled": "عِلم النَّفس",
+"english": "psychology",
+"root": "ن-ف-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "علم ب",
+"word": "عَلِمَ بِـ",
+"word_voweled": "عَلِمَ بِـ",
+"english": "to learn of, know",
+"root": "ع-ل-م",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "علم ج. علوم / علم ج. علوم",
+"word": "عِلْم ج. عُلوم / عِلْم ج. عُلوم",
+"word_voweled": "عِلم",
+"english": "science",
+"root": "ع-ل-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "علي",
+"word": "عَلى",
+"word_voweled": "عَلى",
+"english": "on, upon",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "عمر",
+"word": "عُمر",
+"word_voweled": "عُمر",
+"english": "age",
+"root": "ع-م-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "عمل",
+"word": "عمل",
+"word_voweled": "عَمِلَ",
+"english": "to do; to work",
+"root": "ع-م-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "عمل / شغل",
+"word": "عَمَل / شُغل",
+"word_voweled": "عَمَل",
+"english": "work",
+"root": "ع-م-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "عن",
+"word": "عَن",
+"word_voweled": "عَن",
+"english": "about, from",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "عن اذنك",
+"word": "عن إذنَك",
+"word_voweled": "عَن إِذنَك",
+"english": "May I be excused? (m)",
+"root": "أ-ذ-ن",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "عندما",
+"word": "عِندَما",
+"word_voweled": "عِندَما",
+"english": "when (+ verbal sentence)",
+"root": "ع-ن-د",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "عندي / عندي",
+"word": "عِندي / عِندي",
+"word_voweled": "عِندي",
+"english": "I have",
+"root": "ع-ن-د",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "عنوان / عنوان",
+"word": "عُنوان / عِنوان",
+"word_voweled": "عُنوان",
+"english": "address",
+"root": "ع-ن-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "عيب",
+"word": "عيب",
+"word_voweled": "عيب",
+"english": "shame; \"that's not done\"",
+"root": "ع-ي-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "عين ج. عيون",
+"word": "عَيْن ج. عُيون",
+"word_voweled": "عَين",
+"english": "eye",
+"root": "ع-ي-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "عينت",
+"word": "عُيِّنْتُ",
+"word_voweled": "عُيِّنْتُ",
+"english": "I was appointed",
+"root": "ع-ي-ن",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "غاضب",
+"word": "غاضب",
+"word_voweled": "غاضِب",
+"english": "angry",
+"root": "غ-ض-ب",
+"word_type": "participle",
+"verb_form": "I"
+},
+{
+"key": "غالي",
+"word": "غالي",
+"word_voweled": "غالي",
+"english": "Expensive",
+"root": "غ-ل-و",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "غالي/ه",
+"word": "غالي/ة",
+"word_voweled": "غالي/ة",
+"english": "expensive",
+"root": "غ-ل-و",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "غامق",
+"word": "غامِق",
+"word_voweled": "غامِق",
+"english": "dark (in color)",
+"root": "غ-م-ق",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "غدا / بكرا",
+"word": "غَداً / بُكرا",
+"word_voweled": "غَداً / بُكرا",
+"english": "tomorrow",
+"root": "غ-د-و",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "غداء / غدا",
+"word": "غَداء / غَدا",
+"word_voweled": "غَداء",
+"english": "Lunch",
+"root": "غ-د-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "غرب",
+"word": "غرب",
+"word_voweled": "غَرب",
+"english": "west",
+"root": "غ-ر-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "غرفه",
+"word": "غُرْفة",
+"word_voweled": "غُرْفة",
+"english": "Room",
+"root": "غ-ر-ف",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "غساله",
+"word": "غَسّالة",
+"word_voweled": "غَسّالة",
+"english": "washing machine",
+"root": "غ-س-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "غسل",
+"word": "غَسَلَ",
+"word_voweled": "غَسَلَ",
+"english": "to wash",
+"root": "غ-س-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "غضب",
+"word": "غضب",
+"word_voweled": "غَضِبَ",
+"english": "to get angry (at: مِن)",
+"root": "غ-ض-ب",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "غفر",
+"word": "غَفَرَ",
+"word_voweled": "غَفَرَ",
+"english": "to forgive (of God)",
+"root": "غ-ف-ر",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "غلط",
+"word": "غَلَط",
+"word_voweled": "غَلَط",
+"english": "Wrong, a mistake",
+"root": "غ-ل-ط",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "غير",
+"word": "غَير",
+"word_voweled": "غَير",
+"english": "other than, not",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "غير (فعل)",
+"word": "غَيَّرَ (فعل)",
+"word_voweled": "غَيَّرَ (فعل)",
+"english": "to change (something)",
+"root": "غ-ي-ر",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "فاتح",
+"word": "فاتِح",
+"word_voweled": "فاتِح",
+"english": "light (in color)",
+"root": "ف-ت-ح",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "فاجا",
+"word": "فاجَأَ",
+"word_voweled": "فاجَأَ",
+"english": "to surprise",
+"root": "ف-ج-أ",
+"word_type": "verb",
+"verb_form": "III"
+},
+{
+"key": "فاضي",
+"word": "فاضي",
+"word_voweled": "فاضي",
+"english": "unoccupied, not busy (spoken)",
+"root": "ف-ض-و",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "فتح",
+"word": "فتح",
+"word_voweled": "فَتَحَ",
+"english": "to open",
+"root": "ف-ت-ح",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "فتره",
+"word": "فترة",
+"word_voweled": "فَترة",
+"english": "period, while (of time)",
+"root": "ف-ت-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فرد ج. افراد",
+"word": "فَرد ج. أفراد",
+"word_voweled": "فَرد",
+"english": "individual",
+"root": "ف-ر-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فرصه",
+"word": "فُرصة",
+"word_voweled": "فُرْصة",
+"english": "opportunity, chance",
+"root": "ف-ر-ص",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فرصه سعيده!",
+"word": "فُرصة سَعيدة!",
+"word_voweled": "فُرْصة سَعيدة!",
+"english": "nice to have met you!",
+"root": "ف-ر-ص",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "فرق",
+"word": "فَرَّقَ",
+"word_voweled": "فَرَّقَ",
+"english": "to distinguish, differentiate",
+"root": "ف-ر-ق",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "فرن",
+"word": "فرن",
+"word_voweled": "فُرن",
+"english": "oven",
+"root": "ف-ر-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فرن الميكروويف / الميكرويف",
+"word": "فرن الميكروويف / الميكرويف",
+"word_voweled": "فُرن المايكروويف",
+"english": "Microwave",
+"root": "ف-ر-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فستان",
+"word": "فستان",
+"word_voweled": "فُستان",
+"english": "(a) dress",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فشل في",
+"word": "فَشِلَ في",
+"word_voweled": "فَشِلَ في",
+"english": "to fail (at, in)",
+"root": "ف-ش-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "فصل",
+"word": "فَصَلَ",
+"word_voweled": "فَصَلَ",
+"english": "to dismiss, fire (from a job)",
+"root": "ف-ص-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "فصل (من كتاب)",
+"word": "فَصل (من كِتاب)",
+"word_voweled": "فَصل",
+"english": "chapter",
+"root": "ف-ص-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فصل ج فصول",
+"word": "فَصل ج فُصول",
+"word_voweled": "فَصل",
+"english": "season",
+"root": "ف-ص-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فصل دراسي",
+"word": "فَصل دِراسيّ",
+"word_voweled": "فَصل دِراسيّ",
+"english": "semester",
+"root": "ف-ص-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فضل",
+"word": "فَضَّلَ",
+"word_voweled": "فَضَّلَ",
+"english": "to prefer",
+"root": "ف-ض-ل",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "فضه",
+"word": "فِضّة",
+"word_voweled": "فِضّة",
+"english": "silver",
+"root": "ف-ض-ض",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فضي",
+"word": "فِضِّيّ",
+"word_voweled": "فِضِّيّ",
+"english": "silver (color)",
+"root": "ف-ض-ض",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "فطاير / فطائر",
+"word": "فطاير / فَطائِر",
+"word_voweled": "فَطائِر",
+"english": "pastries (plural)",
+"root": "ف-ط-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فطر / فطر",
+"word": "فِطِر / فَطَرَ",
+"word_voweled": "فَطَرَ",
+"english": "to eat breakfast",
+"root": "ف-ط-ر",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "فطور / فطور، صبحيه",
+"word": "فُطور / فُطور، صُبحيّة",
+"word_voweled": "فُطور، صُبحِيّة",
+"english": "Breakfast",
+"root": "ف-ط-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فطيره / فطيره",
+"word": "فطيرة / فَطيرة",
+"word_voweled": "فَطيرة",
+"english": "pastry, pie (singular)",
+"root": "ف-ط-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فعل",
+"word": "فَعَلَ",
+"word_voweled": "فَعَلَ",
+"english": "to do",
+"root": "ف-ع-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "فقير",
+"word": "فقير",
+"word_voweled": "فَقير",
+"english": "poor, a poor person",
+"root": "ف-ق-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فكر في",
+"word": "فَكَّرَ في",
+"word_voweled": "فَكَّرَ في",
+"english": "to think about (doing something)",
+"root": "ف-ك-ر",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "فكره",
+"word": "فِكرة",
+"word_voweled": "فِكرة",
+"english": "idea",
+"root": "ف-ك-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فلان / فلان",
+"word": "فْلان / فْلان",
+"word_voweled": "فْلان",
+"english": "Flan",
+"root": "ف-ل-ن",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "فندق",
+"word": "فُندُق",
+"word_voweled": "فُندُق",
+"english": "hotel",
+"root": "ف-ن-د-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فهم",
+"word": "فهم",
+"word_voweled": "فَهِمَ",
+"english": "to understand",
+"root": "ف-ه-م",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "فواكه",
+"word": "فَواكِه",
+"word_voweled": "فَواكِه",
+"english": "fruits",
+"root": "ف-ك-ه",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "فوق",
+"word": "فَوْقَ",
+"word_voweled": "فَوْقَ",
+"english": "above; upstairs",
+"root": "ف-و-ق",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "في",
+"word": "في",
+"word_voweled": "في",
+"english": "in, at",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "في الحقيقه / بالحقيقه",
+"word": "في الحَقيقة / بِالحَقيقة",
+"word_voweled": "في الحَقيقة",
+"english": "actually, in reality",
+"root": "ح-ق-ق",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "في النهايه",
+"word": "في النهاية",
+"word_voweled": "في النِّهاية",
+"english": "in the end, finally",
+"root": "ن-ه-ي",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "فيق",
+"word": "فَيَّق",
+"word_voweled": "فَيَّق",
+"english": "to wake (someone) up",
+"root": "ف-و-ق",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "فيق / ايقظ",
+"word": "فَيَّق / أَيْـقَظَ",
+"word_voweled": "أَيقَظَ",
+"english": "to wake (someone) up",
+"root": "ي-ق-ظ",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "فيما",
+"word": "فيما",
+"word_voweled": "فيما",
+"english": "in what, while",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "فيه / هناك",
+"word": "فيه / هُناك",
+"word_voweled": "هُناك",
+"english": "there is",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "قائل",
+"word": "قائِل",
+"word_voweled": "قائِل",
+"english": "saying, one who says",
+"root": "ق-و-ل",
+"word_type": "participle",
+"verb_form": "I"
+},
+{
+"key": "قابل",
+"word": "قابل",
+"word_voweled": "قابَلَ",
+"english": "to meet",
+"root": "ق-ب-ل",
+"word_type": "verb",
+"verb_form": "III"
+},
+{
+"key": "قادم/ه",
+"word": "قادِم/ة",
+"word_voweled": "قادِم/ة",
+"english": "coming, next (week, year, etc.)",
+"root": "ق-د-م",
+"word_type": "participle",
+"verb_form": "I"
+},
+{
+"key": "قالي صاحبي انو بدو مني اجيب كيكه وشوي بالونات، فرح اروح عالمحل اللي بوسط البلد لانو اسعارو رخيصه وعندو كل الالوان.",
+"word": "قالّي صاحبي إنّو بِدّو مِنّي أجيب كيكة وشَوِي بالونات، فرَح أروح عالمَحَلّ اللّي بِوَسَط البَلَد لأنّو أسعارو رَخيصة وعندو كِل الألوان.",
+"word_voweled": "قالّي صاحبي إنّو بِدّو مِنّي أجيب كيكة وشَوِي بالونات، فرَح أروح عالمَحَلّ اللّي بِوَسَط البَلَد لأنّو أسعارو رَخيصة وعندو كِل الألوان.",
+"english": "My friend told me he wants me to bring a cake and some balloons, so I'll go to the shop in the middle of town because its prices are cheap and it has every colour.",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "قام بـ",
+"word": "قامَ بِـ",
+"word_voweled": "قامَ بِـ",
+"english": "to undertake, carry out",
+"root": "ق-و-م",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "قبل (فعل)",
+"word": "قَبِلَ (فعل)",
+"word_voweled": "قَبِلَ (فعل)",
+"english": "to accept",
+"root": "ق-ب-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "قبل / قبل",
+"word": "قَبل / قَبلَ",
+"word_voweled": "قَبلَ",
+"english": "before",
+"root": "ق-ب-ل",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "قبلك",
+"word": "قَبلَك",
+"word_voweled": "قَبلَك",
+"english": "before you",
+"root": "ق-ب-ل",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "قبول / قبول",
+"word": "قَبول / قَبول",
+"word_voweled": "قَبول",
+"english": "admission(s)",
+"root": "ق-ب-ل",
+"word_type": "masdar",
+"verb_form": "I"
+},
+{
+"key": "قد",
+"word": "قَد",
+"word_voweled": "قَد",
+"english": "indeed, already (verb particle)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "قدر / استطاع",
+"word": "قِدِر / اِستَطاعَ",
+"word_voweled": "اِستَطاعَ",
+"english": "to be able to",
+"root": "ط-و-ع",
+"word_type": "verb",
+"verb_form": "X"
+},
+{
+"key": "قدره",
+"word": "قُدرة",
+"word_voweled": "قُدرة",
+"english": "ability, capacity",
+"root": "ق-د-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "قدم",
+"word": "قدم",
+"word_voweled": "قَدَّمَ",
+"english": "to offer, present, provide",
+"root": "ق-د-م",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "قديش بدك تبقي بامريكا؟",
+"word": "قَدّيش بِدَّك تِبقى بِأَمريكا؟",
+"word_voweled": "قَدّيش بِدَّك تِبقى بِأَمريكا؟",
+"english": "How long would you like to stay in the United States?",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "قديش صار لك من وقت ما هاجرت لهون؟",
+"word": "قَدّيش صار لَك مِن وقت ما هاجَرت لَهون؟",
+"word_voweled": "قَدّيش صار لَك مِن وقت ما هاجَرت لَهون؟",
+"english": "How long ago did you immigrate here?",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "قديم",
+"word": "قَديم",
+"word_voweled": "قَديم",
+"english": "old, ancient",
+"root": "ق-د-م",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "قرار",
+"word": "قَرار",
+"word_voweled": "قَرار",
+"english": "decision",
+"root": "ق-ر-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "قرر",
+"word": "قَرَّرَ",
+"word_voweled": "قَرَّرَ",
+"english": "to decide to",
+"root": "ق-ر-ر",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "قريب/ه من",
+"word": "قَريب/ة مِن",
+"word_voweled": "قَريب/ة مِن",
+"english": "Close to, near",
+"root": "ق-ر-ب",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "قسم",
+"word": "قِسْم",
+"word_voweled": "قِسْم",
+"english": "part, section, department",
+"root": "ق-س-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "قصد",
+"word": "قَصَدَ",
+"word_voweled": "قَصَدَ",
+"english": "to mean, to intend",
+"root": "ق-ص-د",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "قصه",
+"word": "قِصّة",
+"word_voweled": "قِصّة",
+"english": "Story",
+"root": "ق-ص-ص",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "قصير/قصيره",
+"word": "قَصير/قَصيرة",
+"word_voweled": "قَصير/قَصيرة",
+"english": "Short (masc./fem.)",
+"root": "ق-ص-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "قضي",
+"word": "قَضى",
+"word_voweled": "قَضى",
+"english": "to spend (time)",
+"root": "ق-ض-ي",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "قطه",
+"word": "قِطّة",
+"word_voweled": "قِطّة",
+"english": "Cat",
+"root": "ق-ط-ط",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "قعد / جلس",
+"word": "قَعَد / جَلَسَ",
+"word_voweled": "جَلَسَ",
+"english": "to sit",
+"root": "ج-ل-س",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "قل",
+"word": "قَلَّ",
+"word_voweled": "قَلَّ",
+"english": "to decrease, be few",
+"root": "ق-ل-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "قلتله يعطيك العافيه علي التحضير، بس اذا وصلنا بمنتصف الليل ما رح نقدر نغير ثيابنا، فخلينا نبعتله رساله ونقله انو رح نتاخر شوي.",
+"word": "قِلتِلُّه يَعطيك العافية على التَّحضير، بَس إذا وِصِلنا بِمُنتَصَف اللَّيل ما رَح نِقدَر نِغَيِّر ثيابنا، فخَلِّينا نِبعَتلُّه رِسالة ونِقِلُّه إنّو رَح نِتأخَّر شَوِي.",
+"word_voweled": "قِلتِلُّه يَعطيك العافية على التَّحضير، بَس إذا وِصِلنا بِمُنتَصَف اللَّيل ما رَح نِقدَر نِغَيِّر ثيابنا، فخَلِّينا نِبعَتلُّه رِسالة ونِقِلُّه إنّو رَح نِتأخَّر شَوِي.",
+"english": "I told him, \"Thank you for all the preparing,\" but if we arrive at midnight we won't be able to change our clothes, so let's send him a message and tell him we're going to be a bit late.",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "قلم",
+"word": "قَلَم",
+"word_voweled": "قَلَم",
+"english": "Pen",
+"root": "ق-ل-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "قميص",
+"word": "قميص",
+"word_voweled": "قَميص",
+"english": "shirt",
+"root": "ق-م-ص",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "كافح",
+"word": "كافَحَ",
+"word_voweled": "كافَحَ",
+"english": "to struggle, to battle (against)",
+"root": "ك-ف-ح",
+"word_type": "verb",
+"verb_form": "III"
+},
+{
+"key": "كان / كان",
+"word": "كانْ / كانَ",
+"word_voweled": "كانَ",
+"english": "he was",
+"root": "ك-و-ن",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "كان بده / اراد ان",
+"word": "كان بِدُّه / أرادَ أنْ",
+"word_voweled": "أَرادَ أَن",
+"english": "he wanted to",
+"root": "ر-و-د",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "كان بدي اكتب اكتر",
+"word": "كان بِدّي أكتُب أكتَر",
+"word_voweled": "كان بِدّي أكتُب أكتَر",
+"english": "I wanted to write more.",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "كبير/ه",
+"word": "كبير/ة",
+"word_voweled": "كَبير/ة",
+"english": "Large; old (for people)",
+"root": "ك-ب-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "كتلانيه",
+"word": "كَتَلانِيّة",
+"word_voweled": "كَتَلانِيّة",
+"english": "Catalan (the language)",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "كتير / جدا",
+"word": "كتير / جِدّاً",
+"word_voweled": "جِدّاً",
+"english": "very",
+"root": "ج-د-د",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "كتير / كثيرا",
+"word": "كتير / كَثيراً",
+"word_voweled": "كَثيراً",
+"english": "a lot",
+"root": "ك-ث-ر",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "كثير",
+"word": "كَثير",
+"word_voweled": "كَثير",
+"english": "many, much",
+"root": "ك-ث-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "كذابه",
+"word": "كَذّابة",
+"word_voweled": "كَذّابة",
+"english": "a liar (of a woman)",
+"root": "ك-ذ-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "كذلك",
+"word": "كَذلِكَ",
+"word_voweled": "كَذلِكَ",
+"english": "likewise, also",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "كرسي",
+"word": "كِرسي",
+"word_voweled": "كِرسي",
+"english": "Chair",
+"root": "ك-ر-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "كرسي / كرسي",
+"word": "كرسي / كرسي",
+"word_voweled": "كُرسي",
+"english": "Chair",
+"root": "ك-ر-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "كره السله",
+"word": "كُرة السَّلّة",
+"word_voweled": "كُرة السَّلّة",
+"english": "basketball",
+"root": "ك-و-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "كره القدم",
+"word": "كُرة القَدَم",
+"word_voweled": "كُرة القَدَم",
+"english": "soccer, football",
+"root": "ك-و-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "كسر",
+"word": "كَسَرَ",
+"word_voweled": "كَسَرَ",
+"english": "to break",
+"root": "ك-س-ر",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "كسلان",
+"word": "كسلان",
+"word_voweled": "كَسلان/ة",
+"english": "lazy",
+"root": "ك-س-ل",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "كل / كل",
+"word": "كِلّ / كُلّ",
+"word_voweled": "كُلّ",
+"english": "all (of the...)",
+"root": "ك-ل-ل",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "كلام عيب",
+"word": "كَلام عيب",
+"word_voweled": "كَلام عيب",
+"english": "shameful talk, talk you shouldn't say",
+"root": "ع-ي-ب",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "كلب",
+"word": "كَلب",
+"word_voweled": "كَلب",
+"english": "Dog",
+"root": "ك-ل-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "كلمه",
+"word": "كِلمة",
+"word_voweled": "كَلِمة",
+"english": "Word",
+"root": "ك-ل-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "كم",
+"word": "كم",
+"word_voweled": "كَم",
+"english": "how much, how many; how long (of time)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "كما",
+"word": "كما",
+"word_voweled": "كَما",
+"english": "like, as",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "كنت / كنت",
+"word": "كِنتْ / كُنتُ",
+"word_voweled": "كُنتُ",
+"english": "I was",
+"root": "ك-و-ن",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "كنت بتعيد التجربه؟",
+"word": "كُنت بِتعيد التَّجرِبة؟",
+"word_voweled": "كُنت بِتعيد التَّجرِبة؟",
+"english": "Would you do it again?",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "كنت دايما بدك تهاجر ع امريكا؟",
+"word": "كُنت دايماً بِدَّك تُهاجِر عَ أَمريكا؟",
+"word_voweled": "كُنت دايماً بِدَّك تُهاجِر عَ أَمريكا؟",
+"english": "Have you always wanted to immigrate to the United States?",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "كنت رح اكتب اكتر",
+"word": "كُنت رَح أكتُب أكتَر",
+"word_voweled": "كُنت رَح أكتُب أكتَر",
+"english": "I was going to write more.",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "كنت رح اكتب اكتر، بس ما كان عندي وقت",
+"word": "كُنت رَح أكتُب أكتَر، بَس ما كان عِندي وَقت",
+"word_voweled": "كُنت رَح أكتُب أكتَر، بَس ما كان عِندي وَقت",
+"english": "I was going to write more, but I did not have time.",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "كنت ناوي اكتب اكتر",
+"word": "كُنت ناوي أكتُب أكتَر",
+"word_voweled": "كُنت ناوي أكتُب أكتَر",
+"english": "I was intending to write more.",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "كنس",
+"word": "كَنَسَ",
+"word_voweled": "كَنَسَ",
+"english": "to sweep",
+"root": "ك-ن-س",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "كنف",
+"word": "كَنَف",
+"word_voweled": "كَنَف",
+"english": "shelter, protection",
+"root": "ك-ن-ف",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "كنيسه / كنيسه",
+"word": "كَنيسة / كَنيسة",
+"word_voweled": "كَنيسة",
+"english": "Church",
+"root": "ك-ن-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "كيف",
+"word": "كيف",
+"word_voweled": "كَيف",
+"english": "how",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "كيف بتشوف يوتا مقارنه بالولايات التانيه؟",
+"word": "كيف بِتشوف يوتا مَقارنَة بِالوِلايات التانية؟",
+"word_voweled": "كيف بِتشوف يوتا مَقارنَة بِالوِلايات التانية؟",
+"english": "How do you see Utah compared to the other states?",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "ل",
+"word": "لِـ",
+"word_voweled": "لِـ",
+"english": "to, for (attached preposition)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "لا",
+"word": "لا",
+"word_voweled": "لا",
+"english": "no, not",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "لا احد",
+"word": "لا أَحَد",
+"word_voweled": "لا أَحَدَ",
+"english": "no one",
+"root": "أ-ح-د",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "لاحظ",
+"word": "لاحَظَ",
+"word_voweled": "لاحَظَ",
+"english": "to notice, observe",
+"root": "ل-ح-ظ",
+"word_type": "verb",
+"verb_form": "III"
+},
+{
+"key": "لازم",
+"word": "لازِم",
+"word_voweled": "لازِم",
+"english": "Need, must",
+"root": "ل-ز-م",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "لانه / لان",
+"word": "لَأَنـُّه / لِأنَّ",
+"word_voweled": "لِأَنَّ",
+"english": "because",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "لبس",
+"word": "لبس",
+"word_voweled": "لَبِسَ",
+"english": "to wear, put on (clothes)",
+"root": "ل-ب-س",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "لتواليت؛ الحمام",
+"word": "لتواليت؛ الحَمّام",
+"word_voweled": "التّواليت؛ الحَمّام",
+"english": "Bathroom/Toilet",
+"root": "ح-م-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "لحم",
+"word": "لَحم",
+"word_voweled": "لَحم",
+"english": "meat",
+"root": "ل-ح-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "لطيف/لطيفه",
+"word": "لَطيف/لَطيفة",
+"word_voweled": "لَطيف/لَطيفة",
+"english": "Nice, pleasant (masc./fem.)",
+"root": "ل-ط-ف",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "لعل",
+"word": "لَعَلَّ",
+"word_voweled": "لَعَلَّ",
+"english": "perhaps, maybe",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "لغه / لغه",
+"word": "لُغة / لُغة",
+"word_voweled": "لُغة",
+"english": "language",
+"root": "ل-غ-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "لقي",
+"word": "لَقى",
+"word_voweled": "لَقى",
+"english": "to find (Shaami)",
+"root": "ل-ق-ي",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "لكن",
+"word": "لكِن",
+"word_voweled": "لكِن",
+"english": "but",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "لم",
+"word": "لَم",
+"word_voweled": "لَم",
+"english": "did not (negates the past)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "لم اجد",
+"word": "لَم أَجِد",
+"word_voweled": "لَم أَجِد",
+"english": "I did not find",
+"root": "و-ج-د",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "لم يسافر",
+"word": "لَم يُسافِر",
+"word_voweled": "لَم يُسافِر",
+"english": "he did not travel",
+"root": "س-ف-ر",
+"word_type": "verb",
+"verb_form": "III"
+},
+{
+"key": "لو",
+"word": "لَو",
+"word_voweled": "لَو",
+"english": "if",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "لو سمحت",
+"word": "لو سَمَحت",
+"word_voweled": "لَو سَمَحْت",
+"english": "Please / Excuse me",
+"root": "س-م-ح",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "لوحه",
+"word": "لَوْحة",
+"word_voweled": "لَوْحة",
+"english": "painting, drawing (on a board); panel, sign",
+"root": "ل-و-ح",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "لون",
+"word": "لَوْن",
+"word_voweled": "لَوْن",
+"english": "color",
+"root": "ل-و-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ليالي",
+"word": "ليالي",
+"word_voweled": "لَيالي",
+"english": "nights (plural)",
+"root": "ل-ي-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ليس",
+"word": "لَيسَ",
+"word_voweled": "لَيسَ",
+"english": "is not",
+"root": null,
+"word_type": "verb",
+"verb_form": null
+},
+{
+"key": "ليش؟ / لماذا؟",
+"word": "ليش؟ / لِماذا؟",
+"word_voweled": "لِماذا",
+"english": "why?",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "ليله",
+"word": "ليلة",
+"word_voweled": "لَيلة",
+"english": "(a) night",
+"root": "ل-ي-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مؤقت",
+"word": "مُؤَقَّت",
+"word_voweled": "مُؤَقَّت",
+"english": "temporary",
+"root": "و-ق-ت",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "ما",
+"word": "ما",
+"word_voweled": "ما",
+"english": "what, that which",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "ما زال",
+"word": "ما زالَ",
+"word_voweled": "ما زالَ",
+"english": "continues to, is still",
+"root": "ز-ي-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "مات / مات",
+"word": "ماتْ / ماتَ",
+"word_voweled": "ماتَ",
+"english": "he died",
+"root": "م-و-ت",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "ماتت / ماتت",
+"word": "ماتِت / ماتَت",
+"word_voweled": "ماتَت",
+"english": "she died",
+"root": "م-و-ت",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "ماجد",
+"word": "ماجِد",
+"word_voweled": "ماجِد",
+"english": "glorious, noble",
+"root": "م-ج-د",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "مادي/ه",
+"word": "مادِّيّ/ة",
+"word_voweled": "مادِّيّ/ة",
+"english": "material, financial",
+"root": "م-د-د",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "مازال",
+"word": "ما زالَ",
+"word_voweled": "ما زالَ",
+"english": "still, continues to be",
+"root": "ز-ي-ل",
+"word_type": "verb",
+"verb_form": null
+},
+{
+"key": "مازق",
+"word": "مَأزِق",
+"word_voweled": "مَأزِق",
+"english": "predicament, tight spot",
+"root": "أ-ز-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ماشي",
+"word": "ماشي",
+"word_voweled": "ماشي",
+"english": "going well, OK (colloquial)",
+"root": "م-ش-ي",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "ماشي حالا / —",
+"word": "ماشي حالا / —",
+"word_voweled": "ماشي حالاً",
+"english": "okay, right away",
+"root": "م-ش-ي",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "مباراه",
+"word": "مباراة",
+"word_voweled": "مُبَاراة",
+"english": "match, game (sports)",
+"root": "ب-ر-ي",
+"word_type": "noun",
+"verb_form": "III"
+},
+{
+"key": "مباريات",
+"word": "مباريات",
+"word_voweled": "مُبَارَيات",
+"english": "matches, games (plural)",
+"root": "ب-ر-ي",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مباشر / مباشره",
+"word": "مباشر / مُباشَرة",
+"word_voweled": "مُباشَرةً",
+"english": "directly, straight away",
+"root": "ب-ش-ر",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "مبدا",
+"word": "مَبدَأ",
+"word_voweled": "مَبدَأ",
+"english": "principle",
+"root": "ب-د-أ",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مبروك / مبروك",
+"word": "مبروك / مَبروك",
+"word_voweled": "مَبروك",
+"english": "congratulations",
+"root": "ب-ر-ك",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "مبروك! / مبروك!",
+"word": "مَبْروك! / مَبْروك!",
+"word_voweled": "مَبروك",
+"english": "congratulations!",
+"root": "ب-ر-ك",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "مبسوط/ه",
+"word": "مَبسوط/ة",
+"word_voweled": "مَبسوط/ة",
+"english": "Happy",
+"root": "ب-س-ط",
+"word_type": "participle",
+"verb_form": null
+},
+{
+"key": "مبشر",
+"word": "مُبَشِّر",
+"word_voweled": "مُبَشِّر",
+"english": "missionary, preacher",
+"root": "ب-ش-ر",
+"word_type": "participle",
+"verb_form": "II"
+},
+{
+"key": "مبني",
+"word": "مبنى",
+"word_voweled": "مَبنى",
+"english": "building",
+"root": "ب-ن-ي",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "متاخر/ه",
+"word": "مُتَأَخِّر/ة",
+"word_voweled": "مُتَأَخِّر/ة",
+"english": "late",
+"root": "أ-خ-ر",
+"word_type": "adjective",
+"verb_form": "V"
+},
+{
+"key": "متحمس",
+"word": "متحمس",
+"word_voweled": "مُتَحَمِّس",
+"english": "enthusiastic, passionate (about)",
+"root": "ح-م-س",
+"word_type": "participle",
+"verb_form": "V"
+},
+{
+"key": "متخصص / ه في / متخصص / ه في",
+"word": "مُتَخَصِّص / ة في / مِتخَصِّص / ة في",
+"word_voweled": "مُتَخَصِّص/ة في",
+"english": "specializing/specialist in",
+"root": "خ-ص-ص",
+"word_type": "participle",
+"verb_form": "V"
+},
+{
+"key": "مترجم / ه / مترجم / ه",
+"word": "مُتَرجِم / ة / مُتَرجِم / ة",
+"word_voweled": "مُتَرجِم/ة",
+"english": "translator",
+"root": "ت-ر-ج-م",
+"word_type": "participle",
+"verb_form": null
+},
+{
+"key": "متزوج",
+"word": "مُتَزَوِّج",
+"word_voweled": "مُتَزَوِّج",
+"english": "married",
+"root": "ز-و-ج",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "متزوج/ه ج. -ون/-ين / متجوز/ه ج. -ين",
+"word": "مُتَزَوِّج/ة ج. -ون/-ين / مِتْجَوِّز/ة ج. -ين",
+"word_voweled": "مُتَزَوِّج/ة",
+"english": "married (adj.)",
+"root": "ز-و-ج",
+"word_type": "participle",
+"verb_form": "V"
+},
+{
+"key": "متفهم",
+"word": "مُتَفَهِّم",
+"word_voweled": "مُتَفَهِّم",
+"english": "understanding (adj.)",
+"root": "ف-هـ-م",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "متل / مثل",
+"word": "مِتِل / مِثلَ",
+"word_voweled": "مِثلَ",
+"english": "like",
+"root": "م-ث-ل",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "متل ما / كما",
+"word": "مِتِل ما / كَما",
+"word_voweled": "كَما",
+"english": "as",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "مجتهد",
+"word": "مجتهد",
+"word_voweled": "مُجتَهِد",
+"english": "hardworking, diligent",
+"root": "ج-ه-د",
+"word_type": "participle",
+"verb_form": "VIII"
+},
+{
+"key": "مجله",
+"word": "مَجَلّة",
+"word_voweled": "مَجَلَّة",
+"english": "magazine, journal",
+"root": "ج-ل-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مجموعه",
+"word": "مجموعة",
+"word_voweled": "مَجموعة",
+"english": "a group (of)",
+"root": "ج-م-ع",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مجنون/ه ج مجانين",
+"word": "مَجنون/ة ج مَجانين",
+"word_voweled": "مَجنون/ة",
+"english": "crazy",
+"root": "ج-ن-ن",
+"word_type": "participle",
+"verb_form": null
+},
+{
+"key": "محاضره ج. -ات / محاضره ج. -ات",
+"word": "مُحاضْرة ج. -ات / مُحاضَرة ج. -ات",
+"word_voweled": "مُحاضَرة",
+"english": "lecture, class",
+"root": "ح-ض-ر",
+"word_type": "noun",
+"verb_form": "III"
+},
+{
+"key": "محتاج",
+"word": "محتاج",
+"word_voweled": "مُحتاج",
+"english": "needy, in need (of)",
+"root": "ح-و-ج",
+"word_type": "participle",
+"verb_form": "VIII"
+},
+{
+"key": "محل",
+"word": "محل",
+"word_voweled": "مَحَلّ",
+"english": "shop, store",
+"root": "ح-ل-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مخطوبه",
+"word": "مَخطوبة",
+"word_voweled": "مَخطوبة",
+"english": "engaged (of a woman or couple)",
+"root": "خ-ط-ب",
+"word_type": "participle",
+"verb_form": null
+},
+{
+"key": "مدرسه ج. مدارس",
+"word": "مَدرسة ج. مَدارِس",
+"word_voweled": "مَدرَسة",
+"english": "school",
+"root": "د-ر-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مدير",
+"word": "مُدير",
+"word_voweled": "مُدير",
+"english": "director",
+"root": "د-و-ر",
+"word_type": "participle",
+"verb_form": "IV"
+},
+{
+"key": "مر",
+"word": "مَرَّ",
+"word_voweled": "مَرَّ",
+"english": "to pass, pass through",
+"root": "م-ر-ر",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "مراه",
+"word": "مرآة",
+"word_voweled": "مِرآة",
+"english": "Mirror",
+"root": "ر-أ-ي",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مرتب",
+"word": "مرتب",
+"word_voweled": "مُرَتَّب",
+"english": "salary",
+"root": "ر-ت-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مرحبا / مرحبا، اهلا",
+"word": "مَرحَباً / مَرحَبا، أَهلاً",
+"word_voweled": "مَرحَباً",
+"english": "Hello",
+"root": "ر-ح-ب",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "مركز / مركز",
+"word": "مَركَز / مَركَز",
+"word_voweled": "مَركَز",
+"english": "center (noun)",
+"root": "ر-ك-ز",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مره",
+"word": "مَرّة",
+"word_voweled": "مَرّة",
+"english": "once, (one) time; pl. times",
+"root": "م-ر-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مره / مره",
+"word": "مرة / مَرَّة",
+"word_voweled": "مَرَّة",
+"english": "once, one time",
+"root": "م-ر-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مريح",
+"word": "مُريح",
+"word_voweled": "مُريح",
+"english": "comfortable, restful",
+"root": "ر-و-ح",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "مريض/ه",
+"word": "مَريض/ة",
+"word_voweled": "مَريض/ة",
+"english": "Sick",
+"root": "م-ر-ض",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "مزرعه / مزرعه",
+"word": "مزرعة / مَزرَعة",
+"word_voweled": "مَزرَعة",
+"english": "farm",
+"root": "ز-ر-ع",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مساء الخير / مسا الخير، مسا النور",
+"word": "مَساء الخَير / مَسا الخير، مَسا النور",
+"word_voweled": "مَساء الخَير",
+"english": "Good evening",
+"root": "م-س-و",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "مسار مهني",
+"word": "مسار مهني",
+"word_voweled": "مَسار مِهَنِيّ",
+"english": "career path",
+"root": "س-ي-ر",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "مسبح",
+"word": "مَسبَح",
+"word_voweled": "مَسبَح",
+"english": "swimming pool",
+"root": "س-ب-ح",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مستشفي ج مستشفيات",
+"word": "مُسْتَشْفى ج مُسْتَشْفَيات",
+"word_voweled": "مُستَشفى",
+"english": "hospital",
+"root": "ش-ف-ي",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مستعد",
+"word": "مُستَعِدّ",
+"word_voweled": "مُستَعِدّ",
+"english": "ready, prepared for",
+"root": "ع-د-د",
+"word_type": "participle",
+"verb_form": "X"
+},
+{
+"key": "مستقبل",
+"word": "مُسْتَقبَل",
+"word_voweled": "مُستَقبَل",
+"english": "future",
+"root": "ق-ب-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مستقر",
+"word": "مستقر",
+"word_voweled": "مُستَقِرّ",
+"english": "stable, settled",
+"root": "ق-ر-ر",
+"word_type": "participle",
+"verb_form": "X"
+},
+{
+"key": "مستقل",
+"word": "مُستَقِلّ",
+"word_voweled": "مُستَقِلّ",
+"english": "independent",
+"root": "ق-ل-ل",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "مسرح",
+"word": "مَسرَح",
+"word_voweled": "مَسرَح",
+"english": "theater",
+"root": "س-ر-ح",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مسلسل",
+"word": "مسلسل",
+"word_voweled": "مُسَلسَل",
+"english": "TV series",
+"root": "س-ل-س-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مشابه",
+"word": "مُشابِه",
+"word_voweled": "مُشابِه",
+"english": "similar",
+"root": "ش-ب-ه",
+"word_type": "participle",
+"verb_form": "III"
+},
+{
+"key": "مشغول",
+"word": "مشغول",
+"word_voweled": "مَشغول",
+"english": "Busy",
+"root": "ش-غ-ل",
+"word_type": "participle",
+"verb_form": null
+},
+{
+"key": "مشغول / ه ب / مشغول / ه ب",
+"word": "مَشغول / ة بِـ / مَشغول / ة بِـ",
+"word_voweled": "مَشغول/ة بِـ",
+"english": "busy (with)",
+"root": "ش-غ-ل",
+"word_type": "participle",
+"verb_form": null
+},
+{
+"key": "مشكله",
+"word": "مُشكلة",
+"word_voweled": "مُشكِلة",
+"english": "Problem",
+"root": "ش-ك-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مشمس / مشمس",
+"word": "مِشمِس / مُشمِس",
+"word_voweled": "مُشمِس",
+"english": "sunny",
+"root": "ش-م-س",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "مشهور",
+"word": "مَشهور",
+"word_voweled": "مَشهور",
+"english": "famous",
+"root": "ش-ه-ر",
+"word_type": "participle",
+"verb_form": "I"
+},
+{
+"key": "مصاري / مال ج. اموال",
+"word": "مَصاري / مال ج. أَموال",
+"word_voweled": "مال",
+"english": "money",
+"root": "م-و-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مصباح / لمبه",
+"word": "مصباح / لمبة",
+"word_voweled": "مِصباح / لَمبة",
+"english": "Lamp",
+"root": "ص-ب-ح",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مصري / ه / مصري / مصريه / مصري / مصريه",
+"word": "مِصري / ة / مَصري / مَصرية / مِصري / مِصرية",
+"word_voweled": "مِصري/ة",
+"english": "Egyptian",
+"root": "م-ص-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "مضحك / مضحك، ظريف",
+"word": "مُضحِك / مُضحِك، ظَريف",
+"word_voweled": "مُضحِك، ظَريف",
+"english": "Funny",
+"root": "ض-ح-ك",
+"word_type": "participle",
+"verb_form": null
+},
+{
+"key": "مضطر",
+"word": "مُضطَرّ",
+"word_voweled": "مُضطَرّ",
+"english": "compelled, forced",
+"root": "ض-ر-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "مطبخ",
+"word": "مَطبَخ",
+"word_voweled": "مَطبَخ",
+"english": "kitchen",
+"root": "ط-ب-خ",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مطعم ج. مطاعم",
+"word": "مَطعَم ج. مَطاعِم",
+"word_voweled": "مَطعَم",
+"english": "restaurant",
+"root": "ط-ع-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مع",
+"word": "مَعَ",
+"word_voweled": "مَعَ",
+"english": "with",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "مع السلامه / مع السلامه",
+"word": "مَع السَلامة / مَع السَلامة",
+"word_voweled": "مَع السَّلامة",
+"english": "Goodbye",
+"root": "س-ل-م",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "معا",
+"word": "مَعاً",
+"word_voweled": "مَعاً",
+"english": "together",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "معطل",
+"word": "مُعَطَّل",
+"word_voweled": "مُعَطَّل",
+"english": "broken (out of order)",
+"root": "ع-ط-ل",
+"word_type": "adjective",
+"verb_form": "II"
+},
+{
+"key": "معظم",
+"word": "مُعظَم",
+"word_voweled": "مُعظَم",
+"english": "most (of)",
+"root": "ع-ظ-م",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "معلولا",
+"word": "مَعلولا",
+"word_voweled": "مَعلولا",
+"english": "Maaloula — a Syrian village where Aramaic is still spoken",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "معليش!",
+"word": "مَعليش!",
+"word_voweled": "مَعلِيش",
+"english": "Never mind! / Don't worry about it! / Sorry!",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "معيد ج. –ون / ين",
+"word": "مُعيد ج. –ون / ين",
+"word_voweled": "مُعيد",
+"english": "graduate fellow, teaching assistant",
+"root": "ع-و-د",
+"word_type": "participle",
+"verb_form": "IV"
+},
+{
+"key": "مغسله / جلايه",
+"word": "مغسلة / جلاية",
+"word_voweled": "مَغسَلة / جَلّاية",
+"english": "Sink",
+"root": "غ-س-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مغفره",
+"word": "مَغفِرة",
+"word_voweled": "مَغفِرة",
+"english": "forgiveness",
+"root": "غ-ف-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مغيم / غائم",
+"word": "مغَيِّم / غائِم",
+"word_voweled": "غائِم",
+"english": "cloudy",
+"root": "غ-ي-م",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "مفاجاه",
+"word": "مُفاجَأَة",
+"word_voweled": "مُفاجَأَة",
+"english": "surprise",
+"root": "ف-ج-أ",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مفتاح",
+"word": "مِفتاح",
+"word_voweled": "مِفتاح",
+"english": "key",
+"root": "ف-ت-ح",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مفتوح / مفتوح",
+"word": "مَفتوح / مَفتوح",
+"word_voweled": "مَفتوح",
+"english": "Open",
+"root": "ف-ت-ح",
+"word_type": "participle",
+"verb_form": null
+},
+{
+"key": "مفروش",
+"word": "مَفروش",
+"word_voweled": "مَفروش",
+"english": "furnished",
+"root": "ف-ر-ش",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "مفروشات",
+"word": "مَفروشات",
+"word_voweled": "مَفروشات",
+"english": "furniture",
+"root": "ف-ر-ش",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مفضل/ه",
+"word": "مُفَضَّل/ة",
+"word_voweled": "مُفَضَّل/ة",
+"english": "favorite",
+"root": "ف-ض-ل",
+"word_type": "participle",
+"verb_form": "II"
+},
+{
+"key": "مقابله",
+"word": "مقابلة",
+"word_voweled": "مُقابَلة",
+"english": "interview",
+"root": "ق-ب-ل",
+"word_type": "masdar",
+"verb_form": "III"
+},
+{
+"key": "مقارن/ه",
+"word": "مُقارَن/ة",
+"word_voweled": "مُقارَن/ة",
+"english": "comparative",
+"root": "ق-ر-ن",
+"word_type": "participle",
+"verb_form": "III"
+},
+{
+"key": "مقارنه",
+"word": "مقارنة",
+"word_voweled": "مُقارَنة",
+"english": "comparison",
+"root": "ق-ر-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مقاله",
+"word": "مَقالة",
+"word_voweled": "مَقالة",
+"english": "article (e.g., in a newspaper)",
+"root": "ق-و-ل",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مقبل",
+"word": "مُقبِل",
+"word_voweled": "مُقبِل",
+"english": "upcoming, about to (+ على)",
+"root": "ق-ب-ل",
+"word_type": "participle",
+"verb_form": "IV"
+},
+{
+"key": "مقدره",
+"word": "مَقدِرة",
+"word_voweled": "مَقدِرة",
+"english": "ability, capacity",
+"root": "ق-د-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مقفل / مقفل",
+"word": "مُقفَل / مُقفَل",
+"word_voweled": "مُقفَل",
+"english": "Closed",
+"root": "ق-ف-ل",
+"word_type": "participle",
+"verb_form": null
+},
+{
+"key": "مكان",
+"word": "مَكان",
+"word_voweled": "مَكان",
+"english": "place",
+"root": "ك-و-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مكتب",
+"word": "مَكتَب",
+"word_voweled": "مَكتَب",
+"english": "Office",
+"root": "ك-ت-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مكتبه",
+"word": "مَكتَبة",
+"word_voweled": "مَكتَبة",
+"english": "Library",
+"root": "ك-ت-ب",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ملابس",
+"word": "ملابس",
+"word_voweled": "مَلابِس",
+"english": "clothes (also: ثِياب)",
+"root": "ل-ب-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ملعقه",
+"word": "ملعقة",
+"word_voweled": "مِلعَقة",
+"english": "spoon",
+"root": "ل-ع-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ملك",
+"word": "ملك",
+"word_voweled": "مَلِك",
+"english": "king",
+"root": "م-ل-ك",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ملك (فعل)",
+"word": "ملك (فعل)",
+"word_voweled": "مَلَكَ (فعل)",
+"english": "to own, possess",
+"root": "م-ل-ك",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "ملوك",
+"word": "ملوك",
+"word_voweled": "مُلوك",
+"english": "kings (plural)",
+"root": "م-ل-ك",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ممتد",
+"word": "مُمتَدّ",
+"word_voweled": "مُمتَدّ",
+"english": "extended",
+"root": "م-د-د",
+"word_type": "participle",
+"verb_form": "VIII"
+},
+{
+"key": "ممثل",
+"word": "مُمَثِّل",
+"word_voweled": "مُمَثِّل",
+"english": "representative",
+"root": "م-ث-ل",
+"word_type": "participle",
+"verb_form": "II"
+},
+{
+"key": "ممكن",
+"word": "مُمكِن",
+"word_voweled": "مُمكِن",
+"english": "It is possible, can",
+"root": "م-ك-ن",
+"word_type": "participle",
+"verb_form": "IV"
+},
+{
+"key": "ممكن تعرفني عن حالك",
+"word": "ممكن تعرفني عن حالك",
+"word_voweled": "مُمكِن تعَرِّفني عَن حالَك",
+"english": "Can you introduce yourself",
+"root": "ع-ر-ف",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "ممل/ه",
+"word": "مُمِلّ/ة",
+"word_voweled": "مُمِلّ/ة",
+"english": "boring",
+"root": "م-ل-ل",
+"word_type": "adjective",
+"verb_form": "IV"
+},
+{
+"key": "ممنوع",
+"word": "مَمنوع",
+"word_voweled": "مَمنوع",
+"english": "forbidden",
+"root": "م-ن-ع",
+"word_type": "participle",
+"verb_form": null
+},
+{
+"key": "من",
+"word": "مِن",
+"word_voweled": "مِن",
+"english": "of, among (quantity)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "من / منذ",
+"word": "مِن / مُنذُ",
+"word_voweled": "مُنذُ",
+"english": "since, ago",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "من اجل",
+"word": "مِن أَجلِ",
+"word_voweled": "مِن أَجلِ",
+"english": "for the sake of, in order to",
+"root": null,
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "من اصل /",
+"word": "مِن أَصل /",
+"word_voweled": "مِن أَصل",
+"english": "of ______ descent",
+"root": "أ-ص-ل",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "من عيوني / علي عيني",
+"word": "مِن عُيوني / عَلى عَيني",
+"word_voweled": "مِن عُيوني / عَلى عَيني",
+"english": "I'd be happy to! (in response to a request; lit. \"on my eyes\")",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "من قبل",
+"word": "مِن قَبل",
+"word_voweled": "مِن قَبل",
+"english": "previously, before",
+"root": "ق-ب-ل",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "من؟ / مين؟ / مين؟",
+"word": "مَن؟ / مين؟ / مين؟",
+"word_voweled": "مَن / مين",
+"english": "who?",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "مناسب",
+"word": "مناسب",
+"word_voweled": "مُناسِب",
+"english": "suitable, appropriate",
+"root": "ن-س-ب",
+"word_type": "participle",
+"verb_form": "III"
+},
+{
+"key": "مناسب/ه",
+"word": "مُناسِب/ة",
+"word_voweled": "مُناسِب/ة",
+"english": "appropriate, suitable (for)",
+"root": "ن-س-ب",
+"word_type": "participle",
+"verb_form": "III"
+},
+{
+"key": "منتشر",
+"word": "منتشر",
+"word_voweled": "مُنتَشِر",
+"english": "spread out, widespread",
+"root": "ن-ش-ر",
+"word_type": "participle",
+"verb_form": "VIII"
+},
+{
+"key": "منتصف",
+"word": "مُنتَصَف",
+"word_voweled": "مُنتَصَف",
+"english": "mid-, middle of (time period)",
+"root": "ن-ص-ف",
+"word_type": "noun",
+"verb_form": "VIII"
+},
+{
+"key": "منحه",
+"word": "مِنْحة",
+"word_voweled": "مِنْحة",
+"english": "scholarship award, grant, fellowship",
+"root": "م-ن-ح",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "منذ",
+"word": "منذ",
+"word_voweled": "مُنذُ",
+"english": "since",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "منشان / ل",
+"word": "مِنشان / لِـ",
+"word_voweled": "مِنشان / لِـ",
+"english": "in order to, for",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "منشان هيك / لذلك",
+"word": "مِنشان هيك / لِذٰلِك",
+"word_voweled": "لِذٰلِك",
+"english": "because of that, for that reason",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "منشفه",
+"word": "مَنشَفة",
+"word_voweled": "مَنشَفة",
+"english": "towel",
+"root": "ن-ش-ف",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "منطقه / منطقه / منطقه",
+"word": "مِنطَقة / مَنطَقة / مَنطَقة",
+"word_voweled": "مِنطَقة",
+"english": "area, region",
+"root": "ن-ط-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "منع",
+"word": "مَنَعَ",
+"word_voweled": "مَنَعَ",
+"english": "to prevent",
+"root": "م-ن-ع",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "منيح / جيدا",
+"word": "منيح / جَيِّداً",
+"word_voweled": "جَيِّداً",
+"english": "well (adv.)",
+"root": "ج-و-د",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "مهاجر",
+"word": "مهاجر",
+"word_voweled": "مُهاجِر",
+"english": "emigrant, immigrant",
+"root": "ه-ج-ر",
+"word_type": "participle",
+"verb_form": "III"
+},
+{
+"key": "مهدم",
+"word": "مهدم",
+"word_voweled": "مُهَدَّم",
+"english": "destroyed, demolished, in ruins",
+"root": "ه-د-م",
+"word_type": "participle",
+"verb_form": "II"
+},
+{
+"key": "مهم/ه",
+"word": "مُهِمّ/ة",
+"word_voweled": "مُهِمّ/ة",
+"english": "important",
+"root": "ه-م-م",
+"word_type": "participle",
+"verb_form": "IV"
+},
+{
+"key": "مهندس",
+"word": "مُهَنْدِس",
+"word_voweled": "مُهَنْدِس",
+"english": "engineer",
+"root": "ه-ن-د-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "مواعيد",
+"word": "مواعيد",
+"word_voweled": "مَواعيد",
+"english": "appointments (plural)",
+"root": "و-ع-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "موافق",
+"word": "مُوافِق",
+"word_voweled": "مُوافِق",
+"english": "agreeing, in agreement",
+"root": "و-ف-ق",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "موضوع ج. مواضيع",
+"word": "مَوضوع ج. مَواضيع",
+"word_voweled": "مَوضوع",
+"english": "subject, topic",
+"root": "و-ض-ع",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "موظف / ه / موظف / ه",
+"word": "مُوَظَّف / ة / مُوَظَّف / ة",
+"word_voweled": "مُوَظَّف/ة",
+"english": "employee",
+"root": "و-ظ-ف",
+"word_type": "participle",
+"verb_form": "II"
+},
+{
+"key": "موعد",
+"word": "موعد",
+"word_voweled": "مَوعِد",
+"english": "(fixed) time, appointment",
+"root": "و-ع-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "نادي ج. نوادي",
+"word": "نادي ج. نَوادي",
+"word_voweled": "نادي",
+"english": "club",
+"root": "ن-د-و",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "نار",
+"word": "نار",
+"word_voweled": "نار",
+"english": "fire",
+"root": "ن-و-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "نام",
+"word": "نام",
+"word_voweled": "نامَ",
+"english": "to sleep, go to sleep",
+"root": "ن-و-م",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "نجحت ب / نجحت في",
+"word": "نَجَحتْ بِـ / نَجَحْتُ في",
+"word_voweled": "نَجَحتُ في",
+"english": "I succeeded in, passed",
+"root": "ن-ج-ح",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "نستني",
+"word": "نَسَّتْني",
+"word_voweled": "نَسَّتْني",
+"english": "it made me forget",
+"root": "ن-س-ي",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "نص / نصف",
+"word": "نِصّ / نِصف",
+"word_voweled": "نِصف",
+"english": "half",
+"root": "ن-ص-ف",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "نظف",
+"word": "نَظَّفَ",
+"word_voweled": "نَظَّفَ",
+"english": "to clean",
+"root": "ن-ظ-ف",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "نظيف",
+"word": "نَظيف",
+"word_voweled": "نَظيف",
+"english": "clean",
+"root": "ن-ظ-ف",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "نعناع",
+"word": "نَعناع",
+"word_voweled": "نَعناع",
+"english": "mint",
+"root": "ن-ع-ن-ع",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "نفس",
+"word": "نَفس",
+"word_voweled": "نَفس",
+"english": "self, soul",
+"root": "ن-ف-س",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "نفس ال ..",
+"word": "نَفس ال ..",
+"word_voweled": "نَفس الـ",
+"english": "the same",
+"root": "ن-ف-س",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "نهايه",
+"word": "نِهاية",
+"word_voweled": "نِهاية",
+"english": "end, ending",
+"root": "ن-ه-ي",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "نووي/ه",
+"word": "نَوَوِيّ/ة",
+"word_voweled": "نَوَوِيّ/ة",
+"english": "nuclear",
+"root": "ن-و-ي",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "نوي",
+"word": "نوى",
+"word_voweled": "نَوى",
+"english": "to intend to (+ أَن / verbal noun)",
+"root": "ن-و-ي",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "هاجر",
+"word": "هاجر",
+"word_voweled": "هاجَرَ",
+"english": "to emigrate, immigrate",
+"root": "ه-ج-ر",
+"word_type": "verb",
+"verb_form": "III"
+},
+{
+"key": "هادئ",
+"word": "هادِئ",
+"word_voweled": "هادِئ",
+"english": "quiet, calm",
+"root": "ه-د-أ",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "هبه الالسنه",
+"word": "هِبة الأَلسِنة",
+"word_voweled": "هِبة الأَلسِنة",
+"english": "Gift of Tongues",
+"root": "و-ه-ب",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "هجره",
+"word": "هجرة",
+"word_voweled": "هِجرة",
+"english": "emigration",
+"root": "ه-ج-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "هديه",
+"word": "هَدِيَّة",
+"word_voweled": "هَدِيَّة",
+"english": "gift",
+"root": "ه-د-ي",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "هذا",
+"word": "هذا",
+"word_voweled": "هذا",
+"english": "this (m.)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "هذه",
+"word": "هذِه",
+"word_voweled": "هذِه",
+"english": "this (f.)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "هنا",
+"word": "هُنا",
+"word_voweled": "هُنا",
+"english": "here",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "هناك",
+"word": "هُناك",
+"word_voweled": "هُناك",
+"english": "there",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "هو",
+"word": "هُوَ",
+"word_voweled": "هُوَ",
+"english": "he, it",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "هوايه ج. -ات",
+"word": "هِواية ج. -ات",
+"word_voweled": "هِواية",
+"english": "hobby",
+"root": "ه-و-ي",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "هويه",
+"word": "هوية",
+"word_voweled": "هُوِيّة",
+"english": "identity",
+"root": "ه-و-ي",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "هي",
+"word": "هِيَ",
+"word_voweled": "هِيَ",
+"english": "she, it",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "هيك احسن",
+"word": "هيك أحسن",
+"word_voweled": "هيك أَحسَن",
+"english": "That's better / This is better",
+"root": "ح-س-ن",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "واحد",
+"word": "واحِد",
+"word_voweled": "واحِد",
+"english": "one, single",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "واسع/ه",
+"word": "واسِع/ة",
+"word_voweled": "واسِع/ة",
+"english": "Wide; spacious",
+"root": "و-س-ع",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "وافد",
+"word": "وافد",
+"word_voweled": "وافِد",
+"english": "newcomer, arrival; incoming (foreign worker, expatriate)",
+"root": "و-ف-د",
+"word_type": "participle",
+"verb_form": "I"
+},
+{
+"key": "والد",
+"word": "والِد",
+"word_voweled": "والِد",
+"english": "father",
+"root": "و-ل-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "والدتي / ماما ، والدتي / ماما",
+"word": "والِدتي / ماما ، والدتي / ماما",
+"word_voweled": "والِدتي / ماما",
+"english": "my mother",
+"root": "و-ل-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "والده",
+"word": "والِدة",
+"word_voweled": "والِدة",
+"english": "mother",
+"root": "و-ل-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "والدي / بابا ، والدي / بابا",
+"word": "والِدي / بابا ، والدي / بابا",
+"word_voweled": "والِدي / بابا",
+"english": "my father",
+"root": "و-ل-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "والله!؟",
+"word": "والله!؟",
+"word_voweled": "واللّٰه",
+"english": "really?!",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "وجد",
+"word": "وَجَدَ",
+"word_voweled": "وَجَدَ",
+"english": "to find",
+"root": "و-ج-د",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "وجد / لقا",
+"word": "وَجَدَ / لَقا",
+"word_voweled": "وَجَدَ",
+"english": "Found",
+"root": "و-ج-د",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "وحيد / ه / لحالي / لحالها",
+"word": "وَحيد / ة / لَحالي / لَحالها",
+"word_voweled": "وَحيد/ة",
+"english": "only; lonely (adjective)",
+"root": "و-ح-د",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "وراء",
+"word": "وَراءَ",
+"word_voweled": "وَراءَ",
+"english": "behind, in the back of",
+"root": "و-ر-ي",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "ورشه",
+"word": "وَرْشة",
+"word_voweled": "وَرْشة",
+"english": "workshop",
+"root": "و-ر-ش",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ورقه",
+"word": "وَرَقة",
+"word_voweled": "وَرَقة",
+"english": "Page",
+"root": "و-ر-ق",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "وزاره ج. –ات",
+"word": "وِزارة ج. –ات",
+"word_voweled": "وِزارة",
+"english": "ministry",
+"root": "و-ز-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "وزع",
+"word": "وزع",
+"word_voweled": "وَزَّعَ",
+"english": "to distribute, hand out",
+"root": "و-ز-ع",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "وسخ",
+"word": "وَسِخ",
+"word_voweled": "وَسِخ",
+"english": "dirty",
+"root": "و-س-خ",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "وسط",
+"word": "وَسَط",
+"word_voweled": "وَسَط",
+"english": "middle, center (location)",
+"root": "و-س-ط",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "وصل",
+"word": "وَصَلَ",
+"word_voweled": "وَصَلَ",
+"english": "to arrive (at: إلى)",
+"root": "و-ص-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "وضع",
+"word": "وَضع",
+"word_voweled": "وَضع",
+"english": "situation, position",
+"root": "و-ض-ع",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "وظيفه",
+"word": "وَظيفة",
+"word_voweled": "وَظيفة",
+"english": "position, job",
+"root": "و-ظ-ف",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "وعد",
+"word": "وَعد",
+"word_voweled": "وَعد",
+"english": "promise",
+"root": "و-ع-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "وفاه",
+"word": "وَفاة",
+"word_voweled": "وَفاة",
+"english": "death, passing away",
+"root": "و-ف-ي",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "وفير",
+"word": "وَفير",
+"word_voweled": "وَفير",
+"english": "plentiful, abundant",
+"root": "و-ف-ر",
+"word_type": "adjective",
+"verb_form": null
+},
+{
+"key": "وقت",
+"word": "وقت",
+"word_voweled": "وَقت",
+"english": "time",
+"root": "و-ق-ت",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ولا",
+"word": "وَلّا",
+"word_voweled": "وَلّا",
+"english": "Or",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "ولا شي",
+"word": "وَلا شي",
+"word_voweled": "وَلا شي",
+"english": "Nothing",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "ولايه",
+"word": "ولاية",
+"word_voweled": "وِلاية",
+"english": "state (e.g. a U.S. state); guardianship",
+"root": "و-ل-ي",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ولد",
+"word": "وَلَد",
+"word_voweled": "وَلَد",
+"english": "Boy",
+"root": "و-ل-د",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ولد (فعل)",
+"word": "ولد (فعل)",
+"word_voweled": "وُلِدَ (فعل)",
+"english": "to be born (she was born: وُلِدَت; I was born: وُلِدتُ)",
+"root": "و-ل-د",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "ولوين كنت بتروح؟",
+"word": "ولَوين كُنت بِتروح؟",
+"word_voweled": "ولَوين كُنت بِتروح؟",
+"english": "And where would you go?",
+"root": null,
+"word_type": "sentence",
+"verb_form": null
+},
+{
+"key": "يا تري",
+"word": "يا تُرى",
+"word_voweled": "يا تُرى",
+"english": "I wonder (fixed expression, + question)",
+"root": "ر-أ-ي",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "ياكل / ياكل",
+"word": "ياكُل / يَأكُل",
+"word_voweled": "يَأكُل",
+"english": "he eats",
+"root": "أ-ك-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يتخرج / يتخرج",
+"word": "يِتْخَرَّج / يَتَخَرَّج",
+"word_voweled": "يَتَخَرَّج",
+"english": "he graduates, graduating",
+"root": "خ-ر-ج",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "يتكلم / يحكي / بحكي",
+"word": "يَتَكَلَّم / يِحكي / بِحكي",
+"word_voweled": "يَتَكَلَّم / يِحكي",
+"english": "he speaks, talks",
+"root": "ك-ل-م",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "يتكلم عن / يحكي عن",
+"word": "يَتَكَلَّم عَن / يِحكي عَن",
+"word_voweled": "يَتَكَلَّم عَن",
+"english": "he talks about",
+"root": "ك-ل-م",
+"word_type": "verb",
+"verb_form": "V"
+},
+{
+"key": "يثق ب",
+"word": "يَثِق بِـ",
+"word_voweled": "يَثِق بِـ",
+"english": "to trust (in)",
+"root": "و-ث-ق",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يجب",
+"word": "يَجِب",
+"word_voweled": "يَجِب",
+"english": "it is necessary (for: عَلى) (+ أَن / verbal noun)",
+"root": "و-ج-ب",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يحس ب / يشعر ب",
+"word": "يحِسّ بـ / يشعُر بـِ",
+"word_voweled": "يَشعُر بِـ",
+"english": "he feels",
+"root": "ش-ع-ر",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يحصل علي",
+"word": "يحصُل على",
+"word_voweled": "يَحصُل على",
+"english": "he obtains, acquires",
+"root": "ح-ص-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يحمي",
+"word": "يَحمي",
+"word_voweled": "يَحمي",
+"english": "he protects",
+"root": "ح-م-ي",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يخدم",
+"word": "يَخدِم",
+"word_voweled": "يَخدِم",
+"english": "to serve",
+"root": "خ-د-م",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يدخل / يدخل",
+"word": "يِدخُل / يَدخُل",
+"word_voweled": "يَدخُل",
+"english": "to enter",
+"root": "د-خ-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يدرس / بيعلم",
+"word": "يُدَرِّس / بيعَلِّم",
+"word_voweled": "يُدَرِّس",
+"english": "he teaches",
+"root": "د-ر-س",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "يذاكر / يذاكر",
+"word": "يِذاكِر / يُذاكِر",
+"word_voweled": "يُذاكِر",
+"english": "to study, review lessons",
+"root": "ذ-ك-ر",
+"word_type": "verb",
+"verb_form": "III"
+},
+{
+"key": "يرفض / يرفض",
+"word": "يِرفُض / يرفُض",
+"word_voweled": "يَرفُض",
+"english": "to refuse",
+"root": "ر-ف-ض",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يركب",
+"word": "يركب",
+"word_voweled": "يَركَب",
+"english": "he rides",
+"root": "ر-ك-ب",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يروح / يذهب الي",
+"word": "يروح / يَذهَب إلى",
+"word_voweled": "يَذهَب إلى",
+"english": "he goes to",
+"root": "ذ-ه-ب",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يزور",
+"word": "يزور",
+"word_voweled": "يَزور",
+"english": "he visits",
+"root": "ز-و-ر",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يسار",
+"word": "يَسار",
+"word_voweled": "يَسار",
+"english": "left",
+"root": "ي-س-ر",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "يساعد / يساعد",
+"word": "يُساعِد / يِساعِد",
+"word_voweled": "يُساعِد",
+"english": "Help",
+"root": "س-ع-د",
+"word_type": "verb",
+"verb_form": "III"
+},
+{
+"key": "يسامح",
+"word": "يُسامِح",
+"word_voweled": "يُسامِح",
+"english": "to forgive (a person)",
+"root": "س-م-ح",
+"word_type": "verb",
+"verb_form": "III"
+},
+{
+"key": "يسكن / ساكن / ساكن",
+"word": "يَسكُن / ساكِن / ساكِن",
+"word_voweled": "يَسكُن / ساكِن",
+"english": "he lives, resides",
+"root": "س-ك-ن",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يسمع / يستمع",
+"word": "يِسمَع / يَستَمِع",
+"word_voweled": "يَستَمِع",
+"english": "he listens to",
+"root": "س-م-ع",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "يسوي",
+"word": "يِسَوّي",
+"word_voweled": "يِسَوّي",
+"english": "to do, to make (Shaami)",
+"root": "س-و-ي",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "يشارك",
+"word": "يُشارِك",
+"word_voweled": "يُشارِك",
+"english": "to share, to take part",
+"root": "ش-ر-ك",
+"word_type": "verb",
+"verb_form": "III"
+},
+{
+"key": "يشكر",
+"word": "يَشكُر",
+"word_voweled": "يَشكُر",
+"english": "to thank",
+"root": "ش-ك-ر",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يطلب",
+"word": "يَطلُب",
+"word_voweled": "يَطلُب",
+"english": "to ask for, to request",
+"root": "ط-ل-ب",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يعطيك العافيه",
+"word": "يَعطيك العافية",
+"word_voweled": "يَعطيك العافية",
+"english": "God give you good health! (said in appreciation of someone's work or service)",
+"root": null,
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "يعمل / بيشتغل / بيشتغل",
+"word": "يَعمَل / بِيِشتَغِل / بِيِشتَغِل",
+"word_voweled": "يَعمَل / بِيِشتَغِل",
+"english": "he works",
+"root": "ع-م-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يعني",
+"word": "يَعني",
+"word_voweled": "يَعْني",
+"english": "It means...",
+"root": "ع-ن-ي",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يعيد",
+"word": "يُعيد",
+"word_voweled": "يُعيد",
+"english": "to repeat, to do again",
+"root": "ع-و-د",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "يعيش / يعيش",
+"word": "يْعيش / يَعيش",
+"word_voweled": "يَعيش",
+"english": "to live",
+"root": "ع-ي-ش",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يفيقوني / they wake me up",
+"word": "يفيقوني / they wake me up",
+"word_voweled": "يفَيّقوني",
+"english": "they wake me up",
+"root": "ف-و-ق",
+"word_type": "verb",
+"verb_form": "II"
+},
+{
+"key": "يقرا / يقرا",
+"word": "يِقرا / يَقرَأ",
+"word_voweled": "يَقرَأ",
+"english": "he reads",
+"root": "ق-ر-أ",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يقول",
+"word": "يقول",
+"word_voweled": "يَقول",
+"english": "he says",
+"root": "ق-و-ل",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يكبر",
+"word": "يَكبَر",
+"word_voweled": "يَكبَر",
+"english": "to grow up, to get bigger",
+"root": "ك-ب-ر",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يكتب / يكتب",
+"word": "يِكتُب / يَكتُب",
+"word_voweled": "يَكتُب",
+"english": "he writes",
+"root": "ك-ت-ب",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يكون",
+"word": "يكون",
+"word_voweled": "يَكون",
+"english": "to be",
+"root": "ك-و-ن",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يلتحق ب",
+"word": "يَلْتَحِق بـِ",
+"word_voweled": "يَلتَحِق بِـ",
+"english": "to join, enter",
+"root": "ل-ح-ق",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "يلعب / يلعب",
+"word": "يِلعَب / يِلعَب",
+"word_voweled": "يَلعَب",
+"english": "he plays, playing",
+"root": "ل-ع-ب",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يمكن ان",
+"word": "يمكن أن",
+"word_voweled": "يُمكِن أَن",
+"english": "it is possible to",
+"root": "م-ك-ن",
+"word_type": "verb",
+"verb_form": "IV"
+},
+{
+"key": "يمين",
+"word": "يَمين",
+"word_voweled": "يَمين",
+"english": "right",
+"root": "ي-م-ن",
+"word_type": "noun",
+"verb_form": null
+},
+{
+"key": "ينبغي ان",
+"word": "يَنبَغي أَنْ",
+"word_voweled": "يَنبَغي أَنْ",
+"english": "should, ought to",
+"root": "ب-غ-ي",
+"word_type": "verb",
+"verb_form": "VII"
+},
+{
+"key": "ينتظر",
+"word": "ينتظر",
+"word_voweled": "يَنتَظِر",
+"english": "he waits",
+"root": "ن-ظ-ر",
+"word_type": "verb",
+"verb_form": "VIII"
+},
+{
+"key": "ينجح في",
+"word": "يَنجَح في",
+"word_voweled": "يَنجَح في",
+"english": "to succeed, pass",
+"root": "ن-ج-ح",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يوجد",
+"word": "يوجَد",
+"word_voweled": "يوجَد",
+"english": "is found, exists (f. توجَد)",
+"root": "و-ج-د",
+"word_type": "verb",
+"verb_form": "I"
+},
+{
+"key": "يوحنا المعمدان",
+"word": "يوحَنّا المَعمَدان",
+"word_voweled": "يوحَنّا المَعمَدان",
+"english": "John the Baptist",
+"root": "ع-م-د",
+"word_type": "other",
+"verb_form": null
+},
+{
+"key": "يوم ج. ايام / يوم ج. ايام",
+"word": "يوم ج. إِيّام / يَوْم ج. أَيَّام",
+"word_voweled": "يَوم",
+"english": "day",
+"root": "ي-و-م",
+"word_type": "noun",
+"verb_form": null
+}
+]
