@@ -22,6 +22,8 @@ interface DbRow {
   word: string;
   english: string | null;
   image_url: string | null;
+  /** Absent until the card-scenes migration has run. */
+  scene?: string | null;
   next_review_date: string;
   interval_days: number;
   ease_factor: number;
@@ -63,6 +65,7 @@ function rowToCard(row: DbRow): FlashCard {
     word: row.word,
     english: row.english,
     imageUrl: row.image_url,
+    scene: row.scene ?? null,
     nextReviewDate: row.next_review_date,
     intervalDays: row.interval_days,
     easeFactor: row.ease_factor,

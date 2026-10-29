@@ -18,6 +18,8 @@ interface WordLookupProps {
    */
   onAdd?: (entry: DictionaryEntry) => Promise<void>;
   onBack: () => void;
+  /** Starts the search on this, e.g. a word the deck search did not find. */
+  initialQuery?: string;
 }
 
 const POS_LABELS: Record<string, string> = {
@@ -130,8 +132,8 @@ function WordRow({
  * learner already has cards for, so it opens with something to read instead
  * of an empty box.
  */
-const WordLookup = ({ deck, onAdd, onBack }: WordLookupProps) => {
-  const [query, setQuery] = useState('');
+const WordLookup = ({ deck, onAdd, onBack, initialQuery = '' }: WordLookupProps) => {
+  const [query, setQuery] = useState(initialQuery);
   const [dictMatches, setDictMatches] = useState<DictionaryEntry[]>([]);
   const [searching, setSearching] = useState(false);
   const [failed, setFailed] = useState(false);

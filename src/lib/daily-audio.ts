@@ -1,3 +1,11 @@
+import type { DailyAudio } from '@/hooks/useDailyAudios';
+
+/** A manifest entry marked as a video (by media_type or a video_url). */
+export const isVideo = (episode: DailyAudio): boolean => episode.mediaType === 'video';
+
+/** 1 → "1×", 0.75 → "0.75×". */
+export const formatSpeed = (rate: number) => `${rate}×`;
+
 /** 754 → "12:34". */
 export function formatDuration(secs: number): string {
   const total = Math.max(0, Math.round(secs));

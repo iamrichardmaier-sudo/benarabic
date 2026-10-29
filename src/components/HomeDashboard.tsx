@@ -9,6 +9,7 @@ import { useBibleBooks } from '@/hooks/useBibleBooks';
 import HomeDeckShelves from '@/components/decks/HomeDeckShelves';
 import DailyAudios from '@/components/daily-audio/DailyAudios';
 import HomeDesktopColumns from '@/components/HomeDesktopColumns';
+import Illustration from '@/components/Illustration';
 import type { LearnDestination } from '@/components/LearnHub';
 
 interface HomeDashboardProps {
@@ -190,6 +191,15 @@ const HomeDashboard = ({
           <Snowflake className="h-3.5 w-3.5 shrink-0 text-info" />
           {freezeNote}
         </p>
+      )}
+
+      {deckSize === 0 && (
+        <div className="flex items-center gap-4 rounded-2xl border border-border bg-card p-4">
+          <Illustration name="empty-deck" eager className="h-24 w-24 shrink-0 rounded-xl object-cover" />
+          <p className="text-sm text-muted-foreground">
+            Your deck is empty — a blank box of cards waiting for its first words. Pick your first deck below.
+          </p>
+        </div>
       )}
 
       <section aria-label="Today" className="overflow-hidden rounded-2xl border border-border bg-card">

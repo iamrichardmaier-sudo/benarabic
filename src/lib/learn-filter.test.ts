@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { createCard, type FlashCard } from './spaced-repetition';
 import {
-  learnQueue, learnSplit, readSentencesOnly, writeSentencesOnly, SENTENCES_ONLY_KEY,
+  byMix, learnQueue, learnSplit, readCardMix, writeCardMix, CARD_MIX_KEY, SENTENCES_ONLY_KEY,
 } from './learn-filter';
 
 const word = (w: string): FlashCard => ({ ...createCard(w, w), wordType: 'noun' });
@@ -11,9 +11,22 @@ const waiting = [word('بيت'), sentence('شو بدك هلق'), word('كتاب'
 describe('learn filter', () => {
   beforeEach(() => localStorage.clear());
 
-  it('opens on everything unless sentences only is on', () => {
-    expect(learnQueue(waiting, false)).toHaveLength(4);
-    expect(learnQueue(waiting, true).map((c) => c.word)).toEqual(['شو بدك هلق', 'وين كنت']);
+  it('opens on everything, just the sentences, or just the vocab', () => {
+    expect(learnQueue(waiting, 'both')).toHaveLength(4);
+    expect(learnQueue(waiting, 'sentences').map((c) => c.word)).toEqual(['شو بدك هلق', 'وين كنت']);
+    expect(learnQueue(waiting, 'words').map((c) => c.word)).toEqual(['بيت', 'كتاب']);
+  });
+
+  it('treats a card with no type as vocab', () => {
+    const untyped = { ...createCard('قلم', 'pen'), wordType: null };
+    expect(byMix([untyped], 'words')).toEqual([untyped]);
+    expect(byMix([untyped], 'sentences')).toEqual([]);
+  });
+
+  it('filters deck words the same way', () => {
+    const words = [{ wordType: 'verb' }, { wordType: 'sentence' }, { wordType: null }];
+    expect(byMix(words, 'sentences')).toEqual([{ wordType: 'sentence' }]);
+    expect(byMix(words, 'words')).toEqual([{ wordType: 'verb' }, { wordType: null }]);
   });
 
   it('counts words and sentences separately', () => {
@@ -21,11 +34,21 @@ describe('learn filter', () => {
   });
 
   it('remembers the choice on the device', () => {
-    expect(readSentencesOnly()).toBe(false);
-    writeSentencesOnly(true);
-    expect(localStorage.getItem(SENTENCES_ONLY_KEY)).toBe('1');
-    expect(readSentencesOnly()).toBe(true);
-    writeSentencesOnly(false);
-    expect(readSentencesOnly()).toBe(false);
+    expect(readCardMix()).toBe('both');
+    writeCardMix('sentences');
+    expect(localStorage.getItem(CARD_MIX_KEY)).toBe('sentences');
+    expect(readCardMix()).toBe('sentences');
+    writeCardMix('words');
+    expect(readCardMix()).toBe('words');
+    writeCardMix('both');
+    expect(readCardMix()).toBe('both');
+  });
+
+  it('carries over the old "sentences only" switch', () => {
+    localStorage.setItem(SENTENCES_ONLY_KEY, '1');
+    expect(readCardMix()).toBe('sentences');
+    writeCardMix('words');
+    expect(localStorage.getItem(SENTENCES_ONLY_KEY)).toBeNull();
+    expect(readCardMix()).toBe('words');
   });
 });

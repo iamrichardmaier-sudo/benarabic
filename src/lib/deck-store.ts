@@ -2,6 +2,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { placementFields, type DeckPlacement } from '@/lib/deck-placement';
 import type { CompanionForm, FlashCard } from '@/lib/spaced-repetition';
 import { wordKey } from '@/lib/word-relations';
+import { byMix, type CardMix } from '@/lib/learn-filter';
 
 /**
  * Decks: a shared list of words, taken up by a learner.
@@ -351,6 +352,8 @@ export async function addDecksToLearn(
   deckIds: string[],
   userId: string,
   placement: DeckPlacement = 'learn',
+  /** Take just the vocab or just the sentences; the rest can follow later. */
+  mix: CardMix = 'both',
 ): Promise<{ decks: number; newCards: number }> {
   if (deckIds.length === 0) return { decks: 0, newCards: 0 };
 
@@ -376,7 +379,7 @@ export async function addDecksToLearn(
   // deck would otherwise be held a second time. Compare by the word itself too.
   const heldWords = new Set(rows.map((r) => wordKey(r.word)));
 
-  const missing = [...wanted.values()].filter(
+  const missing = byMix([...wanted.values()], mix).filter(
     (w) => !alreadyHave.has(w.id) && !heldWords.has(wordKey(w.word)),
   );
   if (missing.length > 0) {

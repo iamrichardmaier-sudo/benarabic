@@ -1,9 +1,9 @@
-import { useState, useMemo, useCallback, useEffect, useRef } from 'react';
+import { useState, useMemo, useCallback, useEffect, useRef, type ReactNode } from 'react';
 import { XP_LEARN } from '@/lib/levels';
 import { FlashCard, graduateCard, acceptedAnswers, scheduleFields, isSentence } from '@/lib/spaced-repetition';
 import SentenceOrder from '@/components/SentenceOrder';
 import { Progress } from '@/components/ui/progress';
-import { Check, X, Sparkles } from 'lucide-react';
+import { Check, X } from 'lucide-react';
 import BackButton from '@/components/BackButton';
 import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import WordInfoPopover from '@/components/WordInfoPopover';
@@ -11,6 +11,8 @@ import WordForms from '@/components/WordForms';
 import WordDetail from '@/components/WordDetail';
 import { hasWordDetail } from '@/lib/word-relations';
 import { pickDistractors, optionLabel } from '@/lib/distractors';
+import Illustration from '@/components/Illustration';
+import CardScene from '@/components/CardScene';
 
 interface LearningModeProps {
   cards: FlashCard[];
@@ -19,6 +21,8 @@ interface LearningModeProps {
   onBack: () => void;
   /** XP for each answer (see XP_LEARN in lib/levels). */
   onEarn?: (xp: number) => void;
+  /** Shown under Back, e.g. the vocab/sentences choice. */
+  header?: ReactNode;
 }
 
 type MCDirection = 'en-to-ar' | 'ar-to-en';
@@ -74,7 +78,7 @@ const AnswerDetail = ({ card, deck }: { card: FlashCard; deck: FlashCard[] }) =>
     </div>
   ) : null;
 
-const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn }: LearningModeProps) => {
+const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn, header }: LearningModeProps) => {
   const stage1Cards = useMemo(() => cards.filter((c) => c.learningStage === 'new' || c.learningStage === 'stage1'), [cards]);
   const stage2Cards = useMemo(() => cards.filter((c) => c.learningStage === 'stage2'), [cards]);
 
@@ -322,8 +326,10 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn }: Learnin
     // Default: show image + English
     return (
       <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-6 flex flex-col items-center justify-center min-h-[200px] gap-3">
-        {card.imageUrl && (
+        {card.imageUrl ? (
           <img src={card.imageUrl} alt={card.english || card.word} className="max-w-[400px] w-full rounded-xl object-cover aspect-video" />
+        ) : card.english && (
+          <CardScene card={card} size="md" />
         )}
         {card.english && (
           <p className={card.imageUrl ? "text-2xl text-foreground" : "text-[48px] font-bold text-foreground"}>
@@ -340,7 +346,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn }: Learnin
     return (
       <div className="w-full max-w-md mx-auto space-y-6 text-center">
         <div className="rounded-2xl bg-card flashcard-shadow p-8 space-y-4">
-          <Sparkles className="w-12 h-12 text-success mx-auto" />
+          <Illustration name="learn-done" eager className="mx-auto h-40 w-40 rounded-2xl object-cover" />
           <h2 className="text-2xl font-bold text-foreground">Excellent!</h2>
           <p className="text-muted-foreground">
             These {totalLearnable} words go into today's reviews, and come back
@@ -386,6 +392,8 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn }: Learnin
   return (
     <div className="w-full max-w-md mx-auto space-y-5">
       <BackButton label="Learn" onClick={onBack} />
+
+      {header}
 
       {/* Progress */}
       <div className="space-y-1.5">

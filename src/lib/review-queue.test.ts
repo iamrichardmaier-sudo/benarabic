@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { queueAfterGrade, cardsCovered } from './review-queue';
+import { queueAfterGrade, cardsCovered, sessionItems } from './review-queue';
+import { createCard, type FlashCard } from './spaced-repetition';
 
 const items = [
   { card: { id: 'a' }, direction: 'ar-to-en' },
@@ -51,5 +52,30 @@ describe('cardsCovered', () => {
 
   it('is zero for an empty session', () => {
     expect(cardsCovered([])).toBe(0);
+  });
+});
+
+describe('sessionItems', () => {
+  const word = (w: string): FlashCard => ({ ...createCard(w, w), wordType: 'noun' });
+  const sentence = (w: string): FlashCard => ({ ...createCard(w, w), wordType: 'sentence' });
+  const due = [word('بيت'), sentence('شو بدك'), word('كتاب')];
+  const words = (items: { card: FlashCard }[]) => [...new Set(items.map((i) => i.card.word))].sort();
+
+  it('reviews both kinds: a word each way, a sentence once', () => {
+    const items = sessionItems(due, 'both');
+    expect(items).toHaveLength(5);
+    expect(words(items)).toEqual(['بيت', 'شو بدك', 'كتاب']);
+    expect(items.filter((i) => i.card.word === 'شو بدك')).toHaveLength(1);
+  });
+
+  it('reviews just the vocab', () => {
+    const items = sessionItems(due, 'words');
+    expect(words(items)).toEqual(['بيت', 'كتاب']);
+    expect(items.map((i) => i.direction).sort()).toEqual(['ar-to-en', 'ar-to-en', 'en-to-ar', 'en-to-ar']);
+  });
+
+  it('reviews just the sentences', () => {
+    expect(words(sessionItems(due, 'sentences'))).toEqual(['شو بدك']);
+    expect(sessionItems([word('بيت')], 'sentences')).toEqual([]);
   });
 });

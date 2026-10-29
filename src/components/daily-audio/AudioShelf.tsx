@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Headphones, Pause, Play } from 'lucide-react';
+import { Headphones, MonitorPlay, Pause, Play } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import {
   Carousel,
@@ -9,10 +9,26 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import type { DailyAudio } from '@/hooks/useDailyAudios';
+import { openVideo, playAudio, useShelfPlayback } from '@/hooks/useShelfPlayback';
 import type { usePodcastPlayer } from '@/hooks/usePodcastPlayer';
-import { formatDuration, formatEpisodeDate } from '@/lib/daily-audio';
+import { formatDuration, formatEpisodeDate, isVideo } from '@/lib/daily-audio';
 
-const Cover = ({ episode }: { episode: DailyAudio }) => {
+/** A small "Video" tag in the cover's corner. */
+const VideoBadge = () => (
+  <span className="absolute start-1.5 top-1.5 flex items-center gap-1 rounded-full bg-black/70 px-1.5 py-0.5 text-[10px] font-semibold text-white backdrop-blur-sm">
+    <MonitorPlay className="h-3 w-3" aria-hidden="true" />
+    Video
+  </span>
+);
+
+const Cover = ({ episode }: { episode: DailyAudio }) => (
+  <span className="relative block w-full">
+    <CoverArt episode={episode} />
+    {isVideo(episode) && <VideoBadge />}
+  </span>
+);
+
+const CoverArt = ({ episode }: { episode: DailyAudio }) => {
   const [failed, setFailed] = useState(false);
   if (episode.imageUrl && !failed) {
     return (
@@ -60,16 +76,31 @@ interface AudioShelfProps {
  * buttons, swipe-to-scroll on touch, in the order given.
  */
 const AudioShelf = ({ title, headingId, episodes, loading, error, player, errorText, emptyText }: AudioShelfProps) => {
-  const { state, tracks, start, toggle } = player;
+  const { state, tracks, toggle } = player;
   const activeUrl = tracks[0]?.url ?? null;
+  const now = useShelfPlayback();
 
   // What to say instead of the deck, if anything; a state with nothing to say hides the shelf.
   const notice = error ? errorText : episodes.length === 0 ? emptyText : null;
   if (!loading && notice === undefined) return null;
 
   const press = (episode: DailyAudio) => {
-    if (activeUrl === episode.audioUrl) toggle();
-    else start([{ url: episode.audioUrl, label: episode.title }]);
+    // A video opens its player — picking up where it is if already going.
+    if (isVideo(episode)) openVideo(episode, player);
+    else if (activeUrl === episode.audioUrl) toggle();
+    else playAudio(episode, player);
+  };
+
+  /** Whether this card is the episode playing, and its clock. */
+  const clockFor = (episode: DailyAudio) => {
+    if (isVideo(episode)) {
+      if (now.episode?.id !== episode.id) return null;
+      if (now.mode === 'video') return now.video;
+      if (activeUrl !== episode.audioUrl) return null;
+    } else if (activeUrl !== episode.audioUrl) {
+      return null;
+    }
+    return state;
   };
 
   const heading = (
@@ -105,16 +136,18 @@ const AudioShelf = ({ title, headingId, episodes, loading, error, player, errorT
           </div>
           <CarouselContent>
             {episodes.map((episode) => {
-              const active = activeUrl === episode.audioUrl;
-              const playing = active && state.playing;
-              const length = active && state.duration > 0 ? state.duration : episode.durationSecs ?? 0;
-              const progress = active && length > 0 ? Math.min(1, state.position / length) : 0;
+              const clock = clockFor(episode);
+              const active = clock !== null;
+              const playing = active && clock.playing;
+              const length = active && clock.duration > 0 ? clock.duration : episode.durationSecs ?? 0;
+              const progress = active && length > 0 ? Math.min(1, clock.position / length) : 0;
+              const video = isVideo(episode);
               return (
                 <CarouselItem key={episode.id} className="basis-[46%] sm:basis-[31%] lg:basis-1/4">
                   <button
                     onClick={() => press(episode)}
-                    aria-label={`${playing ? 'Pause' : 'Play'} ${episode.title}`}
-                    aria-pressed={playing}
+                    aria-label={video ? `Watch ${episode.title}` : `${playing ? 'Pause' : 'Play'} ${episode.title}`}
+                    aria-pressed={video ? undefined : playing}
                     className={`flex w-full flex-col gap-2 overflow-hidden rounded-2xl border bg-card p-2.5 text-start transition-all active:scale-[0.98] ${
                       active ? 'border-primary/60' : 'border-border hover:bg-muted/40'
                     }`}
@@ -135,7 +168,7 @@ const AudioShelf = ({ title, headingId, episodes, loading, error, player, errorT
                           active ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'
                         }`}
                       >
-                        {playing ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4 translate-x-px" />}
+                        {playing && !video ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4 translate-x-px" />}
                       </span>
                     </span>
                     {active && (
@@ -153,7 +186,7 @@ const AudioShelf = ({ title, headingId, episodes, loading, error, player, errorT
                         />
                       </span>
                     )}
-                    {active && state.error && (
+                    {clock === state && state.error && (
                       <span className="block text-xs text-destructive">{state.error}</span>
                     )}
                   </button>

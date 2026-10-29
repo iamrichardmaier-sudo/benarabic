@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { renderHook, waitFor } from '@testing-library/react';
+import { isVideo } from '@/lib/daily-audio';
 import { useDailyAudios, parseManifest, splitEpisodes, isChapterAudio, isAkAudio, MANIFEST_URL, type DailyAudio } from './useDailyAudios';
 
 const manifest = {
@@ -177,5 +178,82 @@ describe('splitEpisodes', () => {
     ]);
     expect(daily.map((e) => e.id)).toEqual(['2026-10-13']);
     expect(chapters.map((e) => e.id)).toEqual(['2026-10-13-maha-qissa', '2026-10-08-chapter-ii']);
+  });
+});
+
+describe('video episodes', () => {
+  const base = { id: '2026-10-20-souq', date: '2026-10-20', title: 'Oct 20 — At the Souq' };
+
+  it('reads an entry with media_type "video" as a video item', () => {
+    const [e] = parseManifest({
+      episodes: [{
+        ...base,
+        media_type: 'video',
+        video_url: 'https://x/video/souq.mp4',
+        audio_url: 'https://x/audio/souq.mp3',
+        image_url: 'https://x/art/souq.png',
+        duration_secs: 420,
+      }],
+    });
+    expect(e).toEqual({
+      id: '2026-10-20-souq',
+      audioDate: '2026-10-20',
+      title: 'Oct 20 — At the Souq',
+      audioUrl: 'https://x/audio/souq.mp3',
+      imageUrl: 'https://x/art/souq.png',
+      durationSecs: 420,
+      collection: null,
+      mediaType: 'video',
+      videoUrl: 'https://x/video/souq.mp4',
+    });
+    expect(isVideo(e)).toBe(true);
+  });
+
+  it('treats a video_url alone as a video, listened to from the video file itself', () => {
+    const [e] = parseManifest({ episodes: [{ ...base, video_url: 'https://x/video/souq.mp4' }] });
+    expect(e.mediaType).toBe('video');
+    expect(e.videoUrl).toBe('https://x/video/souq.mp4');
+    expect(e.audioUrl).toBe('https://x/video/souq.mp4');
+  });
+
+  it('accepts media_type "video" whose only file is audio_url', () => {
+    const [e] = parseManifest({ episodes: [{ ...base, media_type: 'Video', audio_url: 'https://x/souq.mp4' }] });
+    expect(e.mediaType).toBe('video');
+    expect(e.videoUrl).toBe('https://x/souq.mp4');
+  });
+
+  it('drops a video entry with no file at all', () => {
+    expect(parseManifest({ episodes: [{ ...base, media_type: 'video' }] })).toEqual([]);
+  });
+
+  it('leaves audio entries without the new fields exactly as before', () => {
+    const out = parseManifest(manifest);
+    for (const e of out) {
+      expect(Object.keys(e).sort()).toEqual(
+        ['audioDate', 'audioUrl', 'collection', 'durationSecs', 'id', 'imageUrl', 'title'],
+      );
+      expect(isVideo(e)).toBe(false);
+    }
+    // media_type "audio" is still plain audio.
+    const [plain] = parseManifest({ episodes: [{ ...base, media_type: 'audio', audio_url: 'https://x/a.mp3' }] });
+    expect('mediaType' in plain).toBe(false);
+    expect('videoUrl' in plain).toBe(false);
+  });
+
+  it('routes videos to the shelves by the same collection and id rules', () => {
+    const v = (id: string, extra: Record<string, unknown> = {}) => ({
+      id, date: '2026-10-20', title: id, video_url: `https://x/${id}.mp4`, ...extra,
+    });
+    const { daily, chapters } = splitEpisodes(parseManifest({
+      episodes: [
+        v('2026-10-20-souq'),
+        v('2026-10-20-chapter-iii'),
+        v('2026-10-20-maha-qissa', { collection: 'AK' }),
+        { id: '2026-10-19', date: '2026-10-19', title: 'audio', audio_url: 'https://x/a.mp3' },
+      ],
+    }));
+    expect(daily.map((e) => e.id)).toEqual(['2026-10-20-souq', '2026-10-19']);
+    expect(chapters.map((e) => e.id).sort()).toEqual(['2026-10-20-chapter-iii', '2026-10-20-maha-qissa']);
+    expect(chapters.every(isVideo)).toBe(true);
   });
 });

@@ -16,6 +16,8 @@ export interface NowPlaying {
   title: string;
   subtitle: string;
   kind: 'audio' | 'video';
+  /** A cover picture for what is playing, when one is known. */
+  artwork: string;
   playing: boolean;
   position: number;
   duration: number;
@@ -23,19 +25,34 @@ export interface NowPlaying {
 }
 
 const EMPTY: NowPlaying = {
-  active: false, title: '', subtitle: '', kind: 'audio', playing: false, position: 0, duration: 0, rate: 1,
+  active: false, title: '', subtitle: '', kind: 'audio', artwork: '', playing: false, position: 0, duration: 0, rate: 1,
 };
+
+/**
+ * Cover pictures by source URL. The shared podcast element plays many
+ * things in turn, so its cover is looked up by what it is playing rather
+ * than stored on the element.
+ */
+const artworkBySrc = new Map<string, string>();
+
+/** Gives whatever plays from `src` a cover in the play bar. */
+export function setArtwork(src: string, artwork: string | null | undefined): void {
+  if (artwork) artworkBySrc.set(src, artwork);
+  else artworkBySrc.delete(src);
+}
 
 let current: HTMLMediaElement | null = null;
 let dismissed = false;
 let snapshot: NowPlaying = { ...EMPTY, rate: readPreferences().audioRate };
 const listeners = new Set<() => void>();
 
-function describe(el: HTMLMediaElement): { title: string; subtitle: string } {
+function describe(el: HTMLMediaElement): { title: string; subtitle: string; artwork: string } {
   const title = el.dataset.title || el.getAttribute('aria-label') || el.getAttribute('title') || '';
+  const src = el.currentSrc || el.getAttribute('src') || '';
   return {
     title: title || (el instanceof HTMLVideoElement ? 'Video' : 'Audio'),
     subtitle: el.dataset.subtitle || '',
+    artwork: el.dataset.artwork || artworkBySrc.get(src) || '',
   };
 }
 

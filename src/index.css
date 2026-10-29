@@ -259,3 +259,87 @@ html.wz-art main :is(.bg-card, .bg-primary, .bg-secondary, .bg-muted, .bg-destru
   background: hsl(var(--primary));
 }
 .wz-scrub:disabled::-webkit-slider-thumb { visibility: hidden; }
+
+/* ── Card scenes ────────────────────────────────────────────────────────────
+   The small looping pictures beside a card's meaning (CardScene). Each tone
+   sets a hue; the tile, the soft orb and the icon all draw from it, so a
+   scene reads as one warm, rounded object in the app's palette, light or dark.
+   Plain CSS rather than a Tailwind layer: the tone and motion class names are
+   built at runtime, and Tailwind would drop classes it never sees spelled out. */
+  .scene-tone-warm   { --scene-h: 24;  --scene-s: 70%; }
+  .scene-tone-amber  { --scene-h: 38;  --scene-s: 85%; }
+  .scene-tone-green  { --scene-h: 145; --scene-s: 45%; }
+  .scene-tone-blue   { --scene-h: 205; --scene-s: 65%; }
+  .scene-tone-rose   { --scene-h: 350; --scene-s: 70%; }
+  .scene-tone-violet { --scene-h: 265; --scene-s: 55%; }
+
+  .scene-tile {
+    background:
+      radial-gradient(circle at 50% 38%, hsl(var(--scene-h) var(--scene-s) 75% / 0.45), transparent 70%),
+      hsl(var(--scene-h) var(--scene-s) 94%);
+    box-shadow: inset 0 0 0 1px hsl(var(--scene-h) var(--scene-s) 45% / 0.12);
+    color: hsl(var(--scene-h) var(--scene-s) 55%);
+  }
+  .dark .scene-tile {
+    background:
+      radial-gradient(circle at 50% 38%, hsl(var(--scene-h) var(--scene-s) 45% / 0.35), transparent 70%),
+      hsl(var(--scene-h) 20% 16%);
+    color: hsl(var(--scene-h) var(--scene-s) 68%);
+  }
+  .scene-ink { color: hsl(var(--scene-h) var(--scene-s) 40%); filter: drop-shadow(0 3px 4px hsl(var(--scene-h) var(--scene-s) 30% / 0.18)); }
+  .dark .scene-ink { color: hsl(var(--scene-h) var(--scene-s) 75%); }
+
+  .scene-rays {
+    background: repeating-conic-gradient(hsl(var(--scene-h) var(--scene-s) 70% / 0.22) 0deg 12deg, transparent 12deg 30deg);
+    animation: scene-spin 14s linear infinite;
+  }
+  .scene-particle { transform: translate(-50%, -50%); animation-duration: 3s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+
+  .scene-motion-float   { animation: scene-float 3s ease-in-out infinite; }
+  .scene-motion-bounce  { animation: scene-bounce 1.6s cubic-bezier(.3,0,.3,1) infinite; transform-origin: 50% 100%; }
+  .scene-motion-wiggle  { animation: scene-wiggle 1.8s ease-in-out infinite; }
+  .scene-motion-spin    { animation: scene-spin 9s linear infinite; }
+  .scene-motion-pulse   { animation: scene-pulse 1.4s ease-in-out infinite; }
+  .scene-motion-swing   { animation: scene-swing 2.4s ease-in-out infinite; transform-origin: 50% 0%; }
+  .scene-motion-sway    { animation: scene-swing 3.2s ease-in-out infinite; transform-origin: 50% 100%; }
+  .scene-motion-hop     { animation: scene-hop 1.4s ease-in-out infinite; }
+  .scene-motion-drive   { animation: scene-drive 2.6s ease-in-out infinite; }
+  .scene-motion-fly     { animation: scene-fly 3s ease-in-out infinite; }
+  .scene-motion-shake   { animation: scene-shake 2.2s ease-in-out infinite; }
+  .scene-motion-grow    { animation: scene-grow 2.6s ease-in-out infinite; }
+  .scene-motion-blink   { animation: scene-blink 3.4s ease-in-out infinite; }
+  .scene-motion-drift   { animation: scene-drift-x 4s ease-in-out infinite; }
+  .scene-motion-swim    { animation: scene-swim 3s ease-in-out infinite; }
+  .scene-motion-flicker { animation: scene-flicker 1.2s ease-in-out infinite; transform-origin: 50% 100%; }
+
+  .scene-rise    { animation-name: scene-rise; }
+  .scene-steam   { animation-name: scene-steam; }
+  .scene-fall    { animation-name: scene-fall; animation-timing-function: linear; }
+  .scene-drift   { animation-name: scene-drift; }
+  .scene-twinkle { animation-name: scene-twinkle; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scene-tile *, .scene-rays { animation: none !important; }
+  }
+
+@keyframes scene-float   { 0%,100% { transform: translateY(2px); } 50% { transform: translateY(-5px); } }
+@keyframes scene-bounce  { 0%,100% { transform: translateY(0) scale(1.04, .96); } 40% { transform: translateY(-9px) scale(.97, 1.03); } 60% { transform: translateY(-9px); } 85% { transform: translateY(0) scale(1.06, .94); } }
+@keyframes scene-wiggle  { 0%,100% { transform: rotate(0); } 20% { transform: rotate(-10deg); } 40% { transform: rotate(8deg); } 60% { transform: rotate(-5deg); } 80% { transform: rotate(3deg); } }
+@keyframes scene-spin    { to { transform: rotate(360deg); } }
+@keyframes scene-pulse   { 0%,100% { transform: scale(1); } 15% { transform: scale(1.14); } 30% { transform: scale(1); } 45% { transform: scale(1.09); } }
+@keyframes scene-swing   { 0%,100% { transform: rotate(-9deg); } 50% { transform: rotate(9deg); } }
+@keyframes scene-hop     { 0%,100% { transform: translateY(0); } 30% { transform: translateY(-10px) rotate(-6deg); } 55% { transform: translateY(0); } 70% { transform: translateY(-4px) rotate(4deg); } }
+@keyframes scene-drive   { 0%,100% { transform: translateX(-7px); } 45% { transform: translateX(7px) translateY(-1px); } 50% { transform: translateX(7px); } }
+@keyframes scene-fly     { 0%,100% { transform: translate(-5px, 4px) rotate(-6deg); } 50% { transform: translate(6px, -6px) rotate(6deg); } }
+@keyframes scene-shake   { 0%,60%,100% { transform: translateX(0); } 65%,75%,85% { transform: translateX(-3px) rotate(-3deg); } 70%,80%,90% { transform: translateX(3px) rotate(3deg); } }
+@keyframes scene-grow    { 0%,100% { transform: scale(.9); } 50% { transform: scale(1.08); } }
+@keyframes scene-blink   { 0%,42%,50%,100% { transform: scaleY(1); } 46% { transform: scaleY(.1); } }
+@keyframes scene-drift-x { 0%,100% { transform: translateX(-8px); } 50% { transform: translateX(8px); } }
+@keyframes scene-swim    { 0%,100% { transform: translateX(-6px) rotate(6deg); } 50% { transform: translateX(6px) rotate(-6deg); } }
+@keyframes scene-flicker { 0%,100% { transform: scale(1, 1) rotate(-2deg); } 33% { transform: scale(.96, 1.06) rotate(2deg); } 66% { transform: scale(1.04, .96) rotate(-1deg); } }
+
+@keyframes scene-rise    { 0% { transform: translate(-50%, 6px) scale(.6); opacity: 0; } 25% { opacity: 1; } 100% { transform: translate(-50%, -22px) scale(1); opacity: 0; } }
+@keyframes scene-steam   { 0% { transform: translate(-50%, 8px) scaleY(.4); opacity: 0; } 40% { opacity: .8; } 100% { transform: translate(-30%, -18px) scaleY(1) skewX(12deg); opacity: 0; } }
+@keyframes scene-fall    { 0% { transform: translate(-50%, -30px) rotate(0); opacity: 0; } 15% { opacity: 1; } 100% { transform: translate(-50%, 30px) rotate(140deg); opacity: 0; } }
+@keyframes scene-drift   { 0% { transform: translate(-90%, -50%); opacity: 0; } 30% { opacity: .9; } 100% { transform: translate(60%, -50%); opacity: 0; } }
+@keyframes scene-twinkle { 0%,100% { transform: translate(-50%, -50%) scale(.3) rotate(0); opacity: 0; } 50% { transform: translate(-50%, -50%) scale(1) rotate(45deg); opacity: 1; } }

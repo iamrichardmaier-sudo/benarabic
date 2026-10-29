@@ -10,6 +10,13 @@ export interface DailyAudio {
   durationSecs: number | null;
   /** Optional manifest collection tag (e.g. "ak" routes an episode to the AK II shelf). */
   collection: string | null;
+  /**
+   * Set only on a video episode — an entry with `media_type: "video"` or a
+   * `video_url`. Audio episodes carry neither field, exactly as before.
+   */
+  mediaType?: 'video';
+  /** The video file; `audioUrl` is what plays when it is listened to as audio. */
+  videoUrl?: string;
 }
 
 /** How many of the latest daily episodes the Daily Audios shelf lists. */
@@ -35,12 +42,17 @@ const text = (v: unknown): string | null => (typeof v === 'string' && v.trim() ?
 function toEpisode(raw: unknown): DailyAudio | null {
   if (!raw || typeof raw !== 'object') return null;
   const e = raw as Record<string, unknown>;
-  const audioUrl = text(e.audio_url);
+  const video = text(e.media_type)?.toLowerCase() === 'video' || text(e.video_url) !== null;
+  // A video with no separate audio file is listened to from the video file
+  // itself; an audio element plays a video's soundtrack just as well.
+  const videoUrl = video ? text(e.video_url) ?? text(e.audio_url) : null;
+  const audioUrl = text(e.audio_url) ?? videoUrl;
   const title = text(e.title);
   const audioDate = text(e.date);
   if (!audioUrl || !title || !audioDate) return null;
   const secs = typeof e.duration_secs === 'number' && Number.isFinite(e.duration_secs) ? e.duration_secs : null;
   return {
+    ...(videoUrl ? { mediaType: 'video' as const, videoUrl } : {}),
     id: text(e.id) ?? audioDate,
     audioDate,
     title,

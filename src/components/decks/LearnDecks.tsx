@@ -10,6 +10,8 @@ import { FOUNDATION_ICON } from '@/lib/deck-icons';
 import type { Deck } from '@/lib/deck-store';
 import { matchesDeck } from '@/lib/deck-browse';
 import { placementNote, type DeckPlacement } from '@/lib/deck-placement';
+import CardMixPicker from '@/components/CardMixPicker';
+import type { CardMix } from '@/lib/learn-filter';
 
 interface LearnDecksProps {
   onBack: () => void;
@@ -33,6 +35,7 @@ const LearnDecks = ({ onBack, onBuildDeck, onEditDeck }: LearnDecksProps) => {
   const [busy, setBusy] = useState(false);
   const [note, setNote] = useState<string | null>(null);
   const [placement, setPlacement] = useState<DeckPlacement>('learn');
+  const [mix, setMix] = useState<CardMix>('both');
 
   const visible = useMemo(
     () =>
@@ -72,7 +75,7 @@ const LearnDecks = ({ onBack, onBuildDeck, onEditDeck }: LearnDecksProps) => {
     setBusy(true);
     setNote(null);
     try {
-      const { decks: n, newCards } = await addDecks([...selected], placement);
+      const { decks: n, newCards } = await addDecks([...selected], placement, mix);
       setSelected(new Set());
       setNote(`Added ${n} deck${n === 1 ? '' : 's'} · ${placementNote(placement, newCards)}`);
     } catch (err) {
@@ -149,9 +152,7 @@ const LearnDecks = ({ onBack, onBuildDeck, onEditDeck }: LearnDecksProps) => {
         deck={open}
         added={mine.has(open.id)}
         onBack={() => setOpen(null)}
-        onAdd={async (chosen) => {
-          await addDecks([open.id], chosen);
-        }}
+        onAdd={(chosen, kinds) => addDecks([open.id], chosen, kinds)}
         onRemove={async () => {
           await removeDeck(open.id);
           setOpen(null);
@@ -262,6 +263,7 @@ const LearnDecks = ({ onBack, onBuildDeck, onEditDeck }: LearnDecksProps) => {
       {selected.size > 0 && (
         <div className="space-y-2">
           <PlacementPicker value={placement} onChange={setPlacement} />
+          <CardMixPicker value={mix} onChange={setMix} label="Cards to add" />
           <button
             onClick={addSelected}
             disabled={busy}

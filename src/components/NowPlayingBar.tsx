@@ -1,11 +1,15 @@
-import { Gauge, Minus, Pause, Play, Plus, RotateCcw, RotateCw, X } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { Gauge, Headphones, Minus, MonitorPlay, Pause, Play, Plus, RotateCcw, RotateCw, X } from 'lucide-react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Slider } from '@/components/ui/slider';
 import { useNowPlaying } from '@/hooks/useNowPlaying';
 import { dismiss, seekTo, setRate, skipBy, togglePlay } from '@/lib/now-playing';
 import { AUDIO_RATE_MAX, AUDIO_RATE_MIN, AUDIO_RATE_STEP, formatRate } from '@/lib/preferences';
+import { openVideo, useBarEpisode, useShelfPlayback } from '@/hooks/useShelfPlayback';
+import { SKIP_SECONDS, usePodcastPlayer } from '@/hooks/usePodcastPlayer';
+import { isVideo } from '@/lib/daily-audio';
 
-const PRESETS = [0.5, 0.75, 0.9, 1, 1.25, 1.5, 2];
+const PRESETS = [0.5, 0.75, 0.8, 0.9, 1, 1.25, 1.5, 2];
 
 function clock(seconds: number): string {
   const s = Math.max(0, Math.floor(seconds));
@@ -81,9 +85,40 @@ const SpeedControl = ({ rate }: { rate: number }) => {
  * tab bar on every screen until closed, so playback can be paused, moved
  * through and slowed down from anywhere.
  */
+/** The cover of what is playing, or a plain tile when there is none. */
+const Cover = ({ src }: { src: string }) => {
+  const [failed, setFailed] = useState(false);
+  return src && !failed ? (
+    <img src={src} alt="" onError={() => setFailed(true)} className="h-10 w-10 shrink-0 rounded-lg border border-border object-cover" />
+  ) : (
+    <span aria-hidden="true" className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+      <Headphones className="h-4 w-4" />
+    </span>
+  );
+};
+
 const NowPlayingBar = ({ hidden = false }: { hidden?: boolean }) => {
   const np = useNowPlaying();
-  if (!np.active || hidden) return null;
+  // A shelf video being listened to as audio can go back to its picture.
+  const shelfEpisode = useBarEpisode();
+  const { videoOpen } = useShelfPlayback();
+  const player = usePodcastPlayer('Daily Audio');
+  const video = shelfEpisode && isVideo(shelfEpisode) ? shelfEpisode : null;
+
+  // The lock screen shows a shelf episode's own title and cover.
+  useEffect(() => {
+    const ms = typeof navigator !== 'undefined' ? navigator.mediaSession : undefined;
+    if (!shelfEpisode || !ms || typeof MediaMetadata === 'undefined') return;
+    ms.metadata = new MediaMetadata({
+      title: shelfEpisode.title,
+      artist: 'Wazn',
+      album: 'Daily Audio',
+      artwork: shelfEpisode.imageUrl ? [{ src: shelfEpisode.imageUrl, sizes: '512x512' }] : [],
+    });
+  }, [shelfEpisode, player.state.index]);
+
+  // The full-screen video player has every control already.
+  if (!np.active || hidden || videoOpen) return null;
   const fraction = np.duration > 0 ? Math.min(np.position / np.duration, 1) : 0;
 
   return (
@@ -108,6 +143,21 @@ const NowPlayingBar = ({ hidden = false }: { hidden?: boolean }) => {
           disabled={np.duration <= 0}
         />
         <div className="flex items-center gap-1 px-2.5 pb-2 pt-0.5">
+          {video ? (
+            <button
+              type="button"
+              onClick={() => openVideo(video, player)}
+              aria-label="Watch video"
+              className="relative shrink-0 transition-transform active:scale-95"
+            >
+              <Cover src={np.artwork} />
+              <span className="absolute -bottom-1 -end-1 flex h-5 w-5 items-center justify-center rounded-full bg-foreground text-background ring-2 ring-card">
+                <MonitorPlay className="h-3 w-3" />
+              </span>
+            </button>
+          ) : (
+            np.artwork && <Cover src={np.artwork} />
+          )}
           <div className="min-w-0 flex-1 ps-1">
             <p className="truncate text-sm font-semibold leading-tight text-foreground">{np.title}</p>
             <p className="truncate text-[11px] tabular-nums text-muted-foreground">
@@ -118,8 +168,8 @@ const NowPlayingBar = ({ hidden = false }: { hidden?: boolean }) => {
           </div>
           <button
             type="button"
-            onClick={() => skipBy(-10)}
-            aria-label="Back 10 seconds"
+            onClick={() => skipBy(-SKIP_SECONDS)}
+            aria-label={`Back ${SKIP_SECONDS} seconds`}
             className="flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground hover:text-foreground"
           >
             <RotateCcw className="h-[18px] w-[18px]" />
@@ -134,8 +184,8 @@ const NowPlayingBar = ({ hidden = false }: { hidden?: boolean }) => {
           </button>
           <button
             type="button"
-            onClick={() => skipBy(10)}
-            aria-label="Forward 10 seconds"
+            onClick={() => skipBy(SKIP_SECONDS)}
+            aria-label={`Forward ${SKIP_SECONDS} seconds`}
             className="flex h-9 w-9 items-center justify-center rounded-full text-muted-foreground hover:text-foreground"
           >
             <RotateCw className="h-[18px] w-[18px]" />
