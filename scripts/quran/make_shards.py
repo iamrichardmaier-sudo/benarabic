@@ -2,8 +2,9 @@
 """
 Cut the root scope into annotation shards, deterministically.
 
-    python3 -I scripts/quran/make_shards.py WORK            # writes WORK/shards/*.json
-    python3 -I scripts/quran/make_shards.py WORK --verify   # compares with scripts/quran/shards.json
+    python3 -I scripts/quran/make_shards.py WORK                    # writes WORK/shards/*.json
+    python3 -I scripts/quran/make_shards.py WORK --verify           # compares with scripts/quran/shards.json
+    python3 -I scripts/quran/make_shards.py WORK --write-manifest   # (owner only) rewrites shards.json
 
 Roots are taken in dossier order and packed greedily up to CAP workload points, so the
 same bank snapshot always yields the same shards. shards.json (committed) records which
@@ -33,7 +34,7 @@ def build(roots):
     return {f's{i:02d}': s for i, s in enumerate(shards, 1)}
 
 
-def main(work, verify):
+def main(work, verify, write_manifest):
     roots = json.load(open(os.path.join(work, 'roots.json'), encoding='utf-8'))
     shards = build(roots)
     manifest = {sid: [r['root'] for r in s] for sid, s in shards.items()}
@@ -51,11 +52,12 @@ def main(work, verify):
                   open(os.path.join(work, 'shards', f'{sid}.json'), 'w'))
     json.dump({'id': 'rootless', 'roots': [], 'rootless': True},
               open(os.path.join(work, 'shards', 'rootless.json'), 'w'))
-    json.dump(manifest, open(MANIFEST, 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
+    if write_manifest:
+        json.dump(manifest, open(MANIFEST, 'w', encoding='utf-8'), ensure_ascii=False, indent=0)
     print(f'{len(shards)} shards + rootless')
 
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         sys.exit(__doc__)
-    main(sys.argv[1], '--verify' in sys.argv)
+    main(sys.argv[1], '--verify' in sys.argv, '--write-manifest' in sys.argv)
