@@ -67,3 +67,49 @@ export function searchDeck(cards: FlashCard[], query: string): FlashCard[] {
   if (!q) return cards;
   return cards.filter((card) => matchesQuery(card, q));
 }
+
+/** "To write (a letter); scribe" → ["write", "scribe"]: each sense of a gloss, bare. */
+function senses(english: string): string[] {
+  return english
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, ' ')
+    .split(/[,;/]/)
+    .map((s) => s.replace(/^\s*to\s+/, '').trim())
+    .filter(Boolean);
+}
+
+/**
+ * How closely a card that matches `query` matches it: the word or a sense
+ * of its meaning exactly beats one starting with the query, which beats the
+ * query found somewhere inside a related form or label.
+ */
+function score(card: FlashCard, query: string): number {
+  if (ARABIC.test(query)) {
+    const needle = rootKey(query);
+    const heads = [card.word, card.wordVoweled ?? '', card.shaami ?? ''].filter(Boolean).map(normalizeArabic);
+    if (heads.some((h) => h === needle)) return 100;
+    if (card.root && rootKey(card.root) === needle) return 70;
+    if (heads.some((h) => h.startsWith(needle))) return 60;
+    if (heads.some((h) => h.includes(needle))) return 30;
+    return 10;
+  }
+  const needle = query.toLowerCase().replace(/^to\s+/, '');
+  const meaning = senses(card.english ?? '');
+  if (meaning.some((m) => m === needle)) return 100;
+  if (meaning.some((m) => m.startsWith(needle))) return 60;
+  if (meaning.some((m) => new RegExp(`\\b${needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`).test(m))) return 40;
+  if ((card.english ?? '').toLowerCase().includes(needle)) return 20;
+  return 5;
+}
+
+/** The deck's matches for `query`, closest first; ties keep deck order. */
+export function rankDeck(cards: FlashCard[], query: string): FlashCard[] {
+  const q = query.trim();
+  if (!q) return [];
+  return cards
+    .map((card, i) => ({ card, i }))
+    .filter(({ card }) => matchesQuery(card, q))
+    .map((m) => ({ ...m, s: score(m.card, q) }))
+    .sort((a, b) => b.s - a.s || a.i - b.i)
+    .map((m) => m.card);
+}

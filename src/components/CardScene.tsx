@@ -34,12 +34,12 @@ const CONFETTI = ['bg-primary', 'bg-success', 'bg-info', 'bg-warning', 'bg-destr
 interface CardSceneProps {
   /** A card, or anything with a stored scene and/or an English meaning to match. */
   card: { scene?: string | null; english?: string | null; wordType?: string | null };
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg';
   className?: string;
 }
 
-const SIZES = { sm: 'h-16 w-16', md: 'h-24 w-24', lg: 'h-32 w-32' };
-const ICON_SIZES = { sm: 'h-7 w-7', md: 'h-10 w-10', lg: 'h-14 w-14' };
+const SIZES = { xs: 'h-10 w-10 !rounded-xl', sm: 'h-16 w-16', md: 'h-24 w-24', lg: 'h-32 w-32' };
+const ICON_SIZES = { xs: 'h-5 w-5', sm: 'h-7 w-7', md: 'h-10 w-10', lg: 'h-14 w-14' };
 
 /**
  * A small looping scene that pictures what a card means — a cup with steam
@@ -51,7 +51,9 @@ const CardScene = ({ card, size = 'lg', className }: CardSceneProps) => {
   const scene: Scene = sceneForCard(card);
   const Icon = SCENE_ICONS[scene.icon];
   if (!Icon) return null;
-  const fx = scene.fx !== 'none' && scene.fx !== 'rays' ? FX[scene.fx] : null;
+  // In a list the tile is too small for particles; the moving icon is enough.
+  const tiny = size === 'xs';
+  const fx = !tiny && scene.fx !== 'none' && scene.fx !== 'rays' ? FX[scene.fx] : null;
 
   return (
     <div
@@ -59,7 +61,7 @@ const CardScene = ({ card, size = 'lg', className }: CardSceneProps) => {
       data-scene={scene.key}
       className={cn('scene-tile relative mx-auto shrink-0 overflow-hidden rounded-3xl', `scene-tone-${scene.tone}`, SIZES[size], className)}
     >
-      {scene.fx === 'rays' && <span className="scene-rays absolute inset-[-40%]" />}
+      {scene.fx === 'rays' && !tiny && <span className="scene-rays absolute inset-[-40%]" />}
       <span className="absolute inset-[18%] rounded-full bg-[hsl(var(--scene-h)_var(--scene-s)_60%/0.18)]" />
       {fx && SPOTS.map((s, i) => (
         <span

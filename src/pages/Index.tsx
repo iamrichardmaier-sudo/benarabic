@@ -24,6 +24,8 @@ import LearnHub, { type LearnDestination } from '@/components/LearnHub';
 import AnkiTransfer from '@/components/AnkiTransfer';
 import RootExplorer from '@/components/roots/RootExplorer';
 import FormsTab from '@/components/forms/FormsTab';
+import FormExplorer from '@/components/forms/FormExplorer';
+import DeckSearch from '@/components/DeckSearch';
 import SettingsScreen from '@/components/SettingsScreen';
 import PdfToAudio from '@/components/PdfToAudio';
 import LearnDecks from '@/components/decks/LearnDecks';
@@ -64,7 +66,7 @@ import { useToast } from '@/hooks/use-toast';
 type View =
   | 'home' | 'learnHub' | 'library' | 'settings'
   | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
-  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize' | 'listenCards' | 'rootExplorer' | 'verbForms' | 'anki'
+  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize' | 'listenCards' | 'rootExplorer' | 'formExplorer' | 'verbForms' | 'anki'
   | 'pdfToAudio'
   | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast' | 'feedback';
 
@@ -88,6 +90,17 @@ const Index = () => {
   const { signOut, user } = useAuth();
   const [tab, setTab] = useState<Tab>('home');
   const [view, setView] = useState<View>('home');
+  /** What the dictionary opens on when arriving from a deck search that found nothing. */
+  const [lookupQuery, setLookupQuery] = useState('');
+  const lookUp = (query: string) => {
+    setLookupQuery(query);
+    setTab('learn');
+    setView('lookup');
+  };
+  // A query carried over from a deck search is for that one visit.
+  useEffect(() => {
+    if (view !== 'lookup') setLookupQuery('');
+  }, [view]);
   /** A shelf episode in the play bar, which needs room under the page. */
   const barEpisode = useBarEpisode();
   // Lets the hardware/browser back button undo a screen change the same way
@@ -554,6 +567,7 @@ const Index = () => {
       <main className={`flex-1 mx-auto w-full px-4 pt-8 ${barEpisode ? 'pb-56' : 'pb-28'} max-w-lg ${view === 'home' ? 'lg:max-w-3xl' : ''}`}>
         {view === 'home' && (
           <>
+            <DeckSearch cards={cards} onLookUp={lookUp} className="mb-6" />
             {cards.length === 0 && user?.email && (
               <div className="rounded-xl border border-border/60 bg-muted/50 p-4 mb-5 text-sm text-muted-foreground space-y-1">
                 <p className="text-foreground font-medium">This account has no cards yet.</p>
@@ -580,6 +594,8 @@ const Index = () => {
             />
           </>
         )}
+
+        {view === 'learnHub' && <DeckSearch cards={cards} onLookUp={lookUp} className="mb-6" />}
 
         {view === 'learnHub' && (
           <LearnHub
@@ -780,11 +796,14 @@ const Index = () => {
         {view === 'lookup' && (
           <WordLookup
             deck={cards}
-            onBack={() => setView('learnHub')}
+            initialQuery={lookupQuery}
+            onBack={() => { setLookupQuery(''); setView('learnHub'); }}
           />
         )}
 
         {view === 'rootExplorer' && <RootExplorer cards={cards} onBack={() => setView('learnHub')} />}
+
+        {view === 'formExplorer' && <FormExplorer cards={cards} onBack={() => setView('learnHub')} />}
 
         {view === 'verbForms' && <FormsTab onBack={() => setView('learnHub')} />}
 

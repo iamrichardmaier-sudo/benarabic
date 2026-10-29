@@ -1,6 +1,6 @@
 import {
   GraduationCap, BookOpen, RefreshCw, List,
-  Sparkles, Link2, Brain, Headphones, ChevronRight, Search, Hash, LibraryBig, Network, Shapes, type LucideIcon,
+  Sparkles, Link2, Brain, Headphones, ChevronRight, Search, Hash, LibraryBig, Network, Shapes, Boxes, type LucideIcon,
 } from 'lucide-react';
 import PodcastShelf from '@/components/podcasts/PodcastShelf';
 import CardMixPicker from '@/components/CardMixPicker';
@@ -10,7 +10,7 @@ import type { Podcast } from '@/lib/podcasts';
 export type LearnDestination =
   | 'learn' | 'review' | 'relearn' | 'deck' | 'lookup' | 'learnDecks'
   | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill'
-  | 'memorize' | 'listenCards' | 'rootExplorer' | 'verbForms';
+  | 'memorize' | 'listenCards' | 'rootExplorer' | 'formExplorer' | 'verbForms';
 
 interface LearnHubProps {
   dueCount: number;
@@ -104,6 +104,11 @@ const LearnHub = ({
         {
           id: 'rootExplorer', label: 'Browse by root', icon: Network,
           hint: 'Every word you hold on a root, and the verb forms it takes',
+          disabled: deckSize === 0,
+        },
+        {
+          id: 'formExplorer', label: 'Browse by form', icon: Boxes,
+          hint: 'Every word in your deck built on Form I to Form X',
           disabled: deckSize === 0,
         },
       ],
