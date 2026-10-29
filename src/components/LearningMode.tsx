@@ -2,12 +2,13 @@ import { useState, useMemo, useCallback, useEffect, useRef, type ReactNode } fro
 import { FlashCard, graduateCard, acceptedAnswers, scheduleFields, isSentence } from '@/lib/spaced-repetition';
 import SentenceOrder from '@/components/SentenceOrder';
 import { Progress } from '@/components/ui/progress';
-import { ArrowLeft, Check, X, Sparkles } from 'lucide-react';
+import { ArrowLeft, Check, X } from 'lucide-react';
 import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import WordInfoPopover from '@/components/WordInfoPopover';
 import WordForms from '@/components/WordForms';
 import WordDetail from '@/components/WordDetail';
 import { hasWordDetail } from '@/lib/word-relations';
+import Illustration from '@/components/Illustration';
 import CardScene from '@/components/CardScene';
 
 interface LearningModeProps {
@@ -349,7 +350,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack, header }: Learnin
     return (
       <div className="w-full max-w-md mx-auto space-y-6 text-center">
         <div className="rounded-2xl bg-card flashcard-shadow p-8 space-y-4">
-          <Sparkles className="w-12 h-12 text-success mx-auto" />
+          <Illustration name="learn-done" eager className="mx-auto h-40 w-40 rounded-2xl object-cover" />
           <h2 className="text-2xl font-bold text-foreground">Excellent!</h2>
           <p className="text-muted-foreground">
             These {totalLearnable} words go into today's reviews, and come back

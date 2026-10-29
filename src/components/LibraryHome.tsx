@@ -1,4 +1,5 @@
-import { BookOpen, Newspaper, ChevronRight, Library as LibraryIcon } from 'lucide-react';
+import { ChevronRight, Library as LibraryIcon } from 'lucide-react';
+import Illustration from '@/components/Illustration';
 import type { LibraryText } from '@/hooks/useLibraryTexts';
 
 export type LibraryDestination = 'bible' | 'wild';
@@ -86,9 +87,9 @@ const LibraryHome = ({
     <div className="rounded-2xl border border-border bg-card overflow-hidden">
       <button
         onClick={() => onSelect('bible')}
-        className="w-full flex items-center gap-3 px-4 py-4 text-start transition-colors hover:bg-muted/40"
+        className="w-full flex items-center gap-4 px-3 py-3 text-start transition-colors hover:bg-muted/40"
       >
-        <BookOpen className="w-5 h-5 text-primary shrink-0" />
+        <Illustration name="bible" className="h-16 w-16 shrink-0 rounded-xl border border-border/60 bg-background object-cover" />
         <span className="min-w-0 flex-1">
           <span className="block font-semibold text-foreground">The Bible</span>
           <span className="block text-xs text-muted-foreground truncate">
@@ -99,9 +100,9 @@ const LibraryHome = ({
       </button>
       <button
         onClick={() => onSelect('wild')}
-        className="w-full flex items-center gap-3 px-4 py-4 text-start border-t border-border transition-colors hover:bg-muted/40"
+        className="w-full flex items-center gap-4 px-3 py-3 text-start border-t border-border transition-colors hover:bg-muted/40"
       >
-        <Newspaper className="w-5 h-5 text-primary shrink-0" />
+        <Illustration name="articles" className="h-16 w-16 shrink-0 rounded-xl border border-border/60 bg-background object-cover" />
         <span className="min-w-0 flex-1">
           <span className="block font-semibold text-foreground">Articles</span>
           <span className="block text-xs text-muted-foreground truncate">

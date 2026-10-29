@@ -30,7 +30,8 @@ describe('LibraryHome', () => {
     // Queried out of the DOM rather than by role: the cover carries an empty
     // alt on purpose, since the title is right beside it and a screen reader
     // announcing both would say the same thing twice.
-    const covers = container.querySelectorAll('img');
+    // The two shelves' illustrations are not covers, so they are left out.
+    const covers = container.querySelectorAll('img:not([data-illustration])');
     expect(covers).toHaveLength(1);
     expect(covers[0]).toHaveAttribute('src', 'data:image/jpeg;base64,xxx');
 

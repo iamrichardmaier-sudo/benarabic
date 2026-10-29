@@ -4,6 +4,7 @@ import { useBibleBooks } from '@/hooks/useBibleBooks';
 import HomeDeckShelves from '@/components/decks/HomeDeckShelves';
 import DailyAudios from '@/components/daily-audio/DailyAudios';
 import HomeDesktopColumns from '@/components/HomeDesktopColumns';
+import Illustration from '@/components/Illustration';
 import type { LearnDestination } from '@/components/LearnHub';
 
 interface HomeDashboardProps {
@@ -102,21 +103,29 @@ const HomeDashboard = ({
           <ChevronRight className="w-5 h-5 opacity-80" />
         </button>
       ) : deckSize === 0 ? (
-        <button
-          onClick={onBrowseDecks}
-          className="w-full flex items-center justify-between gap-3 rounded-2xl bg-primary text-primary-foreground px-5 py-4 text-start font-semibold transition-all active:scale-95"
-        >
-          <span className="flex items-center gap-2.5">
-            <LibraryBig className="w-5 h-5" />
-            <span>
-              <span className="block">Browse decks to get started</span>
-              <span className="block text-xs font-normal opacity-80">
-                Pick a ready-made set of words, or read something in the Library
+        <div className="overflow-hidden rounded-2xl border border-border bg-card">
+          <div className="flex items-center gap-4 px-4 pt-4">
+            <Illustration name="empty-deck" eager className="h-24 w-24 shrink-0 rounded-xl object-cover" />
+            <p className="text-sm text-muted-foreground">
+              Your deck is empty — a blank box of cards waiting for its first words.
+            </p>
+          </div>
+          <button
+            onClick={onBrowseDecks}
+            className="m-4 flex w-[calc(100%-2rem)] items-center justify-between gap-3 rounded-2xl bg-primary px-5 py-4 text-start font-semibold text-primary-foreground transition-all active:scale-95"
+          >
+            <span className="flex items-center gap-2.5">
+              <LibraryBig className="w-5 h-5" />
+              <span>
+                <span className="block">Browse decks to get started</span>
+                <span className="block text-xs font-normal opacity-80">
+                  Pick a ready-made set of words, or read something in the Library
+                </span>
               </span>
             </span>
-          </span>
-          <ChevronRight className="w-5 h-5 opacity-80 shrink-0" />
-        </button>
+            <ChevronRight className="w-5 h-5 opacity-80 shrink-0" />
+          </button>
+        </div>
       ) : null}
 
       {resume && (

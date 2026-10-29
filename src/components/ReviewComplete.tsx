@@ -1,4 +1,4 @@
-import { CheckCircle2 } from 'lucide-react';
+import Illustration from '@/components/Illustration';
 
 interface ReviewCompleteProps {
   /** How many cards were graded in the session just finished. */
@@ -8,7 +8,7 @@ interface ReviewCompleteProps {
 
 const ReviewComplete = ({ reviewed, onDone }: ReviewCompleteProps) => (
   <div className="text-center space-y-4 py-12">
-    <CheckCircle2 className="w-16 h-16 text-success mx-auto" />
+    <Illustration name="review-done" eager className="mx-auto h-44 w-44 rounded-3xl object-cover shadow-sm" />
     <h2 className="text-2xl font-bold text-foreground">All done!</h2>
     <p className="text-muted-foreground">
       {reviewed ? `${reviewed} card${reviewed === 1 ? '' : 's'} reviewed. ` : ''}
