@@ -34,6 +34,9 @@
   W.ground = new Array(N * N).fill("sand");
   const at = (x, y) => y * N + x;
   W.walkable = (x, y) => x >= 0 && y >= 0 && x < N && y < N && !W.blocked[at(x, y)];
+  W.bounds = { x0: (-N * V.TW) / 2, y0: 0, x1: (N * V.TW) / 2, y1: N * V.TH };
+  W.speedScale = 1; W.wanderRadius = 5; W.doorReach = 1; W.nearDist = 4;
+  W.spots = { spawn: { x: 18, y: 24 }, plaza: { x: 18, y: 23 }, fountain: { x: 18, y: 18 }, meet: [{ x: 23, y: 27 }, { x: 25, y: 27 }] };
 
   // Ground types
   for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {

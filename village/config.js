@@ -3,6 +3,10 @@ window.VILLAGE_CONFIG = {
   villageName: "Souq al-Qamar",
   villageNameArabic: "سوق القمر",
 
+  // "painted" uses the illustration in assets/map/souq.jpg as the whole village.
+  // "drawn" uses the built-in hand-drawn map instead.
+  map: "painted",
+
   // Your real inbox. Each agent gets an alias on it: you+muse@gmail.com, you+layla@gmail.com …
   // Gmail and iCloud both deliver "+anything" to the same inbox.
   ownerEmail: "you@gmail.com",

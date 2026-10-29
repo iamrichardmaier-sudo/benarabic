@@ -1,6 +1,26 @@
 # Art for the souq (Gemini, by hand)
 
-The village already draws everything itself. Each image you save replaces one drawn piece. You can do them in any order and stop whenever you like.
+**The village map is your painting**, `assets/map/souq.jpg`. Its streets, doors and lanterns are traced in `js/painted.js`, so you don't need any building images. What's left is optional: the people and the room interiors. Until you make them, the village draws its own.
+
+## Prompts that match your painting
+
+Attach `souq.jpg` to every prompt and start with **"Match the art style of the attached image exactly: same ink linework, same warm watercolor shading, same palette."** Gemini keeps the style much better with the picture attached than with words alone. Make one image per chat message.
+
+**Character sheet (do this first, once per agent):**
+> Match the art style of the attached image exactly. A character sheet for one villager of this souq: [NAME], [LOOK, e.g. "a quiet librarian in a deep teal robe with gold trim and a cream turban"]. Three full-body poses side by side, evenly spaced and not touching: standing relaxed, holding a scroll and pen while working, and waving. Below them, a head-and-shoulders portrait. Same 3/4 view from above as the buildings in the image, about 3 heads tall. Flat solid pure magenta #FF00FF background.
+
+Cut each pose out (the iPhone Photos "copy subject" trick works well) and save them as `agents/<id>/idle.png`, `agents/<id>/working.png` and `agents/<id>/portrait.png`.
+
+**Room interior (one per building you care about):**
+> Match the art style of the attached image exactly. The inside of [the library with the blue dome / the coffee house with the open arches / a small whitewashed house] from this souq, seen as an isometric room corner from above: two walls and the floor, an arched window, warm lantern light, rugs and cushions, details that fit its job. Leave open floor in the middle for people to stand. 16:9, no people, no text.
+
+Save as `rooms/library.png`, `rooms/qahwa.png`, `rooms/post.png`, `rooms/house.png` (all houses), or `rooms/h3.png` for one house.
+
+**If Gemini keeps changing the style:** start a new chat, attach the image, and ask for only one thing. Add "Do not change the art style" at the end.
+
+---
+
+The sections below are for the built-in **drawn** map (`map: "drawn"` in `config.js`). Skip them while you're using the painting.
 
 ## How to make each image
 

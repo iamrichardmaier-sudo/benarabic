@@ -58,7 +58,7 @@
     const t = AG.avatar.tile();
     let near = null, nd = 1e9;
     W.places.forEach((p) => { const d = Math.hypot(p.doorTile.x - t.x, p.doorTile.y - t.y); if (d < nd) { nd = d; near = p; } });
-    $("place").textContent = nd < 4 ? "Near " + UI.placeTitle(near) : Math.hypot(t.x - 18, t.y - 18) < 5 ? "By the fountain" : "In the souq";
+    $("place").textContent = nd < W.nearDist ? "Near " + UI.placeTitle(near) : Math.hypot(t.x - W.spots.fountain.x, t.y - W.spots.fountain.y) < W.nearDist * 1.2 ? "By the fountain" : "In the souq";
   };
 
   UI.placeTitle = (p) => {

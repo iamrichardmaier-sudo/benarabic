@@ -105,9 +105,10 @@
     flakes.length = Math.min(flakes.length, ns);
     flakes.forEach((f) => { f.p += dt; f.y += f.s * dt; f.x += Math.sin(f.p) * 20 * dt + wind * 15 * dt; if (f.y > h) { f.y = -5; f.x = Math.random() * w; } if (f.x > w) f.x -= w; });
     const nc = { partly: 4, cloudy: 7, rain: 7, storm: 8, snow: 6, fog: 3 }[wx.kind] || 1;
-    while (clouds.length < nc) clouds.push({ x: (Math.random() - 0.5) * 2400, y: Math.random() * 1200, r: 160 + Math.random() * 200 });
+    const B = V.world.bounds;
+    while (clouds.length < nc) clouds.push({ x: B.x0 + Math.random() * (B.x1 - B.x0), y: B.y0 + Math.random() * (B.y1 - B.y0), r: 160 + Math.random() * 200 });
     clouds.length = nc;
-    clouds.forEach((c) => { c.x += (8 + wind * 30) * dt; if (c.x > 1500) c.x = -1500; });
+    clouds.forEach((c) => { c.x += (8 + wind * 30) * dt; if (c.x > B.x1 + 400) c.x = B.x0 - 400; });
     if (wx.kind === "storm") {
       nextFlash -= dt;
       if (nextFlash <= 0) { flash = 1; nextFlash = 5 + Math.random() * 10; V.audio && V.audio.sfx("thunder"); }

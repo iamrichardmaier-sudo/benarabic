@@ -445,7 +445,7 @@
 
   // (x, y) = feet on screen. o: look + { facing: 1|-1, walk: phase|null, bob, scale, id }
   A.person = (ctx, x, y, o, t) => {
-    const s = o.scale || 1;
+    const s = o.scale || V.personScale || 1;
     const img = o.id && V.assets.get((o.id === "avatar" ? "avatar/" : "agents/" + o.id + "/") + (o.working ? "working" : "idle"));
     ctx.save();
     ctx.translate(x, y);

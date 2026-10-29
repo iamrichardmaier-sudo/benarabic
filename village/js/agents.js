@@ -6,7 +6,7 @@
   class Walker {
     constructor(x, y, look, id) {
       this.x = x + 0.5; this.y = y + 0.5; this.look = look; this.id = id;
-      this.path = []; this.speed = 2.4; this.facing = 1; this.walk = 0; this.moving = false; this.seed = V.hash(id) % 1000;
+      this.path = []; this.speed = 2.4 * (V.world.speedScale || 1); this.facing = 1; this.walk = 0; this.moving = false; this.seed = V.hash(id) % 1000;
     }
     tile() { return { x: Math.floor(this.x), y: Math.floor(this.y) }; }
     goTo(tx, ty) {
@@ -21,7 +21,8 @@
       if (!this.path.length) return false;
       const n = this.path[0], tx = n.x + 0.5, ty = n.y + 0.5;
       const dx = tx - this.x, dy = ty - this.y, d = Math.hypot(dx, dy), s = this.speed * dt;
-      if (Math.abs(dx - dy) > 0.01) this.facing = dx - dy > 0 ? 1 : -1;
+      if (V.world.painted) { if (Math.abs(dx) > 0.01) this.facing = dx > 0 ? 1 : -1; }
+      else if (Math.abs(dx - dy) > 0.01) this.facing = dx - dy > 0 ? 1 : -1;
       if (d <= s) { this.x = tx; this.y = ty; this.path.shift(); }
       else { this.x += (dx / d) * s; this.y += (dy / d) * s; }
       this.moving = true; this.walk += dt * this.speed * 2.6;
@@ -93,15 +94,15 @@
   /* ---------- setup ---------- */
   AG.init = () => {
     const cfg = V.cfg.avatar || {};
-    const spawn = { x: 18, y: 24 };
+    const spawn = W.spots.spawn;
     AG.avatar = new Walker(spawn.x, spawn.y, { robe: cfg.robe || "#f4ecdc", trim: cfg.trim || "#2f7a78", head: cfg.head || "keffiyeh", headColor: cfg.headColor || "#e9e2d0", skin: cfg.skin || "#c99a74" }, "avatar");
-    AG.avatar.speed = 3.4;
+    AG.avatar.speed = 3.4 * W.speedScale;
     AG.avatar.name = cfg.name || "You";
     (window.VILLAGE_AGENTS || []).forEach((d, i) => {
       const home = W.place(d.home) || W.place("qahwa");
-      const spot = W.randomWalkableNear(home.doorTile.x, home.doorTile.y, 3, V.rng(V.hash(d.id))) || home.doorTile;
+      const spot = W.randomWalkableNear(home.doorTile.x, home.doorTile.y, Math.ceil(W.wanderRadius * 0.6), V.rng(V.hash(d.id))) || home.doorTile;
       const a = new Walker(spot.x, spot.y, Object.assign({ robe: "#8a6a4a", trim: "#f2d39a", head: "none", headColor: "#eee", skin: "#c99a74" }, d.look || {}), d.id);
-      Object.assign(a, { data: d, home, mode: "pause", timer: 1 + Math.random() * 3, inside: false, chatCool: 3 + Math.random() * 10, bubble: null, speed: 1.6 + Math.random() * 0.4 });
+      Object.assign(a, { data: d, home, mode: "pause", timer: 1 + Math.random() * 3, inside: false, chatCool: 3 + Math.random() * 10, bubble: null, speed: (1.6 + Math.random() * 0.4) * W.speedScale });
       AG.list.push(a); AG.byId[d.id] = a;
     });
     AG.setState(window.VILLAGE_STATE || {}, true);
@@ -134,7 +135,7 @@
   };
 
   AG.burst = (a, n = 1) => {
-    const p = a.inside ? a.home.top : V.iso(a.x, a.y, 50);
+    const p = a.inside ? a.home.top : V.iso(a.x, a.y, 60);
     for (let i = 0; i < Math.min(6, n + 2); i++) AG.fx.push({ x: p.x + (Math.random() - 0.5) * 20, y: p.y, vy: -30 - Math.random() * 20, t: 0, life: 1.8 + Math.random() * 0.6, kind: "heart" });
   };
 
@@ -165,7 +166,7 @@
       if (!m.a.inside && !m.b.inside && m.a.mode !== "chat" && m.b.mode !== "chat") {
         AG.meeting = m;
         m.a.mode = "meet"; m.b.mode = "meet";
-        m.a.goTo(23, 27); m.b.goTo(25, 27);
+        m.a.goTo(W.spots.meet[0].x, W.spots.meet[0].y); m.b.goTo(W.spots.meet[1].x, W.spots.meet[1].y);
         m.started = now;
       } else V.ui && V.ui.toast(`${m.a.data.name} → ${m.b.data.name}: ${m.subject}`);
     }
@@ -196,9 +197,9 @@
       a.timer -= dt;
       if (a.timer <= 0) {
         const r = Math.random();
-        const anchor = r < 0.5 ? a.home.doorTile : r < 0.75 ? { x: 18, y: 23 } : W.place("qahwa").doorTile;
+        const anchor = r < 0.5 ? a.home.doorTile : r < 0.75 ? W.spots.plaza : W.place("qahwa").doorTile;
         const spouse = a.data.spouse && AG.byId[a.data.spouse];
-        const target = spouse && !spouse.inside && Math.random() < 0.3 ? spouse.tile() : W.randomWalkableNear(anchor.x, anchor.y, 5);
+        const target = spouse && !spouse.inside && Math.random() < 0.3 ? spouse.tile() : W.randomWalkableNear(anchor.x, anchor.y, W.wanderRadius);
         if (target && a.goTo(target.x, target.y)) a.mode = "walk";
         else a.timer = 2;
       }
@@ -209,7 +210,7 @@
     for (let i = 0; i < free.length; i++) for (let j = i + 1; j < free.length; j++) {
       const a = free[i], b = free[j];
       if (a.mode === "chat" || b.mode === "chat") continue;
-      if (Math.hypot(a.x - b.x, a.y - b.y) < 1.9) AG.startChat(a, b);
+      if (Math.hypot(a.x - b.x, a.y - b.y) < 1.9 * (W.painted ? 2.2 : 1)) AG.startChat(a, b);
     }
 
     // run conversations
@@ -231,8 +232,8 @@
   };
 
   AG.drawables = () => {
-    const out = [{ kind: "person", box: AG.avatar.sortBox(), draw: (ctx, t) => AG.avatar.draw(ctx, t) }];
-    AG.list.forEach((a) => { if (!a.inside) out.push({ kind: "person", box: a.sortBox(), draw: (ctx, t) => a.draw(ctx, t) }); });
+    const out = [{ kind: "person", y: AG.avatar.y, box: AG.avatar.sortBox(), draw: (ctx, t) => AG.avatar.draw(ctx, t) }];
+    AG.list.forEach((a) => { if (!a.inside) out.push({ kind: "person", y: a.y, box: a.sortBox(), draw: (ctx, t) => a.draw(ctx, t) }); });
     return out;
   };
 })();

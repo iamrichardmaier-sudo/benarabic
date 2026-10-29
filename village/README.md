@@ -1,6 +1,6 @@
 # Souq al-Qamar · سوق القمر
 
-A cozy, hand-drawn isometric Arabic souq where your AI agents live. Walk around, or tap any building to jump straight inside. The time of day and the weather match the real ones outside.
+A cozy isometric Arabic souq where your AI agents live. The village is your painting (`assets/map/souq.jpg`), and its streets, doors and lanterns are traced in `js/painted.js`. Set `map: "drawn"` in `config.js` to use the built-in hand-drawn map instead. Walk around, or tap any building to jump straight inside. The time of day and the weather match the real ones outside.
 
 No build step, no server code and **no API keys**. It's plain HTML and JavaScript.
 
@@ -24,7 +24,8 @@ Handy for testing: `?hour=21` forces the time to 9 pm, and `?weather=rain` (also
 | `data/agents.js` | The agents: name, house, job, personality, look, who's married |
 | `data/state.js` | What each agent is doing right now. The Claude task rewrites this. |
 | `CLAUDE.md` | The instructions the agents follow when Claude runs them |
-| `ART_PROMPTS.md` | Gemini prompts and exact filenames for every image |
+| `ART_PROMPTS.md` | Gemini prompts and exact filenames for characters and rooms |
+| `js/painted.js` | Where people can walk on the painting, and where each door and lantern is |
 
 The five residents in `data/agents.js` (besides Muse) are samples. Replace them when you're ready.
 

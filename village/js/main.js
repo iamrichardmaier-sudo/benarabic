@@ -10,8 +10,10 @@
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     w = window.innerWidth; h = window.innerHeight;
     canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
-    cam.zoom = V.clamp(cam.zoom || (w < 600 ? 0.8 : 1), 0.45, 2);
+    cam.zoom = V.clamp(cam.zoom || (w < 600 ? 0.8 : 1), minZoom(), 2);
   };
+  // Never zoom out past the edge of the map.
+  const minZoom = () => { const B = V.world.bounds; return V.world.painted ? Math.max(w / (B.x1 - B.x0), h / (B.y1 - B.y0)) : 0.45; };
   const toScreen = (x, y) => ({ x: (x - cam.x) * cam.zoom + w / 2, y: (y - cam.y) * cam.zoom + h / 2 });
   const toWorld = (sx, sy) => ({ x: (sx - w / 2) / cam.zoom + cam.x, y: (sy - h / 2) / cam.zoom + cam.y });
   V.toScreen = toScreen;
@@ -148,7 +150,7 @@
     ctx.translate(w / 2, h / 2); ctx.scale(cam.zoom, cam.zoom); ctx.translate(-cam.x, -cam.y);
     ctx.drawImage(W.groundCanvas, -W.groundOrigin.x, -W.groundOrigin.y);
     V.sky.drawGround(ctx);
-    order = statics.concat(AG.drawables()).sort(cmp);
+    order = W.painted ? AG.drawables().sort((a, b) => a.y - b.y) : statics.concat(AG.drawables()).sort(cmp);
     order.forEach((d) => (d.obj ? drawStatic(d.obj, t) : d.draw(ctx, t)));
     ctx.restore();
     const occ = occupied();
@@ -177,6 +179,7 @@
       const s = V.iso(a.x, a.y);
       if (Math.abs(p.x - s.x) < 13 && p.y < s.y + 4 && p.y > s.y - 50) return a;
     }
+    if (W.hitPlace) return W.hitPlace(p.x, p.y);
     for (let i = order.length - 1; i >= 0; i--) {
       const d = order[i];
       if (!d.obj || !d.obj.place) continue;
@@ -200,7 +203,7 @@
     if (pointers.has(e.pointerId)) pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (pinch && pointers.size === 2) {
       const [a, b] = [...pointers.values()];
-      cam.zoom = V.clamp((pinch.z * Math.hypot(a.x - b.x, a.y - b.y)) / pinch.d, 0.45, 2);
+      cam.zoom = V.clamp((pinch.z * Math.hypot(a.x - b.x, a.y - b.y)) / pinch.d, minZoom(), 2);
       return;
     }
     if (drag) {
@@ -230,7 +233,7 @@
   let tapMark = null;
   canvas.addEventListener("pointerup", up);
   canvas.addEventListener("pointercancel", up);
-  canvas.addEventListener("wheel", (e) => { e.preventDefault(); cam.zoom = V.clamp(cam.zoom * (e.deltaY > 0 ? 0.9 : 1.1), 0.45, 2); }, { passive: false });
+  canvas.addEventListener("wheel", (e) => { e.preventDefault(); cam.zoom = V.clamp(cam.zoom * (e.deltaY > 0 ? 0.9 : 1.1), minZoom(), 2); }, { passive: false });
 
   const keys = new Set();
   window.addEventListener("keydown", (e) => {
@@ -245,7 +248,7 @@
   window.addEventListener("keyup", (e) => keys.delete(e.key.toLowerCase()));
   const doorNear = () => {
     const t = AG.avatar.tile();
-    return W.places.find((p) => Math.abs(p.doorTile.x - t.x) <= 1 && Math.abs(p.doorTile.y - t.y) <= 1);
+    return W.places.find((p) => Math.abs(p.doorTile.x - t.x) <= W.doorReach && Math.abs(p.doorTile.y - t.y) <= W.doorReach);
   };
   const keyMove = (dt) => {
     let sx = 0, sy = 0;
@@ -260,10 +263,12 @@
     const a = AG.avatar, s = a.speed * dt;
     a.path = []; cam.free = false;
     const free = (x, y) => W.walkable(Math.floor(x + Math.sign(gx) * 0.25), Math.floor(y)) && W.walkable(Math.floor(x), Math.floor(y + Math.sign(gy) * 0.25)) && W.walkable(Math.floor(x), Math.floor(y));
+    if (W.painted) { gx = sx; gy = sy; const m = Math.hypot(gx, gy); gx /= m; gy /= m; }
     if (free(a.x + gx * s, a.y)) a.x += gx * s;
     if (free(a.x, a.y + gy * s)) a.y += gy * s;
     a.moving = true; a.walk += dt * a.speed * 2.6;
-    if (Math.abs(gx - gy) > 0.01) a.facing = gx - gy > 0 ? 1 : -1;
+    if (W.painted) { if (gx) a.facing = gx > 0 ? 1 : -1; }
+    else if (Math.abs(gx - gy) > 0.01) a.facing = gx - gy > 0 ? 1 : -1;
   };
 
   /* ---------- loop ---------- */
@@ -279,8 +284,12 @@
       cam.x += (s.x - cam.x) * Math.min(1, dt * 4);
       cam.y += (s.y - 30 - cam.y) * Math.min(1, dt * 4);
     }
-    const half = (V.N * V.TW) / 2;
-    cam.x = V.clamp(cam.x, -half, half); cam.y = V.clamp(cam.y, 0, V.N * V.TH);
+    const B = W.bounds;
+    if (W.painted) {
+      cam.zoom = Math.max(cam.zoom, minZoom());
+      const hw = w / 2 / cam.zoom, hh = h / 2 / cam.zoom;
+      cam.x = V.clamp(cam.x, B.x0 + hw, B.x1 - hw); cam.y = V.clamp(cam.y, B.y0 + hh, B.y1 - hh);
+    } else { cam.x = V.clamp(cam.x, B.x0, B.x1); cam.y = V.clamp(cam.y, B.y0, B.y1); }
     frame(t);
     if (tapMark) {
       tapMark.t += dt;
@@ -318,7 +327,8 @@
   };
 
   /* ---------- boot ---------- */
-  const boot = () => {
+  const boot = async () => {
+    await W.ready;
     resize();
     window.addEventListener("resize", resize);
     W.build();
@@ -326,6 +336,7 @@
     AG.init();
     UI.init();
     const s = AG.avatar.screen(); cam.x = s.x; cam.y = s.y - 30;
+    if (W.painted) cam.zoom = Math.max(minZoom(), w < 600 ? 0.75 : 0.85);
     V.assets.load(W.assetKeys()).then(() => { if (UI.openPlace) UI.renderRoom(); });
     V.sky.fetchWeather().then(() => V.audio.refresh());
     setInterval(() => V.sky.fetchWeather().then(() => V.audio.refresh()), 15 * 60e3);
