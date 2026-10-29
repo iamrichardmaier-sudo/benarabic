@@ -8,7 +8,7 @@ const hook = vi.hoisted(() => ({
 vi.mock('@/hooks/useDailyAudios', () => ({ useDailyAudios: () => hook.value }));
 
 import DailyAudios from './DailyAudios';
-import NowPlayingBar from './NowPlayingBar';
+import NowPlayingBar from '@/components/NowPlayingBar';
 import VideoPlayerView from './VideoPlayerView';
 import { resetShelfPlayback } from '@/hooks/useShelfPlayback';
 import { usePodcastPlayer } from '@/hooks/usePodcastPlayer';
@@ -122,26 +122,27 @@ describe('the play bar', () => {
     fireEvent.click(within(bar()).getByRole('button', { name: 'Back 15 seconds' }));
     expect(el.currentTime).toBe(100);
 
-    fireEvent.change(within(bar()).getByRole('slider', { name: 'Seek' }), { target: { value: '300' } });
+    fireEvent.change(within(bar()).getByRole('slider', { name: 'Position' }), { target: { value: '300' } });
     expect(el.currentTime).toBe(300);
   });
 
-  it('changes speed from the speed control and keeps it for the next episode', () => {
+  it('changes speed from the speed control, offering every speed from 0.5x to 2x', () => {
     render(<App />);
     fireEvent.click(screen.getByRole('button', { name: 'Play Oct 8 — At the Clothing Shop' }));
-    fireEvent.click(within(bar()).getByRole('button', { name: 'Playback speed, 1×' }));
-    const options = within(screen.getByRole('group', { name: 'Playback speed' })).getAllByRole('button');
-    expect(options.map((o) => o.textContent)).toEqual(['0.5×', '0.75×', '0.8×', '0.9×', '1×', '1.25×', '1.5×', '2×']);
+    fireEvent.click(within(bar()).getByRole('button', { name: 'Speed 1×. Change speed' }));
+    const presets = screen.getAllByRole('button', { pressed: false }).concat(screen.getAllByRole('button', { pressed: true }))
+      .map((b) => b.textContent).filter((t) => t?.endsWith('×'));
+    for (const r of ['0.5×', '0.75×', '0.8×', '0.9×', '1×', '1.25×', '1.5×', '2×']) expect(presets).toContain(r);
 
     fireEvent.click(screen.getByRole('button', { name: '1.25×' }));
     expect(sharedAudio().playbackRate).toBe(1.25);
-    expect(within(bar()).getByRole('button', { name: 'Playback speed, 1.25×' })).toBeInTheDocument();
+    expect(within(bar()).getByRole('button', { name: 'Speed 1.25×. Change speed' })).toBeInTheDocument();
   });
 
   it('stops and goes away from its close button', () => {
     render(<App />);
     fireEvent.click(screen.getByRole('button', { name: 'Play Oct 8 — At the Clothing Shop' }));
-    fireEvent.click(within(bar()).getByRole('button', { name: 'Stop and close player' }));
+    fireEvent.click(within(bar()).getByRole('button', { name: 'Close player' }));
     expect(screen.queryByRole('region', { name: 'Now playing' })).not.toBeInTheDocument();
     expect(sharedAudio().paused).toBe(true);
   });
