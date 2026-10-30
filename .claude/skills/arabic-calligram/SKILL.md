@@ -49,8 +49,11 @@ file before composing, and add what you learn to it when you finish.
    rigid (`rigid`), enlarged and tilted so the word climbs. Keep the reading
    order traceable right to left.
 5. **Balance the negative space, then float the marks.**
-   - Aim for the shape to look full but legible (guidance: 35–45% empty).
-     Measured so far: ~30% ink — see *Open problems*.
+   - Aim for the shape to look full but legible: about 40–45% ink, which is
+     what a master's roundel measures (see *Master studies*). Measured so
+     far in our own work: ~30% — see *Open problems*.
+   - Fill with many small marks at one angle and one size, not with bigger
+     letters: that reads as texture, where heavier letters read as blobs.
    - Each dot and haraka moves to the nearest open gap, but stays above or
      below its own letter as written: a fatha drifting under the word reads as
      a kasra and changes the word (أحمر → أحمِر).
@@ -128,11 +131,57 @@ blob — the ش dots are taller than the ف in Amiri Bold → (4) dots split int
 cradle, marks in one column → (5) letters larger → (6) و separated from the
 alif.
 
+## Master studies (reading the work of others)
+
+Reading a master's composition back into its text, word by word, is the best
+training available: it shows where each word was put and why. Enlarge the
+image region by region (Playwright screenshot of a scaled `<img>`, 3–4×),
+find the words you can read with certainty first, then place the rest by the
+order of the text — and say which is which.
+
+**Surah al-Fatiha, Thuluth jali roundel** (read on 2026-10-30).
+- **Layout.** A central block holds verse 2, الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ, in the
+  largest letters; a ring carries the rest of the surah around it, smaller.
+  Hierarchy by scale: the verse that matters most is biggest and in the middle.
+- **The ring reads in two arcs.** Over the top, letters stand upright *to the
+  outside* (radial), read from 3 o'clock across the top to 9 o'clock: the
+  basmala/الرحمن الرحيم, مالك يوم الدين, إياك نعبد وإياك نستعين, اهدنا الصراط
+  المستقيم. Along the bottom the letters are flipped upright *for the reader*
+  so nothing is upside down, and that arc reads again from 3 o'clock to 9:
+  صراط الذين، أنعمت عليهم، غير المغضوب عليهم، ولا الضالين. Read for certain:
+  verse 2, إياك نعبد وإياك نستعين, صراط الذين أنعمت عليهم, غير المغضوب عليهم;
+  the rest was placed by the surah's order.
+- **Stacking.** Words are written in two or three overlapping tiers; inside a
+  cluster the eye reads down, then on to the left. Letters nest into each
+  other's counters; nothing is laid out on a single baseline.
+- **A palisade of uprights.** Alifs and lams stand parallel, evenly spaced, at
+  one slant — in the centre vertical, in the ring all pointing at the centre.
+  That rhythm is most of what makes it look like calligraphy.
+- **Long binders.** A few long horizontals — the ب of رب, the ن/ي bowls of
+  العالمين, the ك of إياك — sweep under or across a cluster and tie it together;
+  in the ring they follow the curve.
+- **Marks as texture.** Hundreds of small harakat — fathas, kasras, shaddas
+  written as a small "w", dagger alifs (ٰ), sukuns — all cut at *one* angle and
+  one size (about a sixth of letter height). Laid evenly in every gap they read
+  as a woven texture rather than as clutter. This, not bigger letters, is
+  where the density comes from.
+- **Whitespace is gathered, not scattered.** A clear channel separates the
+  centre from the ring; inside each region the texture is even.
+- **Density, measured.** Pure-black ink covers about 45% of the centre and
+  about 39% of the ring (a slight undercount: the image carries a coloured
+  guide grid). So a master's piece sits near **40–45% ink**, not 55–65%.
+
+What to take into the next composition: (1) one angle and one size for every
+mark, used generously in every gap; (2) uprights parallel and evenly spaced;
+(3) stack words in tiers and let letters nest; (4) one or two long binders per
+cluster; (5) leave one deliberate channel of space, keep the rest even.
+
 ## Open problems
 
-- **Density.** Both studies sit near 30% ink against a 55–65% target. Pushing
-  further turned interiors into blobs. Try: more interlocking of loops, the
-  muhmal signs and small letters above, a second weight of strokes.
+- **Density.** Both studies sit near 30% ink. The Fatiha study puts a master's
+  piece at about 40–45%, so that — not 55–65% — is the target. Pushing further
+  with bigger letters turned interiors into blobs; the Fatiha shows the way is
+  many small marks at one angle and size, plus stacking, not heavier letters.
 - **Small sizes.** At 48–56 px a calligram is a recognisable gold emblem, not
   a readable word. For card lists, consider pairing it with the printed word.
 - **Loop distortion.** A loop placed by a `curve` (the و) is extrapolated off
