@@ -1,0 +1,192 @@
+{"surface":"كُلُهُ","root":"ك-ل-ل","lemma":"كُلّ","pos":"noun","verb_form":null,"gloss":"all of it"}
+{"surface":"كِتابٌ","root":"ك-ت-ب","lemma":"كِتاب","pos":"noun","verb_form":null,"gloss":"a book"}
+{"surface":"لَعْنَةُ","root":"ل-ع-ن","lemma":"لَعْنَة","pos":"noun","verb_form":null,"gloss":"curse of"}
+{"surface":"لِإِهْلاكِهِمْ","root":"ه-ل-ك","lemma":"إِهْلاك","pos":"noun","verb_form":null,"gloss":"for their destruction"}
+{"surface":"لِلدِماءِ","root":"د-م-و","lemma":"دَم","pos":"noun","verb_form":null,"gloss":"for the blood"}
+{"surface":"لِلشَريعَةِ","root":"ش-ر-ع","lemma":"شَرِيعَة","pos":"noun","verb_form":null,"gloss":"for the law"}
+{"surface":"لِلشَيْطانِ","root":"ش-ط-ن","lemma":"شَيْطان","pos":"noun","verb_form":null,"gloss":"for the devil"}
+{"surface":"لِلْأُمورِ","root":"أ-م-ر","lemma":"أَمْر","pos":"noun","verb_form":null,"gloss":"for the matters"}
+{"surface":"لِلْقُضاةِ","root":"ق-ض-ي","lemma":"قاضِي","pos":"noun","verb_form":null,"gloss":"for the judges"}
+{"surface":"لِلْيَوْمِ","root":"ي-و-م","lemma":"يَوْم","pos":"noun","verb_form":null,"gloss":"for the day"}
+{"surface":"لِيُعْلِنَ","root":"ع-ل-ن","lemma":"أَعْلَنَ","pos":"verb","verb_form":"IV","gloss":"so that he declares"}
+{"surface":"مَجيءَ","root":"ج-ي-أ","lemma":"مَجِيء","pos":"noun","verb_form":null,"gloss":"coming of"}
+{"surface":"مَشيئَتِهِ","root":"ش-ي-أ","lemma":"مَشِيئَة","pos":"noun","verb_form":null,"gloss":"his will"}
+{"surface":"مَعْرِفَةُ","root":"ع-ر-ف","lemma":"مَعْرِفَة","pos":"noun","verb_form":null,"gloss":"knowledge of"}
+{"surface":"مَكْتوبَةً","root":"ك-ت-ب","lemma":"مَكْتُوب","pos":"participle","verb_form":"I","gloss":"written"}
+{"surface":"مَلَكوتِهِ","root":"م-ل-ك","lemma":"مَلَكُوت","pos":"noun","verb_form":null,"gloss":"his kingdom"}
+{"surface":"مَلِكِهِمْ","root":"م-ل-ك","lemma":"مَلِك","pos":"noun","verb_form":null,"gloss":"their king"}
+{"surface":"مَمْلَكَةً","root":"م-ل-ك","lemma":"مَمْلَكَة","pos":"noun","verb_form":null,"gloss":"a kingdom"}
+{"surface":"مُدُنٌ","root":"م-د-ن","lemma":"مَدِينَة","pos":"noun","verb_form":null,"gloss":"cities"}
+{"surface":"مُرورِ","root":"م-ر-ر","lemma":"مُرُور","pos":"noun","verb_form":null,"gloss":"passing of"}
+{"surface":"مُعَلِمينَ","root":"ع-ل-م","lemma":"مُعَلِّم","pos":"participle","verb_form":"II","gloss":"teachers"}
+{"surface":"مِنْطَقَةَ","root":"ن-ط-ق","lemma":"مِنْطَقَة","pos":"noun","verb_form":null,"gloss":"belt, girdle"}
+{"surface":"نَأْخُذَ","root":"أ-خ-ذ","lemma":"أَخَذَ","pos":"verb","verb_form":"I","gloss":"we take"}
+{"surface":"نَظَرِ","root":"ن-ظ-ر","lemma":"نَظَر","pos":"noun","verb_form":null,"gloss":"sight of"}
+{"surface":"نَفْسَها","root":"ن-ف-س","lemma":"نَفْس","pos":"noun","verb_form":null,"gloss":"itself"}
+{"surface":"نَفْسِها","root":"ن-ف-س","lemma":"نَفْس","pos":"noun","verb_form":null,"gloss":"of itself"}
+{"surface":"نَكونَ","root":"ك-و-ن","lemma":"كانَ","pos":"verb","verb_form":"I","gloss":"we be"}
+{"surface":"وَأَبي","root":"أ-ب-و","lemma":"أَب","pos":"noun","verb_form":null,"gloss":"and my father"}
+{"surface":"وَأَخْبَروا","root":"خ-ب-ر","lemma":"أَخْبَرَ","pos":"verb","verb_form":"IV","gloss":"and they told"}
+{"surface":"وَأَشْهَدُ","root":"ش-ه-د","lemma":"شَهِدَ","pos":"verb","verb_form":"I","gloss":"and I testify"}
+{"surface":"وَأَصْبَحَتْ","root":"ص-ب-ح","lemma":"أَصْبَحَ","pos":"verb","verb_form":"IV","gloss":"and she became"}
+{"surface":"وَأَمَرْتُ","root":"أ-م-ر","lemma":"أَمَرَ","pos":"verb","verb_form":"I","gloss":"and I commanded"}
+{"surface":"وَأَوْلادِهِمْ","root":"و-ل-د","lemma":"وَلَد","pos":"noun","verb_form":null,"gloss":"and their children"}
+{"surface":"وَاجْمَعْ","root":"ج-م-ع","lemma":"جَمَعَ","pos":"verb","verb_form":"I","gloss":"and gather"}
+{"surface":"وَاسْمَعوا","root":"س-م-ع","lemma":"سَمِعَ","pos":"verb","verb_form":"I","gloss":"and hear"}
+{"surface":"وَاعْتَمَدوا","root":"ع-م-د","lemma":"اِعْتَمَدَ","pos":"verb","verb_form":"VIII","gloss":"and they were baptized"}
+{"surface":"وَالرّوحُ","root":"ر-و-ح","lemma":"رُوح","pos":"noun","verb_form":null,"gloss":"and the spirit"}
+{"surface":"وَالْأَخيرِ","root":"أ-خ-ر","lemma":"أَخِير","pos":"adjective","verb_form":null,"gloss":"and the last"}
+{"surface":"وَالْكَثيرَ","root":"ك-ث-ر","lemma":"كَثِير","pos":"adjective","verb_form":null,"gloss":"and the many"}
+{"surface":"وَالْكَثيرُ","root":"ك-ث-ر","lemma":"كَثِير","pos":"adjective","verb_form":null,"gloss":"and the many"}
+{"surface":"وَامْتَلَأَ","root":"م-ل-أ","lemma":"اِمْتَلَأَ","pos":"verb","verb_form":"VIII","gloss":"and he was filled"}
+{"surface":"وَتَأْتي","root":"أ-ت-ي","lemma":"أَتَى","pos":"verb","verb_form":"I","gloss":"and she comes"}
+{"surface":"وَتَحَدَثَ","root":"ح-د-ث","lemma":"تَحَدَّثَ","pos":"verb","verb_form":"V","gloss":"and he spoke"}
+{"surface":"وَتَمَتْ","root":"ت-م-م","lemma":"تَمَّ","pos":"verb","verb_form":"I","gloss":"and it was fulfilled"}
+{"surface":"وَتَنَبَأوا","root":"ن-ب-أ","lemma":"تَنَبَّأَ","pos":"verb","verb_form":"V","gloss":"and they prophesied"}
+{"surface":"وَجاءوا","root":"ج-ي-أ","lemma":"جاءَ","pos":"verb","verb_form":"I","gloss":"and they came"}
+{"surface":"وَحَفِظْتُمْ","root":"ح-ف-ظ","lemma":"حَفِظَ","pos":"verb","verb_form":"I","gloss":"and you kept"}
+{"surface":"وَدَخَلوا","root":"د-خ-ل","lemma":"دَخَلَ","pos":"verb","verb_form":"I","gloss":"and they entered"}
+{"surface":"وَرَجَعوا","root":"ر-ج-ع","lemma":"رَجَعَ","pos":"verb","verb_form":"I","gloss":"and they returned"}
+{"surface":"وَرَحْمَتِهِ","root":"ر-ح-م","lemma":"رَحْمَة","pos":"noun","verb_form":null,"gloss":"and his mercy"}
+{"surface":"وَرِجالُهُ","root":"ر-ج-ل","lemma":"رَجُل","pos":"noun","verb_form":null,"gloss":"and his men"}
+{"surface":"وَساروا","root":"س-ي-ر","lemma":"سارَ","pos":"verb","verb_form":"I","gloss":"and they went"}
+{"surface":"وَصَلَوْا","root":"ص-ل-و","lemma":"صَلَّى","pos":"verb","verb_form":"II","gloss":"and they prayed"}
+{"surface":"وَصَلّى","root":"ص-ل-و","lemma":"صَلَّى","pos":"verb","verb_form":"II","gloss":"and he prayed"}
+{"surface":"وَصَنَعوا","root":"ص-ن-ع","lemma":"صَنَعَ","pos":"verb","verb_form":"I","gloss":"and they made"}
+{"surface":"وَطَلَبوا","root":"ط-ل-ب","lemma":"طَلَبَ","pos":"verb","verb_form":"I","gloss":"and they sought"}
+{"surface":"وَعادوا","root":"ع-و-د","lemma":"عادَ","pos":"verb","verb_form":"I","gloss":"and they returned"}
+{"surface":"وَعَرَفوا","root":"ع-ر-ف","lemma":"عَرَفَ","pos":"verb","verb_form":"I","gloss":"and they knew"}
+{"surface":"وَقَتَلوهُمْ","root":"ق-ت-ل","lemma":"قَتَلَ","pos":"verb","verb_form":"I","gloss":"and they killed them"}
+{"surface":"وَقَوْمي","root":"ق-و-م","lemma":"قَوْم","pos":"noun","verb_form":null,"gloss":"and my people"}
+{"surface":"وَلِآخَرَ","root":"أ-خ-ر","lemma":"آخَر","pos":"adjective","verb_form":null,"gloss":"and for another"}
+{"surface":"وَوُجِدَ","root":"و-ج-د","lemma":"وَجَدَ","pos":"verb","verb_form":"I","gloss":"and it was found"}
+{"surface":"وَيَحْدُثُ","root":"ح-د-ث","lemma":"حَدَثَ","pos":"verb","verb_form":"I","gloss":"and it happens"}
+{"surface":"وَيَصْعَدُ","root":"ص-ع-د","lemma":"صَعِدَ","pos":"verb","verb_form":"I","gloss":"and he ascends"}
+{"surface":"وَيَفْرَحُ","root":"ف-ر-ح","lemma":"فَرِحَ","pos":"verb","verb_form":"I","gloss":"and he rejoices"}
+{"surface":"وَيَقْتُلونَهُمْ","root":"ق-ت-ل","lemma":"قَتَلَ","pos":"verb","verb_form":"I","gloss":"and they kill them"}
+{"surface":"وَيَهْلِكُ","root":"ه-ل-ك","lemma":"هَلَكَ","pos":"verb","verb_form":"I","gloss":"and he perishes"}
+{"surface":"يوجَدْ","root":"و-ج-د","lemma":"وَجَدَ","pos":"verb","verb_form":"I","gloss":"be found"}
+{"surface":"يَأْخُذوا","root":"أ-خ-ذ","lemma":"أَخَذَ","pos":"verb","verb_form":"I","gloss":"they take"}
+{"surface":"يَأْخُذْ","root":"أ-خ-ذ","lemma":"أَخَذَ","pos":"verb","verb_form":"I","gloss":"he takes"}
+{"surface":"يَتَأَلَمُ","root":"أ-ل-م","lemma":"تَأَلَّمَ","pos":"verb","verb_form":"V","gloss":"he suffers"}
+{"surface":"يَتَكَلَمونَ","root":"ك-ل-م","lemma":"تَكَلَّمَ","pos":"verb","verb_form":"V","gloss":"they speak"}
+{"surface":"يَتَمَكَنَ","root":"م-ك-ن","lemma":"تَمَكَّنَ","pos":"verb","verb_form":"V","gloss":"he is able"}
+{"surface":"يَجوزُ","root":"ج-و-ز","lemma":"جازَ","pos":"verb","verb_form":"I","gloss":"it is permitted"}
+{"surface":"يَحْمِلَ","root":"ح-م-ل","lemma":"حَمَلَ","pos":"verb","verb_form":"I","gloss":"he carries"}
+{"surface":"يَدٍ","root":"ي-د-ي","lemma":"يَد","pos":"noun","verb_form":null,"gloss":"a hand"}
+{"surface":"يَزْدادونَ","root":"ز-ي-د","lemma":"اِزْدادَ","pos":"verb","verb_form":"VIII","gloss":"they increase"}
+{"surface":"يَسْمَحْ","root":"س-م-ح","lemma":"سَمَحَ","pos":"verb","verb_form":"I","gloss":"he permits"}
+{"surface":"يَليقُ","root":"ل-ي-ق","lemma":"لاقَ","pos":"verb","verb_form":"I","gloss":"it is fitting"}
+{"surface":"يَمينِ","root":"ي-م-ن","lemma":"يَمِين","pos":"noun","verb_form":null,"gloss":"right hand of"}
+{"surface":"يُخْطِئَ","root":"خ-ط-أ","lemma":"أَخْطَأَ","pos":"verb","verb_form":"IV","gloss":"he sins"}
+{"surface":"يُسَلِمُ","root":"س-ل-م","lemma":"سَلَّمَ","pos":"verb","verb_form":"II","gloss":"he delivers"}
+{"surface":"يُعْرَفْ","root":"ع-ر-ف","lemma":"عَرَفَ","pos":"verb","verb_form":"I","gloss":"be known"}
+{"surface":"آبائِهِمِ","root":"أ-ب-و","lemma":"أَب","pos":"noun","verb_form":null,"gloss":"their fathers"}
+{"surface":"آلامَ","root":"أ-ل-م","lemma":"أَلَم","pos":"noun","verb_form":null,"gloss":"pains"}
+{"surface":"أوصيكَ","root":"و-ص-ي","lemma":"أَوْصَى","pos":"verb","verb_form":"IV","gloss":"I command you"}
+{"surface":"أَبانا","root":"أ-ب-و","lemma":"أَب","pos":"noun","verb_form":null,"gloss":"our father"}
+{"surface":"أَبوكَ","root":"أ-ب-و","lemma":"أَب","pos":"noun","verb_form":null,"gloss":"your father"}
+{"surface":"أَبيهِما","root":"أ-ب-و","lemma":"أَب","pos":"noun","verb_form":null,"gloss":"their father"}
+{"surface":"أَراضِيَهُمْ","root":"أ-ر-ض","lemma":"أَرْض","pos":"noun","verb_form":null,"gloss":"their lands"}
+{"surface":"أَرْواحِ","root":"ر-و-ح","lemma":"رُوح","pos":"noun","verb_form":null,"gloss":"spirits of"}
+{"surface":"أَسْلِحَتِهِمِ","root":"س-ل-ح","lemma":"سِلاح","pos":"noun","verb_form":null,"gloss":"their weapons"}
+{"surface":"أَصْغَوْا","root":"ص-غ-و","lemma":"أَصْغَى","pos":"verb","verb_form":"IV","gloss":"they listened"}
+{"surface":"أَعَدّوا","root":"ع-د-د","lemma":"أَعَدَّ","pos":"verb","verb_form":"IV","gloss":"they prepared"}
+{"surface":"أَعْرِفْ","root":"ع-ر-ف","lemma":"عَرَفَ","pos":"verb","verb_form":"I","gloss":"I know"}
+{"surface":"أَعْطاهُمُ","root":"ع-ط-و","lemma":"أَعْطَى","pos":"verb","verb_form":"IV","gloss":"he gave them"}
+{"surface":"أَعْلَمَ","root":"ع-ل-م","lemma":"أَعْلَمَ","pos":"verb","verb_form":"IV","gloss":"he informed"}
+{"surface":"أَعْلَمَني","root":"ع-ل-م","lemma":"أَعْلَمَ","pos":"verb","verb_form":"IV","gloss":"he informed me"}
+{"surface":"أَعْماقَ","root":"ع-م-ق","lemma":"عُمْق","pos":"noun","verb_form":null,"gloss":"depths of"}
+{"surface":"أَعْمالَهُ","root":"ع-م-ل","lemma":"عَمَل","pos":"noun","verb_form":null,"gloss":"his works"}
+{"surface":"أَعْني","root":"ع-ن-ي","lemma":"عَنَى","pos":"verb","verb_form":"I","gloss":"I mean"}
+{"surface":"أَغْنِياءَ","root":"غ-ن-ي","lemma":"غَنِيّ","pos":"adjective","verb_form":null,"gloss":"rich people"}
+{"surface":"أَكْتافِهِمْ","root":"ك-ت-ف","lemma":"كَتِف","pos":"noun","verb_form":null,"gloss":"their shoulders"}
+{"surface":"أَكْتُبْ","root":"ك-ت-ب","lemma":"كَتَبَ","pos":"verb","verb_form":"I","gloss":"I write"}
+{"surface":"أَلَسْتِ","root":"ل-ي-س","lemma":"لَيْسَ","pos":"verb","verb_form":"I","gloss":"are you not"}
+{"surface":"أَلْقى","root":"ل-ق-ي","lemma":"أَلْقَى","pos":"verb","verb_form":"IV","gloss":"he cast"}
+{"surface":"أَيّامُ","root":"ي-و-م","lemma":"يَوْم","pos":"noun","verb_form":null,"gloss":"days of"}
+{"surface":"أَيْديكُمْ","root":"ي-د-ي","lemma":"يَد","pos":"noun","verb_form":null,"gloss":"your hands"}
+{"surface":"أُخِذوا","root":"أ-خ-ذ","lemma":"أَخَذَ","pos":"verb","verb_form":"I","gloss":"they were taken"}
+{"surface":"أُصَلّي","root":"ص-ل-و","lemma":"صَلَّى","pos":"verb","verb_form":"II","gloss":"I pray"}
+{"surface":"أُعْطيهِ","root":"ع-ط-و","lemma":"أَعْطَى","pos":"verb","verb_form":"IV","gloss":"I give him"}
+{"surface":"أُعْطِيَتِ","root":"ع-ط-و","lemma":"أَعْطَى","pos":"verb","verb_form":"IV","gloss":"was given"}
+{"surface":"أُمورٌ","root":"أ-م-ر","lemma":"أَمْر","pos":"noun","verb_form":null,"gloss":"matters"}
+{"surface":"أُمَناءَ","root":"أ-م-ن","lemma":"أَمِين","pos":"adjective","verb_form":null,"gloss":"faithful ones"}
+{"surface":"إيمانَكُمْ","root":"أ-م-ن","lemma":"إِيمان","pos":"noun","verb_form":null,"gloss":"your faith"}
+{"surface":"إيمانُ","root":"أ-م-ن","lemma":"إِيمان","pos":"noun","verb_form":null,"gloss":"faith of"}
+{"surface":"إِخْوَتَهُمُ","root":"أ-خ-و","lemma":"أَخ","pos":"noun","verb_form":null,"gloss":"their brothers"}
+{"surface":"إِخْوَتُكَ","root":"أ-خ-و","lemma":"أَخ","pos":"noun","verb_form":null,"gloss":"your brothers"}
+{"surface":"إِرادَةَ","root":"ر-و-د","lemma":"إِرادَة","pos":"noun","verb_form":null,"gloss":"will of"}
+{"surface":"إِرادَتي","root":"ر-و-د","lemma":"إِرادَة","pos":"noun","verb_form":null,"gloss":"my will"}
+{"surface":"إِصْبَعَهُ","root":"ص-ب-ع","lemma":"إِصْبَع","pos":"noun","verb_form":null,"gloss":"his finger"}
+{"surface":"إِلٰهُكَ","root":"أ-ل-ه","lemma":"إِلٰه","pos":"noun","verb_form":null,"gloss":"your God"}
+{"surface":"إِلٰهُنا","root":"أ-ل-ه","lemma":"إِلٰه","pos":"noun","verb_form":null,"gloss":"our God"}
+{"surface":"اسْتِحْقاقٍ","root":"ح-ق-ق","lemma":"اِسْتِحْقاق","pos":"noun","verb_form":null,"gloss":"of worthiness"}
+{"surface":"اقْبَلْ","root":"ق-ب-ل","lemma":"قَبِلَ","pos":"verb","verb_form":"I","gloss":"receive"}
+{"surface":"التَلاميذَ","root":"ت-ل-م-ذ","lemma":"تِلْميذ","pos":"noun","verb_form":null,"gloss":"the disciples"}
+{"surface":"الثَلاثَةِ","root":"ث-ل-ث","lemma":"ثَلاثَة","pos":"noun","verb_form":null,"gloss":"the three"}
+{"surface":"الثَمَرَ","root":"ث-م-ر","lemma":"ثَمَر","pos":"noun","verb_form":null,"gloss":"the fruit"}
+{"surface":"الثّامِنَةَ","root":"ث-م-ن","lemma":"ثامِن","pos":"adjective","verb_form":null,"gloss":"the eighth"}
+{"surface":"الدُخولِ","root":"د-خ-ل","lemma":"دُخول","pos":"noun","verb_form":null,"gloss":"the entering"}
+{"surface":"الرَمْلِ","root":"ر-م-ل","lemma":"رَمْل","pos":"noun","verb_form":null,"gloss":"the sand"}
+{"surface":"الرّيحِ","root":"ر-و-ح","lemma":"رِيح","pos":"noun","verb_form":null,"gloss":"the wind"}
+{"surface":"السَبَبَ","root":"س-ب-ب","lemma":"سَبَب","pos":"noun","verb_form":null,"gloss":"the reason"}
+{"surface":"السَفينَةَ","root":"س-ف-ن","lemma":"سَفينَة","pos":"noun","verb_form":null,"gloss":"the ship"}
+{"surface":"السَهْلِ","root":"س-ه-ل","lemma":"سَهْل","pos":"noun","verb_form":null,"gloss":"the plain"}
+{"surface":"السَيْفَ","root":"س-ي-ف","lemma":"سَيْف","pos":"noun","verb_form":null,"gloss":"the sword"}
+{"surface":"السِجِلّاتُ","root":"س-ج-ل","lemma":"سِجِلّ","pos":"noun","verb_form":null,"gloss":"the records"}
+{"surface":"الصَخْرَةِ","root":"ص-خ-ر","lemma":"صَخْرَة","pos":"noun","verb_form":null,"gloss":"the rock"}
+{"surface":"الصَغيرِ","root":"ص-غ-ر","lemma":"صَغير","pos":"adjective","verb_form":null,"gloss":"the small"}
+{"surface":"الصَوْتَ","root":"ص-و-ت","lemma":"صَوْت","pos":"noun","verb_form":null,"gloss":"the voice"}
+{"surface":"الصَوْمِ","root":"ص-و-م","lemma":"صَوْم","pos":"noun","verb_form":null,"gloss":"the fasting"}
+{"surface":"الصّالِحينَ","root":"ص-ل-ح","lemma":"صالِح","pos":"participle","verb_form":"I","gloss":"the righteous"}
+{"surface":"الطَبيعِيَةُ","root":"ط-ب-ع","lemma":"طَبيعِيّ","pos":"adjective","verb_form":null,"gloss":"the natural"}
+{"surface":"المسيح","root":"م-س-ح","lemma":"مَسيح","pos":"proper_noun","verb_form":null,"gloss":"the Messiah"}
+{"surface":"النِساءَ","root":"م-ر-أ","lemma":"امْرَأَة","pos":"noun","verb_form":null,"gloss":"the women"}
+{"surface":"النِهايَةُ","root":"ن-ه-ي","lemma":"نِهايَة","pos":"noun","verb_form":null,"gloss":"the end"}
+{"surface":"الِاتِضاعِ","root":"و-ض-ع","lemma":"اِتِّضاع","pos":"noun","verb_form":null,"gloss":"the humbling"}
+{"surface":"الِاسْمَ","root":"س-م-و","lemma":"اِسْم","pos":"noun","verb_form":null,"gloss":"the name"}
+{"surface":"الْأَحِبّاءُ","root":"ح-ب-ب","lemma":"حَبيب","pos":"noun","verb_form":null,"gloss":"the beloved ones"}
+{"surface":"الْأَشْياءُ","root":"ش-ي-أ","lemma":"شَيْء","pos":"noun","verb_form":null,"gloss":"the things"}
+{"surface":"الْأَفْضَلِ","root":"ف-ض-ل","lemma":"أَفْضَل","pos":"adjective","verb_form":null,"gloss":"the best"}
+{"surface":"الْأَكْبَرِ","root":"ك-ب-ر","lemma":"أَكْبَر","pos":"adjective","verb_form":null,"gloss":"the greatest"}
+{"surface":"الْأَمْراضِ","root":"م-ر-ض","lemma":"مَرَض","pos":"noun","verb_form":null,"gloss":"the diseases"}
+{"surface":"الْباقونَ","root":"ب-ق-ي","lemma":"باقِي","pos":"participle","verb_form":"I","gloss":"the remaining ones"}
+{"surface":"الْبَرَكَةَ","root":"ب-ر-ك","lemma":"بَرَكَة","pos":"noun","verb_form":null,"gloss":"the blessing"}
+{"surface":"الْبَوّابَةِ","root":"ب-و-ب","lemma":"بَوّابَة","pos":"noun","verb_form":null,"gloss":"the gate"}
+{"surface":"الْجانِبِ","root":"ج-ن-ب","lemma":"جانِب","pos":"noun","verb_form":null,"gloss":"the side"}
+{"surface":"الْجُزْءُ","root":"ج-ز-أ","lemma":"جُزْء","pos":"noun","verb_form":null,"gloss":"the part"}
+{"surface":"الْحَيّاتِ","root":"ح-ي-ي","lemma":"حَيَّة","pos":"noun","verb_form":null,"gloss":"the serpents"}
+{"surface":"الْخادِمَ","root":"خ-د-م","lemma":"خادِم","pos":"noun","verb_form":null,"gloss":"the servant"}
+{"surface":"الْخالِصِ","root":"خ-ل-ص","lemma":"خالِص","pos":"adjective","verb_form":null,"gloss":"the pure"}
+{"surface":"الْخَيْرُ","root":"خ-ي-ر","lemma":"خَيْر","pos":"noun","verb_form":null,"gloss":"the good"}
+{"surface":"الْخِدْمَةَ","root":"خ-د-م","lemma":"خِدْمَة","pos":"noun","verb_form":null,"gloss":"the service"}
+{"surface":"الْخِدْمَةُ","root":"خ-د-م","lemma":"خِدْمَة","pos":"noun","verb_form":null,"gloss":"the service"}
+{"surface":"الْعالِيَ","root":"ع-ل-و","lemma":"عالِي","pos":"adjective","verb_form":null,"gloss":"the high"}
+{"surface":"الْعامُ","root":"ع-و-م","lemma":"عَام","pos":"noun","verb_form":null,"gloss":"the year"}
+{"surface":"الْعُمْيِ","root":"ع-م-ي","lemma":"أَعْمَى","pos":"adjective","verb_form":null,"gloss":"the blind"}
+{"surface":"الْقائِدَ","root":"ق-و-د","lemma":"قائِد","pos":"noun","verb_form":null,"gloss":"the leader"}
+{"surface":"الْقَديمَةَ","root":"ق-د-م","lemma":"قَديم","pos":"adjective","verb_form":null,"gloss":"the ancient"}
+{"surface":"الْقُدْرَةَ","root":"ق-د-ر","lemma":"قُدْرَة","pos":"noun","verb_form":null,"gloss":"the power"}
+{"surface":"الْقُدْرَةُ","root":"ق-د-ر","lemma":"قُدْرَة","pos":"noun","verb_form":null,"gloss":"the power"}
+{"surface":"الْقُضاةُ","root":"ق-ض-ي","lemma":"قاضِي","pos":"noun","verb_form":null,"gloss":"the judges"}
+{"surface":"الْقُوّاتِ","root":"ق-و-ي","lemma":"قُوَّة","pos":"noun","verb_form":null,"gloss":"the forces"}
+{"surface":"الْقِسْمِ","root":"ق-س-م","lemma":"قِسْم","pos":"noun","verb_form":null,"gloss":"the portion"}
+{"surface":"الْقِيامَةُ","root":"ق-و-م","lemma":"قِيامَة","pos":"noun","verb_form":null,"gloss":"the resurrection"}
+{"surface":"الْقِيامِ","root":"ق-و-م","lemma":"قِيام","pos":"noun","verb_form":null,"gloss":"the rising"}
+{"surface":"الْكاهِنُ","root":"ك-ه-ن","lemma":"كاهِن","pos":"noun","verb_form":null,"gloss":"the priest"}
+{"surface":"الْكَلامُ","root":"ك-ل-م","lemma":"كَلام","pos":"noun","verb_form":null,"gloss":"the speech"}
+{"surface":"الْمَرَةُ","root":"م-ر-ر","lemma":"مَرَّة","pos":"noun","verb_form":null,"gloss":"the time"}
+{"surface":"الْمَرَضِ","root":"م-ر-ض","lemma":"مَرَض","pos":"noun","verb_form":null,"gloss":"the sickness"}
+{"surface":"الْمَعْرَكَةُ","root":"ع-ر-ك","lemma":"مَعْرَكَة","pos":"noun","verb_form":null,"gloss":"the battle"}
+{"surface":"الْمُجاوِرَةِ","root":"ج-و-ر","lemma":"مُجاوِر","pos":"participle","verb_form":"III","gloss":"the neighboring"}
+{"surface":"الْمُدَةِ","root":"م-د-د","lemma":"مُدَّة","pos":"noun","verb_form":null,"gloss":"the period"}
+{"surface":"الْمُعْجِزاتُ","root":"ع-ج-ز","lemma":"مُعْجِزَة","pos":"noun","verb_form":null,"gloss":"the miracles"}
+{"surface":"الْمُقَدَسُ","root":"ق-د-س","lemma":"مُقَدَّس","pos":"participle","verb_form":"II","gloss":"the holy"}
+{"surface":"الْمُلوكُ","root":"م-ل-ك","lemma":"مَلِك","pos":"noun","verb_form":null,"gloss":"the kings"}
+{"surface":"الْمُلْكُ","root":"م-ل-ك","lemma":"مُلْك","pos":"noun","verb_form":null,"gloss":"the kingdom"}
+{"surface":"الْوَعْدِ","root":"و-ع-د","lemma":"وَعْد","pos":"noun","verb_form":null,"gloss":"the promise"}
+{"surface":"اُخْرُجْ","root":"خ-ر-ج","lemma":"خَرَجَ","pos":"verb","verb_form":"I","gloss":"go out"}
+{"surface":"بَعْضُهُمُ","root":"ب-ع-ض","lemma":"بَعْض","pos":"noun","verb_form":null,"gloss":"some of them"}
+{"surface":"بِالسِجِلّاتِ","root":"س-ج-ل","lemma":"سِجِلّ","pos":"noun","verb_form":null,"gloss":"with the records"}
+{"surface":"بِجُيوشِهِ","root":"ج-ي-ش","lemma":"جَيْش","pos":"noun","verb_form":null,"gloss":"with his armies"}
