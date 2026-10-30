@@ -52,8 +52,9 @@ file before composing, and add what you learn to it when you finish.
    - First decide the family (see *Master studies*): **dense** (texture
      everywhere, like a Thuluth roundel: aim ~40–45% ink) or **flowing** (one
      knot with long tendrils, like a free-style canvas: knot ~30–35%,
-     composition ~10–20%, and one clear line of movement). Measured so far in
-     our own work: ~30% — see *Open problems*.
+     composition ~10–20%, and one clear line of movement). Our flowing أحمر
+     measures 36% in the knot and 15% overall; the dense family is still
+     short of its target — see *Open problems*.
    - Fill with many small marks at one angle and one size, not with bigger
      letters: that reads as texture, where heavier letters read as blobs.
    - Each dot and haraka moves to the nearest open gap, but stays above or
@@ -67,13 +68,19 @@ file before composing, and add what you learn to it when you finish.
 ```sh
 scripts/calligrams/setup.sh                       # once: shaper + fonts into .cache/
 node scripts/calligrams/map.cjs 'مَفْرُوشَات'      # glyph map -> out/map.png (+ indices, bboxes)
-node scripts/calligrams/render.cjs specs/x.cjs    # guides + gilded result -> out/x.png, ink coverage %
+node scripts/calligrams/render.cjs specs/x.cjs    # guides + gilded result -> out/x.png; ink of the
+                                                  #   silhouette, of the whole extent, and of the knot
+node scripts/calligrams/closeup.cjs specs/x.cjs "x y w h"     # one region, full size -> out/closeup.png
+node scripts/calligrams/zoom-glyph.cjs 'أَحْمَر' 4 250 0 1100 500  # one glyph on a grid -> out/zoom.png
 node scripts/calligrams/animate.cjs specs/a.cjs specs/b.cjs   # animated gallery -> out/gallery.html
 ```
 
 A composition is a **spec** (`specs/*.cjs`): the word (fully voweled, so the
 harakat exist as glyphs), the font, the silhouette, a viewBox, and one
-placement per piece. Work in font units, y up.
+placement per piece. Work in font units, y up. Two optional guides: `movement`
+(points of the line of movement, drawn first as a dashed orange line — every
+long stroke should ride it) and `knot` (a box `[x0, y0, x1, y1]` round the
+knot and its marks, whose density `render.cjs` reports).
 
 ```js
 { glyph: 3, subs: [0], type: 'rigid', s: 1.1, rot: 16, from: [x, y], to: [x, y] }
@@ -94,7 +101,9 @@ can float. Stroke width follows a broad nib (`qalam()`): thick across the nib,
 thin along it.
 
 **The loop:** map → write a spec → render → look hard at both panels and the
-coverage number → change one or two things → render again. Each word took six
+coverage number, and at a `closeup.cjs` of the knot (marks touching letters
+and wrong-letter readings only show at full size) → change one or two things
+→ render again. Each word took six
 or seven passes. Keep the white panel's guides honest: the red lines are the
 skeletons, the dashed line is the silhouette.
 
@@ -132,6 +141,28 @@ right side empty → (2) alif moved left, ت arm up the right rim → (3) centre
 blob — the ش dots are taller than the ف in Amiri Bold → (4) dots split into the
 cradle, marks in one column → (5) letters larger → (6) و separated from the
 alif.
+
+**أَحْمَر — red, flowing** (`specs/ahmar-flow.cjs`, knot 36%, 15% overall) —
+the same word recomposed after the الحمد لله canvas. The alif is the outer
+crest arc; the ح's head bar is drawn out inside it as a parallel echo, so the
+crest is two strokes of one gesture rising to hairline tips; ح's head and the
+م (×1.4) are the knot; the ر's tail runs down the left and back along the
+base, its tip pointing at the alif's in-turned foot, so the flame is implied
+rather than closed. Passes: (1) the marks gathered as one cluster beside the
+knot — the hamza, far from its alif and above a sukun, read as a ع →
+(2) every mark back over its own letter (hamza and fatha by the alif's tip;
+sukun and fatha above the knot), smaller; alif foot turned in; ر swash
+curled along the base → (3) a fatha merged with the ح's head and a sukun
+touching its bar showed only in a close-up: lift them clear; knot ×1.25 →
+×1.4 and tendrils lighter, so the weight sits in the knot.
+- **"One cluster" yields to "over its own letter".** On the canvas the marks
+  happened to sit near their letters. Gathered away from them, a hamza turns
+  into a ع. Group marks only where their letters already meet.
+- **A drawn-out head bar makes a good echo.** Any stroke that leaves the knot
+  in the crest's direction can be the second arc — not only an alif or lam.
+- **Close the shape by pointing, not touching.** Two tapering tips aimed at
+  each other across a gap (alif foot, ر flick) read as a closed flame and keep
+  the piece open.
 
 ## Master studies (reading the work of others)
 
@@ -211,8 +242,11 @@ which family a word is going into before measuring anything. Our أحمر flame 
 really the flowing kind — its ~30% is fine, and it would gain more from a
 second nested crest stroke and one clear S-line than from extra marks.
 
-**For card art:** the flowing family is likely the better fit. One bold
-gesture and a knot survive at 48–56 px; a dense texture turns to grey.
+**For card art:** measured, not guessed — side by side at 96 px both أحمر
+studies read; at 56 px the flowing one thins to hairlines (and, being tall,
+is scaled by its width), while the dense flame keeps its mass as a gold
+emblem. Use the flowing family where art gets room (≥ ~96 px: a card's face,
+the learn screen) and the dense family, or heavier tendrils, for list sizes.
 
 ## Open problems
 
@@ -221,12 +255,13 @@ gesture and a knot survive at 48–56 px; a dense texture turns to grey.
   small marks at one angle and size plus stacking — not heavier letters, which
   turned interiors into blobs. For a flowing composition (the الحمد لله canvas)
   ~30% in the knot is already right; work on the line of movement instead.
-- **Flow.** Our compositions place letters well but don't yet move along one
-  line. Next: draw the line of movement first (as a guide in the spec), and
-  bend the long strokes along it; try doubling a crest stroke as a parallel
-  echo.
+- **Flow.** First done in the flowing أحمر: the line of movement drawn first
+  (`movement`) and every long stroke bent along it, with a doubled crest
+  stroke as the echo. Not yet tried on a dense composition, where the binders
+  should ride it.
 - **Small sizes.** At 48–56 px a calligram is a recognisable gold emblem, not
-  a readable word. For card lists, consider pairing it with the printed word.
+  a readable word, and a flowing one is barely that (see *For card art*). For
+  card lists, pair it with the printed word, or keep a heavier variant.
 - **Loop distortion.** A loop placed by a `curve` (the و) is extrapolated off
   the start of its tail and gets squashed. Place loops `rigid` and let only the
   tail run along a curve.
