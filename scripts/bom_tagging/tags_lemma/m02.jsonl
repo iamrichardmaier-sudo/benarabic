@@ -1,0 +1,179 @@
+{"surface": "الدَمُ", "root": "د-م-ي", "lemma": "دَم", "pos": "noun", "verb_form": null, "gloss": "the blood"}
+{"surface": "الدِماءَ", "root": "د-م-ي", "lemma": "دَم", "pos": "noun", "verb_form": null, "gloss": "the blood"}
+{"surface": "السَنَواتِ", "root": "س-ن-و", "lemma": "سَنَة", "pos": "noun", "verb_form": null, "gloss": "the years"}
+{"surface": "النُصوصُ", "root": "ن-ص-ص", "lemma": "نَصّ", "pos": "noun", "verb_form": null, "gloss": "the texts"}
+{"surface": "الْآلامَ", "root": "أ-ل-م", "lemma": "أَلَم", "pos": "noun", "verb_form": null, "gloss": "the pains"}
+{"surface": "الْأَرْبَعِ", "root": "ر-ب-ع", "lemma": "أَرْبَع", "pos": "other", "verb_form": null, "gloss": "the four"}
+{"surface": "الْجِياعِ", "root": "ج-و-ع", "lemma": "جائِع", "pos": "adjective", "verb_form": null, "gloss": "the hungry"}
+{"surface": "الْمالِ", "root": "م-و-ل", "lemma": "مَال", "pos": "noun", "verb_form": null, "gloss": "the wealth"}
+{"surface": "الْواقِعَةَ", "root": "و-ق-ع", "lemma": "واقِع", "pos": "participle", "verb_form": "I", "gloss": "the located, befalling"}
+{"surface": "الْواقِعِ", "root": "و-ق-ع", "lemma": "واقِع", "pos": "participle", "verb_form": "I", "gloss": "the located, befalling"}
+{"surface": "بِالْخَرِبَةِ", "root": "خ-ر-ب", "lemma": "خَرِبَة", "pos": "proper_noun", "verb_form": null, "gloss": "by Desolation (land name)"}
+{"surface": "بِرِ", "root": "ب-ر-ر", "lemma": "بِرّ", "pos": "noun", "verb_form": null, "gloss": "by the righteousness of"}
+{"surface": "بِشَرِ", "root": "ش-ر-ر", "lemma": "شَرّ", "pos": "noun", "verb_form": null, "gloss": "with the evil of"}
+{"surface": "بِناءَ", "root": "ب-ن-ي", "lemma": "بِناء", "pos": "noun", "verb_form": null, "gloss": "the building of"}
+{"surface": "توجَدْ", "root": "و-ج-د", "lemma": "وَجَدَ", "pos": "verb", "verb_form": "I", "gloss": "it be found"}
+{"surface": "تَجَمَعَ", "root": "ج-م-ع", "lemma": "تَجَمَّعَ", "pos": "verb", "verb_form": "V", "gloss": "gathered together"}
+{"surface": "تَدينونَ", "root": "د-ي-ن", "lemma": "دانَ", "pos": "verb", "verb_form": "I", "gloss": "you owe, you judge"}
+{"surface": "تُؤْمِنونَ", "root": "أ-م-ن", "lemma": "آمَنَ", "pos": "verb", "verb_form": "IV", "gloss": "you believe"}
+{"surface": "تُسَلِموا", "root": "س-ل-م", "lemma": "سَلَّمَ", "pos": "verb", "verb_form": "II", "gloss": "you deliver up"}
+{"surface": "تُعَلِمونَ", "root": "ع-ل-م", "lemma": "عَلَّمَ", "pos": "verb", "verb_form": "II", "gloss": "you teach"}
+{"surface": "تُعَلِمُ", "root": "ع-ل-م", "lemma": "عَلَّمَ", "pos": "verb", "verb_form": "II", "gloss": "you teach"}
+{"surface": "جِيدُ", "root": null, "lemma": "جِيد", "pos": "proper_noun", "verb_form": null, "gloss": "Gid (a name)"}
+{"surface": "حالَ", "root": "ح-و-ل", "lemma": "حَال", "pos": "noun", "verb_form": null, "gloss": "the state of"}
+{"surface": "حُلْوَةٌ", "root": "ح-ل-و", "lemma": "حُلْو", "pos": "adjective", "verb_form": null, "gloss": "sweet"}
+{"surface": "خِلالِهِ", "root": "خ-ل-ل", "lemma": "خِلال", "pos": "noun", "verb_form": null, "gloss": "through it, during it"}
+{"surface": "سَلَموا", "root": "س-ل-م", "lemma": "سَلَّمَ", "pos": "verb", "verb_form": "II", "gloss": "they delivered up"}
+{"surface": "سُرَ", "root": "س-ر-ر", "lemma": "سَرَّ", "pos": "verb", "verb_form": "I", "gloss": "was pleased"}
+{"surface": "سِرْ", "root": "س-ي-ر", "lemma": "سارَ", "pos": "verb", "verb_form": "I", "gloss": "walk! go!"}
+{"surface": "عَلَموهُمْ", "root": "ع-ل-م", "lemma": "عَلَّمَ", "pos": "verb", "verb_form": "II", "gloss": "they taught them"}
+{"surface": "غَضِبا", "root": "غ-ض-ب", "lemma": "غَضِبَ", "pos": "verb", "verb_form": "I", "gloss": "the two were angry"}
+{"surface": "غَيَرَ", "root": "غ-ي-ر", "lemma": "غَيَّرَ", "pos": "verb", "verb_form": "II", "gloss": "he changed"}
+{"surface": "فَرَضَ", "root": "ف-ر-ض", "lemma": "فَرَضَ", "pos": "verb", "verb_form": "I", "gloss": "he imposed"}
+{"surface": "فَسَرَ", "root": "ف-س-ر", "lemma": "فَسَّرَ", "pos": "verb", "verb_form": "II", "gloss": "he interpreted"}
+{"surface": "قيمَةٌ", "root": "ق-و-م", "lemma": "قِيمَة", "pos": "noun", "verb_form": null, "gloss": "a value, worth"}
+{"surface": "قيمَةَ", "root": "ق-و-م", "lemma": "قِيمَة", "pos": "noun", "verb_form": null, "gloss": "a value, worth"}
+{"surface": "قيمَةُ", "root": "ق-و-م", "lemma": "قِيمَة", "pos": "noun", "verb_form": null, "gloss": "the value"}
+{"surface": "قيمَةِ", "root": "ق-و-م", "lemma": "قِيمَة", "pos": "noun", "verb_form": null, "gloss": "of the value"}
+{"surface": "قَدَموا", "root": "ق-د-م", "lemma": "قَدَّمَ", "pos": "verb", "verb_form": "II", "gloss": "they offered"}
+{"surface": "كَلَمَهُ", "root": "ك-ل-م", "lemma": "كَلَّمَ", "pos": "verb", "verb_form": "II", "gloss": "he spoke to him"}
+{"surface": "مَثْلَ", "root": "م-ث-ل", "lemma": "مِثْل", "pos": "noun", "verb_form": null, "gloss": "like, such as"}
+{"surface": "مَجانًا", "root": "م-ج-ن", "lemma": "مَجَّان", "pos": "adjective", "verb_form": null, "gloss": "freely, free"}
+{"surface": "مَذْبَحَةٍ", "root": "ذ-ب-ح", "lemma": "مَذْبَحَة", "pos": "noun", "verb_form": null, "gloss": "a massacre"}
+{"surface": "مَرَ", "root": "م-ر-ر", "lemma": "مَرَّ", "pos": "verb", "verb_form": "I", "gloss": "he passed"}
+{"surface": "مَعارِفِ", "root": "ع-ر-ف", "lemma": "مَعْرِفَة", "pos": "noun", "verb_form": null, "gloss": "knowledge of"}
+{"surface": "مَنْعُهُ", "root": "م-ن-ع", "lemma": "مَنْع", "pos": "noun", "verb_form": null, "gloss": "his preventing"}
+{"surface": "مُتَجِهًا", "root": "و-ج-ه", "lemma": "مُتَّجِه", "pos": "participle", "verb_form": "VIII", "gloss": "heading toward"}
+{"surface": "مُضِيِ", "root": "م-ض-ي", "lemma": "مُضِيّ", "pos": "noun", "verb_form": null, "gloss": "the passing of"}
+{"surface": "مُعْظَمِ", "root": "ع-ظ-م", "lemma": "مُعْظَم", "pos": "noun", "verb_form": null, "gloss": "most of"}
+{"surface": "وأيضا", "root": null, "lemma": "أَيْضًا", "pos": "particle", "verb_form": null, "gloss": "and also"}
+{"surface": "وَأَشْهَدَ", "root": "ش-ه-د", "lemma": "شَهِدَ", "pos": "verb", "verb_form": "I", "gloss": "and I testify"}
+{"surface": "وَأَعْلَمَ", "root": "ع-ل-م", "lemma": "أَعْلَمَ", "pos": "verb", "verb_form": "IV", "gloss": "and he informed"}
+{"surface": "وَاسْتَلَ", "root": "س-ل-ل", "lemma": "اسْتَلَّ", "pos": "verb", "verb_form": "VIII", "gloss": "and he drew"}
+{"surface": "وَبَدَآ", "root": "ب-د-أ", "lemma": "بَدَأَ", "pos": "verb", "verb_form": "I", "gloss": "and the two began"}
+{"surface": "وَحْدَها", "root": "و-ح-د", "lemma": "وَحْد", "pos": "noun", "verb_form": null, "gloss": "alone, by itself"}
+{"surface": "وَخَمْسونَ", "root": "خ-م-س", "lemma": "خَمْسون", "pos": "other", "verb_form": null, "gloss": "and fifty"}
+{"surface": "وَسَبْعونَ", "root": "س-ب-ع", "lemma": "سَبْعون", "pos": "other", "verb_form": null, "gloss": "and seventy"}
+{"surface": "وَعَجائِبَ", "root": "ع-ج-ب", "lemma": "عَجِيبَة", "pos": "noun", "verb_form": null, "gloss": "and wonders"}
+{"surface": "وَعَجائِبُ", "root": "ع-ج-ب", "lemma": "عَجِيبَة", "pos": "noun", "verb_form": null, "gloss": "and wonders"}
+{"surface": "وَنِساءً", "root": "ن-س-و", "lemma": "نِساء", "pos": "noun", "verb_form": null, "gloss": "and women"}
+{"surface": "يُرَدَ", "root": "ر-د-د", "lemma": "رَدَّ", "pos": "verb", "verb_form": "I", "gloss": "be restored"}
+{"surface": "يُصَدِقُ", "root": "ص-د-ق", "lemma": "صَدَّقَ", "pos": "verb", "verb_form": "II", "gloss": "he believes"}
+{"surface": "يُقَدِمُ", "root": "ق-د-م", "lemma": "قَدَّمَ", "pos": "verb", "verb_form": "II", "gloss": "he offers"}
+{"surface": "أَجَل", "root": null, "lemma": "أَجَل", "pos": "particle", "verb_form": null, "gloss": "yea, indeed"}
+{"surface": "أَجْمَعَكُمْ", "root": "ج-م-ع", "lemma": "جَمَعَ", "pos": "verb", "verb_form": "I", "gloss": "that I gather you"}
+{"surface": "أَخْرُجْ", "root": "خ-ر-ج", "lemma": "خَرَجَ", "pos": "verb", "verb_form": "I", "gloss": "I go out"}
+{"surface": "أَسْمَحْ", "root": "س-م-ح", "lemma": "سَمَحَ", "pos": "verb", "verb_form": "I", "gloss": "I allow"}
+{"surface": "أَشْهَدَ", "root": "ش-ه-د", "lemma": "شَهِدَ", "pos": "verb", "verb_form": "I", "gloss": "that I testify"}
+{"surface": "أَعْلَمُهُ", "root": "ع-ل-م", "lemma": "عَلِمَ", "pos": "verb", "verb_form": "I", "gloss": "I know it"}
+{"surface": "أَعْلَمْهُ", "root": "ع-ل-م", "lemma": "عَلِمَ", "pos": "verb", "verb_form": "I", "gloss": "I knew it"}
+{"surface": "أَفْواهُ", "root": "ف-و-ه", "lemma": "فَم", "pos": "noun", "verb_form": null, "gloss": "mouths of", "override": "irregular broken plural أفواه of فم"}
+{"surface": "أَقَلُ", "root": "ق-ل-ل", "lemma": "أَقَلّ", "pos": "adjective", "verb_form": null, "gloss": "less"}
+{"surface": "أَقْبَلْ", "root": "ق-ب-ل", "lemma": "قَبِلَ", "pos": "verb", "verb_form": "I", "gloss": "I consented"}
+{"surface": "أَقْسامِهِمْ", "root": "ق-س-م", "lemma": "قَسَم", "pos": "noun", "verb_form": null, "gloss": "their oaths"}
+{"surface": "أَمانٍ", "root": "أ-م-ن", "lemma": "أَمان", "pos": "noun", "verb_form": null, "gloss": "safety"}
+{"surface": "أَنْزِلَ", "root": "ن-ز-ل", "lemma": "نَزَلَ", "pos": "verb", "verb_form": "I", "gloss": "I go down"}
+{"surface": "ابْنا", "root": "ب-ن-و", "lemma": "ابْن", "pos": "noun", "verb_form": null, "gloss": "sons of"}
+{"surface": "الثَلاثونَ", "root": "ث-ل-ث", "lemma": "ثَلاثون", "pos": "other", "verb_form": null, "gloss": "the thirty"}
+{"surface": "الثّانِيَ", "root": "ث-ن-ي", "lemma": "ثانِي", "pos": "adjective", "verb_form": null, "gloss": "the second"}
+{"surface": "الدَمَ", "root": "د-م-ي", "lemma": "دَم", "pos": "noun", "verb_form": null, "gloss": "the blood"}
+{"surface": "الصُلْبِ", "root": "ص-ل-ب", "lemma": "صُلْب", "pos": "noun", "verb_form": null, "gloss": "the steel"}
+{"surface": "الصّارِمَةِ", "root": "ص-ر-م", "lemma": "صارِم", "pos": "adjective", "verb_form": null, "gloss": "the strict"}
+{"surface": "الملك", "root": "م-ل-ك", "lemma": "مَلِك", "pos": "noun", "verb_form": null, "gloss": "the king"}
+{"surface": "الْأَرْبَعينَ", "root": "ر-ب-ع", "lemma": "أَرْبَعون", "pos": "other", "verb_form": null, "gloss": "the forty"}
+{"surface": "الْبَتَةَ", "root": "ب-ت-ت", "lemma": "بَتَّة", "pos": "noun", "verb_form": null, "gloss": "at all, never"}
+{"surface": "الْخَمْسينَ", "root": "خ-م-س", "lemma": "خَمْسون", "pos": "other", "verb_form": null, "gloss": "the fifty"}
+{"surface": "الْعِشْرينَ", "root": "ع-ش-ر", "lemma": "عِشْرون", "pos": "other", "verb_form": null, "gloss": "the twenty"}
+{"surface": "الْقَدْرِ", "root": "ق-د-ر", "lemma": "قَدْر", "pos": "noun", "verb_form": null, "gloss": "this much, the extent"}
+{"surface": "الْماءَ", "root": "م-و-ه", "lemma": "مَاء", "pos": "noun", "verb_form": null, "gloss": "the water", "override": "ماء from م-و-ه"}
+{"surface": "الْمَلِكَة", "root": "م-ل-ك", "lemma": "مَلِكَة", "pos": "noun", "verb_form": null, "gloss": "the queen"}
+{"surface": "انْقَضَ", "root": "ن-ق-ض", "lemma": "انْقَضَّ", "pos": "verb", "verb_form": "VII", "gloss": "he swooped down"}
+{"surface": "بارٌ", "root": "ب-ر-ر", "lemma": "بارّ", "pos": "adjective", "verb_form": null, "gloss": "righteous"}
+{"surface": "بارٍ", "root": "ب-ر-ر", "lemma": "بارّ", "pos": "adjective", "verb_form": null, "gloss": "righteous"}
+{"surface": "بين", "root": null, "lemma": "بَيْنَ", "pos": "particle", "verb_form": null, "gloss": "between, among"}
+{"surface": "بَثَ", "root": "ب-ث-ث", "lemma": "بَثَّ", "pos": "verb", "verb_form": "I", "gloss": "he spread, instilled"}
+{"surface": "بَيْنِهِمِ", "root": "ب-ي-ن", "lemma": "بَيْن", "pos": "noun", "verb_form": null, "gloss": "among them"}
+{"surface": "بَناتِكِ", "root": "ب-ن-و", "lemma": "بِنْت", "pos": "noun", "verb_form": null, "gloss": "your daughters"}
+{"surface": "بَناتِهِمْ", "root": "ب-ن-و", "lemma": "بِنْت", "pos": "noun", "verb_form": null, "gloss": "their daughters"}
+{"surface": "بِالْأَمْرِ", "root": "أ-م-ر", "lemma": "أَمْر", "pos": "noun", "verb_form": null, "gloss": "of the matter"}
+{"surface": "بِالْعَديدِ", "root": "ع-د-د", "lemma": "عَدِيد", "pos": "adjective", "verb_form": null, "gloss": "with the many"}
+{"surface": "بِالْقانونِ", "root": null, "lemma": "قانُون", "pos": "noun", "verb_form": null, "gloss": "by the law"}
+{"surface": "بِالْمِياهِ", "root": "م-و-ه", "lemma": "مَاء", "pos": "noun", "verb_form": null, "gloss": "with the waters", "override": "ماء from م-و-ه"}
+{"surface": "بِالْوَفيرَةِ", "root": "و-ف-ر", "lemma": "وَفِيرَة", "pos": "noun", "verb_form": null, "gloss": "with abundance"}
+{"surface": "بِدايَةُ", "root": "ب-د-أ", "lemma": "بِداية", "pos": "noun", "verb_form": null, "gloss": "the beginning of"}
+{"surface": "بِدَمي", "root": "د-م-ي", "lemma": "دَم", "pos": "noun", "verb_form": null, "gloss": "with my blood"}
+{"surface": "بِرَدِ", "root": "ر-د-د", "lemma": "رَدّ", "pos": "noun", "verb_form": null, "gloss": "by restoring, returning"}
+{"surface": "بِشَرٍ", "root": "ش-ر-ر", "lemma": "شَرّ", "pos": "noun", "verb_form": null, "gloss": "with evil"}
+{"surface": "بِناءً", "root": "ب-ن-ي", "lemma": "بِناء", "pos": "noun", "verb_form": null, "gloss": "a building, based on"}
+{"surface": "تَبْقى", "root": "ب-ق-ي", "lemma": "بَقِيَ", "pos": "verb", "verb_form": "I", "gloss": "you remain"}
+{"surface": "تَثْمُرُ", "root": "ث-م-ر", "lemma": "ثَمَرَ", "pos": "verb", "verb_form": "I", "gloss": "it bears fruit"}
+{"surface": "تَدَعوا", "root": "و-د-ع", "lemma": "وَدَعَ", "pos": "verb", "verb_form": "I", "gloss": "you let, leave"}
+{"surface": "تَدْعونَ", "root": "د-ع-و", "lemma": "دَعا", "pos": "verb", "verb_form": "I", "gloss": "you call"}
+{"surface": "تَسَلَمَها", "root": "س-ل-م", "lemma": "تَسَلَّمَ", "pos": "verb", "verb_form": "V", "gloss": "he received it"}
+{"surface": "تَقَدُمَهُمْ", "root": "ق-د-م", "lemma": "تَقَدُّم", "pos": "noun", "verb_form": null, "gloss": "their progress"}
+{"surface": "تَقْوى", "root": "و-ق-ي", "lemma": "تَقْوى", "pos": "noun", "verb_form": null, "gloss": "piety", "override": "و-ق-ي with ت substituting و"}
+{"surface": "تُجاهَهُ", "root": "و-ج-ه", "lemma": "تُجاه", "pos": "noun", "verb_form": null, "gloss": "toward him", "override": "ت substituting و of و-ج-ه"}
+{"surface": "تُزْرَعَ", "root": "ز-ر-ع", "lemma": "زَرَعَ", "pos": "verb", "verb_form": "I", "gloss": "be planted"}
+{"surface": "تُطْرَحوا", "root": "ط-ر-ح", "lemma": "طَرَحَ", "pos": "verb", "verb_form": "I", "gloss": "you be cast"}
+{"surface": "تُفْنى", "root": "ف-ن-ي", "lemma": "أَفْنى", "pos": "verb", "verb_form": "IV", "gloss": "be destroyed"}
+{"surface": "ثاني", "root": "ث-ن-ي", "lemma": "ثانِي", "pos": "adjective", "verb_form": null, "gloss": "second"}
+{"surface": "ثَلاثينَ", "root": "ث-ل-ث", "lemma": "ثَلاثون", "pos": "other", "verb_form": null, "gloss": "thirty"}
+{"surface": "ثَلاثُمِئَةِ", "root": "ث-ل-ث", "lemma": "ثَلاثُمِئَة", "pos": "other", "verb_form": null, "gloss": "three hundred"}
+{"surface": "حالٍ", "root": "ح-و-ل", "lemma": "حَال", "pos": "noun", "verb_form": null, "gloss": "a state, condition"}
+{"surface": "حالِ", "root": "ح-و-ل", "lemma": "حَال", "pos": "noun", "verb_form": null, "gloss": "state of"}
+{"surface": "حَفِظْتُها", "root": "ح-ف-ظ", "lemma": "حَفِظَ", "pos": "verb", "verb_form": "I", "gloss": "I kept it"}
+{"surface": "حَيَةٌ", "root": "ح-ي-ي", "lemma": "حَيّ", "pos": "adjective", "verb_form": null, "gloss": "living, alive"}
+{"surface": "حُرّاسَهَ", "root": "ح-ر-س", "lemma": "حارِس", "pos": "noun", "verb_form": null, "gloss": "his guards"}
+{"surface": "خَفِيَةً", "root": "خ-ف-ي", "lemma": "خَفِيّ", "pos": "adjective", "verb_form": null, "gloss": "secretly"}
+{"surface": "خِلافاتِهِمْ", "root": "خ-ل-ف", "lemma": "خِلاف", "pos": "noun", "verb_form": null, "gloss": "their disputes"}
+{"surface": "رَدَ", "root": "ر-د-د", "lemma": "رَدَّ", "pos": "verb", "verb_form": "I", "gloss": "he turned, returned"}
+{"surface": "رَدِ", "root": "ر-د-د", "lemma": "رَدّ", "pos": "noun", "verb_form": null, "gloss": "returning, restoring"}
+{"surface": "سَلَمْتَ", "root": "س-ل-م", "lemma": "سَلَّمَ", "pos": "verb", "verb_form": "II", "gloss": "you delivered up"}
+{"surface": "سُلِمَتْ", "root": "س-ل-م", "lemma": "سَلَّمَ", "pos": "verb", "verb_form": "II", "gloss": "was delivered"}
+{"surface": "سِرِيَةٌ", "root": "س-ر-ر", "lemma": "سِرِّيّ", "pos": "adjective", "verb_form": null, "gloss": "secret"}
+{"surface": "سِرِيَةٍ", "root": "س-ر-ر", "lemma": "سِرِّيّ", "pos": "adjective", "verb_form": null, "gloss": "secret"}
+{"surface": "ظُهورِهِ", "root": "ظ-ه-ر", "lemma": "ظُهور", "pos": "noun", "verb_form": null, "gloss": "his appearing"}
+{"surface": "عَسى", "root": "ع-س-ي", "lemma": "عَسى", "pos": "verb", "verb_form": "I", "gloss": "perhaps, it may be"}
+{"surface": "عَلَمَني", "root": "ع-ل-م", "lemma": "عَلَّمَ", "pos": "verb", "verb_form": "II", "gloss": "he taught me"}
+{"surface": "عَهِدَ", "root": "ع-ه-د", "lemma": "عَهِدَ", "pos": "verb", "verb_form": "I", "gloss": "he entrusted, covenanted"}
+{"surface": "فَأَشْفَقَ", "root": "ش-ف-ق", "lemma": "أَشْفَقَ", "pos": "verb", "verb_form": "IV", "gloss": "and he had compassion"}
+{"surface": "فَبَدَلًا", "root": "ب-د-ل", "lemma": "بَدَل", "pos": "noun", "verb_form": null, "gloss": "so instead"}
+{"surface": "فَتَمَ", "root": "ت-م-م", "lemma": "تَمَّ", "pos": "verb", "verb_form": "I", "gloss": "and it was done"}
+{"surface": "فَطِبْقًا", "root": "ط-ب-ق", "lemma": "طِبْق", "pos": "noun", "verb_form": null, "gloss": "so according to"}
+{"surface": "فَمَلَكوتُ", "root": "م-ل-ك", "lemma": "مَلَكُوت", "pos": "noun", "verb_form": null, "gloss": "so the kingdom of"}
+{"surface": "فَهُمُ", "root": null, "lemma": "هُمْ", "pos": "other", "verb_form": null, "gloss": "so they"}
+{"surface": "قانونٍ", "root": null, "lemma": "قانُون", "pos": "noun", "verb_form": null, "gloss": "of a law"}
+{"surface": "قَدَمْتُ", "root": "ق-د-م", "lemma": "قَدَّمَ", "pos": "verb", "verb_form": "II", "gloss": "I presented"}
+{"surface": "قُدِمَتْ", "root": "ق-د-م", "lemma": "قَدَّمَ", "pos": "verb", "verb_form": "II", "gloss": "were extended"}
+{"surface": "كَأَنَ", "root": null, "lemma": "كَأَنَّ", "pos": "particle", "verb_form": null, "gloss": "as if"}
+{"surface": "كَلَمْتُكَ", "root": "ك-ل-م", "lemma": "كَلَّمَ", "pos": "verb", "verb_form": "II", "gloss": "I spoke to you"}
+{"surface": "كَلَمْتُهُما", "root": "ك-ل-م", "lemma": "كَلَّمَ", "pos": "verb", "verb_form": "II", "gloss": "I spoke to them"}
+{"surface": "كُنَ", "root": "ك-و-ن", "lemma": "كانَ", "pos": "verb", "verb_form": "I", "gloss": "they (f.) were"}
+{"surface": "لِلنُصوصِ", "root": "ن-ص-ص", "lemma": "نَصّ", "pos": "noun", "verb_form": null, "gloss": "for the texts"}
+{"surface": "لِلّهَ", "root": null, "lemma": "اللّه", "pos": "proper_noun", "verb_form": null, "gloss": "to God"}
+{"surface": "مَخْفِيَةً", "root": "خ-ف-ي", "lemma": "مَخْفِيّ", "pos": "adjective", "verb_form": null, "gloss": "hidden"}
+{"surface": "مَدِ", "root": "م-د-د", "lemma": "مَدّ", "pos": "noun", "verb_form": null, "gloss": "stretching out"}
+{"surface": "مُدَ", "root": "م-د-د", "lemma": "مَدَّ", "pos": "verb", "verb_form": "I", "gloss": "stretch out!"}
+{"surface": "مُعْتَمِدينَ", "root": "ع-م-د", "lemma": "مُعْتَمِد", "pos": "participle", "verb_form": "VIII", "gloss": "relying on"}
+{"surface": "نَدَمَ", "root": "ن-د-م", "lemma": "نَدَم", "pos": "noun", "verb_form": null, "gloss": "remorse of"}
+{"surface": "وَالْعِطاشِ", "root": "ع-ط-ش", "lemma": "عَطْشان", "pos": "adjective", "verb_form": null, "gloss": "and the thirsty"}
+{"surface": "وَتَضْرِبُهُمْ", "root": "ض-ر-ب", "lemma": "ضَرَبَ", "pos": "verb", "verb_form": "I", "gloss": "and it smites them"}
+{"surface": "وَتَعَلَموا", "root": "ع-ل-م", "lemma": "تَعَلَّمَ", "pos": "verb", "verb_form": "V", "gloss": "and they learned"}
+{"surface": "وَتَكونَ", "root": "ك-و-ن", "lemma": "كانَ", "pos": "verb", "verb_form": "I", "gloss": "and you be"}
+{"surface": "وَخَمْسينَ", "root": "خ-م-س", "lemma": "خَمْسون", "pos": "other", "verb_form": null, "gloss": "and fifty"}
+{"surface": "وَخُمْسُ", "root": "خ-م-س", "lemma": "خُمْس", "pos": "noun", "verb_form": null, "gloss": "and a fifth of"}
+{"surface": "وَسَبْعينَ", "root": "س-ب-ع", "lemma": "سَبْعون", "pos": "other", "verb_form": null, "gloss": "and seventy"}
+{"surface": "وَسَلَموا", "root": "س-ل-م", "lemma": "سَلَّمَ", "pos": "verb", "verb_form": "II", "gloss": "and they delivered up"}
+{"surface": "وَسَواءً", "root": null, "lemma": "سَواء", "pos": "particle", "verb_form": null, "gloss": "and whether"}
+{"surface": "وَسَيَتِمُ", "root": "ت-م-م", "lemma": "تَمَّ", "pos": "verb", "verb_form": "I", "gloss": "and it will be done"}
+{"surface": "وَضْعُ", "root": "و-ض-ع", "lemma": "وَضْع", "pos": "noun", "verb_form": null, "gloss": "the placing of"}
+{"surface": "وَظُهْرًا", "root": "ظ-ه-ر", "lemma": "ظُهْر", "pos": "noun", "verb_form": null, "gloss": "and at noon"}
+{"surface": "وَعَلَموا", "root": "ع-ل-م", "lemma": "عَلَّمَ", "pos": "verb", "verb_form": "II", "gloss": "and they taught"}
+{"surface": "وَقَدَمَ", "root": "ق-د-م", "lemma": "قَدَّمَ", "pos": "verb", "verb_form": "II", "gloss": "and he offered"}
+{"surface": "وَقَدَمَيَ", "root": "ق-د-م", "lemma": "قَدَم", "pos": "noun", "verb_form": null, "gloss": "and my feet"}
+{"surface": "وَقَضِيَةِ", "root": "ق-ض-ي", "lemma": "قَضِيَّة", "pos": "noun", "verb_form": null, "gloss": "and the cause of"}
+{"surface": "وَكُنَ", "root": "ك-و-ن", "lemma": "كانَ", "pos": "verb", "verb_form": "I", "gloss": "and they (f.) were"}
+{"surface": "وَهَبَتِ", "root": "ه-ب-ب", "lemma": "هَبَّ", "pos": "verb", "verb_form": "I", "gloss": "and it blew"}
+{"surface": "وَوَفْقًا", "root": "و-ف-ق", "lemma": "وَفْق", "pos": "noun", "verb_form": null, "gloss": "and according to"}
+{"surface": "يَتَضِعُ", "root": "و-ض-ع", "lemma": "اتَّضَعَ", "pos": "verb", "verb_form": "VIII", "gloss": "he humbles himself"}
+{"surface": "يُؤْتى", "root": "أ-ت-ي", "lemma": "أَتى", "pos": "verb", "verb_form": "I", "gloss": "is brought"}
