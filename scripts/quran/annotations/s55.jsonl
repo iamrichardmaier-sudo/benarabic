@@ -1,0 +1,179 @@
+{"w": "نَبَّأَ", "en": "to inform, to tell news", "root": "ن-ب-أ", "type": "verb", "kind": "verb", "form": "II", "past": "نَبَّأَ", "pres": "يُنَبِّئُ", "masdar": "تَنْبِئَة", "src": "quran", "q": "3:15:2-3", "qen": "Shall I tell you of something better"}
+{"w": "أَنْبَأَ", "en": "to notify, to report", "root": "ن-ب-أ", "type": "verb", "kind": "verb", "form": "IV", "past": "أَنْبَأَ", "pres": "يُنْبِئُ", "masdar": "إِنْباء", "src": "quran", "q": "2:31:10-11", "qen": "Tell me the names of these"}
+{"w": "اِسْتَنْبَأَ", "en": "to ask for news", "root": "ن-ب-أ", "type": "verb", "kind": "verb", "form": "X", "past": "اِسْتَنْبَأَ", "pres": "يَسْتَنْبِئُ", "masdar": "اِسْتِنْباء", "src": "quran", "q": "10:53:1-2", "qen": "And they ask you, Is it true", "note": "Rare in modern usage."}
+{"w": "نَبَأ", "en": "news, tidings", "root": "ن-ب-أ", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَنْباء", "src": "quran", "q": "3:44:3-4", "qen": "of the news of the unseen", "see": [{"w": "خَبَر", "label": "Synonym (news)"}]}
+{"skip": "فينبئهم", "why": "inflected form of the verb II نَبَّأَ already listed"}
+{"w": "تَنَبَّأَ", "en": "to predict, to prophesy", "root": "ن-ب-أ", "type": "verb", "kind": "verb", "form": "V", "past": "تَنَبَّأَ", "pres": "يَتَنَبَّأُ", "masdar": "تَنَبُّؤ", "src": "msa"}
+{"w": "تَنَبُّؤ", "en": "prediction, forecast", "root": "ن-ب-أ", "type": "masdar", "kind": "masdar", "form": "V", "gender": "m", "plural": "تَنَبُّؤات", "src": "msa"}
+{"w": "نُبُوءَة", "en": "prophecy", "root": "ن-ب-أ", "type": "noun", "kind": "noun", "gender": "f", "plural": "نُبُوءات", "src": "msa"}
+{"w": "مُتَنَبِّئ", "en": "forecaster, one who predicts", "root": "ن-ب-أ", "type": "participle", "kind": "active participle", "form": "V", "gender": "m", "plural": "مُتَنَبِّئون", "src": "msa"}
+{"w": "أَنْبَتَ", "en": "to make grow, to cause to sprout", "root": "ن-ب-ت", "type": "verb", "kind": "verb", "form": "IV", "past": "أَنْبَتَ", "pres": "يُنْبِتُ", "masdar": "إِنْبات", "src": "quran", "q": "2:61:16-17", "qen": "of what the earth grows"}
+{"w": "نَبَتَ", "en": "to grow, to sprout", "root": "ن-ب-ت", "type": "verb", "kind": "verb", "form": "I", "past": "نَبَتَ", "pres": "يَنْبُتُ", "masdar": "نُبُوت", "src": "quran", "q": "23:20:6-7", "qen": "that grows with oil"}
+{"w": "نَبات", "en": "plant, vegetation", "root": "ن-ب-ت", "type": "noun", "kind": "noun", "gender": "m", "plural": "نَباتات", "src": "quran", "q": "6:99:9-11", "qen": "the growth of every kind of plant"}
+{"w": "نَبْتَة", "en": "a plant, a shoot", "root": "ن-ب-ت", "type": "noun", "kind": "noun of instance", "gender": "f", "plural": "نَبْتات", "src": "msa"}
+{"w": "نابِت", "en": "growing, sprouting", "root": "ن-ب-ت", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "src": "msa"}
+{"w": "نَباتِيّ", "en": "plant-based, vegetarian", "root": "ن-ب-ت", "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "نَبَذَ", "en": "to throw away, to discard", "root": "ن-ب-ذ", "type": "verb", "kind": "verb", "form": "I", "past": "نَبَذَ", "pres": "يَنْبِذُ", "masdar": "نَبْذ", "src": "quran", "q": "2:100:4-6", "qen": "a group of them threw it away"}
+{"w": "اِنْتَبَذَ", "en": "to withdraw, to retire apart", "root": "ن-ب-ذ", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِنْتَبَذَ", "pres": "يَنْتَبِذُ", "masdar": "اِنْتِباذ", "src": "quran", "q": "19:16:6-8", "qen": "when she withdrew from her family"}
+{"w": "نَبْذ", "en": "rejection, discarding", "root": "ن-ب-ذ", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "msa"}
+{"w": "نُبْذَة", "en": "brief passage, summary", "root": "ن-ب-ذ", "type": "noun", "kind": "noun", "gender": "f", "plural": "نُبَذ", "src": "msa"}
+{"w": "مَنْبوذ", "en": "outcast, rejected", "root": "ن-ب-ذ", "type": "participle", "kind": "passive participle", "form": "I", "gender": "m", "plural": "مَنْبوذون", "src": "msa"}
+{"w": "نَبيذ", "en": "fermented drink, wine", "root": "ن-ب-ذ", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَنْبِذَة", "src": "msa"}
+{"w": "تَنابَزَ", "en": "to call each other nicknames", "root": "ن-ب-ز", "type": "verb", "kind": "verb", "form": "VI", "past": "تَنابَزَ", "pres": "يَتَنابَزُ", "masdar": "تَنابُز", "src": "quran", "q": "49:11:27-29", "qen": "nor call each other by offensive nicknames"}
+{"w": "نَبَزَ", "en": "to nickname insultingly", "root": "ن-ب-ز", "type": "verb", "kind": "verb", "form": "I", "past": "نَبَزَ", "pres": "يَنْبِزُ", "masdar": "نَبْز", "src": "msa"}
+{"w": "اِسْتَنْبَطَ", "en": "to deduce, to infer", "root": "ن-ب-ط", "type": "verb", "kind": "verb", "form": "X", "past": "اِسْتَنْبَطَ", "pres": "يَسْتَنْبِطُ", "masdar": "اِسْتِنْباط", "src": "quran", "q": "4:83:19-21", "qen": "those among them who can draw it out"}
+{"w": "اِسْتِنْباط", "en": "deduction, inference", "root": "ن-ب-ط", "type": "masdar", "kind": "masdar", "form": "X", "gender": "m", "src": "msa"}
+{"w": "يَنْبوع", "en": "spring, fountain", "root": "ن-ب-ع", "type": "noun", "kind": "noun", "gender": "m", "plural": "يَنابيع", "src": "quran", "q": "17:90:6-10", "qen": "until you make a spring gush forth for us from the earth"}
+{"w": "نَبَعَ", "en": "to gush, to spring forth", "root": "ن-ب-ع", "type": "verb", "kind": "verb", "form": "I", "past": "نَبَعَ", "pres": "يَنْبُعُ", "masdar": "نُبُوع", "src": "msa"}
+{"w": "مَنْبَع", "en": "source, origin", "root": "ن-ب-ع", "type": "noun", "kind": "noun of place", "gender": "m", "plural": "مَنابِع", "src": "msa"}
+{"skip": "نبا", "why": "the same word as نَبَأ (root ن-ب-أ), already an entry"}
+{"w": "نَبَّهَ", "en": "to alert, to warn", "root": "ن-ب-ه", "type": "verb", "kind": "verb", "form": "II", "past": "نَبَّهَ", "pres": "يُنَبِّهُ", "masdar": "تَنْبيه", "src": "msa"}
+{"w": "اِنْتَبَهَ", "en": "to pay attention, to notice", "root": "ن-ب-ه", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِنْتَبَهَ", "pres": "يَنْتَبِهُ", "masdar": "اِنْتِباه", "src": "msa"}
+{"w": "تَنَبَّهَ", "en": "to wake up, to become aware", "root": "ن-ب-ه", "type": "verb", "kind": "verb", "form": "V", "past": "تَنَبَّهَ", "pres": "يَتَنَبَّهُ", "masdar": "تَنَبُّه", "src": "msa"}
+{"w": "تَنْبيه", "en": "warning, notice", "root": "ن-ب-ه", "type": "masdar", "kind": "masdar", "form": "II", "gender": "m", "plural": "تَنْبيهات", "src": "msa"}
+{"w": "اِنْتِباه", "en": "attention", "root": "ن-ب-ه", "type": "masdar", "kind": "masdar", "form": "VIII", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مُنَبِّه", "en": "alarm clock, stimulus", "root": "ن-ب-ه", "type": "participle", "kind": "active participle", "form": "II", "gender": "m", "plural": "مُنَبِّهات", "src": "msa"}
+{"w": "مُنْتَبِه", "en": "attentive", "root": "ن-ب-ه", "type": "participle", "kind": "active participle", "form": "VIII", "gender": "m", "src": "msa"}
+{"w": "نَباهَة", "en": "alertness, sharpness of mind", "root": "ن-ب-ه", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "نَبِيّ", "en": "prophet", "root": "ن-ب-أ", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَنْبِياء", "src": "quran", "q": "2:61:52-53", "qen": "and kill the prophets", "see": [{"w": "رَسول", "label": "Often paired with (messenger)"}]}
+{"w": "نُبُوَّة", "en": "prophethood", "root": "ن-ب-أ", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "quran", "q": "3:79:7-9", "qen": "the Book, the judgment and prophethood"}
+{"w": "نَبَوِيّ", "en": "prophetic", "root": "ن-ب-أ", "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "نَبا", "en": "to recoil, to be rebuffed", "root": "ن-ب-و", "type": "verb", "kind": "verb", "form": "I", "past": "نَبا", "pres": "يَنْبو", "masdar": "نَبْو", "src": "msa", "note": "Literary; used of a blade that fails to bite or a place that feels unwelcoming."}
+{"w": "نَثَرَ", "en": "to scatter, to sprinkle", "root": "ن-ث-ر", "type": "verb", "kind": "verb", "form": "I", "past": "نَثَرَ", "pres": "يَنْثُرُ", "masdar": "نَثْر", "src": "msa"}
+{"w": "مَنْثور", "en": "scattered", "root": "ن-ث-ر", "type": "participle", "kind": "passive participle", "form": "I", "src": "quran", "q": "25:23:8-9", "qen": "scattered dust"}
+{"w": "اِنْتَثَرَ", "en": "to be scattered", "root": "ن-ث-ر", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِنْتَثَرَ", "pres": "يَنْتَثِرُ", "masdar": "اِنْتِثار", "src": "quran", "q": "82:2:2-3", "qen": "and when the stars are scattered"}
+{"w": "نَثْر", "en": "prose, scattering", "root": "ن-ث-ر", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa", "see": [{"w": "شِعْر", "label": "Opposite (poetry)"}]}
+{"w": "تَناثَرَ", "en": "to be strewn about, to scatter", "root": "ن-ث-ر", "type": "verb", "kind": "verb", "form": "VI", "past": "تَناثَرَ", "pres": "يَتَناثَرُ", "masdar": "تَناثُر", "src": "msa"}
+{"skip": "V:I:نأي", "why": "real Qur'anic verb نَأَى (6:26) left out: the corpus stores its root as ن-أ-ى so the excerpt cannot validate"}
+{"skip": "V:I:نتق", "why": "real Qur'anic verb نَتَقَ (7:171) left out: the corpus files it under ن-ط-ق so the excerpt cannot validate"}
+{"skip": "نَّبِىّ", "why": "entered as نَبِيّ under root ن-ب-أ, where the corpus files it"}
+{"skip": "نُّبُوَّة", "why": "entered as نُبُوَّة under root ن-ب-أ, where the corpus files it"}
+{"w": "نَجاح", "en": "success", "root": "ن-ج-ح", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa", "see": [{"w": "فَشَل", "label": "Opposite (failure)"}]}
+{"w": "ناجِح", "en": "successful", "root": "ن-ج-ح", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "plural": "ناجِحون", "src": "msa"}
+{"w": "أَنْجَحَ", "en": "to make succeed, to crown with success", "root": "ن-ج-ح", "type": "verb", "kind": "verb", "form": "IV", "past": "أَنْجَحَ", "pres": "يُنْجِحُ", "masdar": "إِنْجاح", "src": "msa"}
+{"w": "نَجْد", "en": "highland, plateau", "root": "ن-ج-د", "type": "noun", "kind": "noun", "gender": "m", "plural": "نُجود", "src": "quran", "q": "90:10:1-2", "qen": "and We showed him the two highways", "note": "The Qur'an uses the dual, the two ways (of good and evil)."}
+{"skip": "نَّجْدَيْن", "why": "dual of نَجْد, already an entry"}
+{"w": "نَجْدَة", "en": "help, rescue, bravery", "root": "ن-ج-د", "type": "noun", "kind": "noun of instance", "gender": "f", "plural": "نَجَدات", "src": "msa"}
+{"w": "اِسْتَنْجَدَ", "en": "to call for help", "root": "ن-ج-د", "type": "verb", "kind": "verb", "form": "X", "past": "اِسْتَنْجَدَ", "pres": "يَسْتَنْجِدُ", "masdar": "اِسْتِنْجاد", "src": "msa"}
+{"w": "نَجَس", "en": "impure, filth", "root": "ن-ج-س", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "quran", "q": "9:28:6-7", "qen": "the polytheists are indeed impure"}
+{"w": "نَجِس", "en": "impure, unclean", "root": "ن-ج-س", "type": "adjective", "kind": "adjective", "plural": "أَنْجاس", "src": "msa"}
+{"w": "نَجاسَة", "en": "impurity, filth", "root": "ن-ج-س", "type": "noun", "kind": "noun", "gender": "f", "plural": "نَجاسات", "src": "msa"}
+{"w": "نَجَّسَ", "en": "to defile, to make impure", "root": "ن-ج-س", "type": "verb", "kind": "verb", "form": "II", "past": "نَجَّسَ", "pres": "يُنَجِّسُ", "masdar": "تَنْجيس", "src": "msa"}
+{"skip": "انجيل", "why": "إِنْجيل (Gospel) is a Greek loanword with no true root here; it belongs to the rootless shard"}
+{"w": "نَجْل", "en": "offspring, son", "root": "ن-ج-ل", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَنْجال", "src": "msa"}
+{"w": "مِنْجَل", "en": "sickle", "root": "ن-ج-ل", "type": "noun", "kind": "noun of instrument", "gender": "m", "plural": "مَناجِل", "src": "msa"}
+{"w": "نَجْم", "en": "star", "root": "ن-ج-م", "type": "noun", "kind": "noun", "gender": "m", "plural": "نُجوم", "src": "quran", "q": "6:97:3-5", "qen": "who made the stars for you", "see": [{"w": "كَوْكَب", "label": "Synonym (planet, star)"}]}
+{"skip": "في", "why": "النُّجوم (52:49) is the plural of نَجْم, already an entry; the dossier lemma is a mis-tag"}
+{"w": "نَجْمَة", "en": "star", "root": "ن-ج-م", "type": "noun", "kind": "noun of instance", "gender": "f", "plural": "نَجَمات", "src": "msa"}
+{"w": "مَنْجَم", "en": "mine", "root": "ن-ج-م", "type": "noun", "kind": "noun of place", "gender": "m", "plural": "مَناجِم", "src": "msa"}
+{"w": "نَجَمَ", "en": "to appear, to emerge", "root": "ن-ج-م", "type": "verb", "kind": "verb", "form": "I", "past": "نَجَمَ", "pres": "يَنْجُمُ", "masdar": "نُجوم", "src": "msa"}
+{"w": "نَجَّمَ", "en": "to cast horoscopes", "root": "ن-ج-م", "type": "verb", "kind": "verb", "form": "II", "past": "نَجَّمَ", "pres": "يُنَجِّمُ", "masdar": "تَنْجيم", "src": "msa"}
+{"w": "تَنْجيم", "en": "astrology", "root": "ن-ج-م", "type": "masdar", "kind": "masdar", "form": "II", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مُنَجِّم", "en": "astrologer", "root": "ن-ج-م", "type": "participle", "kind": "active participle", "form": "II", "gender": "m", "plural": "مُنَجِّمون", "src": "msa"}
+{"w": "نَجا", "en": "to be saved, to escape", "root": "ن-ج-و", "type": "verb", "kind": "verb", "form": "I", "past": "نَجا", "pres": "يَنْجو", "masdar": "نَجاة", "src": "quran", "q": "12:45:2-4", "qen": "the one of the two who was saved"}
+{"w": "نَجّى", "en": "to save, to rescue", "root": "ن-ج-و", "type": "verb", "kind": "verb", "form": "II", "past": "نَجّى", "pres": "يُنَجِّي", "masdar": "تَنْجِيَة", "src": "quran", "q": "2:49:2-5", "qen": "We saved you from the people of Pharaoh"}
+{"w": "أَنْجى", "en": "to save, to deliver", "root": "ن-ج-و", "type": "verb", "kind": "verb", "form": "IV", "past": "أَنْجى", "pres": "يُنْجي", "masdar": "إِنْجاء", "src": "quran", "q": "2:50:5-8", "qen": "then We saved you and drowned Pharaoh's people"}
+{"w": "ناجَى", "en": "to confide in, to whisper to", "root": "ن-ج-و", "type": "verb", "kind": "verb", "form": "III", "past": "ناجَى", "pres": "يُناجي", "masdar": "مُناجاة", "src": "quran", "q": "58:12:6-7", "qen": "when you consult the Messenger privately"}
+{"w": "تَناجى", "en": "to confer secretly", "root": "ن-ج-و", "type": "verb", "kind": "verb", "form": "VI", "past": "تَناجى", "pres": "يَتَناجى", "masdar": "تَناجِي", "src": "quran", "q": "58:8:13-15", "qen": "and they confer together in sin and aggression"}
+{"w": "اِسْتَنْجى", "en": "to clean oneself after relieving nature", "root": "ن-ج-و", "type": "verb", "kind": "verb", "form": "X", "past": "اِسْتَنْجى", "pres": "يَسْتَنْجي", "masdar": "اِسْتِنْجاء", "src": "msa"}
+{"w": "نَجْوى", "en": "secret talk, private conversation", "root": "ن-ج-و", "type": "noun", "kind": "noun", "gender": "f", "plural": "نَجاوى", "src": "quran", "q": "4:114:4-6", "qen": "much of their secret talk"}
+{"w": "نَجِيّ", "en": "confidant, private counsel", "root": "ن-ج-و", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "quran", "q": "12:80:4-5", "qen": "they withdrew to confer privately"}
+{"w": "ناجِي", "en": "saved, survivor", "root": "ن-ج-و", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "plural": "ناجون", "src": "quran", "q": "12:42:3-6", "qen": "he thought would be saved of the two"}
+{"w": "مُنَجِّي", "en": "savior, one who rescues", "root": "ن-ج-و", "type": "participle", "kind": "active participle", "form": "II", "gender": "m", "plural": "مُنَجّون", "src": "quran", "q": "15:59:4-6", "qen": "we will surely save them all"}
+{"skip": "مُنَجُّو", "why": "plural (construct) of مُنَجِّي, already an entry"}
+{"w": "نَجاة", "en": "salvation, survival", "root": "ن-ج-و", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "quran", "q": "40:41:5-7", "qen": "I call you to salvation", "see": [{"w": "هَلاك", "label": "Opposite (destruction)"}]}
+{"w": "مَنْجاة", "en": "refuge, means of escape", "root": "ن-ج-و", "type": "noun", "kind": "noun of place", "gender": "f", "src": "msa", "noplural": true}
+{"w": "مُناجاة", "en": "intimate talk, communion", "root": "ن-ج-و", "type": "masdar", "kind": "masdar", "form": "III", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "اِنْتَحَبَ", "en": "to sob, to wail", "root": "ن-ح-ب", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِنْتَحَبَ", "pres": "يَنْتَحِبُ", "masdar": "اِنْتِحاب", "src": "msa"}
+{"w": "نَحيب", "en": "sobbing, wailing", "root": "ن-ح-ب", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"skip": "نَحْب", "why": "real Qur'anic noun نَحْب (33:23, vow) left out: the corpus files it under ح-ب-ب so the excerpt cannot validate"}
+{"skip": "نَاج", "why": "the participle is entered as ناجِي"}
+{"skip": "نَّجَوٰة", "why": "النَّجاة, the same word as the entry نَجاة"}
+{"w": "نَحَتَ", "en": "to carve, to sculpt", "root": "ن-ح-ت", "type": "verb", "kind": "verb", "form": "I", "past": "نَحَتَ", "pres": "يَنْحِتُ", "masdar": "نَحْت", "src": "quran", "q": "7:74:15-17", "qen": "and you carve houses out of the mountains"}
+{"w": "نَحْت", "en": "carving, sculpture", "root": "ن-ح-ت", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "plural": "نُحوت", "src": "msa"}
+{"w": "مَنْحوت", "en": "carved, sculpted", "root": "ن-ح-ت", "type": "participle", "kind": "passive participle", "form": "I", "gender": "m", "src": "msa"}
+{"w": "نَحّات", "en": "sculptor", "root": "ن-ح-ت", "type": "noun", "kind": "noun", "gender": "m", "plural": "نَحّاتون", "src": "msa"}
+{"w": "نَحَرَ", "en": "to slaughter, to sacrifice", "root": "ن-ح-ر", "type": "verb", "kind": "verb", "form": "I", "past": "نَحَرَ", "pres": "يَنْحَرُ", "masdar": "نَحْر", "src": "quran", "q": "108:2:1-3", "qen": "so pray to your Lord and sacrifice"}
+{"w": "نَحْر", "en": "slaughter, throat", "root": "ن-ح-ر", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "plural": "نُحور", "src": "msa"}
+{"w": "اِنْتَحَرَ", "en": "to commit suicide", "root": "ن-ح-ر", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِنْتَحَرَ", "pres": "يَنْتَحِرُ", "masdar": "اِنْتِحار", "src": "msa"}
+{"w": "اِنْتِحار", "en": "suicide", "root": "ن-ح-ر", "type": "masdar", "kind": "masdar", "form": "VIII", "gender": "m", "plural": "اِنْتِحارات", "src": "msa"}
+{"w": "مُنْتَحِر", "en": "person who commits suicide", "root": "ن-ح-ر", "type": "participle", "kind": "active participle", "form": "VIII", "gender": "m", "plural": "مُنْتَحِرون", "src": "msa"}
+{"w": "تَناحَرَ", "en": "to fight one another to the death", "root": "ن-ح-ر", "type": "verb", "kind": "verb", "form": "VI", "past": "تَناحَرَ", "pres": "يَتَناحَرُ", "masdar": "تَناحُر", "src": "msa"}
+{"w": "نَحْس", "en": "bad luck, ill omen", "root": "ن-ح-س", "type": "noun", "kind": "noun", "gender": "m", "plural": "نُحوس", "src": "quran", "q": "54:19:6-8", "qen": "on a day of ill fortune", "see": [{"w": "حَظّ", "label": "Often paired with (luck)"}]}
+{"w": "نَحِس", "en": "ill-omened, unlucky", "root": "ن-ح-س", "type": "adjective", "kind": "adjective", "plural": "نَحِسات", "src": "quran", "q": "41:16:6-7", "qen": "in days of misfortune"}
+{"skip": "نَّحِسَات", "why": "feminine plural of نَحِس, already an entry"}
+{"w": "نُحاس", "en": "copper", "root": "ن-ح-س", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "quran", "q": "55:35:3-6", "qen": "a flame of fire and molten brass", "note": "In 55:35 it is read as copper-like smoke or molten metal; modern usage is copper."}
+{"w": "مَنْحوس", "en": "unlucky", "root": "ن-ح-س", "type": "participle", "kind": "passive participle", "form": "I", "gender": "m", "src": "msa"}
+{"w": "نِحْلَة", "en": "gift, dowry; sect", "root": "ن-ح-ل", "type": "noun", "kind": "noun", "gender": "f", "plural": "نِحَل", "src": "quran", "q": "4:4:2-4", "qen": "and give the women their dowries as a gift", "note": "In 4:4 it is a freely given gift; in modern usage also a creed or sect."}
+{"w": "نَحْل", "en": "bees", "root": "ن-ح-ل", "type": "noun", "kind": "collective noun", "gender": "m", "noplural": true, "src": "quran", "q": "16:68:2-4", "qen": "your Lord inspired the bee"}
+{"w": "نَحْلَة", "en": "a bee", "root": "ن-ح-ل", "type": "noun", "kind": "noun of instance", "gender": "f", "plural": "نَحْل", "src": "msa"}
+{"w": "نَحيل", "en": "thin, slender", "root": "ن-ح-ل", "type": "adjective", "kind": "adjective", "src": "msa"}
+{"w": "اِنْتَحَلَ", "en": "to usurp, to plagiarize", "root": "ن-ح-ل", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِنْتَحَلَ", "pres": "يَنْتَحِلُ", "masdar": "اِنْتِحال", "src": "msa"}
+{"w": "اِنْتِحال", "en": "plagiarism, impersonation", "root": "ن-ح-ل", "type": "masdar", "kind": "masdar", "form": "VIII", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "نَخِر", "en": "rotten, decayed", "root": "ن-خ-ر", "type": "adjective", "kind": "adjective", "src": "quran", "q": "79:11:3-4", "qen": "bones that are decayed"}
+{"skip": "نَّخِرَة", "why": "feminine of نَخِر, already an entry"}
+{"w": "مِنْخَر", "en": "nostril", "root": "ن-خ-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "مَناخِر", "src": "msa"}
+{"w": "نَخْل", "en": "date palms", "root": "ن-خ-ل", "type": "noun", "kind": "collective noun", "gender": "m", "noplural": true, "src": "quran", "q": "6:99:19-20", "qen": "and from the palm trees"}
+{"w": "نَخيل", "en": "date palms", "root": "ن-خ-ل", "type": "noun", "kind": "collective noun", "gender": "m", "noplural": true, "src": "quran", "q": "2:266:6-9", "qen": "a garden of palms and vines"}
+{"w": "نَخْلَة", "en": "palm tree", "root": "ن-خ-ل", "type": "noun", "kind": "noun of instance", "gender": "f", "plural": "نَخيل", "src": "quran", "q": "19:23:4-5", "qen": "to the trunk of the palm tree"}
+{"w": "نَخَلَ", "en": "to sift", "root": "ن-خ-ل", "type": "verb", "kind": "verb", "form": "I", "past": "نَخَلَ", "pres": "يَنْخُلُ", "masdar": "نَخْل", "src": "msa"}
+{"w": "مِنْخَل", "en": "sieve", "root": "ن-خ-ل", "type": "noun", "kind": "noun of instrument", "gender": "m", "plural": "مَناخِل", "src": "msa"}
+{"w": "نُخالَة", "en": "bran", "root": "ن-خ-ل", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "نِدّ", "en": "equal, rival", "root": "ن-د-د", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَنْداد", "src": "quran", "q": "2:22:19-21", "qen": "so do not set up rivals to God"}
+{"skip": "أَندَاد", "why": "plural of نِدّ, already an entry"}
+{"w": "نَدَّدَ", "en": "to denounce, to condemn", "root": "ن-د-د", "type": "verb", "kind": "verb", "form": "II", "past": "نَدَّدَ", "pres": "يُنَدِّدُ", "masdar": "تَنْديد", "src": "msa"}
+{"w": "تَنْديد", "en": "denunciation, condemnation", "root": "ن-د-د", "type": "masdar", "kind": "masdar", "form": "II", "gender": "m", "plural": "تَنْديدات", "src": "msa"}
+{"w": "نَدِمَ", "en": "to regret", "root": "ن-د-م", "type": "verb", "kind": "verb", "form": "I", "past": "نَدِمَ", "pres": "يَنْدَمُ", "masdar": "نَدَم", "src": "msa"}
+{"w": "نادِم", "en": "regretful", "root": "ن-د-م", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "plural": "نادِمون", "src": "quran", "q": "5:31:24-26", "qen": "and he became one of the regretful"}
+{"skip": "نَٰدِمِين", "why": "plural of نادِم, already an entry"}
+{"w": "نَدَم", "en": "regret", "root": "ن-د-م", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "نَدامَة", "en": "regret, remorse", "root": "ن-د-م", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "quran", "q": "10:54:11-12", "qen": "and they concealed their regret"}
+{"w": "نَديم", "en": "drinking companion, boon companion", "root": "ن-د-م", "type": "noun", "kind": "noun", "gender": "m", "plural": "نُدَماء", "src": "msa"}
+{"w": "نادَى", "en": "to call, to summon", "root": "ن-د-و", "type": "verb", "kind": "verb", "form": "III", "past": "نادَى", "pres": "يُنادِي", "masdar": "نِداء", "src": "quran", "q": "3:39:1-2", "qen": "Then the angels called to him"}
+{"w": "نِداء", "en": "call, appeal", "root": "ن-د-و", "type": "masdar", "kind": "masdar", "form": "III", "gender": "m", "plural": "نِداءات", "src": "quran", "q": "2:171:10-12", "qen": "except a call and a cry"}
+{"w": "مُنادِي", "en": "caller, crier", "root": "ن-د-و", "type": "participle", "kind": "active participle", "form": "III", "gender": "m", "plural": "مُنادُون", "src": "quran", "q": "3:193:3-5", "qen": "we heard a caller calling"}
+{"skip": "مُنَاد", "why": "the same participle, spelled without the final ي; entered as مُنادِي"}
+{"skip": "نَادِي", "why": "the bank already holds نادي (club, assembly)"}
+{"w": "نَدِيّ", "en": "assembly, gathering place", "root": "ن-د-ي", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَنْدِيَة", "src": "quran", "q": "19:73:15-16", "qen": "and finer in assembly"}
+{"w": "نَدِيّ", "en": "damp, dewy", "root": "ن-د-و", "type": "adjective", "kind": "adjective", "src": "msa"}
+{"w": "تَنادِي", "en": "mutual calling", "root": "ن-د-ي", "type": "masdar", "kind": "masdar", "form": "VI", "gender": "m", "noplural": true, "src": "quran", "q": "40:32:5-7", "qen": "I fear for you the Day of Mutual Calling", "note": "Spelled التَّنَاد in 40:32, with the final ي dropped."}
+{"skip": "تَّنَاد", "why": "the verbal noun entered as تَنادِي"}
+{"w": "مُناداة", "en": "calling, appeal", "root": "ن-د-و", "type": "masdar", "kind": "masdar", "form": "III", "gender": "f", "src": "msa", "noplural": true}
+{"w": "مُنْتَدَى", "en": "forum, club", "root": "ن-د-و", "type": "noun", "kind": "noun of place", "gender": "m", "plural": "مُنْتَدَيات", "src": "msa"}
+{"w": "نَدْوَة", "en": "seminar, symposium", "root": "ن-د-و", "type": "noun", "kind": "noun", "gender": "f", "plural": "نَدَوات", "src": "msa"}
+{"w": "نَدَى", "en": "dew, generosity", "root": "ن-د-و", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "تَنادَى", "en": "to call one another", "root": "ن-د-ي", "type": "verb", "kind": "verb", "form": "VI", "past": "تَنادَى", "pres": "يَتَنادَى", "masdar": "تَنادِي", "src": "quran", "q": "68:21:1-2", "qen": "And they called out to one another in the morning"}
+{"skip": "V:I:ندي", "why": "the verb is تَنادَى, form VI, entered"}
+{"w": "أَنْذَرَ", "en": "to warn", "root": "ن-ذ-ر", "type": "verb", "kind": "verb", "form": "IV", "past": "أَنْذَرَ", "pres": "يُنْذِرُ", "masdar": "إِنْذار", "src": "quran", "q": "2:6:6-9", "qen": "whether you warn them or do not warn them"}
+{"w": "نَذَرَ", "en": "to vow, to dedicate", "root": "ن-ذ-ر", "type": "verb", "kind": "verb", "form": "I", "past": "نَذَرَ", "pres": "يَنْذِرُ", "masdar": "نَذْر", "src": "quran", "q": "2:270:6-8", "qen": "or you vow any vow"}
+{"w": "نَذير", "en": "warner", "root": "ن-ذ-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "نُذُر", "src": "quran", "q": "2:119:4-5", "qen": "as a bringer of good news and a warner", "see": [{"w": "بَشير", "label": "Opposite (bringer of good news)"}]}
+{"w": "مُنْذِر", "en": "warner", "root": "ن-ذ-ر", "type": "participle", "kind": "active participle", "form": "IV", "gender": "m", "plural": "مُنْذِرون", "src": "quran", "q": "2:213:8-9", "qen": "as bearers of good news and warners"}
+{"w": "مُنْذَر", "en": "one who has been warned", "root": "ن-ذ-ر", "type": "participle", "kind": "passive participle", "form": "IV", "gender": "m", "plural": "مُنْذَرون", "src": "quran", "q": "10:73:16-17", "qen": "the end of those who were warned"}
+{"skip": "مُنذَرِين", "why": "plural of مُنْذَر, already an entry"}
+{"skip": "انذر", "why": "inflected form of the verb IV أَنْذَرَ already listed"}
+{"w": "نَذْر", "en": "vow", "root": "ن-ذ-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "نُذور", "src": "quran", "q": "2:270:6-8", "qen": "or you vow any vow"}
+{"skip": "نُذُور", "why": "plural of نَذْر, already an entry"}
+{"w": "نُذْر", "en": "warning", "root": "ن-ذ-ر", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "quran", "q": "77:6:1-3", "qen": "as an excuse or a warning"}
+{"w": "إِنْذار", "en": "warning, ultimatum", "root": "ن-ذ-ر", "type": "masdar", "kind": "masdar", "form": "IV", "gender": "m", "plural": "إِنْذارات", "src": "msa"}
+{"w": "مَنْذور", "en": "vowed, dedicated", "root": "ن-ذ-ر", "type": "participle", "kind": "passive participle", "form": "I", "gender": "m", "src": "msa"}
+{"w": "نَزَعَ", "en": "to remove, to pull out", "root": "ن-ز-ع", "type": "verb", "kind": "verb", "form": "I", "past": "نَزَعَ", "pres": "يَنْزِعُ", "masdar": "نَزْع", "src": "quran", "q": "3:26:9-10", "qen": "and You take the kingdom away"}
+{"w": "تَنازَعَ", "en": "to dispute, to contend", "root": "ن-ز-ع", "type": "verb", "kind": "verb", "form": "VI", "past": "تَنازَعَ", "pres": "يَتَنازَعُ", "masdar": "تَنازُع", "src": "quran", "q": "3:152:11-13", "qen": "and you disputed about the matter"}
+{"w": "نازَعَ", "en": "to dispute with, to contest", "root": "ن-ز-ع", "type": "verb", "kind": "verb", "form": "III", "past": "نازَعَ", "pres": "يُنازِعُ", "masdar": "مُنازَعة", "src": "quran", "q": "22:67:8-10", "qen": "so let them not dispute with you about the matter"}
+{"w": "نازِع", "en": "one who pulls out", "root": "ن-ز-ع", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "plural": "نازِعات", "src": "quran", "q": "79:1:1-2", "qen": "By those who pull out forcefully"}
+{"skip": "نَّٰزِعَٰت", "why": "feminine plural of نازِع, already an entry"}
+{"w": "نَزّاعَة", "en": "tearing away", "root": "ن-ز-ع", "type": "adjective", "kind": "intensive adjective", "src": "quran", "q": "70:16:1-2", "qen": "tearing away the limbs"}
+{"w": "اِنْتَزَعَ", "en": "to wrest, to snatch away", "root": "ن-ز-ع", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِنْتَزَعَ", "pres": "يَنْتَزِعُ", "masdar": "اِنْتِزاع", "src": "msa"}
+{"w": "نَزْع", "en": "removal, pulling out", "root": "ن-ز-ع", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "نِزاع", "en": "dispute, conflict", "root": "ن-ز-ع", "type": "masdar", "kind": "masdar", "form": "III", "gender": "m", "plural": "نِزاعات", "src": "msa"}
+{"w": "مُنازَعة", "en": "dispute, contention", "root": "ن-ز-ع", "type": "masdar", "kind": "masdar", "form": "III", "gender": "f", "plural": "مُنازَعات", "src": "msa"}
+{"w": "تَنازُع", "en": "mutual dispute, conflict", "root": "ن-ز-ع", "type": "masdar", "kind": "masdar", "form": "VI", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "نَزْعَة", "en": "tendency, inclination", "root": "ن-ز-ع", "type": "noun", "kind": "noun", "gender": "f", "plural": "نَزَعات", "src": "msa"}
+{"w": "مَنْزوع", "en": "removed, extracted", "root": "ن-ز-ع", "type": "participle", "kind": "passive participle", "form": "I", "gender": "m", "src": "msa"}
+{"w": "نَزَغَ", "en": "to incite, to provoke", "root": "ن-ز-غ", "type": "verb", "kind": "verb", "form": "I", "past": "نَزَغَ", "pres": "يَنْزَغُ", "masdar": "نَزْغ", "src": "quran", "q": "7:200:2-5", "qen": "if an incitement from Satan provokes you"}
+{"w": "نَزْغ", "en": "incitement, evil whisper", "root": "ن-ز-غ", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "quran", "q": "7:200:5-7", "qen": "an incitement, then seek refuge with God"}
+{"w": "نَزَفَ", "en": "to bleed, to drain", "root": "ن-ز-ف", "type": "verb", "kind": "verb", "form": "I", "past": "نَزَفَ", "pres": "يَنْزِفُ", "masdar": "نَزْف", "src": "quran", "q": "37:47:5-7", "qen": "nor will they be drained of sense by it", "note": "In 37:47 the passive means to be intoxicated."}
+{"w": "أَنْزَفَ", "en": "to exhaust, to drain dry", "root": "ن-ز-ف", "type": "verb", "kind": "verb", "form": "IV", "past": "أَنْزَفَ", "pres": "يُنْزِفُ", "masdar": "إِنْزاف", "src": "quran", "q": "56:19:4-5", "qen": "nor will they be intoxicated", "note": "In 56:19 it means to become intoxicated."}
+{"w": "نَزيف", "en": "bleeding, hemorrhage", "root": "ن-ز-ف", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "اِسْتَنْزَفَ", "en": "to drain, to exhaust", "root": "ن-ز-ف", "type": "verb", "kind": "verb", "form": "X", "past": "اِسْتَنْزَفَ", "pres": "يَسْتَنْزِفُ", "masdar": "اِسْتِنْزاف", "src": "msa"}
+{"w": "اِسْتِنْزاف", "en": "depletion, attrition", "root": "ن-ز-ف", "type": "masdar", "kind": "masdar", "form": "X", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "نازِف", "en": "bleeding", "root": "ن-ز-ف", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "src": "msa"}

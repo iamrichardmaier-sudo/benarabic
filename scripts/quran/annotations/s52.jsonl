@@ -1,0 +1,176 @@
+{"w": "لَقِيَ", "en": "to meet", "root": "ل-ق-ي", "type": "verb", "kind": "verb", "form": "I", "past": "لَقِيَ", "pres": "يَلْقى", "masdar": "لِقاء", "src": "quran", "q": "2:14:1-4", "qen": "when they meet those who believe"}
+{"w": "أَلْقى", "en": "to throw", "root": "ل-ق-ي", "type": "verb", "kind": "verb", "form": "IV", "past": "أَلْقى", "pres": "يُلْقي", "masdar": "إِلْقاء", "src": "quran", "q": "20:20:1-5", "qen": "so he threw it down, and suddenly it was a snake moving fast"}
+{"w": "اِلْتَقى", "en": "to meet each other", "root": "ل-ق-ي", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِلْتَقى", "pres": "يَلْتَقي", "masdar": "اِلْتِقاء", "src": "quran", "q": "3:13:5-7", "qen": "in two armies that met each other"}
+{"w": "لَقّى", "en": "to cause to receive", "root": "ل-ق-ي", "type": "verb", "kind": "verb", "form": "II", "past": "لَقّى", "pres": "يُلَقّي", "masdar": "تَلْقِية", "src": "quran", "q": "25:75:6-8", "qen": "and they will be received there with greetings", "note": "Mostly met in the passive, 'to be received with'."}
+{"w": "لاقَى", "en": "to encounter", "root": "ل-ق-ي", "type": "verb", "kind": "verb", "form": "III", "past": "لاقَى", "pres": "يُلاقِي", "masdar": "مُلاقاة", "src": "quran", "q": "28:61:5-6", "qen": "so he is going to meet it"}
+{"w": "تَلَقّى", "en": "to receive", "root": "ل-ق-ي", "type": "verb", "kind": "verb", "form": "V", "past": "تَلَقّى", "pres": "يَتَلَقّى", "masdar": "تَلَقٍّ", "src": "quran", "q": "21:103:5-6", "qen": "and the angels will receive them"}
+{"w": "لِقاء", "en": "meeting", "root": "ل-ق-ي", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "quran", "q": "6:130:13-14", "qen": "the meeting of this day of yours"}
+{"w": "مُلاقِي", "en": "one who meets", "root": "ل-ق-ي", "type": "participle", "kind": "active participle", "form": "III", "gender": "m", "plural": "مُلاقون", "src": "quran", "q": "69:20:1-4", "qen": "I was sure that I would meet"}
+{"w": "مُلْقِي", "en": "one who throws", "root": "ل-ق-ي", "type": "participle", "kind": "active participle", "form": "IV", "gender": "m", "plural": "مُلْقون", "src": "quran", "q": "7:115:4-11", "qen": "either you throw, or we will be the ones who throw"}
+{"w": "مُتَلَقِّي", "en": "receiver", "root": "ل-ق-ي", "type": "participle", "kind": "active participle", "form": "V", "gender": "m", "plural": "مُتَلَقّون", "src": "quran", "q": "50:17:1-3", "qen": "when the two receivers receive"}
+{"w": "تَلاقِي", "en": "mutual meeting", "root": "ل-ق-ي", "type": "masdar", "kind": "masdar", "form": "VI", "gender": "m", "src": "quran", "q": "40:15:14-16", "qen": "to warn of the Day of Meeting"}
+{"w": "تِلْقاء", "en": "toward, in front of", "root": "ل-ق-ي", "type": "other", "kind": "adverb", "src": "quran", "q": "7:47:2-6", "qen": "when their eyes are turned toward the people of the Fire", "note": "Also used as مِنْ تِلْقاءِ نَفْسِهِ, 'of his own accord'."}
+{"skip": "مُّلَٰقُوا", "why": "plural of مُلاقِي"}
+{"skip": "مُلَٰقِي", "why": "مُلاقِي with the pronoun suffix"}
+{"skip": "مُلَٰق", "why": "مُلاقِي, the same participle in the indefinite genitive"}
+{"skip": "مُّلْقُون", "why": "plural of مُلْقِي"}
+{"skip": "مُلْقِيَٰت", "why": "feminine plural of مُلْقِي"}
+{"skip": "مُتَلَقِّيَان", "why": "dual of مُتَلَقِّي"}
+{"skip": "أَلْقَىٰ", "why": "the verb أَلْقى, same word as the entry"}
+{"skip": "يوم", "why": "the Qur'an word لِقاء, already an entry"}
+{"w": "اِسْتَلْقى", "en": "to lie on one's back", "root": "ل-ق-ي", "type": "verb", "kind": "verb", "form": "X", "past": "اِسْتَلْقى", "pres": "يَسْتَلْقي", "masdar": "اِسْتِلْقاء", "src": "msa"}
+{"w": "تَلاقى", "en": "to meet one another", "root": "ل-ق-ي", "type": "verb", "kind": "verb", "form": "VI", "past": "تَلاقى", "pres": "يَتَلاقى", "masdar": "تَلاقٍ", "src": "msa"}
+{"w": "مُلْتَقى", "en": "meeting place, junction", "root": "ل-ق-ي", "type": "noun", "kind": "noun of place", "gender": "m", "plural": "مُلْتَقَيات", "src": "msa"}
+{"w": "لُقْيا", "en": "encounter", "root": "ل-ق-ي", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "تِلْقائِيّ", "en": "automatic, spontaneous", "root": "ل-ق-ي", "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "لَمْح", "en": "glance, twinkling", "root": "ل-م-ح", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa", "note": "In 16:77 and 54:50, the twinkling of an eye, a figure for how fast the Hour will come."}
+{"w": "لَمَحَ", "en": "to glimpse", "root": "ل-م-ح", "type": "verb", "kind": "verb", "form": "I", "past": "لَمَحَ", "pres": "يَلْمَحُ", "masdar": "لَمْح", "src": "msa"}
+{"w": "أَلْمَحَ", "en": "to hint at", "root": "ل-م-ح", "type": "verb", "kind": "verb", "form": "IV", "past": "أَلْمَحَ", "pres": "يُلْمِحُ", "masdar": "إِلْماح", "src": "msa"}
+{"w": "لَمَّحَ", "en": "to allude to", "root": "ل-م-ح", "type": "verb", "kind": "verb", "form": "II", "past": "لَمَّحَ", "pres": "يُلَمِّحُ", "masdar": "تَلْمِيح", "src": "msa"}
+{"w": "لَمْحة", "en": "glance", "root": "ل-م-ح", "type": "noun", "kind": "noun of instance", "gender": "f", "plural": "لَمَحات", "src": "msa"}
+{"w": "مَلامِح", "en": "features, facial features", "root": "ل-م-ح", "type": "noun", "kind": "plural", "src": "msa"}
+{"w": "لَمَزَ", "en": "to slander", "root": "ل-م-ز", "type": "verb", "kind": "verb", "form": "I", "past": "لَمَزَ", "pres": "يَلْمِزُ", "masdar": "لَمْز", "src": "quran", "q": "9:58:1-5", "qen": "and among them are those who find fault with you over the alms"}
+{"w": "لُمَزَة", "en": "backbiter", "root": "ل-م-ز", "type": "adjective", "kind": "intensive adjective", "plural": "لُمَزون", "src": "quran", "q": "104:1:1-4", "qen": "woe to every slanderer and backbiter"}
+{"w": "لَمَسَ", "en": "to touch", "root": "ل-م-س", "type": "verb", "kind": "verb", "form": "I", "past": "لَمَسَ", "pres": "يَلْمِسُ", "masdar": "لَمْس", "src": "quran", "q": "4:43:34-35", "qen": "or you have touched women"}
+{"w": "اِلْتَمَسَ", "en": "to seek, to request", "root": "ل-م-س", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِلْتَمَسَ", "pres": "يَلْتَمِسُ", "masdar": "اِلْتِماس", "src": "quran", "q": "57:13:14-15", "qen": "so seek a light"}
+{"w": "لامَسَ", "en": "to be in contact with", "root": "ل-م-س", "type": "verb", "kind": "verb", "form": "III", "past": "لامَسَ", "pres": "يُلامِسُ", "masdar": "مُلامَسة", "src": "msa"}
+{"w": "مَلْموس", "en": "tangible", "root": "ل-م-س", "type": "participle", "kind": "passive participle", "form": "I", "src": "msa"}
+{"w": "مَلْمَس", "en": "texture, feel", "root": "ل-م-س", "type": "noun", "kind": "noun of place", "gender": "m", "plural": "مَلامِس", "src": "msa"}
+{"w": "لَمَعَ", "en": "to shine, to gleam", "root": "ل-م-ع", "type": "verb", "kind": "verb", "form": "I", "past": "لَمَعَ", "pres": "يَلْمَعُ", "masdar": "لَمَعان", "src": "msa"}
+{"w": "لامِع", "en": "shining, brilliant", "root": "ل-م-ع", "type": "participle", "kind": "active participle", "form": "I", "plural": "لامِعون", "src": "msa"}
+{"w": "لَمَّعَ", "en": "to polish, to make shine", "root": "ل-م-ع", "type": "verb", "kind": "verb", "form": "II", "past": "لَمَّعَ", "pres": "يُلَمِّعُ", "masdar": "تَلْمِيع", "src": "msa"}
+{"skip": "مع", "why": "لَمَعَ here is لَ + مَعَ, a particle and preposition, not the verb"}
+{"skip": "لم", "why": "negative particle, function word"}
+{"skip": "ما", "why": "لَمَّا, a function word"}
+{"skip": "من", "why": "function word مَنْ with the prefix لِ"}
+{"skip": "لن", "why": "negative particle, function word"}
+{"skip": "الا", "why": "function word, لَنا is لِ plus the pronoun نا"}
+{"w": "لَمَّ", "en": "to gather", "root": "ل-م-م", "type": "verb", "kind": "verb", "form": "I", "past": "لَمَّ", "pres": "يَلُمُّ", "masdar": "لَمّ", "src": "msa"}
+{"w": "لَمّ", "en": "gathering up, greedily", "root": "ل-م-م", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "quran", "q": "89:19:3-4", "qen": "and you devour the inheritance greedily, all together"}
+{"w": "لَمَم", "en": "minor sins", "root": "ل-م-م", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "quran", "q": "53:32:6-7", "qen": "except for minor lapses", "note": "In modern usage it can also mean a touch of madness."}
+{"w": "هَلُمَّ", "en": "come here, bring", "root": "ل-م-م", "type": "other", "kind": "expression", "src": "msa", "note": "Occurs in 6:150 and 33:18, as a call to come over or bring."}
+{"w": "مُلِمَّة", "en": "calamity, misfortune", "root": "ل-م-م", "type": "noun", "kind": "noun", "gender": "f", "plural": "مُلِمّات", "src": "msa"}
+{"w": "لَهَب", "en": "flame", "root": "ل-ه-ب", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "quran", "q": "77:31:3-6", "qen": "neither shading nor of any use against the flame"}
+{"w": "لَهِيب", "en": "blaze, flame", "root": "ل-ه-ب", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "اِلْتَهَبَ", "en": "to flare up, to blaze", "root": "ل-ه-ب", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِلْتَهَبَ", "pres": "يَلْتَهِبُ", "masdar": "اِلْتِهاب", "src": "msa"}
+{"w": "اِلْتِهاب", "en": "inflammation, blazing", "root": "ل-ه-ب", "type": "masdar", "kind": "masdar", "form": "VIII", "gender": "m", "plural": "اِلْتِهابات", "src": "msa"}
+{"w": "مُلْتَهِب", "en": "blazing, inflamed", "root": "ل-ه-ب", "type": "participle", "kind": "active participle", "form": "VIII", "src": "msa"}
+{"w": "لَهِثَ", "en": "to pant", "root": "ل-ه-ث", "type": "verb", "kind": "verb", "form": "I", "past": "لَهِثَ", "pres": "يَلْهَثُ", "masdar": "لَهْث", "src": "quran", "q": "7:176:15-17", "qen": "if you load it, it lolls out its tongue panting"}
+{"w": "لُهاث", "en": "panting", "root": "ل-ه-ث", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "أَلْهَمَ", "en": "to inspire", "root": "ل-ه-م", "type": "verb", "kind": "verb", "form": "IV", "past": "أَلْهَمَ", "pres": "يُلْهِمُ", "masdar": "إِلْهام", "src": "msa", "note": "Occurs in 91:8, God inspired the soul with its wrongdoing and its piety."}
+{"w": "اِلْتَهَمَ", "en": "to devour", "root": "ل-ه-م", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِلْتَهَمَ", "pres": "يَلْتَهِمُ", "masdar": "اِلْتِهام", "src": "msa"}
+{"w": "اِسْتَلْهَمَ", "en": "to draw inspiration from", "root": "ل-ه-م", "type": "verb", "kind": "verb", "form": "X", "past": "اِسْتَلْهَمَ", "pres": "يَسْتَلْهِمُ", "masdar": "اِسْتِلْهام", "src": "msa"}
+{"w": "مُلْهِم", "en": "inspiring", "root": "ل-ه-م", "type": "participle", "kind": "active participle", "form": "IV", "src": "msa"}
+{"w": "مُلْهَم", "en": "inspired", "root": "ل-ه-م", "type": "participle", "kind": "passive participle", "form": "IV", "src": "msa"}
+{"w": "لَهْو", "en": "amusement, diversion", "root": "ل-ه-و", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "quran", "q": "6:32:5-6", "qen": "is only play and amusement"}
+{"w": "أَلْهى", "en": "to distract", "root": "ل-ه-و", "type": "verb", "kind": "verb", "form": "IV", "past": "أَلْهى", "pres": "يُلْهي", "masdar": "إِلْهاء", "src": "quran", "q": "102:1:1-2", "qen": "rivalry in worldly gain distracts you"}
+{"w": "تَلَهّى", "en": "to be distracted, to amuse oneself", "root": "ل-ه-و", "type": "verb", "kind": "verb", "form": "V", "past": "تَلَهّى", "pres": "يَتَلَهّى", "masdar": "تَلَهٍّ", "src": "quran", "q": "80:10:1-3", "qen": "yet you pay no attention to him"}
+{"w": "لَها", "en": "to amuse oneself", "root": "ل-ه-و", "type": "verb", "kind": "verb", "form": "I", "past": "لَها", "pres": "يَلْهو", "masdar": "لَهْو", "src": "msa"}
+{"w": "لاهِي", "en": "distracted, heedless", "root": "ل-ه-و", "type": "participle", "kind": "active participle", "form": "I", "plural": "لاهون", "src": "quran", "q": "21:3:1-2", "qen": "their hearts distracted"}
+{"w": "مَلْهى", "en": "amusement place, nightclub", "root": "ل-ه-و", "type": "noun", "kind": "noun of place", "gender": "m", "plural": "مَلاهٍ", "src": "msa"}
+{"w": "لَهاة", "en": "uvula", "root": "ل-ه-و", "type": "noun", "kind": "noun", "gender": "f", "plural": "لَهَوات", "src": "msa"}
+{"skip": "لَاهِيَة", "why": "feminine of لاهِي"}
+{"skip": "لهو", "why": "the noun لَهْو in the spelling of 62:11"}
+{"skip": "له", "why": "function word, لَ with a pronoun"}
+{"skip": "لا", "why": "function word, لَ with a pronoun"}
+{"w": "لَوْح", "en": "board, tablet", "root": "ل-و-ح", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَلْواح", "src": "quran", "q": "7:145:1-4", "qen": "and We wrote for him on the tablets"}
+{"w": "لَوّاحة", "en": "scorching", "root": "ل-و-ح", "type": "adjective", "kind": "intensive adjective", "src": "quran", "q": "74:29:1-2", "qen": "scorching the skin of people", "note": "Describes Hell; related to لَوَّحَتْهُ الشَّمْسُ, 'the sun tanned or scorched him'."}
+{"w": "لاحَ", "en": "to appear, to gleam", "root": "ل-و-ح", "type": "verb", "kind": "verb", "form": "I", "past": "لاحَ", "pres": "يَلوحُ", "masdar": "لَوَحان", "src": "msa"}
+{"w": "لَوَّحَ", "en": "to wave", "root": "ل-و-ح", "type": "verb", "kind": "verb", "form": "II", "past": "لَوَّحَ", "pres": "يُلَوِّحُ", "masdar": "تَلْويح", "src": "msa"}
+{"w": "لائِحة", "en": "list, regulations", "root": "ل-و-ح", "type": "noun", "kind": "noun", "gender": "f", "plural": "لَوائِح", "src": "msa"}
+{"skip": "لوح", "why": "the noun لَوْح in the spelling of 85:22"}
+{"w": "لِواذ", "en": "slipping away by hiding behind others", "root": "ل-و-ذ", "type": "masdar", "kind": "masdar", "form": "III", "gender": "m", "src": "quran", "q": "24:63:13-15", "qen": "those of you who slip away, sheltering behind others"}
+{"w": "لاذَ", "en": "to take refuge", "root": "ل-و-ذ", "type": "verb", "kind": "verb", "form": "I", "past": "لاذَ", "pres": "يَلوذُ", "masdar": "لَوْذ", "src": "msa"}
+{"w": "مَلاذ", "en": "refuge", "root": "ل-و-ذ", "type": "noun", "kind": "noun of place", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "لُؤْلُؤ", "en": "pearls", "root": "ل-و-ل-و", "type": "noun", "kind": "collective noun", "gender": "m", "plural": "لَآلِئ", "src": "msa", "note": "Occurs six times in the Qur'an among the jewels of Paradise, e.g. 22:23."}
+{"w": "لُؤْلُؤة", "en": "a pearl", "root": "ل-و-ل-و", "type": "noun", "kind": "noun of instance", "gender": "f", "plural": "لُؤْلُؤات", "src": "msa"}
+{"w": "لُؤْلُؤِيّ", "en": "pearly", "root": "ل-و-ل-و", "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "لامَ", "en": "to blame", "root": "ل-و-م", "type": "verb", "kind": "verb", "form": "I", "past": "لامَ", "pres": "يَلومُ", "masdar": "لَوْم", "src": "quran", "q": "14:22:25-26", "qen": "so do not blame me, but blame yourselves"}
+{"w": "تَلاوَمَ", "en": "to blame one another", "root": "ل-و-م", "type": "verb", "kind": "verb", "form": "VI", "past": "تَلاوَمَ", "pres": "يَتَلاوَمُ", "masdar": "تَلاوُم", "src": "quran", "q": "68:30:2-5", "qen": "and some of them turned to others, blaming one another"}
+{"w": "مَلوم", "en": "blameworthy", "root": "ل-و-م", "type": "participle", "kind": "passive participle", "form": "I", "plural": "مَلومون", "src": "quran", "q": "17:29:11-12", "qen": "or you will sit down blamed"}
+{"w": "مُليم", "en": "blameworthy", "root": "ل-و-م", "type": "participle", "kind": "active participle", "form": "IV", "plural": "مُليمون", "src": "quran", "q": "37:142:2-4", "qen": "and the whale swallowed him, and he was to blame"}
+{"w": "لائِم", "en": "blamer, critic", "root": "ل-و-م", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "plural": "لُوّام", "src": "quran", "q": "5:54:28-29", "qen": "the blame of any blamer"}
+{"w": "لَوّامة", "en": "self-reproaching", "root": "ل-و-م", "type": "adjective", "kind": "intensive adjective", "src": "quran", "q": "75:2:3-4", "qen": "by the self-reproaching soul"}
+{"w": "لَوْمة", "en": "a reproach", "root": "ل-و-م", "type": "noun", "kind": "noun of instance", "gender": "f", "plural": "لَوْمات", "src": "quran", "q": "5:54:28-29", "qen": "the blame of any blamer"}
+{"w": "لَوْم", "en": "blame", "root": "ل-و-م", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مَلامة", "en": "blame, reproach", "root": "ل-و-م", "type": "noun", "kind": "noun", "gender": "f", "plural": "مَلامات", "src": "msa"}
+{"skip": "مال", "why": "a stray function-word spelling (وَلَمْ), not a word of this root"}
+{"skip": "لَوْن", "why": "already in the bank"}
+{"skip": "من", "why": "function word لِمَنْ, not a word of this root"}
+{"skip": "قد", "why": "function word لَقَدْ"}
+{"skip": "مءمن", "why": "لَسْتَ is the verb لَيْسَ with a pronoun suffix"}
+{"w": "لَوَّنَ", "en": "to colour", "root": "ل-و-ن", "type": "verb", "kind": "verb", "form": "II", "past": "لَوَّنَ", "pres": "يُلَوِّنُ", "masdar": "تَلْوين", "src": "msa"}
+{"w": "تَلَوَّنَ", "en": "to change colour", "root": "ل-و-ن", "type": "verb", "kind": "verb", "form": "V", "past": "تَلَوَّنَ", "pres": "يَتَلَوَّنُ", "masdar": "تَلَوُّن", "src": "msa"}
+{"w": "مُلَوَّن", "en": "coloured", "root": "ل-و-ن", "type": "participle", "kind": "passive participle", "form": "II", "src": "msa"}
+{"w": "لَوى", "en": "to twist, to bend", "root": "ل-و-ي", "type": "verb", "kind": "verb", "form": "I", "past": "لَوى", "pres": "يَلْوي", "masdar": "لَيّ", "src": "quran", "q": "3:78:3-6", "qen": "a group of them twist their tongues with the Book"}
+{"w": "لَوّى", "en": "to turn aside", "root": "ل-و-ي", "type": "verb", "kind": "verb", "form": "II", "past": "لَوّى", "pres": "يُلَوّي", "masdar": "تَلْوِية", "src": "quran", "q": "63:5:8-10", "qen": "they turn their heads away"}
+{"w": "لَيّ", "en": "twisting", "root": "ل-و-ي", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "quran", "q": "4:46:14-16", "qen": "twisting it with their tongues"}
+{"w": "لِواء", "en": "banner, brigadier", "root": "ل-و-ي", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَلْوِيَة", "src": "msa", "note": "Also a military rank and an administrative district in some Arab countries."}
+{"w": "اِلْتَوى", "en": "to be twisted, to bend", "root": "ل-و-ي", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِلْتَوى", "pres": "يَلْتَوي", "masdar": "اِلْتِواء", "src": "msa"}
+{"w": "تَلَوّى", "en": "to writhe", "root": "ل-و-ي", "type": "verb", "kind": "verb", "form": "V", "past": "تَلَوّى", "pres": "يَتَلَوّى", "masdar": "تَلَوٍّ", "src": "msa"}
+{"skip": "لولا", "why": "function word"}
+{"w": "لاتَ", "en": "to diminish, to withhold", "root": "ل-ي-ت", "type": "verb", "kind": "verb", "form": "I", "past": "لاتَ", "pres": "يَليتُ", "masdar": "لَيْت", "src": "msa", "note": "Occurs in 49:14 (He will not diminish any of your deeds). Rare today; the spelling لَيْت is also the common particle \"if only\"."}
+{"w": "لَيْسَ", "en": "is not", "root": "ل-ي-س", "type": "other", "kind": "expression", "src": "quran", "q": "2:113:3-6", "qen": "the Christians have no ground to stand on", "note": "Defective negating verb, used only in the past form with present meaning; it has no present tense or verbal noun."}
+{"skip": "ليس", "why": "the verb لَيْسَ, same word as the entry"}
+{"w": "لانَ", "en": "to be soft, gentle", "root": "ل-ي-ن", "type": "verb", "kind": "verb", "form": "I", "past": "لانَ", "pres": "يَلينُ", "masdar": "لِين", "src": "quran", "q": "39:23:14-17", "qen": "then their skins and hearts soften"}
+{"w": "أَلانَ", "en": "to soften", "root": "ل-ي-ن", "type": "verb", "kind": "verb", "form": "IV", "past": "أَلانَ", "pres": "يُلينُ", "masdar": "إِلانة", "src": "quran", "q": "34:10:11-13", "qen": "and We made iron soft for him"}
+{"w": "لَيِّن", "en": "soft, gentle", "root": "ل-ي-ن", "type": "adjective", "kind": "adjective", "plural": "لَيِّنون", "src": "quran", "q": "20:44:3-4", "qen": "a gentle word"}
+{"w": "لِينة", "en": "a kind of palm tree", "root": "ل-ي-ن", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "quran", "q": "59:5:2-4", "qen": "whatever palm trees you cut down"}
+{"w": "لَيَّنَ", "en": "to soften", "root": "ل-ي-ن", "type": "verb", "kind": "verb", "form": "II", "past": "لَيَّنَ", "pres": "يُلَيِّنُ", "masdar": "تَلْيين", "src": "msa"}
+{"skip": "مِائَة", "why": "a number, which belongs to the rootless shard"}
+{"skip": "V:I:ليس", "why": "لَيْسَ is the one entry for this negating verb; it has no present tense, so it is written as an expression"}
+{"w": "لَيْلِيّ", "en": "nightly, nocturnal", "root": "ل-ي-ل", "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"skip": "لَيْلَة", "why": "already in the bank"}
+{"skip": "لَيْل", "why": "already in the bank, the time adverb لَيْلًا is the same word"}
+{"skip": "ليل", "why": "already in the bank, لَيْل in the spelling of 52:49"}
+{"w": "مَتاع", "en": "belongings, provision", "root": "م-ت-ع", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَمْتِعة", "src": "quran", "q": "2:36:16-19", "qen": "you will have a settled place on earth and provision for a while"}
+{"w": "مَتَّعَ", "en": "to let enjoy, to provide for", "root": "م-ت-ع", "type": "verb", "kind": "verb", "form": "II", "past": "مَتَّعَ", "pres": "يُمَتِّعُ", "masdar": "تَمْتيع", "src": "quran", "q": "2:126:20-23", "qen": "and whoever disbelieves, I will let him enjoy a little"}
+{"skip": "V:V:متع", "why": "تَمَتَّعَ is already in the bank"}
+{"skip": "V:X:متع", "why": "اِسْتَمْتَعَ is already in the bank"}
+{"skip": "V:I:متع", "why": "the imperative تَمَتَّعْ of 39:8 is form V, already in the bank"}
+{"w": "أَمْتَعَ", "en": "to give enjoyment to", "root": "م-ت-ع", "type": "verb", "kind": "verb", "form": "IV", "past": "أَمْتَعَ", "pres": "يُمْتِعُ", "masdar": "إِمْتاع", "src": "msa"}
+{"w": "مُتْعة", "en": "pleasure, enjoyment", "root": "م-ت-ع", "type": "noun", "kind": "noun", "gender": "f", "plural": "مُتَع", "src": "msa"}
+{"w": "مُمْتِع", "en": "enjoyable", "root": "م-ت-ع", "type": "participle", "kind": "active participle", "form": "IV", "src": "msa"}
+{"w": "اِسْتِمْتاع", "en": "enjoyment", "root": "م-ت-ع", "type": "masdar", "kind": "masdar", "form": "X", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مَتين", "en": "firm, sturdy", "root": "م-ت-ن", "type": "adjective", "kind": "adjective", "plural": "مَتينون", "src": "quran", "q": "7:183:3-5", "qen": "my plan is firm"}
+{"w": "مَتْن", "en": "main text, back", "root": "م-ت-ن", "type": "noun", "kind": "noun", "gender": "m", "plural": "مُتون", "src": "msa", "note": "Also the body of a text as opposed to its commentary."}
+{"w": "مَتانة", "en": "sturdiness", "root": "م-ت-ن", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "مَتَّنَ", "en": "to strengthen", "root": "م-ت-ن", "type": "verb", "kind": "verb", "form": "II", "past": "مَتَّنَ", "pres": "يُمَتِّنُ", "masdar": "تَمْتين", "src": "msa"}
+{"skip": "مَتِين", "why": "the adjective مَتين; 68:45 uses the same word"}
+{"w": "مَثَل", "en": "parable, likeness", "root": "م-ث-ل", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَمْثال", "src": "quran", "q": "2:17:1-3", "qen": "their likeness is that of one who kindled a fire"}
+{"w": "مِثْل", "en": "like, the same as", "root": "م-ث-ل", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَمْثال", "src": "quran", "q": "2:23:10-12", "qen": "then bring a chapter like it"}
+{"skip": "مثل", "why": "مِثْل in the spelling of 4:176"}
+{"skip": "الله", "why": "مِثْلُكُمْ, the noun مِثْل with a suffix"}
+{"skip": "رحمة", "why": "وَمَثَلُهُمْ, the noun مَثَل with a suffix"}
+{"w": "تَماثيل", "en": "statues", "root": "م-ث-ل", "type": "noun", "kind": "plural", "src": "quran", "q": "21:52:5-8", "qen": "what are these statues that you are devoted to"}
+{"w": "تِمْثال", "en": "statue", "root": "م-ث-ل", "type": "noun", "kind": "noun", "gender": "m", "plural": "تَماثيل", "src": "msa"}
+{"w": "مُثْلى", "en": "ideal, best", "root": "م-ث-ل", "type": "adjective", "kind": "adjective", "src": "quran", "q": "20:63:11-13", "qen": "and do away with your best way of life", "note": "Feminine of أَمْثَل, as in الطَّريقة المُثلى, 'the ideal way'."}
+{"w": "أَمْثَل", "en": "best, most upright", "root": "م-ث-ل", "type": "adjective", "kind": "comparative", "src": "quran", "q": "20:104:6-8", "qen": "the best of them in conduct will say"}
+{"w": "مَثُلات", "en": "exemplary punishments", "root": "م-ث-ل", "type": "noun", "kind": "plural", "src": "quran", "q": "13:6:5-9", "qen": "and exemplary punishments have passed before them"}
+{"w": "تَمَثَّلَ", "en": "to appear in the form of", "root": "م-ث-ل", "type": "verb", "kind": "verb", "form": "V", "past": "تَمَثَّلَ", "pres": "يَتَمَثَّلُ", "masdar": "تَمَثُّل", "src": "quran", "q": "19:17:7-10", "qen": "and he appeared to her as a well-formed man"}
+{"w": "مَثَّلَ", "en": "to represent, to act", "root": "م-ث-ل", "type": "verb", "kind": "verb", "form": "II", "past": "مَثَّلَ", "pres": "يُمَثِّلُ", "masdar": "تَمْثيل", "src": "msa"}
+{"w": "مِثال", "en": "example, model", "root": "م-ث-ل", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَمْثِلة", "src": "msa"}
+{"w": "مِثالِيّ", "en": "ideal, exemplary", "root": "م-ث-ل", "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "تَمْثيل", "en": "representation, acting", "root": "م-ث-ل", "type": "masdar", "kind": "masdar", "form": "II", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مُماثِل", "en": "similar", "root": "م-ث-ل", "type": "participle", "kind": "active participle", "form": "III", "src": "msa"}
+{"w": "ماثَلَ", "en": "to resemble", "root": "م-ث-ل", "type": "verb", "kind": "verb", "form": "III", "past": "ماثَلَ", "pres": "يُماثِلُ", "masdar": "مُماثَلة", "src": "msa"}
+{"w": "اِمْتَثَلَ", "en": "to comply with", "root": "م-ث-ل", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِمْتَثَلَ", "pres": "يَمْتَثِلُ", "masdar": "اِمْتِثال", "src": "msa"}
+{"w": "مَثيل", "en": "counterpart, equal", "root": "م-ث-ل", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَمْثِلاء", "src": "msa"}
+{"w": "مَجيد", "en": "glorious", "root": "م-ج-د", "type": "adjective", "kind": "adjective", "plural": "مُجَداء", "src": "quran", "q": "11:73:12-14", "qen": "He is Praiseworthy and Glorious"}
+{"w": "مَجْد", "en": "glory", "root": "م-ج-د", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَمْجاد", "src": "msa"}
+{"w": "مَجَّدَ", "en": "to glorify", "root": "م-ج-د", "type": "verb", "kind": "verb", "form": "II", "past": "مَجَّدَ", "pres": "يُمَجِّدُ", "masdar": "تَمْجيد", "src": "msa"}
+{"w": "مَجوس", "en": "Magians, Zoroastrians", "root": "م-ج-و-س", "type": "noun", "kind": "collective noun", "gender": "m", "noplural": true, "src": "msa", "note": "Occurs once in the Qur'an (22:17), among the religions named. An individual is مَجوسِيّ."}
+{"skip": "مِائَة", "why": "a number, which belongs to the rootless shard"}
+{"w": "مَحَّصَ", "en": "to purify, to test", "root": "م-ح-ص", "type": "verb", "kind": "verb", "form": "II", "past": "مَحَّصَ", "pres": "يُمَحِّصُ", "masdar": "تَمْحيص", "src": "quran", "q": "3:141:1-4", "qen": "and so that God may purify those who believe"}
+{"w": "تَمْحيص", "en": "scrutiny, purification", "root": "م-ح-ص", "type": "masdar", "kind": "masdar", "form": "II", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مَحَقَ", "en": "to wipe out, to destroy", "root": "م-ح-ق", "type": "verb", "kind": "verb", "form": "I", "past": "مَحَقَ", "pres": "يَمْحَقُ", "masdar": "مَحْق", "src": "quran", "q": "2:276:1-3", "qen": "God wipes out usury"}
+{"w": "مِحال", "en": "might, power", "root": "م-ح-ل", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa", "note": "Occurs once in the Qur'an (13:13), \"severe in might\". Glossed by commentators as might or cunning; modern مُحال, 'impossible', is a different word."}
+{"w": "مَحْل", "en": "drought, barrenness", "root": "م-ح-ل", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "اِمْتَحَنَ", "en": "to test, to examine", "root": "م-ح-ن", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِمْتَحَنَ", "pres": "يَمْتَحِنُ", "masdar": "اِمْتِحان", "src": "quran", "q": "49:3:9-12", "qen": "those whose hearts God has tested"}
+{"w": "مِحْنة", "en": "ordeal, affliction", "root": "م-ح-ن", "type": "noun", "kind": "noun", "gender": "f", "plural": "مِحَن", "src": "msa"}
+{"w": "مُمْتَحِن", "en": "examiner", "root": "م-ح-ن", "type": "participle", "kind": "active participle", "form": "VIII", "gender": "m", "plural": "مُمْتَحِنون", "src": "msa"}
+{"w": "مُمْتَحَن", "en": "examinee, tested", "root": "م-ح-ن", "type": "participle", "kind": "passive participle", "form": "VIII", "gender": "m", "plural": "مُمْتَحَنون", "src": "msa"}
+{"w": "مَحا", "en": "to erase", "root": "م-ح-و", "type": "verb", "kind": "verb", "form": "I", "past": "مَحا", "pres": "يَمْحو", "masdar": "مَحْو", "src": "quran", "q": "13:39:1-4", "qen": "God erases what He wills and confirms"}
+{"w": "مَحْو", "en": "erasure", "root": "م-ح-و", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مِمْحاة", "en": "eraser", "root": "م-ح-و", "type": "noun", "kind": "noun of instrument", "gender": "f", "noplural": true, "src": "msa"}
+{"skip": "مَثُلَٰت", "why": "plural of مَثُلة, listed as مَثُلات"}

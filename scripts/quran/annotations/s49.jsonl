@@ -1,0 +1,159 @@
+{"skip":"أَكْثَر","why":"already in the bank as أَكثَر (more/most)"}
+{"skip":"كَثِير","why":"already in the bank as كَثير"}
+{"skip":"كَثِيرَة","why":"feminine of كَثير, which the bank holds"}
+{"skip":"كثير","why":"same word as كَثير, which the bank holds"}
+{"w":"كَثُرَ","en":"to be many","root":"ك-ث-ر","type":"verb","kind":"verb","form":"I","past":"كَثُرَ","pres":"يَكْثُرُ","masdar":"كَثْرَة","src":"quran","q":"4:7:14-17","qen":"whether it be little or much"}
+{"w":"كَثَّرَ","en":"to multiply, to increase","root":"ك-ث-ر","type":"verb","kind":"verb","form":"II","past":"كَثَّرَ","pres":"يُكَثِّرُ","masdar":"تَكْثير","src":"quran","q":"7:86:17-19","qen":"when you were few, then He made you many"}
+{"w":"أَكْثَرَ","en":"to do a lot of","root":"ك-ث-ر","type":"verb","kind":"verb","form":"IV","past":"أَكْثَرَ","pres":"يُكْثِرُ","masdar":"إِكْثار","src":"quran","q":"11:32:5-7","qen":"you have disputed with us and prolonged our dispute"}
+{"w":"اسْتَكْثَرَ","en":"to consider too much","root":"ك-ث-ر","type":"verb","kind":"verb","form":"X","past":"اسْتَكْثَرَ","pres":"يَسْتَكْثِرُ","masdar":"اسْتِكْثار","src":"quran","q":"6:128:7-10","qen":"you have taken much from among mankind","note":"In 6:128 it is to gain many followers; in modern usage, to find something excessive."}
+{"w":"كاثَرَ","en":"to outnumber","root":"ك-ث-ر","type":"verb","kind":"verb","form":"III","past":"كاثَرَ","pres":"يُكاثِرُ","masdar":"مُكاثَرة","src":"msa"}
+{"w":"تَكاثَرَ","en":"to multiply, to increase in number","root":"ك-ث-ر","type":"verb","kind":"verb","form":"VI","past":"تَكاثَرَ","pres":"يَتَكاثَرُ","masdar":"تَكاثُر","src":"msa"}
+{"w":"تَكاثُر","en":"rivalry in increase, multiplication","root":"ك-ث-ر","type":"masdar","kind":"masdar","form":"VI","gender":"m","src":"quran","q":"57:20:8-13","qen":"boasting among you and competing in wealth and children"}
+{"w":"كَثْرَة","en":"abundance, large number","root":"ك-ث-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"quran","q":"5:100:6-9","qen":"even if the abundance of the bad impresses you","see":[{"w":"قِلّة","label":"Opposite (fewness)"}]}
+{"w":"كَوْثَر","en":"abundance, Kawthar","root":"ك-ث-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"108:1:1-3","qen":"We have given you Al-Kawthar","note":"In 108:1 it is a gift of abundance, traditionally a river in Paradise."}
+{"w":"أَكْثَرِيّة","en":"majority","root":"ك-ث-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa","see":[{"w":"أَقَلِّيّة","label":"Opposite (minority)"}]}
+{"w":"كَدَحَ","en":"to toil, to strive","root":"ك-د-ح","type":"verb","kind":"verb","form":"I","past":"كَدَحَ","pres":"يَكْدَحُ","masdar":"كَدْح","src":"msa"}
+{"w":"كادِح","en":"toiling, labourer","root":"ك-د-ح","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"كادِحون","src":"quran","q":"84:6:5-8","qen":"you are toiling towards your Lord with toil"}
+{"w":"كَدْح","en":"toil, hard labour","root":"ك-د-ح","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"quran","q":"84:6:5-8","qen":"you are toiling towards your Lord with toil"}
+{"w":"انْكَدَرَ","en":"to fall and lose lustre","root":"ك-د-ر","type":"verb","kind":"verb","form":"VII","past":"انْكَدَرَ","pres":"يَنْكَدِرُ","masdar":"انْكِدار","src":"quran","q":"81:2:1-3","qen":"and when the stars fall and are dimmed","note":"Said of the stars in 81:2; in modern usage, to become turbid or murky."}
+{"w":"كَدِرَ","en":"to be muddy, to be gloomy","root":"ك-د-ر","type":"verb","kind":"verb","form":"I","past":"كَدِرَ","pres":"يَكْدَرُ","masdar":"كَدَر","src":"msa"}
+{"w":"كَدَّرَ","en":"to muddy, to cloud","root":"ك-د-ر","type":"verb","kind":"verb","form":"II","past":"كَدَّرَ","pres":"يُكَدِّرُ","masdar":"تَكْدير","src":"msa"}
+{"w":"كَدَر","en":"turbidity, gloom","root":"ك-د-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"كَدِر","en":"murky, troubled","root":"ك-د-ر","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"أَكْدَى","en":"to give up, to stop giving","root":"ك-د-ي","type":"verb","kind":"verb","form":"IV","past":"أَكْدَى","pres":"يُكْدِي","masdar":"إِكْداء","src":"msa","note":"Occurs in 53:34, of one who gives a little and then stops."}
+{"w":"كَذَبَ","en":"to lie","root":"ك-ذ-ب","type":"verb","kind":"verb","form":"I","past":"كَذَبَ","pres":"يَكْذِبُ","masdar":"كَذِب","src":"quran","q":"2:10:10-12","qen":"because of how they used to lie"}
+{"w":"كَذَّبَ","en":"to call a liar, to deny","root":"ك-ذ-ب","type":"verb","kind":"verb","form":"II","past":"كَذَّبَ","pres":"يُكَذِّبُ","masdar":"تَكْذيب","src":"quran","q":"2:39:1-4","qen":"and those who disbelieved and denied Our signs"}
+{"skip":"كذب","why":"the verb كَذَّبَ form II, already an entry"}
+{"w":"كَذِب","en":"lie, falsehood","root":"ك-ذ-ب","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"3:75:31-34","qen":"and they say about God what is false","see":[{"w":"صِدْق","label":"Opposite (truth)"}]}
+{"w":"كاذِب","en":"liar, lying","root":"ك-ذ-ب","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"كاذِبون","src":"quran","q":"3:61:21-25","qen":"and lay God's curse upon the liars","see":[{"w":"صادِق","label":"Opposite (truthful)"}]}
+{"skip":"كَاذِبَة","why":"feminine of كاذِب"}
+{"w":"مُكَذِّب","en":"one who denies","root":"ك-ذ-ب","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُكَذِّبون","src":"quran","q":"3:137:11-13","qen":"how the deniers ended up"}
+{"w":"كَذّاب","en":"habitual liar","root":"ك-ذ-ب","type":"adjective","kind":"intensive adjective","plural":"كَذّابون","src":"quran","q":"38:4:8-10","qen":"this is a lying sorcerer"}
+{"w":"كِذّاب","en":"denial","root":"ك-ذ-ب","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"quran","q":"78:28:1-3","qen":"and they denied Our signs vehemently","note":"A Qur'anic verbal noun of كَذَّبَ with intensive sense; the usual verbal noun is تَكْذيب."}
+{"w":"مَكْذوب","en":"false, fabricated","root":"ك-ذ-ب","type":"participle","kind":"passive participle","form":"I","gender":"m","src":"quran","q":"11:65:8-11","qen":"that is a promise not to be belied"}
+{"w":"تَكْذيب","en":"denial, refutation","root":"ك-ذ-ب","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"quran","q":"85:19:3-5","qen":"those who disbelieved are in denial"}
+{"w":"أُكْذوبة","en":"lie, fabrication","root":"ك-ذ-ب","type":"noun","kind":"noun","gender":"f","plural":"أَكاذيب","src":"msa"}
+{"w":"كَذوب","en":"given to lying","root":"ك-ذ-ب","type":"adjective","kind":"intensive adjective","src":"msa"}
+{"w":"كَرْب","en":"distress, anguish","root":"ك-ر-ب","type":"noun","kind":"noun","gender":"m","plural":"كُروب","src":"quran","q":"6:64:5-7","qen":"and from every distress"}
+{"w":"كُرْبة","en":"distress, hardship","root":"ك-ر-ب","type":"noun","kind":"noun","gender":"f","plural":"كُرَب","src":"msa"}
+{"w":"كَرَّة","en":"return, another turn","root":"ك-ر-ر","type":"noun","kind":"noun","gender":"f","plural":"كَرّات","src":"msa","note":"In scripture a return or second chance; in modern usage also a single occasion or time. Occurs in 2:167 and 17:6 in the sense of a return or second turn."}
+{"w":"كَرَّ","en":"to charge, to return to the attack","root":"ك-ر-ر","type":"verb","kind":"verb","form":"I","past":"كَرَّ","pres":"يَكُرُّ","masdar":"كَرّ","src":"msa"}
+{"w":"كَرَّرَ","en":"to repeat","root":"ك-ر-ر","type":"verb","kind":"verb","form":"II","past":"كَرَّرَ","pres":"يُكَرِّرُ","masdar":"تَكْرار","src":"msa"}
+{"w":"تَكَرَّرَ","en":"to recur, to be repeated","root":"ك-ر-ر","type":"verb","kind":"verb","form":"V","past":"تَكَرَّرَ","pres":"يَتَكَرَّرُ","masdar":"تَكَرُّر","src":"msa"}
+{"w":"تَكْرار","en":"repetition","root":"ك-ر-ر","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُكَرَّر","en":"repeated","root":"ك-ر-ر","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"skip":"كُرْسِيّ","why":"already in the bank as كُرسي / كِرسي"}
+{"w":"كُرّاسة","en":"notebook, exercise book","root":"ك-ر-س","type":"noun","kind":"noun","gender":"f","plural":"كَراريس","src":"msa"}
+{"w":"كَرَّسَ","en":"to devote, to dedicate","root":"ك-ر-س","type":"verb","kind":"verb","form":"II","past":"كَرَّسَ","pres":"يُكَرِّسُ","masdar":"تَكْريس","src":"msa"}
+{"w":"كَرُمَ","en":"to be generous, to be noble","root":"ك-ر-م","type":"verb","kind":"verb","form":"I","past":"كَرُمَ","pres":"يَكْرُمُ","masdar":"كَرَم","src":"msa"}
+{"w":"أَكْرَمَ","en":"to honour, to treat generously","root":"ك-ر-م","type":"verb","kind":"verb","form":"IV","past":"أَكْرَمَ","pres":"يُكْرِمُ","masdar":"إِكْرام","src":"quran","q":"12:21:7-8","qen":"make his stay honourable"}
+{"w":"كَرَّمَ","en":"to honour, to dignify","root":"ك-ر-م","type":"verb","kind":"verb","form":"II","past":"كَرَّمَ","pres":"يُكَرِّمُ","masdar":"تَكْريم","src":"quran","q":"17:70:1-4","qen":"We have honoured the children of Adam"}
+{"w":"كَريم","en":"generous, noble","root":"ك-ر-م","type":"adjective","kind":"adjective","plural":"كِرام","src":"quran","q":"4:31:10-12","qen":"and admit you to an honourable entrance","see":[{"w":"بَخيل","label":"Opposite (stingy)"}]}
+{"w":"أَكْرَم","en":"more generous, more noble","root":"ك-ر-م","type":"adjective","kind":"comparative","plural":"أَكارِم","src":"quran","q":"49:13:13-17","qen":"the most noble of you with God is the most pious"}
+{"w":"مُكْرَم","en":"honoured","root":"ك-ر-م","type":"participle","kind":"passive participle","form":"IV","plural":"مُكْرَمون","src":"quran","q":"21:26:6-8","qen":"rather, they are honoured servants"}
+{"w":"مُكْرِم","en":"one who honours","root":"ك-ر-م","type":"participle","kind":"active participle","form":"IV","plural":"مُكْرِمون","src":"quran","q":"22:18:29-32","qen":"then there is none to honour him"}
+{"w":"مُكَرَّم","en":"honoured, revered","root":"ك-ر-م","type":"participle","kind":"passive participle","form":"II","plural":"مُكَرَّمون","src":"quran","q":"80:13:1-3","qen":"in honoured scrolls"}
+{"w":"إِكْرام","en":"honouring, generous treatment","root":"ك-ر-م","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"quran","q":"55:27:4-6","qen":"Lord of majesty and honour"}
+{"w":"كَرَم","en":"generosity","root":"ك-ر-م","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","see":[{"w":"جود","label":"Synonym (generosity)"}]}
+{"w":"كَرامة","en":"dignity, honour","root":"ك-ر-م","type":"noun","kind":"noun","gender":"f","plural":"كَرامات","src":"msa"}
+{"w":"تَكْريم","en":"honouring, tribute","root":"ك-ر-م","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَكْرُمة","en":"noble deed","root":"ك-ر-م","type":"noun","kind":"noun","gender":"f","plural":"مَكارِم","src":"msa"}
+{"w":"كَرْم","en":"vineyard","root":"ك-ر-م","type":"noun","kind":"noun","gender":"m","plural":"كُروم","src":"msa"}
+{"w":"كَرِهَ","en":"to dislike, to hate","root":"ك-ر-ه","type":"verb","kind":"verb","form":"I","past":"كَرِهَ","pres":"يَكْرَهُ","masdar":"كَراهِيَة","src":"quran","q":"2:216:8-10","qen":"and perhaps you dislike a thing","see":[{"w":"أَحَبَّ","label":"Opposite (to love)"}]}
+{"w":"أَكْرَهَ","en":"to force, to compel","root":"ك-ر-ه","type":"verb","kind":"verb","form":"IV","past":"أَكْرَهَ","pres":"يُكْرِهُ","masdar":"إِكْراه","src":"quran","q":"10:99:10-12","qen":"will you then compel the people"}
+{"w":"كَرَّهَ","en":"to make hateful","root":"ك-ر-ه","type":"verb","kind":"verb","form":"II","past":"كَرَّهَ","pres":"يُكَرِّهُ","masdar":"تَكْريه","src":"msa","note":"Occurs in 49:7: God has made disbelief hateful to the believers."}
+{"w":"كارِه","en":"disliking, averse","root":"ك-ر-ه","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"كارِهون","src":"quran","q":"7:88:20-22","qen":"even if we are unwilling"}
+{"w":"مَكْروه","en":"disliked, hateful","root":"ك-ر-ه","type":"participle","kind":"passive participle","form":"I","plural":"مَكاره","src":"quran","q":"17:38:4-7","qen":"its evil is hateful to your Lord","note":"Used as a noun, a مَكْروه is an adversity or mishap."}
+{"w":"كُرْه","en":"dislike, aversion","root":"ك-ر-ه","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"2:216:4-6","qen":"and it is hateful to you"}
+{"w":"كَرْه","en":"compulsion, unwillingness","root":"ك-ر-ه","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"4:19:9-11","qen":"to inherit women against their will"}
+{"w":"إِكْراه","en":"compulsion, coercion","root":"ك-ر-ه","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"quran","q":"2:256:1-4","qen":"there is no compulsion in religion"}
+{"w":"كَراهِيَة","en":"hatred, dislike","root":"ك-ر-ه","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"كَريه","en":"repulsive, foul","root":"ك-ر-ه","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"مُكْرَه","en":"forced, compelled","root":"ك-ر-ه","type":"participle","kind":"passive participle","form":"IV","plural":"مُكْرَهون","src":"msa"}
+{"w":"كَسَبَ","en":"to earn, to gain","root":"ك-س-ب","type":"verb","kind":"verb","form":"I","past":"كَسَبَ","pres":"يَكْسِبُ","masdar":"كَسْب","src":"quran","q":"2:286:7-9","qen":"it gets what it has earned"}
+{"w":"اكْتَسَبَ","en":"to acquire, to earn","root":"ك-س-ب","type":"verb","kind":"verb","form":"VIII","past":"اكْتَسَبَ","pres":"يَكْتَسِبُ","masdar":"اكْتِساب","src":"quran","q":"4:32:10-13","qen":"men have a share of what they have earned"}
+{"skip":"كسب","why":"the verb كَسَبَ, already an entry"}
+{"skip":"رب","why":"misparsed; the word is اكْتَسَبَ (2:286), already an entry"}
+{"skip":"كل","why":"misparsed; the word is تَكْسِبُ, from the verb كَسَبَ, already an entry"}
+{"w":"كَسْب","en":"earning, gain","root":"ك-س-ب","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَكْسَب","en":"profit, gain","root":"ك-س-ب","type":"noun","kind":"noun","gender":"m","plural":"مَكاسِب","src":"msa"}
+{"w":"اكْتِساب","en":"acquisition","root":"ك-س-ب","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"w":"كاسِب","en":"earner, winner","root":"ك-س-ب","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"كاسِبون","src":"msa"}
+{"w":"مُكْتَسَب","en":"acquired","root":"ك-س-ب","type":"participle","kind":"passive participle","form":"VIII","src":"msa"}
+{"w":"كَسَدَ","en":"to be unsold, to stagnate","root":"ك-س-د","type":"verb","kind":"verb","form":"I","past":"كَسَدَ","pres":"يَكْسُدُ","masdar":"كَساد","src":"msa"}
+{"w":"كَساد","en":"slump, stagnation","root":"ك-س-د","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"9:24:11-13","qen":"and commerce whose slump you fear"}
+{"w":"كاسِد","en":"slack, unsold","root":"ك-س-د","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"انْكَسَرَ","en":"to break, to be broken","root":"ك-س-ر","type":"verb","kind":"verb","form":"VII","past":"انْكَسَرَ","pres":"يَنْكَسِرُ","masdar":"انْكِسار","src":"msa"}
+{"w":"كَسَّرَ","en":"to smash to pieces","root":"ك-س-ر","type":"verb","kind":"verb","form":"II","past":"كَسَّرَ","pres":"يُكَسِّرُ","masdar":"تَكْسير","src":"msa"}
+{"w":"تَكَسَّرَ","en":"to shatter","root":"ك-س-ر","type":"verb","kind":"verb","form":"V","past":"تَكَسَّرَ","pres":"يَتَكَسَّرُ","masdar":"تَكَسُّر","src":"msa"}
+{"w":"كَسْر","en":"breaking, fracture","root":"ك-س-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","plural":"كُسور","src":"msa"}
+{"w":"مَكْسور","en":"broken","root":"ك-س-ر","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"كِسْرة","en":"piece, crust","root":"ك-س-ر","type":"noun","kind":"noun","gender":"f","plural":"كِسَر","src":"msa"}
+{"w":"كِسْف","en":"piece, fragment","root":"ك-س-ف","type":"noun","kind":"noun","gender":"m","plural":"كِسَف","src":"quran","q":"52:44:2-6","qen":"and if they see a piece of the sky falling"}
+{"skip":"كِسَف","why":"plural of كِسْف"}
+{"w":"كَسَفَ","en":"to be eclipsed","root":"ك-س-ف","type":"verb","kind":"verb","form":"I","past":"كَسَفَ","pres":"يَكْسِفُ","masdar":"كُسوف","src":"msa"}
+{"w":"كُسوف","en":"eclipse","root":"ك-س-ف","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"skip":"كُسَالَىٰ","why":"plural of كَسلان, which the bank holds"}
+{"w":"كَسِلَ","en":"to be lazy","root":"ك-س-ل","type":"verb","kind":"verb","form":"I","past":"كَسِلَ","pres":"يَكْسَلُ","masdar":"كَسَل","src":"msa"}
+{"w":"كَسَل","en":"laziness","root":"ك-س-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","see":[{"w":"نَشاط","label":"Opposite (energy)"}]}
+{"w":"كَسول","en":"lazy","root":"ك-س-ل","type":"adjective","kind":"intensive adjective","plural":"كُسالى","src":"msa"}
+{"w":"تَكاسَلَ","en":"to be slack, to idle","root":"ك-س-ل","type":"verb","kind":"verb","form":"VI","past":"تَكاسَلَ","pres":"يَتَكاسَلُ","masdar":"تَكاسُل","src":"msa"}
+{"w":"كَسا","en":"to clothe","root":"ك-س-و","type":"verb","kind":"verb","form":"I","past":"كَسا","pres":"يَكْسو","masdar":"كَسْو","src":"quran","q":"2:259:53-56","qen":"how We raise them, then clothe them with flesh"}
+{"w":"كِسْوة","en":"clothing, apparel","root":"ك-س-و","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"quran","q":"2:233:14-16","qen":"their provision and clothing, in a fair manner"}
+{"w":"كِساء","en":"cloak, garment","root":"ك-س-و","type":"noun","kind":"noun","gender":"m","plural":"أَكْسِية","src":"msa"}
+{"w":"كَشَطَ","en":"to strip off, to scrape","root":"ك-ش-ط","type":"verb","kind":"verb","form":"I","past":"كَشَطَ","pres":"يَكْشِطُ","masdar":"كَشْط","src":"quran","q":"81:11:1-3","qen":"and when the sky is stripped away"}
+{"skip":"مُّكَذِّبِين","why":"plural of مُكَذِّب"}
+{"skip":"كَٰرِهُون","why":"plural of كارِه"}
+{"skip":"كِسْوَت","why":"spelling of كِسْوة before a pronoun suffix"}
+{"w":"كَشَفَ","en":"to uncover, to remove","root":"ك-ش-ف","type":"verb","kind":"verb","form":"I","past":"كَشَفَ","pres":"يَكْشِفُ","masdar":"كَشْف","src":"quran","q":"6:41:4-7","qen":"and He removes what you call upon Him for"}
+{"w":"كاشِف","en":"remover, revealer","root":"ك-ش-ف","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"كاشِفون","src":"quran","q":"6:17:5-9","qen":"then there is no remover of it except Him","note":"In modern usage also a detector or reagent."}
+{"skip":"كَاشِفَة","why":"feminine of كاشِف"}
+{"skip":"كَٰشِفَٰت","why":"feminine plural of كاشِف"}
+{"w":"كَشْف","en":"uncovering, removal","root":"ك-ش-ف","type":"masdar","kind":"masdar","form":"I","gender":"m","plural":"كُشوف","src":"quran","q":"17:56:8-10","qen":"they have no power to remove the harm from you","note":"In modern usage also a list, a statement or a medical examination."}
+{"w":"انْكَشَفَ","en":"to be uncovered, to be revealed","root":"ك-ش-ف","type":"verb","kind":"verb","form":"VII","past":"انْكَشَفَ","pres":"يَنْكَشِفُ","masdar":"انْكِشاف","src":"msa"}
+{"w":"اكْتَشَفَ","en":"to discover","root":"ك-ش-ف","type":"verb","kind":"verb","form":"VIII","past":"اكْتَشَفَ","pres":"يَكْتَشِفُ","masdar":"اكْتِشاف","src":"msa"}
+{"w":"اسْتَكْشَفَ","en":"to explore","root":"ك-ش-ف","type":"verb","kind":"verb","form":"X","past":"اسْتَكْشَفَ","pres":"يَسْتَكْشِفُ","masdar":"اسْتِكْشاف","src":"msa"}
+{"w":"اكْتِشاف","en":"discovery","root":"ك-ش-ف","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اكْتِشافات","src":"msa"}
+{"w":"اسْتِكْشاف","en":"exploration","root":"ك-ش-ف","type":"masdar","kind":"masdar","form":"X","gender":"m","plural":"اسْتِكْشافات","src":"msa"}
+{"w":"مَكْشوف","en":"uncovered, exposed","root":"ك-ش-ف","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"مُكْتَشِف","en":"discoverer","root":"ك-ش-ف","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُكْتَشِفون","src":"msa"}
+{"w":"كَظَمَ","en":"to suppress, to restrain","root":"ك-ظ-م","type":"verb","kind":"verb","form":"I","past":"كَظَمَ","pres":"يَكْظِمُ","masdar":"كَظْم","src":"msa","note":"Used of holding back anger or grief, as in the participles found in 3:134 and 12:84."}
+{"w":"كاظِم","en":"one who suppresses","root":"ك-ظ-م","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"كاظِمون","src":"quran","q":"3:134:6-7","qen":"and those who restrain their anger"}
+{"w":"كَظيم","en":"choked with grief","root":"ك-ظ-م","type":"adjective","kind":"adjective","src":"quran","q":"12:84:12-13","qen":"and he was one suppressing his grief"}
+{"w":"مَكْظوم","en":"choked with distress","root":"ك-ظ-م","type":"participle","kind":"passive participle","form":"I","src":"quran","q":"68:48:9-11","qen":"when he called out, filled with distress"}
+{"w":"كَعْب","en":"ankle, heel","root":"ك-ع-ب","type":"noun","kind":"noun","gender":"m","plural":"كُعوب","src":"quran","q":"5:6:16-18","qen":"and your feet up to the ankles","note":"The Qur'an has the dual كَعْبَيْن; in modern usage also the heel of a shoe."}
+{"skip":"كَعْبَيْن","why":"dual of كَعْب"}
+{"w":"كاعِب","en":"girl with budding figure","root":"ك-ع-ب","type":"noun","kind":"noun","gender":"f","plural":"كَواعِب","src":"quran","q":"78:33:1-2","qen":"and full-bosomed companions of equal age","note":"Scripture uses the plural كَواعِب, of young women in Paradise."}
+{"skip":"كَوَاعِب","why":"plural of كاعِب"}
+{"w":"مُكَعَّب","en":"cube, cubic","root":"ك-ع-ب","type":"participle","kind":"passive participle","form":"II","plural":"مُكَعَّبات","src":"msa"}
+{"w":"كَعْبة","en":"the Kaaba, cube-shaped building","root":"ك-ع-ب","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa","note":"Occurs in 5:95 and 5:97 as the sanctuary in Mecca; its Qur'anic root is listed as ك-ع-ب-ة."}
+{"w":"كُفْء","en":"equal, peer","root":"ك-ف-أ","type":"noun","kind":"noun","gender":"m","plural":"أَكْفاء","src":"quran","q":"112:4:3-5","qen":"and there is none comparable to Him","note":"The Qur'an spells it كُفُوًا; in modern usage also an adjective meaning competent."}
+{"skip":"يد","why":"misparsed; the word is كُفُوًا, a variant of كُفْء, already an entry"}
+{"w":"كافَأَ","en":"to reward","root":"ك-ف-أ","type":"verb","kind":"verb","form":"III","past":"كافَأَ","pres":"يُكافِئُ","masdar":"مُكافَأة","src":"msa"}
+{"w":"مُكافَأة","en":"reward, bonus","root":"ك-ف-أ","type":"masdar","kind":"masdar","form":"III","gender":"f","plural":"مُكافَآت","src":"msa"}
+{"w":"كَفاءة","en":"competence, efficiency","root":"ك-ف-أ","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"كِفات","en":"receptacle, container","root":"ك-ف-ت","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"77:25:2-4","qen":"have We not made the earth a receptacle","note":"Scripture describes the earth as a place that gathers the living and the dead."}
+{"w":"كِفاح","en":"struggle, fight","root":"ك-ف-ح","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُكافَحة","en":"combating, fight against","root":"ك-ف-ح","type":"masdar","kind":"masdar","form":"III","gender":"f","noplural":true,"src":"msa"}
+{"w":"مُكافِح","en":"fighter, struggler","root":"ك-ف-ح","type":"participle","kind":"active participle","form":"III","gender":"m","plural":"مُكافِحون","src":"msa"}
+{"w":"كَفَرَ","en":"to disbelieve, to be ungrateful","root":"ك-ف-ر","type":"verb","kind":"verb","form":"I","past":"كَفَرَ","pres":"يَكْفُرُ","masdar":"كُفْر","src":"quran","q":"2:6:2-3","qen":"those who disbelieve"}
+{"w":"كَفَّرَ","en":"to expiate, to atone for","root":"ك-ف-ر","type":"verb","kind":"verb","form":"II","past":"كَفَّرَ","pres":"يُكَفِّرُ","masdar":"تَكْفير","src":"quran","q":"4:31:7-9","qen":"We will remove from you your misdeeds","note":"In scripture God wipes away sins; in modern usage also to declare someone an unbeliever."}
+{"skip":"V:IV","why":"3:115 يُكْفَرُوهُ is the passive of form I and 80:17 أَكْفَرَهُ is the wonder construction, not a separate lexeme"}
+{"w":"كافِر","en":"disbeliever, ungrateful person","root":"ك-ف-ر","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"كُفّار","src":"quran","q":"2:19:17-19","qen":"and God encompasses the disbelievers","see":[{"w":"مُؤْمِن","label":"Opposite (believer)"}]}
+{"skip":"كَافِرَة","why":"feminine of كافِر"}
+{"skip":"كافر","why":"same word as كافِر"}
+{"skip":"كفرون","why":"plural of كافِر"}
+{"skip":"منفقون","why":"misparsed; the word is الْكُفَّار, plural of كافِر"}
+{"skip":"حق","why":"misparsed; the word is الْكَافِرُونَ, plural of كافِر"}
+{"skip":"ايد","why":"misparsed; the word is وَكَفَرَتْ, the verb كَفَرَ"}
+{"skip":"كفر","why":"the verb كَفَرَ, already an entry"}
+{"w":"كُفْر","en":"disbelief, ingratitude","root":"ك-ف-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"quran","q":"49:7:23-25","qen":"disbelief, wickedness and disobedience"}
+{"w":"كَفور","en":"ungrateful, unbelieving","root":"ك-ف-ر","type":"adjective","kind":"intensive adjective","src":"quran","q":"11:9:9-11","qen":"he is despairing and ungrateful"}
+{"w":"كَفّار","en":"very ungrateful","root":"ك-ف-ر","type":"adjective","kind":"intensive adjective","src":"quran","q":"14:34:12-15","qen":"man is truly unjust and ungrateful"}
+{"w":"كُفور","en":"ingratitude, disbelief","root":"ك-ف-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"quran","q":"17:89:10-14","qen":"most people refuse everything but disbelief"}
+{"w":"كُفْران","en":"ingratitude, denial","root":"ك-ف-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"quran","q":"21:94:7-9","qen":"there will be no denial of his effort"}
+{"w":"كَفّارة","en":"expiation, atonement","root":"ك-ف-ر","type":"noun","kind":"noun","gender":"f","plural":"كَفّارات","src":"quran","q":"5:45:20-22","qen":"then it is an expiation for him"}
+{"w":"تَكْفير","en":"expiation, declaring someone an unbeliever","root":"ك-ف-ر","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"skip":"كَعْبَة","why":"entered as كَعْبة under root ك-ع-ب (the root ك-ع-ب-ة cannot be validated)"}
+{"skip":"كَٰظِمِين","why":"plural of كاظِم"}
+{"skip":"كَفَّٰرَة","why":"spelling of كَفّارة"}

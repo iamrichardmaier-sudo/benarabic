@@ -1,0 +1,176 @@
+{"w":"نَظَرَ","en":"to look","root":"ن-ظ-ر","type":"verb","kind":"verb","form":"I","past":"نَظَرَ","pres":"يَنْظُرُ","masdar":"نَظَر","src":"quran","q":"37:88:1-4","qen":"then he cast a glance at the stars"}
+{"w":"أَنْظَرَ","en":"to grant a delay","root":"ن-ظ-ر","type":"verb","kind":"verb","form":"IV","past":"أَنْظَرَ","pres":"يُنْظِرُ","masdar":"إِنْظار","src":"quran","q":"7:14:2-5","qen":"grant me respite until the day they are raised","note":"In scripture, to give someone respite or a reprieve."}
+{"skip":"V:VIII","why":"اِنْتَظَرَ is already in the bank as يَنتَظِر"}
+{"w":"ناظِر","en":"onlooker, viewer","root":"ن-ظ-ر","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"نُظّار","src":"quran","q":"15:16:6-7","qen":"and We adorned it for those who look"}
+{"skip":"نَاظِرَة","why":"feminine of ناظِر"}
+{"w":"مُنْتَظِر","en":"waiting, awaited","root":"ن-ظ-ر","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُنْتَظِرون","src":"quran","q":"32:30:3-5","qen":"and wait; they too are waiting"}
+{"skip":"منتظرون","why":"plural of مُنْتَظِر"}
+{"skip":"ينتظر","why":"اِنْتَظَرَ is already in the bank"}
+{"skip":"الي","why":"unclassified spelling of the verb نَظَرَ (يَنْظُرُ in 78:40)"}
+{"w":"مُنْظَر","en":"one granted respite","root":"ن-ظ-ر","type":"participle","kind":"passive participle","form":"IV","gender":"m","plural":"مُنْظَرون","src":"quran","q":"7:15:1-4","qen":"He said, you are among those given respite"}
+{"w":"نَظَر","en":"looking, sight","root":"ن-ظ-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"quran","q":"47:20:19-23","qen":"look at you the way one overcome by death looks"}
+{"w":"نَظِرَة","en":"respite, grace period","root":"ن-ظ-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"quran","q":"2:280:1-7","qen":"if he is in hardship, then a delay until ease","note":"In 2:280 it is a postponement of a debt; today نَظْرَة means a glance."}
+{"w":"نَظْرَة","en":"glance","root":"ن-ظ-ر","type":"noun","kind":"noun of instance","gender":"f","plural":"نَظَرات","src":"quran","q":"37:88:1-4","qen":"then he cast a glance at the stars"}
+{"w":"ناظَرَ","en":"to debate with","root":"ن-ظ-ر","type":"verb","kind":"verb","form":"III","past":"ناظَرَ","pres":"يُناظِرُ","masdar":"مُناظَرَة","src":"msa"}
+{"w":"مُناظَرَة","en":"debate","root":"ن-ظ-ر","type":"masdar","kind":"masdar","form":"III","gender":"f","plural":"مُناظَرات","src":"msa"}
+{"w":"اِنْتِظار","en":"waiting","root":"ن-ظ-ر","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَنْظَر","en":"scene, view","root":"ن-ظ-ر","type":"noun","kind":"noun","gender":"m","plural":"مَناظِر","src":"msa"}
+{"w":"مَنْظور","en":"viewed, viewpoint","root":"ن-ظ-ر","type":"participle","kind":"passive participle","form":"I","gender":"m","plural":"مَنْظورون","src":"msa"}
+{"w":"مِنْظار","en":"binoculars, telescope","root":"ن-ظ-ر","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَناظير","src":"msa"}
+{"w":"نَظّارَة","en":"eyeglasses","root":"ن-ظ-ر","type":"noun","kind":"noun","gender":"f","plural":"نَظّارات","src":"msa"}
+{"w":"نَظَرِيَّة","en":"theory","root":"ن-ظ-ر","type":"noun","kind":"noun","gender":"f","plural":"نَظَرِيّات","src":"msa"}
+{"w":"نَظَرِيّ","en":"theoretical","root":"ن-ظ-ر","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"نَظير","en":"counterpart, equal","root":"ن-ظ-ر","type":"noun","kind":"noun","gender":"m","plural":"نُظَراء","src":"msa"}
+{"w":"نَظُفَ","en":"to be clean","root":"ن-ظ-ف","type":"verb","kind":"verb","form":"I","past":"نَظُفَ","pres":"يَنْظُفُ","masdar":"نَظافَة","src":"msa"}
+{"w":"نَظافَة","en":"cleanliness","root":"ن-ظ-ف","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"تَنْظيف","en":"cleaning","root":"ن-ظ-ف","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَنْظَف","en":"cleaner","root":"ن-ظ-ف","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"مُنَظِّف","en":"cleaner, detergent","root":"ن-ظ-ف","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُنَظِّفات","src":"msa"}
+{"w":"نَعْجَة","en":"ewe","root":"ن-ع-ج","type":"noun","kind":"noun","gender":"f","plural":"نِعاج","src":"quran","q":"38:23:5-7","qen":"he has ninety-nine ewes"}
+{"w":"نُعاس","en":"drowsiness","root":"ن-ع-س","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"3:154:7-9","qen":"security, drowsiness that overcame a group of you"}
+{"w":"نَعَسَ","en":"to doze off","root":"ن-ع-س","type":"verb","kind":"verb","form":"I","past":"نَعَسَ","pres":"يَنْعُسُ","masdar":"نُعاس","src":"msa"}
+{"w":"ناعِس","en":"drowsy","root":"ن-ع-س","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"نَعْسان","en":"sleepy","root":"ن-ع-س","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"نَعَقَ","en":"to caw, to call out","root":"ن-ع-ق","type":"verb","kind":"verb","form":"I","past":"نَعَقَ","pres":"يَنْعِقُ","masdar":"نَعيق","src":"quran","q":"2:171:5-9","qen":"the one who shouts at what cannot hear","note":"Said of a shepherd shouting at his flock, or of a crow cawing."}
+{"w":"نَعيق","en":"cawing","root":"ن-ع-ق","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"نَعْل","en":"shoe, sandal","root":"ن-ع-ل","type":"noun","kind":"noun","gender":"f","plural":"نِعال","src":"quran","q":"20:12:4-5","qen":"so take off your sandals"}
+{"w":"أَنْغَضَ","en":"to shake the head","root":"ن-غ-ض","type":"verb","kind":"verb","form":"IV","past":"أَنْغَضَ","pres":"يُنْغِضُ","masdar":"إِنْغاض","src":"msa","note":"In scripture (17:51) it describes shaking the head in disbelief; also the usual sense in modern usage."}
+{"skip":"نَٰظِرِين","why":"plural of ناظِر"}
+{"skip":"نَعْلَي","why":"dual of نَعْل with the pronoun suffix ك"}
+{"w":"نِعْمَة","en":"blessing, favor","root":"ن-ع-م","type":"noun","kind":"noun","gender":"f","plural":"نِعَم","src":"quran","q":"2:40:5-8","qen":"remember My favor which I bestowed upon you"}
+{"w":"نَعْمَة","en":"comfort, pleasantness","root":"ن-ع-م","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"quran","q":"44:27:1-4","qen":"and pleasant comfort in which they delighted","note":"A different word from نِعْمَة; it means the ease and pleasure of life."}
+{"w":"نَعْماء","en":"good fortune, favor","root":"ن-ع-م","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"quran","q":"11:10:1-5","qen":"and if We let him taste prosperity after hardship"}
+{"w":"نَعيم","en":"bliss, delight","root":"ن-ع-م","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"5:65:10-12","qen":"and We would admit them to gardens of bliss"}
+{"skip":"نعيم","why":"the same word as نَعيم, unclassified spelling"}
+{"w":"نَعَم","en":"livestock, cattle","root":"ن-ع-م","type":"noun","kind":"collective noun","gender":"m","plural":"أَنْعام","src":"quran","q":"3:14:13-15","qen":"and the horses and cattle"}
+{"w":"أَنْعَمَ","en":"to bestow favor","root":"ن-ع-م","type":"verb","kind":"verb","form":"IV","past":"أَنْعَمَ","pres":"يُنْعِمُ","masdar":"إِنْعام","src":"quran","q":"1:7:1-4","qen":"the path of those You have favored"}
+{"skip":"انعم","why":"unclassified spelling of the verb أَنْعَمَ"}
+{"w":"نَعَّمَ","en":"to make comfortable","root":"ن-ع-م","type":"verb","kind":"verb","form":"II","past":"نَعَّمَ","pres":"يُنَعِّمُ","masdar":"تَنْعيم","src":"quran","q":"89:15:7-8","qen":"so He honored him and gave him comfort"}
+{"w":"نِعْمَ","en":"how excellent is","root":"ن-ع-م","type":"other","kind":"expression","src":"quran","q":"22:78:40-44","qen":"what an excellent Protector, and what an excellent Helper","note":"A verb of praise; it is followed by the noun being praised."}
+{"skip":"نعم","why":"unclassified spelling of the verb of praise نِعْمَ"}
+{"skip":"V:I","why":"these forms are the verb of praise نِعْمَ"}
+{"w":"ناعِم","en":"soft, gentle","root":"ن-ع-م","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"ناعِمون","src":"quran","q":"88:8:1-3","qen":"faces on that day will be joyful","note":"In 88:8 faces are ناعِمة, meaning delighted; today it usually means soft or smooth."}
+{"skip":"نَّاعِمَة","why":"feminine of ناعِم"}
+{"w":"تَنَعَّمَ","en":"to live in luxury","root":"ن-ع-م","type":"verb","kind":"verb","form":"V","past":"تَنَعَّمَ","pres":"يَتَنَعَّمُ","masdar":"تَنَعُّم","src":"msa"}
+{"w":"تَنَعُّم","en":"luxury, comfort","root":"ن-ع-م","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"إِنْعام","en":"bestowing favor","root":"ن-ع-م","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"نُعومَة","en":"softness","root":"ن-ع-م","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"نَعامَة","en":"ostrich","root":"ن-ع-م","type":"noun","kind":"noun","gender":"f","plural":"نَعام","src":"msa"}
+{"w":"أَنْعَم","en":"softer, more luxurious","root":"ن-ع-م","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"نَفَّاثات","en":"women who blow","root":"ن-ف-ث","type":"noun","kind":"plural","gender":"f","src":"quran","q":"113:4:2-5","qen":"from the evil of those who blow on knots","note":"In 113:4 it refers to those who blow on knots in sorcery."}
+{"w":"نَفَثَ","en":"to blow, to spit out","root":"ن-ف-ث","type":"verb","kind":"verb","form":"I","past":"نَفَثَ","pres":"يَنْفُثُ","masdar":"نَفْث","src":"msa"}
+{"w":"نَفْحَة","en":"whiff, gust","root":"ن-ف-ح","type":"noun","kind":"noun","gender":"f","plural":"نَفَحات","src":"quran","q":"21:46:2-6","qen":"if a whiff of your Lord's punishment touches them"}
+{"w":"نَفَخَ","en":"to blow","root":"ن-ف-خ","type":"verb","kind":"verb","form":"I","past":"نَفَخَ","pres":"يَنْفُخُ","masdar":"نَفْخ","src":"quran","q":"3:49:16-19","qen":"like the shape of a bird, and I breathe into it"}
+{"skip":"نفخ","why":"unclassified spelling of the verb نَفَخَ"}
+{"w":"نَفْخَة","en":"blast, puff","root":"ن-ف-خ","type":"noun","kind":"noun of instance","gender":"f","plural":"نَفَخات","src":"quran","q":"69:13:1-6","qen":"when the trumpet is blown with a single blast"}
+{"w":"نَفْخ","en":"blowing","root":"ن-ف-خ","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِنْتَفَخَ","en":"to swell, to be inflated","root":"ن-ف-خ","type":"verb","kind":"verb","form":"VII","past":"اِنْتَفَخَ","pres":"يَنْتَفِخُ","masdar":"اِنْتِفاخ","src":"msa"}
+{"w":"مِنْفاخ","en":"bellows, pump","root":"ن-ف-خ","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَنافيخ","src":"msa"}
+{"w":"نُفّاخَة","en":"bubble","root":"ن-ف-خ","type":"noun","kind":"noun","gender":"f","plural":"نُفّاخات","src":"msa"}
+{"w":"نَفِدَ","en":"to run out","root":"ن-ف-د","type":"verb","kind":"verb","form":"I","past":"نَفِدَ","pres":"يَنْفَدُ","masdar":"نَفاد","src":"quran","q":"16:96:1-3","qen":"what you have runs out"}
+{"w":"نَفاد","en":"running out, depletion","root":"ن-ف-د","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"quran","q":"38:54:3-7","qen":"this is Our provision, it has no end"}
+{"w":"اِسْتَنْفَدَ","en":"to exhaust, to use up","root":"ن-ف-د","type":"verb","kind":"verb","form":"X","past":"اِسْتَنْفَدَ","pres":"يَسْتَنْفِدُ","masdar":"اِسْتِنْفاد","src":"msa"}
+{"w":"اِسْتِنْفاد","en":"exhausting, depletion","root":"ن-ف-د","type":"masdar","kind":"masdar","form":"X","gender":"m","noplural":true,"src":"msa"}
+{"w":"نَفَذَ","en":"to penetrate, to pass through","root":"ن-ف-ذ","type":"verb","kind":"verb","form":"I","past":"نَفَذَ","pres":"يَنْفُذُ","masdar":"نُفوذ","src":"quran","q":"55:33:7-12","qen":"if you can pass through the regions of heaven and earth"}
+{"w":"نُفوذ","en":"influence, penetration","root":"ن-ف-ذ","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"نافِذَة","en":"window","root":"ن-ف-ذ","type":"noun","kind":"noun","gender":"f","plural":"نَوافِذ","src":"msa"}
+{"w":"مَنْفَذ","en":"outlet, exit","root":"ن-ف-ذ","type":"noun","kind":"noun of place","gender":"m","plural":"مَنافِذ","src":"msa"}
+{"w":"نَفَّذَ","en":"to carry out, to execute","root":"ن-ف-ذ","type":"verb","kind":"verb","form":"II","past":"نَفَّذَ","pres":"يُنَفِّذُ","masdar":"تَنْفيذ","src":"msa"}
+{"w":"تَنْفيذ","en":"execution, implementation","root":"ن-ف-ذ","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"skip":"نَّفَّٰثَٰت","why":"the plural entry نَفَّاثات, same word in Qur'anic spelling"}
+{"w":"نَفَرَ","en":"to rush out, to flee","root":"ن-ف-ر","type":"verb","kind":"verb","form":"I","past":"نَفَرَ","pres":"يَنْفِرُ","masdar":"نُفور","src":"quran","q":"4:71:7-11","qen":"so march out in detachments or march out all together","note":"In scripture, to march out for battle; in modern usage, to shy away or bolt."}
+{"w":"نُفور","en":"aversion, shying away","root":"ن-ف-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"quran","q":"17:41:8-10","qen":"but it only increases them in aversion"}
+{"w":"نَفَر","en":"group of men","root":"ن-ف-ر","type":"noun","kind":"noun","gender":"m","plural":"أَنْفار","src":"quran","q":"18:34:9-13","qen":"I am greater than you in wealth and mightier in men"}
+{"w":"نَفير","en":"troop, host","root":"ن-ف-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"17:6:10-11","qen":"and made you more numerous in manpower"}
+{"w":"مُسْتَنْفِر","en":"alarmed, startled","root":"ن-ف-ر","type":"participle","kind":"active participle","form":"X","gender":"m","src":"quran","q":"74:50:1-3","qen":"as if they were startled donkeys","note":"In 74:50 it describes wild donkeys fleeing in fright; today the verb also means to mobilize."}
+{"w":"نَفَّرَ","en":"to repel, to alienate","root":"ن-ف-ر","type":"verb","kind":"verb","form":"II","past":"نَفَّرَ","pres":"يُنَفِّرُ","masdar":"تَنْفير","src":"msa"}
+{"w":"اِسْتَنْفَرَ","en":"to mobilize, to call to arms","root":"ن-ف-ر","type":"verb","kind":"verb","form":"X","past":"اِسْتَنْفَرَ","pres":"يَسْتَنْفِرُ","masdar":"اِسْتِنْفار","src":"msa"}
+{"w":"اِسْتِنْفار","en":"mobilization, alert","root":"ن-ف-ر","type":"masdar","kind":"masdar","form":"X","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَنَفَّسَ","en":"to breathe","root":"ن-ف-س","type":"verb","kind":"verb","form":"V","past":"تَنَفَّسَ","pres":"يَتَنَفَّسُ","masdar":"تَنَفُّس","src":"quran","q":"81:18:1-3","qen":"and by the dawn when it breathes"}
+{"w":"تَنَفُّس","en":"breathing","root":"ن-ف-س","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَنافَسَ","en":"to compete","root":"ن-ف-س","type":"verb","kind":"verb","form":"VI","past":"تَنافَسَ","pres":"يَتَنافَسُ","masdar":"تَنافُس","src":"quran","q":"83:26:3-6","qen":"for this let the competitors compete"}
+{"w":"مُتَنافِس","en":"competitor","root":"ن-ف-س","type":"participle","kind":"active participle","form":"VI","gender":"m","plural":"مُتَنافِسون","src":"quran","q":"83:26:5-6","qen":"let the competitors compete"}
+{"skip":"نفس","why":"unclassified spelling of نَفْس, already in the bank"}
+{"skip":"نَفْس","why":"already in the bank as نَفس"}
+{"skip":"مُتَنَٰفِسُون","why":"plural of مُتَنافِس"}
+{"w":"تَنافُس","en":"competition","root":"ن-ف-س","type":"masdar","kind":"masdar","form":"VI","gender":"m","noplural":true,"src":"msa"}
+{"w":"نَفَس","en":"breath","root":"ن-ف-س","type":"noun","kind":"noun","gender":"m","plural":"أَنْفاس","src":"msa"}
+{"w":"نافَسَ","en":"to compete with","root":"ن-ف-س","type":"verb","kind":"verb","form":"III","past":"نافَسَ","pres":"يُنافِسُ","masdar":"مُنافَسَة","src":"msa"}
+{"w":"مُنافَسَة","en":"competition, rivalry","root":"ن-ف-س","type":"masdar","kind":"masdar","form":"III","gender":"f","plural":"مُنافَسات","src":"msa"}
+{"w":"مُنافِس","en":"rival, competitor","root":"ن-ف-س","type":"participle","kind":"active participle","form":"III","gender":"m","plural":"مُنافِسون","src":"msa"}
+{"w":"نَفيس","en":"precious, valuable","root":"ن-ف-س","type":"adjective","kind":"adjective","plural":"نَفائِس","src":"msa"}
+{"w":"تَنافُسِيّ","en":"competitive","root":"ن-ف-س","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"نَفَّسَ","en":"to relieve, to give relief","root":"ن-ف-س","type":"verb","kind":"verb","form":"II","past":"نَفَّسَ","pres":"يُنَفِّسُ","masdar":"تَنْفيس","src":"msa"}
+{"w":"نَفَشَ","en":"to fluff up, to ruffle","root":"ن-ف-ش","type":"verb","kind":"verb","form":"I","past":"نَفَشَ","pres":"يَنْفُشُ","masdar":"نَفْش","src":"quran","q":"21:78:7-11","qen":"when the sheep of the people strayed into it at night","note":"In 21:78 it means livestock grazing freely at night; the common modern sense is to fluff or ruffle."}
+{"w":"مَنْفوش","en":"fluffed up, ruffled","root":"ن-ف-ش","type":"participle","kind":"passive participle","form":"I","gender":"m","src":"quran","q":"101:5:1-4","qen":"and the mountains will be like fluffed wool"}
+{"w":"نَفَعَ","en":"to benefit","root":"ن-ف-ع","type":"verb","kind":"verb","form":"I","past":"نَفَعَ","pres":"يَنْفَعُ","masdar":"نَفْع","src":"quran","q":"6:158:20-23","qen":"no soul will benefit from its faith"}
+{"skip":"نفع","why":"unclassified spelling of the verb نَفَعَ"}
+{"w":"نَفْع","en":"benefit, usefulness","root":"ن-ف-ع","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"quran","q":"2:219:11-14","qen":"but their sin is greater than their benefit"}
+{"w":"مَنْفَعَة","en":"benefit, advantage","root":"ن-ف-ع","type":"noun","kind":"noun","gender":"f","plural":"مَنافِع","src":"quran","q":"2:219:7-10","qen":"great sin, and some benefits for people"}
+{"skip":"مَنَٰفِع","why":"plural of مَنْفَعَة"}
+{"w":"نافِع","en":"useful, beneficial","root":"ن-ف-ع","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"أَنْفَع","en":"more useful","root":"ن-ف-ع","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"اِنْتَفَعَ","en":"to benefit from","root":"ن-ف-ع","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَفَعَ","pres":"يَنْتَفِعُ","masdar":"اِنْتِفاع","src":"msa"}
+{"w":"اِنْتِفاع","en":"benefiting, use","root":"ن-ف-ع","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"skip":"مُّسْتَنفِرَة","why":"feminine of مُسْتَنْفِر"}
+{"w":"أَنْفَقَ","en":"to spend","root":"ن-ف-ق","type":"verb","kind":"verb","form":"IV","past":"أَنْفَقَ","pres":"يُنْفِقُ","masdar":"إِنْفاق","src":"quran","q":"2:3:6-8","qen":"and spend from what We have provided them"}
+{"skip":"سبيل","why":"unclassified spelling; the word in the verse is the verb أَنْفَقَ (لِتُنْفِقُوا)"}
+{"w":"إِنْفاق","en":"spending","root":"ن-ف-ق","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"quran","q":"17:100:9-11","qen":"you would hold back for fear of spending"}
+{"w":"مُنْفِق","en":"one who spends","root":"ن-ف-ق","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُنْفِقون","src":"quran","q":"3:17:3-4","qen":"the devout and those who spend"}
+{"w":"نافَقَ","en":"to act hypocritically","root":"ن-ف-ق","type":"verb","kind":"verb","form":"III","past":"نافَقَ","pres":"يُنافِقُ","masdar":"نِفاق","src":"quran","q":"3:167:1-3","qen":"and to make known those who acted hypocritically"}
+{"w":"نِفاق","en":"hypocrisy","root":"ن-ف-ق","type":"masdar","kind":"masdar","form":"III","gender":"m","noplural":true,"src":"quran","q":"9:77:1-4","qen":"so He followed it with hypocrisy in their hearts"}
+{"w":"مُنافِق","en":"hypocrite","root":"ن-ف-ق","type":"participle","kind":"active participle","form":"III","gender":"m","plural":"مُنافِقون","src":"quran","q":"4:61:11-12","qen":"you see the hypocrites"}
+{"skip":"مُنَٰفِقُون","why":"plural of مُنافِق"}
+{"skip":"مُنَٰفِقَٰت","why":"feminine plural of مُنافِق"}
+{"skip":"منفقت","why":"feminine plural of مُنافِق, unclassified spelling"}
+{"skip":"صد","why":"unclassified spelling of مُنافِق (الْمُنَافِقِينَ in 33:73)"}
+{"skip":"مُنفِقِين","why":"plural of مُنْفِق"}
+{"w":"نَفَقَة","en":"expenditure, allowance","root":"ن-ف-ق","type":"noun","kind":"noun","gender":"f","plural":"نَفَقات","src":"quran","q":"2:270:2-4","qen":"whatever you spend of any expense"}
+{"skip":"نَفَقَٰت","why":"plural of نَفَقَة"}
+{"w":"نَفَق","en":"tunnel","root":"ن-ف-ق","type":"noun","kind":"noun","gender":"m","plural":"أَنْفاق","src":"quran","q":"6:35:9-12","qen":"seek a tunnel in the earth"}
+{"w":"نَفَقَ","en":"to die (of an animal)","root":"ن-ف-ق","type":"verb","kind":"verb","form":"I","past":"نَفَقَ","pres":"يَنْفُقُ","masdar":"نُفوق","src":"msa"}
+{"w":"أَنْفال","en":"spoils of war","root":"ن-ف-ل","type":"noun","kind":"plural","gender":"m","src":"quran","q":"8:1:1-3","qen":"they ask you about the spoils of war"}
+{"w":"نافِلَة","en":"extra voluntary prayer","root":"ن-ف-ل","type":"noun","kind":"noun","gender":"f","plural":"نَوافِل","src":"quran","q":"17:79:3-6","qen":"and pray with it at night as an additional act for you","note":"In scripture it means an extra or bonus; in modern usage it is a voluntary prayer beyond the obligatory ones."}
+{"w":"نَفَى","en":"to deny, to banish","root":"ن-ف-ي","type":"verb","kind":"verb","form":"I","past":"نَفَى","pres":"يَنْفي","masdar":"نَفْي","src":"msa","note":"In scripture (5:33) it appears in the passive, to be banished from the land."}
+{"w":"نَفْي","en":"negation, exile","root":"ن-ف-ي","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَنْفًى","en":"place of exile","root":"ن-ف-ي","type":"noun","kind":"noun of place","gender":"m","plural":"مَنافي","src":"msa"}
+{"w":"مَنْفِيّ","en":"exiled, negated","root":"ن-ف-ي","type":"participle","kind":"passive participle","form":"I","gender":"m","plural":"مَنْفِيّون","src":"msa"}
+{"w":"نُفاية","en":"waste, refuse","root":"ن-ف-ي","type":"noun","kind":"noun","gender":"f","plural":"نُفايات","src":"msa"}
+{"w":"نافَى","en":"to contradict, to be incompatible with","root":"ن-ف-ي","type":"verb","kind":"verb","form":"III","past":"نافَى","pres":"يُنافي","masdar":"مُنافاة","src":"msa"}
+{"w":"اِنْتَفَى","en":"to be absent, to be ruled out","root":"ن-ف-ي","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَفَى","pres":"يَنْتَفي","masdar":"اِنْتِفاء","src":"msa"}
+{"w":"نَقيب","en":"chief, union head","root":"ن-ق-ب","type":"noun","kind":"noun","gender":"m","plural":"نُقَباء","src":"quran","q":"5:12:8-11","qen":"and We raised up twelve leaders from among them","note":"In scripture, a chief of a tribe; today also the head of a professional union or a captain."}
+{"w":"نَقْب","en":"breach, tunnel","root":"ن-ق-ب","type":"noun","kind":"noun","gender":"m","plural":"نُقوب","src":"quran","q":"18:97:5-8","qen":"nor could they dig through it"}
+{"w":"نَقَّبَ","en":"to search, to excavate","root":"ن-ق-ب","type":"verb","kind":"verb","form":"II","past":"نَقَّبَ","pres":"يُنَقِّبُ","masdar":"تَنْقيب","src":"quran","q":"50:36:7-12","qen":"mightier in power, so they searched through the lands"}
+{"w":"تَنْقيب","en":"excavation, prospecting","root":"ن-ق-ب","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"نَقَبَ","en":"to bore through, to dig","root":"ن-ق-ب","type":"verb","kind":"verb","form":"I","past":"نَقَبَ","pres":"يَنْقُبُ","masdar":"نَقْب","src":"msa"}
+{"w":"نِقابَة","en":"trade union, syndicate","root":"ن-ق-ب","type":"noun","kind":"noun","gender":"f","plural":"نِقابات","src":"msa"}
+{"w":"نِقاب","en":"face veil","root":"ن-ق-ب","type":"noun","kind":"noun","gender":"m","plural":"نُقُب","src":"msa"}
+{"w":"مَنْقَبَة","en":"virtue, noble deed","root":"ن-ق-ب","type":"noun","kind":"noun","gender":"f","plural":"مَناقِب","src":"msa"}
+{"w":"أَنْقَذَ","en":"to rescue","root":"ن-ق-ذ","type":"verb","kind":"verb","form":"IV","past":"أَنْقَذَ","pres":"يُنْقِذُ","masdar":"إِنْقاذ","src":"quran","q":"3:103:26-27","qen":"and He rescued you from it"}
+{"w":"اِسْتَنْقَذَ","en":"to rescue back, to save","root":"ن-ق-ذ","type":"verb","kind":"verb","form":"X","past":"اِسْتَنْقَذَ","pres":"يَسْتَنْقِذُ","masdar":"اِسْتِنْقاذ","src":"quran","q":"22:73:24-26","qen":"they cannot rescue it back from it"}
+{"w":"إِنْقاذ","en":"rescue","root":"ن-ق-ذ","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُنْقِذ","en":"rescuer, savior","root":"ن-ق-ذ","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُنْقِذون","src":"msa"}
+{"w":"نَقَرَ","en":"to tap, to peck","root":"ن-ق-ر","type":"verb","kind":"verb","form":"I","past":"نَقَرَ","pres":"يَنْقُرُ","masdar":"نَقْر","src":"quran","q":"74:8:1-4","qen":"for when the trumpet is sounded","note":"In 74:8 the verb is passive: the trumpet is sounded."}
+{"w":"نَقير","en":"speck, tiny amount","root":"ن-ق-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"4:53:8-10","qen":"they would not give the people even a speck"}
+{"w":"ناقُور","en":"trumpet","root":"ن-ق-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"74:8:2-4","qen":"when the trumpet is sounded"}
+{"w":"مِنْقار","en":"beak","root":"ن-ق-ر","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَناقير","src":"msa"}
+{"w":"نَقْرَة","en":"tap, click","root":"ن-ق-ر","type":"noun","kind":"noun of instance","gender":"f","plural":"نَقَرات","src":"msa"}
+{"w":"نَقَصَ","en":"to decrease","root":"ن-ق-ص","type":"verb","kind":"verb","form":"I","past":"نَقَصَ","pres":"يَنْقُصُ","masdar":"نَقْص","src":"quran","q":"9:4:6-9","qen":"then did not diminish you in anything"}
+{"w":"نَقْص","en":"shortage, deficiency","root":"ن-ق-ص","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"quran","q":"2:155:5-8","qen":"and hunger and a loss of wealth"}
+{"w":"مَنْقوص","en":"reduced, deficient","root":"ن-ق-ص","type":"participle","kind":"passive participle","form":"I","gender":"m","src":"quran","q":"11:109:17-20","qen":"We will give them their share in full"}
+{"w":"ناقِص","en":"incomplete, deficient","root":"ن-ق-ص","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"ناقِصون","src":"msa"}
+{"w":"نُقْصان","en":"decrease, shortfall","root":"ن-ق-ص","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَنْقَصَ","en":"to reduce","root":"ن-ق-ص","type":"verb","kind":"verb","form":"IV","past":"أَنْقَصَ","pres":"يُنْقِصُ","masdar":"إِنْقاص","src":"msa"}
+{"w":"تَناقَصَ","en":"to dwindle","root":"ن-ق-ص","type":"verb","kind":"verb","form":"VI","past":"تَناقَصَ","pres":"يَتَناقَصُ","masdar":"تَناقُص","src":"msa"}
+{"w":"اِنْتَقَصَ","en":"to belittle, to diminish","root":"ن-ق-ص","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَقَصَ","pres":"يَنْتَقِصُ","masdar":"اِنْتِقاص","src":"msa"}
+{"w":"نَقيصَة","en":"flaw, shortcoming","root":"ن-ق-ص","type":"noun","kind":"noun","gender":"f","plural":"نَقائِص","src":"msa"}
+{"w":"نَقَضَ","en":"to break, to violate","root":"ن-ق-ض","type":"verb","kind":"verb","form":"I","past":"نَقَضَ","pres":"يَنْقُضُ","masdar":"نَقْض","src":"quran","q":"2:27:1-4","qen":"those who break God's covenant"}
+{"w":"نَقْض","en":"breaking, violating","root":"ن-ق-ض","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"quran","q":"4:155:1-3","qen":"so for their breaking of their covenant"}
+{"w":"أَنْقَضَ","en":"to weigh heavily on","root":"ن-ق-ض","type":"verb","kind":"verb","form":"IV","past":"أَنْقَضَ","pres":"يُنْقِضُ","masdar":"إِنْقاض","src":"quran","q":"94:3:1-3","qen":"which weighed down your back","note":"Said of a burden that makes the back creak."}
+{"w":"ناقَضَ","en":"to contradict","root":"ن-ق-ض","type":"verb","kind":"verb","form":"III","past":"ناقَضَ","pres":"يُناقِضُ","masdar":"مُناقَضَة","src":"msa"}
+{"w":"تَناقَضَ","en":"to be contradictory","root":"ن-ق-ض","type":"verb","kind":"verb","form":"VI","past":"تَناقَضَ","pres":"يَتَناقَضُ","masdar":"تَناقُض","src":"msa"}
+{"w":"تَناقُض","en":"contradiction","root":"ن-ق-ض","type":"masdar","kind":"masdar","form":"VI","gender":"m","plural":"تَناقُضات","src":"msa"}
+{"w":"مُتَناقِض","en":"contradictory","root":"ن-ق-ض","type":"participle","kind":"active participle","form":"VI","gender":"m","plural":"مُتَناقِضون","src":"msa"}
+{"w":"نَقيض","en":"opposite","root":"ن-ق-ض","type":"noun","kind":"noun","gender":"m","src":"msa","noplural":true}
+{"w":"اِنْتَقَضَ","en":"to be broken, to be nullified","root":"ن-ق-ض","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَقَضَ","pres":"يَنْتَقِضُ","masdar":"اِنْتِقاض","src":"msa"}
+{"w":"أَنْقاض","en":"rubble, ruins","root":"ن-ق-ض","type":"noun","kind":"plural","gender":"m","src":"msa"}

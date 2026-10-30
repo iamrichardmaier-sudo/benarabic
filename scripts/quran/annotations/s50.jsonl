@@ -1,0 +1,200 @@
+{"w":"كَفَّ","en":"to refrain, to hold back","root":"ك-ف-ف","type":"verb","kind":"verb","form":"I","past":"كَفَّ","pres":"يَكُفُّ","masdar":"كَفّ","src":"quran","q":"4:84:13-15","qen":"perhaps God will restrain the might of","note":"Followed by عَن, it means to desist from something."}
+{"w":"كافَّة","en":"all, altogether","root":"ك-ف-ف","type":"other","kind":"adverb","src":"quran","q":"2:208:5-8","qen":"enter into peace, all of you","note":"Used as an adverb of totality, often كافَّةً after the noun it describes."}
+{"w":"كَفّ","en":"palm of the hand","root":"ك-ف-ف","type":"noun","kind":"noun","gender":"f","plural":"أَكُفّ","src":"msa","note":"In scripture it occurs only in the dual, the two hands (13:14, 18:42)."}
+{"w":"كَفيف","en":"blind","root":"ك-ف-ف","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"مَكْفوف","en":"blind","root":"ك-ف-ف","type":"participle","kind":"passive participle","form":"I","src":"msa","note":"Literally held back; used of a blind person."}
+{"w":"كَفاف","en":"bare sufficiency","root":"ك-ف-ف","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"Often in the phrase عَيْش الكَفاف, a life of bare subsistence."}
+{"w":"اِنْكَفَّ","en":"to withdraw, to desist","root":"ك-ف-ف","type":"verb","kind":"verb","form":"VII","past":"اِنْكَفَّ","pres":"يَنْكَفُّ","masdar":"اِنْكِفاف","src":"msa"}
+{"w":"كَفَلَ","en":"to take charge of","root":"ك-ف-ل","type":"verb","kind":"verb","form":"I","past":"كَفَلَ","pres":"يَكْفُلُ","masdar":"كَفالَة","src":"quran","q":"3:44:13-15","qen":"which of them would take charge of Mary","note":"In modern usage also to guarantee or ensure."}
+{"w":"كَفَّلَ","en":"to put in someone's care","root":"ك-ف-ل","type":"verb","kind":"verb","form":"II","past":"كَفَّلَ","pres":"يُكَفِّلُ","masdar":"تَكْفيل","src":"quran","q":"3:37:8-9","qen":"and placed her in the care of Zechariah"}
+{"w":"أَكْفَلَ","en":"to entrust the care of","root":"ك-ف-ل","type":"verb","kind":"verb","form":"IV","past":"أَكْفَلَ","pres":"يُكْفِلُ","masdar":"إِكْفال","src":"quran","q":"38:23:11-12","qen":"so he said: entrust her to me"}
+{"w":"كِفْل","en":"share, portion","root":"ك-ف-ل","type":"noun","kind":"noun","gender":"m","plural":"أَكْفال","src":"quran","q":"4:85:13-16","qen":"will have a share of its burden"}
+{"w":"كَفيل","en":"guarantor, sponsor","root":"ك-ف-ل","type":"noun","kind":"noun","gender":"m","plural":"كُفَلاء","src":"quran","q":"16:91:12-15","qen":"and you have made God a guarantor over yourselves"}
+{"w":"كَفالَة","en":"guarantee, sponsorship","root":"ك-ف-ل","type":"masdar","kind":"masdar","form":"I","gender":"f","plural":"كَفالات","src":"msa"}
+{"w":"كافِل","en":"guardian, sponsor","root":"ك-ف-ل","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"تَكَفَّلَ","en":"to undertake, to vouch for","root":"ك-ف-ل","type":"verb","kind":"verb","form":"V","past":"تَكَفَّلَ","pres":"يَتَكَفَّلُ","masdar":"تَكَفُّل","src":"msa"}
+{"w":"تَكافَلَ","en":"to be mutually responsible","root":"ك-ف-ل","type":"verb","kind":"verb","form":"VI","past":"تَكافَلَ","pres":"يَتَكافَلُ","masdar":"تَكافُل","src":"msa"}
+{"w":"تَكافُل","en":"solidarity, mutual support","root":"ك-ف-ل","type":"masdar","kind":"masdar","form":"VI","gender":"m","src":"msa","note":"Common in التَّكافُل الاجتِماعي, social solidarity."}
+{"w":"كَفى","en":"to suffice, to be enough","root":"ك-ف-ي","type":"verb","kind":"verb","form":"I","past":"كَفى","pres":"يَكْفي","masdar":"كِفاية","src":"quran","q":"4:6:35-37","qen":"and God is sufficient as a reckoner","note":"Often in وَكَفى بِاللهِ, with a redundant بِ before the one who suffices."}
+{"w":"كافِي","en":"sufficient, enough","root":"ك-ف-ي","type":"participle","kind":"active participle","form":"I","src":"msa","note":"Occurs in scripture as بِكافٍ, \"enough for\", in 39:36."}
+{"w":"كِفاية","en":"sufficiency, competence","root":"ك-ف-ي","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"اِكْتَفى","en":"to be content, to make do","root":"ك-ف-ي","type":"verb","kind":"verb","form":"VIII","past":"اِكْتَفى","pres":"يَكْتَفي","masdar":"اِكْتِفاء","src":"msa","note":"Used with بِ: to be satisfied with."}
+{"w":"اِكْتِفاء","en":"self-sufficiency, contentment","root":"ك-ف-ي","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"w":"كَلَأَ","en":"to guard, to protect","root":"ك-ل-أ","type":"verb","kind":"verb","form":"I","past":"كَلَأَ","pres":"يَكْلَأُ","masdar":"كِلاءَة","src":"quran","q":"21:42:2-4","qen":"Who can protect you by night and by day","note":"A literary verb, rare in everyday modern usage."}
+{"w":"كَلَأ","en":"pasture, herbage","root":"ك-ل-أ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُكَلِّب","en":"one who trains hunting dogs","root":"ك-ل-ب","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُكَلِّبون","src":"quran","q":"5:4:12-14","qen":"hunting animals, as trainers of hunting dogs, teaching them"}
+{"w":"كُلّاب","en":"hook, grapple","root":"ك-ل-ب","type":"noun","kind":"noun","gender":"m","plural":"كَلاليب","src":"msa"}
+{"w":"كَلِبَ","en":"to become rabid","root":"ك-ل-ب","type":"verb","kind":"verb","form":"I","past":"كَلِبَ","pres":"يَكْلَبُ","masdar":"كَلَب","src":"msa"}
+{"w":"كَلَب","en":"rabies, rage","root":"ك-ل-ب","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"كَلْبِيّ","en":"canine, doglike","root":"ك-ل-ب","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"كالِح","en":"grim, scowling","root":"ك-ل-ح","type":"participle","kind":"active participle","form":"I","plural":"كالِحون","src":"quran","q":"23:104:4-6","qen":"and they are grimacing in it","note":"Describes a face twisted in a bitter, gloomy look."}
+{"w":"كَلَحَ","en":"to scowl, to look grim","root":"ك-ل-ح","type":"verb","kind":"verb","form":"I","past":"كَلَحَ","pres":"يَكْلَحُ","masdar":"كُلوح","src":"msa"}
+{"w":"كَلَّفَ","en":"to burden, to assign","root":"ك-ل-ف","type":"verb","kind":"verb","form":"II","past":"كَلَّفَ","pres":"يُكَلِّفُ","masdar":"تَكْليف","src":"quran","q":"2:233:17-21","qen":"no soul is burdened beyond its capacity","note":"In modern usage also to commission someone with a task, or to cost."}
+{"w":"تَكَلَّفَ","en":"to take on, to go to trouble","root":"ك-ل-ف","type":"verb","kind":"verb","form":"V","past":"تَكَلَّفَ","pres":"يَتَكَلَّفُ","masdar":"تَكَلُّف","src":"msa"}
+{"w":"مُتَكَلِّف","en":"one who pretends, affected","root":"ك-ل-ف","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَكَلِّفون","src":"quran","q":"38:86:8-10","qen":"and I am not among the pretenders"}
+{"w":"مُكَلَّف","en":"charged, obliged","root":"ك-ل-ف","type":"participle","kind":"passive participle","form":"II","plural":"مُكَلَّفون","src":"msa","note":"Also a legally responsible adult in Islamic law."}
+{"w":"تَكْليف","en":"assignment, obligation","root":"ك-ل-ف","type":"masdar","kind":"masdar","form":"II","gender":"m","plural":"تَكاليف","src":"msa"}
+{"w":"تَكَلُّف","en":"affectation, artificiality","root":"ك-ل-ف","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"كُلْفَة","en":"cost, trouble","root":"ك-ل-ف","type":"noun","kind":"noun","gender":"f","plural":"كُلَف","src":"msa"}
+{"w":"تَكْلِفَة","en":"cost, expense","root":"ك-ل-ف","type":"noun","kind":"noun","gender":"f","plural":"تَكاليف","src":"msa"}
+{"w":"كَلالَة","en":"heirless estate (no parent or child)","root":"ك-ل-ل","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"quran","q":"4:12:51-54","qen":"if a man whose estate is inherited leaves no parent or child","note":"A legal term in inheritance rulings; in everyday Arabic the same letters can also mean weariness."}
+{"w":"كَلّ","en":"burden","root":"ك-ل-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"In scripture it occurs in 16:76, of a dependent who is a burden on his master."}
+{"w":"كَلَّ","en":"to grow weary, to become dull","root":"ك-ل-ل","type":"verb","kind":"verb","form":"I","past":"كَلَّ","pres":"يَكِلُّ","masdar":"كَلال","src":"msa"}
+{"w":"كَليل","en":"blunt, dull","root":"ك-ل-ل","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"إِكْليل","en":"wreath, crown","root":"ك-ل-ل","type":"noun","kind":"noun","gender":"m","plural":"أَكاليل","src":"msa"}
+{"w":"كُلِّيّ","en":"total, universal","root":"ك-ل-ل","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"كُلِّيَّة","en":"college, faculty","root":"ك-ل-ل","type":"noun","kind":"noun","gender":"f","plural":"كُلِّيّات","src":"msa"}
+{"skip":"كَلْب","why":"already in the bank as كَلب (dog)"}
+{"skip":"كَفَّي","why":"dual of كَفّ, covered by the entry كَفّ"}
+{"skip":"كفي","why":"same word as the verb كَفى"}
+{"skip":"كل","why":"the particle كَلّا, not a word of root ك-ل-أ"}
+{"skip":"يكلف","why":"same word as the verb كَلَّفَ"}
+{"skip":"كُلّ","why":"already in the bank as كُلّ"}
+{"skip":"كُلَّمَا","why":"function word (whenever), كُلّ plus ما"}
+{"skip":"لق","why":"misclassified; it is كُلّ with a pronoun suffix"}
+{"w":"كَلَّمَ","en":"to speak to, to address","root":"ك-ل-م","type":"verb","kind":"verb","form":"II","past":"كَلَّمَ","pres":"يُكَلِّمُ","masdar":"تَكْليم","src":"quran","q":"2:118:5-7","qen":"Why does God not speak to us"}
+{"w":"تَكْليم","en":"direct speech, talking to","root":"ك-ل-م","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"quran","q":"4:164:11-14","qen":"and God spoke to Moses directly"}
+{"w":"كَلام","en":"speech, talk","root":"ك-ل-م","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"2:75:9-11","qen":"who used to hear the word of God"}
+{"w":"كَلِم","en":"words (collective)","root":"ك-ل-م","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"quran","q":"4:46:4-5","qen":"who distort the words","note":"Collective of كَلِمة; in modern usage mostly in the fixed phrase جَوامِع الكَلِم."}
+{"w":"كالَمَ","en":"to converse with","root":"ك-ل-م","type":"verb","kind":"verb","form":"III","past":"كالَمَ","pres":"يُكالِمُ","masdar":"مُكالَمة","src":"msa"}
+{"w":"مُكالَمة","en":"conversation, phone call","root":"ك-ل-م","type":"masdar","kind":"masdar","form":"III","gender":"f","plural":"مُكالَمات","src":"msa"}
+{"w":"تَكَلُّم","en":"speaking, talking","root":"ك-ل-م","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُتَكَلِّم","en":"speaker","root":"ك-ل-م","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَكَلِّمون","src":"msa","note":"Also the grammatical first person."}
+{"skip":"كَلِمَة","why":"already in the bank as كَلِمة"}
+{"skip":"كَلِمَٰت","why":"plural of كَلِمة, which the bank holds"}
+{"skip":"كلمت","why":"كَلِمَات, plural of كَلِمة"}
+{"skip":"V:V","why":"the bank already holds يَتَكَلَّم, form V of this verb"}
+{"w":"كِلا","en":"both (masculine)","root":"ك-ل-و","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"Occurs in scripture as كِلاهُما (17:23). Takes the dual form كِلَيْ in the genitive and accusative before a noun; always followed by a singular verb."}
+{"w":"كِلْتا","en":"both (feminine)","root":"ك-ل-و","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa","note":"Occurs in scripture in 18:33. The feminine counterpart of كِلا."}
+{"skip":"ما","why":"كَما is the particle كَ plus ما, a function word"}
+{"w":"كامِل","en":"complete, full","root":"ك-م-ل","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"كامِلون","src":"quran","q":"2:196:57-58","qen":"that is ten in full"}
+{"skip":"كَامِلَة","why":"feminine of كامِل"}
+{"skip":"كَامِلَيْن","why":"dual of كامِل"}
+{"skip":"V:IV","why":"the bank already holds أَكمَلَ, form IV"}
+{"w":"كَمَلَ","en":"to be complete","root":"ك-م-ل","type":"verb","kind":"verb","form":"I","past":"كَمَلَ","pres":"يَكْمُلُ","masdar":"كَمال","src":"msa"}
+{"w":"كَمَّلَ","en":"to complete, to supplement","root":"ك-م-ل","type":"verb","kind":"verb","form":"II","past":"كَمَّلَ","pres":"يُكَمِّلُ","masdar":"تَكْميل","src":"msa"}
+{"w":"اِكْتَمَلَ","en":"to be completed","root":"ك-م-ل","type":"verb","kind":"verb","form":"VIII","past":"اِكْتَمَلَ","pres":"يَكْتَمِلُ","masdar":"اِكْتِمال","src":"msa"}
+{"w":"اِسْتَكْمَلَ","en":"to complete, to finish off","root":"ك-م-ل","type":"verb","kind":"verb","form":"X","past":"اِسْتَكْمَلَ","pres":"يَسْتَكْمِلُ","masdar":"اِسْتِكْمال","src":"msa"}
+{"w":"تَكامَلَ","en":"to be integrated, to complement","root":"ك-م-ل","type":"verb","kind":"verb","form":"VI","past":"تَكامَلَ","pres":"يَتَكامَلُ","masdar":"تَكامُل","src":"msa"}
+{"w":"كَمال","en":"perfection, completeness","root":"ك-م-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِكْتِمال","en":"completion, completeness","root":"ك-م-ل","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَكْمَل","en":"more complete, most perfect","root":"ك-م-ل","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"مُتَكامِل","en":"integrated, well rounded","root":"ك-م-ل","type":"participle","kind":"active participle","form":"VI","plural":"مُتَكامِلون","src":"msa"}
+{"w":"تَكْمِلَة","en":"supplement, completion","root":"ك-م-ل","type":"noun","kind":"noun","gender":"f","plural":"تَكْمِلات","src":"msa"}
+{"w":"كُمّ","en":"sleeve","root":"ك-م-م","type":"noun","kind":"noun","gender":"m","plural":"أَكْمام","src":"quran","q":"41:47:9-10","qen":"from their husks","note":"Only the plural occurs in scripture, where it means the sheaths or husks that enclose fruit."}
+{"skip":"أَكْمَام","why":"plural of كُمّ"}
+{"skip":"كم","why":"the question word كَم, a function word"}
+{"w":"كِمامَة","en":"muzzle, face mask","root":"ك-م-م","type":"noun","kind":"noun","gender":"f","plural":"كِمامات","src":"msa"}
+{"w":"كَمَّمَ","en":"to muzzle, to gag","root":"ك-م-م","type":"verb","kind":"verb","form":"II","past":"كَمَّمَ","pres":"يُكَمِّمُ","masdar":"تَكْميم","src":"msa"}
+{"w":"أَكْمَه","en":"born blind","root":"ك-م-ه","type":"adjective","kind":"adjective","plural":"كُمْه","src":"quran","q":"3:49:24-26","qen":"and I heal the one born blind and the leper"}
+{"w":"كَنود","en":"ungrateful","root":"ك-ن-د","type":"adjective","kind":"intensive adjective","src":"quran","q":"100:6:3-4","qen":"is ungrateful to his Lord"}
+{"w":"كَنَدَ","en":"to be ungrateful","root":"ك-ن-د","type":"verb","kind":"verb","form":"I","past":"كَنَدَ","pres":"يَكْنُدُ","masdar":"كُنود","src":"msa"}
+{"w":"كُنود","en":"ingratitude","root":"ك-ن-د","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"كَنَزَ","en":"to hoard, to bury treasure","root":"ك-ن-ز","type":"verb","kind":"verb","form":"I","past":"كَنَزَ","pres":"يَكْنِزُ","masdar":"كَنْز","src":"quran","q":"9:35:13-15","qen":"this is what you hoarded for yourselves"}
+{"w":"كَنْز","en":"treasure","root":"ك-ن-ز","type":"noun","kind":"noun","gender":"m","plural":"كُنوز","src":"quran","q":"11:12:13-15","qen":"why has no treasure been sent down to him"}
+{"w":"اِكْتَنَزَ","en":"to amass, to hoard up","root":"ك-ن-ز","type":"verb","kind":"verb","form":"VIII","past":"اِكْتَنَزَ","pres":"يَكْتَنِزُ","masdar":"اِكْتِناز","src":"msa"}
+{"w":"اِكْتِناز","en":"hoarding, accumulation","root":"ك-ن-ز","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَكْنوز","en":"hoarded, stored up","root":"ك-ن-ز","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"كانِس","en":"sweeper; hiding in its lair","root":"ك-ن-س","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"كُنَّس","src":"quran","q":"81:16:1-2","qen":"the running, the hiding ones","note":"In 81:16 the plural كُنَّس describes the stars that withdraw from view; in modern usage a كانِس is someone who sweeps."}
+{"w":"مِكْنَسَة","en":"broom","root":"ك-ن-س","type":"noun","kind":"noun of instrument","gender":"f","plural":"مَكانِس","src":"msa"}
+{"w":"كَنّاس","en":"sweeper, street cleaner","root":"ك-ن-س","type":"noun","kind":"noun","gender":"m","plural":"كَنّاسون","src":"msa"}
+{"w":"كُناسَة","en":"sweepings, rubbish","root":"ك-ن-س","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"كَنيس","en":"synagogue","root":"ك-ن-س","type":"noun","kind":"noun","gender":"m","src":"msa"}
+{"w":"كَنْس","en":"sweeping","root":"ك-ن-س","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِكْتَنَفَ","en":"to surround, to beset","root":"ك-ن-ف","type":"verb","kind":"verb","form":"VIII","past":"اِكْتَنَفَ","pres":"يَكْتَنِفُ","masdar":"اِكْتِناف","src":"msa"}
+{"w":"كِنان","en":"covering, sheath","root":"ك-ن-ن","type":"noun","kind":"noun","gender":"m","plural":"أَكِنَّة","src":"quran","q":"6:25:5-8","qen":"and We have put coverings over their hearts"}
+{"w":"كِنّ","en":"shelter, cover","root":"ك-ن-ن","type":"noun","kind":"noun","gender":"m","plural":"أَكْنان","src":"quran","q":"16:81:9-11","qen":"and made shelters for you in the mountains"}
+{"w":"مَكْنون","en":"hidden, well guarded","root":"ك-ن-ن","type":"participle","kind":"passive participle","form":"I","src":"quran","q":"37:49:1-3","qen":"as if they were hidden eggs"}
+{"w":"أَكَنَّ","en":"to conceal in the heart","root":"ك-ن-ن","type":"verb","kind":"verb","form":"IV","past":"أَكَنَّ","pres":"يُكِنُّ","masdar":"إِكْنان","src":"quran","q":"2:235:10-13","qen":"or what you keep hidden within yourselves","note":"Modern usage: to harbour a feeling, as in يُكِنُّ الاحْتِرامَ لِـ, he holds respect for."}
+{"w":"كَنَّ","en":"to cover, to shelter","root":"ك-ن-ن","type":"verb","kind":"verb","form":"I","past":"كَنَّ","pres":"يَكُنُّ","masdar":"كَنّ","src":"msa"}
+{"skip":"أَكِنَّة","why":"plural of كِنان"}
+{"skip":"أَكْنَٰن","why":"plural of كِنّ"}
+{"w":"كَهْف","en":"cave","root":"ك-ه-ف","type":"noun","kind":"noun","gender":"m","plural":"كُهوف","src":"quran","q":"18:9:4-5","qen":"the companions of the cave"}
+{"w":"كَهْل","en":"middle-aged man","root":"ك-ه-ل","type":"noun","kind":"noun","gender":"m","plural":"كُهول","src":"quran","q":"3:46:1-5","qen":"and he will speak to people in the cradle and in middle age"}
+{"w":"كاهِل","en":"shoulder, upper back","root":"ك-ه-ل","type":"noun","kind":"noun","gender":"m","plural":"كَواهِل","src":"msa","note":"Often figurative, as the shoulder that bears a burden."}
+{"w":"كُهولَة","en":"middle age","root":"ك-ه-ل","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"كاهِن","en":"soothsayer, priest","root":"ك-ه-ن","type":"noun","kind":"noun","gender":"m","plural":"كَهَنَة","src":"quran","q":"52:29:3-6","qen":"so by your Lord's grace you are not a soothsayer","note":"In scripture a fortune-teller; in modern usage mainly a priest."}
+{"w":"كَهَنَ","en":"to divine, to prophesy","root":"ك-ه-ن","type":"verb","kind":"verb","form":"I","past":"كَهَنَ","pres":"يَكْهُنُ","masdar":"كِهانَة","src":"msa"}
+{"w":"تَكَهَّنَ","en":"to predict, to foretell","root":"ك-ه-ن","type":"verb","kind":"verb","form":"V","past":"تَكَهَّنَ","pres":"يَتَكَهَّنُ","masdar":"تَكَهُّن","src":"msa"}
+{"w":"كِهانَة","en":"divination, soothsaying","root":"ك-ه-ن","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"كَهَنوت","en":"priesthood","root":"ك-ه-ن","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"كُوب","en":"cup, glass","root":"ك-و-ب","type":"noun","kind":"noun","gender":"m","plural":"أَكْواب","src":"quran","q":"43:71:3-6","qen":"with golden plates and cups","note":"In scripture a handleless drinking vessel."}
+{"skip":"أَكْوَاب","why":"plural of كُوب"}
+{"w":"كادَ","en":"to almost do, to be about to","root":"ك-و-د","type":"verb","kind":"verb","form":"I","past":"كادَ","pres":"يَكادُ","src":"quran","q":"2:20:1-4","qen":"the lightning almost snatches away their sight","note":"An auxiliary verb followed by a present-tense verb; with a negative it means hardly."}
+{"w":"كَوَّرَ","en":"to wind, to coil","root":"ك-و-ر","type":"verb","kind":"verb","form":"II","past":"كَوَّرَ","pres":"يُكَوِّرُ","masdar":"تَكْوير","src":"quran","q":"39:5:5-8","qen":"He wraps the night over the day","note":"Also to roll something into a ball."}
+{"w":"تَكْوير","en":"winding up, coiling","root":"ك-و-ر","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa","note":"The title word of surah 81, التَّكْوير."}
+{"w":"كُرَة","en":"ball, sphere","root":"ك-و-ر","type":"noun","kind":"noun","gender":"f","plural":"كُرات","src":"msa"}
+{"w":"كَوْكَب","en":"star, planet","root":"ك-و-ك-ب","type":"noun","kind":"noun","gender":"m","plural":"كَواكِب","src":"quran","q":"6:76:5-6","qen":"he saw a star"}
+{"w":"كَوْكَبَة","en":"troop, constellation","root":"ك-و-ك-ب","type":"noun","kind":"noun","gender":"f","plural":"كَوْكَبات","src":"msa"}
+{"w":"كُوَيْكِب","en":"asteroid, small planet","root":"ك-و-ك-ب","type":"noun","kind":"diminutive","gender":"m","plural":"كُوَيْكِبات","src":"msa"}
+{"w":"كَوْكَبِيّ","en":"planetary","root":"ك-و-ك-ب","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"مَكانَة","en":"status, standing","root":"ك-و-ن","type":"noun","kind":"noun","gender":"f","plural":"مَكانات","src":"quran","q":"6:135:5-6","qen":"act according to your position","note":"In 6:135 it is one's place or ability; in modern usage social standing."}
+{"w":"كَوْن","en":"universe, existence","root":"ك-و-ن","type":"noun","kind":"noun","gender":"m","plural":"أَكْوان","src":"msa"}
+{"w":"كائِن","en":"being, creature","root":"ك-و-ن","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"كائِنات","src":"msa","note":"As an adjective, existing or happening."}
+{"w":"كَوَّنَ","en":"to form, to constitute","root":"ك-و-ن","type":"verb","kind":"verb","form":"II","past":"كَوَّنَ","pres":"يُكَوِّنُ","masdar":"تَكْوين","src":"msa"}
+{"w":"تَكْوين","en":"formation, composition","root":"ك-و-ن","type":"masdar","kind":"masdar","form":"II","gender":"m","plural":"تَكْوينات","src":"msa"}
+{"w":"مُكَوِّن","en":"component, constituent","root":"ك-و-ن","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُكَوِّنات","src":"msa"}
+{"w":"كَيْنونَة","en":"being, essence","root":"ك-و-ن","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"skip":"V:I","why":"كانَ, form I, is already in the bank"}
+{"skip":"مَّكَان","why":"already in the bank as مَكان"}
+{"skip":"مَكَانَت","why":"the same word as مَكانَة"}
+{"skip":"كان","why":"the verb كانَ, already in the bank"}
+{"skip":"كذب","why":"misclassified; a form of كانَ"}
+{"skip":"اهل","why":"misclassified; a form of كانَ"}
+{"skip":"لك","why":"misclassified; a form of كانَ"}
+{"skip":"لكن","why":"misclassified; a form of كانَ"}
+{"skip":"ان","why":"misclassified; a form of كانَ"}
+{"skip":"ترك","why":"misclassified; a form of كانَ"}
+{"skip":"شهيد","why":"misclassified; a form of كانَ"}
+{"skip":"من","why":"misclassified; a form of كانَ"}
+{"skip":"يكون","why":"present tense of the verb كانَ"}
+{"w":"كَوى","en":"to brand, to cauterize","root":"ك-و-ي","type":"verb","kind":"verb","form":"I","past":"كَوى","pres":"يَكْوي","masdar":"كَيّ","src":"msa","note":"In scripture it occurs only in the passive, تُكْوى, in 9:35."}
+{"w":"كَيّ","en":"branding, cauterization","root":"ك-و-ي","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa","note":"Modern usage includes ironing clothes."}
+{"w":"مِكْواة","en":"iron, branding iron","root":"ك-و-ي","type":"noun","kind":"noun of instrument","gender":"f","src":"msa"}
+{"w":"اِكْتَوى","en":"to be burned, to be cauterized","root":"ك-و-ي","type":"verb","kind":"verb","form":"VIII","past":"اِكْتَوى","pres":"يَكْتَوي","masdar":"اِكْتِواء","src":"msa","note":"Often figurative: to be scorched by hardship."}
+{"w":"مَكْوِيّ","en":"ironed, cauterized","root":"ك-و-ي","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"كادَ","en":"to plot against, to scheme","root":"ك-ي-د","type":"verb","kind":"verb","form":"I","past":"كادَ","pres":"يَكيدُ","masdar":"كَيْد","src":"quran","q":"7:195:21-24","qen":"call your partners, then scheme against me"}
+{"w":"كَيْد","en":"plot, scheme","root":"ك-ي-د","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"3:120:13-15","qen":"their scheming will not harm you at all"}
+{"w":"مَكيد","en":"plotted against","root":"ك-ي-د","type":"participle","kind":"passive participle","form":"I","src":"quran","q":"52:42:4-7","qen":"it is those who disbelieve who are the ones plotted against"}
+{"w":"مَكيدَة","en":"trick, plot","root":"ك-ي-د","type":"noun","kind":"noun","gender":"f","plural":"مَكايِد","src":"msa"}
+{"w":"كائِد","en":"plotter, schemer","root":"ك-ي-د","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"كائِدون","src":"msa"}
+{"w":"كالَ","en":"to measure","root":"ك-ي-ل","type":"verb","kind":"verb","form":"I","past":"كالَ","pres":"يَكيلُ","masdar":"كَيْل","src":"quran","q":"17:35:1-4","qen":"give full measure when you measure","note":"Used of measuring dry goods by volume."}
+{"w":"كَيْل","en":"measuring","root":"ك-ي-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"quran","q":"6:152:12-13","qen":"and give full measure"}
+{"w":"مِكْيال","en":"measure, measuring vessel","root":"ك-ي-ل","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَكاييل","src":"quran","q":"11:84:16-18","qen":"do not give short measure or weight"}
+{"w":"اِكْتالَ","en":"to take by measure","root":"ك-ي-ل","type":"verb","kind":"verb","form":"VIII","past":"اِكْتالَ","pres":"يَكْتالُ","masdar":"اِكْتِيال","src":"quran","q":"83:2:2-4","qen":"when they take their measure from people"}
+{"w":"اِسْتَكانَ","en":"to submit, to yield","root":"ك-ي-ن","type":"verb","kind":"verb","form":"X","past":"اِسْتَكانَ","pres":"يَسْتَكينُ","masdar":"اِسْتِكانَة","src":"msa","note":"Occurs in scripture in 3:146, \"nor did they give in\"."}
+{"w":"اِسْتِكانَة","en":"submission, humility","root":"ك-ي-ن","type":"masdar","kind":"masdar","form":"X","gender":"f","noplural":true,"src":"msa"}
+{"skip":"لا","why":"negation particle, a function word"}
+{"skip":"لن","why":"negation particle, a function word"}
+{"w":"لُبّ","en":"core, intellect","root":"ل-ب-ب","type":"noun","kind":"noun","gender":"m","plural":"أَلْباب","src":"quran","q":"2:179:6-7","qen":"O people of understanding","note":"Only the plural occurs in scripture, in أُولو الأَلْباب, those with sound minds."}
+{"skip":"أَلْبَٰب","why":"plural of لُبّ"}
+{"skip":"اتقي","why":"misclassified; it is الأَلْباب, plural of لُبّ"}
+{"w":"لُباب","en":"pith, best part","root":"ل-ب-ب","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"لَبيب","en":"intelligent, sensible","root":"ل-ب-ب","type":"adjective","kind":"adjective","plural":"أَلِبّاء","src":"msa"}
+{"w":"لَبِثَ","en":"to stay, to remain","root":"ل-ب-ث","type":"verb","kind":"verb","form":"I","past":"لَبِثَ","pres":"يَلْبَثُ","masdar":"لُبْث","src":"quran","q":"2:259:24-25","qen":"how long have you stayed"}
+{"w":"لابِث","en":"staying, remaining","root":"ل-ب-ث","type":"participle","kind":"active participle","form":"I","plural":"لابِثون","src":"quran","q":"78:23:1-2","qen":"staying in it"}
+{"skip":"لبث","why":"same word as the verb لَبِثَ"}
+{"w":"لُبْث","en":"stay, delay","root":"ل-ب-ث","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَلَبَّثَ","en":"to linger, to hesitate","root":"ل-ب-ث","type":"verb","kind":"verb","form":"V","past":"تَلَبَّثَ","pres":"يَتَلَبَّثُ","masdar":"تَلَبُّث","src":"msa"}
+{"w":"لُبَد","en":"heaped up, abundant","root":"ل-ب-د","type":"adjective","kind":"adjective","src":"quran","q":"90:6:3-4","qen":"I have wasted abundant wealth"}
+{"w":"لِبْدَة","en":"clump, matted mass","root":"ل-ب-د","type":"noun","kind":"noun","gender":"f","plural":"لِبَد","src":"quran","q":"72:19:7-10","qen":"they almost crowded upon him in dense masses","note":"The plural لِبَد in 72:19 describes a dense crowd; the singular also means a lion's mane."}
+{"skip":"لِبَد","why":"plural of لِبْدة"}
+{"w":"لَبَّدَ","en":"to mat, to make dense","root":"ل-ب-د","type":"verb","kind":"verb","form":"II","past":"لَبَّدَ","pres":"يُلَبِّدُ","masdar":"تَلْبيد","src":"msa"}
+{"w":"مُلَبَّد","en":"matted, overcast","root":"ل-ب-د","type":"participle","kind":"passive participle","form":"II","src":"msa","note":"Used of a sky heavy with clouds, as in سَماء مُلَبَّدة بِالغُيوم."}
+{"w":"لَبَسَ","en":"to confuse, to mix up","root":"ل-ب-س","type":"verb","kind":"verb","form":"I","past":"لَبَسَ","pres":"يَلْبِسُ","masdar":"لَبْس","src":"quran","q":"2:42:2-4","qen":"do not mix truth with falsehood","note":"A different verb from لَبِسَ, to wear, which the bank holds."}
+{"w":"لِباس","en":"clothing, garment","root":"ل-ب-س","type":"noun","kind":"noun","gender":"m","plural":"أَلْبِسَة","src":"quran","q":"2:187:8-10","qen":"they are a garment for you","see":[{"w":"ثَوْب","label":"Synonym (garment)"}]}
+{"w":"لَبوس","en":"armor, clothing","root":"ل-ب-س","type":"noun","kind":"noun","gender":"m","src":"quran","q":"21:80:2-3","qen":"the making of coats of mail for you","note":"In 21:80 it means armor; in modern usage clothing."}
+{"w":"لَبْس","en":"confusion, doubt","root":"ل-ب-س","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"50:15:6-7","qen":"in doubt about"}
+{"w":"أَلْبَسَ","en":"to dress, to clothe","root":"ل-ب-س","type":"verb","kind":"verb","form":"IV","past":"أَلْبَسَ","pres":"يُلْبِسُ","masdar":"إِلْباس","src":"msa"}
+{"w":"لَبَّسَ","en":"to confuse, to deceive","root":"ل-ب-س","type":"verb","kind":"verb","form":"II","past":"لَبَّسَ","pres":"يُلَبِّسُ","masdar":"تَلْبيس","src":"msa"}
+{"w":"تَلْبيس","en":"deception, muddling","root":"ل-ب-س","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِلْتَبَسَ","en":"to be confused, ambiguous","root":"ل-ب-س","type":"verb","kind":"verb","form":"VIII","past":"اِلْتَبَسَ","pres":"يَلْتَبِسُ","masdar":"اِلْتِباس","src":"msa"}
+{"w":"اِلْتِباس","en":"ambiguity, confusion","root":"ل-ب-س","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِلْتِباسات","src":"msa"}
+{"w":"مَلْبوس","en":"worn, clothed","root":"ل-ب-س","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"skip": "كَاف", "why": "active participle كافِي"}
+{"skip": "مُكَلِّبِين", "why": "plural of مُكَلِّب"}
+{"skip": "كَٰلِحُون", "why": "plural of كالِح"}
+{"skip": "مُتَكَلِّفِين", "why": "plural of مُتَكَلِّف"}
+{"skip": "كَلَٰلَة", "why": "same word as the entry كَلالَة"}
+{"skip": "مَكِيدُون", "why": "plural of مَكيد"}
+{"skip": "لَّٰبِثِين", "why": "plural of لابِث"}

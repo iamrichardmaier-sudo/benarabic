@@ -1,0 +1,196 @@
+{"w":"أَنْزَلَ","en":"to send down","root":"ن-ز-ل","type":"verb","kind":"verb","form":"IV","past":"أَنْزَلَ","pres":"يُنْزِلُ","masdar":"إِنْزال","src":"quran","q":"6:114:7-9","qen":"who sent down the Book to you","note":"In the Qur'an it is the usual verb for God sending down revelation or rain; in modern usage also to lower or to land troops."}
+{"w":"نَزَّلَ","en":"to send down gradually","root":"ن-ز-ل","type":"verb","kind":"verb","form":"II","past":"نَزَّلَ","pres":"يُنَزِّلُ","masdar":"تَنْزيل","src":"quran","q":"2:23:5-8","qen":"of what We sent down upon Our servant"}
+{"w":"تَنْزيل","en":"sending down, revelation","root":"ن-ز-ل","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"quran","q":"17:106:8-9","qen":"and We sent it down in stages"}
+{"w":"نُزُل","en":"lodging, hospitality gift","root":"ن-ز-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"3:198:11-13","qen":"abiding therein, as a welcome from God","note":"In the Qur'an the provision prepared for a guest; in modern usage nuzul is also hotel lodging."}
+{"w":"تَنَزَّلَ","en":"to descend gradually","root":"ن-ز-ل","type":"verb","kind":"verb","form":"V","past":"تَنَزَّلَ","pres":"يَتَنَزَّلُ","masdar":"تَنَزُّل","src":"quran","q":"19:64:1-5","qen":"We do not descend except by your Lord's command"}
+{"w":"مُنْزِل","en":"host, one who sends down","root":"ن-ز-ل","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُنْزِلون","src":"quran","q":"12:59:15-17","qen":"and I am the best of hosts"}
+{"w":"مَنْزِل","en":"house, dwelling","root":"ن-ز-ل","type":"noun","kind":"noun of place","gender":"m","plural":"مَنازِل","src":"quran","q":"10:5:8-9","qen":"and determined for it phases","note":"The Qur'an uses the plural, the stations or phases of the moon."}
+{"skip":"مَنَازِل","why":"plural of مَنْزِل"}
+{"w":"مُنْزَل","en":"sent down","root":"ن-ز-ل","type":"participle","kind":"passive participle","form":"IV","src":"quran","q":"3:124:11-13","qen":"of the angels, sent down"}
+{"w":"مُنَزِّل","en":"one who sends down","root":"ن-ز-ل","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُنَزِّلون","src":"quran","q":"5:115:1-5","qen":"God said: I will send it down upon you"}
+{"w":"مُنَزَّل","en":"sent down, revealed","root":"ن-ز-ل","type":"participle","kind":"passive participle","form":"II","src":"quran","q":"6:114:15-19","qen":"that it is sent down from your Lord with the truth"}
+{"w":"نَزْلَة","en":"a single descent","root":"ن-ز-ل","type":"noun","kind":"noun of instance","gender":"f","plural":"نَزَلات","src":"quran","q":"53:13:1-4","qen":"And he saw him in another descent","note":"In everyday Arabic nazla also means a cold."}
+{"skip":"تنزلت","why":"same word as the form V verb تَنَزَّلَ"}
+{"skip":"نزل","why":"same word as the form II verb نَزَّلَ"}
+{"skip":"V:I","why":"نَزَلَ is already in the bank"}
+{"w":"نُزول","en":"descent, coming down","root":"ن-ز-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"إِنْزال","en":"sending down, landing","root":"ن-ز-ل","type":"masdar","kind":"masdar","form":"IV","gender":"m","src":"msa"}
+{"w":"نازَلَ","en":"to fight in single combat","root":"ن-ز-ل","type":"verb","kind":"verb","form":"III","past":"نازَلَ","pres":"يُنازِلُ","masdar":"مُنازَلة","src":"msa"}
+{"w":"نِزال","en":"duel, combat","root":"ن-ز-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَنازَلَ","en":"to give up, to waive","root":"ن-ز-ل","type":"verb","kind":"verb","form":"VI","past":"تَنازَلَ","pres":"يَتَنازَلُ","masdar":"تَنازُل","src":"msa"}
+{"w":"تَنازُل","en":"concession, renunciation","root":"ن-ز-ل","type":"masdar","kind":"masdar","form":"VI","gender":"m","src":"msa"}
+{"w":"اِسْتَنْزَلَ","en":"to call down, to draw down","root":"ن-ز-ل","type":"verb","kind":"verb","form":"X","past":"اِسْتَنْزَلَ","pres":"يَسْتَنْزِلُ","masdar":"اِسْتِنْزال","src":"msa"}
+{"w":"مَنْزِلَة","en":"status, rank","root":"ن-ز-ل","type":"noun","kind":"noun","gender":"f","plural":"مَنازِل","src":"msa"}
+{"w":"نَزيل","en":"guest, resident of an institution","root":"ن-ز-ل","type":"noun","kind":"noun","gender":"m","plural":"نُزَلاء","src":"msa"}
+{"w":"نازِل","en":"descending","root":"ن-ز-ل","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"نازِلون","src":"msa"}
+{"w":"نازِلَة","en":"calamity, disaster","root":"ن-ز-ل","type":"noun","kind":"noun","gender":"f","plural":"نَوازِل","src":"msa"}
+{"w":"تَنازُلِيّ","en":"descending","root":"ن-ز-ل","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"مِنْسَأَة","en":"staff","root":"ن-س-أ","type":"noun","kind":"noun of instrument","gender":"f","noplural":true,"src":"quran","q":"34:14:12-13","qen":"eating away at his staff"}
+{"w":"نَسِيء","en":"postponement","root":"ن-س-أ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"9:37:1-5","qen":"The postponing is only an increase in disbelief","note":"In 9:37 it is the pre-Islamic practice of shifting a sacred month."}
+{"w":"نَسيئة","en":"credit, deferred payment","root":"ن-س-أ","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"نَسَبَ","en":"to attribute","root":"ن-س-ب","type":"verb","kind":"verb","form":"I","past":"نَسَبَ","pres":"يَنْسُبُ","masdar":"نَسْب","src":"msa"}
+{"w":"نَسَب","en":"lineage, kinship","root":"ن-س-ب","type":"noun","kind":"noun","gender":"m","plural":"أَنْساب","src":"quran","q":"23:101:5-7","qen":"there will be no ties of kinship between them"}
+{"w":"نِسْبَة","en":"ratio, percentage","root":"ن-س-ب","type":"noun","kind":"noun","gender":"f","plural":"نِسَب","src":"msa"}
+{"w":"نِسْبِيّ","en":"relative","root":"ن-س-ب","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"نَسَبِيّ","en":"of lineage","root":"ن-س-ب","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"ناسَبَ","en":"to suit, to fit","root":"ن-س-ب","type":"verb","kind":"verb","form":"III","past":"ناسَبَ","pres":"يُناسِبُ","masdar":"مُناسَبة","src":"msa"}
+{"w":"مُناسَبة","en":"occasion","root":"ن-س-ب","type":"masdar","kind":"masdar","form":"III","gender":"f","plural":"مُناسَبات","src":"msa"}
+{"w":"اِنْتَسَبَ","en":"to belong to, to be affiliated","root":"ن-س-ب","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَسَبَ","pres":"يَنْتَسِبُ","masdar":"اِنْتِساب","src":"msa"}
+{"w":"تَناسَبَ","en":"to be proportionate","root":"ن-س-ب","type":"verb","kind":"verb","form":"VI","past":"تَناسَبَ","pres":"يَتَناسَبُ","masdar":"تَناسُب","src":"msa"}
+{"w":"نَسيب","en":"in-law, relative by marriage","root":"ن-س-ب","type":"noun","kind":"noun","gender":"m","plural":"أَنْسِباء","src":"msa"}
+{"w":"مَنْسوب","en":"attributed, level","root":"ن-س-ب","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"نَسّابة","en":"genealogist","root":"ن-س-ب","type":"noun","kind":"noun","gender":"m","plural":"نَسّابون","src":"msa"}
+{"skip":"مُنزِلِين","why":"plural of مُنْزِل"}
+{"skip":"مِنسَأَت","why":"spelling variant of مِنْسَأَة"}
+{"w":"نَسَأَ","en":"to postpone","root":"ن-س-أ","type":"verb","kind":"verb","form":"I","past":"نَسَأَ","pres":"يَنْسَأُ","masdar":"نَسْء","src":"msa"}
+{"w":"نَسَخَ","en":"to copy, to abrogate","root":"ن-س-خ","type":"verb","kind":"verb","form":"I","past":"نَسَخَ","pres":"يَنْسَخُ","masdar":"نَسْخ","src":"quran","q":"2:106:2-4","qen":"Whatever verse We abrogate","note":"In the Qur'an it means to abrogate a ruling; in modern usage mainly to copy."}
+{"w":"نَسْخ","en":"copying, abrogation","root":"ن-س-خ","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"نُسْخَة","en":"copy","root":"ن-س-خ","type":"noun","kind":"noun","gender":"f","plural":"نُسَخ","src":"quran","q":"7:154:8-10","qen":"and in what was inscribed on them was guidance","note":"In 7:154 it is the text inscribed on the tablets."}
+{"skip":"نُسْخَت","why":"spelling variant of نُسْخَة"}
+{"w":"اِسْتَنْسَخَ","en":"to copy out, to clone","root":"ن-س-خ","type":"verb","kind":"verb","form":"X","past":"اِسْتَنْسَخَ","pres":"يَسْتَنْسِخُ","masdar":"اِسْتِنْساخ","src":"quran","q":"45:29:6-11","qen":"We used to record what you were doing"}
+{"w":"اِسْتِنْساخ","en":"copying, cloning","root":"ن-س-خ","type":"masdar","kind":"masdar","form":"X","gender":"m","src":"msa"}
+{"w":"مَنْسوخ","en":"copied, abrogated","root":"ن-س-خ","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"ناسِخ","en":"copyist, abrogating","root":"ن-س-خ","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"نُسّاخ","src":"msa"}
+{"w":"تَناسَخَ","en":"to follow in succession","root":"ن-س-خ","type":"verb","kind":"verb","form":"VI","past":"تَناسَخَ","pres":"يَتَناسَخُ","masdar":"تَناسُخ","src":"msa"}
+{"w":"نَسْر","en":"vulture, eagle","root":"ن-س-ر","type":"noun","kind":"noun","gender":"m","plural":"نُسور","src":"msa"}
+{"skip":"نَسْر","why":"in 71:23 it is the proper name Nasr, an idol; the common noun is listed above"}
+{"w":"نَسَفَ","en":"to blow up, to scatter","root":"ن-س-ف","type":"verb","kind":"verb","form":"I","past":"نَسَفَ","pres":"يَنْسِفُ","masdar":"نَسْف","src":"quran","q":"20:97:25-28","qen":"then we will scatter it in the sea in particles"}
+{"w":"نَسْف","en":"demolition, blowing away","root":"ن-س-ف","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"quran","q":"20:105:5-7","qen":"my Lord will scatter them as dust"}
+{"w":"مَنْسَك","en":"rite, place of worship","root":"ن-س-ك","type":"noun","kind":"noun of place","gender":"m","plural":"مَناسِك","src":"quran","q":"22:67:3-6","qen":"for every nation We appointed rites which they observe","note":"The plural means the rites of pilgrimage."}
+{"w":"نُسُك","en":"ritual sacrifice","root":"ن-س-ك","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"2:196:31-33","qen":"or charity or sacrifice"}
+{"w":"ناسِك","en":"devotee, ascetic","root":"ن-س-ك","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"نُسّاك","src":"quran","q":"22:67:4-6","qen":"a rite which they observe"}
+{"skip":"نَاسِكُو","why":"ناسِك with the pronoun suffix"}
+{"w":"نَسَكَ","en":"to worship, to perform rites","root":"ن-س-ك","type":"verb","kind":"verb","form":"I","past":"نَسَكَ","pres":"يَنْسُكُ","masdar":"نُسْك","src":"msa"}
+{"w":"تَنَسَّكَ","en":"to lead a devout life","root":"ن-س-ك","type":"verb","kind":"verb","form":"V","past":"تَنَسَّكَ","pres":"يَتَنَسَّكُ","masdar":"تَنَسُّك","src":"msa"}
+{"w":"نَسْل","en":"offspring, progeny","root":"ن-س-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"2:205:8-10","qen":"and destroy the crops and the offspring"}
+{"w":"نَسَلَ","en":"to rush, to hurry down","root":"ن-س-ل","type":"verb","kind":"verb","form":"I","past":"نَسَلَ","pres":"يَنْسِلُ","masdar":"نَسَلان","src":"quran","q":"21:96:6-10","qen":"and they rush down from every elevation","note":"Modern usage also has nasala, to beget offspring."}
+{"w":"تَناسَلَ","en":"to reproduce","root":"ن-س-ل","type":"verb","kind":"verb","form":"VI","past":"تَناسَلَ","pres":"يَتَناسَلُ","masdar":"تَناسُل","src":"msa"}
+{"w":"تَناسُل","en":"reproduction","root":"ن-س-ل","type":"masdar","kind":"masdar","form":"VI","gender":"m","src":"msa"}
+{"w":"تَناسُلِيّ","en":"reproductive","root":"ن-س-ل","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"نِساء","en":"women","root":"ن-س-و","type":"noun","kind":"plural","gender":"f","src":"quran","q":"2:49:9-12","qen":"slaughtering your sons and sparing your women","see":[{"w":"امْرَأَة","label":"Synonym (woman, singular)"}]}
+{"w":"نِسْوَة","en":"group of women","root":"ن-س-و","type":"noun","kind":"plural","gender":"f","src":"quran","q":"12:30:1-4","qen":"And women in the city said"}
+{"w":"نِسْوِيّ","en":"feminine, women's","root":"ن-س-و","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"نِسائِيّ","en":"women's, ladies'","root":"ن-س-و","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"نِسْوِيَّة","en":"feminism","root":"ن-س-و","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"نَسِيَ","en":"to forget","root":"ن-س-ي","type":"verb","kind":"verb","form":"I","past":"نَسِيَ","pres":"يَنْسى","masdar":"نِسْيان","src":"quran","q":"2:44:4-5","qen":"while you forget yourselves","note":"In the Qur'an it can also mean to neglect or abandon."}
+{"w":"نِسْيان","en":"forgetting","root":"ن-س-ي","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"أَنْسى","en":"to make forget","root":"ن-س-ي","type":"verb","kind":"verb","form":"IV","past":"أَنْسى","pres":"يُنْسي","masdar":"إِنْساء","src":"quran","q":"2:106:5-6","qen":"or We cause it to be forgotten"}
+{"w":"نَسَّى","en":"to cause to forget","root":"ن-س-ي","type":"verb","kind":"verb","form":"II","past":"نَسَّى","pres":"يُنَسِّي","masdar":"تَنْسِية","src":"msa"}
+{"skip":"او","why":"mis-parsed lemma; the word is نَسِينا, the perfect of نَسِيَ"}
+{"w":"نَسِيّ","en":"forgetful","root":"ن-س-ي","type":"adjective","kind":"intensive adjective","src":"quran","q":"19:64:15-18","qen":"and your Lord is never forgetful"}
+{"w":"نَسْي","en":"something forgotten","root":"ن-س-ي","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"19:23:12-14","qen":"and I had been something forgotten, out of mind"}
+{"w":"مَنْسِيّ","en":"forgotten","root":"ن-س-ي","type":"participle","kind":"passive participle","form":"I","src":"quran","q":"19:23:13-14","qen":"something forgotten, out of mind"}
+{"w":"أَنْشَأَ","en":"to create, to establish","root":"ن-ش-أ","type":"verb","kind":"verb","form":"IV","past":"أَنْشَأَ","pres":"يُنْشِئُ","masdar":"إِنْشاء","src":"quran","q":"6:6:27-31","qen":"and We raised up after them other generations"}
+{"w":"إِنْشاء","en":"creation, establishment","root":"ن-ش-أ","type":"masdar","kind":"masdar","form":"IV","gender":"m","src":"quran","q":"56:35:1-3","qen":"We have created them anew"}
+{"w":"نَشَّأَ","en":"to bring up","root":"ن-ش-أ","type":"verb","kind":"verb","form":"II","past":"نَشَّأَ","pres":"يُنَشِّئُ","masdar":"تَنْشِئة","src":"quran","q":"43:18:1-4","qen":"Is one who is brought up in ornaments"}
+{"w":"نَشَأَ","en":"to arise, to grow up","root":"ن-ش-أ","type":"verb","kind":"verb","form":"I","past":"نَشَأَ","pres":"يَنْشَأُ","masdar":"نُشوء","src":"msa"}
+{"w":"نَشْأَة","en":"origin, upbringing, creation","root":"ن-ش-أ","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"quran","q":"29:20:10-13","qen":"then God brings about the later creation"}
+{"w":"ناشِئ","en":"emerging, young person","root":"ن-ش-أ","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"ناشِئون","src":"quran","q":"73:6:1-3","qen":"Indeed, the rising of the night","note":"The Qur'an has the feminine nashi'a, the night hours."}
+{"skip":"نَاشِئَة","why":"feminine of ناشِئ"}
+{"w":"مُنْشِئ","en":"founder, creator","root":"ن-ش-أ","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُنْشِئون","src":"quran","q":"56:72:4-6","qen":"or are We the ones who produce it"}
+{"skip":"مُنشِـُٔون","why":"plural of مُنْشِئ"}
+{"w":"مُنْشَأَة","en":"establishment, facility","root":"ن-ش-أ","type":"noun","kind":"noun","gender":"f","plural":"مُنْشَآت","src":"quran","q":"55:24:1-5","qen":"And His are the ships raised high in the sea","note":"In 55:24 the plural is the ships raised up on the sea."}
+{"skip":"مُنشَـَٔات","why":"plural of مُنْشَأَة"}
+{"w":"مَنْشَأ","en":"origin, birthplace","root":"ن-ش-أ","type":"noun","kind":"noun of place","gender":"m","plural":"مَناشِئ","src":"msa"}
+{"w":"نَشَرَ","en":"to spread, to publish","root":"ن-ش-ر","type":"verb","kind":"verb","form":"I","past":"نَشَرَ","pres":"يَنْشُرُ","masdar":"نَشْر","src":"quran","q":"18:16:10-14","qen":"your Lord will spread out for you of His mercy","note":"Also to saw, as in nashara al-khashab."}
+{"w":"نَشْر","en":"spreading, publishing","root":"ن-ش-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"quran","q":"77:3:1-2","qen":"and the winds that scatter far and wide"}
+{"w":"أَنْشَرَ","en":"to raise the dead","root":"ن-ش-ر","type":"verb","kind":"verb","form":"IV","past":"أَنْشَرَ","pres":"يُنْشِرُ","masdar":"إِنْشار","src":"quran","q":"21:21:6-7","qen":"can they raise the dead"}
+{"skip":"V:VIII","why":"اِنتَشَرَ is already in the bank"}
+{"skip":"مُّنتَشِر","why":"مُنتَشِر is already in the bank"}
+{"w":"نُشور","en":"resurrection","root":"ن-ش-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"25:3:20-22","qen":"nor life, nor resurrection"}
+{"w":"مَنْشور","en":"published, leaflet","root":"ن-ش-ر","type":"participle","kind":"passive participle","form":"I","gender":"m","plural":"مَنْشورات","src":"quran","q":"17:13:11-13","qen":"a book which he will find spread open"}
+{"w":"ناشِر","en":"publisher","root":"ن-ش-ر","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"ناشِرون","src":"quran","q":"77:3:1-2","qen":"and those that scatter far and wide"}
+{"skip":"نَّٰشِرَٰت","why":"feminine plural of ناشِر"}
+{"w":"مُنَشَّر","en":"spread out, unrolled","root":"ن-ش-ر","type":"participle","kind":"passive participle","form":"II","src":"quran","q":"74:52:7-9","qen":"to be given scrolls spread open"}
+{"skip":"مُّنَشَّرَة","why":"feminine of مُنَشَّر"}
+{"w":"مُنْشَر","en":"raised from the dead","root":"ن-ش-ر","type":"participle","kind":"passive participle","form":"IV","src":"quran","q":"44:35:6-8","qen":"and we shall not be raised again"}
+{"skip":"مُنشَرِين","why":"plural of مُنْشَر"}
+{"w":"نَشَّرَ","en":"to hang out, to spread out","root":"ن-ش-ر","type":"verb","kind":"verb","form":"II","past":"نَشَّرَ","pres":"يُنَشِّرُ","masdar":"تَنْشير","src":"msa"}
+{"w":"اِنْتِشار","en":"spread, proliferation","root":"ن-ش-ر","type":"masdar","kind":"masdar","form":"VIII","gender":"m","src":"msa"}
+{"w":"نَشْرَة","en":"bulletin, newsletter","root":"ن-ش-ر","type":"noun","kind":"noun","gender":"f","plural":"نَشَرات","src":"msa"}
+{"w":"مِنْشار","en":"saw","root":"ن-ش-ر","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَناشير","src":"msa"}
+{"w":"نُشارة","en":"sawdust","root":"ن-ش-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"نَشَزَ","en":"to rise up, to be rebellious","root":"ن-ش-ز","type":"verb","kind":"verb","form":"I","past":"نَشَزَ","pres":"يَنْشُزُ","masdar":"نُشوز","src":"quran","q":"58:11:15-18","qen":"when it is said, rise up, then rise up"}
+{"w":"أَنْشَزَ","en":"to raise up","root":"ن-ش-ز","type":"verb","kind":"verb","form":"IV","past":"أَنْشَزَ","pres":"يُنْشِزُ","masdar":"إِنْشاز","src":"quran","q":"2:259:52-53","qen":"how We raise them up"}
+{"w":"نُشوز","en":"disobedience, rising up","root":"ن-ش-ز","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"quran","q":"4:34:22-24","qen":"those from whom you fear ill-conduct","note":"In 4:34 it is a wife's rebellion against her husband."}
+{"w":"نَشِطَ","en":"to be lively, to be active","root":"ن-ش-ط","type":"verb","kind":"verb","form":"I","past":"نَشِطَ","pres":"يَنْشَطُ","masdar":"نَشاط","src":"msa"}
+{"w":"نَشْط","en":"drawing out gently","root":"ن-ش-ط","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"quran","q":"79:2:1-2","qen":"and those that draw out gently"}
+{"w":"ناشِط","en":"active, activist","root":"ن-ش-ط","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"نُشَطاء","src":"quran","q":"79:2:1-2","qen":"and those that draw out gently","note":"The Qur'an has the feminine plural, those that draw out; modern usage is an activist."}
+{"skip":"نَّٰشِطَٰت","why":"feminine plural of ناشِط"}
+{"w":"نَشاط","en":"activity, energy","root":"ن-ش-ط","type":"noun","kind":"noun","gender":"m","plural":"أَنْشِطَة","src":"msa"}
+{"w":"نَشيط","en":"energetic, active","root":"ن-ش-ط","type":"adjective","kind":"adjective","plural":"نِشاط","src":"msa"}
+{"w":"نَشَّطَ","en":"to energize, to activate","root":"ن-ش-ط","type":"verb","kind":"verb","form":"II","past":"نَشَّطَ","pres":"يُنَشِّطُ","masdar":"تَنْشيط","src":"msa"}
+{"w":"ناشِف","en":"dry","root":"ن-ش-ف","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"نَصَبَ","en":"to set up, to erect","root":"ن-ص-ب","type":"verb","kind":"verb","form":"I","past":"نَصَبَ","pres":"يَنْصِبُ","masdar":"نَصْب","src":"quran","q":"88:19:1-4","qen":"and at the mountains, how they are set up","note":"In grammar it also means to put a word in the accusative."}
+{"skip":"V:IV","why":"نُصِيبُ in 12:56 is أَصابَ from the root ص-و-ب, wrongly grouped here"}
+{"w":"نَصيب","en":"share, portion","root":"ن-ص-ب","type":"noun","kind":"noun","gender":"m","plural":"أَنْصِباء","src":"quran","q":"2:202:1-3","qen":"those will have a share of what they earned"}
+{"w":"نَصَب","en":"fatigue, toil","root":"ن-ص-ب","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"9:120:22-25","qen":"neither thirst nor fatigue afflicts them"}
+{"w":"نُصُب","en":"idol stone, altar","root":"ن-ص-ب","type":"noun","kind":"noun","gender":"m","plural":"أَنْصاب","src":"quran","q":"5:3:23-25","qen":"and what is slaughtered on stone altars"}
+{"w":"نُصْب","en":"monument, hardship","root":"ن-ص-ب","type":"noun","kind":"noun","gender":"m","plural":"أَنْصاب","src":"quran","q":"38:41:8-11","qen":"Satan has touched me with hardship and torment","note":"In 38:41 it means distress; in modern usage a monument, as in nusb tadhkari."}
+{"w":"ناصِب","en":"toiling, weary","root":"ن-ص-ب","type":"participle","kind":"active participle","form":"I","gender":"m","src":"quran","q":"88:3:1-2","qen":"toiling, weary"}
+{"skip":"نَّاصِبَة","why":"feminine of ناصِب"}
+{"w":"اِنْتَصَبَ","en":"to stand upright","root":"ن-ص-ب","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَصَبَ","pres":"يَنْتَصِبُ","masdar":"اِنْتِصاب","src":"msa"}
+{"w":"نَصَّبَ","en":"to install, to appoint","root":"ن-ص-ب","type":"verb","kind":"verb","form":"II","past":"نَصَّبَ","pres":"يُنَصِّبُ","masdar":"تَنْصيب","src":"msa"}
+{"w":"مَنْصِب","en":"post, position","root":"ن-ص-ب","type":"noun","kind":"noun of place","gender":"m","plural":"مَناصِب","src":"msa"}
+{"w":"مَنْصوب","en":"set up, in the accusative","root":"ن-ص-ب","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"نِصاب","en":"quorum, minimum threshold","root":"ن-ص-ب","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"ناصَبَ","en":"to be hostile to","root":"ن-ص-ب","type":"verb","kind":"verb","form":"III","past":"ناصَبَ","pres":"يُناصِبُ","masdar":"مُناصَبة","src":"msa"}
+{"w":"أَنْصَتَ","en":"to listen in silence","root":"ن-ص-ت","type":"verb","kind":"verb","form":"IV","past":"أَنْصَتَ","pres":"يُنْصِتُ","masdar":"إِنْصات","src":"quran","q":"7:204:4-6","qen":"then listen to it and be silent"}
+{"w":"تَنَصَّتَ","en":"to eavesdrop","root":"ن-ص-ت","type":"verb","kind":"verb","form":"V","past":"تَنَصَّتَ","pres":"يَتَنَصَّتُ","masdar":"تَنَصُّت","src":"msa"}
+{"w":"نَصَحَ","en":"to advise","root":"ن-ص-ح","type":"verb","kind":"verb","form":"I","past":"نَصَحَ","pres":"يَنْصَحُ","masdar":"نُصْح","src":"quran","q":"7:62:4-6","qen":"and I give you sincere advice"}
+{"w":"نُصْح","en":"advice","root":"ن-ص-ح","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"quran","q":"11:34:1-3","qen":"and my advice will not benefit you"}
+{"w":"ناصِح","en":"adviser","root":"ن-ص-ح","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"ناصِحون","src":"quran","q":"7:21:2-5","qen":"I am one of the sincere advisers to you"}
+{"w":"نَصوح","en":"sincere, giving sound advice","root":"ن-ص-ح","type":"adjective","kind":"intensive adjective","src":"quran","q":"66:8:8-9","qen":"a sincere repentance"}
+{"w":"نَصيحة","en":"advice","root":"ن-ص-ح","type":"noun","kind":"noun","gender":"f","plural":"نَصائِح","src":"msa"}
+{"w":"نَصَرَ","en":"to help, to give victory","root":"ن-ص-ر","type":"verb","kind":"verb","form":"I","past":"نَصَرَ","pres":"يَنْصُرُ","masdar":"نَصْر","src":"quran","q":"26:93:4-5","qen":"can they help you","see":[{"w":"أَعانَ","label":"Synonym (to assist)"}]}
+{"w":"نَصْر","en":"victory, help","root":"ن-ص-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"quran","q":"2:214:23-25","qen":"when will God's help come","see":[{"w":"فَوْز","label":"Synonym (triumph)"}]}
+{"w":"نَصير","en":"helper, supporter","root":"ن-ص-ر","type":"noun","kind":"noun","gender":"m","plural":"أَنْصار","src":"quran","q":"2:107:14-17","qen":"you have no protector or helper besides God"}
+{"skip":"نصير","why":"same word as نَصير, written without vowels"}
+{"w":"ناصِر","en":"helper, supporter","root":"ن-ص-ر","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"ناصِرون","src":"quran","q":"3:22:8-11","qen":"and they will have no helpers"}
+{"w":"اِنْتَصَرَ","en":"to triumph, to defend oneself","root":"ن-ص-ر","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَصَرَ","pres":"يَنْتَصِرُ","masdar":"اِنْتِصار","src":"quran","q":"26:227:9-13","qen":"and defended themselves after they were wronged"}
+{"skip":"انتصر","why":"same word as اِنْتَصَرَ, written without vowels"}
+{"w":"اِنْتِصار","en":"victory","root":"ن-ص-ر","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِنْتِصارات","src":"msa"}
+{"w":"مُنْتَصِر","en":"victorious","root":"ن-ص-ر","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُنْتَصِرون","src":"quran","q":"18:43:9-11","qen":"and he was not able to defend himself"}
+{"w":"مَنْصور","en":"victorious, aided","root":"ن-ص-ر","type":"participle","kind":"passive participle","form":"I","src":"quran","q":"17:33:20-22","qen":"he is indeed supported"}
+{"w":"اِسْتَنْصَرَ","en":"to ask for help","root":"ن-ص-ر","type":"verb","kind":"verb","form":"X","past":"اِسْتَنْصَرَ","pres":"يَسْتَنْصِرُ","masdar":"اِسْتِنْصار","src":"quran","q":"8:72:30-33","qen":"and if they seek your help in the religion"}
+{"w":"تَناصَرَ","en":"to support one another","root":"ن-ص-ر","type":"verb","kind":"verb","form":"VI","past":"تَناصَرَ","pres":"يَتَناصَرُ","masdar":"تَناصُر","src":"quran","q":"37:25:1-4","qen":"What is wrong with you that you do not help one another"}
+{"skip":"فانصرنا","why":"imperative of نَصَرَ with the pronoun suffix نا"}
+{"w":"ناصَرَ","en":"to support, to back","root":"ن-ص-ر","type":"verb","kind":"verb","form":"III","past":"ناصَرَ","pres":"يُناصِرُ","masdar":"مُناصَرة","src":"msa"}
+{"w":"نُصْرَة","en":"support, aid","root":"ن-ص-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"نَصْرانِيّ","en":"Christian","root":"ن-ص-ر","type":"adjective","kind":"relative adjective","plural":"نَصارى","src":"quran","q":"3:67:2-6","qen":"Abraham was neither a Jew nor a Christian"}
+{"w":"نَصْرانِيَّة","en":"Christianity","root":"ن-ص-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"skip":"ما","why":"mis-parsed lemma; the word is نِصْف in 4:176"}
+{"skip":"نصف","why":"same word as نِصْف, written without vowels"}
+{"skip":"نِصْف","why":"نِصف is already in the bank"}
+{"w":"اِنْتَصَفَ","en":"to reach the middle","root":"ن-ص-ف","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَصَفَ","pres":"يَنْتَصِفُ","masdar":"اِنْتِصاف","src":"msa"}
+{"w":"أَنْصَفَ","en":"to treat fairly","root":"ن-ص-ف","type":"verb","kind":"verb","form":"IV","past":"أَنْصَفَ","pres":"يُنْصِفُ","masdar":"إِنْصاف","src":"msa"}
+{"w":"إِنْصاف","en":"fairness, justice","root":"ن-ص-ف","type":"masdar","kind":"masdar","form":"IV","gender":"m","src":"msa"}
+{"w":"مُنْصِف","en":"fair, just","root":"ن-ص-ف","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُنْصِفون","src":"msa"}
+{"w":"ناصِيَة","en":"forelock","root":"ن-ص-ي","type":"noun","kind":"noun","gender":"f","plural":"نَواصٍ","src":"msa","note":"Occurs in the Qur'an (11:56, 55:41) in the sense of forelock; the verse index files it under the root ن-ص-و."}
+{"skip":"نَّوَٰصِى","why":"plural of ناصِيَة"}
+{"w":"نَضِجَ","en":"to ripen, to be cooked","root":"ن-ض-ج","type":"verb","kind":"verb","form":"I","past":"نَضِجَ","pres":"يَنْضَجُ","masdar":"نُضوج","src":"quran","q":"4:56:8-10","qen":"every time their skins are cooked through"}
+{"w":"نُضوج","en":"ripeness, maturity","root":"ن-ض-ج","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"ناضِج","en":"ripe, mature","root":"ن-ض-ج","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"أَنْضَجَ","en":"to cook through, to ripen","root":"ن-ض-ج","type":"verb","kind":"verb","form":"IV","past":"أَنْضَجَ","pres":"يُنْضِجُ","masdar":"إِنْضاج","src":"msa"}
+{"w":"نَضّاخ","en":"gushing","root":"ن-ض-خ","type":"adjective","kind":"intensive adjective","src":"quran","q":"55:66:2-3","qen":"two springs gushing forth"}
+{"skip":"نَضَّاخَتَان","why":"feminine dual of نَضّاخ"}
+{"w":"مَنْضود","en":"piled in layers","root":"ن-ض-د","type":"participle","kind":"passive participle","form":"I","src":"quran","q":"11:82:11-12","qen":"of baked clay, layered"}
+{"w":"نَضيد","en":"arranged in layers","root":"ن-ض-د","type":"adjective","kind":"adjective","src":"quran","q":"50:10:4-5","qen":"with layered spathes"}
+{"w":"نَضَدَ","en":"to stack, to arrange in layers","root":"ن-ض-د","type":"verb","kind":"verb","form":"I","past":"نَضَدَ","pres":"يَنْضِدُ","masdar":"نَضْد","src":"msa"}
+{"w":"نَضَّدَ","en":"to arrange, to typeset","root":"ن-ض-د","type":"verb","kind":"verb","form":"II","past":"نَضَّدَ","pres":"يُنَضِّدُ","masdar":"تَنْضيد","src":"msa"}
+{"w":"مِنْضَدَة","en":"table, desk","root":"ن-ض-د","type":"noun","kind":"noun of instrument","gender":"f","plural":"مَناضِد","src":"msa"}
+{"w":"نَضْرَة","en":"radiance, freshness","root":"ن-ض-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"quran","q":"76:11:6-8","qen":"and gave them radiance and joy"}
+{"w":"ناضِر","en":"radiant, fresh","root":"ن-ض-ر","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"ناضِرون","src":"quran","q":"75:22:1-3","qen":"Faces that day will be radiant"}
+{"skip":"نَّاضِرَة","why":"feminine of ناضِر"}
+{"w":"نَضُرَ","en":"to be radiant, to be fresh","root":"ن-ض-ر","type":"verb","kind":"verb","form":"I","past":"نَضُرَ","pres":"يَنْضُرُ","masdar":"نَضارة","src":"msa"}
+{"w":"نَطيحَة","en":"animal killed by goring","root":"ن-ط-ح","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"quran","q":"5:3:15-18","qen":"the one gored to death and what a predator has eaten"}
+{"w":"نَطَحَ","en":"to butt, to gore","root":"ن-ط-ح","type":"verb","kind":"verb","form":"I","past":"نَطَحَ","pres":"يَنْطَحُ","masdar":"نَطْح","src":"msa"}
+{"w":"نُطْفَة","en":"drop of sperm","root":"ن-ط-ف","type":"noun","kind":"noun","gender":"f","plural":"نُطَف","src":"quran","q":"16:4:1-4","qen":"He created man from a sperm-drop"}
+{"w":"نَطَقَ","en":"to speak, to utter","root":"ن-ط-ق","type":"verb","kind":"verb","form":"I","past":"نَطَقَ","pres":"يَنْطِقُ","masdar":"نُطْق","src":"quran","q":"21:63:7-9","qen":"if they are able to speak"}
+{"w":"نُطْق","en":"speech, pronunciation","root":"ن-ط-ق","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَنْطَقَ","en":"to make speak","root":"ن-ط-ق","type":"verb","kind":"verb","form":"IV","past":"أَنْطَقَ","pres":"يُنْطِقُ","masdar":"إِنْطاق","src":"quran","q":"41:21:6-8","qen":"They will say: God made us speak"}
+{"w":"مَنْطِق","en":"speech, logic","root":"ن-ط-ق","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"quran","q":"27:16:8-10","qen":"we have been taught the speech of birds"}
+{"w":"ناطِق","en":"speaking, spokesperson","root":"ن-ط-ق","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"ناطِقون","src":"msa"}
+{"w":"مَنْطوق","en":"spoken, uttered","root":"ن-ط-ق","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"مَنْطِقِيّ","en":"logical","root":"ن-ط-ق","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"اِسْتَنْطَقَ","en":"to interrogate","root":"ن-ط-ق","type":"verb","kind":"verb","form":"X","past":"اِسْتَنْطَقَ","pres":"يَسْتَنْطِقُ","masdar":"اِسْتِنْطاق","src":"msa"}
