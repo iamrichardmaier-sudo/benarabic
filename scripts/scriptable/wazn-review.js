@@ -1042,16 +1042,44 @@ function scriptCSS(font) {
   // Only Naskh has a bold; the rest would be smeared by a fake one.
   const weight = font.id === "naskh" ? 700 : 400;
   return `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=${encodeURIComponent(font.family).replace(/%20/g, "+")}:wght@400;700&display=swap">
-<style>
+<style id="cardFont">
   .ar, .tile, .row .val { font-family:${family}; }
   .ar { font-weight:${weight}; ${font.tall ? "line-height:1.9;" : ""} }
 </style>`;
 }
 
-function reviewHTML(cards, practice, pieces, font) {
+/**
+ * What the in-session picker needs: every background and script with the
+ * level it opens at, what is chosen now, and the learner's level. Read by the
+ * page as JSON, like the cards.
+ */
+function styleData(look) {
+  const level = levelFor(look.xp || 0);
+  return {
+    level,
+    bg: widgetBgId(look.bg, look.xp),
+    font: widgetFont(look.font, look.xp).id,
+    sample: "\u0643\u0650\u062a\u064e\u0627\u0628\u064c", // كِتَابٌ, as in the app's picker
+    art: `${SITE_URL}widget/bg/`,
+    backgrounds: Object.entries(WIDGET_THEMES).map(([id, t], n) => ({
+      id, name: t.name, level: n + 1, bg: t.bg, bg2: t.bg2 || null, ink: t.ink, accent: t.accent,
+    })),
+    fonts: WIDGET_FONTS.map((f) => ({
+      id: f.id, name: f.name, blurb: f.blurb, family: f.family, level: f.level, tall: !!f.tall,
+    })),
+  };
+}
+
+function reviewHTML(cards, practice, pieces, font, style) {
   // Cards are injected as JSON rather than templated into markup, so a word
   // containing a quote or an angle bracket cannot break the page.
   const payload = JSON.stringify(cards).replace(/</g, "\\u003c");
+  const lookJson = JSON.stringify(style || null).replace(/</g, "\\u003c");
+  const fontLinks = style
+    ? `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?${style.fonts
+        .map((f) => `family=${encodeURIComponent(f.family).replace(/%20/g, "+")}`)
+        .join("&")}&text=${encodeURIComponent(style.sample)}&display=swap">`
+    : "";
 
   return `<!doctype html>
 <html><head><meta charset="utf-8">
@@ -1157,9 +1185,49 @@ function reviewHTML(cards, practice, pieces, font) {
   #style { flex:none; font-size:14px; font-weight:700; color:${BRAND};
            min-width:44px; min-height:36px; display:flex; align-items:center; justify-content:center;
            padding:0 12px; border-radius:12px; background:rgba(194,98,42,.12); }
-  [data-nav="style"].on { background:${BRAND}; color:#fff; }
   #doneStyle { background:rgba(194,98,42,.12); color:${BRAND}; padding:14px 26px; flex:none; }
-</style>${scriptCSS(font)}</head>
+
+  /* The font and background picker, inside the session: a page cannot close
+     itself, and a full-screen session cannot be swiped away, so the picker
+     comes to the session rather than waiting for it to end. */
+  #look { display:none; position:fixed; inset:0; z-index:20; background:${CREAM};
+          flex-direction:column; }
+  #look.open { display:flex; }
+  #look .top { display:flex; align-items:center; gap:10px;
+               padding:max(12px, env(safe-area-inset-top)) 16px 10px; }
+  #look .top h2 { flex:1; margin:0; font-size:20px; }
+  #look .done { font-size:15px; font-weight:700; color:#fff; background:${BRAND};
+                min-height:40px; padding:0 18px; border-radius:12px; display:flex; align-items:center; }
+  #look .body { flex:1; overflow-y:auto; -webkit-overflow-scrolling:touch;
+                padding:4px 16px max(24px, env(safe-area-inset-bottom)); }
+  #look h3 { margin:20px 2px 8px; font-size:11px; font-weight:700; opacity:.5;
+             letter-spacing:.08em; text-transform:uppercase; }
+  #preview { position:relative; height:150px; border-radius:22px; overflow:hidden;
+             background-size:cover; background-position:center; box-shadow:0 6px 20px rgba(0,0,0,.12); }
+  #preview .w { position:absolute; left:16px; top:12px; font-size:11px; font-weight:800; }
+  #preview .word { position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+                   font-size:40px; direction:rtl; line-height:1.8; }
+  #preview .lv { position:absolute; left:16px; bottom:12px; font-size:11px; font-weight:700; }
+  .bgs { display:grid; grid-template-columns:repeat(3, 1fr); gap:10px; }
+  .bgt { position:relative; border-radius:14px; overflow:hidden; aspect-ratio:1; border:2px solid transparent;
+         background-size:cover; background-position:center; }
+  .bgt.on { border-color:${BRAND}; }
+  .bgt span { position:absolute; left:0; right:0; bottom:0; padding:14px 6px 5px; font-size:10.5px;
+              font-weight:600; color:#fff; background:linear-gradient(transparent, rgba(0,0,0,.55)); }
+  .fonts { display:flex; flex-direction:column; gap:8px; }
+  .ft { display:flex; align-items:center; gap:12px; padding:10px 14px; border-radius:14px;
+        background:#fff; border:2px solid transparent; }
+  .ft.on { border-color:${BRAND}; }
+  .ft .smp { width:96px; flex:none; text-align:center; font-size:26px; direction:rtl; line-height:1.9; }
+  .ft .nm { font-size:15px; font-weight:600; }
+  .ft .bl { font-size:12px; opacity:.55; }
+  .locked { opacity:.42; }
+  .lock { font-size:11px; font-weight:700; color:${BRAND}; }
+  #toast { position:fixed; left:50%; bottom:max(24px, env(safe-area-inset-bottom)); z-index:30;
+           transform:translateX(-50%); background:${INK}; color:#fff; font-size:13px; font-weight:600;
+           padding:9px 16px; border-radius:20px; opacity:0; transition:opacity .2s; pointer-events:none; }
+  #toast.show { opacity:.92; }
+</style>${scriptCSS(font)}${fontLinks}</head>
 <body>
 <div id="app">
   <header>
@@ -1194,15 +1262,25 @@ function reviewHTML(cards, practice, pieces, font) {
   <h2>Done</h2>
   <p id="doneText"></p>
   <div class="btn" id="doneStyle" data-nav="style">Aa &nbsp;Change font &amp; background</div>
-  <p style="opacity:.5;font-size:14px" id="doneHint">Swipe down to save and close.</p>
+  <p style="opacity:.5;font-size:14px">Swipe down to save and close.</p>
 </div>
+
+<div id="look" role="dialog" aria-label="Font and background">
+  <div class="top"><h2>Font &amp; background</h2><div class="done" data-look="close">Done</div></div>
+  <div class="body">
+    <div id="preview"><div class="w">WAZN</div><div class="word"></div><div class="lv"></div></div>
+    <h3>Background</h3><div class="bgs" id="bgs"></div>
+    <h3>Script</h3><div class="fonts" id="fonts"></div>
+  </div>
+</div>
+<div id="toast"></div>
 
 <script>
 const CARDS = ${payload};
 const results = [];
-// Set by the Aa button. A page cannot close itself, so the choice is read
-// after the session is swiped away, and the picker opens then.
-let wantStyle = false;
+// The font and background picker's data and current choice (null when the
+// script did not send it, and the Aa button is then hidden).
+const LOOK = ${lookJson};
 let i = 0, flipped = false;
 
 /* ------------------------------------------------------- sentence cards */
@@ -1563,6 +1641,91 @@ function finishScreen() {
     results.length + ' card' + (results.length === 1 ? '' : 's') + ' reviewed.';
 }
 
+/* ------------------------------------------------- font and background */
+
+function toast(text) {
+  const t = $('#toast');
+  t.textContent = text;
+  t.classList.add('show');
+  clearTimeout(toast.timer);
+  toast.timer = setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+function fontOf(id) { return LOOK.fonts.find((f) => f.id === id) || LOOK.fonts[0]; }
+function bgOf(id) { return LOOK.backgrounds.find((b) => b.id === id) || LOOK.backgrounds[0]; }
+
+/** Sets the session's cards in a script, at once. */
+function applyFont(id) {
+  const f = fontOf(id);
+  if (!document.querySelector('link[data-full="' + f.id + '"]')) {
+    const l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.dataset.full = f.id;
+    l.href = 'https://fonts.googleapis.com/css2?family=' + encodeURIComponent(f.family).replace(/%20/g, '+') + ':wght@400;700&display=swap';
+    document.head.appendChild(l);
+  }
+  let st = $('#cardFont');
+  if (!st) { st = document.createElement('style'); st.id = 'cardFont'; document.head.appendChild(st); }
+  st.textContent = ".ar, .tile, .row .val { font-family:'" + f.family + "', -apple-system, system-ui, sans-serif; }"
+    + '.ar { font-weight:' + (f.id === 'naskh' ? 700 : 400) + ';' + (f.tall ? ' line-height:1.9;' : '') + ' }';
+}
+
+function renderLook() {
+  const b = bgOf(LOOK.bg), f = fontOf(LOOK.font);
+  const pv = $('#preview');
+  pv.style.backgroundColor = b.bg2 || b.bg;
+  pv.style.backgroundImage = b.id === 'parchment' ? 'none' : "url('" + LOOK.art + b.id + "-medium.jpg')";
+  pv.querySelector('.w').style.color = b.accent;
+  pv.querySelector('.lv').style.color = b.accent;
+  pv.querySelector('.lv').textContent = 'Level ' + LOOK.level;
+  const w = pv.querySelector('.word');
+  w.textContent = (CARDS[i] && !isSentence(CARDS[i]) && CARDS[i].word) || LOOK.sample;
+  w.style.fontFamily = "'" + f.family + "', -apple-system, sans-serif";
+  w.style.color = b.ink;
+  $('#bgs').innerHTML = LOOK.backgrounds.map((x) => {
+    const open = x.level <= LOOK.level;
+    const img = x.id === 'parchment' ? '' : "background-image:url('" + LOOK.art + x.id + "-small.jpg');";
+    return '<div class="bgt' + (x.id === LOOK.bg ? ' on' : '') + (open ? '' : ' locked') + '" data-pick="bg" data-id="' + x.id
+      + '" style="background-color:' + (x.bg2 || x.bg) + ';' + img + '"><span>' + esc(open ? x.name : 'Level ' + x.level) + '</span></div>';
+  }).join('');
+  $('#fonts').innerHTML = LOOK.fonts.map((x) => {
+    const open = x.level <= LOOK.level;
+    return '<div class="ft' + (x.id === LOOK.font ? ' on' : '') + (open ? '' : ' locked') + '" data-pick="font" data-id="' + x.id + '">'
+      + '<div class="smp" style="font-family:&quot;' + x.family + '&quot;">' + esc(LOOK.sample) + '</div>'
+      + '<div><div class="nm">' + esc(x.name) + '</div>'
+      + (open ? '<div class="bl">' + esc(x.blurb) + '</div>' : '<div class="lock">Unlocks at level ' + x.level + '</div>')
+      + '</div></div>';
+  }).join('');
+}
+
+function openLook() {
+  if (!LOOK) return;
+  renderLook();
+  $('#look').classList.add('open');
+}
+
+/** A tap on a background or script: shown and applied at once, saved behind it. */
+function choose(kind, id) {
+  const item = kind === 'bg' ? bgOf(id) : fontOf(id);
+  if (item.level > LOOK.level) { toast('Unlocks at level ' + item.level); return; }
+  const before = kind === 'bg' ? LOOK.bg : LOOK.font;
+  if (before === id) return;
+  if (kind === 'bg') LOOK.bg = id; else { LOOK.font = id; applyFont(id); }
+  renderLook();
+  ping('style?kind=' + kind + '&id=' + encodeURIComponent(id) + '&was=' + encodeURIComponent(before));
+}
+
+/** The script's answer once the database has the choice (or did not take it). */
+function styleSaved(kind, id, was, ok) {
+  if (ok) { toast(kind === 'bg' ? 'Background saved' : 'Script saved'); return; }
+  if (kind === 'bg' && LOOK.bg === id) LOOK.bg = was;
+  if (kind === 'font' && LOOK.font === id) { LOOK.font = was; applyFont(was); }
+  if ($('#look').classList.contains('open')) renderLook();
+  toast('Not saved \u2014 check your connection');
+}
+
+if (!LOOK) document.querySelectorAll('[data-nav="style"]').forEach((el) => { el.style.display = 'none'; });
+
 function esc(s) {
   return String(s == null ? '' : s).replace(/[&<>"]/g, (ch) => (
     { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[ch]
@@ -1571,17 +1734,11 @@ function esc(s) {
 
 document.addEventListener('click', (e) => {
   if (e.target.closest('[data-nav="site"]')) { ping('open-site'); return; }
-  if (e.target.closest('[data-nav="style"]')) {
-    wantStyle = !wantStyle;
-    document.querySelectorAll('[data-nav="style"]').forEach((el) => el.classList.toggle('on', wantStyle));
-    $('#doneHint').textContent = wantStyle
-      ? 'Swipe down: your cards are saved, then the font and background picker opens.'
-      : 'Swipe down to save and close.';
-    $('#quit').textContent = wantStyle
-      ? 'Font & background open when you swipe down'
-      : (${practice ? "'Practice \u00b7 nothing is rescheduled'" : "'Swipe down when you\u2019re done'"});
-    return;
-  }
+  if (e.target.closest('[data-nav="style"]')) { openLook(); return; }
+  if (e.target.closest('[data-look="close"]')) { $('#look').classList.remove('open'); return; }
+  const pick = e.target.closest('[data-pick]');
+  if (pick) { choose(pick.dataset.pick, pick.dataset.id); return; }
+  if (e.target.closest('#look')) return;
   const st = e.target.closest('[data-s]');
   if (st) { sentenceAct(st.dataset.s, Number(st.dataset.i)); return; }
   const act = e.target.closest('[data-act]');
@@ -1634,9 +1791,9 @@ async function runReview() {
     return;
   }
 
-  let due, recent;
+  let due, recent, progress;
   try {
-    [due, recent] = await Promise.all([fetchDueCards(token), fetchRecentCards(token)]);
+    [due, recent, progress] = await Promise.all([fetchDueCards(token), fetchRecentCards(token), fetchProgress(token)]);
   } catch (e) {
     const a = new Alert();
     a.title = "Could not load cards";
@@ -1708,8 +1865,11 @@ async function runReview() {
   let saveQueue = Promise.resolve();
 
   const wv = new WebView();
-  const look = readCache() || {};
-  await wv.loadHTML(reviewHTML(cards, practice, savedPieces(), widgetFont(look.font, look.xp)));
+  const cached = readCache() || {};
+  const look = progress
+    ? { xp: progress.xp, bg: progress.bg, font: progress.font }
+    : { xp: cached.xp, bg: cached.bg, font: cached.font };
+  await wv.loadHTML(reviewHTML(cards, practice, savedPieces(), widgetFont(look.font, look.xp), styleData(look)));
 
   // The page cannot call back into Scriptable mid-session, so it navigates to
   // a wazn:// URL instead and this handler intercepts it. Returning false
@@ -1732,6 +1892,34 @@ async function runReview() {
         } catch (e) {
           /* the slider just starts at every word next time */
         }
+      }
+      return false;
+    }
+
+    // A background or script chosen in the session's picker. Saved to the
+    // account like a choice in the app, and kept in the cache so the widget
+    // shows it on its next refresh even without a signal. The page is told
+    // how it went, and puts the old choice back if the save failed.
+    if (url.startsWith("wazn://style")) {
+      const get = (k) => {
+        const m = url.match(new RegExp(`[?&]${k}=([^&]*)`));
+        return m ? decodeURIComponent(m[1]) : "";
+      };
+      const kind = get("kind");
+      const id = get("id");
+      const was = get("was");
+      if ((kind === "bg" || kind === "font") && id) {
+        const save = kind === "bg"
+          ? callRpc(token, "set_background", { background_id: id === "parchment" ? null : id })
+          : callRpc(token, "set_card_font", { font_id: id });
+        save.then((ok) => {
+          if (ok) {
+            const now = readCache() || {};
+            writeCache({ ...now, ...(kind === "bg" ? { bg: id === "parchment" ? null : id } : { font: id }), at: Date.now() });
+          }
+          const args = [kind, id, was].map((x) => JSON.stringify(x)).join(",");
+          return wv.evaluateJavaScript(`styleSaved(${args}, ${ok})`, false);
+        }).catch(() => {});
       }
       return false;
     }
@@ -1795,13 +1983,6 @@ async function runReview() {
   // dangling if the user swipes down instead of reaching the end.
   await wv.present(true);
 
-  let wantStyle = false;
-  try {
-    wantStyle = (await wv.evaluateJavaScript("String(wantStyle)", false)) === "true";
-  } catch {
-    /* the page was gone; nothing was asked for */
-  }
-
   let graded = [];
   try {
     const raw = await wv.evaluateJavaScript("JSON.stringify(results)", false);
@@ -1855,7 +2036,6 @@ async function runReview() {
       a.addAction("OK");
       await a.presentAlert();
     }
-    if (wantStyle) await runStyle(token);
     return;
   }
 
@@ -1878,7 +2058,6 @@ async function runReview() {
     a.addAction("OK");
     await a.presentAlert();
   }
-  if (wantStyle) await runStyle(token);
 }
 
 // ------------------------------------------------- font and background
