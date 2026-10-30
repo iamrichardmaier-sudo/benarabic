@@ -12,7 +12,7 @@ import WordDetail from '@/components/WordDetail';
 import { hasWordDetail } from '@/lib/word-relations';
 import { pickDistractors, optionLabel } from '@/lib/distractors';
 import Illustration from '@/components/Illustration';
-import CardScene from '@/components/CardScene';
+import CardArt from '@/components/CardArt';
 
 interface LearningModeProps {
   cards: FlashCard[];
@@ -329,7 +329,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn, header }:
         {card.imageUrl ? (
           <img src={card.imageUrl} alt={card.english || card.word} className="max-w-[400px] w-full rounded-xl object-cover aspect-video" />
         ) : card.english && (
-          <CardScene card={card} size="md" />
+          <CardArt card={card} size="md" />
         )}
         {card.english && (
           <p className={card.imageUrl ? "text-2xl text-foreground" : "text-[48px] font-bold text-foreground"}>
