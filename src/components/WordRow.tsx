@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import CardScene from '@/components/CardScene';
+import CardArt from '@/components/CardArt';
 import SpeakButton from '@/components/SpeakButton';
 import WordDetail from '@/components/WordDetail';
 import type { FlashCard } from '@/lib/spaced-repetition';
@@ -15,7 +15,7 @@ interface WordRowProps {
 }
 
 /**
- * One of the learner's words in a list: its little scene, meaning and
+ * One of the learner's words in a list: its picture (if any), meaning and
  * Arabic, opening in place onto everything the app knows about it.
  */
 const WordRow = ({ card, deck, note, className }: WordRowProps) => {
@@ -31,7 +31,7 @@ const WordRow = ({ card, deck, note, className }: WordRowProps) => {
           aria-label={`${card.english || card.word}: ${open ? 'hide' : 'show'} details`}
           className="flex min-w-0 flex-1 items-center gap-3 rounded-xl text-start transition-colors"
         >
-          <CardScene card={card} size="xs" className="mx-0" />
+          <CardArt card={card} size="xs" className="mx-0" />
           <span className="min-w-0 flex-1">
             <span className="block truncate text-sm font-medium text-foreground">{card.english || '—'}</span>
             {note && <span className="block truncate text-xs text-muted-foreground">{note}</span>}

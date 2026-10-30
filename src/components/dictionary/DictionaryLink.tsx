@@ -1,6 +1,7 @@
 import { BookA, ChevronRight } from 'lucide-react';
 import { useDeckActions } from '@/contexts/DeckActionsContext';
 import { cn } from '@/lib/utils';
+import { pathFor } from '@/lib/app-routes';
 
 /**
  * "Open in dictionary", for any word met in the app: on a card's answer side,
@@ -11,11 +12,18 @@ import { cn } from '@/lib/utils';
 const DictionaryLink = ({ word, root, className }: { word?: string; root?: string; className?: string }) => {
   const { openDictionary } = useDeckActions();
   if (!openDictionary || (!word && !root)) return null;
+  // A real link, so Ctrl/Cmd-click, middle-click and "Open in new tab" open the
+  // dictionary on a page of its own; a plain click stays in the app.
+  const href = `${import.meta.env.BASE_URL.replace(/\/$/, '')}${pathFor({
+    tab: 'learn', view: 'dictionary', dictPath: word ?? `root/${root}`,
+  })}`;
   return (
-    <button
-      type="button"
+    <a
+      href={href}
       onClick={(e) => {
         e.stopPropagation();
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        e.preventDefault();
         openDictionary(word ? { word } : { root });
       }}
       className={cn(
@@ -26,7 +34,7 @@ const DictionaryLink = ({ word, root, className }: { word?: string; root?: strin
       <BookA className="h-3.5 w-3.5" />
       {word ? 'Open in dictionary' : 'Every word on this root in the dictionary'}
       <ChevronRight className="h-3 w-3" />
-    </button>
+    </a>
   );
 };
 

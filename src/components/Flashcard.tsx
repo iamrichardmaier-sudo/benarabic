@@ -7,7 +7,7 @@ import WordForms from '@/components/WordForms';
 import SwipeToGrade from '@/components/SwipeToGrade';
 import WordDetail from '@/components/WordDetail';
 import DialectToggle from '@/components/DialectToggle';
-import CardScene from '@/components/CardScene';
+import CardArt from '@/components/CardArt';
 import { dialectView } from '@/lib/dialect';
 import { usePreferences } from '@/hooks/usePreferences';
 
@@ -61,7 +61,7 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
           loading="lazy"
         />
       ) : card.english && (
-        <CardScene card={card} />
+        <CardArt card={card} />
       )}
       {card.english && (
         <p className="text-[36px] text-foreground text-center leading-snug">
