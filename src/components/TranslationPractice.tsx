@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Check, Languages, Loader2, Flag, ShieldCheck, ShieldAlert, Lightbulb, RotateCcw } from 'lucide-react';
 import BackButton from '@/components/BackButton';
+import ArabicDictation, { dictationSupported } from '@/components/ArabicDictation';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import {
@@ -10,6 +11,8 @@ import {
 
 interface TranslationPracticeProps {
   onBack: () => void;
+  /** Where Back goes: Learn, or Home when opened from the daily prompt. */
+  backLabel?: string;
 }
 
 const VERDICT_STYLE: Record<Verdict, string> = {
@@ -42,7 +45,7 @@ const STATUS_STYLE: Record<WordNote['status'], string> = {
  * by word, and every correction has been checked a second time before it is
  * shown as an error.
  */
-const TranslationPractice = ({ onBack }: TranslationPracticeProps) => {
+const TranslationPractice = ({ onBack, backLabel = 'Learn' }: TranslationPracticeProps) => {
   const [challenges, setChallenges] = useState<Challenge[]>([]);
   const [attempts, setAttempts] = useState<Attempt[]>([]);
   const [loading, setLoading] = useState(true);
@@ -68,7 +71,7 @@ const TranslationPractice = ({ onBack }: TranslationPracticeProps) => {
 
   const header = (
     <>
-      <BackButton label="Learn" onClick={onBack} />
+      <BackButton label={backLabel} onClick={onBack} />
       <div className="space-y-1">
         <h1 className="text-2xl font-bold text-foreground">Daily translation</h1>
         <p className="text-sm text-muted-foreground">
@@ -216,6 +219,17 @@ const ChallengeCard = ({ challenge, attempts, onGraded, onFlagged, onNext }: Cha
         </>
       ) : (
         <div className="space-y-3">
+          {dictationSupported() && (
+            <p className="text-sm text-muted-foreground">
+              Write your translation by hand, then tap <span className="font-medium text-foreground">Read it aloud</span> and
+              read it off. Check the text below matches what you wrote before checking it: voice recognition
+              sometimes quietly corrects a mistake or mishears a word.
+            </p>
+          )}
+          <ArabicDictation
+            disabled={grading}
+            onText={(said) => setText((t) => (t.trim() ? `${t.trim()} ${said}` : said))}
+          />
           <Textarea
             value={text}
             onChange={(e) => setText(e.target.value)}

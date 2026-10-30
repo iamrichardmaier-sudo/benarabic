@@ -58,8 +58,82 @@ async function call<T>(body: Record<string, unknown>): Promise<T> {
   return data as T;
 }
 
-export function loadToday(day: string = today()): Promise<{ challenges: Challenge[]; attempts: Attempt[] }> {
+type TodaySet = { challenges: Challenge[]; attempts: Attempt[] };
+
+// Writing a day's sentences takes the model several seconds, so the daily
+// prompt starts it as soon as it appears; opening the challenge then picks up
+// the same request instead of starting a second one.
+let prefetched: { day: string; promise: Promise<TodaySet> } | null = null;
+
+export function prefetchToday(day: string = today()): void {
+  if (prefetched?.day === day) return;
+  const promise = call<TodaySet>({ action: 'today', day });
+  prefetched = { day, promise };
+  // A failed prefetch is forgotten, so opening the screen tries again.
+  promise.catch(() => { if (prefetched?.promise === promise) prefetched = null; });
+}
+
+export function loadToday(day: string = today()): Promise<TodaySet> {
+  if (prefetched?.day === day) {
+    const { promise } = prefetched;
+    // Used once: attempts made after it was fetched must come from a fresh read.
+    prefetched = null;
+    return promise;
+  }
   return call({ action: 'today', day });
+}
+
+// The generated Supabase types predate these tables; this is the slice read here.
+type ProgressClient = {
+  from: (table: string) => {
+    select: (cols: string) => {
+      eq: (col: string, v: string) => Promise<{ data: { id: string }[] | null; error: { message?: string } | null }>;
+      in: (col: string, v: string[]) => Promise<{ data: { challenge_id: string }[] | null; error: { message?: string } | null }>;
+    };
+  };
+};
+
+export interface DayProgress {
+  /** Whether today's sentences have been written yet. */
+  ready: boolean;
+  /** Sentences with at least one attempt. */
+  done: number;
+  total: number;
+}
+
+/**
+ * How far today's challenge has got, read straight from the tables so Home
+ * can show it without asking the model to write anything.
+ */
+export async function todayProgress(day: string = today()): Promise<DayProgress> {
+  const db = supabase as unknown as ProgressClient;
+  const { data: challenges, error } = await db.from('translation_challenges').select('id').eq('day', day);
+  if (error) throw new Error(error.message ?? 'Could not read today’s challenge');
+  const ids = (challenges ?? []).map((c) => c.id);
+  if (ids.length === 0) return { ready: false, done: 0, total: 3 };
+  const { data: attempts, error: attemptsError } = await db
+    .from('translation_attempts').select('challenge_id').in('challenge_id', ids);
+  if (attemptsError) throw new Error(attemptsError.message ?? 'Could not read today’s attempts');
+  return { ready: true, done: new Set((attempts ?? []).map((a) => a.challenge_id)).size, total: ids.length };
+}
+
+const PROMPTED_KEY = 'translation-challenge-prompted';
+
+/** True the first time it is asked on each local day; the daily prompt shows then. */
+export function takeDailyPrompt(day: string = today()): boolean {
+  try {
+    if (localStorage.getItem(PROMPTED_KEY) === day) return false;
+    localStorage.setItem(PROMPTED_KEY, day);
+    return true;
+  } catch {
+    // Without storage the prompt would show on every load; Home's card is enough.
+    return false;
+  }
+}
+
+/** Records today's prompt as shown, e.g. when the app opened straight onto the challenge. */
+export function markDailyPromptShown(day: string = today()): void {
+  try { localStorage.setItem(PROMPTED_KEY, day); } catch { /* the card on Home still shows */ }
 }
 
 export function gradeAttempt(challengeId: string, attempt: string): Promise<Attempt> {
