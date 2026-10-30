@@ -2,7 +2,7 @@
 """
 Print the SQL that loads the merged chunks into public.words.
 
-    python3 scripts/quran/load_words.py COMMIT_SHA BATCH N_CHUNKS
+    python3 scripts/quran/load_words.py COMMIT_SHA BATCH N_CHUNKS [--rollback]
 
 The database fetches each chunk (scripts/quran/seed/words-NNN.json) from the public repo at an
 immutable commit, the same way seed_bible_word_queue() fetched the Gospel word list, so the rows
@@ -41,10 +41,27 @@ def chunk_sql(sha, batch, i):
 select {i} as chunk, (select jsonb_array_length(j) from src) as fetched, (select count(*) from ins) as inserted;"""
 
 
+def rollback_sql(sha, batch, i):
+    """Delete exactly the rows of one chunk, and only if nobody has put them in a deck or studied them."""
+    url = f'{REPO}/{sha}/scripts/quran/seed/{batch}/words-{i:03d}.json'
+    return f"""with src as (
+  select (public.http_get('{url}')).content::jsonb as j
+), del as (
+  delete from public.words w
+  using src, jsonb_to_recordset(src.j) as r(key text, word text)
+  where w.key = r.key and w.word = r.word and w.created_by is null
+    and not exists (select 1 from public.deck_words d where d.word_id = w.id)
+    and not exists (select 1 from public.flashcards f where f.word_id = w.id)
+  returning 1
+)
+select {i} as chunk, (select count(*) from del) as deleted;"""
+
+
 if __name__ == '__main__':
     if len(sys.argv) < 4:
         sys.exit(__doc__)
     sha, batch, n = sys.argv[1], sys.argv[2], int(sys.argv[3])
+    fn = rollback_sql if '--rollback' in sys.argv else chunk_sql
     for i in range(n):
-        print(chunk_sql(sha, batch, i))
+        print(fn(sha, batch, i))
         print()

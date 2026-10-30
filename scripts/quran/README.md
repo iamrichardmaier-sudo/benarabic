@@ -40,15 +40,12 @@ and ranked connections to its relatives. Loaded words sit in the bank and in **n
 `seed_bible_word_queue` fetched the Gospel word list), and inserts only keys that do not exist. It
 never updates or deletes a row and never writes `deck_words` or `flashcards`.
 
-Every earlier row has an owner; loaded rows have `created_by IS NULL`. To remove exactly what was
-loaded and that nobody has used since:
+Loaded rows have `created_by IS NULL`, but so can rows another process loads, so **do not roll back by
+that column alone**. `load_words.py SHA BATCH N --rollback` prints SQL that deletes exactly the rows of
+those chunks (matched on key and word) and only if no deck or flashcard refers to them.
 
-```sql
-delete from public.words w
-where w.created_by is null
-  and not exists (select 1 from public.deck_words d where d.word_id = w.id)
-  and not exists (select 1 from public.flashcards f where f.word_id = w.id);
-```
+Merge against a fresh export of the live bank each time (`import_bank_export.py`), never an old
+snapshot: other loads may have landed in between, and the merge drops or brackets against whatever is there.
 
 ## Sources, and what they require
 
