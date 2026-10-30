@@ -25,6 +25,10 @@ def main(work_dir, sid):
     wanted = set(json.load(open(os.path.join(work_dir, 'wanted.json'), encoding='utf-8'))[sid])
     by_n = {r['n']: r for r in work.roots}
     shard_roots = {by_n[n]['fold'] for n in shard['roots']}
+    free = shard.get('free', False)
+    qroots = set()
+    if free:
+        qroots = {r['fold'] for r in json.load(open(os.path.expanduser('~/quran-work/roots.json'), encoding='utf-8'))}
     path = os.path.join(work_dir, 'out', f'{sid}.jsonl')
     if not os.path.exists(path):
         sys.exit(f'{path} does not exist yet')
@@ -46,6 +50,17 @@ def main(work_dir, sid):
         if o.get('src') != 'msa' or o.get('q'):
             errors.append(f'line {ln} ({o.get("w")}): these roots have no Qur\'an word; use "src": "msa" and no "q"')
             continue
+        if free:
+            # roots are the annotator's call; Qur'an roots belong to the s01..s63 shards
+            if o.get('root'):
+                fold = qw.fold_root(qw.canon_root(o['root']))
+                if fold in qroots:
+                    errors.append(f'line {ln} ({o.get("w")}): {o["root"]} is a Qur\'an root, covered by the s01..s63 '
+                                  f'shards; replace with {{"skip": "{o.get("w")}", "why": "Qur\'an root"}}')
+                    continue
+                shard_roots = shard_roots | {fold}
+            else:
+                o['rootless'] = True
         before = len(errors)
         qw.check_entry(work, o, shard_roots, errors, warns, f'line {ln} ({o.get("w", "?")})')
         if len(errors) == before:

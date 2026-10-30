@@ -16,3 +16,17 @@ with these differences. The roots in these batches have **no Qur'anic word**, so
 * Modern vocabulary is welcome (هاتِف، قانون، نِظام). Colloquial-only words are not.
 * Check with `python3 /home/user/benarabic/scripts/wiktionary_bank/check_batch.py $WORK wNN` until exit 0.
 * Never write outside `$WORK/out/wNN.jsonl`; never run git; never touch a database.
+
+## Unrooted batches (`uNN`)
+
+A `uNN` batch lists Wiktionary words whose page names no root (`$WORK/dossiers/uNN.txt`). For each word:
+
+* work out its root and verify the radicals appear in the word; write the entry with that root;
+* a name, loanword (دُولار), number or particle with no root: `"root": null, "rootless": true`, type `other` or `noun`;
+* a word whose root is a Qur'an root is covered by another annotator; the checker rejects it. Write a skip
+  `{"skip": "<word>", "why": "Qur'an root"}` instead. If unsure whether the root occurs in the Qur'an, write
+  the entry anyway and let the checker say;
+* many listed words are inflected forms of a word already in the list (a plural, a pronoun suffix, a form
+  with the article): skip them with the lemma named in `why`; two pages for one word: one entry;
+* the same quality rule: a word you are not sure of is a skip.
+* Check with `python3 /home/user/benarabic/scripts/wiktionary_bank/check_batch.py $WORK uNN`.
