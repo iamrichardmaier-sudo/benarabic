@@ -25,6 +25,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { SITE } from './lib/layout.mjs';
 import { asciiTranslit, rootSlugBase, shortGloss } from './lib/text.mjs';
+import { addSupplement } from './lib/supplement.mjs';
 import { loadDictionary, isPageWorthy, family, makeSlugger, mainGloss, headline } from './lib/dictionary.mjs';
 import { loadCorpus, linkCorpusToDictionary, corpusExamples } from './lib/corpus.mjs';
 import { renderWord } from './lib/word-page.mjs';
@@ -48,6 +49,7 @@ const MIN_ROOT_FAMILY = config.minRootFamily || 3;
 
 console.log('Loading dictionary…');
 const dict = loadDictionary(path.join(__dirname, 'data/dictionary.json.gz'));
+console.log(`  ${addSupplement(dict, path.join(REPO, 'scripts/quran/seed'))} words added from the Qur'an word bank`);
 const rootMeanings = readJson(path.join(__dirname, 'root-meanings.json'), {});
 
 // Word pages: the most-used page-worthy words first. Raising wordPages in
