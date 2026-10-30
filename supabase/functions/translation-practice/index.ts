@@ -12,10 +12,11 @@
  *   Grades one attempt (see practice.ts for how wrong corrections are kept
  *   out), saves it, and returns it.
  *
- * Runs on Google's Gemini API (GEMINI_API_KEY; a free-tier key from Google AI
- * Studio is plenty for three sentences a day). GEMINI_MODEL overrides the
- * model. Everything is read and written with the learner's own sign-in, so
- * row-level security keeps each learner to their own rows.
+ * Runs on Google's Gemini API (secret GEMINI_API_KEY or Gemini_API_Key; a
+ * free-tier key from Google AI Studio is plenty for three sentences a day).
+ * GEMINI_MODEL overrides the model. Everything is read and written with the
+ * learner's own sign-in, so row-level security keeps each learner to their
+ * own rows.
  */
 import { createClient } from "npm:@supabase/supabase-js@2";
 import {
@@ -45,8 +46,9 @@ class HttpError extends Error {
 
 /** One Gemini call that must answer as JSON in `schema`. */
 async function gemini(system: string, prompt: string, schema: unknown, temperature: number): Promise<unknown> {
-  const key = Deno.env.get("GEMINI_API_KEY");
-  if (!key) throw new HttpError("GEMINI_API_KEY is not set", 500);
+  // Secret names are case-sensitive; the project stores it as Gemini_API_Key.
+  const key = Deno.env.get("GEMINI_API_KEY") ?? Deno.env.get("Gemini_API_Key");
+  if (!key) throw new HttpError("The Gemini key is not set (secret GEMINI_API_KEY or Gemini_API_Key)", 500);
   const res = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
     {
