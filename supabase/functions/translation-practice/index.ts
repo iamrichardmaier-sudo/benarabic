@@ -34,8 +34,17 @@ const corsHeaders = {
 const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { ...corsHeaders, "Content-Type": "application/json" } });
 
-/** Google's alias for its current Flash model, so a retired version never breaks the function. */
-const MODEL = Deno.env.get("GEMINI_MODEL") || "gemini-flash-latest";
+/**
+ * Google's aliases for its current Flash models, so a retired version never
+ * breaks the function. The free tier's newest model is often briefly
+ * overloaded, so a busy or failing model is retried and then the lighter one
+ * is tried before giving up.
+ */
+const MODELS = [
+  Deno.env.get("GEMINI_MODEL") || "gemini-flash-latest",
+  Deno.env.get("GEMINI_FALLBACK_MODEL") || "gemini-flash-lite-latest",
+];
+const TRIES_PER_MODEL = 2;
 const MAX_ATTEMPT_LENGTH = 600;
 
 class HttpError extends Error {
@@ -44,37 +53,57 @@ class HttpError extends Error {
   }
 }
 
+/** Overloaded, rate-limited or failing on Google's side: worth another go. */
+const transient = (status: number) => status === 429 || status >= 500;
+
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
 /** One Gemini call that must answer as JSON in `schema`. */
 async function gemini(system: string, prompt: string, schema: unknown, temperature: number): Promise<unknown> {
   // Secret names are case-sensitive; the project stores it as Gemini_API_Key.
   const key = Deno.env.get("GEMINI_API_KEY") ?? Deno.env.get("Gemini_API_Key");
   if (!key) throw new HttpError("The Gemini key is not set (secret GEMINI_API_KEY or Gemini_API_Key)", 500);
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-goog-api-key": key },
-      body: JSON.stringify({
-        systemInstruction: { parts: [{ text: system }] },
-        contents: [{ role: "user", parts: [{ text: prompt }] }],
-        generationConfig: { temperature, responseMimeType: "application/json", responseSchema: schema },
-      }),
-    },
-  );
-  if (!res.ok) {
-    const detail = await res.text();
-    console.error("Gemini error:", res.status, detail);
-    if (res.status === 429) throw new HttpError("Gemini's free limit is used up for now — try again in a minute.", 429);
-    throw new HttpError("The AI service could not be reached.", 502);
+  const body = JSON.stringify({
+    systemInstruction: { parts: [{ text: system }] },
+    contents: [{ role: "user", parts: [{ text: prompt }] }],
+    generationConfig: { temperature, responseMimeType: "application/json", responseSchema: schema },
+  });
+
+  let lastStatus = 0;
+  for (const model of [...new Set(MODELS)]) {
+    for (let attempt = 0; attempt < TRIES_PER_MODEL; attempt++) {
+      if (attempt > 0) await sleep(1500 * attempt);
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "x-goog-api-key": key },
+        body,
+      });
+      if (res.ok) {
+        const data = await res.json();
+        const out = data?.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p.text ?? "").join("") ?? "";
+        try {
+          return JSON.parse(out);
+        } catch {
+          // A cut-off or malformed answer is worth asking again.
+          console.error(`Gemini (${model}) gave unreadable JSON:`, out.slice(0, 500));
+          lastStatus = 502;
+          continue;
+        }
+      }
+      lastStatus = res.status;
+      const detail = await res.text();
+      console.error(`Gemini (${model}) error:`, res.status, detail);
+      // A bad key will not get better by asking again, on any model.
+      if (detail.includes("API_KEY_INVALID") || res.status === 401 || res.status === 403) {
+        throw new HttpError("The Gemini key was rejected — check the Gemini_API_Key secret.", 502);
+      }
+      // An unknown model name: skip straight to the next model.
+      if (res.status === 404) break;
+      if (!transient(res.status)) break;
+    }
   }
-  const data = await res.json();
-  const out = data?.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p.text ?? "").join("") ?? "";
-  try {
-    return JSON.parse(out);
-  } catch {
-    console.error("Gemini gave unreadable JSON:", out.slice(0, 500));
-    throw new HttpError("The AI gave an unreadable answer — try again.", 502);
-  }
+  if (lastStatus === 429) throw new HttpError("Gemini's free limit is used up for now — try again in a minute.", 429);
+  throw new HttpError("Gemini is busy right now — your translation is still here, so try again in a minute.", 503);
 }
 
 Deno.serve(async (req) => {
