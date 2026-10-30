@@ -16,7 +16,7 @@ order by bible_count + bom_count desc, surface collate "C"
 limit 200 offset <K*200>;
 ```
 
-K is your batch number minus one (batch t01 is K=0). Most spellings come from the Book of Mormon. A
+K is given in your task. The queue is held still while all batches run, so offsets do not move. Most spellings come from the Book of Mormon. A
 spelling's verse is findable with `grep -rl` in `/home/user/benarabic/public/bom/*/*.json` (fields
 `v` verse number, `a` Arabic, `e` English) and in `/home/user/benarabic/public/bible/` for the Bible;
 read the English next to it when the sense is not clear.
