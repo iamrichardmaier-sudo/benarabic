@@ -1,0 +1,553 @@
+{
+  "day": "2026-10-31",
+  "format": "Each sentence is split into chunks, matched on whole words (the first word of a form may carry a joined و or ف), after removing vowels and ignoring alef/hamza, ة/ه and ى/ي differences. Per chunk: (1) `strict` mistakes are matched with hamza kept, for errors that differ only in the hamza seat (تقول أنّ / تقول إنّ); (2) if an `accept` form matches and no strict mistake did, the chunk is correct; (3) otherwise every matching `mistakes` entry is reported. A mistake with status \"alternative\" is valid Arabic and is shown as \"also correct\". A chunk that matches nothing is shown as unrecognised, never as wrong. Check a key with: python3 scripts/check-answer-key.py <key.json>",
+  "sentences": [
+    {
+      "position": 1,
+      "english": "My sister bought every towel in the shop except the grey ones, because they were darker than she wanted and more expensive than the blue ones.",
+      "grammar_focus": "Exception with إلا / غير / سوى, colour adjectives agreeing with non-human plurals (الرمادية، الزرقاء), and elatives (أغمق، أغلى)",
+      "target_words": [
+        "اِشتَرى",
+        "مَنشَفة",
+        "رَمادِيّ",
+        "غامِق",
+        "أَزرَق"
+      ],
+      "model_answer": "اِشتَرَتْ أُختي كُلَّ مِنشَفةٍ في المَحَلِّ إلّا الرَّمادِيَّةَ، لِأَنَّها كانَتْ أَغمَقَ مِمّا أَرادَتْ وَأَغلى مِنَ الزَّرقاءِ.",
+      "reference_translations": [
+        "اشترت أختي كل منشفة في المحل إلا الرمادية لأنها كانت أغمق مما أرادت وأغلى من الزرقاء",
+        "اشترت أختي جميع المناشف في المحل إلا الرمادية لأنها كانت أغمق مما كانت تريد وأغلى من الزرقاء",
+        "اشترت أختي كل المناشف التي في المحل ما عدا الرمادية لأنها كانت أغمق مما أرادت وأغلى ثمنا من الزرقاء",
+        "أختي اشترت كل مناشف المحل غير الرمادية لأن لونها كان أغمق مما أرادت وسعرها أغلى من الزرقاء",
+        "اشترت أختي كل منشفة في المحل سوى الرمادية فقد كانت أغمق مما أرادت وأغلى من الزرقاء",
+        "اشترت أختي مناشف المحل كلها إلا الرمادية لأنها كانت أغمق مما أرادته وأغلى من المناشف الزرقاء"
+      ],
+      "chunks": [
+        {
+          "en": "My sister bought",
+          "accept": [
+            "اشترت أختي",
+            "أختي اشترت"
+          ],
+          "mistakes": [
+            {
+              "text": "اشترى أختي",
+              "rule": "A verb agrees in gender with a feminine subject",
+              "note": "أختي is feminine, so the verb takes the feminine ending: اشترَتْ."
+            },
+            {
+              "text": "أختي اشترى",
+              "rule": "A verb agrees in gender with a feminine subject",
+              "note": "After a feminine subject the verb must be feminine: أختي اشترَتْ."
+            }
+          ]
+        },
+        {
+          "en": "every towel in the shop",
+          "accept": [
+            "كل منشفة في المحل",
+            "جميع المناشف في المحل",
+            "كل المناشف في المحل",
+            "كل مناشف المحل",
+            "مناشف المحل كلها",
+            "كل المناشف التي في المحل",
+            "كل منشفة في المتجر",
+            "كل منشفة في الدكان",
+            "جميع مناشف المحل"
+          ],
+          "mistakes": [
+            {
+              "text": "كل المنشفة",
+              "rule": "كل + a definite singular means \"the whole of\"",
+              "note": "كلّ المنشفةِ means \"the whole towel\". For \"every towel\" use كلّ منشفةٍ (indefinite singular) or كلّ المناشفِ."
+            },
+            {
+              "text": "في محل",
+              "rule": "Definiteness must match the English",
+              "note": "\"The shop\" is a particular shop, so it needs the article: في المحلّ."
+            }
+          ]
+        },
+        {
+          "en": "except the grey ones",
+          "accept": [
+            "إلا الرمادية",
+            "ما عدا الرمادية",
+            "عدا الرمادية",
+            "غير الرمادية",
+            "سوى الرمادية",
+            "إلا المناشف الرمادية",
+            "ما عدا المناشف الرمادية"
+          ],
+          "mistakes": [
+            {
+              "text": "إلا الرمادي",
+              "rule": "Adjectives for non-human plurals are feminine singular",
+              "note": "The towels are a non-human plural, so \"the grey ones\" is الرماديّة, not الرماديّ."
+            },
+            {
+              "text": "إلا الرماديين",
+              "rule": "Adjectives for non-human plurals are feminine singular",
+              "note": "The -ين plural is for people. Towels take the feminine singular: الرماديّة."
+            },
+            {
+              "text": "ما عدا الرمادي",
+              "rule": "Adjectives for non-human plurals are feminine singular",
+              "note": "Use الرماديّة for the grey towels."
+            }
+          ]
+        },
+        {
+          "en": "because they were darker than she wanted",
+          "accept": [
+            "لأنها كانت أغمق مما أرادت",
+            "لأنها كانت أغمق مما كانت تريد",
+            "لأن لونها كان أغمق مما أرادت",
+            "فقد كانت أغمق مما أرادت",
+            "لأنها كانت أغمق مما أرادته",
+            "لأنها كانت أكثر قتامة مما أرادت",
+            "لأنها أغمق مما أرادت"
+          ],
+          "mistakes": [
+            {
+              "text": "لأنهم كانوا",
+              "rule": "Pronouns for non-human plurals are feminine singular",
+              "note": "Towels are not people, so \"they were\" is كانَتْ with ـها: لأنّها كانت."
+            },
+            {
+              "text": "أغمق من أرادت",
+              "rule": "مِن before a verb needs ما: مِمّا",
+              "note": "\"Than she wanted\" compares with a clause, so it is مِمّا (مِن + ما) أرادت, not مِن أرادت (\"than whom she wanted\")."
+            },
+            {
+              "text": "أغمق من ما",
+              "rule": "مِن + ما is written joined: مِمّا",
+              "note": "Only the spelling is off: write مِمّا as one word."
+            },
+            {
+              "text": "أكثر غامقة",
+              "rule": "أكثر is followed by a verbal noun (تمييز), not an adjective",
+              "note": "Either use the elative أغمق directly, or أكثر قتامةً with a verbal noun."
+            }
+          ]
+        },
+        {
+          "en": "and more expensive than the blue ones",
+          "accept": [
+            "وأغلى من الزرقاء",
+            "وأغلى ثمنا من الزرقاء",
+            "وأغلى سعرا من الزرقاء",
+            "وسعرها أغلى من الزرقاء",
+            "وأغلى من المناشف الزرقاء",
+            "وأغلى من الزرق"
+          ],
+          "mistakes": [
+            {
+              "text": "من الأزرقة",
+              "rule": "Colour adjectives on the pattern أفعل have the feminine فعلاء",
+              "note": "The feminine of أزرق is زرقاء, not أزرقة. \"The blue ones\" is الزرقاء."
+            },
+            {
+              "text": "من الأزرق",
+              "rule": "Adjectives for non-human plurals are feminine singular",
+              "note": "For the blue towels use the feminine: الزرقاء."
+            },
+            {
+              "text": "أكثر غالي",
+              "rule": "Use the elative أغلى",
+              "note": "\"More expensive\" is the single word أغلى (or أكثر غلاءً)."
+            },
+            {
+              "text": "غلياء",
+              "rule": "An elative with مِن does not change for gender",
+              "note": "With مِن the elative stays أغلى whatever it describes."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "اشترى أختي: the verb must be feminine after أختي (اشترت)",
+        "Non-human plurals take feminine singular adjectives and pronouns: الرمادية، الزرقاء، لأنها كانت",
+        "The feminine of أزرق is زرقاء, never أزرقة",
+        "\"Than she wanted\" is مِمّا أرادت (مِن + ما), not مِن أرادت",
+        "The excepted noun after إلا in a complete positive sentence is accusative: إلا الرماديةَ; after غير it is genitive: غيرَ الرماديةِ"
+      ]
+    },
+    {
+      "position": 2,
+      "english": "The paintings that had been drawn in the city centre were sold within three months, for more than eight hundred dollars each.",
+      "grammar_focus": "The passive (بِيعَت، رُسِمَت) with كان قد for the pluperfect, numbers with counted nouns (ثلاثة أشهر، ثمانمئة دولار), and the باء of price",
+      "target_words": [
+        "رَسَمَ",
+        "وَسَط",
+        "باعَ",
+        "شَهْر"
+      ],
+      "model_answer": "بِيعَتِ اللَّوحاتُ الَّتي كانَتْ قَدْ رُسِمَتْ في وَسَطِ المَدينةِ خِلالَ ثَلاثةِ أَشهُرٍ، بِأَكثَرَ مِن ثَمانِمِئةِ دولارٍ لِكُلٍّ مِنها.",
+      "reference_translations": [
+        "بيعت اللوحات التي كانت قد رسمت في وسط المدينة خلال ثلاثة أشهر بأكثر من ثمانمئة دولار لكل واحدة",
+        "بيعت اللوحات التي رسمت في وسط المدينة في غضون ثلاثة أشهر بأكثر من ثمانمائة دولار للوحة الواحدة",
+        "اللوحات التي كانت قد رسمت وسط المدينة بيعت خلال ثلاثة أشهر وبيعت كل واحدة منها بأكثر من ثمانمئة دولار",
+        "بيعت خلال ثلاثة أشهر اللوحات المرسومة في وسط المدينة بسعر يزيد على ثمانمئة دولار لكل لوحة",
+        "تم بيع اللوحات التي رسمت في وسط المدينة خلال ثلاثة أشهر بأكثر من ثمانمئة دولار لكل منها",
+        "بيعت اللوحات التي رسمت في وسط البلد في ثلاثة أشهر بما يزيد على ثمانمئة دولار للواحدة"
+      ],
+      "chunks": [
+        {
+          "en": "The paintings … were sold",
+          "accept": [
+            "بيعت",
+            "تم بيع"
+          ],
+          "mistakes": [
+            {
+              "text": "باعت اللوحات",
+              "rule": "The passive of a hollow verb is فِيلَ: بِيعَ / بِيعَت",
+              "note": "باعت اللوحات says \"the paintings sold (something)\". \"Were sold\" is the passive بِيعَت."
+            },
+            {
+              "text": "بيعوا",
+              "rule": "Non-human plurals take a feminine singular verb",
+              "note": "Paintings are not people: بِيعَت, not بيعوا."
+            },
+            {
+              "text": "باعوا اللوحات",
+              "rule": "Valid, but not the passive",
+              "note": "\"They sold the paintings\" is fine Arabic and says the same thing, but the passive بِيعَت اللوحات matches the English directly.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "that had been drawn",
+          "accept": [
+            "التي كانت قد رسمت",
+            "التي رسمت",
+            "المرسومة",
+            "التي كانت رسمت",
+            "التي تم رسمها"
+          ],
+          "mistakes": [
+            {
+              "text": "الذين رسموا",
+              "rule": "الذين is for people",
+              "note": "Paintings are non-human, so the relative pronoun is التي, and the verb is the feminine passive رُسِمَت."
+            },
+            {
+              "text": "الذي رسم",
+              "rule": "The relative pronoun agrees with a non-human plural as feminine singular",
+              "note": "اللوحات takes التي, not الذي."
+            },
+            {
+              "text": "التي كانت قد رسموا",
+              "rule": "The verb agrees with the non-human plural as feminine singular",
+              "note": "Use رُسِمَت: \"that had been drawn\"."
+            }
+          ]
+        },
+        {
+          "en": "in the city centre",
+          "accept": [
+            "في وسط المدينة",
+            "وسط المدينة",
+            "في وسط البلد",
+            "في مركز المدينة",
+            "وسط البلد"
+          ],
+          "mistakes": [
+            {
+              "text": "في الوسط المدينة",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "\"The centre of the city\" is an idafa: وسطِ المدينة, with ال only on the second noun."
+            },
+            {
+              "text": "في المدينة الوسط",
+              "rule": "Word order of an idafa",
+              "note": "\"City centre\" is وسط المدينة: the possessed noun comes first."
+            }
+          ]
+        },
+        {
+          "en": "within three months",
+          "accept": [
+            "خلال ثلاثة أشهر",
+            "في غضون ثلاثة أشهر",
+            "في ثلاثة أشهر",
+            "خلال ثلاثة شهور",
+            "في غضون ثلاثة شهور"
+          ],
+          "mistakes": [
+            {
+              "text": "ثلاث أشهر",
+              "rule": "Numbers 3–10 take the opposite gender of the noun's singular",
+              "note": "شهر is masculine, so the number is feminine in form: ثلاثةُ أشهرٍ."
+            },
+            {
+              "text": "ثلاث شهور",
+              "rule": "Numbers 3–10 take the opposite gender of the noun's singular",
+              "note": "شهر is masculine, so it is ثلاثة شهور."
+            },
+            {
+              "text": "ثلاثة شهر",
+              "rule": "Numbers 3–10 are followed by a plural",
+              "note": "After 3–10 the counted noun is plural: ثلاثة أشهر."
+            },
+            {
+              "text": "ثلاثة الأشهر",
+              "rule": "The counted noun after 3–10 is indefinite",
+              "note": "Say ثلاثة أشهر, without ال on أشهر."
+            }
+          ]
+        },
+        {
+          "en": "for more than eight hundred dollars",
+          "accept": [
+            "بأكثر من ثمانمئة دولار",
+            "بأكثر من ثمانمائة دولار",
+            "بما يزيد على ثمانمئة دولار",
+            "بما يزيد على ثمانمائة دولار",
+            "بسعر يزيد على ثمانمئة دولار",
+            "بسعر يزيد على ثمانمائة دولار"
+          ],
+          "mistakes": [
+            {
+              "text": "ثمانمئة دولارات",
+              "rule": "After مئة and ألف the counted noun is singular",
+              "note": "Hundreds take a singular genitive noun: ثمانمئةِ دولارٍ."
+            },
+            {
+              "text": "ثمانية مئة",
+              "rule": "Hundreds are one word, with no ة on the unit",
+              "note": "Eight hundred is ثمانمئة (or ثمانمائة)."
+            },
+            {
+              "text": "أكثر من ثمانمئة دولار",
+              "rule": "The price an item is sold for takes بـ",
+              "note": "\"Sold for\" is بِيع بـ: بأكثرَ من ثمانمئة دولار. Make sure the بـ is there."
+            }
+          ]
+        },
+        {
+          "en": "each",
+          "accept": [
+            "لكل واحدة",
+            "للوحة الواحدة",
+            "لكل لوحة",
+            "لكل منها",
+            "للواحدة",
+            "كل واحدة منها"
+          ],
+          "mistakes": [
+            {
+              "text": "لكل واحد",
+              "rule": "Agreement with لوحة (feminine)",
+              "note": "Each painting: لكلّ واحدةٍ."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "\"Were sold\" is the passive بِيعَت, not باعت (\"sold something\")",
+        "Non-human plurals take التي and feminine singular verbs: التي رُسِمَت، بِيعَت",
+        "ثلاثة أشهر: شهر is masculine, so the number takes ة",
+        "After مئة the noun is singular: ثمانمئة دولار",
+        "The price takes بـ: بِيعَت بأكثرَ من…",
+        "وسط المدينة is an idafa: no ال on وسط"
+      ]
+    },
+    {
+      "position": 3,
+      "english": "I wonder whether the sky has really changed, because my grandmother used to say that it was no longer as blue as it had been in her youth.",
+      "grammar_focus": "يا ترى + هل, تغيّر (V, intransitive) against غيّر (II), كان + present for a past habit, إنّ after قال, and لم يعد with a feminine subject",
+      "target_words": [
+        "يا تُرى",
+        "تَغَيَّرَ",
+        "أَزرَق"
+      ],
+      "model_answer": "يا تُرى، هَلْ تَغَيَّرَتِ السَّماءُ حَقًّا؟ فَقَدْ كانَتْ جَدَّتي تَقولُ إِنَّها لَمْ تَعُدْ زَرقاءَ كَما كانَتْ في شَبابِها.",
+      "reference_translations": [
+        "يا ترى هل تغيرت السماء حقا لأن جدتي كانت تقول إنها لم تعد زرقاء كما كانت في شبابها",
+        "يا ترى هل تغيرت السماء فعلا فجدتي كانت تقول إنها لم تعد زرقاء كما كانت أيام شبابها",
+        "يا ترى أتغيرت السماء حقا لأن جدتي كانت تقول إن السماء ما عادت زرقاء كما كانت في صباها",
+        "أتساءل هل تغيرت السماء حقا إذ كانت جدتي تقول إنها لم تعد بالزرقة التي كانت عليها في شبابها",
+        "يا ترى هل تغيرت السماء حقا فقد كانت جدتي تقول إنها لم تعد زرقاء مثلما كانت في شبابها",
+        "يا ترى هل تغيرت السماء حقا لأن جدتي كانت تقول إن السماء لم تعد زرقاء كما كانت عندما كانت شابة"
+      ],
+      "chunks": [
+        {
+          "en": "I wonder whether",
+          "accept": [
+            "يا ترى هل",
+            "يا ترى أتغيرت",
+            "أتساءل هل",
+            "أتساءل إن كانت",
+            "ترى هل",
+            "أتساءل ما إذا"
+          ],
+          "mistakes": [
+            {
+              "text": "يا ترى إذا",
+              "rule": "\"Whether\" in a question is هل, not إذا",
+              "note": "إذا means \"if\" in a condition. After يا ترى, ask the question with هل."
+            },
+            {
+              "text": "يا ترى لو",
+              "rule": "\"Whether\" in a question is هل, not لو",
+              "note": "لو is \"if\" in a hypothetical. After يا ترى, ask with هل."
+            }
+          ]
+        },
+        {
+          "en": "the sky has really changed",
+          "accept": [
+            "تغيرت السماء حقا",
+            "أتغيرت السماء حقا",
+            "تغيرت السماء فعلا",
+            "السماء تغيرت حقا",
+            "قد تغيرت السماء حقا",
+            "تغيرت السماء حقيقة",
+            "تغيرت السماء بالفعل",
+            "أتغيرت السماء فعلا"
+          ],
+          "mistakes": [
+            {
+              "text": "غيرت السماء",
+              "rule": "Form V تغيّر is intransitive; Form II غيّر needs an object",
+              "note": "غيّرت السماء would mean \"the sky changed (something)\". For \"the sky has changed\" use تغيّرت."
+            },
+            {
+              "text": "غيرت السماء نفسها",
+              "rule": "Form V already carries the reflexive meaning",
+              "note": "No need for نفسها: تغيّرت السماء says it."
+            },
+            {
+              "text": "تغير السماء",
+              "rule": "Valid: a verb may be masculine before a figuratively feminine noun",
+              "note": "Grammatical, because السماء is only figuratively feminine and comes after the verb, but تغيّرت is far more usual.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "because my grandmother used to say",
+          "accept": [
+            "لأن جدتي كانت تقول",
+            "فقد كانت جدتي تقول",
+            "فجدتي كانت تقول",
+            "إذ كانت جدتي تقول",
+            "لأن جدتي كانت دائما تقول",
+            "كانت جدتي تقول"
+          ],
+          "mistakes": [
+            {
+              "text": "جدتي قالت",
+              "rule": "A past habit is كان + the present tense",
+              "note": "\"Used to say\" is a habit: كانت تقول. قالت is one single time."
+            },
+            {
+              "text": "كانت قالت",
+              "rule": "كان + past is the pluperfect, not a habit",
+              "note": "كانت قالت means \"had said\". For \"used to say\", use كانت تقول."
+            },
+            {
+              "text": "كانت يقول",
+              "rule": "The present verb agrees with its feminine subject",
+              "note": "The grandmother is feminine: كانت تقول."
+            },
+            {
+              "text": "كان جدتي",
+              "rule": "كان agrees with its feminine subject",
+              "note": "Use كانت جدتي."
+            }
+          ]
+        },
+        {
+          "en": "that it was no longer as blue",
+          "accept": [
+            "إنها لم تعد زرقاء",
+            "إن السماء لم تعد زرقاء",
+            "إنها ما عادت زرقاء",
+            "إن السماء ما عادت زرقاء",
+            "إنها لم تعد بالزرقة"
+          ],
+          "mistakes": [
+            {
+              "text": "تقول أنها",
+              "strict": true,
+              "rule": "After قال and its forms, \"that\" is إنّ (hamza below)",
+              "note": "Speech verbs take إنّ: تقول إنّها، قالت إنّ… أنّ (hamza above) is for other verbs, like عرف and ظنّ."
+            },
+            {
+              "text": "تقول أن",
+              "strict": true,
+              "rule": "After قال and its forms, \"that\" is إنّ (hamza below)",
+              "note": "Speech verbs take إنّ: تقول إنّها، قالت إنّ… أنّ (hamza above) is for other verbs, like عرف and ظنّ."
+            },
+            {
+              "text": "قالت أنها",
+              "strict": true,
+              "rule": "After قال and its forms, \"that\" is إنّ (hamza below)",
+              "note": "Speech verbs take إنّ: تقول إنّها، قالت إنّ… أنّ (hamza above) is for other verbs, like عرف and ظنّ."
+            },
+            {
+              "text": "قالت أن",
+              "strict": true,
+              "rule": "After قال and its forms, \"that\" is إنّ (hamza below)",
+              "note": "Speech verbs take إنّ: تقول إنّها، قالت إنّ… أنّ (hamza above) is for other verbs, like عرف and ظنّ."
+            },
+            {
+              "text": "لم يعد",
+              "rule": "A verb whose subject is a pronoun for a feminine noun must be feminine",
+              "note": "The hidden subject is the sky (feminine), so it is لم تعُدْ."
+            },
+            {
+              "text": "لم تعد أزرق",
+              "rule": "The predicate agrees with its feminine subject",
+              "note": "The sky is feminine: لم تعد زرقاءَ."
+            },
+            {
+              "text": "لم تكن زرقاء",
+              "rule": "\"No longer\" is لم يعد / ما عاد",
+              "note": "لم تكن زرقاء means \"it was not blue\". \"No longer\" needs لم تعد or ما عادت."
+            }
+          ]
+        },
+        {
+          "en": "as it had been in her youth",
+          "accept": [
+            "كما كانت في شبابها",
+            "مثلما كانت في شبابها",
+            "كما كانت أيام شبابها",
+            "كما كانت في صباها",
+            "كما كانت عندما كانت شابة",
+            "كما كانت حين كانت صغيرة",
+            "التي كانت عليها في شبابها",
+            "كما كانت عندما كانت فتاة",
+            "كما كانت حين كانت فتاة",
+            "كما كانت عندما كانت صغيرة",
+            "كما كانت في أيام شبابها"
+          ],
+          "mistakes": [
+            {
+              "text": "كما كان في شبابها",
+              "rule": "The verb agrees with the feminine sky",
+              "note": "\"As it had been\" refers to the sky: كما كانت."
+            },
+            {
+              "text": "في شبابه",
+              "rule": "The pronoun refers to the grandmother",
+              "note": "\"Her youth\" is شبابها."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "\"Whether\" after يا ترى is هل, never إذا or لو",
+        "تغيّر (V) is \"to change\" on its own; غيّر (II) means changing something",
+        "\"Used to say\" is كانت تقول (كان + present)",
+        "After قال and its forms, \"that\" is إنّ, not أنّ",
+        "\"No longer\" is لم تعد / ما عادت, feminine because the sky is feminine, with زرقاء as its predicate"
+      ]
+    }
+  ]
+}
