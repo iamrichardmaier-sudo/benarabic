@@ -75,6 +75,34 @@ def drop_paren(w):
     return re.sub(r'\s*\([^)]*\)\s*$', '', w).strip()
 
 
+def vowel_profile(w):
+    """[(letter, vowels)] with hamza seats, ى and ة folded; vowels drawn from a u i o (sukun)."""
+    out = []
+    for ch in drop_paren(w):
+        if re.match('[\u0621-\u064a\u0671]', ch) and ch != 'ـ':
+            out.append([ch.translate(str.maketrans('أإآٱةى', 'ااااهي')), ''])
+        elif out and ch in '\u064e\u064f\u0650':
+            out[-1][1] += {'\u064e': 'a', '\u064f': 'u', '\u0650': 'i'}[ch]
+        elif out and ch == '\u0652':
+            out[-1][1] += 'o'
+    return out
+
+
+def same_word(a, b):
+    """Could these two voweled spellings be one word? Same letters, and no letter given different vowels.
+
+    Vowels one side leaves out (the bank writes مَكتَب, not مَكْتَب) never count against it; a vowel
+    both sides give and disagree on does: رِجْل (foot) and رَجُل (man) are two words.
+    """
+    pa, pb = vowel_profile(a), vowel_profile(b)
+    if [x for x, _ in pa] != [x for x, _ in pb]:
+        return False
+    for (_, va), (_, vb) in zip(pa, pb):
+        if va and vb and va != vb:
+            return False
+    return True
+
+
 def skeleton(w):
     """Consonants of a voweled word; a shadda doubles its letter. Weak letters stay in place."""
     out = []

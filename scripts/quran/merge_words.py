@@ -56,6 +56,12 @@ FORM_ORDER = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
 TYPE_RANK = {'verb': 0, 'noun': 1, 'adjective': 2, 'masdar': 3, 'participle': 4, 'other': 5}
 
 
+def ARABIC_DIGITS(n):
+    # ASCII on purpose: normalize_arabic() strips U+064B-0670, which includes the Arabic-Indic digits,
+    # so numbered spellings in those digits would all collapse to one key.
+    return str(n)
+
+
 def label_for(kind, form, en):
     if kind == 'verb':
         return f'Form {form} verb ({en})'
@@ -131,11 +137,18 @@ def main(work_dir, out_dir, only):
         spell = {b['key'], qw.normalize_arabic(qw.drop_paren(b['word'] or '')), qw.normalize_arabic(qw.drop_paren(b['word_voweled'] or ''))}
         for part in re.split(r'[/،]', b['word'] or ''):
             spell.add(qw.normalize_arabic(qw.drop_paren(part.strip())))
+        # The bank stores some words with the article (الأَدَب); a bare headword is the same word.
+        spell |= {sp[2:] for sp in spell if sp.startswith('ال') and len(sp) > 4}
         for sp in spell:
             if sp:
                 bank_forms[sp].append(b)
         if b['word_type'] == 'verb' and b.get('root') and b.get('verb_form'):
             bank_verbs[(qw.fold_root(b['root']), b['verb_form'])].append(b)
+
+    def bank_spellings(b):
+        out = [b['word_voweled'] or '', b['word'] or '']
+        out += [x.strip() for x in re.split(r'[/،]', b['word'] or '')]
+        return [qw.drop_paren(x) for x in out if x.strip()]
 
     kept = []
     for e in entries:
@@ -145,26 +158,36 @@ def main(work_dir, out_dir, only):
             dropped.append((e, f'bank already has this verb: {b["word_voweled"] or b["word"]} (form {b["verb_form"]})'))
             continue
         hits = bank_forms.get(e['_key0'], [])
-        same = [b for b in hits if (qw.fold_root(b['root']) if b.get('root') else '') == fold
-                and group_of(b['word_type']) == group_of(e['type'])]
-        if same:
-            dropped.append((e, f'bank already has {same[0]["word_voweled"] or same[0]["word"]} [{same[0]["word_type"]}]'))
+        dup = None
+        for b in hits:
+            if (qw.fold_root(b['root']) if b.get('root') else '') != fold or group_of(b['word_type']) != group_of(e['type']):
+                continue
+            if e['type'] == 'verb' and b.get('verb_form'):
+                continue    # a different form of the verb: another word with the same letters (أَتى / آتَى)
+            if any(qw.same_word(e['_clean'], sp) for sp in bank_spellings(b)):
+                dup = b
+                break
+        if dup:
+            dropped.append((e, f'bank already has {dup["word_voweled"] or dup["word"]} [{dup["word_type"]}]'))
             continue
         e['_bank_collision'] = bool(hits)
         kept.append(e)
 
-    # ---- exact repeats inside the new set (same word listed twice)
-    seen, unique = {}, []
+    # ---- the same word listed twice inside the new set
+    unique = []
     for e in sorted(kept, key=lambda e: (e['src'] != 'quran', not e.get('q'), e['_shard'], e['_line'])):
-        sig = (e['_key0'], e['_fold'], group_of(e['type']), e.get('form') if e['type'] != 'noun' else None, e['kind'])
-        if sig in seen:
-            dropped.append((e, f'same word as {seen[sig]["w"]} (shard {seen[sig]["_shard"]})'))
+        twin = next((u for u in unique if u['_key0'] == e['_key0'] and u['_fold'] == e['_fold']
+                     and group_of(u['type']) == group_of(e['type']) and u['kind'] == e['kind']
+                     and u.get('form') == e.get('form') and qw.same_word(u['_clean'], e['_clean'])), None)
+        if twin:
+            dropped.append((e, f'same word as {twin["w"]} (shard {twin["_shard"]})'))
             continue
-        seen[sig] = e
         unique.append(e)
     kept = unique
 
-    # ---- one bare spelling, one word: the commoner keeps it, the rest are bracketed
+    # ---- one bare spelling, one word: the commoner keeps it, the rest are bracketed.
+    # The bracket says what kind of word it is — (فعل), (اسم) — never what it means, which would
+    # give the answer away on a card front. Two words of one kind are numbered.
     def rank(e):
         form_rank = FORM_ORDER.index(e['form']) if e.get('form') in FORM_ORDER else 0
         return (-e['_q'], TYPE_RANK.get(e['type'], 9), form_rank, e['_shard'], e['_line'])
@@ -176,21 +199,21 @@ def main(work_dir, out_dir, only):
     used = set(bank_forms)
     for k, group in by_key.items():
         group.sort(key=rank)
+        taken = set()
         for i, e in enumerate(group):
-            plain = (i == 0 and not any(g['_bank_collision'] for g in group))
-            if plain and not e['w'].endswith(')'):
+            if i == 0 and not any(g['_bank_collision'] for g in group):
                 e['_word'] = e['_clean']
             else:
                 suf = SUFFIX.get(e['kind'], 'اسم')
                 cand = f'{e["_clean"]} ({suf})'
-                n = 2
-                while qw.normalize_arabic(cand) in used or any(qw.normalize_arabic(cand) == qw.normalize_arabic(x.get('_word', '')) for x in group):
-                    cand = f'{e["_clean"]} ({suf} {n})'
+                n = 1
+                while qw.normalize_arabic(cand) in used or qw.normalize_arabic(cand) in taken:
                     n += 1
+                    cand = f'{e["_clean"]} ({ARABIC_DIGITS(n)})'
                 e['_word'] = cand
                 renamed += 1
-        for e in group:
-            used.add(qw.normalize_arabic(e['_word']))
+            taken.add(qw.normalize_arabic(e['_word']))
+        used |= taken
 
     # ---- connections
     by_root = collections.defaultdict(list)
