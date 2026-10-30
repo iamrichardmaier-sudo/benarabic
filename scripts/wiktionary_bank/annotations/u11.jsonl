@@ -1,0 +1,81 @@
+{"w":"شَوَّشَ","en":"to confuse, disturb","root":"ش-و-ش","type":"verb","kind":"verb","form":"II","past":"شَوَّشَ","pres":"يُشَوِّشُ","masdar":"تَشْوِيش","src":"msa"}
+{"w":"تَشْوِيش","en":"disturbance, confusion","root":"ش-و-ش","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُشَوِّش","en":"confusing, disturbing","root":"ش-و-ش","type":"participle","kind":"active participle","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَرْز","en":"cedar","root":"أ-ر-ز","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَرْزَة","en":"a cedar tree","root":"أ-ر-ز","type":"noun","kind":"noun of instance","gender":"f","plural":"أَرْز","src":"msa"}
+{"w":"بَطّ","en":"ducks","root":"ب-ط-ط","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"فَهْد","en":"cheetah, leopard","root":"ف-ه-د","type":"noun","kind":"noun","gender":"m","plural":"فُهُود","src":"msa"}
+{"w":"رَذَاذ","en":"drizzle","root":"ر-ذ-ذ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"جُرْثُوم","en":"germ, bacterium","root":"ج-ر-ث-م","type":"noun","kind":"noun","gender":"m","plural":"جَرَاثِيم","src":"msa"}
+{"w":"جَفَّفَ","en":"to dry","root":"ج-ف-ف","type":"verb","kind":"verb","form":"II","past":"جَفَّفَ","pres":"يُجَفِّفُ","masdar":"تَجْفِيف","src":"msa"}
+{"w":"مُجَفِّف","en":"dryer","root":"ج-ف-ف","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُجَفِّفات","src":"msa"}
+{"w":"تَوَرَّطَ","en":"to get involved in trouble","root":"و-ر-ط","type":"verb","kind":"verb","form":"V","past":"تَوَرَّطَ","pres":"يَتَوَرَّطُ","masdar":"تَوَرُّط","src":"msa"}
+{"w":"تَوَرُّط","en":"entanglement, involvement","root":"و-ر-ط","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"رِيف","en":"countryside","root":"ر-ي-ف","type":"noun","kind":"noun","gender":"m","plural":"أَرْياف","src":"msa"}
+{"w":"رِيفِيّ","en":"rural","root":"ر-ي-ف","type":"adjective","kind":"relative adjective","plural":"رِيفِيُّون","src":"msa"}
+{"w":"فُسْتُق","en":"pistachio","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"كُشْك","en":"kiosk","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"أَكْشاك","src":"msa"}
+{"w":"بِرْكَار","en":"pair of compasses","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَارْكَة","en":"brand","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","plural":"مَارْكَات","src":"msa"}
+{"w":"يَاسَمِين","en":"jasmine","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مِغْنَاطِيس","en":"magnet","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"بُوصُلَة","en":"compass","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"دِيكُور","en":"decor","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"دِيكُورَات","src":"msa"}
+{"w":"تُرْكِيّ","en":"Turkish","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","plural":"أَتْراك","src":"msa"}
+{"w":"زَوْرَق","en":"boat","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"زَوارِق","src":"msa"}
+{"w":"بُوذَا","en":"Buddha","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"شِيفْرَة","en":"cipher, code","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","plural":"شِيفْرَات","src":"msa"}
+{"w":"أَكَادِيمِيّ","en":"academic","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","plural":"أَكَادِيمِيُّون","src":"msa"}
+{"w":"أَكَادِيمِيَّة","en":"academy","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","plural":"أَكَادِيمِيَّات","src":"msa"}
+{"w":"بَازِلَّاء","en":"peas","root":null,"rootless":true,"type":"noun","kind":"collective noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"دَزِّينَة","en":"dozen","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","plural":"دَزِّينَات","src":"msa"}
+{"w":"مِيم","en":"the letter mim","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"skip": "اتمر", "why": "not sure of the word"}
+{"skip": "ارهابي", "why": "Qur'an root"}
+{"skip": "اقل", "why": "Qur'an root"}
+{"skip": "اكذب", "why": "Qur'an root"}
+{"skip": "باه", "why": "not sure of the word"}
+{"skip": "برجل", "why": "not sure; synonym of بِرْكَار"}
+{"skip": "بره", "why": "not sure of the word"}
+{"skip": "بشرف", "why": "not sure of the word"}
+{"skip": "بنس", "why": "not sure of the word"}
+{"skip": "تعايش", "why": "Qur'an root"}
+{"skip": "تعب", "why": "Qur'an root"}
+{"skip": "تمسك", "why": "Qur'an root"}
+{"skip": "تنوره", "why": "Qur'an root"}
+{"skip": "تهنئه", "why": "Qur'an root"}
+{"skip": "توصل", "why": "Qur'an root"}
+{"skip": "جام", "why": "not sure of the word"}
+{"skip": "حلق", "why": "Qur'an root"}
+{"skip": "خمسمائه", "why": "number, not sure of form"}
+{"skip": "رئاسي", "why": "Qur'an root"}
+{"skip": "رئوي", "why": "Qur'an root"}
+{"skip": "راحه", "why": "Qur'an root"}
+{"skip": "ركب", "why": "Qur'an root"}
+{"skip": "ريشه", "why": "Qur'an root"}
+{"skip": "سميك", "why": "Qur'an root"}
+{"skip": "شعبيه", "why": "Qur'an root"}
+{"skip": "شيوعي", "why": "Qur'an root"}
+{"skip": "عقاري", "why": "Qur'an root"}
+{"skip": "فشار", "why": "colloquial"}
+{"skip": "فصل", "why": "Qur'an root"}
+{"skip": "فلت", "why": "not sure of the word"}
+{"skip": "فلور", "why": "not sure of the word"}
+{"skip": "كور", "why": "Qur'an root"}
+{"skip": "مبلغ", "why": "Qur'an root"}
+{"skip": "مخلل", "why": "Qur'an root"}
+{"skip": "مدام", "why": "not sure of the word"}
+{"skip": "مراس", "why": "not sure of the word"}
+{"skip": "مستعمل", "why": "Qur'an root"}
+{"skip": "معد", "why": "Qur'an root"}
+{"skip": "مقامره", "why": "Qur'an root"}
+{"skip": "مقربه", "why": "Qur'an root"}
+{"skip": "مكوك", "why": "not sure of the root"}
+{"skip": "نبي", "why": "Qur'an root"}
+{"skip": "نطق", "why": "not sure of the word"}
+{"skip": "نمل", "why": "Qur'an root"}
+{"skip": "نمله", "why": "Qur'an root"}
+{"skip": "هش", "why": "Qur'an root"}
+{"skip": "هوبر", "why": "not sure of the word"}
+{"w":"خَزّ","en":"marten fur, silk-wool cloth","root":"خ-ز-ز","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"زِنَاد","en":"trigger, flint","root":"ز-ن-د","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}

@@ -1,0 +1,82 @@
+{"w": "فَتَّشَ", "en": "to inspect, to search", "root": "ف-ت-ش", "type": "verb", "kind": "verb", "form": "II", "past": "فَتَّشَ", "pres": "يُفَتِّشُ", "masdar": "تَفْتِيش", "src": "msa"}
+{"w": "تَفْتِيش", "en": "inspection, search", "root": "ف-ت-ش", "type": "masdar", "kind": "masdar", "form": "II", "gender": "m", "plural": "تَفاتِيش", "src": "msa"}
+{"w": "مُفَتِّش", "en": "inspector", "root": "ف-ت-ش", "type": "participle", "kind": "active participle", "form": "II", "gender": "m", "plural": "مُفَتِّشُون", "src": "msa"}
+{"w": "فَرَنْسِيّ", "en": "French", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "plural": "فَرَنْسِيُّون", "src": "msa", "note": "Also used as a noun, a Frenchman."}
+{"w": "حَساء", "en": "soup", "root": "ح-س-و", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "أُنْبُوب", "en": "tube, pipe", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "أَنابِيب", "src": "msa"}
+{"w": "تُفّاح", "en": "apples, apple", "root": "ت-ف-ح", "type": "noun", "kind": "collective noun", "gender": "m", "plural": "تُفّاحات", "src": "msa"}
+{"w": "هِنْدِيّ", "en": "Indian", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "plural": "هُنود", "src": "msa"}
+{"w": "صالَة", "en": "hall, large room", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "صالات", "src": "msa"}
+{"w": "مُعَسْكَر", "en": "camp", "root": "ع-س-ك-ر", "type": "noun", "kind": "noun of place", "gender": "m", "plural": "مُعَسْكَرات", "src": "msa"}
+{"w": "بَار", "en": "bar, pub", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "بارات", "src": "msa"}
+{"w": "مَيْدان", "en": "square, field", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "مَيادِين", "src": "msa"}
+{"w": "حَشْد", "en": "crowd, mobilization", "root": "ح-ش-د", "type": "noun", "kind": "noun", "gender": "m", "plural": "حُشُود", "src": "msa"}
+{"w": "جِنِرال", "en": "general (officer)", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "جِنِرالات", "src": "msa"}
+{"w": "كُوخ", "en": "hut, cabin", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "أَكْواخ", "src": "msa"}
+{"w": "زِنْزانة", "en": "prison cell", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "زَنازِين", "src": "msa"}
+{"w": "قَفَص", "en": "cage", "root": "ق-ف-ص", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَقْفاص", "src": "msa"}
+{"w": "قَفَزَ", "en": "to jump", "root": "ق-ف-ز", "type": "verb", "kind": "verb", "form": "I", "past": "قَفَزَ", "pres": "يَقْفِزُ", "masdar": "قَفْز", "src": "msa"}
+{"w": "قَفْز", "en": "jumping", "root": "ق-ف-ز", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "زَمَنِيّ", "en": "temporal, of time", "root": "ز-م-ن", "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "زِمام", "en": "rein, control", "root": "ز-م-م", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَزِمَّة", "src": "msa"}
+{"w": "فَخّ", "en": "trap, snare", "root": "ف-خ-خ", "type": "noun", "kind": "noun", "gender": "m", "plural": "فِخاخ", "src": "msa"}
+{"w": "رَمْل", "en": "sand", "root": "ر-م-ل", "type": "noun", "kind": "noun", "gender": "m", "plural": "رِمال", "src": "msa"}
+{"w": "بَطاطِس", "en": "potatoes, potato", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "مِيناء", "en": "port, harbor", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "مَوانِئ", "src": "msa"}
+{"w": "أَلْمانِيّ", "en": "German", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "plural": "أَلْمان", "src": "msa", "note": "Also used as a noun, a German."}
+{"w": "تِكْنُولُوجْيا", "en": "technology", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "مَقْهًى", "en": "cafe", "root": "ق-ه-و", "type": "noun", "kind": "noun of place", "gender": "m", "plural": "مَقاهٍ", "src": "msa"}
+{"w": "تَيْس", "en": "billy goat", "root": "ت-ي-س", "type": "noun", "kind": "noun", "gender": "m", "plural": "تُيُوس", "src": "msa"}
+{"w": "سِينَما", "en": "cinema", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "بَطّارِيّة", "en": "battery", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "بَطّارِيّات", "src": "msa"}
+{"w": "بِيانُو", "en": "piano", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "تَيّار", "en": "current, stream", "root": "ت-ي-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "تَيّارات", "src": "msa"}
+{"w": "فَأْرَة", "en": "mouse", "root": "ف-أ-ر", "type": "noun", "kind": "noun", "gender": "f", "plural": "فِئْران", "src": "msa"}
+{"w": "أَنانِيّ", "en": "selfish", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "plural": "أَنانِيُّون", "src": "msa"}
+{"w": "حَزَرَ", "en": "to guess, to estimate", "root": "ح-ز-ر", "type": "verb", "kind": "verb", "form": "I", "past": "حَزَرَ", "pres": "يَحْزِرُ", "masdar": "حَزْر", "src": "msa"}
+{"skip": "بُحَيْرَة", "why": "Qur'an root"}
+{"skip": "دَرَّبَ", "why": "Qur'an root"}
+{"skip": "تَدْرِيب", "why": "Qur'an root"}
+{"skip": "مُدَرِّب", "why": "Qur'an root"}
+{"skip": "نَقَلَ", "why": "Qur'an root"}
+{"skip": "نَقْل", "why": "Qur'an root"}
+{"skip": "كَوَّرَ", "why": "Qur'an root"}
+{"skip": "إِلّ", "why": "Qur'an root"}
+{"skip": "مُعَدَّات", "why": "Qur'an root"}
+{"skip": "كَنَّة", "why": "Qur'an root"}
+{"skip": "رَاعٍ", "why": "Qur'an root"}
+{"skip": "قَارَبَ", "why": "Qur'an root"}
+{"skip": "رَدّ", "why": "Qur'an root"}
+{"skip": "مُرُور", "why": "Qur'an root"}
+{"skip": "عَمُود", "why": "Qur'an root"}
+{"skip": "دَوْر", "why": "Qur'an root"}
+{"skip": "بَحْرِيّ", "why": "Qur'an root"}
+{"skip": "مُنَافَسَة", "why": "Qur'an root"}
+{"skip": "تَوَاجُد", "why": "Qur'an root"}
+{"skip": "سَلَطَة", "why": "Qur'an root"}
+{"skip": "مِيل", "why": "Qur'an root"}
+{"skip": "لَوْم", "why": "Qur'an root"}
+{"skip": "فَاتِن", "why": "Qur'an root"}
+{"skip": "مُعَيَّن", "why": "Qur'an root"}
+{"skip": "طَوَّلَ", "why": "Qur'an root"}
+{"skip": "ذَكَاء", "why": "Qur'an root"}
+{"skip": "قِرْش", "why": "Qur'an root"}
+{"skip": "سَنَوِيّ", "why": "Qur'an root"}
+{"skip": "وَقْف", "why": "Qur'an root"}
+{"skip": "قَضَائِي", "why": "Qur'an root"}
+{"skip": "كَنْز", "why": "Qur'an root"}
+{"skip": "قَدْر", "why": "Qur'an root"}
+{"skip": "تَعَالَ", "why": "Qur'an root"}
+{"skip": "أَنْف", "why": "Qur'an root"}
+{"skip": "وَرْدِيّ", "why": "Qur'an root"}
+{"skip": "حَدِيدِيّ", "why": "Qur'an root"}
+{"skip": "اِنْفِجَار", "why": "Qur'an root"}
+{"skip": "بَرِيد", "why": "Qur'an root"}
+{"skip": "يَهُودِيّ", "why": "Qur'an root"}
+{"skip": "نَبِض", "why": "not sure of the word and vowels"}
+{"skip": "رُحْلَة", "why": "not sure; the common word is رِحْلة"}
+{"skip": "لَيْلَى", "why": "a name"}
+{"skip": "خَمَنَ", "why": "not sure of the word"}
+{"skip": "رُوس", "why": "a proper noun"}
+{"skip": "مُو", "why": "obscure plant name, not sure"}
+{"skip": "عَدَّنَ", "why": "obscure, not sure"}

@@ -1,0 +1,86 @@
+{"w": "شامْبو", "en": "shampoo", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "شامْبوهات", "src": "msa"}
+{"w": "سِين", "en": "the letter seen", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "دالِيا", "en": "dahlia", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "لادَن", "en": "labdanum, rockrose resin", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "جُمْرُك", "en": "customs, customs duty", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "جَمارِك", "src": "msa"}
+{"w": "كِبْريت", "en": "sulfur; matches", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "سُوَيْدِيّ", "en": "Swedish", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "plural": "سُوَيْدِيُّون", "src": "msa"}
+{"w": "أُسْطُوانة", "en": "cylinder; record, disc", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "أُسْطُوانات", "src": "msa"}
+{"w": "مِيدالِيَة", "en": "medal", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "مِيدالِيّات", "src": "msa"}
+{"w": "أَطْلَسِيّ", "en": "Atlantic", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "noplural": true, "src": "msa"}
+{"w": "بَنْكِيّ", "en": "bank (adjective), banking", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "noplural": true, "src": "msa"}
+{"w": "رومانِيّ", "en": "Roman; Romanian", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "plural": "رومانِيُّون", "src": "msa"}
+{"w": "بورْصة", "en": "stock exchange", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "بورْصات", "src": "msa"}
+{"w": "دُلْفين", "en": "dolphin", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "دَلافِين", "src": "msa"}
+{"w": "أَلْماس", "en": "diamond", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "بَنَفْسَجِيّ", "en": "violet, purple", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "noplural": true, "src": "msa"}
+{"w": "كاثولِيكِيّ", "en": "Catholic", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "كاثوليك", "src": "msa"}
+{"w": "إِمْبَراطورِيَّة", "en": "empire", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "إِمْبَراطورِيّات", "src": "msa"}
+{"w": "جاكِيت", "en": "jacket", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "جاكيتات", "src": "msa"}
+{"w": "كِلْفِن", "en": "kelvin", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "فُولاذ", "en": "steel", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "خُنْفُساء", "en": "beetle", "root": "خ-ن-ف-س", "type": "noun", "kind": "noun", "gender": "f", "plural": "خَنافِس", "src": "msa", "note": "Quadriliteral root."}
+{"skip": "زاحَمَ", "why": "Qur'an root"}
+{"skip": "زِحَام", "why": "Qur'an root"}
+{"skip": "زِحام", "why": "Qur'an root"}
+{"w": "أَدْغال", "en": "jungle", "root": "د-غ-ل", "type": "noun", "kind": "plural", "gender": "m", "src": "msa"}
+{"w": "نَبَضَ", "en": "to pulsate, to beat", "root": "ن-ب-ض", "type": "verb", "kind": "verb", "form": "I", "past": "نَبَضَ", "pres": "يَنْبِضُ", "masdar": "نَبْض", "src": "msa"}
+{"w": "نَبْض", "en": "pulse", "root": "ن-ب-ض", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "plural": "نَبَضات", "src": "msa"}
+{"w": "قُرْط", "en": "earring", "root": "ق-ر-ط", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَقْراط", "src": "msa"}
+{"w": "أَطْرَى", "en": "to praise, to extol", "root": "ط-ر-ي", "type": "verb", "kind": "verb", "form": "IV", "past": "أَطْرَى", "pres": "يُطْري", "masdar": "إِطْراء", "src": "msa"}
+{"w": "إِطْراء", "en": "praise, eulogy", "root": "ط-ر-ي", "type": "masdar", "kind": "masdar", "form": "IV", "gender": "m", "noplural": true, "src": "msa"}
+{"skip": "خَجِلَ", "why": "Qur'an root"}
+{"skip": "خَجِل", "why": "Qur'an root"}
+{"skip": "خَجِل", "why": "Qur'an root"}
+{"skip": "ثُوم", "why": "Qur'an root"}
+{"skip": "ثوم", "why": "Qur'an root"}
+{"skip": "اِسْتِيقَاظ", "why": "Qur'an root ي-ق-ظ"}
+{"skip": "عَنَاق", "why": "Qur'an root ع-ن-ق"}
+{"skip": "رَايَة", "why": "Qur'an root ر-أ-ي"}
+{"skip": "فَطُور", "why": "Qur'an root ف-ط-ر"}
+{"skip": "تَأَخُّر", "why": "Qur'an root أ-خ-ر"}
+{"skip": "تَدْفِئَة", "why": "Qur'an root د-ف-أ"}
+{"skip": "كُلِّيَّة", "why": "Qur'an root ك-ل-ل"}
+{"skip": "قَدُوم", "why": "Qur'an root ق-د-م"}
+{"skip": "مُدَوَّنَة", "why": "Qur'an root د-و-ن"}
+{"skip": "تَسَرُّب", "why": "Qur'an root س-ر-ب"}
+{"skip": "تَسَمُّم", "why": "Qur'an root س-م-م"}
+{"skip": "هَالَة", "why": "Qur'an root ه-ل-ل"}
+{"skip": "ظَنّ", "why": "Qur'an root ظ-ن-ن"}
+{"skip": "سِيَاحِيّ", "why": "Qur'an root س-ي-ح"}
+{"skip": "رُكُوب", "why": "Qur'an root ر-ك-ب"}
+{"skip": "مَخْبِز", "why": "Qur'an root خ-ب-ز"}
+{"skip": "وِلَاء", "why": "Qur'an root و-ل-ي"}
+{"skip": "وَلَاء", "why": "Qur'an root و-ل-ي"}
+{"skip": "سُرُور", "why": "Qur'an root س-ر-ر"}
+{"skip": "ظَاهِر", "why": "Qur'an root ظ-ه-ر"}
+{"skip": "تَسَاؤُل", "why": "Qur'an root س-أ-ل"}
+{"skip": "مُسَلِّي", "why": "Qur'an root س-ل-و"}
+{"skip": "إِعْجَاب", "why": "Qur'an root ع-ج-ب"}
+{"skip": "إِضْرَاب", "why": "Qur'an root ض-ر-ب"}
+{"skip": "مُراهَنَة", "why": "Qur'an root ر-ه-ن"}
+{"skip": "سَمَّمَ", "why": "Qur'an root س-م-م"}
+{"skip": "حَزِن", "why": "Qur'an root ح-ز-ن"}
+{"skip": "زِلْزَال", "why": "Qur'an root ز-ل-ز-ل"}
+{"skip": "خَوَّفَ", "why": "Qur'an root خ-و-ف"}
+{"skip": "فَوْج", "why": "Qur'an root ف-و-ج"}
+{"skip": "مَلَّى", "why": "Qur'an root م-ل-و"}
+{"skip": "نُحَاس", "why": "Qur'an root ن-ح-س"}
+{"skip": "مُشَاجَرَة", "why": "Qur'an root ش-ج-ر"}
+{"skip": "إِسْرَاع", "why": "Qur'an root س-ر-ع"}
+{"skip": "سَنَد", "why": "Qur'an root س-ن-د"}
+{"skip": "مَسْك", "why": "Qur'an root م-س-ك"}
+{"skip": "صَلِيَ", "why": "Qur'an root ص-ل-ي"}
+{"skip": "مَذَاق", "why": "Qur'an root ذ-و-ق"}
+{"skip": "أَتْرَكَ", "why": "not sure of the word, vowels or root; or loan/homograph or unit form of a listed word"}
+{"skip": "مِينَة", "why": "not sure of the word, vowels or root; or loan/homograph or unit form of a listed word"}
+{"skip": "تْرَاي", "why": "not sure of the word, vowels or root; or loan/homograph or unit form of a listed word"}
+{"skip": "فَخَّ", "why": "not sure of the word, vowels or root; or loan/homograph or unit form of a listed word"}
+{"skip": "كَاب", "why": "not sure of the word, vowels or root; or loan/homograph or unit form of a listed word"}
+{"skip": "دُول", "why": "not sure of the word, vowels or root; or loan/homograph or unit form of a listed word"}
+{"skip": "أَلْمَاسَة", "why": "not sure of the word, vowels or root; or loan/homograph or unit form of a listed word"}
+{"skip": "سْوِيسْرِيّ", "why": "not sure of the word, vowels or root; or loan/homograph or unit form of a listed word"}
+{"skip": "بَلِيلَج", "why": "not sure of the word, vowels or root; or loan/homograph or unit form of a listed word"}
+{"skip": "تَتَرَّكَ", "why": "not sure of the word, vowels or root; or loan/homograph or unit form of a listed word"}
+{"skip": "مَشَّ", "why": "not sure of the word, vowels or root; or loan/homograph or unit form of a listed word"}
+{"skip": "نَبَّضَ", "why": "not sure of the word, vowels or root; or loan/homograph or unit form of a listed word"}

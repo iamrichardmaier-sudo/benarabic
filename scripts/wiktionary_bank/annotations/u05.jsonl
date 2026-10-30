@@ -1,0 +1,76 @@
+{"w":"وِيسْكِي","en":"whiskey","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"دَمَوِيّ","en":"bloody, of the blood","root":"د-م-ي","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"مِلْيار","en":"billion","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"مِلْيارات","src":"msa"}
+{"w":"مَكْسِيكِيّ","en":"Mexican","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"كَهْرَبائِيّ","en":"electric","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"صَلْصَة","en":"sauce","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","plural":"صَلْصات","src":"msa"}
+{"w":"قُفّاز","en":"glove","root":"ق-ف-ز","type":"noun","kind":"noun","gender":"m","plural":"قُفّازات","src":"msa"}
+{"w":"بِطْريق","en":"penguin","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"بَطارِيق","src":"msa","note":"Also an old word for a Byzantine patrician."}
+{"w":"قَزَم","en":"dwarf","root":"ق-ز-م","type":"noun","kind":"noun","gender":"m","plural":"أَقْزام","src":"msa"}
+{"w":"بَريطانِيّ","en":"British, Briton","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"بَسْكَويت","en":"biscuit","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"إِنْجِلِيزِيّ","en":"English","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"مِغْناطِيسِيّ","en":"magnetic","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"شَمْبانْيا","en":"champagne","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"ساكَ","en":"to brush the teeth with a siwak","root":"س-و-ك","type":"verb","kind":"verb","form":"I","past":"ساكَ","pres":"يَسُوكُ","masdar":"سَوْك","src":"msa"}
+{"w":"هِنْدِيّ","en":"Indian","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"حُلْبَة","en":"fenugreek","root":"ح-ل-ب","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"مُخّ","en":"brain","root":"م-خ-خ","type":"noun","kind":"noun","gender":"m","plural":"أَمْخاخ","src":"msa"}
+{"w":"دُوق","en":"duke","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"دُوقات","src":"msa"}
+{"w":"نَمِر","en":"tiger, leopard","root":"ن-م-ر","type":"noun","kind":"noun","gender":"m","plural":"نُمور","src":"msa"}
+{"w":"لَغَم","en":"landmine","root":"ل-غ-م","type":"noun","kind":"noun","gender":"m","plural":"أَلْغام","src":"msa"}
+{"w":"جُنَيْه","en":"pound (currency)","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"جُنَيْهات","src":"msa"}
+{"w":"هَيْكَل","en":"structure, framework","root":"ه-ي-ك-ل","type":"noun","kind":"noun","gender":"m","plural":"هَياكِل","src":"msa"}
+{"w":"كُلْيَة","en":"kidney","root":"ك-ل-ي","type":"noun","kind":"noun","gender":"f","plural":"كُلًى","src":"msa"}
+{"w":"يابانِيّ","en":"Japanese","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"جُمْجُمَة","en":"skull","root":"ج-م-ج-م","type":"noun","kind":"noun","gender":"f","plural":"جَماجِم","src":"msa"}
+{"w":"طازَج","en":"fresh","root":null,"rootless":true,"type":"adjective","kind":"adjective","src":"msa"}
+{"w":"دَفْتَر","en":"notebook","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"دَفاتِر","src":"msa"}
+{"w":"مَنْدِيل","en":"handkerchief, cloth","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"مَناديل","src":"msa"}
+{"w":"بَطاطا","en":"sweet potato","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"إِيطالِيّ","en":"Italian","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"skip": "أَفْعًى", "why": "root unsure"}
+{"skip": "بوب", "why": "vowels unsure"}
+{"skip": "تَأَلَّمَ", "why": "Qur'an root"}
+{"skip": "تَراجُع", "why": "Qur'an root"}
+{"skip": "تَطَوُّر", "why": "Qur'an root"}
+{"skip": "جِراحِيّ", "why": "Qur'an root"}
+{"skip": "جُنْد", "why": "Qur'an root"}
+{"skip": "حُكُومِيّ", "why": "Qur'an root"}
+{"skip": "خِبْرَة", "why": "Qur'an root"}
+{"skip": "رَمَاد", "why": "Qur'an root"}
+{"skip": "رُومِيّ", "why": "name-derived, unsure"}
+{"skip": "زَيْت", "why": "Qur'an root"}
+{"skip": "سُلُوك", "why": "Qur'an root"}
+{"skip": "سَمْح", "why": "Qur'an root"}
+{"skip": "سَيِّئَة", "why": "Qur'an root"}
+{"skip": "شَفَة", "why": "Qur'an root"}
+{"skip": "صُوفِيّ", "why": "Qur'an root"}
+{"skip": "ضَحَّى", "why": "Qur'an root"}
+{"skip": "ضَوْضَاء", "why": "root unsure"}
+{"skip": "طَرْد", "why": "Qur'an root"}
+{"skip": "عَقَّار", "why": "Qur'an root"}
+{"skip": "عَمَّة", "why": "Qur'an root"}
+{"skip": "غَرَامِيّ", "why": "Qur'an root"}
+{"skip": "فِئَة", "why": "Qur'an root"}
+{"skip": "قَاصِر", "why": "Qur'an root"}
+{"skip": "قِبْط", "why": "proper noun"}
+{"skip": "قَرُبَ", "why": "Qur'an root"}
+{"skip": "قَسّ", "why": "Qur'an root"}
+{"skip": "قَصْر", "why": "Qur'an root"}
+{"skip": "كَرَزَ", "why": "unsure"}
+{"skip": "كَلَب", "why": "Qur'an root"}
+{"skip": "كَمَّ", "why": "Qur'an root"}
+{"skip": "كَمِّيَّة", "why": "Qur'an root"}
+{"skip": "لُجْنَة", "why": "vowels unsure"}
+{"skip": "مُجَوْهَرَات", "why": "plural of a loan-derived word, unsure"}
+{"skip": "مُسْتَقْبَلِيّ", "why": "Qur'an root"}
+{"skip": "مِسْمَار", "why": "Qur'an root"}
+{"skip": "مُضِيّ", "why": "Qur'an root"}
+{"skip": "مُهِمَّة", "why": "Qur'an root"}
+{"skip": "نُزُول", "why": "Qur'an root"}
+{"skip": "هَوَائِيّ", "why": "Qur'an root"}
+{"skip": "وَحْشِيّ", "why": "Qur'an root"}
+{"skip": "يَدَوِيّ", "why": "Qur'an root"}
+{"skip": "يَوْمِيّ", "why": "Qur'an root"}
+{"skip": "دَوَّنَ", "why": "Qur'an root"}

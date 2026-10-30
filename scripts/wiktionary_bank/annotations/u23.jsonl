@@ -1,0 +1,82 @@
+{"w":"مَهَرَ","en":"to give a dowry to","root":"م-ه-ر","type":"verb","kind":"verb","form":"I","past":"مَهَرَ","pres":"يَمْهَرُ","masdar":"مَهْر","src":"msa"}
+{"w":"مَهْر","en":"dowry","root":"م-ه-ر","type":"noun","kind":"noun","gender":"m","plural":"مُهور","src":"msa"}
+{"w":"ماهِر","en":"skilled, proficient","root":"م-ه-ر","type":"adjective","kind":"adjective","plural":"مَهَرة","src":"msa"}
+{"w":"شَذًا","en":"fragrance, sweet scent","root":"ش-ذ-و","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"جَرَس","en":"bell","root":"ج-ر-س","type":"noun","kind":"noun","gender":"m","plural":"أَجْراس","src":"msa"}
+{"w":"خَدَّرَ","en":"to anesthetize, to numb","root":"خ-د-ر","type":"verb","kind":"verb","form":"II","past":"خَدَّرَ","pres":"يُخَدِّرُ","masdar":"تَخْدير","src":"msa"}
+{"w":"سِرْوال","en":"trousers, pants","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"سَراويل","src":"msa","note":"Usually seen in the plural form سَراويل."}
+{"w":"أَلْمانِيَّة","en":"German (language)","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"فِلّين","en":"cork","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"لِصّ","en":"thief","root":"ل-ص-ص","type":"noun","kind":"noun","gender":"m","plural":"لُصوص","src":"msa"}
+{"w":"بَرْعَمَ","en":"to bud, to put forth buds","root":"ب-ر-ع-م","type":"verb","kind":"verb","form":"I","past":"بَرْعَمَ","pres":"يُبَرْعِمُ","masdar":"بَرْعَمة","src":"msa","note":"A quadriliteral verb (form Iq)."}
+{"w":"بُرْعُم","en":"bud","root":"ب-ر-ع-م","type":"noun","kind":"noun","gender":"m","plural":"بَراعِم","src":"msa"}
+{"w":"إِسْبانِيَّة","en":"Spanish (language)","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"سامِيّ","en":"Semitic","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa","plural":"سامِيّون"}
+{"w":"عَسْكَرِيّ","en":"military; soldier","root":"ع-س-ك-ر","type":"adjective","kind":"relative adjective","plural":"عَسْكَرِيّون","src":"msa"}
+{"w":"يابانِيَّة","en":"Japanese (language)","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"بَلَّلَ","en":"to wet, to moisten","root":"ب-ل-ل","type":"verb","kind":"verb","form":"II","past":"بَلَّلَ","pres":"يُبَلِّلُ","masdar":"تَبْليل","src":"msa"}
+{"w":"صِينِيَّة","en":"Chinese (language)","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa","note":"The same spelling also means a serving tray."}
+{"w":"بَطّ","en":"ducks, duck","root":"ب-ط-ط","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa","note":"A single duck is بَطّة."}
+{"w":"إِنْجِليزِيّ","en":"English; Englishman","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","plural":"إِنْجِليز","src":"msa"}
+{"w":"لَيْث","en":"lion","root":"ل-ي-ث","type":"noun","kind":"noun","gender":"m","plural":"لُيوث","src":"msa"}
+{"w":"شاغِر","en":"vacant, unoccupied","root":"ش-غ-ر","type":"adjective","kind":"adjective","src":"msa"}
+{"skip": "مُشِعَّة", "why": "unsure of the word"}
+{"skip": "ظَهَّرَ", "why": "Qur'an root"}
+{"skip": "مُشْمِس", "why": "Qur'an root"}
+{"skip": "أَشْمَسَ", "why": "Qur'an root"}
+{"skip": "سُكَّر", "why": "Qur'an root"}
+{"skip": "عِمَال", "why": "plural of عامل"}
+{"skip": "سَرَاوِيل", "why": "plural of سِرْوال"}
+{"skip": "قَاعَدَ", "why": "Qur'an root"}
+{"skip": "عَرَبِيَّة", "why": "Qur'an root"}
+{"skip": "طَرَد", "why": "unsure of the word"}
+{"skip": "سِرِّيَّة", "why": "Qur'an root"}
+{"skip": "سَافَ", "why": "unsure of the word"}
+{"skip": "تَدَيَّنَ", "why": "Qur'an root"}
+{"skip": "لَصَّ", "why": "unsure of the vowels; see لِصّ"}
+{"skip": "خَلَّطَ", "why": "Qur'an root"}
+{"skip": "غَرِين", "why": "unsure of the root"}
+{"skip": "بَنْي", "why": "unsure of the word"}
+{"skip": "أَلْطَف", "why": "Qur'an root"}
+{"skip": "مُمَاثَلَة", "why": "Qur'an root"}
+{"skip": "ذَرْي", "why": "Qur'an root"}
+{"skip": "جَنَب", "why": "Qur'an root"}
+{"skip": "صَفَّرَ", "why": "Qur'an root"}
+{"skip": "اِسْمِيّ", "why": "Qur'an root"}
+{"skip": "فَرْد", "why": "Qur'an root"}
+{"skip": "كَفُور", "why": "Qur'an root"}
+{"skip": "رُوحَانِيَّة", "why": "Qur'an root"}
+{"skip": "نَاوَرَ", "why": "unsure of the word's root"}
+{"skip": "أَرْشَدَ", "why": "Qur'an root"}
+{"skip": "غَال", "why": "name of a people"}
+{"skip": "عَبْقَرِيَّة", "why": "Qur'an root"}
+{"skip": "فَرَأ", "why": "unsure of the word"}
+{"skip": "سَدّ", "why": "Qur'an root"}
+{"skip": "هَنَّ", "why": "unsure of the word"}
+{"skip": "خَشَّبَ", "why": "Qur'an root"}
+{"skip": "فَوْضَوِيَّة", "why": "Qur'an root"}
+{"skip": "حَزِنَ", "why": "Qur'an root"}
+{"skip": "أَضْعَفَ", "why": "Qur'an root"}
+{"skip": "عَفُوّ", "why": "Qur'an root"}
+{"skip": "عَزْل", "why": "Qur'an root"}
+{"skip": "عَلَقَ", "why": "Qur'an root"}
+{"skip": "أَلْو", "why": "unsure of the word"}
+{"skip": "أُلُوّ", "why": "unsure of the word"}
+{"skip": "فِطْرَة", "why": "Qur'an root"}
+{"skip": "إِنْجْلِيز", "why": "plural of إِنْجِليزِيّ"}
+{"skip": "خِبْر", "why": "Qur'an root"}
+{"skip": "حَمِيَ", "why": "Qur'an root"}
+{"skip": "إِرْهَابِيَّة", "why": "Qur'an root"}
+{"skip": "هَشَّ", "why": "Qur'an root"}
+{"skip": "هَوَائِيّ", "why": "Qur'an root"}
+{"skip": "فِرْصِن", "why": "unsure of the word"}
+{"skip": "عَدَنَ", "why": "Qur'an root"}
+{"skip": "طَرَّدَ", "why": "Qur'an root"}
+{"skip": "بَاه", "why": "unsure of the word"}
+{"skip": "زَيْن", "why": "Qur'an root"}
+{"skip": "إِنْهَاء", "why": "Qur'an root"}
+{"skip": "فُطْرَة", "why": "Qur'an root"}
+{"skip": "مُعَلَّقَة", "why": "Qur'an root"}
+{"skip": "عَزَل", "why": "Qur'an root"}
+{"skip": "جَرَسَ", "why": "unsure of verb; see noun جَرَس"}
+{"skip": "خَجَّلَ", "why": "Qur'an root"}

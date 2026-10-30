@@ -1,0 +1,81 @@
+{"w": "مارْتيني", "en": "martini", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "بَابَا", "en": "papa, dad", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "بابَوات", "src": "msa", "note": "Also the title of the Pope (in the sense of the Catholic pontiff)."}
+{"w": "دِيمُقْراطِيّ", "en": "democratic", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "شاغِر", "en": "vacant", "root": "ش-غ-ر", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "plural": "شَواغِر", "src": "msa"}
+{"w": "حامَ", "en": "to hover around", "root": "ح-و-م", "type": "verb", "kind": "verb", "form": "I", "past": "حامَ", "pres": "يَحومُ", "masdar": "حَوْم", "src": "msa"}
+{"w": "رَاكُون", "en": "raccoon", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "راكونات", "src": "msa"}
+{"w": "رَوْث", "en": "dung", "root": "ر-و-ث", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَرْواث", "src": "msa"}
+{"w": "بَقْشيش", "en": "tip, gratuity", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "بُوصَة", "en": "inch", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "بوصات", "src": "msa"}
+{"w": "عَزَفَ", "en": "to play (an instrument)", "root": "ع-ز-ف", "type": "verb", "kind": "verb", "form": "I", "past": "عَزَفَ", "pres": "يَعْزِفُ", "masdar": "عَزْف", "src": "msa"}
+{"w": "عَزْف", "en": "playing music", "root": "ع-ز-ف", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "فِيتَامِين", "en": "vitamin", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "فيتامينات", "src": "msa"}
+{"w": "كُومِيدِيَا", "en": "comedy", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "طَبْل", "en": "drum", "root": "ط-ب-ل", "type": "noun", "kind": "noun", "gender": "m", "plural": "طُبول", "src": "msa"}
+{"w": "حَدْس", "en": "intuition", "root": "ح-د-س", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "زُقاق", "en": "alley", "root": "ز-ق-ق", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَزِقّة", "src": "msa"}
+{"w": "زِقّ", "en": "wineskin", "root": "ز-ق-ق", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَزْقاق", "src": "msa"}
+{"w": "نَوْل", "en": "loom", "root": "ن-و-ل", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَنْوال", "src": "msa"}
+{"w": "بَكْتيريا", "en": "bacteria", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "كاثوليكِيّ", "en": "Catholic", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "هاجَمَ", "en": "to attack", "root": "ه-ج-م", "type": "verb", "kind": "verb", "form": "III", "past": "هاجَمَ", "pres": "يُهاجِمُ", "masdar": "مُهاجَمة", "src": "msa"}
+{"w": "مُهاجِم", "en": "attacker, forward", "root": "ه-ج-م", "type": "participle", "kind": "active participle", "form": "III", "gender": "m", "plural": "مُهاجِمون", "src": "msa"}
+{"w": "سينَمائِيّ", "en": "cinematic", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "بَرْلَمان", "en": "parliament", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "بَرْلَمانات", "src": "msa"}
+{"w": "بَانْدَا", "en": "panda", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "أُنْبوبة", "en": "tube", "root": "ن-ب-ب", "type": "noun", "kind": "noun", "gender": "f", "plural": "أَنابيب", "src": "msa"}
+{"w": "بَارُود", "en": "gunpowder", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "تِبْغ", "en": "tobacco", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "بَالِيه", "en": "ballet", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "غوريلّا", "en": "gorilla", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "غوريلّات", "src": "msa"}
+{"w": "فِنْجان", "en": "cup", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "فَناجين", "src": "msa"}
+{"w": "شِلّة", "en": "clique, gang", "root": "ش-ل-ل", "type": "noun", "kind": "noun", "gender": "f", "plural": "شِلَل", "src": "msa"}
+{"skip": "فَنِّيّ", "why": "Qur'an root"}
+{"skip": "هَرَّبَ", "why": "Qur'an root"}
+{"skip": "تَهْرِيب", "why": "Qur'an root"}
+{"skip": "أَنْجَحَ", "why": "Qur'an root"}
+{"skip": "أَجَدّ", "why": "elative of جَدِيد, not confident"}
+{"skip": "أُسْبُوعِيّ", "why": "Qur'an root"}
+{"skip": "أَيْمَنَ", "why": "not sure"}
+{"skip": "بَزَّ", "why": "not sure"}
+{"skip": "بُنْك", "why": "not sure"}
+{"skip": "بِيعَة", "why": "Qur'an root"}
+{"skip": "تَأْرِيخ", "why": "variant of تَارِيخ"}
+{"skip": "تَدَاخُل", "why": "Qur'an root"}
+{"skip": "تَرَدُّد", "why": "Qur'an root"}
+{"skip": "جَاهِلِيّ", "why": "Qur'an root"}
+{"skip": "جَسَر", "why": "place name"}
+{"skip": "جَنَّبَ", "why": "Qur'an root"}
+{"skip": "حُزْن", "why": "Qur'an root"}
+{"skip": "حَزْن", "why": "Qur'an root"}
+{"skip": "حَزَن", "why": "Qur'an root"}
+{"skip": "خَلَاص", "why": "Qur'an root"}
+{"skip": "دِين", "why": "Qur'an root"}
+{"skip": "رَحِم", "why": "Qur'an root"}
+{"skip": "رَوْثَة", "why": "not sure; different sense of رَوْث"}
+{"skip": "رُوم", "why": "name"}
+{"skip": "زَيْتُون", "why": "Qur'an root"}
+{"skip": "سُجُقّ", "why": "not sure of vowels"}
+{"skip": "شَعْرَة", "why": "Qur'an root"}
+{"skip": "عَوْن", "why": "Qur'an root"}
+{"skip": "غِرّ", "why": "Qur'an root"}
+{"skip": "غُو", "why": "not sure"}
+{"skip": "فَاصُولِيَاء", "why": "not sure of spelling and vowels"}
+{"skip": "فِرْعَوْن", "why": "Qur'an root"}
+{"skip": "فَصَّلَ", "why": "Qur'an root"}
+{"skip": "قِدْر", "why": "Qur'an root"}
+{"skip": "كَلِبَ", "why": "not sure"}
+{"skip": "كُورِيك", "why": "not sure"}
+{"skip": "كَوْنِيّ", "why": "Qur'an root"}
+{"skip": "مُحَامَاة", "why": "Qur'an root"}
+{"skip": "مِصْرِيّ", "why": "Qur'an root"}
+{"skip": "مُنَاوَرَة", "why": "Qur'an root"}
+{"skip": "مَيْس", "why": "not sure"}
+{"skip": "نَشَّ", "why": "not sure"}
+{"skip": "نَقَّلَ", "why": "not sure"}
+{"skip": "نَيْل", "why": "Qur'an root"}
+{"skip": "وَرَّسَ", "why": "not sure"}
+{"skip": "وَطْوَاط", "why": "not sure of root and vowels"}
+{"skip": "يَهُود", "why": "name; Qur'an"}
+{"skip": "بَالَة", "why": "not sure"}
+{"skip": "غِرّ", "why": "Qur'an root"}

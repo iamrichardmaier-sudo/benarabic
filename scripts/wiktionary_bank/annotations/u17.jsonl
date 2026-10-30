@@ -1,0 +1,83 @@
+{"skip": "اِطْمِئْنَان", "why": "Qur'an root"}
+{"w": "أَفْلَسَ", "en": "to go bankrupt", "root": "ف-ل-س", "type": "verb", "kind": "verb", "form": "IV", "past": "أَفْلَسَ", "pres": "يُفْلِسُ", "masdar": "إِفْلاس", "src": "msa"}
+{"w": "إِفْلاس", "en": "bankruptcy", "root": "ف-ل-س", "type": "masdar", "kind": "masdar", "form": "IV", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مُفْلِس", "en": "bankrupt", "root": "ف-ل-س", "type": "participle", "kind": "active participle", "form": "IV", "gender": "m", "plural": "مُفْلِسون", "src": "msa"}
+{"skip": "وَسَامَة", "why": "Qur'an root"}
+{"w": "سَنْتِيمِتْر", "en": "centimetre", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "سَنْتِيمِتْرات", "src": "msa"}
+{"w": "فَيْنَة", "en": "moment, while", "root": "ف-ي-ن", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa", "note": "Mostly in the phrase حِينًا بَعْدَ فَيْنَةٍ, from time to time."}
+{"w": "غَوْغاء", "en": "mob, rabble", "root": "غ-و-غ", "type": "noun", "kind": "collective noun", "gender": "f", "noplural": true, "src": "msa"}
+{"skip": "قَارِّيّ", "why": "Qur'an root"}
+{"w": "بُرْكانِيّ", "en": "volcanic", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"skip": "نَزْف", "why": "Qur'an root"}
+{"w": "قُنْصُل", "en": "consul", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "قَناصِل", "src": "msa"}
+{"w": "أَناناس", "en": "pineapple", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "خَرَسانَة", "en": "concrete", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "داعِر", "en": "dissolute, debauched", "root": "د-ع-ر", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "صَوْلَجان", "en": "sceptre, polo stick", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "قَصَبَة", "en": "reed, cane", "root": "ق-ص-ب", "type": "noun", "kind": "noun", "gender": "f", "plural": "قَصَبات", "src": "msa"}
+{"w": "عِمْلاق", "en": "giant", "root": "ع-م-ل-ق", "type": "noun", "kind": "noun", "gender": "m", "plural": "عَمالِقَة", "src": "msa"}
+{"w": "نَمُوذَجِيّ", "en": "model, exemplary", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "هَوْدَج", "en": "camel litter, howdah", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "هَوادِج", "src": "msa"}
+{"w": "رِيال", "en": "riyal", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "رِيالات", "src": "msa"}
+{"w": "باسْتا", "en": "pasta", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "دِينار", "en": "dinar", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "دَنانِير", "src": "msa"}
+{"w": "سْكوتَر", "en": "scooter", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "نَوْرَس", "en": "seagull", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "نَوارِس", "src": "msa"}
+{"w": "زُمُرُّد", "en": "emerald", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "بارُوكَة", "en": "wig", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "بارُوكات", "src": "msa"}
+{"w": "بُسْتانِيّ", "en": "gardener", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "بَساتِنَة", "src": "msa"}
+{"w": "خَيْزُران", "en": "bamboo, rattan", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "ياقَة", "en": "collar", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "ياقات", "src": "msa"}
+{"w": "تْسونامي", "en": "tsunami", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "أَمْبِير", "en": "ampere", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "أَمْبِيرات", "src": "msa"}
+{"w": "كَرَز", "en": "cherries", "root": "ك-ر-ز", "type": "noun", "kind": "collective noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "كَرَزَة", "en": "cherry", "root": "ك-ر-ز", "type": "noun", "kind": "noun", "gender": "f", "plural": "كَرَزات", "src": "msa"}
+{"w": "خَسّ", "en": "lettuce", "root": "خ-س-س", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "كُورال", "en": "choir", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "سِمْسِم", "en": "sesame", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "تِيتانِيُوم", "en": "titanium", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "عَنْبَر", "en": "ambergris", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "طَبْشُورَة", "en": "chalk", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "شَرْشَف", "en": "bedsheet", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "شَراشِف", "src": "msa"}
+{"w": "إِقْليم", "en": "region, territory", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "أَقاليم", "src": "msa"}
+{"w": "حَدَسَ", "en": "to guess, to intuit", "root": "ح-د-س", "type": "verb", "kind": "verb", "form": "I", "past": "حَدَسَ", "pres": "يَحْدِسُ", "masdar": "حَدْس", "src": "msa"}
+{"w": "كابُتْشِينُو", "en": "cappuccino", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "أُخْطُبُوط", "en": "octopus", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "أَتان", "en": "she-ass", "root": "أ-ت-ن", "type": "noun", "kind": "noun", "gender": "f", "plural": "أُتُن", "src": "msa"}
+{"skip": "مَسَاء", "why": "Qur'an root"}
+{"skip": "خُزَز", "why": "not sure"}
+{"skip": "اِسْتِمْنَاء", "why": "Qur'an root"}
+{"skip": "تَوَقُّع", "why": "Qur'an root"}
+{"skip": "آهَات", "why": "plural of آهة, not sure"}
+{"skip": "إِنْكْلِيزِيَّة", "why": "feminine of إنكليزي"}
+{"skip": "دَاعِرَة", "why": "feminine of داعِر, listed"}
+{"skip": "تَبَّان", "why": "not sure"}
+{"skip": "وَقَتَ", "why": "Qur'an root"}
+{"skip": "قَارِيّ", "why": "not sure of root"}
+{"skip": "عَلَن", "why": "Qur'an root"}
+{"skip": "عَلِن", "why": "Qur'an root"}
+{"skip": "أَخْضَعَ", "why": "Qur'an root"}
+{"skip": "بَقْس", "why": "not sure"}
+{"skip": "قَارَة", "why": "not sure of root and plural"}
+{"skip": "أَرْبَعُمِائَة", "why": "Qur'an root"}
+{"skip": "قَبَا", "why": "not sure"}
+{"skip": "تَسَابَقَ", "why": "Qur'an root"}
+{"skip": "مِلَّة", "why": "Qur'an root"}
+{"skip": "مُثَلَّث", "why": "Qur'an root"}
+{"skip": "وَفْر", "why": "Qur'an root"}
+{"skip": "بُنَيَّة", "why": "Qur'an root"}
+{"skip": "مُفَارَقَة", "why": "Qur'an root"}
+{"skip": "جَبَلِيّ", "why": "Qur'an root"}
+{"skip": "تَنِّين", "why": "not sure"}
+{"skip": "فَاعِلِيَّة", "why": "Qur'an root"}
+{"skip": "ضَارَ", "why": "Qur'an root"}
+{"skip": "سِيَاقَة", "why": "Qur'an root"}
+{"skip": "طَوْل", "why": "Qur'an root"}
+{"skip": "كَوَّنَ", "why": "Qur'an root"}
+{"skip": "اِغْتَفَرَ", "why": "Qur'an root"}
+{"skip": "شَجِير", "why": "Qur'an root"}
+{"skip": "تَكَهُّن", "why": "Qur'an root"}
+{"skip": "عَيَّدَ", "why": "Qur'an root"}
+{"skip": "صَبَّرَ", "why": "Qur'an root"}
+{"skip": "كَذْبَة", "why": "Qur'an root"}
+{"skip": "كِذْبَة", "why": "Qur'an root"}

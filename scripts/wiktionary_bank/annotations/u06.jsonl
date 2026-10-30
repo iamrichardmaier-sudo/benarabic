@@ -1,0 +1,78 @@
+{"w": "بَنْزين", "en": "petrol, gasoline", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "يارْدَة", "en": "yard (unit of length)", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "يارْدات", "src": "msa"}
+{"w": "بُنْدُق", "en": "hazelnuts", "root": null, "rootless": true, "type": "noun", "kind": "collective noun", "gender": "m", "plural": "بَنادِق", "src": "msa", "note": "Also used for pellets and, in the plural بَنادِق, for rifles."}
+{"w": "جَوْرَب", "en": "sock", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "جَوارِب", "src": "msa"}
+{"w": "قَيْصَر", "en": "Caesar, emperor", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "قَياصِرَة", "src": "msa"}
+{"w": "سيرْك", "en": "circus", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "سيرْكات", "src": "msa"}
+{"w": "شِطْرَنْج", "en": "chess", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "بوكَر", "en": "poker (card game)", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "تُوت", "en": "mulberry", "root": null, "rootless": true, "type": "noun", "kind": "collective noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "سُلَحْفاة", "en": "turtle, tortoise", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "سَلاحِف", "src": "msa"}
+{"w": "أوبِرا", "en": "opera", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "فيزِياء", "en": "physics", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "تاكْسي", "en": "taxi", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "تاكْسِيات", "src": "msa"}
+{"w": "رُوبُوت", "en": "robot", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "روبوتات", "src": "msa"}
+{"w": "بِرْميل", "en": "barrel, drum", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "بَراميل", "src": "msa"}
+{"w": "نازِيّ", "en": "Nazi", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "إِمْبَراطور", "en": "emperor", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "إِمْبَراطِرَة", "src": "msa"}
+{"w": "كونْت", "en": "count (noble title)", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "كونْتات", "src": "msa"}
+{"w": "كيمْيائِيّ", "en": "chemical", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "فِلْفِل", "en": "pepper", "root": null, "rootless": true, "type": "noun", "kind": "collective noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "كَيْك", "en": "cake", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "كورِيّ", "en": "Korean", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "plural": "كورِيّون", "src": "msa"}
+{"w": "طُنّ", "en": "ton, tonne", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "أَطْنان", "src": "msa"}
+{"skip": "مائِيّ", "why": "Qur'an root"}
+{"skip": "مَجْد", "why": "Qur'an root"}
+{"skip": "حِمام", "why": "Qur'an root"}
+{"skip": "إِثارَة", "why": "Qur'an root"}
+{"skip": "سُور", "why": "Qur'an root"}
+{"skip": "تَسَوُّق", "why": "Qur'an root"}
+{"w": "مِحَكّ", "en": "touchstone, test", "root": "ح-ك-ك", "type": "noun", "kind": "noun of instrument", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "احْتِفال", "en": "celebration", "root": "ح-ف-ل", "type": "masdar", "kind": "masdar", "form": "VIII", "gender": "m", "plural": "احْتِفالات", "src": "msa"}
+{"skip": "كُمّ", "why": "Qur'an root"}
+{"skip": "فَنّان", "why": "Qur'an root"}
+{"w": "جَذْر", "en": "root (of a plant, tooth, or number)", "root": "ج-ذ-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "جُذور", "src": "msa"}
+{"w": "سِياج", "en": "fence, hedge", "root": "س-و-ج", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"skip": "تينَة", "why": "Qur'an root"}
+{"skip": "عَناء", "why": "Qur'an root"}
+{"w": "جِسْر", "en": "bridge", "root": "ج-س-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "جُسور", "src": "msa"}
+{"skip": "رَمادِيّ", "why": "Qur'an root"}
+{"w": "طِراز", "en": "style, model, type", "root": "ط-ر-ز", "type": "noun", "kind": "noun", "gender": "m", "plural": "طُرُز", "src": "msa"}
+{"w": "زائِف", "en": "fake, counterfeit", "root": "ز-ي-ف", "type": "adjective", "kind": "adjective", "src": "msa"}
+{"w": "زَنْد", "en": "forearm bone, wrist", "root": "ز-ن-د", "type": "noun", "kind": "noun", "gender": "m", "plural": "زُنود", "src": "msa"}
+{"w": "أَسَد", "en": "lion", "root": "أ-س-د", "type": "noun", "kind": "noun", "gender": "m", "plural": "أُسود", "src": "msa"}
+{"skip": "سَلَّة", "why": "Qur'an root"}
+{"skip": "وَقَّتَ", "why": "Qur'an root"}
+{"skip": "أَلْعَبَ", "why": "Qur'an root"}
+{"skip": "أَصْدَرَ", "why": "Qur'an root"}
+{"skip": "دِينِيّ", "why": "Qur'an root"}
+{"skip": "خَبُرَ", "why": "Qur'an root"}
+{"skip": "أَكْمَلَ", "why": "Qur'an root"}
+{"skip": "غَارَ", "why": "Qur'an root"}
+{"skip": "ذَرّ", "why": "Qur'an root"}
+{"skip": "نِسَائِيّ", "why": "Qur'an root"}
+{"skip": "وَاقِعِيّ", "why": "Qur'an root"}
+{"skip": "يَمّ", "why": "Qur'an root"}
+{"skip": "خَالَة", "why": "Qur'an root"}
+{"skip": "رَكْض", "why": "Qur'an root"}
+{"skip": "رَامٍ", "why": "Qur'an root"}
+{"skip": "قَدَّرَ", "why": "Qur'an root"}
+{"skip": "حِرَاسَة", "why": "Qur'an root"}
+{"skip": "عَطَّلَ", "why": "Qur'an root"}
+{"skip": "بَحْرِيَّة", "why": "Qur'an root"}
+{"skip": "تَفْجِير", "why": "Qur'an root"}
+{"skip": "مُمْتَلَكَات", "why": "Qur'an root; plural of مُمْتَلَك"}
+{"skip": "بِيَان", "why": "not sure of form"}
+{"skip": "مَرّ", "why": "not sure"}
+{"skip": "بَيْنِيث", "why": "not sure"}
+{"skip": "صُودَا", "why": "not sure of gender"}
+{"skip": "كِمّ", "why": "rare; not sure"}
+{"skip": "رَيَّشَ", "why": "not sure"}
+{"skip": "نَقَانِق", "why": "not sure"}
+{"skip": "وَيْن", "why": "not sure"}
+{"skip": "زَنْجِيّ", "why": "offensive gloss; not included"}
+{"skip": "غَابِيّ", "why": "not sure of root"}
+{"skip": "إِنْجْلِيزِيّ", "why": "nationality/language name"}
+{"skip": "رِئَة", "why": "not sure of root"}
+{"skip": "أَرِيّ", "why": "not sure"}
+{"skip": "كِيمِيَائِيّ", "why": "same as كيمْيائِيّ"}

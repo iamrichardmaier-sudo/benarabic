@@ -1,0 +1,79 @@
+{"skip": "أَمْر", "why": "Qur'an root"}
+{"skip": "فَتاة", "why": "Qur'an root"}
+{"skip": "سَنَة", "why": "Qur'an root"}
+{"skip": "مال", "why": "Qur'an root"}
+{"skip": "ذَهاب", "why": "Qur'an root"}
+{"skip": "مَدينة", "why": "Qur'an root"}
+{"skip": "فَكَّرَ", "why": "Qur'an root"}
+{"w": "دُولار", "en": "dollar", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "دولارات", "src": "msa"}
+{"skip": "فَتًى", "why": "Qur'an root"}
+{"skip": "لَبَدَ", "why": "Qur'an root"}
+{"skip": "جَوّ", "why": "Qur'an root"}
+{"skip": "تَحَدُّث", "why": "Qur'an root"}
+{"skip": "بَأْس", "why": "Qur'an root"}
+{"skip": "دَم", "why": "Qur'an root"}
+{"w": "دُكْتور", "en": "doctor", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "دَكاتِرة", "src": "msa"}
+{"skip": "خَبَر", "why": "Qur'an root"}
+{"w": "جِين", "en": "gene", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "جينات", "src": "msa"}
+{"w": "حَانَة", "en": "tavern, bar", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "حانات", "src": "msa"}
+{"w": "فِيلْم", "en": "film", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "أَفْلام", "src": "msa"}
+{"w": "جِيم", "en": "the letter jim", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مَلْيون", "en": "million", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "مَلايين", "src": "msa"}
+{"skip": "أَراك", "why": "Qur'an root"}
+{"skip": "شَعْر", "why": "Qur'an root"}
+{"skip": "بَقاء", "why": "Qur'an root"}
+{"w": "سِتَّة", "en": "six", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "صُنْدوق", "en": "box, chest", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "صَناديق", "src": "msa"}
+{"skip": "كَلْب", "why": "Qur'an root"}
+{"skip": "عَمَلِيّ", "why": "Qur'an root"}
+{"w": "كُرَة", "en": "ball", "root": "ك-ر-و", "type": "noun", "kind": "noun", "gender": "f", "plural": "كُرات", "src": "msa"}
+{"w": "أَمْريكِيّ", "en": "American", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "أَمْريكِيّون", "src": "msa"}
+{"w": "بِطاقة", "en": "card", "root": "ب-ط-ق", "type": "noun", "kind": "noun", "gender": "f", "plural": "بِطاقات", "src": "msa"}
+{"w": "فُنْدُق", "en": "hotel", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "فَنادِق", "src": "msa"}
+{"w": "هَدَف", "en": "goal, target", "root": "ه-د-ف", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَهْداف", "src": "msa"}
+{"skip": "شُرْطِيّ", "why": "Qur'an root"}
+{"skip": "اِبْنَة", "why": "Qur'an root"}
+{"skip": "مِئَة", "why": "Qur'an root"}
+{"w": "كامِيرا", "en": "camera", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "كاميرات", "src": "msa"}
+{"skip": "أُخْت", "why": "Qur'an root"}
+{"w": "مُوسِيقَى", "en": "music", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"skip": "كُلِّيّ", "why": "Qur'an root"}
+{"skip": "اِبْن", "why": "Qur'an root"}
+{"skip": "دُخول", "why": "Qur'an root"}
+{"w": "قُنْبُلة", "en": "bomb", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "قَنابِل", "src": "msa"}
+{"w": "كَعْك", "en": "cake, biscuits", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"skip": "جُنْدِيّ", "why": "Qur'an root"}
+{"skip": "غَد", "why": "Qur'an root"}
+{"skip": "تَفَهَّمَ", "why": "Qur'an root"}
+{"w": "طاوِلة", "en": "table", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "طاوِلات", "src": "msa"}
+{"skip": "عِصابة", "why": "Qur'an root"}
+{"w": "فِيدِيُو", "en": "video", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "فيديوهات", "src": "msa"}
+{"skip": "مِعًى", "why": "Qur'an root"}
+{"skip": "نَوَوِيّ", "why": "Qur'an root"}
+{"skip": "دَكَّ", "why": "Qur'an root"}
+{"skip": "لَيْلِيّ", "why": "Qur'an root"}
+{"w": "شَاي", "en": "tea", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "عِلاج", "en": "treatment, cure", "root": "ع-ل-ج", "type": "masdar", "kind": "masdar", "form": "III", "gender": "m", "noplural": true, "src": "msa"}
+{"skip": "أَعالَ", "why": "Qur'an root"}
+{"skip": "خِنْزير", "why": "Qur'an root"}
+{"skip": "فَنّ", "why": "Qur'an root"}
+{"w": "زِيّ", "en": "uniform, attire", "root": "ز-ي-ي", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَزْياء", "src": "msa"}
+{"skip": "قِطّ", "why": "Qur'an root"}
+{"w": "تِلْفاز", "en": "television", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"skip": "رَقْص", "why": "Qur'an root"}
+{"skip": "فيل", "why": "Qur'an root"}
+{"skip": "جِدار", "why": "Qur'an root"}
+{"skip": "مِسْكين", "why": "Qur'an root"}
+{"skip": "كُوب", "why": "Qur'an root"}
+{"skip": "ساق", "why": "Qur'an root"}
+{"skip": "واثِق", "why": "Qur'an root"}
+{"skip": "لَيْسَ", "why": "Qur'an root, defective verb"}
+{"skip": "لَيِسَ", "why": "not sure of the word"}
+{"skip": "نِظْر", "why": "not sure of the word"}
+{"skip": "جُون", "why": "not sure of the meaning"}
+{"skip": "مَكَانَكَ", "why": "interjection phrase, not sure"}
+{"skip": "ذُو", "why": "Qur'an root"}
+{"skip": "تَبّ", "why": "not sure"}
+{"skip": "رَاي", "why": "genre name, not sure"}
+{"skip": "تَوّ", "why": "not sure"}
+{"skip": "شُونَة", "why": "not sure"}

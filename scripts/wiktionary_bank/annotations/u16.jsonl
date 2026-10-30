@@ -1,0 +1,80 @@
+{"w":"عَطَّرَ","en":"to perfume","root":"ع-ط-ر","type":"verb","kind":"verb","form":"II","past":"عَطَّرَ","pres":"يُعَطِّرُ","masdar":"تَعْطِير","src":"msa"}
+{"w":"عَطِر","en":"fragrant","root":"ع-ط-ر","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"شِرْيان","en":"artery","root":"ش-ر-ن","type":"noun","kind":"noun","gender":"m","plural":"شَرايِين","src":"msa"}
+{"w":"يافِع","en":"adolescent, pubescent","root":"ي-ف-ع","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"حاخَام","en":"rabbi","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"حاخامات","src":"msa"}
+{"skip":"شُكُوكِيّ","why":"Qur'an root"}
+{"w":"آسِيَوِيّ","en":"Asian","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"آسِيَوِيّ","en":"an Asian","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"آسِيَوِيُّون","src":"msa"}
+{"w":"إِبْريق","en":"pitcher, jug","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"أَباريق","src":"msa"}
+{"w":"رَمْس","en":"grave","root":"ر-م-س","type":"noun","kind":"noun","gender":"m","plural":"أَرْماس","src":"msa"}
+{"w":"بَنَّجَ","en":"to anesthetize","root":"ب-ن-ج","type":"verb","kind":"verb","form":"II","past":"بَنَّجَ","pres":"يُبَنِّجُ","masdar":"تَبْنِيج","src":"msa"}
+{"w":"تَعَرَّقَ","en":"to sweat","root":"ع-ر-ق","type":"verb","kind":"verb","form":"V","past":"تَعَرَّقَ","pres":"يَتَعَرَّقُ","masdar":"تَعَرُّق","src":"msa"}
+{"w":"تَعَرُّق","en":"sweating","root":"ع-ر-ق","type":"masdar","kind":"masdar","form":"V","gender":"m","src":"msa"}
+{"w":"رَمَّال","en":"geomancer, sand seller","root":"ر-م-ل","type":"noun","kind":"noun","gender":"m","plural":"رَمَّالُون","src":"msa"}
+{"w":"دَال","en":"the letter dal","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"جامُوس","en":"buffalo","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"جَواميس","src":"msa"}
+{"w":"بَنْدَر","en":"port","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"بَنادِر","src":"msa"}
+{"w":"إِسْتِراتيجِيَّة","en":"strategy","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","plural":"إِسْتِراتيجِيَّات","src":"msa"}
+{"w":"إِسْتِراتيجِيّ","en":"strategic","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"مُماطَلَة","en":"procrastination, stalling","root":"م-ط-ل","type":"masdar","kind":"masdar","form":"III","gender":"f","src":"msa"}
+{"w":"كيماوِيّ","en":"chemical","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"زَيّ","en":"attire, uniform","root":"ز-ي-ي","type":"noun","kind":"noun","gender":"m","plural":"أَزْياء","src":"msa"}
+{"w":"خَدَّشَ","en":"to scratch","root":"خ-د-ش","type":"verb","kind":"verb","form":"II","past":"خَدَّشَ","pres":"يُخَدِّشُ","masdar":"تَخْدِيش","src":"msa"}
+{"w":"شيرَج","en":"sesame oil","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"أُولِمْبِيّ","en":"Olympic","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"كَالْسِيُوم","en":"calcium","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"شِمبانزي","en":"chimpanzee","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"سِواك","en":"tooth-cleaning stick","root":"س-و-ك","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"قيثارَة","en":"guitar, lyre","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","plural":"قيثارات","src":"msa"}
+{"w":"بَحْت","en":"pure, sheer","root":"ب-ح-ت","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"كَافِتِيرِيَا","en":"cafeteria","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","plural":"كافيتيريات","src":"msa"}
+{"w":"جُمباز","en":"gymnastics","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"ظَبْي","en":"gazelle","root":"ظ-ب-ي","type":"noun","kind":"noun","gender":"m","plural":"ظِباء","src":"msa"}
+{"w":"قُنْدُس","en":"beaver","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"قَنادِس","src":"msa"}
+{"w":"دَسْتَة","en":"dozen","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"بُولَنْدِيّ","en":"Polish","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"بُولَنْدِيّ","en":"a Pole","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"بُولَنْدِيُّون","src":"msa"}
+{"w":"مَاش","en":"mung bean","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"نِيتْرُوجِين","en":"nitrogen","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"يَرَقَة","en":"larva","root":"ي-ر-ق","type":"noun","kind":"noun","gender":"f","plural":"يَرَقات","src":"msa"}
+{"w":"عَنْز","en":"goat, nanny goat","root":"ع-ن-ز","type":"noun","kind":"noun","gender":"f","plural":"أَعْنُز","src":"msa"}
+{"w":"طِحال","en":"spleen","root":"ط-ح-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"مَرِن","why":"Qur'an root"}
+{"skip":"بيكُم","why":"rare title, not sure"}
+{"skip":"تَصْفِير","why":"Qur'an root ص-ف-ر"}
+{"skip":"سَوْط","why":"Qur'an root"}
+{"skip":"رَنَّة","why":"gloss reindeer doubtful, not sure"}
+{"skip":"حَلَق","why":"Qur'an root"}
+{"skip":"تَطَوُّع","why":"Qur'an root"}
+{"skip":"ذَالَ","why":"not sure"}
+{"skip":"دِمّ","why":"not sure"}
+{"skip":"صُوفَة","why":"Qur'an root"}
+{"skip":"قَسَّطَ","why":"Qur'an root"}
+{"skip":"قَسْط","why":"Qur'an root"}
+{"skip":"قُسْط","why":"Qur'an root"}
+{"skip":"مِعْصَم","why":"Qur'an root"}
+{"skip":"سُكَّار","why":"not sure"}
+{"skip":"قُمَّل","why":"Qur'an root"}
+{"skip":"مُسَانَدَة","why":"Qur'an root"}
+{"skip":"عَدَّدَ","why":"Qur'an root"}
+{"skip":"سُكَّرِيّ","why":"Qur'an root"}
+{"skip":"نُدْبَة","why":"not sure"}
+{"skip":"أَلْفِيَّة","why":"Qur'an root"}
+{"skip":"حَصَّاد","why":"Qur'an root"}
+{"skip":"حَصَاد","why":"Qur'an root"}
+{"skip":"سَمَاوِيّ","why":"Qur'an root"}
+{"skip":"أَشْلَاء","why":"plural of شِلْو, not sure"}
+{"skip":"دِيُو","why":"not sure"}
+{"skip":"بَرِيق","why":"Qur'an root"}
+{"skip":"قُرْآن","why":"Qur'an root"}
+{"skip":"طَاقَة","why":"Qur'an root"}
+{"skip":"بُفَك","why":"not sure"}
+{"skip":"إِلَاهَة","why":"Qur'an root"}
+{"skip":"خَزَّ","why":"not sure"}
+{"skip":"ذِئْبَة","why":"Qur'an root"}
+{"skip":"بَوَّزَ","why":"not sure"}
+{"skip":"غِنًى","why":"Qur'an root"}
+{"skip":"وِقَايَة","why":"Qur'an root"}
+{"skip":"كُسّ","why":"vulgar, omitted"}
+{"skip":"لَاوَعْي","why":"not sure"}

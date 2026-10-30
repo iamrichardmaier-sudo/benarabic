@@ -1,0 +1,78 @@
+{"w":"هَدَف","en":"target, goal","root":"ه-د-ف","type":"noun","kind":"noun","gender":"m","plural":"أَهْداف","src":"msa"}
+{"w":"سِنْجاب","en":"squirrel","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"سَناجِب","src":"msa"}
+{"w":"دِيسِمْبِر","en":"December","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"بِيُولُوجِيّ","en":"biological","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"دُودَة","en":"worm","root":"د-و-د","type":"noun","kind":"noun","gender":"f","plural":"دِيدان","src":"msa"}
+{"w":"أُكْسِجِين","en":"oxygen","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"بِيج","en":"beige","root":null,"rootless":true,"type":"adjective","kind":"adjective","src":"msa","note":"Indeclinable colour adjective."}
+{"w":"بَنْطال","en":"trousers","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"بَناطِيل","src":"msa"}
+{"w":"نَغْمَة","en":"tune, musical note","root":"ن-غ-م","type":"noun","kind":"noun","gender":"f","plural":"نَغَمات","src":"msa"}
+{"w":"صالُون","en":"salon, living room","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"صالونات","src":"msa"}
+{"w":"طَماطِم","en":"tomatoes","root":null,"rootless":true,"type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"جُمْهُورِيّ","en":"republican","root":"ج-م-ه-ر","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"عَقْرَب","en":"scorpion","root":"ع-ق-ر-ب","type":"noun","kind":"noun","gender":"f","plural":"عَقارِب","src":"msa"}
+{"w":"صابُون","en":"soap","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"تِنِس","en":"tennis","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"قِرْش","en":"shark","root":"ق-ر-ش","type":"noun","kind":"noun","gender":"m","plural":"قُروش","src":"msa"}
+{"w":"دَبّوس","en":"pin","root":"د-ب-س","type":"noun","kind":"noun","gender":"m","plural":"دَبابِيس","src":"msa"}
+{"w":"تِرْياق","en":"antidote","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"بُولِيس","en":"police","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"خُوذَة","en":"helmet","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","plural":"خُوَذ","src":"msa"}
+{"w":"شُوكُولاتَة","en":"chocolate","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"جِينْز","en":"jeans","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"شَلّال","en":"waterfall","root":"ش-ل-ل","type":"noun","kind":"noun","gender":"m","plural":"شَلّالات","src":"msa"}
+{"w":"بُرْتُقالِيّ","en":"orange (colour)","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"كَرْبُون","en":"carbon","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَلْبُوم","en":"album","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"أَلْبُومات","src":"msa"}
+{"w":"لِيرَة","en":"lira, pound (currency)","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","plural":"لِيرات","src":"msa"}
+{"w":"بارُون","en":"baron","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"بارُونات","src":"msa"}
+{"w":"جُورْجِيّ","en":"Georgian","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"skip": "أَساسِيّ", "why": "Qur'an root"}
+{"skip": "أَمْس", "why": "Qur'an root"}
+{"skip": "إِنْجِيل", "why": "Qur'an root"}
+{"skip": "إِيقَاع", "why": "Qur'an root"}
+{"skip": "بِئْر", "why": "Qur'an root"}
+{"skip": "بَرِيدِيّ", "why": "Qur'an root"}
+{"skip": "بَرِّيَّة", "why": "Qur'an root"}
+{"skip": "بَصَل", "why": "Qur'an root"}
+{"skip": "بْلَاسْتِيكِيّ", "why": "loanword derivative with initial cluster, not sure of the form"}
+{"skip": "بَوَّرَ", "why": "Qur'an root"}
+{"skip": "بُوم", "why": "ambiguous: owl or Gulf dhow, not sure"}
+{"skip": "بِيَانَة", "why": "variant spelling of piano (بيانو); not sure of the form"}
+{"skip": "بَيْضَة", "why": "Qur'an root"}
+{"skip": "تَابُوت", "why": "Qur'an root"}
+{"skip": "تَارِيخِيّ", "why": "Qur'an root"}
+{"skip": "تَبَادُل", "why": "Qur'an root"}
+{"skip": "تَجْرِيبِيّ", "why": "Qur'an root"}
+{"skip": "تَنْفِيذ", "why": "Qur'an root"}
+{"skip": "تِين", "why": "Qur'an root"}
+{"skip": "دَفْع", "why": "Qur'an root"}
+{"skip": "دُود", "why": "collective of دُودَة"}
+{"skip": "رَفّ", "why": "Qur'an root"}
+{"skip": "رَفْض", "why": "Qur'an root"}
+{"skip": "سَامَ", "why": "Qur'an root"}
+{"skip": "سَفَّاح", "why": "Qur'an root"}
+{"skip": "سُودَانِيّ", "why": "Qur'an root"}
+{"skip": "سُوق", "why": "Qur'an root"}
+{"skip": "شِجَار", "why": "Qur'an root"}
+{"skip": "شَهْرِيّ", "why": "Qur'an root"}
+{"skip": "صَيْفِيّ", "why": "Qur'an root"}
+{"skip": "طَرَّاز", "why": "not sure of the sense and vowels"}
+{"skip": "عُصْفُور", "why": "Qur'an root"}
+{"skip": "غَضَا", "why": "not sure of the word"}
+{"skip": "فَرَّان", "why": "Qur'an root"}
+{"skip": "فُرْشَاة", "why": "Qur'an root"}
+{"skip": "فِقْرِيّ", "why": "Qur'an root"}
+{"skip": "فَلَحَ", "why": "Qur'an root"}
+{"skip": "قِبْلَة", "why": "Qur'an root"}
+{"skip": "قَسّ", "why": "Qur'an root"}
+{"skip": "قُلَّة", "why": "Qur'an root"}
+{"skip": "مَاعِز", "why": "Qur'an root"}
+{"skip": "مَوْهِبَة", "why": "Qur'an root"}
+{"skip": "هَاتِ", "why": "Qur'an root"}
+{"skip": "هَنْدَسَة", "why": "Qur'an root"}
+{"skip": "وَاقِعِيّ", "why": "Qur'an root"}
+{"skip": "وَرْد", "why": "Qur'an root"}
+{"skip": "وَرْدَة", "why": "Qur'an root"}
+{"skip": "وُقُوع", "why": "Qur'an root"}
+{"skip": "لَيْرَة", "why": "same word as entry لِيرَة"}

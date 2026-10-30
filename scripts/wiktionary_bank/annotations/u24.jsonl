@@ -1,0 +1,80 @@
+{"w": "كَاف", "en": "the letter kaf", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "كافات", "src": "msa"}
+{"w": "خَنْدَقَ", "en": "to dig a trench", "root": "خ-ن-د-ق", "type": "verb", "kind": "verb", "form": "I", "past": "خَنْدَقَ", "pres": "يُخَنْدِقُ", "masdar": "خَنْدَقَة", "src": "msa", "note": "Quadriliteral verb."}
+{"skip": "خَجَل", "why": "Qur'an root"}
+{"w": "كَآبَة", "en": "gloom, sadness", "root": "ك-أ-ب", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"skip": "شاكَسَ", "why": "Qur'an root"}
+{"skip": "مُشاكِس", "why": "Qur'an root"}
+{"w": "أَوْلَعَ", "en": "to make fond of", "root": "و-ل-ع", "type": "verb", "kind": "verb", "form": "IV", "past": "أَوْلَعَ", "pres": "يُولِعُ", "masdar": "إيلاع", "src": "msa", "note": "Usually passive: أُولِعَ بِ, to be fond of."}
+{"w": "بَشِع", "en": "hideous, ugly", "root": "ب-ش-ع", "type": "adjective", "kind": "adjective", "plural": "بَشِعون", "src": "msa"}
+{"w": "أَبْشَع", "en": "more hideous, ugliest", "root": "ب-ش-ع", "type": "adjective", "kind": "comparative", "noplural": true, "src": "msa"}
+{"w": "جَذْر", "en": "root (of a plant or number)", "root": "ج-ذ-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "جُذور", "src": "msa"}
+{"skip": "رَقَّصَ", "why": "Qur'an root"}
+{"w": "حَشَّدَ", "en": "to mobilize, to amass", "root": "ح-ش-د", "type": "verb", "kind": "verb", "form": "II", "past": "حَشَّدَ", "pres": "يُحَشِّدُ", "masdar": "تَحْشيد", "src": "msa"}
+{"skip": "مَرِنَ", "why": "Qur'an root"}
+{"skip": "مُرونَة", "why": "Qur'an root"}
+{"w": "نَقَشَ", "en": "to engrave, to carve", "root": "ن-ق-ش", "type": "verb", "kind": "verb", "form": "I", "past": "نَقَشَ", "pres": "يَنْقُشُ", "masdar": "نَقْش", "src": "msa"}
+{"w": "نَقَّشَ", "en": "to decorate, to embellish", "root": "ن-ق-ش", "type": "verb", "kind": "verb", "form": "II", "past": "نَقَّشَ", "pres": "يُنَقِّشُ", "masdar": "تَنْقيش", "src": "msa"}
+{"w": "دَعَكَ", "en": "to rub, to knead", "root": "د-ع-ك", "type": "verb", "kind": "verb", "form": "I", "past": "دَعَكَ", "pres": "يَدْعُكُ", "masdar": "دَعْك", "src": "msa"}
+{"w": "دَعْك", "en": "rubbing", "root": "د-ع-ك", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "msa"}
+{"w": "لَبَّى", "en": "to answer a call, to fulfil", "root": "ل-ب-ي", "type": "verb", "kind": "verb", "form": "II", "past": "لَبَّى", "pres": "يُلَبّي", "masdar": "تَلْبِيَة", "src": "msa"}
+{"w": "تَلْبِيَة", "en": "answering a call, fulfilment", "root": "ل-ب-ي", "type": "masdar", "kind": "masdar", "form": "II", "gender": "f", "src": "msa"}
+{"w": "ضِلْع", "en": "rib", "root": "ض-ل-ع", "type": "noun", "kind": "noun", "gender": "f", "plural": "أَضْلاع", "src": "msa"}
+{"w": "نازِيَّة", "en": "Nazism", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "دِيمُقْراطِيّ", "en": "democrat, democratic", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "دِيمُقْراطِيّون", "src": "msa"}
+{"skip": "أَحَكَّ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "خَيْل", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "سَامِيّ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "دَفَّقَ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "مَوْعُودَة", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "عُرْضِيّ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "بَعُوض", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "شَاطَّ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "قَبَّ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "بِزّ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "رُومِيّ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "جُنْد", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "كُورَة", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "رَكُوب", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "مُقَاتِلَة", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "حَشْر", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "اِقْتِرَاض", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "كَأْب", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "كَاثُولِيك", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "تَحَجَّبَ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "مُخَيْطَا", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "حَسَّنَ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "رُوسِيَّة", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "فَطْر", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "حَزُنَ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "مَيْل", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "مُرَافَقَة", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "تَرِب", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "اِنْقَضَّ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "شَيْب", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "مَرِدَ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "جِدَّة", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "سَوَّقَ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "قَابَ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "جِيبَ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "ثَمُنَ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "قَبَّحَ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "هِنْدِيَّة", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "أَخْلَفَ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "هُولَنْدِيَّة", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "مِيجَم", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "آلْف", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "بُولَنْدِيَّة", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "سِكَّة حَدِيدِيَّة", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "عَرَبِيّ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "إِيطَالِيَّة", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "فَرَّسَ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "صَفَن", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "صُفَّة", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "فَنَّ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "تَجَارَّ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "تَسْمِيم", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "ضَمّ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "يَئِسَ", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "يَهُودِيَّة", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "بَارِدَة", "why": "Qur'an root or inflected/relative form, name, or not certain"}
+{"skip": "حَوِيَ", "why": "Qur'an root or inflected/relative form, name, or not certain"}

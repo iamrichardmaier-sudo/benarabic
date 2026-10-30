@@ -1,0 +1,79 @@
+{"w": "ساذَج", "en": "simple, naive", "root": "س-ذ-ج", "type": "adjective", "kind": "adjective", "plural": "سُذَّج", "src": "msa", "note": "Of Persian origin; also means unsophisticated or gullible."}
+{"w": "صَحْن", "en": "plate, dish", "root": "ص-ح-ن", "type": "noun", "kind": "noun", "gender": "m", "plural": "صُحون", "src": "msa"}
+{"w": "سِكْرِتير", "en": "secretary", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "سِكْرِتيرون", "src": "msa"}
+{"w": "لَبّى", "en": "to answer a call, to comply with", "root": "ل-ب-ي", "type": "verb", "kind": "verb", "form": "II", "past": "لَبّى", "pres": "يُلَبّي", "masdar": "تَلْبِيَة", "src": "msa", "note": "Also to say labbayka, the pilgrims' response."}
+{"w": "تِمْساح", "en": "crocodile", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "تَماسيح", "src": "msa"}
+{"w": "يُونان", "en": "Greece", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa", "note": "Usually used with the article, اليونان."}
+{"w": "مُوضَة", "en": "fashion, trend", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "مُوضات", "src": "msa"}
+{"w": "تِلْميذ", "en": "pupil, schoolchild", "root": "ت-ل-م-ذ", "type": "noun", "kind": "noun", "gender": "m", "plural": "تَلاميذ", "src": "msa", "note": "Quadriliteral root."}
+{"w": "دِيناصُور", "en": "dinosaur", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "دِيناصُورات", "src": "msa"}
+{"w": "خَدْش", "en": "scratch", "root": "خ-د-ش", "type": "noun", "kind": "noun", "gender": "m", "plural": "خُدوش", "src": "msa"}
+{"w": "فَرَس", "en": "horse, mare", "root": "ف-ر-س", "type": "noun", "kind": "noun", "gender": "f", "plural": "أَفْراس", "src": "msa", "note": "Used for the horse of either sex."}
+{"w": "لِتْر", "en": "litre", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "لِتْرات", "src": "msa"}
+{"w": "بُرْتُقال", "en": "orange", "root": null, "rootless": true, "type": "noun", "kind": "collective noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "جَوْهَر", "en": "jewel, essence", "root": "ج-و-ه-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "جَواهِر", "src": "msa", "note": "Quadriliteral root."}
+{"w": "صَقْر", "en": "falcon", "root": "ص-ق-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "صُقور", "src": "msa"}
+{"w": "خُرْدَة", "en": "scrap metal, small odds and ends", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "أَمِيركِيّ", "en": "American", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "بَطَّة", "en": "duck", "root": "ب-ط-ط", "type": "noun", "kind": "noun", "gender": "f", "plural": "بَطّات", "src": "msa"}
+{"w": "فُرْن", "en": "oven", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "أَفْران", "src": "msa"}
+{"w": "أَرْمَل", "en": "widower", "root": "ر-م-ل", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَرامِل", "src": "msa"}
+{"w": "ثَعْلَب", "en": "fox", "root": "ث-ع-ل-ب", "type": "noun", "kind": "noun", "gender": "m", "plural": "ثَعالِب", "src": "msa", "note": "Quadriliteral root."}
+{"w": "أُسْطول", "en": "fleet", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "أَساطيل", "src": "msa"}
+{"w": "مَاس", "en": "diamond", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "كِيمِياء", "en": "chemistry", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "لِيزَر", "en": "laser", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "بَاص", "en": "bus", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "باصات", "src": "msa"}
+{"w": "تَلاشى", "en": "to vanish, to fade away", "root": "ل-ش-ي", "type": "verb", "kind": "verb", "form": "VI", "past": "تَلاشى", "pres": "يَتَلاشى", "masdar": "تَلاشٍ", "src": "msa"}
+{"w": "بُوم", "en": "owl", "root": "ب-و-م", "type": "noun", "kind": "collective noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "إِوَزّ", "en": "geese", "root": "أ-و-ز", "type": "noun", "kind": "collective noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مِتْرو", "en": "metro, underground railway", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "رِطْل", "en": "pound, rotl", "root": "ر-ط-ل", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَرْطال", "src": "msa"}
+{"w": "إِمْبِراطُورِيّ", "en": "imperial", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "أَلْمَنَ", "en": "to Germanize", "root": "أ-ل-م-ن", "type": "verb", "kind": "verb", "form": "I", "past": "أَلْمَنَ", "pres": "يُؤَلْمِنُ", "masdar": "أَلْمَنَة", "src": "msa", "note": "Quadriliteral verb."}
+{"w": "ضِلْع", "en": "rib", "root": "ض-ل-ع", "type": "noun", "kind": "noun", "gender": "f", "plural": "أَضْلاع", "src": "msa"}
+{"w": "جُولْف", "en": "golf", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "إِشْعاع", "en": "radiation", "root": "ش-ع-ع", "type": "masdar", "kind": "masdar", "form": "IV", "gender": "m", "plural": "إِشْعاعات", "src": "msa"}
+{"w": "فَلَّسَ", "en": "to bankrupt", "root": "ف-ل-س", "type": "verb", "kind": "verb", "form": "II", "past": "فَلَّسَ", "pres": "يُفَلِّسُ", "masdar": "تَفْليس", "src": "msa"}
+{"w": "كِيلومِتْر", "en": "kilometre", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "كِيلومِتْرات", "src": "msa"}
+{"skip": "سِلَّة", "why": "Qur'an root"}
+{"skip": "إِنْقَاذ", "why": "Qur'an root"}
+{"skip": "حَلَّقَ", "why": "Qur'an root"}
+{"skip": "بَحِيرَة", "why": "Qur'an root"}
+{"skip": "بْرُو", "why": "slang loanword, not sure"}
+{"skip": "صَدَفَة", "why": "Qur'an root"}
+{"skip": "نِينْجَا", "why": "loanword, not sure of form"}
+{"skip": "خَيْمَة", "why": "Qur'an root"}
+{"skip": "مَجْل", "why": "not sure of plural/vowels"}
+{"skip": "مَائِدَة", "why": "Qur'an root"}
+{"skip": "تَعَطَّلَ", "why": "Qur'an root"}
+{"skip": "نِيل", "why": "not sure of root/loanword"}
+{"skip": "تَقَاعُد", "why": "Qur'an root"}
+{"skip": "أَمَسّ", "why": "elative form of مَاسّ, inflected"}
+{"skip": "مُصَمِّم", "why": "Qur'an root"}
+{"skip": "قِنِّينَة", "why": "not sure of plural"}
+{"skip": "سِنَاتُور", "why": "not sure of form"}
+{"skip": "سُخْرِيَّة", "why": "Qur'an root"}
+{"skip": "يَمِين", "why": "Qur'an root"}
+{"skip": "اِعْتِنَاء", "why": "not sure"}
+{"skip": "اِسْتِحْمَام", "why": "Qur'an root"}
+{"skip": "أُنَاس", "why": "Qur'an root"}
+{"skip": "عَلَّقَ", "why": "Qur'an root"}
+{"skip": "تَعْذِيب", "why": "Qur'an root"}
+{"skip": "صِرَاع", "why": "Qur'an root"}
+{"skip": "مَاسَة", "why": "unit noun of ماس"}
+{"skip": "فَصَلَ", "why": "Qur'an root"}
+{"skip": "سِوَار", "why": "Qur'an root"}
+{"skip": "قَتِيل", "why": "Qur'an root"}
+{"skip": "تَسَلُّل", "why": "Qur'an root"}
+{"skip": "سِلْك", "why": "Qur'an root"}
+{"skip": "بَطُّولَة", "why": "not sure"}
+{"skip": "شَيْطَانِيّ", "why": "Qur'an root"}
+{"skip": "قَرَّبَ", "why": "Qur'an root"}
+{"skip": "رَقْمِيّ", "why": "Qur'an root"}
+{"skip": "فَنِّيّ", "why": "Qur'an root"}
+{"skip": "جَلِيدِيّ", "why": "Qur'an root"}
+{"skip": "دَعَّكَ", "why": "not sure, colloquial"}
+{"skip": "قِسِّيس", "why": "Qur'an root"}
+{"skip": "مُثَلَّجَات", "why": "Qur'an root"}
+{"skip": "دِمَاغِيّ", "why": "Qur'an root"}

@@ -1,0 +1,79 @@
+{"w": "زِئْبَق", "en": "mercury", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "شُوفان", "en": "oats", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "شُورْت", "en": "shorts", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "شُورْتات", "src": "msa"}
+{"w": "بِطّيخ", "en": "watermelon", "root": "ب-ط-خ", "type": "noun", "kind": "collective noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "بِتْرول", "en": "petroleum", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "فولْت", "en": "volt", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "فولْتات", "src": "msa"}
+{"w": "بْروتين", "en": "protein", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "بْروتينات", "src": "msa"}
+{"w": "بَلاط", "en": "royal court, palace", "root": "ب-ل-ط", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَبْلِطة", "src": "msa", "note": "Also paving stones collectively."}
+{"w": "بَلاطة", "en": "tile, paving slab", "root": "ب-ل-ط", "type": "noun", "kind": "noun", "gender": "f", "plural": "بَلاطات", "src": "msa"}
+{"w": "بُوتاسيُوم", "en": "potassium", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "طَها", "en": "to cook", "root": "ط-ه-و", "type": "verb", "kind": "verb", "form": "I", "past": "طَها", "pres": "يَطْهو", "masdar": "طَهْي", "src": "msa"}
+{"w": "طَهْي", "en": "cooking", "root": "ط-ه-و", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "يَرَقان", "en": "jaundice", "root": "ي-ر-ق", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "رَاب", "en": "rap music", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "تَقَيُّؤ", "en": "vomiting", "root": "ق-ي-أ", "type": "masdar", "kind": "masdar", "form": "V", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مَكياج", "en": "makeup", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "نَيْكَل", "en": "nickel", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "سانْدْوِيتْش", "en": "sandwich", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "ساندويتشات", "src": "msa"}
+{"w": "كَراج", "en": "garage", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "كَراجات", "src": "msa"}
+{"w": "إِنْتَرْنَت", "en": "the Internet", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "غَشَّ", "en": "to cheat", "root": "غ-ش-ش", "type": "verb", "kind": "verb", "form": "I", "past": "غَشَّ", "pres": "يَغُشُّ", "masdar": "غِشّ", "src": "msa"}
+{"w": "غِشّ", "en": "cheating, fraud", "root": "غ-ش-ش", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "إِفْلاس", "en": "bankruptcy", "root": "ف-ل-س", "type": "masdar", "kind": "masdar", "form": "IV", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "أَرْجُوانِيّ", "en": "purple", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "كُرُنْب", "en": "cabbage", "root": "ك-ر-ن-ب", "type": "noun", "kind": "collective noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "عَنْدَليب", "en": "nightingale", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "عَنادِل", "src": "msa"}
+{"w": "ناضَلَ", "en": "to struggle, to fight for", "root": "ن-ض-ل", "type": "verb", "kind": "verb", "form": "III", "past": "ناضَلَ", "pres": "يُناضِلُ", "masdar": "نِضال", "src": "msa"}
+{"w": "نِضال", "en": "struggle", "root": "ن-ض-ل", "type": "masdar", "kind": "masdar", "form": "III", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "بُرْهَة", "en": "moment, while", "root": "ب-ر-ه", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "فيزيائِيّ", "en": "physical; physicist", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "أُورُوبِّيّ", "en": "European", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "بِنْكِرْياس", "en": "pancreas", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "شِفْرَة", "en": "code, cipher", "root": "ش-ف-ر", "type": "noun", "kind": "noun", "gender": "f", "plural": "شِفْرات", "src": "msa", "note": "Also means a blade."}
+{"w": "عَنْبَر", "en": "warehouse, hospital ward", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "عَنابِر", "src": "msa"}
+{"w": "طَقْم", "en": "set, suit", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "أَطْقُم", "src": "msa"}
+{"w": "كَتِف", "en": "shoulder", "root": "ك-ت-ف", "type": "noun", "kind": "noun", "gender": "f", "plural": "أَكْتاف", "src": "msa"}
+{"skip": "تَسامُح", "why": "Qur'an root"}
+{"skip": "بَغْل", "why": "Qur'an root"}
+{"skip": "تَوْفير", "why": "Qur'an root"}
+{"skip": "تَهَرُّب", "why": "Qur'an root"}
+{"skip": "مُشاكِس", "why": "Qur'an root"}
+{"skip": "أَنين", "why": "Qur'an root"}
+{"skip": "عُضْوِيَّة", "why": "Qur'an root"}
+{"skip": "مُهَدَّد", "why": "Qur'an root"}
+{"skip": "ارْتِياح", "why": "Qur'an root"}
+{"skip": "اسْتِقالَة", "why": "Qur'an root"}
+{"skip": "إِنْصات", "why": "Qur'an root"}
+{"skip": "بَرِيَّة", "why": "Qur'an root"}
+{"skip": "تَحَسُّن", "why": "Qur'an root"}
+{"skip": "تَصَوُّر", "why": "Qur'an root"}
+{"skip": "حَمِيَ", "why": "Qur'an root"}
+{"skip": "رِضًا", "why": "Qur'an root"}
+{"skip": "ضُعْف", "why": "Qur'an root"}
+{"skip": "ضَعْف", "why": "Qur'an root"}
+{"skip": "عَفْوِيّ", "why": "Qur'an root"}
+{"skip": "فَراشَة", "why": "Qur'an root"}
+{"skip": "فِرْدَوْس", "why": "Qur'an root"}
+{"skip": "فُطور", "why": "Qur'an root"}
+{"skip": "قِرْفَة", "why": "Qur'an root"}
+{"skip": "كُسوف", "why": "Qur'an root"}
+{"skip": "مُطالَبَة", "why": "Qur'an root"}
+{"skip": "شاعَرَ", "why": "Qur'an root"}
+{"skip": "أَنْدَر", "why": "not sure of the word"}
+{"skip": "أَوْرَبَ", "why": "rare, not sure"}
+{"skip": "بُوظَة", "why": "colloquial"}
+{"skip": "تُرْك", "why": "proper noun"}
+{"skip": "دَيْدَن", "why": "not sure of root"}
+{"skip": "سايَفَ", "why": "rare, not sure"}
+{"skip": "سَلُوقِيّ", "why": "not sure"}
+{"skip": "صِنّ", "why": "not sure"}
+{"skip": "طَرْز", "why": "loanword, not sure"}
+{"skip": "كابُول", "why": "not sure"}
+{"skip": "كَنِز", "why": "not sure"}
+{"skip": "لُور", "why": "not sure"}
+{"skip": "لِيَة", "why": "not a standalone word"}
+{"skip": "هُولَنْدِيّ", "why": "nationality adjective of a place name"}
+{"skip": "وَحِنَ", "why": "not sure"}
+{"skip": "يَاي", "why": "not sure"}
+{"skip": "طُهِيّ", "why": "plural of طاهٍ, rare; not sure"}

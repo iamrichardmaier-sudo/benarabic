@@ -1,0 +1,80 @@
+{"skip": "تَوَقُّف", "why": "Qur'an root و-ق-ف"}
+{"skip": "فِكْر", "why": "Qur'an root"}
+{"skip": "نَفَّذَ", "why": "Qur'an root"}
+{"skip": "بَرِيد", "why": "Qur'an root"}
+{"skip": "أَرِيكَة", "why": "Qur'an root"}
+{"skip": "صَيْف", "why": "Qur'an root"}
+{"skip": "وَزِير", "why": "Qur'an root"}
+{"skip": "جَائِزَة", "why": "Qur'an root"}
+{"skip": "كَلِب", "why": "Qur'an root"}
+{"skip": "بِضْع", "why": "Qur'an root"}
+{"skip": "أَهَمَّ", "why": "Qur'an root"}
+{"skip": "ظَهْر", "why": "Qur'an root"}
+{"skip": "مَنَّى", "why": "Qur'an root"}
+{"skip": "مَنَى", "why": "Qur'an root, rare"}
+{"skip": "بِضْعَة", "why": "Qur'an root"}
+{"skip": "قَتَّال", "why": "Qur'an root"}
+{"skip": "أُذُن", "why": "Qur'an root"}
+{"skip": "شَقِيق", "why": "Qur'an root"}
+{"skip": "جُونَة", "why": "not sure of the word"}
+{"skip": "كَيْتَ", "why": "not sure of usage"}
+{"skip": "لُور", "why": "ethnonym"}
+{"skip": "فَم", "why": "Qur'an root"}
+{"skip": "جَوْن", "why": "not sure"}
+{"skip": "بِنْت", "why": "Qur'an root"}
+{"skip": "رُوسِيّ", "why": "same word as the adjective entry"}
+{"skip": "مَسَافَة", "why": "Qur'an root"}
+{"skip": "سِرِّيّ", "why": "Qur'an root"}
+{"w": "ذَات", "en": "self, essence", "root": "ذ-و-ت", "type": "noun", "kind": "noun", "gender": "f", "plural": "ذَوات", "src": "msa"}
+{"w": "بَنْك", "en": "bank", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "بُنوك", "src": "msa"}
+{"w": "دِيك", "en": "rooster", "root": "د-ي-ك", "type": "noun", "kind": "noun", "gender": "m", "plural": "دُيوك", "src": "msa"}
+{"w": "بُنْدُقِيَّة", "en": "rifle", "root": "ب-ن-د-ق", "type": "noun", "kind": "noun", "gender": "f", "plural": "بَنادِق", "src": "msa"}
+{"skip": "عادِيّ", "why": "Qur'an root"}
+{"w": "لِصّ", "en": "thief", "root": "ل-ص-ص", "type": "noun", "kind": "noun", "gender": "m", "plural": "لُصوص", "src": "msa"}
+{"skip": "عَبْقَرِيّ", "why": "Qur'an root"}
+{"w": "قُبَّعَة", "en": "hat", "root": "ق-ب-ع", "type": "noun", "kind": "noun", "gender": "f", "plural": "قُبَّعات", "src": "msa"}
+{"skip": "بَرِّيّ", "why": "Qur'an root"}
+{"skip": "طَقْس", "why": "Qur'an root"}
+{"w": "رُوسِيّ", "en": "Russian", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "plural": "رُوس", "src": "msa"}
+{"skip": "أَوان", "why": "Qur'an root"}
+{"skip": "قَناة", "why": "Qur'an root"}
+{"w": "بِيرَة", "en": "beer", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"skip": "سِكِّين", "why": "Qur'an root"}
+{"skip": "تِقْنِيّ", "why": "Qur'an root"}
+{"w": "مُوسِيقِيّ", "en": "musical", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "غَاز", "en": "gas", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "غازات", "src": "msa"}
+{"w": "سَرَطان", "en": "cancer, crab", "root": "س-ر-ط", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "كِيس", "en": "bag, sack", "root": "ك-ي-س", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَكْياس", "src": "msa"}
+{"skip": "عاطِفِيّ", "why": "Qur'an root"}
+{"skip": "دِماغ", "why": "Qur'an root"}
+{"w": "طاقَم", "en": "crew, team", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "طَواقِم", "src": "msa"}
+{"skip": "نارِيّ", "why": "Qur'an root"}
+{"skip": "جَوِّيّ", "why": "Qur'an root"}
+{"w": "بِيتْزا", "en": "pizza", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "دُمْيَة", "en": "doll", "root": "د-م-ي", "type": "noun", "kind": "noun", "gender": "f", "plural": "دُمًى", "src": "msa"}
+{"w": "صَدْمَة", "en": "shock", "root": "ص-د-م", "type": "noun", "kind": "noun", "gender": "f", "plural": "صَدَمات", "src": "msa"}
+{"skip": "طَيَران", "why": "Qur'an root"}
+{"w": "سيجارَة", "en": "cigarette", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "سَجائِر", "src": "msa"}
+{"w": "فِلْم", "en": "film", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "أَفْلام", "src": "msa"}
+{"skip": "ساحَة", "why": "Qur'an root"}
+{"skip": "دُبّ", "why": "Qur'an root"}
+{"skip": "بَدْء", "why": "Qur'an root"}
+{"skip": "أُسّ", "why": "Qur'an root"}
+{"skip": "خاتَم", "why": "Qur'an root"}
+{"w": "عِمْلاق", "en": "giant", "root": "ع-م-ل-ق", "type": "noun", "kind": "noun", "gender": "m", "plural": "عَمالِقَة", "src": "msa"}
+{"skip": "جَناح", "why": "Qur'an root"}
+{"w": "فُسْتان", "en": "dress", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "فَساتِين", "src": "msa"}
+{"skip": "ذِئْب", "why": "Qur'an root"}
+{"w": "مَامَا", "en": "mum", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"skip": "زَبُون", "why": "Qur'an root"}
+{"skip": "نَظَر", "why": "Qur'an root"}
+{"skip": "رَوِيَ", "why": "Qur'an root"}
+{"skip": "تَوْقِيت", "why": "Qur'an root"}
+{"w": "فَرْنَسَ", "en": "to Frenchify", "root": "ف-ر-ن-س", "type": "verb", "kind": "verb", "form": "I", "past": "فَرْنَسَ", "pres": "يُفَرْنِسُ", "masdar": "فَرْنَسَة", "src": "msa", "note": "Quadriliteral verb."}
+{"w": "جَرَس", "en": "bell", "root": "ج-ر-س", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَجْراس", "src": "msa"}
+{"skip": "فَرْد", "why": "Qur'an root"}
+{"w": "أُسْتاذ", "en": "professor, teacher", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "أَساتِذَة", "src": "msa"}
+{"skip": "سُرِّيّ", "why": "Qur'an root س-ر-ر, rare"}
+{"skip": "مَهَمَّة", "why": "Qur'an root"}
+{"skip": "اِخْتِبار", "why": "Qur'an root"}
+{"w": "بَيْك", "en": "bey", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}

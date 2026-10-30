@@ -1,0 +1,78 @@
+{"w": "كاتِدْرائِيَّة", "en": "cathedral", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "كاتِدْرائِيّات", "src": "msa"}
+{"w": "حاشِيَة", "en": "margin, edge", "root": "ح-ش-ي", "type": "noun", "kind": "noun", "gender": "f", "plural": "حَواشٍ", "src": "msa", "note": "Also a marginal note or an entourage."}
+{"w": "فانُوس", "en": "lantern", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "فَوانيس", "src": "msa"}
+{"w": "تُرْس", "en": "shield", "root": "ت-ر-س", "type": "noun", "kind": "noun", "gender": "m", "plural": "تُروس", "src": "msa", "note": "Also a cog or gear wheel in modern usage."}
+{"w": "عَنْزَة", "en": "goat, she-goat", "root": "ع-ن-ز", "type": "noun", "kind": "noun", "gender": "f", "plural": "عَنْزات", "src": "msa"}
+{"w": "مِسْبار", "en": "probe", "root": "س-ب-ر", "type": "noun", "kind": "noun of instrument", "gender": "m", "plural": "مَسابِر", "src": "msa"}
+{"w": "كُولِيرا", "en": "cholera", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "بُرْغوث", "en": "flea", "root": "ب-ر-غ-ث", "type": "noun", "kind": "noun", "gender": "m", "plural": "بَراغيث", "src": "msa"}
+{"w": "بَيْدَق", "en": "pawn (chess)", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "بَيادِق", "src": "msa"}
+{"w": "قَرْنَبيط", "en": "cauliflower", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "فَحْل", "en": "stallion, stud male", "root": "ف-ح-ل", "type": "noun", "kind": "noun", "gender": "m", "plural": "فُحول", "src": "msa"}
+{"w": "تِرْسانَة", "en": "shipyard, arsenal", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "تِرْسانات", "src": "msa"}
+{"w": "أَبْجَدِيَّة", "en": "alphabet", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "أَبْجَدِيّات", "src": "msa"}
+{"w": "كُلُور", "en": "chlorine", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "جُغْرافْيا", "en": "geography", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "كَتّان", "en": "flax, linen", "root": "ك-ت-ن", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "بْلوتونْيوم", "en": "plutonium", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "نَهْد", "en": "breast", "root": "ن-ه-د", "type": "noun", "kind": "noun", "gender": "m", "plural": "نُهود", "src": "msa"}
+{"w": "جَدْي", "en": "kid (young goat)", "root": "ج-د-ي", "type": "noun", "kind": "noun", "gender": "m", "plural": "جِداء", "src": "msa", "note": "Also the zodiac sign Capricorn."}
+{"w": "فَدّان", "en": "feddan (land unit), plough", "root": "ف-د-ن", "type": "noun", "kind": "noun", "gender": "m", "plural": "فَدادين", "src": "msa"}
+{"w": "نَبْض", "en": "pulse, heartbeat", "root": "ن-ب-ض", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "بُسْتانِيّ", "en": "gardener", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "بَساتِنَة", "src": "msa"}
+{"w": "زَبيبَة", "en": "raisin", "root": "ز-ب-ب", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "أُوكْرانِيّ", "en": "Ukrainian", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "plural": "أُوكْرانِيّون", "src": "msa"}
+{"w": "بُرْنُس", "en": "burnoose, hooded cloak", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "بَرانِس", "src": "msa"}
+{"w": "حَلَزون", "en": "snail", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "حَلَزونات", "src": "msa"}
+{"w": "فُجْل", "en": "radish", "root": "ف-ج-ل", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "تْشيلِيّ", "en": "Chilean", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "plural": "تْشيلِيّون", "src": "msa"}
+{"skip": "عُبُوس", "why": "Qur'an root"}
+{"skip": "صَيْدَلِيّ", "why": "Qur'an root"}
+{"skip": "تَعَب", "why": "Qur'an root"}
+{"skip": "سَارِيَة", "why": "Qur'an root"}
+{"skip": "اِسْتَغْرَبَ", "why": "Qur'an root"}
+{"skip": "إِنَارَة", "why": "Qur'an root"}
+{"skip": "تَشْخِيصِيّ", "why": "Qur'an root"}
+{"skip": "تَوْبَة", "why": "Qur'an root"}
+{"skip": "حَضَّرَ", "why": "Qur'an root"}
+{"skip": "جَمَّعَ", "why": "Qur'an root"}
+{"skip": "جَنْب", "why": "Qur'an root"}
+{"skip": "حُبْس", "why": "Qur'an root"}
+{"skip": "حِصَاد", "why": "Qur'an root"}
+{"skip": "دَكّ", "why": "Qur'an root"}
+{"skip": "دُكّ", "why": "Qur'an root"}
+{"skip": "شَقِيق", "why": "Qur'an root"}
+{"skip": "صَعِق", "why": "Qur'an root"}
+{"skip": "طَوْل", "why": "Qur'an root"}
+{"skip": "عَصْرِيّ", "why": "Qur'an root"}
+{"skip": "عَلَنَ", "why": "Qur'an root"}
+{"skip": "غَار", "why": "Qur'an root"}
+{"skip": "فَخَّار", "why": "Qur'an root"}
+{"skip": "فُكَاهِيّ", "why": "Qur'an root"}
+{"skip": "قِتْلَة", "why": "Qur'an root"}
+{"skip": "قَتْلَة", "why": "Qur'an root"}
+{"skip": "قَرَوِيّ", "why": "Qur'an root"}
+{"skip": "لَعَّاب", "why": "Qur'an root"}
+{"skip": "مِبْرَد", "why": "Qur'an root"}
+{"skip": "مَحَلَ", "why": "Qur'an root"}
+{"skip": "مَصْرَع", "why": "Qur'an root"}
+{"skip": "مَلْحَمِيّ", "why": "Qur'an root"}
+{"skip": "مَلْمَس", "why": "Qur'an root"}
+{"skip": "نَاسِك", "why": "Qur'an root"}
+{"skip": "نَفْحَة", "why": "Qur'an root"}
+{"skip": "نِيَام", "why": "Qur'an root"}
+{"skip": "هِلَال", "why": "Qur'an root"}
+{"skip": "أَيْر", "why": "vulgar, omitted"}
+{"skip": "بُلُوك", "why": "loanword, unsure of vowels"}
+{"skip": "بِيبْسِي", "why": "brand name"}
+{"skip": "تَكَّ", "why": "not sure"}
+{"skip": "جُوَال", "why": "not sure"}
+{"skip": "إِنْكْلِيزِيَّة", "why": "unsure of spelling"}
+{"skip": "قُمْرَة", "why": "not sure"}
+{"skip": "كَرْز", "why": "not sure"}
+{"skip": "كُرْز", "why": "not sure"}
+{"skip": "كُرَّز", "why": "not sure"}
+{"skip": "كونجرِس", "why": "unvoweled loanword, unsure"}
+{"skip": "مَاجُور", "why": "not sure"}
+{"skip": "نِيلِيّ", "why": "not sure"}
+{"skip": "هَرَدَ", "why": "not sure"}

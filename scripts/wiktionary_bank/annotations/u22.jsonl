@@ -1,0 +1,70 @@
+{"skip": "ضابِط", "why": "Qur'an root"}
+{"w": "جَوْهَر", "en": "jewel, essence", "root": "ج-و-ه-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "جَواهِر", "src": "msa", "note": "The root is quadriliteral."}
+{"w": "مُهْر", "en": "foal, colt", "root": "م-ه-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَمْهار", "src": "msa"}
+{"w": "باكِسْتانِيّ", "en": "Pakistani", "root": null, "rootless": true, "type": "adjective", "kind": "relative adjective", "plural": "باكِسْتانِيّون", "src": "msa"}
+{"skip": "سُوس", "why": "Qur'an root"}
+{"w": "أَنانِيَّة", "en": "selfishness", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "شِبْر", "en": "span of the hand", "root": "ش-ب-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَشْبار", "src": "msa"}
+{"w": "شَبَرَ", "en": "to measure by the span", "root": "ش-ب-ر", "type": "verb", "kind": "verb", "form": "I", "past": "شَبَرَ", "pres": "يَشْبُرُ", "masdar": "شَبْر", "src": "msa"}
+{"w": "نَمَّطَ", "en": "to standardize, to stereotype", "root": "ن-م-ط", "type": "verb", "kind": "verb", "form": "II", "past": "نَمَّطَ", "pres": "يُنَمِّطُ", "masdar": "تَنْميط", "src": "msa"}
+{"skip": "سَمَّرَ", "why": "Qur'an root"}
+{"w": "بِيه", "en": "bey", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "أَطْلَس", "en": "atlas", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "أَطالِس", "src": "msa"}
+{"w": "صينِيَّة", "en": "tray", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "صَوانِي", "src": "msa"}
+{"w": "مِينا", "en": "enamel", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "كارِي", "en": "curry", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "إِسْبانِيَّة", "en": "Spanish woman", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "plural": "إِسْبانِيّات", "src": "msa"}
+{"w": "بالُون", "en": "balloon", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "بالُونات", "src": "msa"}
+{"skip": "قَرْعة", "why": "Qur'an root"}
+{"skip": "بَحَّرَ", "why": "Qur'an root"}
+{"skip": "بَحِرَ", "why": "Qur'an root"}
+{"skip": "رَقْبَة", "why": "Qur'an root"}
+{"skip": "رِقْبَة", "why": "Qur'an root"}
+{"skip": "يَوْمِيَّة", "why": "Qur'an root"}
+{"skip": "دَاعِيَة", "why": "Qur'an root"}
+{"skip": "غَسُول", "why": "Qur'an root"}
+{"skip": "أَعْقَبَ", "why": "Qur'an root"}
+{"skip": "هُود", "why": "Qur'an root"}
+{"skip": "صِفْر", "why": "Qur'an root"}
+{"skip": "أَذِنَ", "why": "Qur'an root"}
+{"skip": "أَمْرَضَ", "why": "Qur'an root"}
+{"skip": "نَاصِرِيّ", "why": "Qur'an root"}
+{"skip": "عُقَار", "why": "Qur'an root"}
+{"skip": "سَلْبِيَّة", "why": "Qur'an root"}
+{"skip": "لُوطِيّ", "why": "Qur'an root"}
+{"skip": "لَاطَ", "why": "Qur'an root"}
+{"skip": "زَيَّتَ", "why": "Qur'an root"}
+{"skip": "قَلَّمَ", "why": "Qur'an root"}
+{"skip": "تَلَامُس", "why": "Qur'an root"}
+{"skip": "مِصْرِيّ", "why": "Qur'an root"}
+{"skip": "بَنَّ", "why": "Qur'an root"}
+{"skip": "بُنّ", "why": "Qur'an root"}
+{"skip": "صَفَّرَ", "why": "Qur'an root"}
+{"skip": "ثَقَّبَ", "why": "Qur'an root"}
+{"skip": "مَبِيض", "why": "Qur'an root"}
+{"skip": "تَأْلِيف", "why": "Qur'an root"}
+{"skip": "بُنَيّ", "why": "Qur'an root"}
+{"skip": "تَجَاهُل", "why": "Qur'an root"}
+{"skip": "جُنُب", "why": "Qur'an root"}
+{"skip": "مُنْخَفَض", "why": "Qur'an root"}
+{"skip": "فَرْد", "why": "Qur'an root"}
+{"skip": "شَبَّرَ", "why": "not sure of gloss"}
+{"skip": "شَخّ", "why": "vulgar, not sure"}
+{"skip": "زَحْل", "why": "not sure"}
+{"skip": "رَوَّسَ", "why": "not sure"}
+{"skip": "بِنّ", "why": "not sure"}
+{"skip": "قِنَّب", "why": "not sure"}
+{"skip": "رَمَل", "why": "not sure"}
+{"skip": "رَمِل", "why": "not sure"}
+{"skip": "أَشَاطَ", "why": "not sure"}
+{"skip": "ثُرَيَّة", "why": "not sure; the word is ثُرَيّا"}
+{"skip": "فَرْس", "why": "not sure"}
+{"skip": "شَبْر", "why": "obscure"}
+{"skip": "شُبِر", "why": "obscure"}
+{"skip": "كَلَّوْتَة", "why": "obscure historical term"}
+{"skip": "بِنِّيّ", "why": "obscure fish name"}
+{"skip": "قِيّ", "why": "not sure"}
+{"skip": "خَمَّ", "why": "not sure"}
+{"skip": "لَصَّ", "why": "not sure"}
+{"skip": "قَنْب", "why": "not sure"}
+{"skip": "هَوْد", "why": "not sure"}

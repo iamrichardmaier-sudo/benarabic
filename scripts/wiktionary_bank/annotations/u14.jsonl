@@ -1,0 +1,78 @@
+{"w":"إِفْرِيقِيّ","en":"African","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","plural":"إِفْرِيقِيُّون","src":"msa"}
+{"w":"دِبْلُومَاسِيّ","en":"diplomatic; diplomat","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","plural":"دِبْلُومَاسِيُّون","src":"msa"}
+{"w":"طُنّ","en":"ton","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"أَطْنَان","src":"msa"}
+{"w":"فَرْمَلَة","en":"braking, brake","root":"ف-ر-م-ل","type":"noun","kind":"noun","gender":"f","plural":"فَرَامِل","src":"msa"}
+{"w":"كَبْش","en":"ram","root":"ك-ب-ش","type":"noun","kind":"noun","gender":"m","plural":"كِبَاش","src":"msa"}
+{"w":"هِيدْرُوجِين","en":"hydrogen","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"جَسْر","en":"bridge","root":"ج-س-ر","type":"noun","kind":"noun","gender":"m","plural":"جُسُور","src":"msa"}
+{"w":"دُولَاب","en":"wheel, cupboard","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"دَوَالِيب","src":"msa"}
+{"w":"غِشّ","en":"cheating, deceit","root":"غ-ش-ش","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"نَقْش","en":"engraving, carving","root":"ن-ق-ش","type":"noun","kind":"noun","gender":"m","plural":"نُقُوش","src":"msa"}
+{"w":"مُفْلِس","en":"bankrupt","root":"ف-ل-س","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مَفَالِيس","src":"msa"}
+{"w":"قُولُون","en":"colon","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"دَفْن","en":"burial","root":"د-ف-ن","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"سِلْفِي","en":"selfie","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"سِلْفِيَّات","src":"msa"}
+{"w":"قُنْصُلِيَّة","en":"consulate","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","plural":"قُنْصُلِيَّات","src":"msa"}
+{"w":"طَبْل","en":"drum","root":"ط-ب-ل","type":"noun","kind":"noun","gender":"m","plural":"طُبُول","src":"msa","note":"Wiktionary's tax sense is historical; the common meaning is drum."}
+{"w":"بَنْطَلُون","en":"trousers","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"بَنْطَلُونَات","src":"msa"}
+{"w":"لَاشَى","en":"to annihilate","root":"ل-ش-ي","type":"verb","kind":"verb","form":"III","past":"لَاشَى","pres":"يُلَاشِي","masdar":"مُلَاشَاة","src":"msa"}
+{"w":"أَفَاتَار","en":"avatar","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"أَفَاتَارَات","src":"msa"}
+{"w":"طُوب","en":"bricks","root":null,"rootless":true,"type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"بُسْتَان","en":"garden, orchard","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"بَسَاتِين","src":"msa"}
+{"w":"مَاكْيَاج","en":"makeup","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"كْرِيبْتُون","en":"krypton","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"بَصَمَ","en":"to fingerprint","root":"ب-ص-م","type":"verb","kind":"verb","form":"I","past":"بَصَمَ","pres":"يَبْصُمُ","masdar":"بَصْم","src":"msa"}
+{"w":"نَازِيّ","en":"Nazi","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"نَازِيُّون","src":"msa"}
+{"w":"أُهْبَة","en":"readiness, equipment","root":"أ-ه-ب","type":"noun","kind":"noun","gender":"f","plural":"أُهَب","src":"msa"}
+{"w":"إِيدْز","en":"AIDS","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"خَان","en":"inn, caravanserai","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"خَانَات","src":"msa"}
+{"w":"سُعُودِيّ","en":"Saudi","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","plural":"سُعُودِيُّون","src":"msa"}
+{"w":"مَاوِس","en":"computer mouse","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"مَاوِسَات","src":"msa"}
+{"w":"دِيزِل","en":"diesel","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"حَفَّزَ","en":"to motivate, to stimulate","root":"ح-ف-ز","type":"verb","kind":"verb","form":"II","past":"حَفَّزَ","pres":"يُحَفِّزُ","masdar":"تَحْفِيز","src":"msa"}
+{"w":"تَحْفِيز","en":"motivation, stimulation","root":"ح-ف-ز","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"بَلُّوط","en":"oak","root":null,"rootless":true,"type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"سُورِيّ","en":"Syrian","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","plural":"سُورِيُّون","src":"msa"}
+{"w":"رُوبِيَان","en":"shrimp","root":null,"rootless":true,"type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَفْيُون","en":"opium","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مِيكْرُوفُون","en":"microphone","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"مِيكْرُوفُونَات","src":"msa"}
+{"w":"كَبَلَ","en":"to fetter, to shackle","root":"ك-ب-ل","type":"verb","kind":"verb","form":"I","past":"كَبَلَ","pres":"يَكْبِلُ","masdar":"كَبْل","src":"msa"}
+{"w":"أَرْمَلَة","en":"widow","root":"ر-م-ل","type":"noun","kind":"noun","gender":"f","plural":"أَرَامِل","src":"msa"}
+{"w":"مُخَاط","en":"mucus","root":"م-خ-ط","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"يَخْت","en":"yacht","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"يُخُوت","src":"msa"}
+{"w":"رَكَلَ","en":"to kick","root":"ر-ك-ل","type":"verb","kind":"verb","form":"I","past":"رَكَلَ","pres":"يَرْكُلُ","masdar":"رَكْل","src":"msa"}
+{"w":"رَكْل","en":"kick, kicking","root":"ر-ك-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"يُورَانِيُوم","en":"uranium","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"skip": "أَبُولُو", "why": "name"}
+{"skip": "أَحْوَى", "why": "not sure of the word"}
+{"skip": "إِدَارِيّ", "why": "Qur'an root"}
+{"skip": "إِسَاءَة", "why": "Qur'an root"}
+{"skip": "أَسِير", "why": "Qur'an root"}
+{"skip": "أُنْثَوِيّ", "why": "Qur'an root"}
+{"skip": "أُورْكِسْتْرَا", "why": "not sure of gender; left out"}
+{"skip": "آيَة", "why": "Qur'an root"}
+{"skip": "تَشَابُه", "why": "Qur'an root"}
+{"skip": "تَمَاسُك", "why": "Qur'an root"}
+{"skip": "ثَوْرِيّ", "why": "Qur'an root"}
+{"skip": "جُنِبَ", "why": "not sure of the word"}
+{"skip": "جَوْزَة", "why": "Qur'an root"}
+{"skip": "حُرْمَة", "why": "Qur'an root"}
+{"skip": "حَزَّرَ", "why": "not sure of the word"}
+{"skip": "خَافِت", "why": "Qur'an root"}
+{"skip": "خَرْدَل", "why": "Qur'an root"}
+{"skip": "دَبّ", "why": "not sure of the word"}
+{"skip": "دِبّ", "why": "not sure of the word"}
+{"skip": "سَمَاوِيّ", "why": "Qur'an root"}
+{"skip": "سِيَاق", "why": "Qur'an root"}
+{"skip": "شَيْرَة", "why": "not sure of the word"}
+{"skip": "طَلًا", "why": "not sure of the word"}
+{"skip": "عَبْقَرِيّ", "why": "Qur'an root"}
+{"skip": "عَدَس", "why": "Qur'an root"}
+{"skip": "غُلّ", "why": "Qur'an root"}
+{"skip": "فَمَوِيّ", "why": "Qur'an root"}
+{"skip": "مَقْر", "why": "not sure of the word"}
+{"skip": "مَنْطَقَ", "why": "derived from نطق, Qur'an root"}
+{"skip": "مُوَاصَلَة", "why": "Qur'an root"}
+{"skip": "نَوْل", "why": "not sure of the word"}
+{"skip": "نَيَّلَ", "why": "not sure of the word"}
+{"skip": "وِدِّيّ", "why": "Qur'an root"}

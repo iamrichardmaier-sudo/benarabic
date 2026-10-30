@@ -1,0 +1,78 @@
+{"w":"إِلِكْتْرُونِيّ","en":"electronic","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"شِيك","en":"cheque","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"شِيكات","src":"msa"}
+{"w":"لُورْد","en":"lord (British title)","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"لُورْدات","src":"msa"}
+{"w":"كَيَّفَ","en":"to adapt, to air-condition","root":"ك-ي-ف","type":"verb","kind":"verb","form":"II","past":"كَيَّفَ","pres":"يُكَيِّفُ","masdar":"تَكْيِيف","src":"msa"}
+{"w":"كَمْبْيُوتَر","en":"computer","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"كَمْبْيُوتَرات","src":"msa"}
+{"w":"بَرِيطَانِيّ","en":"British","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"فَاتُورَة","en":"invoice, bill","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","plural":"فَوَاتِير","src":"msa"}
+{"w":"رُومَانْسِيّ","en":"romantic","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"كَهْرَبَاء","en":"electricity","root":"ك-ه-ر-ب","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"نَمُوذَج","en":"model, example","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"نَمَاذِج","src":"msa"}
+{"w":"تِلِفِزْيُون","en":"television","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"تِلِفِزْيُونات","src":"msa"}
+{"w":"مَجَّانِيّ","en":"free of charge","root":"م-ج-ن","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"كُحُول","en":"alcohol","root":"ك-ح-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"فَيْرُوس","en":"virus","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"فَيْرُوسات","src":"msa"}
+{"w":"رَادْيُو","en":"radio","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"رَادْيُوهات","src":"msa"}
+{"w":"نُكْتَة","en":"joke","root":"ن-ك-ت","type":"noun","kind":"noun","gender":"f","plural":"نُكَت","src":"msa"}
+{"w":"زَيَّفَ","en":"to counterfeit, to forge","root":"ز-ي-ف","type":"verb","kind":"verb","form":"II","past":"زَيَّفَ","pres":"يُزَيِّفُ","masdar":"تَزْيِيف","src":"msa"}
+{"w":"رُوك","en":"rock (music)","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"شَاشَة","en":"screen","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","plural":"شَاشات","src":"msa"}
+{"w":"مِرْحَاض","en":"toilet, lavatory","root":"ر-ح-ض","type":"noun","kind":"noun of place","gender":"m","plural":"مَرَاحِيض","src":"msa"}
+{"w":"لَيْمُون","en":"lemon","root":null,"rootless":true,"type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَرْنَب","en":"rabbit","root":"أ-ر-ن-ب","type":"noun","kind":"noun","gender":"f","plural":"أَرَانِب","src":"msa"}
+{"w":"مُنْتَج","en":"product","root":"ن-ت-ج","type":"noun","kind":"noun","gender":"m","plural":"مُنْتَجات","src":"msa"}
+{"w":"سِرْوَال","en":"trousers, pants","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"سَرَاوِيل","src":"msa"}
+{"w":"فِدِرَالِيّ","en":"federal","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"وِسَادَة","en":"pillow, cushion","root":"و-س-د","type":"noun","kind":"noun","gender":"f","plural":"وَسَائِد","src":"msa"}
+{"w":"نُقُود","en":"money, cash","root":"ن-ق-د","type":"noun","kind":"plural","gender":"m","src":"msa"}
+{"w":"نَمَط","en":"pattern, style","root":"ن-م-ط","type":"noun","kind":"noun","gender":"m","plural":"أَنْمَاط","src":"msa"}
+{"w":"تِنِّين","en":"dragon","root":"ت-ن-ن","type":"noun","kind":"noun","gender":"m","plural":"تَنَانِين","src":"msa"}
+{"w":"دَعَكَ","en":"to rub, to scrub","root":"د-ع-ك","type":"verb","kind":"verb","form":"I","past":"دَعَكَ","pres":"يَدْعَكُ","masdar":"دَعْك","src":"msa"}
+{"w":"صِينِيّ","en":"Chinese","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"skip": "أُسْطُورَة", "why": "Qur'an root"}
+{"skip": "إِرْهَابِيّ", "why": "Qur'an root"}
+{"skip": "اِهْتِمَام", "why": "Qur'an root"}
+{"skip": "بَاسِم", "why": "Qur'an root"}
+{"skip": "بَحْرِيّ", "why": "Qur'an root"}
+{"skip": "تَعَرُّف", "why": "Qur'an root"}
+{"skip": "تَوَاصُل", "why": "Qur'an root"}
+{"skip": "ثَبَتَ", "why": "Qur'an root"}
+{"skip": "ثَقْب", "why": "Qur'an root"}
+{"skip": "جَدَّة", "why": "Qur'an root"}
+{"skip": "جَلِيد", "why": "Qur'an root"}
+{"skip": "جَيْب", "why": "Qur'an root"}
+{"skip": "جِنِّيَّة", "why": "Qur'an root"}
+{"skip": "حَمَام", "why": "Qur'an root"}
+{"skip": "حَمَامَة", "why": "Qur'an root"}
+{"skip": "حَيَوِيّ", "why": "Qur'an root"}
+{"skip": "خَيْل", "why": "Qur'an root"}
+{"skip": "دُوَلِيّ", "why": "Qur'an root"}
+{"skip": "سَاحِل", "why": "Qur'an root"}
+{"skip": "ضِعْف", "why": "Qur'an root"}
+{"skip": "عَقَبَة", "why": "Qur'an root"}
+{"skip": "عَمّ", "why": "Qur'an root"}
+{"skip": "فَرْد", "why": "Qur'an root"}
+{"skip": "قَدَر", "why": "Qur'an root"}
+{"skip": "قَرُبَ", "why": "Qur'an root"}
+{"skip": "قَلَم", "why": "Qur'an root"}
+{"skip": "كَهْف", "why": "Qur'an root"}
+{"skip": "مَشْفًى", "why": "Qur'an root"}
+{"skip": "مَشْي", "why": "Qur'an root"}
+{"skip": "مَلَكِيّ", "why": "Qur'an root"}
+{"skip": "مُخَيَّم", "why": "Qur'an root"}
+{"skip": "مِزَاج", "why": "Qur'an root"}
+{"skip": "نَبِيذ", "why": "Qur'an root"}
+{"skip": "يَمِين", "why": "Qur'an root"}
+{"skip": "جَيَّرَ", "why": "two unrelated senses, not sure"}
+{"skip": "دُوغ", "why": "colloquial/dialectal word, not sure of vowels"}
+{"skip": "رُومَان", "why": "plural ethnonym/proper noun"}
+{"skip": "سَاف", "why": "not sure"}
+{"skip": "سِتُّونَ", "why": "number, inflected form"}
+{"skip": "سِتّ", "why": "not sure of register and vowels"}
+{"skip": "صِين", "why": "proper noun; see صِينِيّ"}
+{"skip": "مُصَاص", "why": "rare plant name, not sure"}
+{"skip": "هُرُوب", "why": "Qur'an root"}
+{"skip": "وَفَّرَ", "why": "Qur'an root"}
+{"skip": "سُفْلِيّ", "why": "Qur'an root"}
+{"skip": "هُوِيَّة", "why": "Qur'an root"}
+{"skip": "أَمَامِيّ", "why": "Qur'an root"}

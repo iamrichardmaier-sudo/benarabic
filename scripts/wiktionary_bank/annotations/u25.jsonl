@@ -1,0 +1,80 @@
+{"w": "زَيْف", "en": "falsehood, counterfeit", "root": "ز-ي-ف", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "رَضَّ", "en": "to crush, to bruise", "root": "ر-ض-ض", "type": "verb", "kind": "verb", "form": "I", "past": "رَضَّ", "pres": "يَرُضُّ", "masdar": "رَضّ", "src": "msa"}
+{"w": "فَلْفَلَ", "en": "to pepper, to season with pepper", "root": "ف-ل-ف-ل", "type": "verb", "kind": "verb", "form": "I", "past": "فَلْفَلَ", "pres": "يُفَلْفِلُ", "masdar": "فَلْفَلَة", "src": "msa", "note": "Quadriliteral verb."}
+{"w": "مَهْر", "en": "dowry, bridal gift", "root": "م-ه-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "مُهور", "src": "msa"}
+{"w": "جَذَّرَ", "en": "to uproot, to radicalize", "root": "ج-ذ-ر", "type": "verb", "kind": "verb", "form": "II", "past": "جَذَّرَ", "pres": "يُجَذِّرُ", "masdar": "تَجْذير", "src": "msa"}
+{"w": "جَذْر", "en": "root (of a plant or number)", "root": "ج-ذ-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "جُذور", "src": "msa"}
+{"w": "رَمَلَ", "en": "to trot briskly", "root": "ر-م-ل", "type": "verb", "kind": "verb", "form": "I", "past": "رَمَلَ", "pres": "يَرْمُلُ", "masdar": "رَمَل", "src": "msa"}
+{"w": "رَمْل", "en": "sand", "root": "ر-م-ل", "type": "noun", "kind": "noun", "gender": "m", "plural": "رِمال", "src": "msa"}
+{"w": "إِلِكْتْرون", "en": "electron", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "إِلِكْترونات", "src": "msa"}
+{"w": "تَدْمُر", "en": "Palmyra", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa", "note": "Ancient city in central Syria."}
+{"w": "نَبَشَ", "en": "to dig up, to unearth", "root": "ن-ب-ش", "type": "verb", "kind": "verb", "form": "I", "past": "نَبَشَ", "pres": "يَنْبُشُ", "masdar": "نَبْش", "src": "msa"}
+{"w": "حَكَّ", "en": "to scratch, to rub", "root": "ح-ك-ك", "type": "verb", "kind": "verb", "form": "I", "past": "حَكَّ", "pres": "يَحُكُّ", "masdar": "حَكّ", "src": "msa"}
+{"w": "بُرْتُقالِيّ", "en": "orange (colour)", "root": null, "rootless": true, "type": "adjective", "kind": "adjective", "src": "msa"}
+{"w": "قُفّاز", "en": "glove", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "m", "plural": "قُفّازات", "src": "msa"}
+{"w": "كَبْرَتَ", "en": "to sulfurize", "root": "ك-ب-ر-ت", "type": "verb", "kind": "verb", "form": "I", "past": "كَبْرَتَ", "pres": "يُكَبْرِتُ", "masdar": "كَبْرَتة", "src": "msa", "note": "Quadriliteral verb."}
+{"w": "مِغْناطيسِيَّة", "en": "magnetism", "root": null, "rootless": true, "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"skip": "مُتَطَوِّع", "why": "Qur'an root"}
+{"skip": "نَاحَ", "why": "Qur'an root"}
+{"skip": "أَرْقَى", "why": "Qur'an root"}
+{"skip": "مَرْجَان", "why": "Qur'an root"}
+{"skip": "مَرْجَانَة", "why": "Qur'an root"}
+{"skip": "رَحَّمَ", "why": "Qur'an root"}
+{"skip": "مَجَّدَ", "why": "Qur'an root"}
+{"skip": "سَوَّرَ", "why": "Qur'an root"}
+{"skip": "بِوَابَة", "why": "Qur'an root"}
+{"skip": "نَبَّشَ", "why": "covered by نَبَشَ"}
+{"skip": "نَبْش", "why": "masdar of نَبَشَ, listed there"}
+{"skip": "رُفُوف", "why": "plural of رَفّ"}
+{"skip": "حَاذَ", "why": "not sure"}
+{"skip": "سَوَّطَ", "why": "not sure"}
+{"skip": "قَطّ", "why": "not sure"}
+{"skip": "صَيَّنَ", "why": "not sure"}
+{"skip": "مَارْس", "why": "not sure"}
+{"skip": "سَاحَلَ", "why": "not sure"}
+{"skip": "رَزَّ", "why": "not sure"}
+{"skip": "أَرَزَّ", "why": "not sure"}
+{"skip": "لَبَّنَ", "why": "not sure"}
+{"skip": "كَمّ", "why": "not sure"}
+{"skip": "بَصّ", "why": "colloquial loanword"}
+{"skip": "آس", "why": "not sure"}
+{"skip": "غَرَب", "why": "not sure"}
+{"skip": "تَرَّكَ", "why": "not sure"}
+{"skip": "قَضِيبِيّ", "why": "not sure"}
+{"skip": "تَدَوُّر", "why": "Qur'an root"}
+{"skip": "تَلَعُّب", "why": "Qur'an root"}
+{"skip": "تَفَقُّد", "why": "Qur'an root"}
+{"skip": "سَنَّدَ", "why": "Qur'an root"}
+{"skip": "سَنْد", "why": "Qur'an root"}
+{"skip": "قَصَرَ", "why": "Qur'an root"}
+{"skip": "جَوْب", "why": "Qur'an root"}
+{"skip": "حُقَّة", "why": "Qur'an root"}
+{"skip": "عَنَن", "why": "not sure"}
+{"skip": "تَسَاوٍ", "why": "Qur'an root"}
+{"skip": "أَحَالَ", "why": "Qur'an root"}
+{"skip": "تَنَاسُب", "why": "Qur'an root"}
+{"skip": "أُولَى", "why": "not sure"}
+{"skip": "اِمْتِدَاد", "why": "Qur'an root"}
+{"skip": "تَحَوٍّ", "why": "not sure"}
+{"skip": "قُفَاز", "why": "listed as قُفّاز"}
+{"skip": "شُرْطِيَّة", "why": "Qur'an root"}
+{"skip": "أَكْذَب", "why": "Qur'an root"}
+{"skip": "نَفَّ", "why": "not sure"}
+{"skip": "جَنَّنَ", "why": "Qur'an root"}
+{"skip": "وَرْدِيّة", "why": "Qur'an root"}
+{"skip": "دَرْيَاس", "why": "not sure"}
+{"skip": "رَيَّمَ", "why": "not sure"}
+{"skip": "زِيَار", "why": "not sure"}
+{"skip": "شَقِيقَة", "why": "Qur'an root"}
+{"skip": "كُسْبَة", "why": "not sure"}
+{"skip": "كُوس", "why": "not sure"}
+{"skip": "سَارِي", "why": "not sure"}
+{"skip": "رَمَّلَ", "why": "not sure"}
+{"skip": "بُرْتُقَانِيّ", "why": "listed as بُرْتُقالِيّ"}
+{"skip": "إِلِكْتْرُون", "why": "listed as إِلِكْتْرون"}
+{"skip": "شَيِّق", "why": "Qur'an root"}
+{"skip": "سَاطَ", "why": "Qur'an root"}
+{"skip": "جَزْر", "why": "Qur'an root"}
+{"skip": "وَفْر", "why": "Qur'an root"}
+{"skip": "تَشَجَّعَ", "why": "Qur'an root"}
+{"skip": "تَشَجُّع", "why": "Qur'an root"}

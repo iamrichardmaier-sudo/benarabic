@@ -1,0 +1,79 @@
+{"w":"كُحُولِيّ","en":"alcoholic","root":"ك-ح-ل","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"قَشَّة","en":"straw (a single stalk)","root":"ق-ش-ش","type":"noun","kind":"noun","gender":"f","plural":"قَشّ","src":"msa"}
+{"w":"قَلَنْسُوَة","en":"cap, skullcap","root":"ق-ل-ن-س","type":"noun","kind":"noun","gender":"f","plural":"قَلانِس","src":"msa"}
+{"w":"رَغْوَة","en":"foam, froth","root":"ر-غ-و","type":"noun","kind":"noun","gender":"f","plural":"رَغاوٍ","src":"msa"}
+{"w":"كَنَدِيّ","en":"Canadian","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"جَوْقَة","en":"troupe, choir, band","root":"ج-و-ق","type":"noun","kind":"noun","gender":"f","plural":"جَوْقات","src":"msa"}
+{"skip":"حَماسَة","why":"Qur'an root"}
+{"w":"رَغيف","en":"loaf of flat bread","root":"ر-غ-ف","type":"noun","kind":"noun","gender":"m","plural":"أَرْغِفَة","src":"msa"}
+{"w":"نَرْد","en":"dice, backgammon","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مِنْطاد","en":"balloon, airship","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"مَناطيد","src":"msa"}
+{"w":"سَافَانَا","en":"savanna","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"تَذَمُّر","en":"grumbling, complaining","root":"ذ-م-ر","type":"masdar","kind":"masdar","form":"V","gender":"m","src":"msa"}
+{"w":"قَامُوس","en":"dictionary","root":"ق-م-س","type":"noun","kind":"noun","gender":"m","plural":"قَواميس","src":"msa"}
+{"w":"بَبَّغاء","en":"parrot","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"بَبَّغاوات","src":"msa"}
+{"w":"يُونانِيّ","en":"Greek","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","plural":"يُونانِيّون","src":"msa"}
+{"w":"لَوْز","en":"almonds","root":"ل-و-ز","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مومِياء","en":"mummy","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"كَارَاتِيه","en":"karate","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"دَرْب","why":"Qur'an root"}
+{"w":"مَعْكَرونَة","en":"pasta, macaroni","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"غَجَر","en":"Gypsies, Roma","root":"غ-ج-ر","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"باحَ","en":"to disclose, to divulge","root":"ب-و-ح","type":"verb","kind":"verb","form":"I","past":"باحَ","pres":"يَبوحُ","masdar":"بَوْح","src":"msa"}
+{"w":"بَوْح","en":"disclosure, confession","root":"ب-و-ح","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"نَاي","en":"ney, reed flute","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"نايات","src":"msa"}
+{"w":"صُودِيُوم","en":"sodium","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَرْشيف","en":"archive","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"أَرْشيفات","src":"msa"}
+{"w":"أَسْبِرين","en":"aspirin","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"نَصَّ","en":"to stipulate, to specify","root":"ن-ص-ص","type":"verb","kind":"verb","form":"I","past":"نَصَّ","pres":"يَنُصُّ","masdar":"نَصّ","src":"msa"}
+{"w":"نَصّ","en":"text","root":"ن-ص-ص","type":"noun","kind":"noun","gender":"m","plural":"نُصوص","src":"msa"}
+{"w":"مَنْصوص","en":"stipulated, stated","root":"ن-ص-ص","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"كَهْرومِغْناطيسِيّ","en":"electromagnetic","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"قُطْبِيّ","en":"polar","root":"ق-ط-ب","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"أُسْتُرالِيّ","en":"Australian","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","plural":"أُسْتُرالِيّون","src":"msa"}
+{"skip":"مِزْمار","why":"Qur'an root"}
+{"w":"بَاشَا","en":"pasha","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"باشاوات","src":"msa"}
+{"w":"بُرْغِيّ","en":"screw, bolt","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"بَراغٍ","src":"msa"}
+{"w":"خَوْخ","en":"peaches","root":"خ-و-خ","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"خَوْخَة","en":"wicket, small door","root":"خ-و-خ","type":"noun","kind":"noun","gender":"f","plural":"خَوْخات","src":"msa"}
+{"w":"إِفْريقِيّ","en":"African","root":null,"rootless":true,"type":"adjective","kind":"relative adjective","plural":"إِفْريقِيّون","src":"msa"}
+{"w":"مُبْتَلّ","en":"wet, soaked","root":"ب-ل-ل","type":"participle","kind":"active participle","form":"VIII","src":"msa"}
+{"skip":"مُكَسَّرات","why":"Qur'an root"}
+{"skip":"شُرَّاب","why":"Qur'an root ش-ر-ب"}
+{"skip":"رَكَنَ","why":"Qur'an root"}
+{"skip":"رَكُنَ","why":"Qur'an root"}
+{"skip":"سِفَاح","why":"Qur'an root"}
+{"skip":"اِعْتِيَاد","why":"Qur'an root"}
+{"skip":"شُكْرِيّ","why":"Qur'an root"}
+{"skip":"تَتَبُّع","why":"Qur'an root"}
+{"skip":"إِنَاء","why":"Qur'an root"}
+{"skip":"زَنْجَبِيل","why":"Qur'an root"}
+{"skip":"جَبُنَ","why":"Qur'an root"}
+{"skip":"جَبِين","why":"Qur'an root"}
+{"skip":"مِثْلِيّ","why":"Qur'an root"}
+{"skip":"خَفَاء","why":"Qur'an root"}
+{"skip":"تَأَمُّل","why":"Qur'an root"}
+{"skip":"رَكَبَ","why":"Qur'an root"}
+{"skip":"إِلَٰهِيّ","why":"Qur'an root"}
+{"skip":"تَنْوِيم","why":"Qur'an root"}
+{"skip":"حُورِيَّة","why":"Qur'an root"}
+{"skip":"كُفْء","why":"Qur'an root"}
+{"skip":"تَفَوُّق","why":"Qur'an root"}
+{"skip":"قَطّ","why":"Qur'an root"}
+{"skip":"شَوْكِيّ","why":"Qur'an root"}
+{"skip":"مُسَيَّر","why":"Qur'an root"}
+{"skip":"غَار","why":"Qur'an root"}
+{"skip":"مِقْلَاة","why":"Qur'an root"}
+{"skip":"تَمَحْوَرَ","why":"derived from مِحْوَر, Qur'an root ح-و-ر"}
+{"skip":"سَام","why":"not sure"}
+{"skip":"فَيْج","why":"not sure"}
+{"skip":"دَابَ","why":"not sure"}
+{"skip":"بَعَام","why":"not sure"}
+{"skip":"فَيْف","why":"not sure"}
+{"skip":"رُبُوّ","why":"not sure"}
+{"skip":"نِتّ","why":"colloquial"}
+{"skip":"بُوسْت","why":"colloquial loan"}
+{"skip":"شَامْبَانِيَّا","why":"not sure of spelling"}
+{"skip":"كِنْدِيّ","why":"tribal name"}
+{"skip":"أَمُورِيّ","why":"proper noun"}
+{"skip":"غَالِيّ","why":"proper noun, Gaul"}

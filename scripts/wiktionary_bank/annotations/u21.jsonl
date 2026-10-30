@@ -1,0 +1,75 @@
+{"w":"بُوذِيّ","en":"Buddhist","root":null,"rootless":true,"type":"adjective","kind":"adjective","src":"msa"}
+{"w":"بُوذِيَّة","en":"Buddhism","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"خَوارِزْمِيَّة","en":"algorithm","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","plural":"خَوارِزْمِيّات","src":"msa"}
+{"w":"إِقْلِيمِيَّة","en":"regionalism","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"فَرَنْسِيَّة","en":"French language","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"أَلْبانِيّ","en":"Albanian","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"أَلْبان","src":"msa"}
+{"w":"صِرْبِيّ","en":"Serb, Serbian","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"صِرْب","src":"msa"}
+{"w":"إِسْبانِيّ","en":"Spaniard, Spanish","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"إِسْبان","src":"msa"}
+{"w":"بَرْبَرِيّ","en":"Berber, barbarian","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"بَرابِرة","src":"msa"}
+{"w":"فاشِيّ","en":"fascist","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"فاشِيُّون","src":"msa"}
+{"w":"فاشِيَّة","en":"fascism","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"مِهْرَجان","en":"festival","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"مِهْرَجانات","src":"msa"}
+{"w":"رَأْسَمالِيَّة","en":"capitalism","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"رَأْسَمالِيّ","en":"capitalist","root":null,"rootless":true,"type":"noun","kind":"noun","gender":"m","plural":"رَأْسَمالِيُّون","src":"msa"}
+{"w":"ساذَج","en":"naive, simple","root":null,"rootless":true,"type":"adjective","kind":"adjective","src":"msa"}
+{"w":"نَقَّطَ","en":"to dot, to mark with dots","root":"ن-ق-ط","type":"verb","kind":"verb","form":"II","past":"نَقَّطَ","pres":"يُنَقِّطُ","masdar":"تَنْقِيط","src":"msa"}
+{"w":"فَتَّشَ","en":"to search, to inspect","root":"ف-ت-ش","type":"verb","kind":"verb","form":"II","past":"فَتَّشَ","pres":"يُفَتِّشُ","masdar":"تَفْتِيش","src":"msa"}
+{"w":"فَرَسَ","en":"to maul, to prey on","root":"ف-ر-س","type":"verb","kind":"verb","form":"I","past":"فَرَسَ","pres":"يَفْرِسُ","masdar":"فَرْس","src":"msa"}
+{"w":"لَصّ","en":"thief","root":"ل-ص-ص","type":"noun","kind":"noun","gender":"m","plural":"لُصوص","src":"msa"}
+{"w":"شَمّ","en":"smelling, sense of smell","root":"ش-م-م","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"skip": "أَبْشَرَ", "why": "Qur'an root"}
+{"skip": "إِهْدَاء", "why": "Qur'an root"}
+{"skip": "بَاكِسْتَانِيَّة", "why": "female form of a nationality adjective; not entered"}
+{"skip": "بَسّ", "why": "colloquial"}
+{"skip": "بَشَّرَ", "why": "Qur'an root"}
+{"skip": "بُنّ", "why": "Qur'an root"}
+{"skip": "تَذَاكُر", "why": "Qur'an root"}
+{"skip": "جَرَّاء", "why": "only in the fixed phrase مِنْ جَرَّاءِ"}
+{"skip": "جَنْسَنَ", "why": "not sure of the word"}
+{"skip": "جُورْجِيَا", "why": "name / plant gloss doubtful"}
+{"skip": "جَيَّبَ", "why": "not sure of the word"}
+{"skip": "خِلَاف", "why": "Qur'an root"}
+{"skip": "خُلْد", "why": "Qur'an root"}
+{"skip": "خَوَارِزْمِيّ", "why": "relative of the name al-Khwarizmi; خَوارِزْمِيَّة entered"}
+{"skip": "خَيَّلَ", "why": "Qur'an root"}
+{"skip": "خُيِّلَ", "why": "Qur'an root"}
+{"skip": "دَيِّن", "why": "Qur'an root"}
+{"skip": "ذَرِّيّ", "why": "Qur'an root"}
+{"skip": "ذُرِّيّ", "why": "Qur'an root"}
+{"skip": "سَلّ", "why": "not sure of the word in this sense (basket is سَلّة)"}
+{"skip": "سَمَّحَ", "why": "not sure of the word"}
+{"skip": "سَوْق", "why": "Qur'an root"}
+{"skip": "شَيْطَانِيَّة", "why": "Qur'an root"}
+{"skip": "صَعْق", "why": "Qur'an root"}
+{"skip": "صَعَق", "why": "Qur'an root"}
+{"skip": "صُفْر", "why": "Qur'an root"}
+{"skip": "ضَائِن", "why": "Qur'an root"}
+{"skip": "ضَأْن", "why": "Qur'an root"}
+{"skip": "طَبِيعِيَّة", "why": "Qur'an root"}
+{"skip": "عَرَبِيّ", "why": "Qur'an root"}
+{"skip": "عَصْرِيَّة", "why": "Qur'an root"}
+{"skip": "غَوْل", "why": "Qur'an root"}
+{"skip": "فَجْل", "why": "not sure of the vowels"}
+{"skip": "فَضَائِيّ", "why": "not sure of the root spelling"}
+{"skip": "فُقَّم", "why": "not sure of the word"}
+{"skip": "فُقَّمَة", "why": "not sure of the word"}
+{"skip": "قَرْع", "why": "Qur'an root"}
+{"skip": "كِوَز", "why": "not sure of the word"}
+{"skip": "لِبْن", "why": "Qur'an root"}
+{"skip": "لِبْنَة", "why": "Qur'an root"}
+{"skip": "لِعَاب", "why": "Qur'an root"}
+{"skip": "مَسِير", "why": "Qur'an root"}
+{"skip": "نُدُوَّة", "why": "not sure of the word"}
+{"skip": "نُون", "why": "letter name; not entered"}
+{"skip": "هَرَدَ", "why": "not sure of the word"}
+{"skip": "هَوَّدَ", "why": "Qur'an root"}
+{"skip": "هَيْل", "why": "not sure of the vowels"}
+{"skip": "وَرَّدَ", "why": "Qur'an root"}
+{"skip": "وَصْل", "why": "Qur'an root"}
+{"skip": "يَمَنِيّ", "why": "Qur'an root"}
+{"skip": "يُونَانِيَّة", "why": "female form of a nationality adjective; not entered"}
+{"skip": "إِسْبَان", "why": "plural of إِسْبانِيّ"}
+{"skip": "أَلْبَان", "why": "plural of أَلْبانِيّ"}
+{"skip": "صِرْب", "why": "plural of صِرْبِيّ"}
+{"skip": "فُرْس", "why": "name of a people"}
