@@ -14,6 +14,7 @@ import { DeckContext } from '@/contexts/DeckContext';
 import ConjugationDrill from '@/components/ConjugationDrill';
 import PrepositionDrill from '@/components/PrepositionDrill';
 import NumbersDrill from '@/components/NumbersDrill';
+import TranslationPractice from '@/components/TranslationPractice';
 import MemorizeTranscript from '@/components/MemorizeTranscript';
 import ListenToCards from '@/components/listen/ListenToCards';
 import WordLookup from '@/components/WordLookup';
@@ -972,6 +973,10 @@ const Index = () => {
 
         {view === 'numbersDrill' && (
           <NumbersDrill cards={studyCards} onBack={() => setView('learnHub')} />
+        )}
+
+        {view === 'translationPractice' && (
+          <TranslationPractice onBack={() => setView('learnHub')} />
         )}
 
         {view === 'dictionary' && (

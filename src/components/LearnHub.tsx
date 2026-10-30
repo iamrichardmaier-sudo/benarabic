@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import {
   GraduationCap, BookOpen, RefreshCw, List, BookA,
-  Sparkles, Link2, Brain, Headphones, Hash, LibraryBig, Network, Shapes, Boxes, type LucideIcon,
+  Sparkles, Link2, Brain, Headphones, Hash, LibraryBig, Network, Shapes, Boxes, Languages, type LucideIcon,
 } from 'lucide-react';
 import PodcastShelf from '@/components/podcasts/PodcastShelf';
 import CardMixPicker from '@/components/CardMixPicker';
@@ -11,7 +11,7 @@ import type { Podcast } from '@/lib/podcasts';
 
 export type LearnDestination =
   | 'learn' | 'review' | 'relearn' | 'deck' | 'lookup' | 'learnDecks'
-  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill'
+  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'translationPractice'
   | 'memorize' | 'listenCards' | 'rootExplorer' | 'formExplorer' | 'verbForms' | 'dictionary';
 
 interface LearnHubProps {
@@ -147,6 +147,13 @@ const LearnHub = ({
             emphasis={dueCount === 0}
           />
         </div>
+        <HubTile
+          variant="compact"
+          icon={Languages}
+          label="Daily translation"
+          hint="Three hard sentences from your newest words"
+          onClick={() => onSelect('translationPractice')}
+        />
         {showMix && onCardMixChange && (
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-2xl border border-border bg-card px-4 py-3">
             <span className="min-w-0 flex-1">

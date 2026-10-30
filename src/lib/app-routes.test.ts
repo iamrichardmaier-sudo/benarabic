@@ -4,7 +4,7 @@ import { pathFor, parsePath, isAppPath, type View } from './app-routes';
 describe('app routes', () => {
   it('round-trips every screen', () => {
     const views: View[] = ['home', 'learnHub', 'learnCards', 'lookup', 'rootExplorer', 'verbForms',
-      'conjugationDrill', 'prepositionDrill', 'numbersDrill', 'memorize', 'listenCards', 'review', 'deck',
+      'conjugationDrill', 'prepositionDrill', 'numbersDrill', 'translationPractice', 'memorize', 'listenCards', 'review', 'deck',
       'learnDecks', 'deckBuilder', 'settings', 'add', 'importWords', 'anki', 'pdfToAudio', 'adminDecks', 'feedback'];
     for (const view of views) {
       const path = pathFor({ tab: 'home', view });

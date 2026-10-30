@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
-  Sparkles, Link2, Hash, Brain, Headphones, Check, type LucideIcon,
+  Sparkles, Link2, Hash, Brain, Headphones, Check, Languages, type LucideIcon,
 } from 'lucide-react';
 import DeckIcon from '@/components/decks/DeckIcon';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -26,6 +26,7 @@ const PRACTICE_ITEMS: PracticeItem[] = [
   { id: 'conjugationDrill', label: 'Drill conjugations', icon: Sparkles, hint: 'Past, present and masdar by form' },
   { id: 'prepositionDrill', label: 'Drill prepositions', icon: Link2, hint: 'Verbs that take a fixed preposition' },
   { id: 'numbersDrill', label: 'Drill numbers and plurals', icon: Hash, hint: 'Counting, and the gender the numeral takes' },
+  { id: 'translationPractice', label: 'Daily translation', icon: Languages, hint: 'Three hard sentences from your newest words' },
   { id: 'memorize', label: 'Memorize a transcript', icon: Brain, hint: 'Hide words and recall the passage' },
   { id: 'listenCards', label: 'Listen to cards', icon: Headphones, hint: 'Play a set on a loop, hands-free' },
 ];
