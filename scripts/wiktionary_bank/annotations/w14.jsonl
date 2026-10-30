@@ -1,0 +1,83 @@
+{"w":"جَزَمَ","en":"to decide firmly","root":"ج-ز-م","type":"verb","kind":"verb","form":"I","past":"جَزَمَ","pres":"يَجْزِمُ","masdar":"جَزْم","src":"msa","note":"Also to cut off, and in grammar to put a verb in the jussive."}
+{"w":"جَزْم","en":"jussive mood; firm decision","root":"ج-ز-م","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"جازِم","en":"decisive, firm","root":"ج-ز-م","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"جازِمون","src":"msa"}
+{"w":"مَجْزوم","en":"decided; in the jussive","root":"ج-ز-م","type":"participle","kind":"passive participle","form":"I","gender":"m","plural":"مَجْزومون","src":"msa"}
+{"w":"ضَخَّ","en":"to pump","root":"ض-خ-خ","type":"verb","kind":"verb","form":"I","past":"ضَخَّ","pres":"يَضُخُّ","masdar":"ضَخّ","src":"msa"}
+{"w":"ضَخّ","en":"pumping","root":"ض-خ-خ","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"مِضَخَّة","en":"pump","root":"ض-خ-خ","type":"noun","kind":"noun of instrument","gender":"f","plural":"مِضَخّات","src":"msa"}
+{"w":"سَيَّسَ","en":"to politicize","root":"س-ي-س","type":"verb","kind":"verb","form":"II","past":"سَيَّسَ","pres":"يُسَيِّسُ","masdar":"تَسْيِيس","src":"msa"}
+{"w":"تَسْيِيس","en":"politicization","root":"س-ي-س","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُسَيَّس","en":"politicized","root":"س-ي-س","type":"participle","kind":"passive participle","form":"II","gender":"m","plural":"مُسَيَّسون","src":"msa"}
+{"w":"تَسَيَّسَ","en":"to become politicized","root":"س-ي-س","type":"verb","kind":"verb","form":"V","past":"تَسَيَّسَ","pres":"يَتَسَيَّسُ","masdar":"تَسَيُّس","src":"msa"}
+{"w":"مَاهِيَّة","en":"essence, nature","root":"م-ه-و","type":"noun","kind":"noun","gender":"f","plural":"مَاهِيّات","src":"msa","note":"A philosophical term from ما هو, 'what it is'."}
+{"skip":"مَاهِيّة","why":"the 'salary' and 'palanquin' senses are a separate loan word, not this root; same spelling as the entry"}
+{"w":"جَدْوَلَ","en":"to schedule","root":"ج-د-و-ل","type":"verb","kind":"verb","form":"I","past":"جَدْوَلَ","pres":"يُجَدْوِلُ","masdar":"جَدْوَلَة","src":"msa","note":"Quadriliteral verb, listed as form I; also to arrange in a table."}
+{"w":"جَدْوَلَة","en":"scheduling","root":"ج-د-و-ل","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"جَدْوَل","en":"table, schedule","root":"ج-د-و-ل","type":"noun","kind":"noun","gender":"m","plural":"جَداوِل","src":"msa","note":"Also a small stream."}
+{"w":"مُجَدْوِل","en":"scheduler","root":"ج-د-و-ل","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"مُجَدْوِلون","src":"msa","note":"From a quadriliteral verb."}
+{"w":"دَاسَ","en":"to trample","root":"د-و-س","type":"verb","kind":"verb","form":"I","past":"دَاسَ","pres":"يَدُوسُ","masdar":"دَوْس","src":"msa"}
+{"w":"دَوْس","en":"trampling","root":"د-و-س","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"دَوَّاسَة","en":"pedal","root":"د-و-س","type":"noun","kind":"noun of instrument","gender":"f","plural":"دَوّاسات","src":"msa"}
+{"w":"نَشْوَة","en":"elation, intoxication","root":"ن-ش-و","type":"noun","kind":"noun","gender":"f","plural":"نَشَوات","src":"msa"}
+{"w":"نَشْوان","en":"elated, tipsy","root":"ن-ش-و","type":"adjective","kind":"adjective","plural":"نَشاوى","src":"msa"}
+{"skip":"نَشَاء","why":"starch; not sure it belongs to this root"}
+{"w":"شَظِيَّة","en":"splinter, shrapnel","root":"ش-ظ-ي","type":"noun","kind":"noun","gender":"f","plural":"شَظايا","src":"msa"}
+{"w":"تَشَظَّى","en":"to shatter into splinters","root":"ش-ظ-ي","type":"verb","kind":"verb","form":"V","past":"تَشَظَّى","pres":"يَتَشَظَّى","masdar":"تَشَظٍّ","src":"msa"}
+{"w":"آسَى","en":"to console","root":"أ-س-ي","type":"verb","kind":"verb","form":"III","past":"آسَى","pres":"يُؤاسِي","masdar":"مُؤاساة","src":"msa"}
+{"w":"مُؤاساة","en":"consolation, solidarity","root":"أ-س-ي","type":"masdar","kind":"masdar","form":"III","gender":"f","noplural":true,"src":"msa"}
+{"w":"أَسِيَ","en":"to grieve","root":"أ-س-ي","type":"verb","kind":"verb","form":"I","past":"أَسِيَ","pres":"يَأْسَى","masdar":"أَسًى","src":"msa"}
+{"w":"أَسًى","en":"grief, sorrow","root":"أ-س-ي","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَأَسَّى","en":"to follow the example of","root":"أ-س-ي","type":"verb","kind":"verb","form":"V","past":"تَأَسَّى","pres":"يَتَأَسَّى","masdar":"تَأَسٍّ","src":"msa"}
+{"w":"مَأْساة","en":"tragedy","root":"أ-س-ي","type":"noun","kind":"noun","gender":"f","plural":"مَآسِي","src":"msa"}
+{"w":"نَبَحَ","en":"to bark","root":"ن-ب-ح","type":"verb","kind":"verb","form":"I","past":"نَبَحَ","pres":"يَنْبَحُ","masdar":"نُباح","src":"msa"}
+{"w":"نُباح","en":"barking","root":"ن-ب-ح","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"skip":"نَبْح","why":"variant masdar of نُباح"}
+{"w":"نَسِيم","en":"breeze","root":"ن-س-م","type":"noun","kind":"noun","gender":"m","plural":"نَسائِم","src":"msa"}
+{"w":"نَسَمَة","en":"breath of wind; living soul","root":"ن-س-م","type":"noun","kind":"noun of instance","gender":"f","plural":"نَسَمات","src":"msa"}
+{"w":"تَحَرَّشَ","en":"to harass","root":"ح-ر-ش","type":"verb","kind":"verb","form":"V","past":"تَحَرَّشَ","pres":"يَتَحَرَّشُ","masdar":"تَحَرُّش","src":"msa","note":"Used with ب; also to provoke or pick a quarrel."}
+{"w":"تَحَرُّش","en":"harassment, provocation","root":"ح-ر-ش","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"حَرَّشَ","en":"to incite","root":"ح-ر-ش","type":"verb","kind":"verb","form":"II","past":"حَرَّشَ","pres":"يُحَرِّشُ","masdar":"تَحْرِيش","src":"msa"}
+{"w":"تَحْرِيش","en":"incitement","root":"ح-ر-ش","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"skip":"حَرَشَ","why":"not certain of this verb in current use"}
+{"w":"حَفَّزَ","en":"to motivate, stimulate","root":"ح-ف-ز","type":"verb","kind":"verb","form":"II","past":"حَفَّزَ","pres":"يُحَفِّزُ","masdar":"تَحْفِيز","src":"msa"}
+{"w":"تَحْفِيز","en":"stimulation, motivation","root":"ح-ف-ز","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"حافِز","en":"incentive, motive","root":"ح-ف-ز","type":"noun","kind":"noun","gender":"m","plural":"حَوافِز","src":"msa"}
+{"w":"مُحَفِّز","en":"stimulant, motivating","root":"ح-ف-ز","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُحَفِّزات","src":"msa"}
+{"w":"تَحَفَّزَ","en":"to be poised, ready to spring","root":"ح-ف-ز","type":"verb","kind":"verb","form":"V","past":"تَحَفَّزَ","pres":"يَتَحَفَّزُ","masdar":"تَحَفُّز","src":"msa"}
+{"w":"شَعْوَذَ","en":"to practise sorcery tricks","root":"ش-ع-و-ذ","type":"verb","kind":"verb","form":"I","past":"شَعْوَذَ","pres":"يُشَعْوِذُ","masdar":"شَعْوَذَة","src":"msa","note":"Quadriliteral verb, listed as form I."}
+{"w":"شَعْوَذَة","en":"charlatanry, sorcery","root":"ش-ع-و-ذ","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"مُشَعْوِذ","en":"charlatan, sorcerer","root":"ش-ع-و-ذ","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"مُشَعْوِذون","src":"msa","note":"From a quadriliteral verb."}
+{"w":"نَافَ","en":"to exceed","root":"ن-و-ف","type":"verb","kind":"verb","form":"I","past":"نَافَ","pres":"يَنُوفُ","masdar":"نَوْف","src":"msa","note":"Used with على, as in numbers: more than."}
+{"w":"أَنافَ","en":"to tower over, exceed","root":"ن-و-ف","type":"verb","kind":"verb","form":"IV","past":"أَنافَ","pres":"يُنِيفُ","masdar":"إِنافَة","src":"msa"}
+{"w":"نَيِّف","en":"odd, a few over","root":"ن-و-ف","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"As in عِشْرون وَنَيِّف, twenty-odd."}
+{"skip":"نَيَّفَ","why":"not sure of the verb in current use"}
+{"w":"طاشَ","en":"to act rashly","root":"ط-ي-ش","type":"verb","kind":"verb","form":"I","past":"طاشَ","pres":"يَطِيشُ","masdar":"طَيْش","src":"msa"}
+{"w":"طَيْش","en":"recklessness","root":"ط-ي-ش","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"طائِش","en":"reckless, rash","root":"ط-ي-ش","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"طائِشون","src":"msa"}
+{"skip":"وَثَرَ","why":"not certain of this verb or its vowels"}
+{"w":"وَثِير","en":"soft, comfortable","root":"و-ث-ر","type":"adjective","kind":"adjective","src":"msa","note":"Typically said of a bed or seat."}
+{"w":"وَجِيز","en":"brief, concise","root":"و-ج-ز","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"أَوْجَزَ","en":"to summarize","root":"و-ج-ز","type":"verb","kind":"verb","form":"IV","past":"أَوْجَزَ","pres":"يُوجِزُ","masdar":"إِيجاز","src":"msa"}
+{"w":"إِيجاز","en":"brevity, summary","root":"و-ج-ز","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُوجِز","en":"concise","root":"و-ج-ز","type":"participle","kind":"active participle","form":"IV","gender":"m","src":"msa"}
+{"w":"مُوجَز","en":"summary; summarized","root":"و-ج-ز","type":"participle","kind":"passive participle","form":"IV","gender":"m","plural":"مُوجَزات","src":"msa"}
+{"w":"لَزِج","en":"sticky, viscous","root":"ل-ز-ج","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"لَزِجَ","en":"to be sticky","root":"ل-ز-ج","type":"verb","kind":"verb","form":"I","past":"لَزِجَ","pres":"يَلْزَجُ","masdar":"لُزوجَة","src":"msa"}
+{"w":"لُزوجَة","en":"stickiness, viscosity","root":"ل-ز-ج","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"skip":"لُزُوج","why":"variant masdar of لُزوجَة"}
+{"w":"مَحَضَ","en":"to be sincere to (someone)","root":"م-ح-ض","type":"verb","kind":"verb","form":"I","past":"مَحَضَ","pres":"يَمْحَضُ","masdar":"مَحْض","src":"msa","note":"Mostly in مَحَضَهُ النُّصْحَ, to give him sincere advice."}
+{"w":"مَحْض","en":"pure, sheer","root":"م-ح-ض","type":"adjective","kind":"adjective","src":"msa","note":"As in مَحْض صُدْفة, pure chance."}
+{"skip":"مَحِضَ","why":"rare verb, not sure of it"}
+{"skip":"مَحُضَ","why":"rare verb, not sure of it"}
+{"w":"صُنْبُور","en":"tap, faucet","root":"ص-ن-ب-ر","type":"noun","kind":"noun","gender":"m","plural":"صَنابِير","src":"msa"}
+{"w":"صَنَوْبَر","en":"pine","root":"ص-ن-ب-ر","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa","override":"root listed with ص-ن-ب-ر; the و is an extra letter in the quadriliteral-style form"}
+{"skip":"عُبُوَّة","why":"a package noun that derives from عبأ, not this root"}
+{"w":"ضِمادَة","en":"bandage, dressing","root":"ض-م-د","type":"noun","kind":"noun","gender":"f","plural":"ضِمادات","src":"msa"}
+{"w":"ضَمَّدَ","en":"to bandage","root":"ض-م-د","type":"verb","kind":"verb","form":"II","past":"ضَمَّدَ","pres":"يُضَمِّدُ","masdar":"تَضْمِيد","src":"msa"}
+{"w":"تَضْمِيد","en":"bandaging","root":"ض-م-د","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُضَمِّد","en":"dresser of wounds, medic","root":"ض-م-د","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُضَمِّدون","src":"msa"}
+{"skip":"ضِمَاد","why":"variant of ضِمادَة"}
+{"w":"سِلْعَة","en":"commodity, product","root":"س-ل-ع","type":"noun","kind":"noun","gender":"f","plural":"سِلَع","src":"msa"}
+{"w":"باهِظ","en":"exorbitant, very costly","root":"ب-ه-ظ","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"بَهَظَ","en":"to weigh heavily on","root":"ب-ه-ظ","type":"verb","kind":"verb","form":"I","past":"بَهَظَ","pres":"يَبْهَظُ","masdar":"بَهْظ","src":"msa"}
+{"skip":"سَلْعَة","why":"rare medical sense, same spelling as سِلْعَة"}

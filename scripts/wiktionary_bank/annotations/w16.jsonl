@@ -1,0 +1,72 @@
+{"w":"فَتَّ","en":"to crumble, to break into bits","root":"ف-ت-ت","type":"verb","kind":"verb","form":"I","past":"فَتَّ","pres":"يَفُتُّ","masdar":"فَتّ","src":"msa"}
+{"w":"فُتات","en":"crumbs, bits","root":"ف-ت-ت","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"فَتَّتَ","en":"to crumble, to shred","root":"ف-ت-ت","type":"verb","kind":"verb","form":"II","past":"فَتَّتَ","pres":"يُفَتِّتُ","masdar":"تَفْتيت","src":"msa"}
+{"w":"تَفْتيت","en":"crumbling, fragmentation","root":"ف-ت-ت","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَفَتَّتَ","en":"to crumble, to disintegrate","root":"ف-ت-ت","type":"verb","kind":"verb","form":"V","past":"تَفَتَّتَ","pres":"يَتَفَتَّتُ","masdar":"تَفَتُّت","src":"msa"}
+{"w":"سَلّى","en":"to amuse, to console","root":"س-ل-ي","type":"verb","kind":"verb","form":"II","past":"سَلّى","pres":"يُسَلّي","masdar":"تَسْلِيَة","src":"msa"}
+{"w":"تَسْلِيَة","en":"amusement, entertainment","root":"س-ل-ي","type":"masdar","kind":"masdar","form":"II","gender":"f","plural":"تَسالٍ","src":"msa"}
+{"w":"مُسَلٍّ","en":"amusing, entertaining","root":"س-ل-ي","type":"participle","kind":"active participle","form":"II","src":"msa"}
+{"w":"تَسَلّى","en":"to amuse oneself","root":"س-ل-ي","type":"verb","kind":"verb","form":"V","past":"تَسَلّى","pres":"يَتَسَلّى","masdar":"تَسَلٍّ","src":"msa"}
+{"w":"مَخْفَر","en":"police station, outpost","root":"خ-ف-ر","type":"noun","kind":"noun of place","gender":"m","plural":"مَخافِر","src":"msa"}
+{"w":"خَفَرَ","en":"to guard, to escort","root":"خ-ف-ر","type":"verb","kind":"verb","form":"I","past":"خَفَرَ","pres":"يَخْفِرُ","masdar":"خَفْر","src":"msa"}
+{"w":"خَفير","en":"guard, escort","root":"خ-ف-ر","type":"noun","kind":"noun","gender":"m","plural":"خُفَراء","src":"msa"}
+{"w":"خِفارَة","en":"guarding, escort duty","root":"خ-ف-ر","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"skip":"خَفَر","why":"collective guard or escort; variant of خَفير, not certain enough as a separate word"}
+{"skip":"خَفْر","why":"verbal noun of خَفَرَ"}
+{"skip":"خَفِرَ","why":"rare verb 'to be shy', left out"}
+{"skip":"خَفِر","why":"rare adjective, left out"}
+{"w":"غايَة","en":"goal, purpose, extreme","root":"غ-ي-ي","type":"noun","kind":"noun","gender":"f","plural":"غايات","src":"msa"}
+{"skip":"غَايَا","why":"obscure verb; not sure of its use"}
+{"skip":"غَيَّا","why":"obscure verb; not sure of its use"}
+{"w":"عُشّ","en":"nest","root":"ع-ش-ش","type":"noun","kind":"noun","gender":"m","plural":"أَعْشاش","src":"msa"}
+{"w":"عَشَّشَ","en":"to nest, to build a nest","root":"ع-ش-ش","type":"verb","kind":"verb","form":"II","past":"عَشَّشَ","pres":"يُعَشِّشُ","masdar":"تَعْشيش","src":"msa"}
+{"skip":"بُوص","why":"Wiktionary's reed gloss is doubtful, and the frequent subtitle use is colloquial/loan (inch); not sure of root"}
+{"w":"تَفاءَلَ","en":"to be optimistic","root":"ف-أ-ل","type":"verb","kind":"verb","form":"VI","past":"تَفاءَلَ","pres":"يَتَفاءَلُ","masdar":"تَفاؤُل","src":"msa"}
+{"w":"تَفاؤُل","en":"optimism","root":"ف-أ-ل","type":"masdar","kind":"masdar","form":"VI","gender":"m","noplural":true,"src":"msa","see":[{"w":"تَشاؤُم","label":"Opposite (pessimism)"}]}
+{"w":"مُتَفائِل","en":"optimistic","root":"ف-أ-ل","type":"participle","kind":"active participle","form":"VI","gender":"m","plural":"مُتَفائِلون","src":"msa","see":[{"w":"مُتَشائِم","label":"Opposite (pessimistic)"}]}
+{"w":"فَأْل","en":"good omen","root":"ف-أ-ل","type":"noun","kind":"noun","gender":"m","plural":"فُؤول","src":"msa"}
+{"w":"مَرْفَأ","en":"port, harbour","root":"ر-ف-أ","type":"noun","kind":"noun of place","gender":"m","plural":"مَرافِئ","src":"msa"}
+{"w":"قَبَعَ","en":"to hide away, to lurk","root":"ق-ب-ع","type":"verb","kind":"verb","form":"I","past":"قَبَعَ","pres":"يَقْبَعُ","masdar":"قُبُوع","src":"msa"}
+{"w":"قابِع","en":"huddled, lurking","root":"ق-ب-ع","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"قابِعون","src":"msa"}
+{"w":"قُبَّعَة","en":"hat","root":"ق-ب-ع","type":"noun","kind":"noun","gender":"f","plural":"قُبَّعات","src":"msa"}
+{"w":"دُسْتور","en":"constitution","root":"د-س-ت-ر","type":"noun","kind":"noun","gender":"m","plural":"دَساتير","src":"msa"}
+{"w":"دُسْتوريّ","en":"constitutional","root":"د-س-ت-ر","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"دُسْتوريّة","en":"constitutionality","root":"د-س-ت-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"دَسْتَرَ","en":"to constitutionalize","root":"د-س-ت-ر","type":"verb","kind":"verb","form":"I","past":"دَسْتَرَ","pres":"يُدَسْتِرُ","masdar":"دَسْتَرَة","src":"msa","note":"A quadriliteral verb (form Iq)."}
+{"w":"شَخَرَ","en":"to snore","root":"ش-خ-ر","type":"verb","kind":"verb","form":"I","past":"شَخَرَ","pres":"يَشْخِرُ","masdar":"شَخير","src":"msa"}
+{"w":"شَخير","en":"snoring","root":"ش-خ-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"دَمِيَ","en":"to bleed","root":"د-م-ي","type":"verb","kind":"verb","form":"I","past":"دَمِيَ","pres":"يَدْمَى","masdar":"دَمْي","src":"msa"}
+{"w":"أَدْمى","en":"to make bleed","root":"د-م-ي","type":"verb","kind":"verb","form":"IV","past":"أَدْمى","pres":"يُدْمي","masdar":"إِدْماء","src":"msa"}
+{"w":"دُمْيَة","en":"doll, puppet","root":"د-م-ي","type":"noun","kind":"noun","gender":"f","plural":"دُمًى","src":"msa"}
+{"w":"غَفا","en":"to doze off","root":"غ-ف-و","type":"verb","kind":"verb","form":"I","past":"غَفا","pres":"يَغْفو","masdar":"غَفْوَة","src":"msa"}
+{"w":"غَفْوَة","en":"nap, doze","root":"غ-ف-و","type":"noun","kind":"noun of instance","gender":"f","plural":"غَفَوات","src":"msa"}
+{"w":"اِبْتَزَّ","en":"to blackmail, to extort","root":"ب-ز-ز","type":"verb","kind":"verb","form":"VIII","past":"اِبْتَزَّ","pres":"يَبْتَزُّ","masdar":"اِبْتِزاز","src":"msa"}
+{"w":"اِبْتِزاز","en":"blackmail, extortion","root":"ب-ز-ز","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُبْتَزّ","en":"blackmailer, extortionist","root":"ب-ز-ز","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُبْتَزّون","src":"msa"}
+{"w":"اِبْتِزازيّ","en":"extortionate","root":"ب-ز-ز","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"رَنا","en":"to gaze, to stare","root":"ر-ن-و","type":"verb","kind":"verb","form":"I","past":"رَنا","pres":"يَرْنو","masdar":"رُنُوّ","src":"msa"}
+{"w":"نَبْرَة","en":"tone of voice, stress","root":"ن-ب-ر","type":"noun","kind":"noun of instance","gender":"f","plural":"نَبَرات","src":"msa"}
+{"w":"نَبْر","en":"stress, accentuation","root":"ن-ب-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مِنْبَر","en":"pulpit, platform","root":"ن-ب-ر","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَنابِر","src":"msa"}
+{"w":"كاحِل","en":"ankle","root":"ك-ح-ل","type":"noun","kind":"noun","gender":"m","plural":"كَواحِل","src":"msa"}
+{"w":"كُحْل","en":"kohl","root":"ك-ح-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِكْتَحَلَ","en":"to apply kohl","root":"ك-ح-ل","type":"verb","kind":"verb","form":"VIII","past":"اِكْتَحَلَ","pres":"يَكْتَحِلُ","masdar":"اِكْتِحال","src":"msa"}
+{"w":"كُحْلِيّ","en":"navy blue, kohl-coloured","root":"ك-ح-ل","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"مُكْحُلَة","en":"kohl container","root":"ك-ح-ل","type":"noun","kind":"noun","gender":"f","plural":"مَكاحِل","src":"msa"}
+{"w":"صَفَعَ","en":"to slap","root":"ص-ف-ع","type":"verb","kind":"verb","form":"I","past":"صَفَعَ","pres":"يَصْفَعُ","masdar":"صَفْع","src":"msa"}
+{"w":"صَفْعَة","en":"slap","root":"ص-ف-ع","type":"noun","kind":"noun of instance","gender":"f","plural":"صَفَعات","src":"msa"}
+{"w":"عَجَنَ","en":"to knead","root":"ع-ج-ن","type":"verb","kind":"verb","form":"I","past":"عَجَنَ","pres":"يَعْجِنُ","masdar":"عَجْن","src":"msa"}
+{"w":"عَجْن","en":"kneading","root":"ع-ج-ن","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"عَجين","en":"dough","root":"ع-ج-ن","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَعْجون","en":"paste","root":"ع-ج-ن","type":"noun","kind":"noun","gender":"m","plural":"مَعاجين","src":"msa"}
+{"skip":"وَأَى","why":"obscure verb; not sure of its use or vowels"}
+{"w":"شَوْط","en":"round, stage, half (of a match)","root":"ش-و-ط","type":"noun","kind":"noun","gender":"m","plural":"أَشْواط","src":"msa"}
+{"skip":"شاطَ","why":"not sure of the present-tense vowels or senses"}
+{"w":"مُناخ","en":"climate","root":"ن-و-خ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَناخَ","en":"to make a camel kneel","root":"ن-و-خ","type":"verb","kind":"verb","form":"IV","past":"أَناخَ","pres":"يُنيخُ","masdar":"إِناخَة","src":"msa"}
+{"w":"تَأَهَّبَ","en":"to get ready","root":"أ-ه-ب","type":"verb","kind":"verb","form":"V","past":"تَأَهَّبَ","pres":"يَتَأَهَّبُ","masdar":"تَأَهُّب","src":"msa"}
+{"w":"تَأَهُّب","en":"readiness, alert","root":"أ-ه-ب","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُتَأَهِّب","en":"ready, on alert","root":"أ-ه-ب","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَأَهِّبون","src":"msa"}
+{"w":"أُهْبَة","en":"readiness, equipment","root":"أ-ه-ب","type":"noun","kind":"noun","gender":"f","plural":"أُهَب","src":"msa"}
+{"w":"باقَة","en":"bouquet, bunch","root":"ب-و-ق","type":"noun","kind":"noun","gender":"f","plural":"باقات","src":"msa"}
+{"skip":"يَلَّ","why":"colloquial yalla; the Wiktionary verb is an obscure dental term, not sure"}

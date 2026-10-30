@@ -1,0 +1,76 @@
+{"w":"خَشِن","en":"rough, coarse","root":"خ-ش-ن","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"أَخْشَن","en":"rougher, coarser","root":"خ-ش-ن","type":"adjective","kind":"comparative","src":"msa"}
+{"skip":"أَخْشَن","why":"duplicate listing of the same elative"}
+{"w":"خَشَّنَ","en":"to make rough","root":"خ-ش-ن","type":"verb","kind":"verb","form":"II","past":"خَشَّنَ","pres":"يُخَشِّنُ","masdar":"تَخْشِين","src":"msa"}
+{"w":"خُشْنَة","en":"roughness","root":"خ-ش-ن","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"خَشُنَ","en":"to be rough","root":"خ-ش-ن","type":"verb","kind":"verb","form":"I","past":"خَشُنَ","pres":"يَخْشُنُ","masdar":"خُشُونَة","src":"msa"}
+{"w":"خُشُونَة","en":"roughness, coarseness","root":"خ-ش-ن","type":"masdar","kind":"masdar","form":"I","gender":"f","src":"msa"}
+{"w":"خَاشَنَ","en":"to treat roughly","root":"خ-ش-ن","type":"verb","kind":"verb","form":"III","past":"خَاشَنَ","pres":"يُخَاشِنُ","masdar":"مُخَاشَنَة","src":"msa"}
+{"w":"ثُغْرَة","en":"gap, breach","root":"ث-غ-ر","type":"noun","kind":"noun","gender":"f","plural":"ثُغَر","src":"msa"}
+{"w":"ثَغْر","en":"frontier outpost; mouth","root":"ث-غ-ر","type":"noun","kind":"noun","gender":"m","plural":"ثُغُور","src":"msa"}
+{"skip":"ثَغَرَ","why":"freq 0, not sure of the verb's use"}
+{"w":"مُخَنَّث","en":"effeminate","root":"خ-ن-ث","type":"adjective","kind":"adjective","src":"msa"}
+{"skip":"مُخَنَّث","why":"noun use of the same word as the adjective entry"}
+{"w":"تَخَنَّثَ","en":"to act effeminate","root":"خ-ن-ث","type":"verb","kind":"verb","form":"V","past":"تَخَنَّثَ","pres":"يَتَخَنَّثُ","masdar":"تَخَنُّث","src":"msa"}
+{"w":"خُنُوثَة","en":"effeminacy","root":"خ-ن-ث","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"قَشّ","en":"straw","root":"ق-ش-ش","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"قَشّ","why":"second listing of same noun"}
+{"w":"قَشَّ","en":"to gather up","root":"ق-ش-ش","type":"verb","kind":"verb","form":"I","past":"قَشَّ","pres":"يَقُشُّ","masdar":"قَشّ","src":"msa"}
+{"w":"مِقَشَّة","en":"broom","root":"ق-ش-ش","type":"noun","kind":"noun of instrument","gender":"f","noplural":true,"src":"msa"}
+{"w":"هَذَّبَ","en":"to refine, to educate","root":"ه-ذ-ب","type":"verb","kind":"verb","form":"II","past":"هَذَّبَ","pres":"يُهَذِّبُ","masdar":"تَهْذِيب","src":"msa"}
+{"w":"تَهْذِيب","en":"refinement, polishing","root":"ه-ذ-ب","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"مُهَذَّب","en":"polite, refined","root":"ه-ذ-ب","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"مُهَذِّب","en":"one who refines","root":"ه-ذ-ب","type":"participle","kind":"active participle","form":"II","src":"msa"}
+{"skip":"هَذِب","why":"unsure, freq 0"}
+{"w":"سَبَّاك","en":"plumber, metal founder","root":"س-ب-ك","type":"noun","kind":"noun","gender":"m","plural":"سَبَّاكُون","src":"msa"}
+{"w":"سِبَاكَة","en":"plumbing","root":"س-ب-ك","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"سَبِيكَة","en":"ingot, alloy bar","root":"س-ب-ك","type":"noun","kind":"noun","gender":"f","plural":"سَبَائِك","src":"msa"}
+{"w":"سَبَكَ","en":"to cast, to smelt","root":"س-ب-ك","type":"verb","kind":"verb","form":"I","past":"سَبَكَ","pres":"يَسْبُكُ","masdar":"سَبْك","src":"msa"}
+{"w":"حَبَّذَ","en":"to favour, to approve of","root":"ح-ب-ذ","type":"verb","kind":"verb","form":"II","past":"حَبَّذَ","pres":"يُحَبِّذُ","masdar":"تَحْبِيذ","src":"msa","note":"Derived from the exclamation حَبَّذَا."}
+{"w":"تَحْبِيذ","en":"approval, favouring","root":"ح-ب-ذ","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"مُحَبَّذ","en":"preferable, favoured","root":"ح-ب-ذ","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"شَلَّ","en":"to paralyze","root":"ش-ل-ل","type":"verb","kind":"verb","form":"I","past":"شَلَّ","pres":"يَشُلُّ","masdar":"شَلّ","src":"msa"}
+{"skip":"شَلَّ","why":"second listing, to be lame (different vowel pattern)"}
+{"w":"مَشْلُول","en":"paralyzed","root":"ش-ل-ل","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"شَلَل","en":"paralysis","root":"ش-ل-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"skip":"أَشَلَّ","why":"not sure of modern use"}
+{"skip":"شُلَّ","why":"passive of شَلَّ"}
+{"w":"شَلَّة","en":"clique, group of friends","root":"ش-ل-ل","type":"noun","kind":"noun","gender":"f","plural":"شِلَل","src":"msa"}
+{"skip":"بَجَع","why":"pelican; Wiktionary root wrong, letters are ب-ج-ع"}
+{"skip":"مَرَشَ","why":"not sure of the verb"}
+{"w":"تَدَهْوَرَ","en":"to deteriorate","root":"د-ه-و-ر","type":"verb","kind":"verb","form":"I","past":"تَدَهْوَرَ","pres":"يَتَدَهْوَرُ","masdar":"تَدَهْوُر","src":"msa","note":"Quadriliteral verb."}
+{"w":"تَدَهْوُر","en":"deterioration","root":"د-ه-و-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa","note":"Masdar of a quadriliteral verb."}
+{"w":"سَطَعَ","en":"to shine brightly","root":"س-ط-ع","type":"verb","kind":"verb","form":"I","past":"سَطَعَ","pres":"يَسْطَعُ","masdar":"سُطُوع","src":"msa"}
+{"w":"سُطُوع","en":"brilliance","root":"س-ط-ع","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"سَاطِع","en":"bright, brilliant","root":"س-ط-ع","type":"participle","kind":"active participle","form":"I","src":"msa"}
+{"w":"غَثَيَان","en":"nausea","root":"غ-ث-ي","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"سَلِس","en":"smooth, fluent, easy","root":"س-ل-س","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"سَلَاسَة","en":"smoothness, fluency","root":"س-ل-س","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"skip":"كَرَا","why":"not sure of the verb as listed"}
+{"w":"خُلْسَة","en":"stealth, furtiveness","root":"خ-ل-س","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"خَلَسَ","en":"to snatch","root":"خ-ل-س","type":"verb","kind":"verb","form":"I","past":"خَلَسَ","pres":"يَخْلِسُ","masdar":"خَلْس","src":"msa"}
+{"w":"اِخْتَلَسَ","en":"to embezzle","root":"خ-ل-س","type":"verb","kind":"verb","form":"VIII","past":"اِخْتَلَسَ","pres":"يَخْتَلِسُ","masdar":"اِخْتِلَاس","src":"msa"}
+{"w":"اِخْتِلَاس","en":"embezzlement","root":"خ-ل-س","type":"masdar","kind":"masdar","form":"VIII","gender":"m","src":"msa"}
+{"w":"مُخْتَلِس","en":"embezzler","root":"خ-ل-س","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُخْتَلِسُون","src":"msa"}
+{"w":"مَطَّ","en":"to stretch","root":"م-ط-ط","type":"verb","kind":"verb","form":"I","past":"مَطَّ","pres":"يَمُطُّ","masdar":"مَطّ","src":"msa"}
+{"w":"مَطَّاط","en":"rubber","root":"م-ط-ط","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَطَّاط","en":"elastic, stretchy","root":"م-ط-ط","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"تَمَطَّطَ","en":"to stretch oneself","root":"م-ط-ط","type":"verb","kind":"verb","form":"V","past":"تَمَطَّطَ","pres":"يَتَمَطَّطُ","masdar":"تَمَطُّط","src":"msa"}
+{"w":"فَرْخ","en":"chick, young bird","root":"ف-ر-خ","type":"noun","kind":"noun","gender":"m","plural":"فِرَاخ","src":"msa"}
+{"w":"فَرَّخَ","en":"to hatch","root":"ف-ر-خ","type":"verb","kind":"verb","form":"II","past":"فَرَّخَ","pres":"يُفَرِّخُ","masdar":"تَفْرِيخ","src":"msa"}
+{"w":"غُصْن","en":"branch","root":"غ-ص-ن","type":"noun","kind":"noun","gender":"m","plural":"أَغْصَان","src":"msa"}
+{"w":"أُحْجِيَّة","en":"riddle, puzzle","root":"ح-ج-و","type":"noun","kind":"noun","gender":"f","plural":"أَحَاجِي","src":"msa"}
+{"w":"مُومِس","en":"prostitute","root":"و-م-س","type":"noun","kind":"noun","gender":"f","plural":"مُومِسَات","src":"msa"}
+{"skip":"مُومِسَة","why":"variant spelling of مُومِس"}
+{"w":"سِمْسَار","en":"broker, middleman","root":"س-م-س-ر","type":"noun","kind":"noun","gender":"m","plural":"سَمَاسِرَة","src":"msa"}
+{"w":"سَمْسَرَ","en":"to act as a broker","root":"س-م-س-ر","type":"verb","kind":"verb","form":"I","past":"سَمْسَرَ","pres":"يُسَمْسِرُ","masdar":"سَمْسَرَة","src":"msa","note":"Quadriliteral verb."}
+{"w":"سَمْسَرَة","en":"brokerage","root":"س-م-س-ر","type":"masdar","kind":"masdar","form":"I","gender":"f","src":"msa","note":"Masdar of a quadriliteral verb."}
+{"w":"رُقْعَة","en":"patch; piece of paper","root":"ر-ق-ع","type":"noun","kind":"noun","gender":"f","plural":"رِقَاع","src":"msa"}
+{"w":"رَقَعَ","en":"to patch","root":"ر-ق-ع","type":"verb","kind":"verb","form":"I","past":"رَقَعَ","pres":"يَرْقَعُ","masdar":"رَقْع","src":"msa"}
+{"w":"رَقَّعَ","en":"to patch up","root":"ر-ق-ع","type":"verb","kind":"verb","form":"II","past":"رَقَّعَ","pres":"يُرَقِّعُ","masdar":"تَرْقِيع","src":"msa"}
+{"w":"تَرْقِيع","en":"patching","root":"ر-ق-ع","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"مُرَقَّع","en":"patched","root":"ر-ق-ع","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"رَمْل","en":"sand","root":"ر-م-ل","type":"noun","kind":"collective noun","gender":"m","plural":"رِمَال","src":"msa"}
+{"w":"رَمْلِيّ","en":"sandy","root":"ر-م-ل","type":"adjective","kind":"relative adjective","src":"msa"}
+{"skip":"رَمْلِيَّة","why":"sandwort plant, obscure; feminine of رَمْلِيّ"}
+{"skip":"هَار","why":"root uncertain (ه-و-ر / ه-ر-ي), defective participle"}

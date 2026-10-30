@@ -1,0 +1,81 @@
+{"w":"رَكَّ","en":"to be weak, to be feeble","root":"ر-ك-ك","type":"verb","kind":"verb","form":"I","past":"رَكَّ","pres":"يَرِكُّ","masdar":"رَكاكَة","src":"msa"}
+{"w":"رَكيك","en":"weak, poor (of style)","root":"ر-ك-ك","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"شَفْرَة","en":"blade, razor blade","root":"ش-ف-ر","type":"noun","kind":"noun","gender":"f","plural":"شِفار","src":"msa"}
+{"w":"شَفَّرَ","en":"to encrypt","root":"ش-ف-ر","type":"verb","kind":"verb","form":"II","past":"شَفَّرَ","pres":"يُشَفِّرُ","masdar":"تَشْفير","src":"msa"}
+{"w":"تَشْفير","en":"encryption","root":"ش-ف-ر","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"مُشَفَّر","en":"encrypted","root":"ش-ف-ر","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"قَبْو","en":"basement, cellar, vault","root":"ق-ب-و","type":"noun","kind":"noun","gender":"m","plural":"أَقْبِيَة","src":"msa"}
+{"w":"مَتْحَف","en":"museum","root":"ت-ح-ف","type":"noun","kind":"noun of place","gender":"m","plural":"مَتاحِف","src":"msa"}
+{"w":"تُحْفَة","en":"masterpiece, rare gem","root":"ت-ح-ف","type":"noun","kind":"noun","gender":"f","plural":"تُحَف","src":"msa"}
+{"w":"جَنازَة","en":"funeral","root":"ج-ن-ز","type":"noun","kind":"noun","gender":"f","plural":"جَنائِز","src":"msa"}
+{"w":"بَلَّ","en":"to wet, to moisten","root":"ب-ل-ل","type":"verb","kind":"verb","form":"I","past":"بَلَّ","pres":"يَبُلُّ","masdar":"بَلّ","src":"msa"}
+{"w":"بَلَّلَ","en":"to wet, to soak","root":"ب-ل-ل","type":"verb","kind":"verb","form":"II","past":"بَلَّلَ","pres":"يُبَلِّلُ","masdar":"تَبْليل","src":"msa"}
+{"w":"مُبَلَّل","en":"wet, soaked","root":"ب-ل-ل","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"مَبْلول","en":"wet, damp","root":"ب-ل-ل","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"اِبْتَلَّ","en":"to become wet","root":"ب-ل-ل","type":"verb","kind":"verb","form":"VIII","past":"اِبْتَلَّ","pres":"يَبْتَلُّ","masdar":"اِبْتِلال","src":"msa"}
+{"w":"بَليل","en":"damp, moist","root":"ب-ل-ل","type":"adjective","kind":"adjective","src":"msa"}
+{"skip":"بَلِيلَة","why":"regional dish name of uncertain MSA status"}
+{"skip":"بَلَّة","why":"instance noun of بَلَّ, not sure it is a stand-alone word"}
+{"w":"عَشِقَ","en":"to fall passionately in love","root":"ع-ش-ق","type":"verb","kind":"verb","form":"I","past":"عَشِقَ","pres":"يَعْشَقُ","masdar":"عِشْق","src":"msa"}
+{"w":"عِشْق","en":"passionate love","root":"ع-ش-ق","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"عاشِق","en":"lover, in love","root":"ع-ش-ق","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"عُشّاق","src":"msa"}
+{"w":"مَعْشوق","en":"beloved","root":"ع-ش-ق","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"عَشَّقَ","en":"to interlock, to mesh (parts)","root":"ع-ش-ق","type":"verb","kind":"verb","form":"II","past":"عَشَّقَ","pres":"يُعَشِّقُ","masdar":"تَعْشيق","src":"msa"}
+{"w":"دَفَنَ","en":"to bury","root":"د-ف-ن","type":"verb","kind":"verb","form":"I","past":"دَفَنَ","pres":"يَدْفِنُ","masdar":"دَفْن","src":"msa"}
+{"w":"دَفْن","en":"burial","root":"د-ف-ن","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"مَدْفون","en":"buried","root":"د-ف-ن","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"جَرْو","en":"puppy, cub","root":"ج-ر-و","type":"noun","kind":"noun","gender":"m","plural":"جِراء","src":"msa"}
+{"w":"جَفَّ","en":"to become dry","root":"ج-ف-ف","type":"verb","kind":"verb","form":"I","past":"جَفَّ","pres":"يَجِفُّ","masdar":"جَفاف","src":"msa"}
+{"w":"جَفاف","en":"dryness, drought","root":"ج-ف-ف","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"جافّ","en":"dry","root":"ج-ف-ف","type":"participle","kind":"active participle","form":"I","src":"msa"}
+{"w":"جَفَّفَ","en":"to dry","root":"ج-ف-ف","type":"verb","kind":"verb","form":"II","past":"جَفَّفَ","pres":"يُجَفِّفُ","masdar":"تَجْفيف","src":"msa"}
+{"w":"تَجْفيف","en":"drying","root":"ج-ف-ف","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"مُجَفَّف","en":"dried","root":"ج-ف-ف","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"وَرِمَ","en":"to swell","root":"و-ر-م","type":"verb","kind":"verb","form":"I","past":"وَرِمَ","pres":"يَرِمُ","masdar":"وَرَم","src":"msa"}
+{"w":"وَرَم","en":"swelling, tumor","root":"و-ر-م","type":"noun","kind":"noun","gender":"m","plural":"أَوْرام","src":"msa"}
+{"w":"وَرَّمَ","en":"to cause to swell","root":"و-ر-م","type":"verb","kind":"verb","form":"II","past":"وَرَّمَ","pres":"يُوَرِّمُ","masdar":"تَوْريم","src":"msa"}
+{"w":"تَوَرَّمَ","en":"to swell up","root":"و-ر-م","type":"verb","kind":"verb","form":"V","past":"تَوَرَّمَ","pres":"يَتَوَرَّمُ","masdar":"تَوَرُّم","src":"msa"}
+{"w":"تَوَرُّم","en":"swelling","root":"و-ر-م","type":"masdar","kind":"masdar","form":"V","gender":"m","src":"msa"}
+{"w":"حِصَّة","en":"share, lesson","root":"ح-ص-ص","type":"noun","kind":"noun","gender":"f","plural":"حِصَص","src":"msa"}
+{"skip":"مِتْر","why":"loanword (metre), belongs to the rootless shard"}
+{"skip":"مَتَرَ","why":"not sure of this verb; the frequency is probably the loanword"}
+{"w":"لَحِسَ","en":"to lick","root":"ل-ح-س","type":"verb","kind":"verb","form":"I","past":"لَحِسَ","pres":"يَلْحَسُ","masdar":"لَحْس","src":"msa"}
+{"w":"عَروس","en":"bride","root":"ع-ر-س","type":"noun","kind":"noun","gender":"f","plural":"عَرائِس","src":"msa"}
+{"w":"عُرْس","en":"wedding","root":"ع-ر-س","type":"noun","kind":"noun","gender":"m","plural":"أَعْراس","src":"msa"}
+{"w":"أَعْرَسَ","en":"to hold a wedding, to marry","root":"ع-ر-س","type":"verb","kind":"verb","form":"IV","past":"أَعْرَسَ","pres":"يُعْرِسُ","masdar":"إِعْراس","src":"msa"}
+{"skip":"عَرُوسَة","why":"colloquial form/doll sense of عَروس"}
+{"w":"راقَ","en":"to please, to be pleasing","root":"ر-و-ق","type":"verb","kind":"verb","form":"I","past":"راقَ","pres":"يَروقُ","masdar":"رَوْق","src":"msa"}
+{"w":"رائِق","en":"clear, pleasant, calm","root":"ر-و-ق","type":"participle","kind":"active participle","form":"I","src":"msa"}
+{"w":"رِواق","en":"portico, colonnade","root":"ر-و-ق","type":"noun","kind":"noun","gender":"m","plural":"أَرْوِقَة","src":"msa"}
+{"w":"رَوَّقَ","en":"to clarify, to filter","root":"ر-و-ق","type":"verb","kind":"verb","form":"II","past":"رَوَّقَ","pres":"يُرَوِّقُ","masdar":"تَرْويق","src":"msa"}
+{"w":"أَراقَ","en":"to spill, to pour out","root":"ر-و-ق","type":"verb","kind":"verb","form":"IV","past":"أَراقَ","pres":"يُريقُ","masdar":"إِراقَة","src":"msa"}
+{"skip":"تَرَوَّقَ","why":"not sure of the sense and usage"}
+{"w":"لُغْز","en":"riddle, puzzle","root":"ل-غ-ز","type":"noun","kind":"noun","gender":"m","plural":"أَلْغاز","src":"msa"}
+{"w":"لَغَّزَ","en":"to speak in riddles, to make enigmatic","root":"ل-غ-ز","type":"verb","kind":"verb","form":"II","past":"لَغَّزَ","pres":"يُلَغِّزُ","masdar":"تَلْغيز","src":"msa"}
+{"w":"مُلَغَّز","en":"enigmatic, puzzling","root":"ل-غ-ز","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"skip":"لَغَزَ","why":"not sure of this verb's sense"}
+{"w":"لاءَمَ","en":"to suit, to be compatible with","root":"ل-أ-م","type":"verb","kind":"verb","form":"III","past":"لاءَمَ","pres":"يُلائِمُ","masdar":"مُلاءَمَة","src":"msa"}
+{"w":"لَئيم","en":"mean, base","root":"ل-أ-م","type":"adjective","kind":"adjective","plural":"لِئام","src":"msa"}
+{"w":"مُلائِم","en":"suitable","root":"ل-أ-م","type":"participle","kind":"active participle","form":"III","src":"msa"}
+{"w":"صَحْراء","en":"desert","root":"ص-ح-ر","type":"noun","kind":"noun","gender":"f","plural":"صَحارى","src":"msa"}
+{"w":"صَحْراوِيّ","en":"desert (adj.), of the desert","root":"ص-ح-ر","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"تَصَحَّرَ","en":"to become desert","root":"ص-ح-ر","type":"verb","kind":"verb","form":"V","past":"تَصَحَّرَ","pres":"يَتَصَحَّرُ","masdar":"تَصَحُّر","src":"msa"}
+{"w":"تَصَحُّر","en":"desertification","root":"ص-ح-ر","type":"masdar","kind":"masdar","form":"V","gender":"m","src":"msa"}
+{"w":"هَدَف","en":"goal, target","root":"ه-د-ف","type":"noun","kind":"noun","gender":"m","plural":"أَهْداف","src":"msa"}
+{"w":"اِسْتَهْدَفَ","en":"to target, to aim at","root":"ه-د-ف","type":"verb","kind":"verb","form":"X","past":"اِسْتَهْدَفَ","pres":"يَسْتَهْدِفُ","masdar":"اِسْتِهْداف","src":"msa"}
+{"w":"مُسْتَهْدَف","en":"targeted","root":"ه-د-ف","type":"participle","kind":"passive participle","form":"X","src":"msa"}
+{"skip":"هَدَفَ","why":"not sure of the present-tense vowel"}
+{"skip":"هَدَّفَ","why":"not sure of this verb"}
+{"w":"أَخْفَقَ","en":"to fail","root":"خ-ف-ق","type":"verb","kind":"verb","form":"IV","past":"أَخْفَقَ","pres":"يُخْفِقُ","masdar":"إِخْفاق","src":"msa"}
+{"w":"إِخْفاق","en":"failure","root":"خ-ف-ق","type":"masdar","kind":"masdar","form":"IV","gender":"m","src":"msa"}
+{"w":"خَفَقَ","en":"to throb, to flutter","root":"خ-ف-ق","type":"verb","kind":"verb","form":"I","past":"خَفَقَ","pres":"يَخْفِقُ","masdar":"خَفَقان","src":"msa"}
+{"w":"خافِق","en":"throbbing, fluttering","root":"خ-ف-ق","type":"participle","kind":"active participle","form":"I","src":"msa"}
+{"w":"إِطار","en":"frame, framework","root":"أ-ط-ر","type":"noun","kind":"noun","gender":"m","plural":"أُطُر","src":"msa"}
+{"w":"أَطَّرَ","en":"to frame","root":"أ-ط-ر","type":"verb","kind":"verb","form":"II","past":"أَطَّرَ","pres":"يُؤَطِّرُ","masdar":"تَأْطير","src":"msa"}
+{"skip":"فَسا","why":"vulgar and uncertain of usage, left out"}
+{"w":"أَنْجَزَ","en":"to accomplish, to complete","root":"ن-ج-ز","type":"verb","kind":"verb","form":"IV","past":"أَنْجَزَ","pres":"يُنْجِزُ","masdar":"إِنْجاز","src":"msa"}
+{"w":"إِنْجاز","en":"achievement","root":"ن-ج-ز","type":"masdar","kind":"masdar","form":"IV","gender":"m","plural":"إِنْجازات","src":"msa"}
+{"w":"مُنْجَز","en":"accomplished","root":"ن-ج-ز","type":"participle","kind":"passive participle","form":"IV","src":"msa"}
+{"w":"مُنْجِز","en":"one who accomplishes","root":"ن-ج-ز","type":"participle","kind":"active participle","form":"IV","src":"msa"}
+{"w":"أَمْرَكَة","en":"Americanization","root":"أ-م-ر-ك","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"skip":"أَمْرَكَ","why":"quadriliteral verb form not supported by the format"}

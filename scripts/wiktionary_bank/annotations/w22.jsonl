@@ -1,0 +1,77 @@
+{"w":"عَرْقَلَ","en":"to obstruct, to impede","root":"ع-ر-ق-ل","type":"verb","kind":"verb","form":"I","past":"عَرْقَلَ","pres":"يُعَرْقِلُ","masdar":"عَرْقَلَة","src":"msa","note":"Quadriliteral verb."}
+{"w":"عَرْقَلَة","en":"obstruction, hindering","root":"ع-ر-ق-ل","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"ضاهَى","en":"to resemble, to rival","root":"ض-ه-ي","type":"verb","kind":"verb","form":"III","past":"ضاهَى","pres":"يُضاهِي","masdar":"مُضاهاة","src":"msa"}
+{"w":"مُضاهاة","en":"imitation, emulation","root":"ض-ه-ي","type":"masdar","kind":"masdar","form":"III","gender":"f","noplural":true,"src":"msa"}
+{"w":"هاجِس","en":"worry, nagging thought","root":"ه-ج-س","type":"noun","kind":"noun","gender":"m","plural":"هَواجِس","src":"msa"}
+{"w":"هَجَسَ","en":"to cross one's mind","root":"ه-ج-س","type":"verb","kind":"verb","form":"I","past":"هَجَسَ","pres":"يَهْجِسُ","masdar":"هَجْس","src":"msa"}
+{"w":"غَطْرَسَ","en":"to act arrogantly","root":"غ-ط-ر-س","type":"verb","kind":"verb","form":"I","past":"غَطْرَسَ","pres":"يُغَطْرِسُ","masdar":"غَطْرَسَة","src":"msa","note":"Quadriliteral verb."}
+{"w":"تَغَطْرَسَ","en":"to behave arrogantly","root":"غ-ط-ر-س","type":"verb","kind":"verb","form":"I","past":"تَغَطْرَسَ","pres":"يَتَغَطْرَسُ","masdar":"تَغَطْرُس","src":"msa","note":"Quadriliteral verb (reflexive pattern, like form V)."}
+{"w":"غَطْرَسَة","en":"arrogance, haughtiness","root":"غ-ط-ر-س","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"غِطْرِيس","en":"arrogant, haughty","root":"غ-ط-ر-س","type":"adjective","kind":"adjective","plural":"غَطارِيس","src":"msa"}
+{"w":"فَشا","en":"to spread, to become widespread","root":"ف-ش-و","type":"verb","kind":"verb","form":"I","past":"فَشا","pres":"يَفْشو","masdar":"فُشُوّ","src":"msa"}
+{"w":"أَفْشى","en":"to disclose, to divulge","root":"ف-ش-و","type":"verb","kind":"verb","form":"IV","past":"أَفْشى","pres":"يُفْشي","masdar":"إِفْشاء","src":"msa"}
+{"w":"تَفَشّى","en":"to spread (disease, news)","root":"ف-ش-و","type":"verb","kind":"verb","form":"V","past":"تَفَشّى","pres":"يَتَفَشّى","masdar":"تَفَشٍّ","src":"msa"}
+{"w":"إِفْشاء","en":"disclosure, divulging","root":"ف-ش-و","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَفَشٍّ","en":"spread, outbreak","root":"ف-ش-و","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"ناطَ","en":"to entrust, to assign","root":"ن-و-ط","type":"verb","kind":"verb","form":"I","past":"ناطَ","pres":"يَنوطُ","masdar":"نَوْط","src":"msa","note":"Originally to hang; used with the sense of entrusting a task."}
+{"w":"أَناطَ","en":"to entrust, to assign","root":"ن-و-ط","type":"verb","kind":"verb","form":"IV","past":"أَناطَ","pres":"يُنيطُ","masdar":"إِناطة","src":"msa"}
+{"w":"نَوَّطَ","en":"to hang, to decorate with a medal","root":"ن-و-ط","type":"verb","kind":"verb","form":"II","past":"نَوَّطَ","pres":"يُنَوِّطُ","masdar":"تَنْويط","src":"msa"}
+{"w":"نَوْط","en":"medal, decoration","root":"ن-و-ط","type":"noun","kind":"noun","gender":"m","plural":"أَنْواط","src":"msa"}
+{"w":"مَنوط","en":"entrusted, dependent","root":"ن-و-ط","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"شَرَج","en":"anus","root":"ش-ر-ج","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"شَرَجِيّ","en":"anal","root":"ش-ر-ج","type":"adjective","kind":"relative adjective","src":"msa"}
+{"skip":"شَرْج","why":"not sure of the sense behind this spelling; shared with the شَرَج entry area, left out"}
+{"w":"أَزَل","en":"eternity without beginning","root":"أ-ز-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَزَلِيّ","en":"eternal, everlasting","root":"أ-ز-ل","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"لَخَّصَ","en":"to summarize","root":"ل-خ-ص","type":"verb","kind":"verb","form":"II","past":"لَخَّصَ","pres":"يُلَخِّصُ","masdar":"تَلْخيص","src":"msa"}
+{"w":"تَلْخيص","en":"summarizing, summary","root":"ل-خ-ص","type":"masdar","kind":"masdar","form":"II","gender":"m","plural":"تَلاخيص","src":"msa"}
+{"w":"مُلَخَّص","en":"summary, abstract","root":"ل-خ-ص","type":"noun","kind":"noun","gender":"m","plural":"مُلَخَّصات","src":"msa"}
+{"w":"مُلَخَّص","en":"summarized","root":"ل-خ-ص","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"تَلَخَّصَ","en":"to be summed up","root":"ل-خ-ص","type":"verb","kind":"verb","form":"V","past":"تَلَخَّصَ","pres":"يَتَلَخَّصُ","masdar":"تَلَخُّص","src":"msa"}
+{"w":"صَقيع","en":"frost, hoarfrost","root":"ص-ق-ع","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"صُقْع","en":"region, quarter","root":"ص-ق-ع","type":"noun","kind":"noun","gender":"m","plural":"أَصْقاع","src":"msa"}
+{"w":"مِصْقَع","en":"eloquent","root":"ص-ق-ع","type":"adjective","kind":"adjective","plural":"مَصاقِع","src":"msa"}
+{"w":"طُحْلُب","en":"algae, moss","root":"ط-ح-ل-ب","type":"noun","kind":"noun","gender":"m","plural":"طَحالِب","src":"msa"}
+{"w":"تاقَ","en":"to yearn, to long","root":"ت-و-ق","type":"verb","kind":"verb","form":"I","past":"تاقَ","pres":"يَتوقُ","masdar":"تَوْق","src":"msa","note":"Used with إِلى: تاقَ إِلى."}
+{"w":"تَوْق","en":"longing, yearning","root":"ت-و-ق","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"تائِق","en":"yearning, longing","root":"ت-و-ق","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"بَتَرَ","en":"to cut off, to amputate","root":"ب-ت-ر","type":"verb","kind":"verb","form":"I","past":"بَتَرَ","pres":"يَبْتُرُ","masdar":"بَتْر","src":"msa"}
+{"w":"بَتْر","en":"amputation, cutting off","root":"ب-ت-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَبْتَر","en":"cut off, truncated","root":"ب-ت-ر","type":"adjective","kind":"adjective","plural":"بُتْر","src":"msa"}
+{"w":"باتِر","en":"sharp, cutting","root":"ب-ت-ر","type":"participle","kind":"active participle","form":"I","src":"msa","note":"Typically of a sword."}
+{"w":"مَبْتور","en":"amputated, severed","root":"ب-ت-ر","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"خِراء","en":"excrement, feces","root":"خ-ر-أ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"Vulgar."}
+{"w":"جَدَّفَ","en":"to row; to blaspheme","root":"ج-د-ف","type":"verb","kind":"verb","form":"II","past":"جَدَّفَ","pres":"يُجَدِّفُ","masdar":"تَجْديف","src":"msa"}
+{"w":"تَجْديف","en":"blasphemy; rowing","root":"ج-د-ف","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مِجْداف","en":"oar, paddle","root":"ج-د-ف","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَجاديف","src":"msa"}
+{"w":"مُجَدِّف","en":"blasphemer; rower","root":"ج-د-ف","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُجَدِّفون","src":"msa"}
+{"w":"حَمَّصَ","en":"to roast, to toast","root":"ح-م-ص","type":"verb","kind":"verb","form":"II","past":"حَمَّصَ","pres":"يُحَمِّصُ","masdar":"تَحْميص","src":"msa"}
+{"w":"تَحْميص","en":"roasting","root":"ح-م-ص","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُحَمَّص","en":"roasted, toasted","root":"ح-م-ص","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"حِمَّص","en":"chickpeas","root":"ح-م-ص","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَدَحَ","en":"to praise","root":"م-د-ح","type":"verb","kind":"verb","form":"I","past":"مَدَحَ","pres":"يَمْدَحُ","masdar":"مَدْح","src":"msa"}
+{"w":"مَدْح","en":"praise","root":"م-د-ح","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَديح","en":"praise, eulogy","root":"م-د-ح","type":"noun","kind":"noun","gender":"m","plural":"مَدائِح","src":"msa"}
+{"w":"مادِح","en":"praiser","root":"م-د-ح","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"مادِحون","src":"msa"}
+{"w":"مَمْدوح","en":"praised, praiseworthy","root":"م-د-ح","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"اِمْتَدَحَ","en":"to praise, to extol","root":"م-د-ح","type":"verb","kind":"verb","form":"VIII","past":"اِمْتَدَحَ","pres":"يَمْتَدِحُ","masdar":"اِمْتِداح","src":"msa"}
+{"w":"شَفَطَ","en":"to suck up, to siphon","root":"ش-ف-ط","type":"verb","kind":"verb","form":"I","past":"شَفَطَ","pres":"يَشْفُطُ","masdar":"شَفْط","src":"msa"}
+{"w":"شَفْط","en":"suction, siphoning","root":"ش-ف-ط","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"شَفّاط","en":"extractor hood, suction fan","root":"ش-ف-ط","type":"noun","kind":"noun of instrument","gender":"m","plural":"شَفّاطات","src":"msa"}
+{"w":"رَحى","en":"millstone, handmill","root":"ر-ح-و","type":"noun","kind":"noun","gender":"f","plural":"أَرْحاء","src":"msa"}
+{"skip":"رَحَى","why":"the verb sense (to turn, coil) is doubtful; the word is listed as the noun رَحى"}
+{"w":"خُصْلة","en":"lock of hair, tress","root":"خ-ص-ل","type":"noun","kind":"noun","gender":"f","plural":"خُصَل","src":"msa"}
+{"w":"تَفاقَمَ","en":"to worsen, to escalate","root":"ف-ق-م","type":"verb","kind":"verb","form":"VI","past":"تَفاقَمَ","pres":"يَتَفاقَمُ","masdar":"تَفاقُم","src":"msa"}
+{"w":"فاقَمَ","en":"to aggravate, to worsen","root":"ف-ق-م","type":"verb","kind":"verb","form":"III","past":"فاقَمَ","pres":"يُفاقِمُ","masdar":"مُفاقَمة","src":"msa"}
+{"w":"تَفاقُم","en":"worsening, escalation","root":"ف-ق-م","type":"masdar","kind":"masdar","form":"VI","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُتَفاقِم","en":"worsening, escalating","root":"ف-ق-م","type":"participle","kind":"active participle","form":"VI","src":"msa"}
+{"skip":"فَقِمَ","why":"rare classical verb; not sure of its vowels and use"}
+{"skip":"فَقُمَ","why":"rare classical verb; not sure of its vowels and use"}
+{"w":"رُخام","en":"marble","root":"ر-خ-م","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"رَخَّمَ","en":"to apocopate; to soften the voice","root":"ر-خ-م","type":"verb","kind":"verb","form":"II","past":"رَخَّمَ","pres":"يُرَخِّمُ","masdar":"تَرْخيم","src":"msa"}
+{"w":"رَخيم","en":"soft, mellow (voice)","root":"ر-خ-م","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"رَخَمة","en":"vulture","root":"ر-خ-م","type":"noun","kind":"noun","gender":"f","plural":"رَخَم","src":"msa"}
+{"w":"فَضْفاض","en":"loose, baggy","root":"ف-ض-ف-ض","type":"adjective","kind":"adjective","src":"msa"}
+{"skip":"هَنَّدَ","why":"gloss unreliable (hooting?); not sure the verb is in real use"}
+{"skip":"دَبَّلَ","why":"gloss unreliable (large morsel); not sure the verb is in real use"}
+{"skip":"خَصْلة","why":"same unvoweled spelling as خُصْلة (trait vs lock of hair); validator treats as duplicate"}

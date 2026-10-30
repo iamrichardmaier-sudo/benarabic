@@ -1,0 +1,97 @@
+{"skip":"وَكَرَ","why":"not sure of the verb sense or vowels"}
+{"skip":"وَكَّرَ","why":"not sure of the verb sense or vowels"}
+{"w":"وَكْر","en":"nest, den","root":"و-ك-ر","type":"noun","kind":"noun","gender":"m","plural":"أَوْكار","src":"msa"}
+{"w":"قِشْرَة","en":"peel, skin, crust","root":"ق-ش-ر","type":"noun","kind":"noun","gender":"f","plural":"قِشَر","src":"msa"}
+{"w":"قِشْر","en":"husk, rind","root":"ق-ش-ر","type":"noun","kind":"noun","gender":"m","plural":"قُشور","src":"msa"}
+{"w":"قَشَرَ","en":"to peel","root":"ق-ش-ر","type":"verb","kind":"verb","form":"I","past":"قَشَرَ","pres":"يَقْشِرُ","masdar":"قَشْر","src":"msa"}
+{"w":"قَشَّرَ","en":"to peel, to shell","root":"ق-ش-ر","type":"verb","kind":"verb","form":"II","past":"قَشَّرَ","pres":"يُقَشِّرُ","masdar":"تَقْشير","src":"msa"}
+{"w":"تَقَشَّرَ","en":"to peel off","root":"ق-ش-ر","type":"verb","kind":"verb","form":"V","past":"تَقَشَّرَ","pres":"يَتَقَشَّرُ","masdar":"تَقَشُّر","src":"msa"}
+{"w":"مِقْشَرَة","en":"peeler","root":"ق-ش-ر","type":"noun","kind":"noun of instrument","gender":"f","plural":"مَقاشِر","src":"msa"}
+{"skip":"قِشْرِيَّات","why":"plural of a relative noun (crustaceans); not sure"}
+{"skip":"فَلَتَ","why":"not sure of the present vowel; the derived forms are the usual ones"}
+{"w":"أَفْلَتَ","en":"to escape, to slip away","root":"ف-ل-ت","type":"verb","kind":"verb","form":"IV","past":"أَفْلَتَ","pres":"يُفْلِتُ","masdar":"إِفْلات","src":"msa"}
+{"w":"تَفَلَّتَ","en":"to slip away, to break loose","root":"ف-ل-ت","type":"verb","kind":"verb","form":"V","past":"تَفَلَّتَ","pres":"يَتَفَلَّتُ","masdar":"تَفَلُّت","src":"msa"}
+{"w":"اِنْفَلَتَ","en":"to break loose","root":"ف-ل-ت","type":"verb","kind":"verb","form":"VII","past":"اِنْفَلَتَ","pres":"يَنْفَلِتُ","masdar":"اِنْفِلات","src":"msa"}
+{"w":"مُنْفَلِت","en":"unruly, loose","root":"ف-ل-ت","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"فَحْم","en":"coal, charcoal","root":"ف-ح-م","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَفْحَمَ","en":"to silence with an argument","root":"ف-ح-م","type":"verb","kind":"verb","form":"IV","past":"أَفْحَمَ","pres":"يُفْحِمُ","masdar":"إِفْحام","src":"msa"}
+{"w":"تَفَحَّمَ","en":"to be charred","root":"ف-ح-م","type":"verb","kind":"verb","form":"V","past":"تَفَحَّمَ","pres":"يَتَفَحَّمُ","masdar":"تَفَحُّم","src":"msa"}
+{"w":"رَشْوَة","en":"bribe","root":"ر-ش-و","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"رَشا","en":"to bribe","root":"ر-ش-و","type":"verb","kind":"verb","form":"I","past":"رَشا","pres":"يَرْشُو","masdar":"رَشْو","src":"msa"}
+{"w":"اِرْتَشى","en":"to take a bribe","root":"ر-ش-و","type":"verb","kind":"verb","form":"VIII","past":"اِرْتَشى","pres":"يَرْتَشي","masdar":"اِرْتِشاء","src":"msa"}
+{"w":"رِشاء","en":"rope (of a bucket)","root":"ر-ش-و","type":"noun","kind":"noun","gender":"m","plural":"أَرْشِيَة","src":"msa"}
+{"w":"قُبَّة","en":"dome","root":"ق-ب-ب","type":"noun","kind":"noun","gender":"f","plural":"قِباب","src":"msa"}
+{"w":"قَبْقاب","en":"clog, wooden sandal","root":"ق-ب-ب","type":"noun","kind":"noun","gender":"m","plural":"قَباقيب","src":"msa"}
+{"skip":"قَيْقَب","why":"maple tree; root assignment doubtful"}
+{"w":"بالٍ","en":"worn out, old","root":"ب-ل-ي","type":"adjective","kind":"adjective","plural":"بَوالٍ","src":"msa"}
+{"w":"بَلِيَ","en":"to wear out","root":"ب-ل-ي","type":"verb","kind":"verb","form":"I","past":"بَلِيَ","pres":"يَبْلى","masdar":"بِلًى","src":"msa"}
+{"w":"أَبْلى","en":"to wear out, to perform well","root":"ب-ل-ي","type":"verb","kind":"verb","form":"IV","past":"أَبْلى","pres":"يُبْلي","masdar":"إِبْلاء","src":"msa"}
+{"w":"مُنْتَجَع","en":"resort, grazing ground","root":"ن-ج-ع","type":"noun","kind":"noun of place","gender":"m","plural":"مُنْتَجَعات","src":"msa"}
+{"w":"اِنْتَجَعَ","en":"to seek out a place or patron","root":"ن-ج-ع","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَجَعَ","pres":"يَنْتَجِعُ","masdar":"اِنْتِجاع","src":"msa"}
+{"w":"أَزْمَة","en":"crisis","root":"أ-ز-م","type":"noun","kind":"noun","gender":"f","plural":"أَزَمات","src":"msa"}
+{"w":"تَأَزَّمَ","en":"to become critical","root":"أ-ز-م","type":"verb","kind":"verb","form":"V","past":"تَأَزَّمَ","pres":"يَتَأَزَّمُ","masdar":"تَأَزُّم","src":"msa"}
+{"w":"مُتَأَزِّم","en":"in crisis, tense","root":"أ-ز-م","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"رَوَّجَ","en":"to promote, to market","root":"ر-و-ج","type":"verb","kind":"verb","form":"II","past":"رَوَّجَ","pres":"يُرَوِّجُ","masdar":"تَرْويج","src":"msa"}
+{"w":"راجَ","en":"to circulate, to sell well","root":"ر-و-ج","type":"verb","kind":"verb","form":"I","past":"راجَ","pres":"يَرُوجُ","masdar":"رَواج","src":"msa"}
+{"w":"تَرْويج","en":"promotion","root":"ر-و-ج","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"رَواج","en":"currency, popularity, demand","root":"ر-و-ج","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"مُرَوِّج","en":"promoter","root":"ر-و-ج","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُرَوِّجون","src":"msa"}
+{"w":"رائِج","en":"popular, in circulation","root":"ر-و-ج","type":"participle","kind":"active participle","form":"I","src":"msa"}
+{"w":"نَهِمَ","en":"to be greedy","root":"ن-ه-م","type":"verb","kind":"verb","form":"I","past":"نَهِمَ","pres":"يَنْهَمُ","masdar":"نَهَم","src":"msa"}
+{"w":"نَهَم","en":"greed, voracity","root":"ن-ه-م","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"نَهِم","en":"greedy, voracious","root":"ن-ه-م","type":"adjective","kind":"adjective","plural":"نَهِمون","src":"msa"}
+{"w":"هَرِمَ","en":"to grow decrepit","root":"ه-ر-م","type":"verb","kind":"verb","form":"I","past":"هَرِمَ","pres":"يَهْرَمُ","masdar":"هَرَم","src":"msa"}
+{"w":"هَرِم","en":"decrepit, very old","root":"ه-ر-م","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"هَرَم","en":"pyramid","root":"ه-ر-م","type":"noun","kind":"noun","gender":"m","plural":"أَهْرام","src":"msa"}
+{"w":"هَرَمِيّ","en":"pyramidal, hierarchical","root":"ه-ر-م","type":"adjective","kind":"relative adjective","src":"msa"}
+{"skip":"هَرْم","why":"obscure plant name"}
+{"skip":"زَيَّا","why":"rare verb, not sure of it; the common word is the noun زِيّ"}
+{"w":"زِيّ","en":"dress, style of clothing","root":"ز-ي-ي","type":"noun","kind":"noun","gender":"m","plural":"أَزْياء","src":"msa"}
+{"w":"عِطْر","en":"perfume","root":"ع-ط-ر","type":"noun","kind":"noun","gender":"m","plural":"عُطور","src":"msa"}
+{"w":"عَطَّار","en":"perfumer, herbalist","root":"ع-ط-ر","type":"noun","kind":"noun","gender":"m","plural":"عَطّارون","src":"msa"}
+{"w":"عَطَّرَ","en":"to perfume","root":"ع-ط-ر","type":"verb","kind":"verb","form":"II","past":"عَطَّرَ","pres":"يُعَطِّرُ","masdar":"تَعْطير","src":"msa"}
+{"w":"تَعَطَّرَ","en":"to put on perfume","root":"ع-ط-ر","type":"verb","kind":"verb","form":"V","past":"تَعَطَّرَ","pres":"يَتَعَطَّرُ","masdar":"تَعَطُّر","src":"msa"}
+{"w":"مُعَطَّر","en":"perfumed, scented","root":"ع-ط-ر","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"مَوْكِب","en":"procession, convoy","root":"و-ك-ب","type":"noun","kind":"noun","gender":"m","plural":"مَواكِب","src":"msa"}
+{"w":"واكَبَ","en":"to keep pace with, to accompany","root":"و-ك-ب","type":"verb","kind":"verb","form":"III","past":"واكَبَ","pres":"يُواكِبُ","masdar":"مُواكَبَة","src":"msa"}
+{"w":"مُواكَبَة","en":"keeping pace, accompanying","root":"و-ك-ب","type":"masdar","kind":"masdar","form":"III","gender":"f","src":"msa"}
+{"w":"بُخار","en":"steam, vapor","root":"ب-خ-ر","type":"noun","kind":"noun","gender":"m","plural":"أَبْخِرَة","src":"msa"}
+{"w":"باخِرَة","en":"steamship","root":"ب-خ-ر","type":"noun","kind":"noun","gender":"f","plural":"بَواخِر","src":"msa"}
+{"w":"بَخُور","en":"incense","root":"ب-خ-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"بَخَّرَ","en":"to vaporize, to fumigate","root":"ب-خ-ر","type":"verb","kind":"verb","form":"II","past":"بَخَّرَ","pres":"يُبَخِّرُ","masdar":"تَبْخير","src":"msa"}
+{"w":"تَبَخَّرَ","en":"to evaporate","root":"ب-خ-ر","type":"verb","kind":"verb","form":"V","past":"تَبَخَّرَ","pres":"يَتَبَخَّرُ","masdar":"تَبَخُّر","src":"msa"}
+{"w":"مِبْخَرَة","en":"incense burner","root":"ب-خ-ر","type":"noun","kind":"noun of instrument","gender":"f","plural":"مَباخِر","src":"msa"}
+{"w":"مِخْلَب","en":"claw, talon","root":"خ-ل-ب","type":"noun","kind":"noun","gender":"m","plural":"مَخالِب","src":"msa"}
+{"skip":"مُخَلَّب","why":"chemistry term (chelate), not sure"}
+{"skip":"خَلَّبَ","why":"chemistry term (to chelate), not sure"}
+{"w":"خَلَبَ","en":"to captivate, to charm","root":"خ-ل-ب","type":"verb","kind":"verb","form":"I","past":"خَلَبَ","pres":"يَخْلُبُ","masdar":"خِلابَة","src":"msa"}
+{"w":"خَلَّاب","en":"captivating, charming","root":"خ-ل-ب","type":"adjective","kind":"intensive adjective","src":"msa"}
+{"w":"نَسَّقَ","en":"to coordinate, to arrange","root":"ن-س-ق","type":"verb","kind":"verb","form":"II","past":"نَسَّقَ","pres":"يُنَسِّقُ","masdar":"تَنْسيق","src":"msa"}
+{"w":"تَنْسيق","en":"coordination","root":"ن-س-ق","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"مُنَسِّق","en":"coordinator","root":"ن-س-ق","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُنَسِّقون","src":"msa"}
+{"w":"مُنَسَّق","en":"coordinated, arranged","root":"ن-س-ق","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"تَناسَقَ","en":"to be harmonious","root":"ن-س-ق","type":"verb","kind":"verb","form":"VI","past":"تَناسَقَ","pres":"يَتَناسَقُ","masdar":"تَناسُق","src":"msa"}
+{"w":"تَناسُق","en":"harmony, symmetry","root":"ن-س-ق","type":"masdar","kind":"masdar","form":"VI","gender":"m","src":"msa"}
+{"w":"مُتَناسِق","en":"harmonious, coordinated","root":"ن-س-ق","type":"participle","kind":"active participle","form":"VI","src":"msa"}
+{"w":"نَسَق","en":"order, system, pattern","root":"ن-س-ق","type":"noun","kind":"noun","gender":"m","plural":"أَنْساق","src":"msa"}
+{"w":"نَذْل","en":"despicable, base","root":"ن-ذ-ل","type":"adjective","kind":"adjective","plural":"أَنْذال","src":"msa"}
+{"w":"نَذالَة","en":"baseness, vileness","root":"ن-ذ-ل","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"skip":"نَصِيّ","why":"obscure grass name, not sure"}
+{"w":"ناصِيَة","en":"forelock, forehead","root":"ن-ص-و","type":"noun","kind":"noun","gender":"f","plural":"نَواصٍ","src":"msa"}
+{"w":"عِلْك","en":"gum, chewing gum","root":"ع-ل-ك","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"عَلَكَ","en":"to chew","root":"ع-ل-ك","type":"verb","kind":"verb","form":"I","past":"عَلَكَ","pres":"يَعْلُكُ","masdar":"عَلْك","src":"msa"}
+{"skip":"عَلِكَة","why":"not sure of the vowels"}
+{"skip":"عَلِك","why":"not sure of the vowels"}
+{"skip":"أَيِسَ","why":"rare metathesis of يَئِسَ (root ي-أ-س); not sure"}
+{"skip":"آيَسَ","why":"rare, not sure"}
+{"skip":"أَيَّسَ","why":"rare, not sure"}
+{"w":"لَهْجَة","en":"dialect, accent","root":"ل-ه-ج","type":"noun","kind":"noun","gender":"f","plural":"لَهَجات","src":"msa"}
+{"w":"لَهِجَ","en":"to be fond of, to keep mentioning","root":"ل-ه-ج","type":"verb","kind":"verb","form":"I","past":"لَهِجَ","pres":"يَلْهَجُ","masdar":"لَهَج","src":"msa"}
+{"w":"ذابَ","en":"to melt, to dissolve","root":"ذ-و-ب","type":"verb","kind":"verb","form":"I","past":"ذابَ","pres":"يَذُوبُ","masdar":"ذَوَبان","src":"msa"}
+{"w":"ذَوَّبَ","en":"to melt, to dissolve","root":"ذ-و-ب","type":"verb","kind":"verb","form":"II","past":"ذَوَّبَ","pres":"يُذَوِّبُ","masdar":"تَذْويب","src":"msa"}
+{"w":"أَذابَ","en":"to melt, to dissolve","root":"ذ-و-ب","type":"verb","kind":"verb","form":"IV","past":"أَذابَ","pres":"يُذِيبُ","masdar":"إِذابَة","src":"msa"}
+{"w":"ذَوَبان","en":"melting, dissolving","root":"ذ-و-ب","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"ذائِب","en":"melted, dissolved","root":"ذ-و-ب","type":"participle","kind":"active participle","form":"I","src":"msa"}
+{"w":"مُذِيب","en":"solvent","root":"ذ-و-ب","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُذِيبات","src":"msa"}
+{"w":"شَنَّ","en":"to launch (an attack)","root":"ش-ن-ن","type":"verb","kind":"verb","form":"I","past":"شَنَّ","pres":"يَشُنُّ","masdar":"شَنّ","src":"msa"}
+{"w":"شَنّ","en":"waterskin","root":"ش-ن-ن","type":"noun","kind":"noun","gender":"m","plural":"شِنان","src":"msa"}

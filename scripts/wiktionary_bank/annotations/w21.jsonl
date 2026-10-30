@@ -1,0 +1,69 @@
+{"w":"مَفْصِل","en":"joint, articulation","root":"م-ف-ص-ل","type":"noun","kind":"noun","gender":"m","plural":"مَفاصِل","src":"msa","note":"Of a body joint; also a railway switch."}
+{"skip":"صَنَّ","why":"rare classical verb, not sure enough of it"}
+{"skip":"صِنّ","why":"rare classical noun, not sure enough of it"}
+{"w":"صُنان","en":"body odour","root":"ص-ن-ن","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"Stench of the armpits."}
+{"w":"صالَ","en":"to attack, to charge","root":"ص-و-ل","type":"verb","kind":"verb","form":"I","past":"صالَ","pres":"يَصولُ","masdar":"صَوْل","src":"msa"}
+{"w":"صَوْل","en":"onslaught, assault","root":"ص-و-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"صَوْلة","en":"assault, might","root":"ص-و-ل","type":"noun","kind":"noun of instance","gender":"f","plural":"صَوْلات","src":"msa"}
+{"w":"صائِل","en":"attacking","root":"ص-و-ل","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"صائِلون","src":"msa"}
+{"skip":"صَوَّلَ","why":"obscure, not sure of it"}
+{"skip":"صُولَة","why":"obscure, not sure of it"}
+{"w":"تِلِفُون","en":"telephone","root":"ت-ل-ف-ن","type":"noun","kind":"noun","gender":"m","plural":"تِلِفُونات","src":"msa","note":"Loanword; هاتِف is the standard Arabic word."}
+{"w":"تَلْفَنَ","en":"to telephone","root":"ت-ل-ف-ن","type":"verb","kind":"verb","form":"I","past":"تَلْفَنَ","pres":"يُتَلْفِنُ","masdar":"تَلْفَنة","src":"msa","note":"Quadriliteral verb."}
+{"w":"تَلْفَنة","en":"phone call","root":"ت-ل-ف-ن","type":"masdar","kind":"masdar","form":"I","gender":"f","src":"msa"}
+{"w":"تِلِفُونِيّ","en":"telephone, telephonic","root":"ت-ل-ف-ن","type":"adjective","kind":"relative adjective","noplural":true,"src":"msa"}
+{"w":"زَحْلَقَ","en":"to make slide","root":"ز-ح-ل-ق","type":"verb","kind":"verb","form":"I","past":"زَحْلَقَ","pres":"يُزَحْلِقُ","masdar":"زَحْلَقة","src":"msa","note":"Quadriliteral verb."}
+{"w":"تَزَحْلُق","en":"skiing","root":"ز-ح-ل-ق","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"خَسِيس","en":"vile, contemptible","root":"خ-س-س","type":"adjective","kind":"adjective","plural":"خِساس","src":"msa"}
+{"w":"خَسَّ","en":"to be base, to be mean","root":"خ-س-س","type":"verb","kind":"verb","form":"I","past":"خَسَّ","pres":"يَخُسُّ","masdar":"خِسَّة","src":"msa"}
+{"w":"خِسَّة","en":"meanness","root":"خ-س-س","type":"masdar","kind":"masdar","form":"I","gender":"f","src":"msa"}
+{"w":"خَسّ","en":"lettuce","root":"خ-س-س","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"تَخْسِيس","why":"not sure of the form in standard usage"}
+{"w":"دَيْر","en":"monastery","root":"د-ي-ر","type":"noun","kind":"noun","gender":"m","plural":"أَدْيِرَة","src":"msa"}
+{"skip":"تَدَيَّرَ","why":"obscure, not sure of it"}
+{"w":"داعَبَ","en":"to joke with, to tease","root":"د-ع-ب","type":"verb","kind":"verb","form":"III","past":"داعَبَ","pres":"يُداعِبُ","masdar":"مُداعَبة","src":"msa"}
+{"w":"مُداعَبة","en":"playful teasing","root":"د-ع-ب","type":"masdar","kind":"masdar","form":"III","gender":"f","src":"msa"}
+{"w":"دُعابة","en":"jesting, humour","root":"د-ع-ب","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"بَلاط","en":"tiles, paving","root":"ب-ل-ط","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa","note":"Also the royal court (بَلاط المَلِك)."}
+{"w":"بَلَّطَ","en":"to tile, to pave","root":"ب-ل-ط","type":"verb","kind":"verb","form":"II","past":"بَلَّطَ","pres":"يُبَلِّطُ","masdar":"تَبْليط","src":"msa"}
+{"w":"تَبْليط","en":"tiling, paving","root":"ب-ل-ط","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"مُبَلَّط","en":"tiled, paved","root":"ب-ل-ط","type":"participle","kind":"passive participle","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"كَبَحَ","en":"to restrain, to brake","root":"ك-ب-ح","type":"verb","kind":"verb","form":"I","past":"كَبَحَ","pres":"يَكْبَحُ","masdar":"كَبْح","src":"msa"}
+{"w":"كَبْح","en":"restraining, braking","root":"ك-ب-ح","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"كابِح","en":"brake","root":"ك-ب-ح","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"كَوابِح","src":"msa","note":"Used as a noun for a vehicle brake."}
+{"skip":"مَكْبُوح","why":"passive participle of كَبَحَ, not listed separately"}
+{"w":"دَهَسَ","en":"to run over","root":"د-ه-س","type":"verb","kind":"verb","form":"I","past":"دَهَسَ","pres":"يَدْهَسُ","masdar":"دَهْس","src":"msa"}
+{"w":"دَهْس","en":"running over","root":"د-ه-س","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"هَضْبة","en":"plateau, hill","root":"ه-ض-ب","type":"noun","kind":"noun","gender":"f","plural":"هِضاب","src":"msa"}
+{"w":"شَدا","en":"to sing","root":"ش-د-و","type":"verb","kind":"verb","form":"I","past":"شَدا","pres":"يَشْدو","masdar":"شَدْو","src":"msa"}
+{"w":"شَدْو","en":"singing, song","root":"ش-د-و","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"رَمَضان","en":"Ramadan","root":"ر-م-ض","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"The ninth month of the Islamic calendar."}
+{"w":"رَمْضاء","en":"scorching ground","root":"ر-م-ض","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"تَلَهَّفَ","en":"to long for","root":"ل-ه-ف","type":"verb","kind":"verb","form":"V","past":"تَلَهَّفَ","pres":"يَتَلَهَّفُ","masdar":"تَلَهُّف","src":"msa"}
+{"w":"تَلَهُّف","en":"eager longing","root":"ل-ه-ف","type":"masdar","kind":"masdar","form":"V","gender":"m","src":"msa"}
+{"w":"مُتَلَهِّف","en":"eager, yearning","root":"ل-ه-ف","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَلَهِّفون","src":"msa"}
+{"w":"لَهْفة","en":"eagerness, yearning","root":"ل-ه-ف","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"رِزْمة","en":"bundle, packet","root":"ر-ز-م","type":"noun","kind":"noun","gender":"f","plural":"رِزَم","src":"msa"}
+{"w":"مَرْأَب","en":"garage","root":"ر-أ-ب","type":"noun","kind":"noun of place","gender":"m","plural":"مَرائِب","src":"msa"}
+{"w":"رَأَبَ","en":"to mend, to repair","root":"ر-أ-ب","type":"verb","kind":"verb","form":"I","past":"رَأَبَ","pres":"يَرْأَبُ","masdar":"رَأْب","src":"msa","note":"Mostly in the phrase رَأْب الصَّدْع, to mend a rift."}
+{"w":"نَعَى","en":"to announce a death","root":"ن-ع-ي","type":"verb","kind":"verb","form":"I","past":"نَعَى","pres":"يَنْعَى","masdar":"نَعْي","src":"msa"}
+{"w":"نَعْي","en":"death announcement, obituary","root":"ن-ع-ي","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"شَرِهَ","en":"to be greedy","root":"ش-ر-ه","type":"verb","kind":"verb","form":"I","past":"شَرِهَ","pres":"يَشْرَهُ","masdar":"شَرَه","src":"msa"}
+{"w":"شَرَه","en":"gluttony, greed","root":"ش-ر-ه","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"شَرِه","en":"greedy, gluttonous","root":"ش-ر-ه","type":"adjective","kind":"adjective","plural":"شَرِهون","src":"msa"}
+{"w":"فَصّ","en":"gem, clove","root":"ف-ص-ص","type":"noun","kind":"noun","gender":"m","plural":"فُصوص","src":"msa","note":"Also the stone of a ring and a clove of garlic."}
+{"w":"دَسِم","en":"fatty, rich","root":"د-س-م","type":"adjective","kind":"adjective","noplural":true,"src":"msa"}
+{"w":"دَسَم","en":"fat, grease","root":"د-س-م","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"دَسَامة","en":"fattiness, richness","root":"د-س-م","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"دَسِمَ","en":"to be greasy","root":"د-س-م","type":"verb","kind":"verb","form":"I","past":"دَسِمَ","pres":"يَدْسَمُ","masdar":"دَسَم","src":"msa"}
+{"w":"أَدْسَم","en":"fattier, greasier","root":"د-س-م","type":"adjective","kind":"comparative","noplural":true,"src":"msa"}
+{"w":"فَرَكَ","en":"to rub, to scrub","root":"ف-ر-ك","type":"verb","kind":"verb","form":"I","past":"فَرَكَ","pres":"يَفْرُكُ","masdar":"فَرْك","src":"msa"}
+{"w":"فَرْك","en":"rubbing","root":"ف-ر-ك","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"سَبى","en":"to take captive","root":"س-ب-ي","type":"verb","kind":"verb","form":"I","past":"سَبى","pres":"يَسْبي","masdar":"سَبْي","src":"msa"}
+{"w":"سَبْي","en":"taking captive, captivity","root":"س-ب-ي","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"صَمْغ","en":"gum, glue","root":"ص-م-غ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"أَحْيَل","why":"not sure of the form as a real word"}
+{"w":"تَحايَلَ","en":"to use trickery","root":"ح-ي-ل","type":"verb","kind":"verb","form":"VI","past":"تَحايَلَ","pres":"يَتَحايَلُ","masdar":"تَحايُل","src":"msa"}
+{"w":"احْتالَ","en":"to swindle, to trick","root":"ح-ي-ل","type":"verb","kind":"verb","form":"VIII","past":"احْتالَ","pres":"يَحْتالُ","masdar":"احْتِيال","src":"msa"}
+{"w":"احْتِيال","en":"fraud, swindling","root":"ح-ي-ل","type":"masdar","kind":"masdar","form":"VIII","gender":"m","src":"msa"}
+{"w":"مُحْتال","en":"swindler, fraudster","root":"ح-ي-ل","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُحْتالون","src":"msa"}

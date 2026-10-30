@@ -1,0 +1,86 @@
+{"w":"نُخاع","en":"spinal cord","root":"ن-خ-ع","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"Also means bone marrow."}
+{"w":"رَشَفَ","en":"to sip","root":"ر-ش-ف","type":"verb","kind":"verb","form":"I","past":"رَشَفَ","pres":"يَرْشُفُ","masdar":"رَشْف","src":"msa"}
+{"w":"رَشْف","en":"sipping","root":"ر-ش-ف","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"رَشْفَة","en":"sip","root":"ر-ش-ف","type":"noun","kind":"noun of instance","gender":"f","plural":"رَشَفات","src":"msa"}
+{"w":"ضَبَّة","en":"door bolt, metal clasp","root":"ض-ب-ب","type":"noun","kind":"noun","gender":"f","plural":"ضِبَاب","src":"msa"}
+{"w":"ضَبّ","en":"mastigure, spiny-tailed lizard","root":"ض-ب-ب","type":"noun","kind":"noun","gender":"m","plural":"ضِبّان","src":"msa"}
+{"w":"ضَباب","en":"fog","root":"ض-ب-ب","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"ضَبَّ","why":"rare classical verb senses, not sure of usage"}
+{"w":"تَباهَى","en":"to boast, to show off","root":"ب-ه-ي","type":"verb","kind":"verb","form":"VI","past":"تَباهَى","pres":"يَتَباهَى","masdar":"تَباهٍ","src":"msa"}
+{"w":"تَباهٍ","en":"boasting","root":"ب-ه-ي","type":"masdar","kind":"masdar","form":"VI","gender":"m","noplural":true,"src":"msa"}
+{"w":"باهَى","en":"to boast about, to vie with","root":"ب-ه-ي","type":"verb","kind":"verb","form":"III","past":"باهَى","pres":"يُباهِي","masdar":"مُباهاة","src":"msa"}
+{"w":"مُباهاة","en":"boasting, pride","root":"ب-ه-ي","type":"masdar","kind":"masdar","form":"III","gender":"f","noplural":true,"src":"msa"}
+{"w":"بَهِيّ","en":"splendid, radiant","root":"ب-ه-ي","type":"adjective","kind":"adjective","plural":"بَهِيّون","src":"msa"}
+{"w":"أَبْهَى","en":"more splendid","root":"ب-ه-ي","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"نَبَضَ","en":"to beat, to pulsate","root":"ن-ب-ض","type":"verb","kind":"verb","form":"I","past":"نَبَضَ","pres":"يَنْبِضُ","masdar":"نَبْض","src":"msa"}
+{"w":"نَبْض","en":"pulse, beating","root":"ن-ب-ض","type":"masdar","kind":"masdar","form":"I","gender":"m","plural":"نَبَضات","src":"msa"}
+{"w":"نابِض","en":"pulsating","root":"ن-ب-ض","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"نابِض","en":"spring (mechanical)","root":"ن-ب-ض","type":"noun","kind":"noun","gender":"m","plural":"نَوابِض","src":"msa"}
+{"w":"مَصْل","en":"serum, whey","root":"م-ص-ل","type":"noun","kind":"noun","gender":"m","plural":"أَمْصال","src":"msa"}
+{"skip":"مُصَلٍّ","why":"worshipper, belongs to root ص-ل-و"}
+{"w":"أَجْهَضَ","en":"to abort, to miscarry","root":"ج-ه-ض","type":"verb","kind":"verb","form":"IV","past":"أَجْهَضَ","pres":"يُجْهِضُ","masdar":"إِجْهاض","src":"msa"}
+{"w":"إِجْهاض","en":"abortion, miscarriage","root":"ج-ه-ض","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَشَبَّثَ","en":"to cling, to hold fast","root":"ش-ب-ث","type":"verb","kind":"verb","form":"V","past":"تَشَبَّثَ","pres":"يَتَشَبَّثُ","masdar":"تَشَبُّث","src":"msa"}
+{"w":"تَشَبُّث","en":"clinging, persistence","root":"ش-ب-ث","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُتَشَبِّث","en":"clinging","root":"ش-ب-ث","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَشَبِّثون","src":"msa"}
+{"w":"ضِفَّة","en":"bank, shore","root":"ض-ف-ف","type":"noun","kind":"noun","gender":"f","plural":"ضِفاف","src":"msa"}
+{"w":"جَشَع","en":"greed","root":"ج-ش-ع","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"جَشِع","en":"greedy","root":"ج-ش-ع","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"تَلِفَ","en":"to be spoiled, to perish","root":"ت-ل-ف","type":"verb","kind":"verb","form":"I","past":"تَلِفَ","pres":"يَتْلَفُ","masdar":"تَلَف","src":"msa"}
+{"w":"تَلَف","en":"damage, ruin","root":"ت-ل-ف","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَتْلَفَ","en":"to destroy, to damage","root":"ت-ل-ف","type":"verb","kind":"verb","form":"IV","past":"أَتْلَفَ","pres":"يُتْلِفُ","masdar":"إِتْلاف","src":"msa"}
+{"w":"إِتْلاف","en":"destruction, damaging","root":"ت-ل-ف","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"تالِف","en":"damaged, spoiled","root":"ت-ل-ف","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"شَغَبَ","en":"to riot, to make trouble","root":"ش-غ-ب","type":"verb","kind":"verb","form":"I","past":"شَغَبَ","pres":"يَشْغَبُ","masdar":"شَغَب","src":"msa"}
+{"w":"شَغَب","en":"riot, disorder","root":"ش-غ-ب","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"شاغَبَ","en":"to stir up trouble","root":"ش-غ-ب","type":"verb","kind":"verb","form":"III","past":"شاغَبَ","pres":"يُشاغِبُ","masdar":"مُشاغَبة","src":"msa"}
+{"w":"مُشاغَبة","en":"troublemaking, unrest","root":"ش-غ-ب","type":"masdar","kind":"masdar","form":"III","gender":"f","noplural":true,"src":"msa"}
+{"w":"شاغِب","en":"troublemaker, rioter","root":"ش-غ-ب","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"شاغِبون","src":"msa"}
+{"w":"تَأَقْلَمَ","en":"to adapt, to acclimatize","root":"أ-ق-ل-م","type":"verb","kind":"verb","form":"I","past":"تَأَقْلَمَ","pres":"يَتَأَقْلَمُ","masdar":"تَأَقْلُم","src":"msa","note":"Quadriliteral verb (from إِقْلِيم, region)."}
+{"w":"تَأَقْلُم","en":"adaptation, acclimatization","root":"أ-ق-ل-م","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa","note":"Masdar of a quadriliteral verb."}
+{"w":"تَنَهَّدَ","en":"to sigh","root":"ن-ه-د","type":"verb","kind":"verb","form":"V","past":"تَنَهَّدَ","pres":"يَتَنَهَّدُ","masdar":"تَنَهُّد","src":"msa"}
+{"w":"تَنَهُّد","en":"sigh","root":"ن-ه-د","type":"masdar","kind":"masdar","form":"V","gender":"m","plural":"تَنَهُّدات","src":"msa"}
+{"w":"أُكْسِيد","en":"oxide","root":"أ-ك-س-د","type":"noun","kind":"noun","gender":"m","plural":"أَكاسِيد","src":"msa"}
+{"w":"أَكْسَدَ","en":"to oxidize","root":"أ-ك-س-د","type":"verb","kind":"verb","form":"I","past":"أَكْسَدَ","pres":"يُؤَكْسِدُ","masdar":"أَكْسَدَة","src":"msa","note":"Quadriliteral verb."}
+{"w":"أَكْسَدَة","en":"oxidation","root":"أ-ك-س-د","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa","note":"Masdar of a quadriliteral verb."}
+{"w":"طَفا","en":"to float","root":"ط-ف-و","type":"verb","kind":"verb","form":"I","past":"طَفا","pres":"يَطْفُو","masdar":"طُفُوّ","src":"msa"}
+{"w":"طُفُوّ","en":"floating","root":"ط-ف-و","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"هاضَ","en":"to break, to fracture","root":"ه-ي-ض","type":"verb","kind":"verb","form":"I","past":"هاضَ","pres":"يَهِيضُ","masdar":"هَيْض","src":"msa"}
+{"w":"مَهِيض","en":"broken, crushed","root":"ه-ي-ض","type":"adjective","kind":"adjective","src":"msa"}
+{"skip":"اِنْهَاضَ","why":"not sure this form is attested as a verb"}
+{"w":"تَذَمَّرَ","en":"to complain, to grumble","root":"ذ-م-ر","type":"verb","kind":"verb","form":"V","past":"تَذَمَّرَ","pres":"يَتَذَمَّرُ","masdar":"تَذَمُّر","src":"msa"}
+{"w":"تَذَمُّر","en":"complaint, grumbling","root":"ذ-م-ر","type":"masdar","kind":"masdar","form":"V","gender":"m","plural":"تَذَمُّرات","src":"msa"}
+{"w":"مُتَذَمِّر","en":"grumbling, disgruntled","root":"ذ-م-ر","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَذَمِّرون","src":"msa"}
+{"w":"فَخُمَ","en":"to be magnificent","root":"ف-خ-م","type":"verb","kind":"verb","form":"I","past":"فَخُمَ","pres":"يَفْخُمُ","masdar":"فَخامة","src":"msa"}
+{"w":"فَخامة","en":"magnificence, grandeur","root":"ف-خ-م","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa","note":"Also used in the title of presidents (Your Excellency)."}
+{"w":"فَخْم","en":"magnificent, stately","root":"ف-خ-م","type":"adjective","kind":"adjective","plural":"فِخام","src":"msa"}
+{"w":"أَفْخَم","en":"more magnificent","root":"ف-خ-م","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"فَخَّمَ","en":"to magnify, to honor","root":"ف-خ-م","type":"verb","kind":"verb","form":"II","past":"فَخَّمَ","pres":"يُفَخِّمُ","masdar":"تَفْخيم","src":"msa"}
+{"w":"تَفْخيم","en":"magnification, emphatic pronunciation","root":"ف-خ-م","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"طَحَنَ","en":"to grind, to mill","root":"ط-ح-ن","type":"verb","kind":"verb","form":"I","past":"طَحَنَ","pres":"يَطْحَنُ","masdar":"طَحْن","src":"msa"}
+{"w":"طَحْن","en":"grinding","root":"ط-ح-ن","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"طاحُونَة","en":"mill","root":"ط-ح-ن","type":"noun","kind":"noun","gender":"f","plural":"طَواحِين","src":"msa"}
+{"w":"طَحين","en":"flour","root":"ط-ح-ن","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"طَحينة","en":"tahini","root":"ط-ح-ن","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"مَطْحَنة","en":"mill, grinding place","root":"ط-ح-ن","type":"noun","kind":"noun of place","gender":"f","plural":"مَطاحِن","src":"msa"}
+{"w":"طَحّان","en":"miller","root":"ط-ح-ن","type":"noun","kind":"noun","gender":"m","plural":"طَحّانون","src":"msa"}
+{"w":"مَطْحون","en":"ground","root":"ط-ح-ن","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"شَرِس","en":"fierce, ill-tempered","root":"ش-ر-س","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"أَشْرَس","en":"fiercer","root":"ش-ر-س","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"شَراسة","en":"ferocity","root":"ش-ر-س","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"skip":"شَرِسَ","why":"verb sense uncertain, adjective listed instead"}
+{"skip":"شَرُسَ","why":"verb sense uncertain, adjective listed instead"}
+{"skip":"شِرْس","why":"rare, not sure"}
+{"skip":"شُرْس","why":"rare, not sure"}
+{"skip":"شَرَس","why":"rare, not sure"}
+{"w":"بِلَّوْر","en":"crystal","root":"ب-ل-و-ر","type":"noun","kind":"noun","gender":"m","plural":"بِلَّوْرات","src":"msa"}
+{"w":"بَلْوَرَ","en":"to crystallize, to clarify","root":"ب-ل-و-ر","type":"verb","kind":"verb","form":"I","past":"بَلْوَرَ","pres":"يُبَلْوِرُ","masdar":"بَلْوَرَة","src":"msa","note":"Quadriliteral verb; often figurative (to crystallize an idea)."}
+{"w":"بَلْوَرَة","en":"crystallization","root":"ب-ل-و-ر","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa","note":"Masdar of a quadriliteral verb."}
+{"w":"تَبَلْوَرَ","en":"to crystallize, to take shape","root":"ب-ل-و-ر","type":"verb","kind":"verb","form":"I","past":"تَبَلْوَرَ","pres":"يَتَبَلْوَرُ","masdar":"تَبَلْوُر","src":"msa","note":"Quadriliteral verb (reflexive pattern)."}
+{"w":"وَليمة","en":"banquet, feast","root":"و-ل-م","type":"noun","kind":"noun","gender":"f","plural":"وَلائِم","src":"msa"}
+{"w":"هَلْوَسَ","en":"to hallucinate","root":"ه-ل-و-س","type":"verb","kind":"verb","form":"I","past":"هَلْوَسَ","pres":"يُهَلْوِسُ","masdar":"هَلْوَسَة","src":"msa","note":"Quadriliteral verb."}
+{"w":"هَلْوَسَة","en":"hallucination","root":"ه-ل-و-س","type":"masdar","kind":"masdar","form":"I","gender":"f","plural":"هَلاوِس","src":"msa","note":"Masdar of a quadriliteral verb."}
+{"w":"حِقْد","en":"grudge, malice","root":"ح-ق-د","type":"noun","kind":"noun","gender":"m","plural":"أَحْقاد","src":"msa"}
+{"w":"حَقُود","en":"spiteful, rancorous","root":"ح-ق-د","type":"adjective","kind":"intensive adjective","src":"msa"}
+{"w":"حَقَدَ","en":"to harbor a grudge","root":"ح-ق-د","type":"verb","kind":"verb","form":"I","past":"حَقَدَ","pres":"يَحْقِدُ","masdar":"حِقْد","src":"msa"}
+{"w":"حاقِد","en":"resentful","root":"ح-ق-د","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"حاقِدون","src":"msa"}

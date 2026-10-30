@@ -1,0 +1,149 @@
+{"skip":"سَفِيَ","why":"rare classical verb; not sure of the vowels and frequency is likely noise"}
+{"skip":"سَفًا","why":"rare classical noun, not sure"}
+{"w":"هُراء","en":"nonsense, drivel","root":"ه-ر-أ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"عَهَرَ","en":"to commit fornication","root":"ع-ه-ر","type":"verb","kind":"verb","form":"I","past":"عَهَرَ","pres":"يَعْهَرُ","masdar":"عَهْر","src":"msa"}
+{"w":"عَهْر","en":"fornication, debauchery","root":"ع-ه-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"عاهِر","en":"fornicator, debauched man","root":"ع-ه-ر","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"عاهِرة","en":"prostitute","root":"ع-ه-ر","type":"noun","kind":"noun","gender":"f","plural":"عَواهِر","src":"msa"}
+{"w":"نُقْطَة","en":"dot, point","root":"ن-ق-ط","type":"noun","kind":"noun","gender":"f","plural":"نُقَط","src":"msa"}
+{"w":"نَقَّطَ","en":"to dot, to put dots on","root":"ن-ق-ط","type":"verb","kind":"verb","form":"II","past":"نَقَّطَ","pres":"يُنَقِّطُ","masdar":"تَنْقيط","src":"msa"}
+{"w":"مارَسَ","en":"to practise","root":"م-ر-س","type":"verb","kind":"verb","form":"III","past":"مارَسَ","pres":"يُمارِسُ","masdar":"مُمارَسة","src":"msa"}
+{"w":"مُمارَسة","en":"practice, exercise","root":"م-ر-س","type":"masdar","kind":"masdar","form":"III","gender":"f","src":"msa"}
+{"w":"مُمارِس","en":"practitioner","root":"م-ر-س","type":"participle","kind":"active participle","form":"III","gender":"m","plural":"مُمارِسون","src":"msa"}
+{"w":"تَمَرَّسَ","en":"to become experienced in","root":"م-ر-س","type":"verb","kind":"verb","form":"V","past":"تَمَرَّسَ","pres":"يَتَمَرَّسُ","masdar":"تَمَرُّس","src":"msa"}
+{"w":"مُتَمَرِّس","en":"experienced, seasoned","root":"م-ر-س","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَمَرِّسون","src":"msa"}
+{"skip":"مَرَسَ","why":"rare classical verb, not sure"}
+{"skip":"مَرِس","why":"rare classical adjective, not sure"}
+{"skip":"مَرْس","why":"rare, empty gloss"}
+{"w":"ذَكِيَ","en":"to be intelligent","root":"ذ-ك-ي","type":"verb","kind":"verb","form":"I","past":"ذَكِيَ","pres":"يَذْكَى","masdar":"ذَكاء","src":"msa"}
+{"w":"ذَكاء","en":"intelligence","root":"ذ-ك-ي","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"ذَكِيّ","en":"intelligent, smart","root":"ذ-ك-ي","type":"adjective","kind":"adjective","plural":"أَذْكِياء","src":"msa"}
+{"w":"ذَكّى","en":"to slaughter ritually","root":"ذ-ك-ي","type":"verb","kind":"verb","form":"II","past":"ذَكّى","pres":"يُذَكّي","masdar":"تَذْكِيَة","src":"msa"}
+{"w":"تَذاكى","en":"to feign cleverness","root":"ذ-ك-ي","type":"verb","kind":"verb","form":"VI","past":"تَذاكى","pres":"يَتَذاكى","masdar":"تَذاكٍ","src":"msa"}
+{"skip":"ذَكَاوَة","why":"rare variant of ذَكاء"}
+{"w":"شُرْفَة","en":"balcony","root":"ش-ر-ف","type":"noun","kind":"noun","gender":"f","plural":"شُرُفات","src":"msa"}
+{"w":"شَريف","en":"noble, honourable","root":"ش-ر-ف","type":"adjective","kind":"adjective","plural":"شُرَفاء","src":"msa"}
+{"w":"شَرَف","en":"honour, nobility","root":"ش-ر-ف","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"شَرُفَ","en":"to be noble","root":"ش-ر-ف","type":"verb","kind":"verb","form":"I","past":"شَرُفَ","pres":"يَشْرُفُ","masdar":"شَرَف","src":"msa"}
+{"w":"شَرَّفَ","en":"to honour","root":"ش-ر-ف","type":"verb","kind":"verb","form":"II","past":"شَرَّفَ","pres":"يُشَرِّفُ","masdar":"تَشْريف","src":"msa"}
+{"w":"مُشَرَّف","en":"honoured","root":"ش-ر-ف","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"شارَفَ","en":"to be about to reach","root":"ش-ر-ف","type":"verb","kind":"verb","form":"III","past":"شارَفَ","pres":"يُشارِفُ","masdar":"مُشارَفة","src":"msa"}
+{"w":"أَشْرَفَ","en":"to overlook","root":"ش-ر-ف","type":"verb","kind":"verb","form":"IV","past":"أَشْرَفَ","pres":"يُشْرِفُ","masdar":"إِشْراف","src":"msa"}
+{"w":"إِشْراف","en":"supervision","root":"ش-ر-ف","type":"masdar","kind":"masdar","form":"IV","gender":"m","src":"msa"}
+{"w":"مُشْرِف","en":"supervisor","root":"ش-ر-ف","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُشْرِفون","src":"msa","note":"As an adjective it also means overlooking or on the verge of."}
+{"w":"تَشَرَّفَ","en":"to be honoured","root":"ش-ر-ف","type":"verb","kind":"verb","form":"V","past":"تَشَرَّفَ","pres":"يَتَشَرَّفُ","masdar":"تَشَرُّف","src":"msa"}
+{"w":"اِسْتَشْرَفَ","en":"to foresee, to look ahead to","root":"ش-ر-ف","type":"verb","kind":"verb","form":"X","past":"اِسْتَشْرَفَ","pres":"يَسْتَشْرِفُ","masdar":"اِسْتِشْراف","src":"msa"}
+{"w":"شَرَفِيّ","en":"honorary","root":"ش-ر-ف","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"أَشْرَف","en":"nobler","root":"ش-ر-ف","type":"adjective","kind":"comparative","src":"msa"}
+{"skip":"شَرَافَة","why":"masdar of شَرُفَ, listed under it"}
+{"skip":"تَشْرِيف","why":"masdar of شَرَّفَ, listed under it"}
+{"skip":"تَشَرُّف","why":"masdar of تَشَرَّفَ, listed under it"}
+{"skip":"اِسْتِشْرَاف","why":"masdar of اِسْتَشْرَفَ, listed under it"}
+{"skip":"شَرَفِيَّة","why":"rare abstract noun, not sure"}
+{"w":"ضَغَطَ","en":"to press, to put pressure on","root":"ض-غ-ط","type":"verb","kind":"verb","form":"I","past":"ضَغَطَ","pres":"يَضْغَطُ","masdar":"ضَغْط","src":"msa"}
+{"w":"ضَغْط","en":"pressure","root":"ض-غ-ط","type":"masdar","kind":"masdar","form":"I","gender":"m","plural":"ضُغوط","src":"msa"}
+{"w":"ضاغِط","en":"pressing, compressor","root":"ض-غ-ط","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"مَضْغوط","en":"pressed, under pressure","root":"ض-غ-ط","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"سَخيف","en":"silly, absurd","root":"س-خ-ف","type":"adjective","kind":"adjective","plural":"سُخَفاء","src":"msa"}
+{"w":"سَخافة","en":"silliness, absurdity","root":"س-خ-ف","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"سَخَّفَ","en":"to ridicule, to belittle","root":"س-خ-ف","type":"verb","kind":"verb","form":"II","past":"سَخَّفَ","pres":"يُسَخِّفُ","masdar":"تَسْخيف","src":"msa"}
+{"w":"سَخُفَ","en":"to be silly","root":"س-خ-ف","type":"verb","kind":"verb","form":"I","past":"سَخُفَ","pres":"يَسْخُفُ","masdar":"سَخافة","src":"msa"}
+{"w":"مَدى","en":"extent, range","root":"م-د-ي","type":"noun","kind":"noun","gender":"m","plural":"أَمْداء","src":"msa"}
+{"w":"مُدْيَة","en":"knife","root":"م-د-ي","type":"noun","kind":"noun","gender":"f","plural":"مُدى","src":"msa"}
+{"w":"تَمادى","en":"to persist, to go too far","root":"م-د-ي","type":"verb","kind":"verb","form":"VI","past":"تَمادى","pres":"يَتَمادى","masdar":"تَمادٍ","src":"msa"}
+{"skip":"مَدَى","why":"the verb is a Saudi colloquial use; the noun مَدى is listed"}
+{"skip":"مُدِيّ","why":"rare classical noun, not sure"}
+{"skip":"تَمَادٍ","why":"masdar of تَمادى, listed under it"}
+{"w":"وَغْد","en":"scoundrel, villain","root":"و-غ-د","type":"noun","kind":"noun","gender":"m","plural":"أَوْغاد","src":"msa"}
+{"skip":"وَغُدَ","why":"rare classical verb, not sure"}
+{"w":"هُجوم","en":"attack, assault","root":"ه-ج-م","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"هَجَمَ","en":"to attack, to storm","root":"ه-ج-م","type":"verb","kind":"verb","form":"I","past":"هَجَمَ","pres":"يَهْجُمُ","masdar":"هُجوم","src":"msa"}
+{"w":"هَجْمَة","en":"attack, raid","root":"ه-ج-م","type":"noun","kind":"noun of instance","gender":"f","plural":"هَجَمات","src":"msa"}
+{"w":"هاجَمَ","en":"to attack","root":"ه-ج-م","type":"verb","kind":"verb","form":"III","past":"هاجَمَ","pres":"يُهاجِمُ","masdar":"مُهاجَمة","src":"msa"}
+{"w":"مُهاجَمة","en":"attacking, an attack","root":"ه-ج-م","type":"masdar","kind":"masdar","form":"III","gender":"f","src":"msa"}
+{"w":"مُهاجِم","en":"attacker, striker","root":"ه-ج-م","type":"participle","kind":"active participle","form":"III","gender":"m","plural":"مُهاجِمون","src":"msa"}
+{"w":"تَهَجَّمَ","en":"to attack verbally","root":"ه-ج-م","type":"verb","kind":"verb","form":"V","past":"تَهَجَّمَ","pres":"يَتَهَجَّمُ","masdar":"تَهَجُّم","src":"msa"}
+{"skip":"تَهَجُّم","why":"masdar of تَهَجَّمَ, listed under it"}
+{"w":"أَدّى","en":"to perform, to pay, to lead to","root":"أ-د-و","type":"verb","kind":"verb","form":"II","past":"أَدّى","pres":"يُؤَدّي","masdar":"أَداء","src":"msa"}
+{"w":"أَداء","en":"performance, payment","root":"أ-د-و","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"أَداة","en":"tool, instrument","root":"أ-د-و","type":"noun","kind":"noun of instrument","gender":"f","plural":"أَدَوات","src":"msa"}
+{"skip":"أَدَاوَة","why":"rare classical noun, not sure"}
+{"skip":"إِدَاوَة","why":"rare classical noun (water skin), not sure of use"}
+{"w":"سَيْطَرَ","en":"to dominate, to control","root":"س-ي-ط-ر","type":"verb","kind":"verb","form":"I","past":"سَيْطَرَ","pres":"يُسَيْطِرُ","masdar":"سَيْطَرة","src":"msa","note":"A quadriliteral verb (form Iq)."}
+{"w":"سَيْطَرة","en":"control, dominance","root":"س-ي-ط-ر","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"مُسَيْطِر","en":"dominating, controlling","root":"س-ي-ط-ر","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"skip":"قَهْوَة","why":"real word, but the word has no ي and its root is normally ق-ه-و, so it does not fit this root"}
+{"w":"حَظِيَ","en":"to enjoy, to win favour","root":"ح-ظ-و","type":"verb","kind":"verb","form":"I","past":"حَظِيَ","pres":"يَحْظى","masdar":"حُظْوَة","src":"msa"}
+{"w":"حُظْوَة","en":"favour, esteem","root":"ح-ظ-و","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"دَواء","en":"medicine, remedy","root":"د-و-ي","type":"noun","kind":"noun","gender":"m","plural":"أَدْوِيَة","src":"msa"}
+{"w":"دَاء","en":"disease, ailment","root":"د-و-ي","type":"noun","kind":"noun","gender":"m","plural":"أَدْواء","src":"msa"}
+{"w":"داوَى","en":"to treat medically","root":"د-و-ي","type":"verb","kind":"verb","form":"III","past":"داوَى","pres":"يُداوي","masdar":"مُداواة","src":"msa"}
+{"w":"مُداواة","en":"medical treatment","root":"د-و-ي","type":"masdar","kind":"masdar","form":"III","gender":"f","src":"msa"}
+{"w":"تَداوى","en":"to be treated, to seek treatment","root":"د-و-ي","type":"verb","kind":"verb","form":"VI","past":"تَداوى","pres":"يَتَداوى","masdar":"تَداوٍ","src":"msa"}
+{"w":"دَوّى","en":"to resound, to echo","root":"د-و-ي","type":"verb","kind":"verb","form":"II","past":"دَوّى","pres":"يُدَوّي","masdar":"تَدْوِيَة","src":"msa"}
+{"w":"دَوِيّ","en":"rumble, din","root":"د-و-ي","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"دَواة","en":"inkwell","root":"د-و-ي","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"skip":"دَوِيَ","why":"classical verb, not sure of its current use"}
+{"skip":"دَوَى","why":"classical verb with the sense of دَوّى, not sure"}
+{"skip":"دَوًى","why":"rare classical noun for illness"}
+{"skip":"دَوِّيّ","why":"rare classical noun, not sure"}
+{"skip":"دُسْتُور أَدْوِيَة","why":"compound phrase, not a single word"}
+{"skip":"مُدَاوٍ","why":"participle of داوى, rare"}
+{"skip":"تَدَاوٍ","why":"masdar of تَداوى, listed under it"}
+{"w":"صَفْقَة","en":"deal, bargain","root":"ص-ف-ق","type":"noun","kind":"noun of instance","gender":"f","plural":"صَفَقات","src":"msa"}
+{"w":"صَفَقَ","en":"to slam, to strike","root":"ص-ف-ق","type":"verb","kind":"verb","form":"I","past":"صَفَقَ","pres":"يَصْفِقُ","masdar":"صَفْق","src":"msa"}
+{"w":"صَفَّقَ","en":"to clap, to applaud","root":"ص-ف-ق","type":"verb","kind":"verb","form":"II","past":"صَفَّقَ","pres":"يُصَفِّقُ","masdar":"تَصْفيق","src":"msa"}
+{"w":"تَصْفيق","en":"applause, clapping","root":"ص-ف-ق","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"skip":"صَفُقَ","why":"rare classical verb, not sure"}
+{"skip":"صَفِيق","why":"adjective with two unrelated senses, not sure enough of a clean gloss"}
+{"skip":"صَفَاقَة","why":"abstract noun of صفيق, not sure"}
+{"skip":"صِفَاق","why":"anatomical term, rare"}
+{"skip":"اِصْطَفَقَ","why":"rare classical verb"}
+{"skip":"أَصْفَقَ","why":"rare classical verb"}
+{"skip":"تَصَفَّقَ","why":"rare classical verb"}
+{"skip":"نَاكَ","why":"vulgar; not suited to a learner bank"}
+{"skip":"نَيْك","why":"vulgar; not suited to a learner bank"}
+{"w":"قَذِر","en":"dirty, filthy","root":"ق-ذ-ر","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"قَذارة","en":"dirtiness, filth","root":"ق-ذ-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"قَذَر","en":"dirt, filth","root":"ق-ذ-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"قَذُرَ","en":"to be dirty","root":"ق-ذ-ر","type":"verb","kind":"verb","form":"I","past":"قَذُرَ","pres":"يَقْذُرُ","masdar":"قَذارة","src":"msa"}
+{"w":"قَذَّرَ","en":"to make dirty","root":"ق-ذ-ر","type":"verb","kind":"verb","form":"II","past":"قَذَّرَ","pres":"يُقَذِّرُ","masdar":"تَقْذير","src":"msa"}
+{"w":"اِسْتَقْذَرَ","en":"to find disgusting","root":"ق-ذ-ر","type":"verb","kind":"verb","form":"X","past":"اِسْتَقْذَرَ","pres":"يَسْتَقْذِرُ","masdar":"اِسْتِقْذار","src":"msa"}
+{"w":"أَقْذَر","en":"dirtier, dirtiest","root":"ق-ذ-ر","type":"adjective","kind":"comparative","src":"msa"}
+{"skip":"قَذِرَ","why":"variant verb of قَذُرَ, not sure of the vowels"}
+{"skip":"قَذَرَ","why":"rare classical verb, not sure"}
+{"w":"حَبا","en":"to crawl","root":"ح-ب-و","type":"verb","kind":"verb","form":"I","past":"حَبا","pres":"يَحْبو","masdar":"حَبْو","src":"msa","note":"Classically it also means to bestow a gift on someone."}
+{"w":"حابَى","en":"to favour, to show partiality","root":"ح-ب-و","type":"verb","kind":"verb","form":"III","past":"حابَى","pres":"يُحابي","masdar":"مُحاباة","src":"msa"}
+{"w":"اِحْتَبى","en":"to sit hugging the knees","root":"ح-ب-و","type":"verb","kind":"verb","form":"VIII","past":"اِحْتَبى","pres":"يَحْتَبي","masdar":"اِحْتِباء","src":"msa"}
+{"skip":"حَبْو","why":"masdar of حَبا, listed under it"}
+{"w":"وَهْم","en":"illusion, delusion","root":"و-ه-م","type":"noun","kind":"noun","gender":"m","plural":"أَوْهام","src":"msa"}
+{"w":"وَهْمِيّ","en":"imaginary, illusory","root":"و-ه-م","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"وَهِمَ","en":"to be mistaken","root":"و-ه-م","type":"verb","kind":"verb","form":"I","past":"وَهِمَ","pres":"يَوْهَمُ","masdar":"وَهَم","src":"msa"}
+{"w":"تَوَهَّمَ","en":"to imagine, to fancy","root":"و-ه-م","type":"verb","kind":"verb","form":"V","past":"تَوَهَّمَ","pres":"يَتَوَهَّمُ","masdar":"تَوَهُّم","src":"msa"}
+{"w":"أَوْهَمَ","en":"to mislead, to make believe","root":"و-ه-م","type":"verb","kind":"verb","form":"IV","past":"أَوْهَمَ","pres":"يُوهِمُ","masdar":"إِيهام","src":"msa"}
+{"w":"وَهَّمَ","en":"to delude","root":"و-ه-م","type":"verb","kind":"verb","form":"II","past":"وَهَّمَ","pres":"يُوَهِّمُ","masdar":"تَوْهيم","src":"msa"}
+{"w":"مَوْهوم","en":"imagined, illusory","root":"و-ه-م","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"اِتَّهَمَ","en":"to accuse","root":"و-ه-م","type":"verb","kind":"verb","form":"VIII","past":"اِتَّهَمَ","pres":"يَتَّهِمُ","masdar":"اِتِّهام","src":"msa","override":"initial و assimilated to ت in form VIII"}
+{"w":"اِتِّهام","en":"accusation","root":"و-ه-م","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِتِّهامات","src":"msa","override":"initial و assimilated to ت in form VIII"}
+{"w":"مُتَّهَم","en":"accused, defendant","root":"و-ه-م","type":"participle","kind":"passive participle","form":"VIII","gender":"m","plural":"مُتَّهَمون","src":"msa","override":"initial و assimilated to ت in form VIII"}
+{"w":"تُهْمَة","en":"accusation, charge","root":"و-ه-م","type":"noun","kind":"noun","gender":"f","plural":"تُهَم","src":"msa","override":"initial و replaced by ت, from the same root as اِتَّهَمَ"}
+{"skip":"وَهَمَ","why":"rare classical verb variant, not sure"}
+{"skip":"وَهَم","why":"spelling variant of وَهْم"}
+{"skip":"إِيهَام","why":"masdar of أَوْهَمَ, listed under it"}
+{"skip":"كَارَى","why":"not sure of the vowels and use; the frequency is likely the loanword curry (كاري)"}
+{"w":"اِكْتَرى","en":"to rent, to hire","root":"ك-ر-ي","type":"verb","kind":"verb","form":"VIII","past":"اِكْتَرى","pres":"يَكْتَري","masdar":"اِكْتِراء","src":"msa"}
+{"w":"أَكْرى","en":"to rent out","root":"ك-ر-ي","type":"verb","kind":"verb","form":"IV","past":"أَكْرى","pres":"يُكْري","masdar":"إِكْراء","src":"msa"}
+{"w":"كِراء","en":"rent, hire fee","root":"ك-ر-ي","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"كَرَى","why":"classical verb meaning to dig, not sure of current use"}
+{"skip":"اِسْتَكْرَى","why":"rare, not sure"}
+{"skip":"مُكَارٍ","why":"muleteer, rare; depends on the unlisted form III"}
+{"w":"شَيْطان","en":"devil, Satan","root":"ش-ي-ط","type":"noun","kind":"noun","gender":"m","plural":"شَياطين","src":"msa","note":"Most dictionaries derive it from ش-ط-ن."}
+{"w":"اِسْتَشاطَ","en":"to flare up with anger","root":"ش-ي-ط","type":"verb","kind":"verb","form":"X","past":"اِسْتَشاطَ","pres":"يَسْتَشيطُ","masdar":"اِسْتِشاطة","src":"msa"}
+{"skip":"شَاطَ","why":"rare classical verb, not sure"}
+{"skip":"شَيَّطَ","why":"rare, not sure"}
+{"skip":"شَطَّة","why":"colloquial hot-pepper word, probably not from this root"}
+{"skip":"وَكَنَ","why":"rare classical verb, not sure"}
+{"skip":"وَكْن","why":"rare classical noun"}
+{"skip":"أُكْنَة","why":"rare classical noun"}
+{"skip":"وُكْنَة","why":"rare classical noun"}
+{"skip":"مَوْكِن","why":"rare classical noun"}

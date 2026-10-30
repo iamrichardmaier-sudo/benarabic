@@ -1,0 +1,146 @@
+{"w":"مَهَرَ","en":"to be skilled at","root":"م-ه-ر","type":"verb","kind":"verb","form":"I","past":"مَهَرَ","pres":"يَمْهَرُ","masdar":"مَهارَة","src":"msa"}
+{"w":"مَهارَة","en":"skill","root":"م-ه-ر","type":"masdar","kind":"masdar","form":"I","gender":"f","plural":"مَهارات","src":"msa"}
+{"w":"ماهِر","en":"skilled, proficient","root":"م-ه-ر","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"مَهَرَة","src":"msa"}
+{"w":"مَهْر","en":"dowry","root":"م-ه-ر","type":"noun","kind":"noun","gender":"m","plural":"مُهور","src":"msa"}
+{"w":"مُهْرَة","en":"filly","root":"م-ه-ر","type":"noun","kind":"noun","gender":"f","plural":"مُهْرات","src":"msa"}
+{"skip":"أَمْهَر","why":"elative of ماهِر, freq 0"}
+{"skip":"وَأَبَ","why":"rare classical verb, not sure of vowels or sense; frequency likely from a different word"}
+{"skip":"مانَ","why":"rare classical verb for to lie, not sure enough"}
+{"w":"عَزَفَ","en":"to play music","root":"ع-ز-ف","type":"verb","kind":"verb","form":"I","past":"عَزَفَ","pres":"يَعْزِفُ","masdar":"عَزْف","src":"msa"}
+{"skip":"عَزَفَ","why":"second sense (to shun) is a homograph of the music verb; listed once"}
+{"w":"عَزْف","en":"playing music","root":"ع-ز-ف","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"عازِف","en":"musician, player","root":"ع-ز-ف","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"عازِفون","src":"msa"}
+{"w":"مَعْزوفة","en":"musical piece","root":"ع-ز-ف","type":"noun","kind":"noun","gender":"f","plural":"مَعْزوفات","src":"msa"}
+{"w":"عُلْبَة","en":"can, box","root":"ع-ل-ب","type":"noun","kind":"noun","gender":"f","plural":"عُلَب","src":"msa"}
+{"w":"عَلَّبَ","en":"to can, to pack in boxes","root":"ع-ل-ب","type":"verb","kind":"verb","form":"II","past":"عَلَّبَ","pres":"يُعَلِّبُ","masdar":"تَعْليب","src":"msa"}
+{"w":"تَعْليب","en":"canning, packaging","root":"ع-ل-ب","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"قُرْص","en":"disc, tablet","root":"ق-ر-ص","type":"noun","kind":"noun","gender":"m","plural":"أَقْراص","src":"msa"}
+{"w":"قَرَصَ","en":"to pinch, to sting","root":"ق-ر-ص","type":"verb","kind":"verb","form":"I","past":"قَرَصَ","pres":"يَقْرُصُ","masdar":"قَرْص","src":"msa"}
+{"w":"قَرْص","en":"pinching","root":"ق-ر-ص","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"قَرْصَة","en":"a pinch, a sting","root":"ق-ر-ص","type":"noun","kind":"noun of instance","gender":"f","plural":"قَرَصات","src":"msa"}
+{"w":"قُرّاص","en":"nettle","root":"ق-ر-ص","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"نُخْبَة","en":"elite, the best","root":"ن-خ-ب","type":"noun","kind":"noun","gender":"f","plural":"نُخَب","src":"msa"}
+{"w":"اِنْتَخَبَ","en":"to elect, to select","root":"ن-خ-ب","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَخَبَ","pres":"يَنْتَخِبُ","masdar":"اِنْتِخاب","src":"msa"}
+{"w":"اِنْتِخاب","en":"election","root":"ن-خ-ب","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِنْتِخابات","src":"msa"}
+{"w":"ناخِب","en":"voter","root":"ن-خ-ب","type":"noun","kind":"noun","gender":"m","plural":"ناخِبون","src":"msa"}
+{"w":"مُنْتَخِب","en":"voter, elector","root":"ن-خ-ب","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُنْتَخِبون","src":"msa"}
+{"w":"مُنْتَخَب","en":"elected, selected","root":"ن-خ-ب","type":"participle","kind":"passive participle","form":"VIII","gender":"m","plural":"مُنْتَخَبون","src":"msa"}
+{"w":"مُنْتَخَب","en":"national team","root":"ن-خ-ب","type":"noun","kind":"noun","gender":"m","plural":"مُنْتَخَبات","src":"msa"}
+{"skip":"نَخَبَ","why":"rare classical verb, not sure enough"}
+{"skip":"نُخْبَوِيَّة","why":"freq 0"}
+{"w":"غِذاء","en":"food, nourishment","root":"غ-ذ-و","type":"noun","kind":"noun","gender":"m","plural":"أَغْذِيَة","src":"msa"}
+{"w":"غَذّى","en":"to feed, to nourish","root":"غ-ذ-و","type":"verb","kind":"verb","form":"II","past":"غَذّى","pres":"يُغَذّي","masdar":"تَغْذِيَة","src":"msa"}
+{"w":"تَغْذِيَة","en":"feeding, nutrition","root":"غ-ذ-و","type":"masdar","kind":"masdar","form":"II","gender":"f","noplural":true,"src":"msa"}
+{"w":"غِذائِيّ","en":"food, nutritional","root":"غ-ذ-و","type":"adjective","kind":"relative adjective","noplural":true,"src":"msa"}
+{"skip":"غَذا","why":"classical form I verb, rare in modern use"}
+{"w":"أَدْمَنَ","en":"to be addicted to","root":"د-م-ن","type":"verb","kind":"verb","form":"IV","past":"أَدْمَنَ","pres":"يُدْمِنُ","masdar":"إِدْمان","src":"msa"}
+{"w":"إِدْمان","en":"addiction","root":"د-م-ن","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُدْمِن","en":"addict, addicted","root":"د-م-ن","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُدْمِنون","src":"msa"}
+{"skip":"دَمَّنَ","why":"obscure livestock-dung verb"}
+{"skip":"دِمْن","why":"freq 0"}
+{"skip":"دَمَنَ","why":"freq 0"}
+{"skip":"دَمِنَ","why":"freq 0"}
+{"w":"صَدَمَ","en":"to hit, to shock","root":"ص-د-م","type":"verb","kind":"verb","form":"I","past":"صَدَمَ","pres":"يَصْدِمُ","masdar":"صَدْم","src":"msa"}
+{"w":"صَدْمَة","en":"shock, impact","root":"ص-د-م","type":"noun","kind":"noun of instance","gender":"f","plural":"صَدَمات","src":"msa"}
+{"w":"مَصْدوم","en":"shocked","root":"ص-د-م","type":"participle","kind":"passive participle","form":"I","gender":"m","plural":"مَصْدومون","src":"msa"}
+{"w":"اِصْطَدَمَ","en":"to collide","root":"ص-د-م","type":"verb","kind":"verb","form":"VIII","past":"اِصْطَدَمَ","pres":"يَصْطَدِمُ","masdar":"اِصْطِدام","src":"msa"}
+{"w":"اِصْطِدام","en":"collision","root":"ص-د-م","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِصْطِدامات","src":"msa"}
+{"w":"تَصادَمَ","en":"to collide with each other","root":"ص-د-م","type":"verb","kind":"verb","form":"VI","past":"تَصادَمَ","pres":"يَتَصادَمُ","masdar":"تَصادُم","src":"msa"}
+{"w":"تَصادُم","en":"collision, clash","root":"ص-د-م","type":"masdar","kind":"masdar","form":"VI","gender":"m","noplural":true,"src":"msa"}
+{"w":"صِدام","en":"clash, conflict","root":"ص-د-م","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"حَمْض","en":"acid","root":"ح-م-ض","type":"noun","kind":"noun","gender":"m","plural":"أَحْماض","src":"msa"}
+{"w":"حامِض","en":"sour, acidic","root":"ح-م-ض","type":"adjective","kind":"adjective","noplural":true,"src":"msa"}
+{"w":"حَمُضَ","en":"to be sour","root":"ح-م-ض","type":"verb","kind":"verb","form":"I","past":"حَمُضَ","pres":"يَحْمُضُ","masdar":"حُموضَة","src":"msa"}
+{"w":"حُموضَة","en":"sourness, acidity","root":"ح-م-ض","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"حَمَّضَ","en":"to acidify, to develop film","root":"ح-م-ض","type":"verb","kind":"verb","form":"II","past":"حَمَّضَ","pres":"يُحَمِّضُ","masdar":"تَحْميض","src":"msa"}
+{"w":"تَحْميض","en":"acidification, film developing","root":"ح-م-ض","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"حَمْضِيّ","en":"acidic","root":"ح-م-ض","type":"adjective","kind":"relative adjective","noplural":true,"src":"msa"}
+{"w":"حَمْضِيّات","en":"citrus fruits","root":"ح-م-ض","type":"noun","kind":"plural","gender":"f","noplural":true,"src":"msa"}
+{"w":"فارِس","en":"horseman, knight","root":"ف-ر-س","type":"noun","kind":"noun","gender":"m","plural":"فُرْسان","src":"msa"}
+{"w":"فَرَس","en":"horse, mare","root":"ف-ر-س","type":"noun","kind":"noun","gender":"m","plural":"أَفْراس","src":"msa"}
+{"w":"فَريسَة","en":"prey","root":"ف-ر-س","type":"noun","kind":"noun","gender":"f","plural":"فَرائِس","src":"msa"}
+{"w":"اِفْتَرَسَ","en":"to prey upon, to devour","root":"ف-ر-س","type":"verb","kind":"verb","form":"VIII","past":"اِفْتَرَسَ","pres":"يَفْتَرِسُ","masdar":"اِفْتِراس","src":"msa"}
+{"w":"اِفْتِراس","en":"preying, devouring","root":"ف-ر-س","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُفْتَرِس","en":"predatory, ferocious","root":"ف-ر-س","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُفْتَرِسون","src":"msa"}
+{"w":"فُروسِيَّة","en":"chivalry, horsemanship","root":"ف-ر-س","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"فِراسَة","en":"insight, shrewdness","root":"ف-ر-س","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"رابَ","en":"to curdle","root":"ر-و-ب","type":"verb","kind":"verb","form":"I","past":"رابَ","pres":"يَرُوبُ","masdar":"رَوْب","src":"msa","note":"Said of milk."}
+{"w":"رائِب","en":"curdled","root":"ر-و-ب","type":"adjective","kind":"adjective","noplural":true,"src":"msa","note":"Used mainly of milk, as in لَبَن رائِب."}
+{"w":"فَتَّشَ","en":"to search, to inspect","root":"ف-ت-ش","type":"verb","kind":"verb","form":"II","past":"فَتَّشَ","pres":"يُفَتِّشُ","masdar":"تَفْتيش","src":"msa"}
+{"w":"تَفْتيش","en":"search, inspection","root":"ف-ت-ش","type":"masdar","kind":"masdar","form":"II","gender":"m","plural":"تَفْتيشات","src":"msa"}
+{"w":"مُفَتِّش","en":"inspector","root":"ف-ت-ش","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُفَتِّشون","src":"msa"}
+{"w":"شُعاع","en":"ray, beam","root":"ش-ع-ع","type":"noun","kind":"noun","gender":"m","plural":"أَشِعَّة","src":"msa"}
+{"w":"أَشَعَّ","en":"to radiate, to emit rays","root":"ش-ع-ع","type":"verb","kind":"verb","form":"IV","past":"أَشَعَّ","pres":"يُشِعُّ","masdar":"إِشْعاع","src":"msa"}
+{"w":"إِشْعاع","en":"radiation","root":"ش-ع-ع","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُشِعّ","en":"radiant, radioactive","root":"ش-ع-ع","type":"participle","kind":"active participle","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"إِشْعاعِيّ","en":"radiation, radiological","root":"ش-ع-ع","type":"adjective","kind":"relative adjective","noplural":true,"src":"msa"}
+{"skip":"شَعَّ","why":"rare form I verb, not sure of its usual masdar"}
+{"skip":"شُعّ","why":"freq 0"}
+{"skip":"شَعّ","why":"freq 0"}
+{"skip":"شَعَاع","why":"same word as شُعاع, which is listed"}
+{"w":"بَصْمَة","en":"fingerprint, mark","root":"ب-ص-م","type":"noun","kind":"noun of instance","gender":"f","plural":"بَصَمات","src":"msa"}
+{"w":"بَصَمَ","en":"to fingerprint, to stamp","root":"ب-ص-م","type":"verb","kind":"verb","form":"I","past":"بَصَمَ","pres":"يَبْصُمُ","masdar":"بَصْم","src":"msa"}
+{"w":"خَريطَة","en":"map","root":"خ-ر-ط","type":"noun","kind":"noun","gender":"f","plural":"خَرائِط","src":"msa"}
+{"w":"خَرَطَ","en":"to turn on a lathe","root":"خ-ر-ط","type":"verb","kind":"verb","form":"I","past":"خَرَطَ","pres":"يَخْرُطُ","masdar":"خَرْط","src":"msa"}
+{"w":"خَرّاط","en":"lathe worker, turner","root":"خ-ر-ط","type":"noun","kind":"noun","gender":"m","plural":"خَرّاطون","src":"msa"}
+{"w":"مَخْروط","en":"cone","root":"خ-ر-ط","type":"noun","kind":"noun","gender":"m","plural":"مَخاريط","src":"msa"}
+{"w":"اِنْخَرَطَ","en":"to join, to enroll in","root":"خ-ر-ط","type":"verb","kind":"verb","form":"VII","past":"اِنْخَرَطَ","pres":"يَنْخَرِطُ","masdar":"اِنْخِراط","src":"msa"}
+{"w":"اِنْخِراط","en":"joining, enrollment","root":"خ-ر-ط","type":"masdar","kind":"masdar","form":"VII","gender":"m","noplural":true,"src":"msa"}
+{"skip":"خَرْط","why":"verbal noun of خَرَطَ, freq 0"}
+{"skip":"اِخْرَوَّطَ","why":"freq 0, obscure"}
+{"skip":"اِخْتَرَطَ","why":"freq 0, obscure"}
+{"w":"عُنْصُر","en":"element, component","root":"ع-ن-ص-ر","type":"noun","kind":"noun","gender":"m","plural":"عَناصِر","src":"msa"}
+{"w":"عُنْصُرِيّ","en":"racist, racial","root":"ع-ن-ص-ر","type":"adjective","kind":"relative adjective","plural":"عُنْصُرِيّون","src":"msa"}
+{"w":"عُنْصُرِيَّة","en":"racism","root":"ع-ن-ص-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"عَكَسَ","en":"to reverse, to reflect","root":"ع-ك-س","type":"verb","kind":"verb","form":"I","past":"عَكَسَ","pres":"يَعْكِسُ","masdar":"عَكْس","src":"msa"}
+{"w":"عَكْس","en":"opposite, reversal","root":"ع-ك-س","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"عَكْسِيّ","en":"reverse, opposite","root":"ع-ك-س","type":"adjective","kind":"relative adjective","noplural":true,"src":"msa"}
+{"w":"عاكِس","en":"reflector, reflecting","root":"ع-ك-س","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"عَواكِس","src":"msa"}
+{"w":"مَعْكوس","en":"reversed, inverted","root":"ع-ك-س","type":"participle","kind":"passive participle","form":"I","gender":"m","plural":"مَعْكوسون","src":"msa"}
+{"w":"عاكَسَ","en":"to oppose, to harass","root":"ع-ك-س","type":"verb","kind":"verb","form":"III","past":"عاكَسَ","pres":"يُعاكِسُ","masdar":"مُعاكَسَة","src":"msa"}
+{"w":"مُعاكَسَة","en":"opposition, harassment","root":"ع-ك-س","type":"masdar","kind":"masdar","form":"III","gender":"f","noplural":true,"src":"msa"}
+{"w":"مُعاكِس","en":"opposing, opposite","root":"ع-ك-س","type":"participle","kind":"active participle","form":"III","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِنْعَكَسَ","en":"to be reflected, to be reversed","root":"ع-ك-س","type":"verb","kind":"verb","form":"VII","past":"اِنْعَكَسَ","pres":"يَنْعَكِسُ","masdar":"اِنْعِكاس","src":"msa"}
+{"w":"اِنْعِكاس","en":"reflection, reversal","root":"ع-ك-س","type":"masdar","kind":"masdar","form":"VII","gender":"m","plural":"اِنْعِكاسات","src":"msa"}
+{"w":"مُنْعَكِس","en":"reflected","root":"ع-ك-س","type":"participle","kind":"active participle","form":"VII","gender":"m","noplural":true,"src":"msa"}
+{"skip":"عَكْسَ","why":"adverbial use of عَكْس, same word"}
+{"skip":"عِكَاس","why":"freq 0, unsure"}
+{"skip":"تَعَاكَسَ","why":"freq 0"}
+{"skip":"مُنْعَكَس","why":"freq 0, same bare spelling as مُنْعَكِس"}
+{"w":"قاسَ","en":"to measure, to compare","root":"ق-ي-س","type":"verb","kind":"verb","form":"I","past":"قاسَ","pres":"يَقيسُ","masdar":"قِياس","src":"msa"}
+{"w":"قِياس","en":"measurement, analogy","root":"ق-ي-س","type":"masdar","kind":"masdar","form":"I","gender":"m","plural":"قِياسات","src":"msa"}
+{"w":"مِقْياس","en":"scale, measuring instrument","root":"ق-ي-س","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَقاييس","src":"msa"}
+{"w":"مَقاس","en":"size, measurement","root":"ق-ي-س","type":"noun","kind":"noun","gender":"m","plural":"مَقاسات","src":"msa"}
+{"w":"قِياسِيّ","en":"standard, record-breaking","root":"ق-ي-س","type":"adjective","kind":"relative adjective","noplural":true,"src":"msa"}
+{"w":"قايَسَ","en":"to compare, to measure against","root":"ق-ي-س","type":"verb","kind":"verb","form":"III","past":"قايَسَ","pres":"يُقايِسُ","masdar":"مُقايَسَة","src":"msa"}
+{"w":"مُقايَسَة","en":"comparison","root":"ق-ي-س","type":"masdar","kind":"masdar","form":"III","gender":"f","noplural":true,"src":"msa"}
+{"skip":"قَيْس","why":"freq 0"}
+{"skip":"قَيْسِي","why":"freq 0, cultivar"}
+{"skip":"أَقْيَس","why":"freq 0"}
+{"skip":"قِيَاسًا","why":"adverbial accusative of قِياس"}
+{"skip":"اِقْتِيَاس","why":"freq 0"}
+{"w":"آدَمِيّ","en":"human being","root":"أ-د-م","type":"noun","kind":"noun","gender":"m","plural":"آدَمِيّون","src":"msa"}
+{"skip":"آدَم","why":"proper name Adam (rootless shard); other senses uncertain"}
+{"skip":"أَدَمَ","why":"rare classical verb"}
+{"skip":"أُدْم","why":"freq 0"}
+{"skip":"أَدَم","why":"freq 0"}
+{"w":"حَوْض","en":"basin, pool","root":"ح-و-ض","type":"noun","kind":"noun","gender":"m","plural":"أَحْواض","src":"msa"}
+{"skip":"آنَ","why":"belongs to root أ-و-ن (time, أَوان); not sure of its filing here"}
+{"skip":"أَيْنَ","why":"interrogative function word where"}
+{"skip":"أَيَّنَ","why":"not sure enough"}
+{"w":"تَأَيَّنَ","en":"to ionize","root":"أ-ي-ن","type":"verb","kind":"verb","form":"V","past":"تَأَيَّنَ","pres":"يَتَأَيَّنُ","masdar":"تَأَيُّن","src":"msa"}
+{"w":"تَأَيُّن","en":"ionization","root":"أ-ي-ن","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"skip":"أَيْن","why":"freq 0"}
+{"w":"اِنْحَنى","en":"to bend, to bow","root":"ح-ن-و","type":"verb","kind":"verb","form":"VII","past":"اِنْحَنى","pres":"يَنْحَني","masdar":"اِنْحِناء","src":"msa"}
+{"w":"اِنْحِناء","en":"bend, curvature","root":"ح-ن-و","type":"masdar","kind":"masdar","form":"VII","gender":"m","plural":"اِنْحِناءات","src":"msa"}
+{"w":"مُنْحَنى","en":"curve","root":"ح-ن-و","type":"noun","kind":"noun","gender":"m","plural":"مُنْحَنَيات","src":"msa"}
+{"w":"حَنا","en":"to bend, to show tenderness","root":"ح-ن-و","type":"verb","kind":"verb","form":"I","past":"حَنا","pres":"يَحْنو","masdar":"حُنُوّ","src":"msa","note":"Literary; the tender sense takes عَلى."}
+{"skip":"مُنْحَنٍ","why":"participle of اِنْحَنى, freq 0"}
+{"skip":"حَنْو","why":"freq 0"}
+{"skip":"حَنِيَّة","why":"freq 0"}
+{"w":"هَرَّجَ","en":"to clown around","root":"ه-ر-ج","type":"verb","kind":"verb","form":"II","past":"هَرَّجَ","pres":"يُهَرِّجُ","masdar":"تَهْريج","src":"msa"}
+{"w":"تَهْريج","en":"clowning, buffoonery","root":"ه-ر-ج","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُهَرِّج","en":"clown","root":"ه-ر-ج","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُهَرِّجون","src":"msa"}
+{"w":"هَرْج","en":"chaos, tumult","root":"ه-ر-ج","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"هَرَجَ","why":"obscure classical verb"}
+{"skip":"هَرِج","why":"freq 0"}

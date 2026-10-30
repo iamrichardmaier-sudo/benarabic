@@ -1,0 +1,41 @@
+{"w":"هَسَّ","en":"to whisper","root":"ه-س-س","type":"verb","kind":"verb","form":"I","past":"هَسَّ","pres":"يَهُسُّ","masdar":"هَسّ","src":"msa"}
+{"w":"قَرَشَ","en":"to nibble","root":"ق-ر-ش","type":"verb","kind":"verb","form":"I","past":"قَرَشَ","pres":"يَقْرِشُ","masdar":"قَرْش","src":"msa","note":"Also used of gnashing the teeth."}
+{"skip":"قَرْش","why":"unsure of this vowelling as a noun; the shark is قِرْش"}
+{"w":"قِرْش","en":"shark","root":"ق-ر-ش","type":"noun","kind":"noun","gender":"m","plural":"قُرُوش","src":"msa"}
+{"w":"شَغَرَ","en":"to be vacant","root":"ش-غ-ر","type":"verb","kind":"verb","form":"I","past":"شَغَرَ","pres":"يَشْغُرُ","masdar":"شُغُور","src":"msa","note":"Said of a post or position."}
+{"w":"شاغِر","en":"vacant","root":"ش-غ-ر","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"شَواغِر","src":"msa"}
+{"w":"داخَ","en":"to become dizzy","root":"د-و-خ","type":"verb","kind":"verb","form":"I","past":"داخَ","pres":"يَدُوخُ","masdar":"دَوْخ","src":"msa"}
+{"w":"دَوْخَة","en":"dizziness","root":"د-و-خ","type":"noun","kind":"noun of instance","gender":"f","plural":"دَوْخات","src":"msa"}
+{"w":"دائِخ","en":"dizzy","root":"د-و-خ","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"دائِخون","src":"msa"}
+{"w":"أَقْسَى","en":"to harden","root":"ق-س-ي","type":"verb","kind":"verb","form":"IV","past":"أَقْسَى","pres":"يُقْسِي","masdar":"إِقْساء","src":"msa"}
+{"skip":"أَقْسَى","why":"the elative adjective (harsher) is the same spelling; only the verb is listed as it is the safer entry"}
+{"w":"مَغَّرَ","en":"to dye with ochre","root":"م-غ-ر","type":"verb","kind":"verb","form":"II","past":"مَغَّرَ","pres":"يُمَغِّرُ","masdar":"تَمْغِير","src":"msa"}
+{"w":"مُغْرَة","en":"ochre","root":"م-غ-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"حَشَدَ","en":"to gather, to mobilize","root":"ح-ش-د","type":"verb","kind":"verb","form":"I","past":"حَشَدَ","pres":"يَحْشِدُ","masdar":"حَشْد","src":"msa"}
+{"w":"حَشْد","en":"crowd, mobilization","root":"ح-ش-د","type":"masdar","kind":"masdar","form":"I","gender":"m","plural":"حُشُود","src":"msa"}
+{"w":"حاشِد","en":"massing, gathering","root":"ح-ش-د","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"حاشِدون","src":"msa"}
+{"w":"مَحْشُود","en":"massed, mobilized","root":"ح-ش-د","type":"participle","kind":"passive participle","form":"I","gender":"m","plural":"مَحْشُودون","src":"msa"}
+{"w":"اِحْتَشَدَ","en":"to gather in crowds","root":"ح-ش-د","type":"verb","kind":"verb","form":"VIII","past":"اِحْتَشَدَ","pres":"يَحْتَشِدُ","masdar":"اِحْتِشاد","src":"msa"}
+{"w":"حَشَّدَ","en":"to mass, to mobilize","root":"ح-ش-د","type":"verb","kind":"verb","form":"II","past":"حَشَّدَ","pres":"يُحَشِّدُ","masdar":"تَحْشِيد","src":"msa"}
+{"skip":"تَحَشَّدَ","why":"not sure of its currency"}
+{"skip":"اِحْتِشَاد","why":"masdar of اِحْتَشَدَ, listed there"}
+{"skip":"تَحْشِيد","why":"masdar of حَشَّدَ, listed there"}
+{"w":"عَرِين","en":"lion's den","root":"ع-ر-ن","type":"noun","kind":"noun","gender":"m","plural":"عَرائِن","src":"msa"}
+{"skip":"أُبُوت","why":"not sure of the word or its vowels"}
+{"w":"فَذّ","en":"unique, singular","root":"ف-ذ-ذ","type":"adjective","kind":"adjective","plural":"أَفْذاذ","src":"msa"}
+{"skip":"فَذَّ","why":"verb not sure; the adjective is the common word"}
+{"skip":"تُرّ","why":"not sure of this word"}
+{"skip":"تَرَّ","why":"not sure of this word"}
+{"skip":"تَرّ","why":"not sure of this word"}
+{"w":"نَبَشَ","en":"to dig up","root":"ن-ب-ش","type":"verb","kind":"verb","form":"I","past":"نَبَشَ","pres":"يَنْبُشُ","masdar":"نَبْش","src":"msa"}
+{"w":"نابِش","en":"digging up","root":"ن-ب-ش","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"نابِشون","src":"msa"}
+{"w":"مَنْبُوش","en":"dug up","root":"ن-ب-ش","type":"participle","kind":"passive participle","form":"I","gender":"m","plural":"مَنْبُوشون","src":"msa"}
+{"w":"نَبّاش","en":"grave robber","root":"ن-ب-ش","type":"noun","kind":"noun","gender":"m","plural":"نَبّاشون","src":"msa"}
+{"w":"عَصْرَنَ","en":"to modernize","root":"ع-ص-ر-ن","type":"verb","kind":"verb","form":"I","past":"عَصْرَنَ","pres":"يُعَصْرِنُ","masdar":"عَصْرَنة","src":"msa","note":"Quadriliteral verb."}
+{"w":"طَهَى","en":"to cook","root":"ط-ه-ي","type":"verb","kind":"verb","form":"I","past":"طَهَى","pres":"يَطْهُو","masdar":"طَهْي","src":"msa"}
+{"w":"طاهِي","en":"cook, chef","root":"ط-ه-ي","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"طُهاة","src":"msa"}
+{"w":"أَضْفَى","en":"to bestow, to lend (a quality)","root":"ض-ف-ي","type":"verb","kind":"verb","form":"IV","past":"أَضْفَى","pres":"يُضْفِي","masdar":"إِضْفاء","src":"msa"}
+{"skip":"أَشْهَل","why":"meaning uncertain"}
+{"w":"بَحَّ","en":"to become hoarse","root":"ب-ح-ح","type":"verb","kind":"verb","form":"I","past":"بَحَّ","pres":"يَبَحُّ","masdar":"بُحاح","src":"msa"}
+{"w":"أَبَحّ","en":"hoarse","root":"ب-ح-ح","type":"adjective","kind":"adjective","plural":"بُحّ","src":"msa"}
+{"w":"بُحّة","en":"hoarseness","root":"ب-ح-ح","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}

@@ -1,0 +1,65 @@
+{"skip":"كَنَهَ","why":"rare, not sure of its vowels and usage"}
+{"w":"كُنْه","en":"essence, true nature","root":"ك-ن-ه","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"قُرْفُصاء","en":"squatting posture","root":"ق-ر-ف-ص","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa","note":"Used in the phrase جَلَسَ القُرْفُصاء, to sit hugging the knees."}
+{"w":"قَرْفَصَ","en":"to squat","root":"ق-ر-ف-ص","type":"verb","kind":"verb","form":"I","past":"قَرْفَصَ","pres":"يُقَرْفِصُ","masdar":"قَرْفَصَة","src":"msa","note":"Quadriliteral verb, listed as form I."}
+{"skip":"دَاثَ","why":"not sure of the verb and its vowels"}
+{"skip":"دَيْث","why":"not sure of the word"}
+{"w":"دَيَّثَ","en":"to tame","root":"د-ي-ث","type":"verb","kind":"verb","form":"II","past":"دَيَّثَ","pres":"يُدَيِّثُ","masdar":"تَدْيِيث","src":"msa","note":"Rare, mostly literary or dictionary usage."}
+{"w":"دَيُّوث","en":"cuckold","root":"د-ي-ث","type":"noun","kind":"noun","gender":"m","plural":"دَيابِيث","src":"msa","note":"A strong insult."}
+{"w":"دَنُؤَ","en":"to be base","root":"د-ن-أ","type":"verb","kind":"verb","form":"I","past":"دَنُؤَ","pres":"يَدْنُؤُ","masdar":"دَناءَة","src":"msa"}
+{"w":"دَناءَة","en":"baseness, meanness","root":"د-ن-أ","type":"masdar","kind":"masdar","form":"I","gender":"f","src":"msa"}
+{"w":"دَنِيء","en":"base, despicable","root":"د-ن-أ","type":"adjective","kind":"adjective","plural":"أَدْنِياء","src":"msa"}
+{"w":"أَصْهَب","en":"reddish-brown","root":"ص-ه-ب","type":"adjective","kind":"adjective","plural":"صُهْب","src":"msa","note":"Feminine is صَهْباء; used of hair and colours."}
+{"skip":"صَهِبَ","why":"freq 0, rare"}
+{"w":"وَبَّخَ","en":"to scold","root":"و-ب-خ","type":"verb","kind":"verb","form":"II","past":"وَبَّخَ","pres":"يُوَبِّخُ","masdar":"تَوْبِيخ","src":"msa"}
+{"w":"تَوْبِيخ","en":"reprimand","root":"و-ب-خ","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُوَبِّخ","en":"reproving","root":"و-ب-خ","type":"participle","kind":"active participle","form":"II","gender":"m","src":"msa"}
+{"w":"مُوَبَّخ","en":"scolded","root":"و-ب-خ","type":"participle","kind":"passive participle","form":"II","gender":"m","src":"msa"}
+{"w":"لَباقَة","en":"tact, adroitness","root":"ل-ب-ق","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"لَبِقَ","en":"to be tactful","root":"ل-ب-ق","type":"verb","kind":"verb","form":"I","past":"لَبِقَ","pres":"يَلْبَقُ","masdar":"لَباقَة","src":"msa"}
+{"w":"لَبِق","en":"tactful, adroit","root":"ل-ب-ق","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"شَيْن","en":"disgrace, blemish","root":"ش-ي-ن","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"شانَ","en":"to disgrace","root":"ش-ي-ن","type":"verb","kind":"verb","form":"I","past":"شانَ","pres":"يَشينُ","masdar":"شَيْن","src":"msa"}
+{"w":"شائِن","en":"disgraceful","root":"ش-ي-ن","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"مُشِين","en":"shameful","root":"ش-ي-ن","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"خَدَشَ","en":"to scratch","root":"خ-د-ش","type":"verb","kind":"verb","form":"I","past":"خَدَشَ","pres":"يَخْدِشُ","masdar":"خَدْش","src":"msa"}
+{"w":"خَدْش","en":"scratch, scratching","root":"خ-د-ش","type":"masdar","kind":"masdar","form":"I","gender":"m","plural":"خُدوش","src":"msa"}
+{"w":"خادِش","en":"scratching","root":"خ-د-ش","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"مَخْدوش","en":"scratched","root":"خ-د-ش","type":"participle","kind":"passive participle","form":"I","gender":"m","src":"msa"}
+{"w":"قَيَّمَ","en":"to evaluate","root":"ق-ي-م","type":"verb","kind":"verb","form":"II","past":"قَيَّمَ","pres":"يُقَيِّمُ","masdar":"تَقْيِيم","src":"msa","note":"Derived from قيمة, value."}
+{"w":"تَقْيِيم","en":"evaluation","root":"ق-ي-م","type":"masdar","kind":"masdar","form":"II","gender":"m","plural":"تَقْيِيمات","src":"msa"}
+{"w":"مُقَيِّم","en":"evaluator","root":"ق-ي-م","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُقَيِّمون","src":"msa"}
+{"w":"مُقَيَّم","en":"evaluated, rated","root":"ق-ي-م","type":"participle","kind":"passive participle","form":"II","gender":"m","src":"msa"}
+{"w":"هَبَّ","en":"to blow","root":"ه-ب-ب","type":"verb","kind":"verb","form":"I","past":"هَبَّ","pres":"يَهُبُّ","masdar":"هُبوب","src":"msa","note":"Also to rise up or wake suddenly, as in هَبَّ مِنْ نَوْمِهِ."}
+{"skip":"هِبَّة","why":"not sure of this word; the common هِبَة is from و-ه-ب"}
+{"w":"هُبوب","en":"blowing of wind","root":"ه-ب-ب","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"هَبّة","en":"gust, uprising","root":"ه-ب-ب","type":"noun","kind":"noun of instance","gender":"f","plural":"هَبّات","src":"msa","note":"Also a sudden popular uprising, as in هَبّة شَعْبِيّة."}
+{"w":"مَهَبّ","en":"direction the wind blows","root":"ه-ب-ب","type":"noun","kind":"noun of place","gender":"m","plural":"مَهابّ","src":"msa"}
+{"w":"طَنَّ","en":"to buzz, to ring","root":"ط-ن-ن","type":"verb","kind":"verb","form":"I","past":"طَنَّ","pres":"يَطِنُّ","masdar":"طَنِين","src":"msa"}
+{"w":"طَنِين","en":"buzzing, ringing","root":"ط-ن-ن","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa","note":"Medically, ringing in the ears (tinnitus)."}
+{"w":"زَبِيب","en":"raisins","root":"ز-ب-ب","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"زَبَّبَ","en":"to dry into raisins","root":"ز-ب-ب","type":"verb","kind":"verb","form":"II","past":"زَبَّبَ","pres":"يُزَبِّبُ","masdar":"تَزْبِيب","src":"msa"}
+{"skip":"صَؤُلَ","why":"rare camel term, not sure"}
+{"w":"رَذاذ","en":"drizzle","root":"ر-ذ-ذ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"رَذَّ","why":"not sure of the present vowel"}
+{"w":"أَماطَ","en":"to remove","root":"م-ي-ط","type":"verb","kind":"verb","form":"IV","past":"أَماطَ","pres":"يُميطُ","masdar":"إِماطَة","src":"msa","note":"Common in أَماطَ اللِّثامَ عَنْ, to unveil."}
+{"w":"إِماطَة","en":"removal","root":"م-ي-ط","type":"masdar","kind":"masdar","form":"IV","gender":"f","noplural":true,"src":"msa"}
+{"w":"لاطَ","en":"to stick to","root":"ل-و-ط","type":"verb","kind":"verb","form":"I","past":"لاطَ","pres":"يَلوطُ","masdar":"لَوْط","src":"msa","note":"Rare, mostly literary."}
+{"w":"أَرَق","en":"insomnia","root":"أ-ر-ق","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَرِقَ","en":"to be sleepless","root":"أ-ر-ق","type":"verb","kind":"verb","form":"I","past":"أَرِقَ","pres":"يَأْرَقُ","masdar":"أَرَق","src":"msa"}
+{"w":"أَرَّقَ","en":"to keep awake","root":"أ-ر-ق","type":"verb","kind":"verb","form":"II","past":"أَرَّقَ","pres":"يُؤَرِّقُ","masdar":"تَأْرِيق","src":"msa"}
+{"w":"مُؤَرِّق","en":"disturbing, worrying","root":"أ-ر-ق","type":"participle","kind":"active participle","form":"II","gender":"m","src":"msa"}
+{"w":"شَفَّ","en":"to be transparent","root":"ش-ف-ف","type":"verb","kind":"verb","form":"I","past":"شَفَّ","pres":"يَشِفُّ","masdar":"شُفوف","src":"msa"}
+{"w":"شَفّاف","en":"transparent","root":"ش-ف-ف","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"شَفّافِيَّة","en":"transparency","root":"ش-ف-ف","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"كَدَّ","en":"to toil","root":"ك-د-د","type":"verb","kind":"verb","form":"I","past":"كَدَّ","pres":"يَكُدُّ","masdar":"كَدّ","src":"msa"}
+{"w":"كَدّ","en":"toil, hard work","root":"ك-د-د","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"skip":"شَخَّ","why":"colloquial, not sure of the vowels"}
+{"skip":"صَئِبَ","why":"rare, not sure"}
+{"w":"هَجا","en":"to satirize","root":"ه-ج-و","type":"verb","kind":"verb","form":"I","past":"هَجا","pres":"يَهْجو","masdar":"هَجْو","src":"msa","note":"Older sense also to spell out letters."}
+{"w":"هَجَّى","en":"to spell","root":"ه-ج-و","type":"verb","kind":"verb","form":"II","past":"هَجَّى","pres":"يُهَجِّي","masdar":"تَهْجِيَة","src":"msa"}
+{"w":"هِجاء","en":"satire, spelling","root":"ه-ج-و","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَهَجَّى","en":"to spell out","root":"ه-ج-و","type":"verb","kind":"verb","form":"V","past":"تَهَجَّى","pres":"يَتَهَجَّى","masdar":"تَهَجٍّ","src":"msa"}
+{"w":"هَجْوِيّ","en":"satirical","root":"ه-ج-و","type":"adjective","kind":"relative adjective","src":"msa"}
+{"skip":"خَنَّ","why":"rare, not sure of vowels"}
+{"w":"عافَ","en":"to loathe","root":"ع-ي-ف","type":"verb","kind":"verb","form":"I","past":"عافَ","pres":"يَعافُ","masdar":"عَيْف","src":"msa","note":"Typically of food or drink one finds repulsive."}

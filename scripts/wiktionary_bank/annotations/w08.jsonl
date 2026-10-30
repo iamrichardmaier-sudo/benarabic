@@ -1,0 +1,105 @@
+{"w":"شَمْع","en":"wax, candles","root":"ش-م-ع","type":"noun","kind":"collective noun","gender":"m","plural":"شُموع","src":"msa"}
+{"w":"شَمَّعَ","en":"to wax","root":"ش-م-ع","type":"verb","kind":"verb","form":"II","past":"شَمَّعَ","pres":"يُشَمِّعُ","masdar":"تَشْميع","src":"msa"}
+{"w":"تَشْميع","en":"waxing, sealing with wax","root":"ش-م-ع","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُشَمَّع","en":"waxed, oilcloth","root":"ش-م-ع","type":"participle","kind":"passive participle","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"شَمّاعة","en":"coat hanger, rack","root":"ش-م-ع","type":"noun","kind":"noun of instrument","gender":"f","plural":"شَمّاعات","src":"msa"}
+{"w":"كَمِيّ","en":"brave, armored warrior","root":"ك-م-ي","type":"adjective","kind":"adjective","plural":"كُماة","src":"msa"}
+{"w":"أَشْقَر","en":"blond, reddish-brown","root":"ش-ق-ر","type":"adjective","kind":"adjective","plural":"شُقْر","src":"msa"}
+{"w":"ضَجَّ","en":"to make a racket","root":"ض-ج-ج","type":"verb","kind":"verb","form":"I","past":"ضَجَّ","pres":"يَضِجُّ","masdar":"ضَجيج","src":"msa"}
+{"w":"ضَجيج","en":"noise, din","root":"ض-ج-ج","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"ضَجّة","en":"uproar, commotion","root":"ض-ج-ج","type":"noun","kind":"noun of instance","gender":"f","plural":"ضَجّات","src":"msa"}
+{"w":"جَسَرَ","en":"to dare","root":"ج-س-ر","type":"verb","kind":"verb","form":"I","past":"جَسَرَ","pres":"يَجْسُرُ","masdar":"جَسارَة","src":"msa"}
+{"w":"جَسارَة","en":"boldness, daring","root":"ج-س-ر","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"جَسور","en":"bold, daring","root":"ج-س-ر","type":"adjective","kind":"intensive adjective","src":"msa"}
+{"w":"جِسْر","en":"bridge","root":"ج-س-ر","type":"noun","kind":"noun","gender":"m","plural":"جُسور","src":"msa"}
+{"w":"تَجاسَرَ","en":"to dare, to venture","root":"ج-س-ر","type":"verb","kind":"verb","form":"VI","past":"تَجاسَرَ","pres":"يَتَجاسَرُ","masdar":"تَجاسُر","src":"msa"}
+{"w":"شالَ","en":"to lift, to raise","root":"ش-و-ل","type":"verb","kind":"verb","form":"I","past":"شالَ","pres":"يَشولُ","masdar":"شَوْل","src":"msa"}
+{"w":"أَشالَ","en":"to raise, to lift up","root":"ش-و-ل","type":"verb","kind":"verb","form":"IV","past":"أَشالَ","pres":"يُشيلُ","masdar":"إِشالَة","src":"msa"}
+{"w":"نادِل","en":"waiter","root":"ن-د-ل","type":"noun","kind":"noun","gender":"m","plural":"نادِلون","src":"msa"}
+{"w":"مُلْصَق","en":"poster, sticker","root":"ل-ص-ق","type":"noun","kind":"noun","gender":"m","plural":"مُلْصَقات","src":"msa"}
+{"w":"لَصِقَ","en":"to stick, to adhere","root":"ل-ص-ق","type":"verb","kind":"verb","form":"I","past":"لَصِقَ","pres":"يَلْصَقُ","masdar":"لُصوق","src":"msa"}
+{"w":"لاصِق","en":"adhesive, sticky","root":"ل-ص-ق","type":"participle","kind":"active participle","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِلْتَصَقَ","en":"to stick to, to cling","root":"ل-ص-ق","type":"verb","kind":"verb","form":"VIII","past":"اِلْتَصَقَ","pres":"يَلْتَصِقُ","masdar":"اِلْتِصاق","src":"msa"}
+{"w":"اِلْتِصاق","en":"adhesion, sticking","root":"ل-ص-ق","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُلْتَصِق","en":"stuck, adjoining","root":"ل-ص-ق","type":"participle","kind":"active participle","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"w":"لَصَّقَ","en":"to glue, to paste","root":"ل-ص-ق","type":"verb","kind":"verb","form":"II","past":"لَصَّقَ","pres":"يُلَصِّقُ","masdar":"تَلْصيق","src":"msa"}
+{"w":"أَلْصَقَ","en":"to attach, to stick on","root":"ل-ص-ق","type":"verb","kind":"verb","form":"IV","past":"أَلْصَقَ","pres":"يُلْصِقُ","masdar":"إِلْصاق","src":"msa"}
+{"w":"لاصَقَ","en":"to adjoin, to be next to","root":"ل-ص-ق","type":"verb","kind":"verb","form":"III","past":"لاصَقَ","pres":"يُلاصِقُ","masdar":"مُلاصَقَة","src":"msa"}
+{"w":"تَلاصَقَ","en":"to stick together","root":"ل-ص-ق","type":"verb","kind":"verb","form":"VI","past":"تَلاصَقَ","pres":"يَتَلاصَقُ","masdar":"تَلاصُق","src":"msa"}
+{"w":"قَيْد","en":"restriction, shackle","root":"ق-ي-د","type":"noun","kind":"noun","gender":"m","plural":"قُيود","src":"msa"}
+{"w":"قَيَّدَ","en":"to restrict, to bind","root":"ق-ي-د","type":"verb","kind":"verb","form":"II","past":"قَيَّدَ","pres":"يُقَيِّدُ","masdar":"تَقْييد","src":"msa"}
+{"w":"تَقْييد","en":"restriction, limiting","root":"ق-ي-د","type":"masdar","kind":"masdar","form":"II","gender":"m","plural":"تَقْييدات","src":"msa"}
+{"w":"مُقَيَّد","en":"restricted, bound","root":"ق-ي-د","type":"participle","kind":"passive participle","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُقَيِّد","en":"restricting","root":"ق-ي-د","type":"participle","kind":"active participle","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَقَيَّدَ","en":"to be bound, to comply","root":"ق-ي-د","type":"verb","kind":"verb","form":"V","past":"تَقَيَّدَ","pres":"يَتَقَيَّدُ","masdar":"تَقَيُّد","src":"msa"}
+{"w":"دِرْع","en":"armor, coat of mail","root":"د-ر-ع","type":"noun","kind":"noun","gender":"m","plural":"دُروع","src":"msa"}
+{"w":"دَرَّعَ","en":"to armor","root":"د-ر-ع","type":"verb","kind":"verb","form":"II","past":"دَرَّعَ","pres":"يُدَرِّعُ","masdar":"تَدْريع","src":"msa"}
+{"w":"مُدَرَّع","en":"armored","root":"د-ر-ع","type":"participle","kind":"passive participle","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِدَّرَعَ","en":"to don armor","root":"د-ر-ع","type":"verb","kind":"verb","form":"VIII","past":"اِدَّرَعَ","pres":"يَدَّرِعُ","masdar":"اِدِّراع","src":"msa"}
+{"w":"ذِهْن","en":"mind","root":"ذ-ه-ن","type":"noun","kind":"noun","gender":"m","plural":"أَذْهان","src":"msa"}
+{"w":"ذِهْنِيّ","en":"mental","root":"ذ-ه-ن","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"ذِهْنِيَّة","en":"mentality","root":"ذ-ه-ن","type":"noun","kind":"noun","gender":"f","plural":"ذِهْنِيّات","src":"msa"}
+{"w":"ذُهان","en":"psychosis","root":"ذ-ه-ن","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَعِدَة","en":"stomach","root":"م-ع-د","type":"noun","kind":"noun","gender":"f","plural":"مَعِدات","src":"msa"}
+{"w":"مَعِدِيّ","en":"gastric, of the stomach","root":"م-ع-د","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"أَنيق","en":"elegant, stylish","root":"أ-ن-ق","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"أَناقَة","en":"elegance","root":"أ-ن-ق","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"تَأَنَّقَ","en":"to dress elegantly","root":"أ-ن-ق","type":"verb","kind":"verb","form":"V","past":"تَأَنَّقَ","pres":"يَتَأَنَّقُ","masdar":"تَأَنُّق","src":"msa"}
+{"w":"مُتَأَنِّق","en":"elegant, refined","root":"أ-ن-ق","type":"participle","kind":"active participle","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَوْأَم","en":"twin","root":"و-أ-م","type":"noun","kind":"noun","gender":"m","plural":"تَوائِم","src":"msa"}
+{"w":"وِئام","en":"harmony, concord","root":"و-أ-م","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"واءَمَ","en":"to harmonize, to adapt","root":"و-أ-م","type":"verb","kind":"verb","form":"III","past":"واءَمَ","pres":"يُواءِمُ","masdar":"مُواءَمَة","src":"msa"}
+{"w":"تَواءَمَ","en":"to be in harmony","root":"و-أ-م","type":"verb","kind":"verb","form":"VI","past":"تَواءَمَ","pres":"يَتَواءَمُ","masdar":"تَواؤُم","src":"msa"}
+{"w":"حَشيش","en":"hashish, grass","root":"ح-ش-ش","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"حَشَّشَ","en":"to smoke hashish","root":"ح-ش-ش","type":"verb","kind":"verb","form":"II","past":"حَشَّشَ","pres":"يُحَشِّشُ","masdar":"تَحْشيش","src":"msa"}
+{"w":"حَشّاش","en":"hashish user","root":"ح-ش-ش","type":"noun","kind":"noun","gender":"m","plural":"حَشّاشون","src":"msa"}
+{"w":"مُشَوَّش","en":"confused, disturbed","root":"ش-و-ش","type":"participle","kind":"passive participle","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"شَوَّشَ","en":"to confuse, to disturb","root":"ش-و-ش","type":"verb","kind":"verb","form":"II","past":"شَوَّشَ","pres":"يُشَوِّشُ","masdar":"تَشْويش","src":"msa"}
+{"w":"تَشْويش","en":"confusion, disruption","root":"ش-و-ش","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَشَوَّشَ","en":"to become confused","root":"ش-و-ش","type":"verb","kind":"verb","form":"V","past":"تَشَوَّشَ","pres":"يَتَشَوَّشُ","masdar":"تَشَوُّش","src":"msa"}
+{"w":"شَاش","en":"muslin, gauze","root":"ش-و-ش","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"نَسيج","en":"fabric, tissue","root":"ن-س-ج","type":"noun","kind":"noun","gender":"m","plural":"أَنْسِجة","src":"msa"}
+{"w":"نَسَجَ","en":"to weave","root":"ن-س-ج","type":"verb","kind":"verb","form":"I","past":"نَسَجَ","pres":"يَنْسِجُ","masdar":"نَسْج","src":"msa"}
+{"w":"ناسِج","en":"weaver","root":"ن-س-ج","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"ناسِجون","src":"msa"}
+{"w":"مَنْسوج","en":"woven","root":"ن-س-ج","type":"participle","kind":"passive participle","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"نَسّاج","en":"weaver","root":"ن-س-ج","type":"noun","kind":"noun","gender":"m","plural":"نَسّاجون","src":"msa"}
+{"w":"مِنْسَج","en":"loom","root":"ن-س-ج","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَناسِج","src":"msa"}
+{"w":"نِساجَة","en":"weaving, textile craft","root":"ن-س-ج","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"داعِر","en":"debauched, lewd","root":"د-ع-ر","type":"adjective","kind":"adjective","plural":"دُعّار","src":"msa"}
+{"w":"دَعارَة","en":"prostitution, debauchery","root":"د-ع-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"سِكَّة","en":"path, railway track","root":"س-ك-ك","type":"noun","kind":"noun","gender":"f","plural":"سِكَك","src":"msa","note":"Also a coin die and a plowshare in older usage."}
+{"w":"سَكَّ","en":"to mint","root":"س-ك-ك","type":"verb","kind":"verb","form":"I","past":"سَكَّ","pres":"يَسُكُّ","masdar":"سَكّ","src":"msa","note":"Said of coins."}
+{"w":"مَسْكوك","en":"minted, coined","root":"س-ك-ك","type":"participle","kind":"passive participle","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"ثَرْثَرَ","en":"to chatter","root":"ث-ر-ث-ر","type":"verb","kind":"verb","form":"I","past":"ثَرْثَرَ","pres":"يُثَرْثِرُ","masdar":"ثَرْثَرَة","src":"msa"}
+{"w":"ثَرْثَرَة","en":"chatter, idle talk","root":"ث-ر-ث-ر","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"ثَرْثار","en":"talkative, chatterbox","root":"ث-ر-ث-ر","type":"adjective","kind":"intensive adjective","src":"msa"}
+{"w":"مَوَّنَ","en":"to supply with provisions","root":"م-و-ن","type":"verb","kind":"verb","form":"II","past":"مَوَّنَ","pres":"يُمَوِّنُ","masdar":"تَمْوين","src":"msa"}
+{"w":"تَمْوين","en":"provisioning, supplies","root":"م-و-ن","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُمَوِّن","en":"supplier, caterer","root":"م-و-ن","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُمَوِّنون","src":"msa"}
+{"w":"ثَدْي","en":"breast","root":"ث-د-ي","type":"noun","kind":"noun","gender":"m","plural":"أَثْداء","src":"msa"}
+{"w":"ثَدْيِيّ","en":"mammary, mammalian","root":"ث-د-ي","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"أَحْرَزَ","en":"to achieve, to score","root":"ح-ر-ز","type":"verb","kind":"verb","form":"IV","past":"أَحْرَزَ","pres":"يُحْرِزُ","masdar":"إِحْراز","src":"msa"}
+{"w":"إِحْراز","en":"achieving, scoring","root":"ح-ر-ز","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُحْرِز","en":"achiever, scorer","root":"ح-ر-ز","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُحْرِزون","src":"msa"}
+{"w":"اِحْتَرَزَ","en":"to take precautions","root":"ح-ر-ز","type":"verb","kind":"verb","form":"VIII","past":"اِحْتَرَزَ","pres":"يَحْتَرِزُ","masdar":"اِحْتِراز","src":"msa"}
+{"w":"اِحْتِراز","en":"precaution, caution","root":"ح-ر-ز","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِحْتِرازات","src":"msa"}
+{"w":"حِرْز","en":"amulet, refuge","root":"ح-ر-ز","type":"noun","kind":"noun","gender":"m","plural":"أَحْراز","src":"msa"}
+{"w":"حُقْنَة","en":"injection, enema","root":"ح-ق-ن","type":"noun","kind":"noun","gender":"f","plural":"حُقَن","src":"msa"}
+{"w":"حَقَنَ","en":"to inject","root":"ح-ق-ن","type":"verb","kind":"verb","form":"I","past":"حَقَنَ","pres":"يَحْقِنُ","masdar":"حَقْن","src":"msa"}
+{"w":"مَحْقون","en":"injected","root":"ح-ق-ن","type":"participle","kind":"passive participle","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِحْتَقَنَ","en":"to become congested","root":"ح-ق-ن","type":"verb","kind":"verb","form":"VIII","past":"اِحْتَقَنَ","pres":"يَحْتَقِنُ","masdar":"اِحْتِقان","src":"msa"}
+{"w":"اِحْتِقان","en":"congestion","root":"ح-ق-ن","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"w":"حَضانَة","en":"childcare, nursery","root":"ح-ض-ن","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"حِضْن","en":"lap, bosom","root":"ح-ض-ن","type":"noun","kind":"noun","gender":"m","plural":"أَحْضان","src":"msa"}
+{"w":"حاضِنَة","en":"nanny, incubator","root":"ح-ض-ن","type":"noun","kind":"noun","gender":"f","plural":"حَواضِن","src":"msa"}
+{"w":"حَضَنَ","en":"to hug, to nurse","root":"ح-ض-ن","type":"verb","kind":"verb","form":"I","past":"حَضَنَ","pres":"يَحْضُنُ","masdar":"حَضْن","src":"msa"}
+{"w":"حاضِن","en":"nursing, fostering","root":"ح-ض-ن","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"حاضِنون","src":"msa"}
+{"w":"مَحْضون","en":"child in custody","root":"ح-ض-ن","type":"participle","kind":"passive participle","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِحْتَضَنَ","en":"to embrace, to host","root":"ح-ض-ن","type":"verb","kind":"verb","form":"VIII","past":"اِحْتَضَنَ","pres":"يَحْتَضِنُ","masdar":"اِحْتِضان","src":"msa"}
+{"w":"اِحْتِضان","en":"embracing, hosting","root":"ح-ض-ن","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"skip":"شَقِر","why":"rare plant name, not sure of vowels"}
+{"skip":"حَرَزَ","why":"rare classical verb, not sure"}
+{"skip":"سَكّ","why":"noun senses (nail, pit) rare and uncertain; verb listed"}
+{"skip":"سُكّ","why":"rare noun, unsure"}
+{"skip":"ثَدْيِيَّات","why":"plural of ثَدْيِيّ"}
+{"skip":"ثَدْياء","why":"feminine form of an adjective, unsure"}

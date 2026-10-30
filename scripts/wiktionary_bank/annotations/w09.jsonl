@@ -1,0 +1,100 @@
+{"w":"عَزَّى","en":"to offer condolences","root":"ع-ز-ي","type":"verb","kind":"verb","form":"II","past":"عَزَّى","pres":"يُعَزِّي","masdar":"تَعْزِيَة","src":"msa"}
+{"w":"تَعْزِيَة","en":"condolence","root":"ع-ز-ي","type":"masdar","kind":"masdar","form":"II","gender":"f","src":"msa"}
+{"w":"عَزاء","en":"condolence, solace","root":"ع-ز-ي","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"Used for the mourning period and the funeral reception, as in بَيْت العَزاء."}
+{"skip":"عَزَى","why":"not sure of this verb with these vowels; the common verb for attributing is عَزا"}
+{"w":"رَشَّحَ","en":"to nominate","root":"ر-ش-ح","type":"verb","kind":"verb","form":"II","past":"رَشَّحَ","pres":"يُرَشِّحُ","masdar":"تَرْشِيح","src":"msa"}
+{"w":"تَرْشِيح","en":"nomination","root":"ر-ش-ح","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"مُرَشَّح","en":"candidate","root":"ر-ش-ح","type":"participle","kind":"passive participle","form":"II","gender":"m","plural":"مُرَشَّحُون","src":"msa"}
+{"w":"تَرَشَّحَ","en":"to run as a candidate","root":"ر-ش-ح","type":"verb","kind":"verb","form":"V","past":"تَرَشَّحَ","pres":"يَتَرَشَّحُ","masdar":"تَرَشُّح","src":"msa"}
+{"w":"رَشَحَ","en":"to sweat, to ooze","root":"ر-ش-ح","type":"verb","kind":"verb","form":"I","past":"رَشَحَ","pres":"يَرْشَحُ","masdar":"رَشْح","src":"msa"}
+{"w":"غُنَّة","en":"nasal sound","root":"غ-ن-ن","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa","note":"A term of tajwid and phonetics for nasalization."}
+{"w":"أَغَنّ","en":"nasal-voiced","root":"غ-ن-ن","type":"adjective","kind":"adjective","src":"msa"}
+{"skip":"أَغَنَّ","why":"not sure of the verb IV vowels in use"}
+{"skip":"غَنَّ","why":"not sure of the verb I vowels in use"}
+{"w":"كَئِبَ","en":"to be sad","root":"ك-أ-ب","type":"verb","kind":"verb","form":"I","past":"كَئِبَ","pres":"يَكْأَبُ","masdar":"كَآبَة","src":"msa"}
+{"w":"كَآبَة","en":"sadness, gloom","root":"ك-أ-ب","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"كَئِيب","en":"gloomy, sad","root":"ك-أ-ب","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"اِكْتَأَبَ","en":"to become depressed","root":"ك-أ-ب","type":"verb","kind":"verb","form":"VIII","past":"اِكْتَأَبَ","pres":"يَكْتَئِبُ","masdar":"اِكْتِئاب","src":"msa"}
+{"w":"اِكْتِئاب","en":"depression","root":"ك-أ-ب","type":"masdar","kind":"masdar","form":"VIII","gender":"m","src":"msa"}
+{"w":"مُكْتَئِب","en":"depressed","root":"ك-أ-ب","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُكْتَئِبُون","src":"msa"}
+{"w":"لَجْنَة","en":"committee","root":"ل-ج-ن","type":"noun","kind":"noun","gender":"f","plural":"لِجان","src":"msa"}
+{"w":"كَوْمَة","en":"heap, pile","root":"ك-و-م","type":"noun","kind":"noun","gender":"f","plural":"كَوْمات","src":"msa"}
+{"w":"كَوَّمَ","en":"to pile up","root":"ك-و-م","type":"verb","kind":"verb","form":"II","past":"كَوَّمَ","pres":"يُكَوِّمُ","masdar":"تَكْوِيم","src":"msa"}
+{"w":"تَكَوَّمَ","en":"to be piled up","root":"ك-و-م","type":"verb","kind":"verb","form":"V","past":"تَكَوَّمَ","pres":"يَتَكَوَّمُ","masdar":"تَكَوُّم","src":"msa"}
+{"w":"بَهَرَ","en":"to dazzle","root":"ب-ه-ر","type":"verb","kind":"verb","form":"I","past":"بَهَرَ","pres":"يَبْهَرُ","masdar":"بَهْر","src":"msa"}
+{"w":"أَبْهَرَ","en":"to amaze, to dazzle","root":"ب-ه-ر","type":"verb","kind":"verb","form":"IV","past":"أَبْهَرَ","pres":"يُبْهِرُ","masdar":"إِبْهار","src":"msa"}
+{"w":"إِبْهار","en":"amazement, dazzling","root":"ب-ه-ر","type":"masdar","kind":"masdar","form":"IV","gender":"m","src":"msa"}
+{"w":"مُبْهِر","en":"dazzling, amazing","root":"ب-ه-ر","type":"participle","kind":"active participle","form":"IV","gender":"m","src":"msa"}
+{"w":"اِنْبَهَرَ","en":"to be amazed","root":"ب-ه-ر","type":"verb","kind":"verb","form":"VII","past":"اِنْبَهَرَ","pres":"يَنْبَهِرُ","masdar":"اِنْبِهار","src":"msa"}
+{"w":"اِنْبِهار","en":"amazement","root":"ب-ه-ر","type":"masdar","kind":"masdar","form":"VII","gender":"m","src":"msa"}
+{"w":"مُنْبَهِر","en":"amazed","root":"ب-ه-ر","type":"participle","kind":"active participle","form":"VII","gender":"m","plural":"مُنْبَهِرُون","src":"msa"}
+{"w":"أَبْهَر","en":"aorta","root":"ب-ه-ر","type":"noun","kind":"noun","gender":"m","plural":"أَباهِر","src":"msa"}
+{"skip":"بَهَّرَ","why":"sense of adding spices is doubtful; not sure"}
+{"w":"رَكَلَ","en":"to kick","root":"ر-ك-ل","type":"verb","kind":"verb","form":"I","past":"رَكَلَ","pres":"يَرْكُلُ","masdar":"رَكْل","src":"msa"}
+{"w":"رَكْلَة","en":"kick","root":"ر-ك-ل","type":"noun","kind":"noun of instance","gender":"f","plural":"رَكَلات","src":"msa"}
+{"w":"وَرِك","en":"hip","root":"و-ر-ك","type":"noun","kind":"noun","gender":"f","plural":"أَوْراك","src":"msa"}
+{"skip":"وَرَّكَ","why":"not sure the verb is in real use"}
+{"skip":"وَرَكَ","why":"not sure the verb is in real use"}
+{"w":"سَوَّلَ","en":"to entice, to tempt","root":"س-و-ل","type":"verb","kind":"verb","form":"II","past":"سَوَّلَ","pres":"يُسَوِّلُ","masdar":"تَسْوِيل","src":"msa","note":"Usually with a subject like النَّفْس: her self prompted or embellished the act."}
+{"w":"تَسْوِيل","en":"enticement","root":"س-و-ل","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"بَشِعَ","en":"to be hideous","root":"ب-ش-ع","type":"verb","kind":"verb","form":"I","past":"بَشِعَ","pres":"يَبْشَعُ","masdar":"بَشاعَة","src":"msa"}
+{"w":"بَشِع","en":"hideous, ugly","root":"ب-ش-ع","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"بَشاعَة","en":"hideousness, atrocity","root":"ب-ش-ع","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"خَلِيج","en":"gulf, bay","root":"خ-ل-ج","type":"noun","kind":"noun","gender":"m","plural":"خُلْجان","src":"msa"}
+{"w":"خَلِيجِيّ","en":"of the Gulf, Gulf Arab","root":"خ-ل-ج","type":"adjective","kind":"relative adjective","plural":"خَلِيجِيُّون","src":"msa"}
+{"w":"اِخْتَلَجَ","en":"to twitch, to quiver","root":"خ-ل-ج","type":"verb","kind":"verb","form":"VIII","past":"اِخْتَلَجَ","pres":"يَخْتَلِجُ","masdar":"اِخْتِلاج","src":"msa"}
+{"w":"اِخْتِلاج","en":"twitching, spasm","root":"خ-ل-ج","type":"masdar","kind":"masdar","form":"VIII","gender":"m","src":"msa"}
+{"w":"تَسَكَّعَ","en":"to loiter, to wander aimlessly","root":"س-ك-ع","type":"verb","kind":"verb","form":"V","past":"تَسَكَّعَ","pres":"يَتَسَكَّعُ","masdar":"تَسَكُّع","src":"msa"}
+{"w":"تَسَكُّع","en":"loitering, vagrancy","root":"س-ك-ع","type":"masdar","kind":"masdar","form":"V","gender":"m","src":"msa"}
+{"w":"مُتَسَكِّع","en":"vagabond, loiterer","root":"س-ك-ع","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَسَكِّعُون","src":"msa"}
+{"w":"ذَعَرَ","en":"to terrify","root":"ذ-ع-ر","type":"verb","kind":"verb","form":"I","past":"ذَعَرَ","pres":"يَذْعَرُ","masdar":"ذَعْر","src":"msa"}
+{"w":"ذَعْر","en":"terrifying, panic","root":"ذ-ع-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"ذُعْر","en":"panic, terror","root":"ذ-ع-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَذْعُور","en":"panic-stricken","root":"ذ-ع-ر","type":"participle","kind":"passive participle","form":"I","gender":"m","plural":"مَذْعُورُون","src":"msa"}
+{"w":"ذَعِر","en":"frightened, panicky","root":"ذ-ع-ر","type":"adjective","kind":"adjective","src":"msa"}
+{"skip":"ذَعِرَ","why":"intransitive verb with the same spelling as ذَعَرَ; not sure enough to list separately"}
+{"w":"رَصِيف","en":"sidewalk, platform, quay","root":"ر-ص-ف","type":"noun","kind":"noun","gender":"m","plural":"أَرْصِفَة","src":"msa"}
+{"skip":"رَصِيف","why":"the colleague and the firmly-joined adjective senses of this spelling are not sure; the pavement/platform noun is the entry"}
+{"w":"رَصَفَ","en":"to pave","root":"ر-ص-ف","type":"verb","kind":"verb","form":"I","past":"رَصَفَ","pres":"يَرْصُفُ","masdar":"رَصْف","src":"msa"}
+{"w":"رَصَّفَ","en":"to pave","root":"ر-ص-ف","type":"verb","kind":"verb","form":"II","past":"رَصَّفَ","pres":"يُرَصِّفُ","masdar":"تَرْصِيف","src":"msa"}
+{"w":"مَرْصُوف","en":"paved","root":"ر-ص-ف","type":"participle","kind":"passive participle","form":"I","gender":"m","src":"msa"}
+{"w":"كَمَنَ","en":"to lie in ambush, to lurk","root":"ك-م-ن","type":"verb","kind":"verb","form":"I","past":"كَمَنَ","pres":"يَكْمُنُ","masdar":"كُمُون","src":"msa"}
+{"w":"كُمُون","en":"latency, lying in wait","root":"ك-م-ن","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"كامِن","en":"latent, hidden","root":"ك-م-ن","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"كَمِين","en":"ambush","root":"ك-م-ن","type":"noun","kind":"noun","gender":"m","plural":"كَمائِن","src":"msa"}
+{"w":"مَكْمَن","en":"hiding place","root":"ك-م-ن","type":"noun","kind":"noun of place","gender":"m","plural":"مَكامِن","src":"msa"}
+{"skip":"كَمَّنَ","why":"not sure of this form II verb in real use; كَمَنَ and كَمِين cover the sense"}
+{"w":"قُرْصان","en":"pirate","root":"ق-ر-ص-ن","type":"noun","kind":"noun","gender":"m","plural":"قَراصِنَة","src":"msa"}
+{"w":"قَرْصَنَة","en":"piracy, hacking","root":"ق-ر-ص-ن","type":"masdar","kind":"masdar","form":"I","gender":"f","src":"msa","note":"Quadriliteral verb; form I is used as the nearest value."}
+{"w":"قَرْصَنَ","en":"to hack, to pirate","root":"ق-ر-ص-ن","type":"verb","kind":"verb","form":"I","past":"قَرْصَنَ","pres":"يُقَرْصِنُ","masdar":"قَرْصَنَة","src":"msa","note":"Quadriliteral verb; form I is used as the nearest value."}
+{"w":"أَنْجَبَ","en":"to bear a child","root":"ن-ج-ب","type":"verb","kind":"verb","form":"IV","past":"أَنْجَبَ","pres":"يُنْجِبُ","masdar":"إِنْجاب","src":"msa"}
+{"w":"إِنْجاب","en":"childbearing, begetting","root":"ن-ج-ب","type":"masdar","kind":"masdar","form":"IV","gender":"m","src":"msa"}
+{"w":"مُنْجِب","en":"fertile, begetting","root":"ن-ج-ب","type":"participle","kind":"active participle","form":"IV","gender":"m","src":"msa"}
+{"w":"نَجُبَ","en":"to be noble","root":"ن-ج-ب","type":"verb","kind":"verb","form":"I","past":"نَجُبَ","pres":"يَنْجُبُ","masdar":"نَجابَة","src":"msa"}
+{"w":"نَجابَة","en":"nobility, brightness","root":"ن-ج-ب","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"نَجِيب","en":"noble, bright","root":"ن-ج-ب","type":"adjective","kind":"adjective","plural":"نُجَباء","src":"msa"}
+{"skip":"نَجَّبَ","why":"not sure of this form II verb in real use"}
+{"w":"كُتْلَة","en":"mass, bloc, lump","root":"ك-ت-ل","type":"noun","kind":"noun","gender":"f","plural":"كُتَل","src":"msa"}
+{"w":"تَكَتَّلَ","en":"to form a bloc","root":"ك-ت-ل","type":"verb","kind":"verb","form":"V","past":"تَكَتَّلَ","pres":"يَتَكَتَّلُ","masdar":"تَكَتُّل","src":"msa"}
+{"w":"تَكَتُّل","en":"bloc, grouping together","root":"ك-ت-ل","type":"masdar","kind":"masdar","form":"V","gender":"m","src":"msa"}
+{"w":"فَأْر","en":"mouse, rat","root":"ف-أ-ر","type":"noun","kind":"collective noun","gender":"m","plural":"فِئْران","src":"msa"}
+{"w":"فَأْرَة","en":"a mouse","root":"ف-أ-ر","type":"noun","kind":"noun of instance","gender":"f","plural":"فَأْرات","src":"msa","note":"Also the computer mouse."}
+{"w":"نَقِيّ","en":"pure, clean","root":"ن-ق-ي","type":"adjective","kind":"adjective","plural":"أَنْقِياء","src":"msa"}
+{"w":"نَقِيَ","en":"to be clean, to be pure","root":"ن-ق-ي","type":"verb","kind":"verb","form":"I","past":"نَقِيَ","pres":"يَنْقَى","masdar":"نَقاء","src":"msa"}
+{"w":"نَقاء","en":"purity","root":"ن-ق-ي","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"نَقّى","en":"to purify, to clean","root":"ن-ق-ي","type":"verb","kind":"verb","form":"II","past":"نَقّى","pres":"يُنَقِّي","masdar":"تَنْقِيَة","src":"msa"}
+{"w":"تَنْقِيَة","en":"purification","root":"ن-ق-ي","type":"masdar","kind":"masdar","form":"II","gender":"f","src":"msa"}
+{"w":"اِنْتَقى","en":"to select, to pick","root":"ن-ق-ي","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَقى","pres":"يَنْتَقِي","masdar":"اِنْتِقاء","src":"msa"}
+{"w":"اِنْتِقاء","en":"selection","root":"ن-ق-ي","type":"masdar","kind":"masdar","form":"VIII","gender":"m","src":"msa"}
+{"w":"اِنْتِقائِيّ","en":"selective","root":"ن-ق-ي","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"اِخْتَرَعَ","en":"to invent","root":"خ-ر-ع","type":"verb","kind":"verb","form":"VIII","past":"اِخْتَرَعَ","pres":"يَخْتَرِعُ","masdar":"اِخْتِراع","src":"msa"}
+{"w":"اِخْتِراع","en":"invention","root":"خ-ر-ع","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِخْتِراعات","src":"msa"}
+{"w":"مُخْتَرِع","en":"inventor","root":"خ-ر-ع","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُخْتَرِعُون","src":"msa"}
+{"w":"مُخْتَرَع","en":"invented, an invention","root":"خ-ر-ع","type":"participle","kind":"passive participle","form":"VIII","gender":"m","plural":"مُخْتَرَعات","src":"msa"}
+{"w":"مَتَّ","en":"to be related to","root":"م-ت-ت","type":"verb","kind":"verb","form":"I","past":"مَتَّ","pres":"يَمُتُّ","masdar":"مَتّ","src":"msa","note":"Mostly in يَمُتُّ بِصِلَة, to have a connection with."}
+{"w":"عَلْمَنَ","en":"to secularize","root":"ع-ل-م-ن","type":"verb","kind":"verb","form":"I","past":"عَلْمَنَ","pres":"يُعَلْمِنُ","masdar":"عَلْمَنَة","src":"msa","note":"Quadriliteral verb; form I is used as the nearest value."}
+{"w":"عَلْمَنَة","en":"secularization","root":"ع-ل-م-ن","type":"masdar","kind":"masdar","form":"I","gender":"f","src":"msa"}
+{"w":"عَلْمانِيّ","en":"secular, secularist","root":"ع-ل-م-ن","type":"adjective","kind":"relative adjective","plural":"عَلْمانِيُّون","src":"msa"}
+{"w":"غَضَن","en":"wrinkle","root":"غ-ض-ن","type":"noun","kind":"noun","gender":"m","plural":"غُضُون","src":"msa"}
+{"w":"غَضَّنَ","en":"to wrinkle","root":"غ-ض-ن","type":"verb","kind":"verb","form":"II","past":"غَضَّنَ","pres":"يُغَضِّنُ","masdar":"تَغْضِين","src":"msa"}
+{"w":"تَغَضَّنَ","en":"to become wrinkled","root":"غ-ض-ن","type":"verb","kind":"verb","form":"V","past":"تَغَضَّنَ","pres":"يَتَغَضَّنُ","masdar":"تَغَضُّن","src":"msa"}

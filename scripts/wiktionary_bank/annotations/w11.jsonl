@@ -1,0 +1,114 @@
+{"w": "أَرْبَكَ", "en": "to confuse", "root": "ر-ب-ك", "type": "verb", "kind": "verb", "form": "IV", "past": "أَرْبَكَ", "pres": "يُرْبِكُ", "masdar": "إِرْباك", "src": "msa"}
+{"w": "إِرْباك", "en": "confusion, disruption", "root": "ر-ب-ك", "type": "masdar", "kind": "masdar", "form": "IV", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مُرْبِك", "en": "confusing, embarrassing", "root": "ر-ب-ك", "type": "participle", "kind": "active participle", "form": "IV", "gender": "m", "plural": "مُرْبِكون", "src": "msa"}
+{"w": "اِرْتَبَكَ", "en": "to become confused", "root": "ر-ب-ك", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِرْتَبَكَ", "pres": "يَرْتَبِكُ", "masdar": "اِرْتِباك", "src": "msa"}
+{"w": "اِرْتِباك", "en": "confusion, flustered state", "root": "ر-ب-ك", "type": "masdar", "kind": "masdar", "form": "VIII", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مُرْتَبِك", "en": "confused, flustered", "root": "ر-ب-ك", "type": "participle", "kind": "active participle", "form": "VIII", "gender": "m", "plural": "مُرْتَبِكون", "src": "msa"}
+{"skip": "رَبَكَ", "why": "rare classical verb, not sure of its vowels and use"}
+{"skip": "رَبِكَ", "why": "rare classical verb, not sure of its vowels and use"}
+{"w": "اِنْبَطَحَ", "en": "to lie flat on one's face", "root": "ب-ط-ح", "type": "verb", "kind": "verb", "form": "VII", "past": "اِنْبَطَحَ", "pres": "يَنْبَطِحُ", "masdar": "اِنْبِطاح", "src": "msa"}
+{"w": "اِنْبِطاح", "en": "lying prone", "root": "ب-ط-ح", "type": "masdar", "kind": "masdar", "form": "VII", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مُنْبَطِح", "en": "lying flat, prone", "root": "ب-ط-ح", "type": "participle", "kind": "active participle", "form": "VII", "gender": "m", "plural": "مُنْبَطِحون", "src": "msa"}
+{"w": "بَطَحَ", "en": "to throw flat on the ground", "root": "ب-ط-ح", "type": "verb", "kind": "verb", "form": "I", "past": "بَطَحَ", "pres": "يَبْطَحُ", "masdar": "بَطْح", "src": "msa"}
+{"w": "شَنَقَ", "en": "to hang (by the neck)", "root": "ش-ن-ق", "type": "verb", "kind": "verb", "form": "I", "past": "شَنَقَ", "pres": "يَشْنُقُ", "masdar": "شَنْق", "src": "msa"}
+{"w": "شَنْق", "en": "hanging (execution)", "root": "ش-ن-ق", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مَشْنوق", "en": "hanged", "root": "ش-ن-ق", "type": "participle", "kind": "passive participle", "form": "I", "gender": "m", "plural": "مَشْنوقون", "src": "msa"}
+{"w": "مِشْنَقَة", "en": "gallows", "root": "ش-ن-ق", "type": "noun", "kind": "noun of instrument", "gender": "f", "plural": "مَشانِق", "src": "msa"}
+{"skip": "شَنَق", "why": "other senses (rope, blood money) not certain"}
+{"skip": "شَنِقَ", "why": "doubtful sense, not sure"}
+{"w": "قَنَصَ", "en": "to hunt, to snipe", "root": "ق-ن-ص", "type": "verb", "kind": "verb", "form": "I", "past": "قَنَصَ", "pres": "يَقْنِصُ", "masdar": "قَنْص", "src": "msa"}
+{"w": "قَنْص", "en": "hunting, sniping", "root": "ق-ن-ص", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "قَنّاص", "en": "sniper, hunter", "root": "ق-ن-ص", "type": "noun", "kind": "noun", "gender": "m", "plural": "قَنّاصون", "src": "msa"}
+{"w": "قانِص", "en": "hunter", "root": "ق-ن-ص", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "plural": "قانِصون", "src": "msa"}
+{"w": "اِقْتَنَصَ", "en": "to seize, to snatch (an opportunity)", "root": "ق-ن-ص", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِقْتَنَصَ", "pres": "يَقْتَنِصُ", "masdar": "اِقْتِناص", "src": "msa"}
+{"w": "أَهْمَلَ", "en": "to neglect", "root": "ه-م-ل", "type": "verb", "kind": "verb", "form": "IV", "past": "أَهْمَلَ", "pres": "يُهْمِلُ", "masdar": "إِهْمال", "src": "msa"}
+{"w": "إِهْمال", "en": "negligence, neglect", "root": "ه-م-ل", "type": "masdar", "kind": "masdar", "form": "IV", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مُهْمِل", "en": "negligent, careless", "root": "ه-م-ل", "type": "participle", "kind": "active participle", "form": "IV", "gender": "m", "plural": "مُهْمِلون", "src": "msa"}
+{"w": "مُهْمَل", "en": "neglected, disused", "root": "ه-م-ل", "type": "participle", "kind": "passive participle", "form": "IV", "gender": "m", "plural": "مُهْمَلون", "src": "msa"}
+{"skip": "إِهْمالًا", "why": "accusative adverbial use of إِهْمال"}
+{"w": "مَصَّ", "en": "to suck", "root": "م-ص-ص", "type": "verb", "kind": "verb", "form": "I", "past": "مَصَّ", "pres": "يَمُصُّ", "masdar": "مَصّ", "src": "msa"}
+{"w": "مَصّ", "en": "sucking", "root": "م-ص-ص", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مَصَّة", "en": "a suck, a sip", "root": "م-ص-ص", "type": "noun", "kind": "noun of instance", "gender": "f", "plural": "مَصّات", "src": "msa"}
+{"w": "مَصّاصة", "en": "drinking straw", "root": "م-ص-ص", "type": "noun", "kind": "noun of instrument", "gender": "f", "plural": "مَصّاصات", "src": "msa"}
+{"w": "اِمْتَصَّ", "en": "to absorb", "root": "م-ص-ص", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِمْتَصَّ", "pres": "يَمْتَصُّ", "masdar": "اِمْتِصاص", "src": "msa"}
+{"w": "اِمْتِصاص", "en": "absorption", "root": "م-ص-ص", "type": "masdar", "kind": "masdar", "form": "VIII", "gender": "m", "noplural": true, "src": "msa"}
+{"skip": "أَدَاء", "why": "belongs to root أ-د-ي (أدّى), not د-و-أ"}
+{"skip": "أَدَاءَ", "why": "doubtful rare verb, not sure of it"}
+{"w": "خَصْر", "en": "waist", "root": "خ-ص-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "خُصور", "src": "msa"}
+{"w": "خاصِرَة", "en": "flank, side of the waist", "root": "خ-ص-ر", "type": "noun", "kind": "noun", "gender": "f", "plural": "خَواصِر", "src": "msa"}
+{"w": "اِخْتَصَرَ", "en": "to shorten, to summarize", "root": "خ-ص-ر", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِخْتَصَرَ", "pres": "يَخْتَصِرُ", "masdar": "اِخْتِصار", "src": "msa"}
+{"w": "اِخْتِصار", "en": "abbreviation, shortening", "root": "خ-ص-ر", "type": "masdar", "kind": "masdar", "form": "VIII", "gender": "m", "plural": "اِخْتِصارات", "src": "msa"}
+{"w": "مُخْتَصَر", "en": "brief, abridged", "root": "خ-ص-ر", "type": "participle", "kind": "passive participle", "form": "VIII", "gender": "m", "plural": "مُخْتَصَرات", "src": "msa"}
+{"w": "مُخْتَصِر", "en": "one who abridges", "root": "خ-ص-ر", "type": "participle", "kind": "active participle", "form": "VIII", "gender": "m", "plural": "مُخْتَصِرون", "src": "msa"}
+{"w": "أَخْصَر", "en": "shorter, more concise", "root": "خ-ص-ر", "type": "adjective", "kind": "comparative", "noplural": true, "src": "msa"}
+{"w": "هامَة", "en": "head, top", "root": "ه-و-م", "type": "noun", "kind": "noun", "gender": "f", "plural": "هامات", "src": "msa", "note": "Also a prominent person, as in a leading figure."}
+{"w": "تاهَ", "en": "to get lost", "root": "ت-و-ه", "type": "verb", "kind": "verb", "form": "I", "past": "تاهَ", "pres": "يَتيهُ", "masdar": "تَيْه", "src": "msa"}
+{"w": "تَيْه", "en": "wandering, being lost", "root": "ت-و-ه", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "تائِه", "en": "lost, wandering", "root": "ت-و-ه", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "plural": "تائِهون", "src": "msa"}
+{"w": "مَتاهَة", "en": "maze, labyrinth", "root": "ت-و-ه", "type": "noun", "kind": "noun of place", "gender": "f", "plural": "مَتاهات", "src": "msa"}
+{"w": "شَمَّ", "en": "to smell, to sniff", "root": "ش-م-م", "type": "verb", "kind": "verb", "form": "I", "past": "شَمَّ", "pres": "يَشُمُّ", "masdar": "شَمّ", "src": "msa"}
+{"w": "شَمّ", "en": "smelling, sniffing", "root": "ش-م-م", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مَشْموم", "en": "smelled", "root": "ش-م-م", "type": "participle", "kind": "passive participle", "form": "I", "gender": "m", "plural": "مَشْمومون", "src": "msa"}
+{"w": "اِشْتَمَّ", "en": "to smell, to catch a scent", "root": "ش-م-م", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِشْتَمَّ", "pres": "يَشْتَمُّ", "masdar": "اِشْتِمام", "src": "msa"}
+{"w": "تَشَمَّمَ", "en": "to sniff at", "root": "ش-م-م", "type": "verb", "kind": "verb", "form": "V", "past": "تَشَمَّمَ", "pres": "يَتَشَمَّمُ", "masdar": "تَشَمُّم", "src": "msa"}
+{"w": "شَمّام", "en": "cantaloupe melon", "root": "ش-م-م", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "شَمَم", "en": "loftiness, pride", "root": "ش-م-م", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "أَشَمّ", "en": "lofty, proud", "root": "ش-م-م", "type": "adjective", "kind": "adjective", "plural": "شُمّ", "src": "msa"}
+{"skip": "أَشَمَّ", "why": "rare causative, not sure of its use"}
+{"w": "قُطْب", "en": "pole, axis", "root": "ق-ط-ب", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَقْطاب", "src": "msa", "note": "Also a leading figure or pillar of a movement."}
+{"w": "قُطْبِيّ", "en": "polar", "root": "ق-ط-ب", "type": "adjective", "kind": "relative adjective", "plural": "قُطْبِيّون", "src": "msa"}
+{"w": "قَطَّبَ", "en": "to frown", "root": "ق-ط-ب", "type": "verb", "kind": "verb", "form": "II", "past": "قَطَّبَ", "pres": "يُقَطِّبُ", "masdar": "تَقْطيب", "src": "msa"}
+{"w": "اِسْتَقْطَبَ", "en": "to polarize, to attract", "root": "ق-ط-ب", "type": "verb", "kind": "verb", "form": "X", "past": "اِسْتَقْطَبَ", "pres": "يَسْتَقْطِبُ", "masdar": "اِسْتِقْطاب", "src": "msa"}
+{"w": "اِسْتِقْطاب", "en": "polarization, attracting", "root": "ق-ط-ب", "type": "masdar", "kind": "masdar", "form": "X", "gender": "m", "noplural": true, "src": "msa"}
+{"skip": "قَطْب", "why": "homographs (puncture-vine, masdar of قَطَبَ), not certain"}
+{"skip": "قَطَبَ", "why": "classical verb, covered by قَطَّبَ"}
+{"w": "شَنيع", "en": "atrocious, hideous", "root": "ش-ن-ع", "type": "adjective", "kind": "adjective", "plural": "شُنَع", "src": "msa"}
+{"w": "شَنُعَ", "en": "to be hideous", "root": "ش-ن-ع", "type": "verb", "kind": "verb", "form": "I", "past": "شَنُعَ", "pres": "يَشْنُعُ", "masdar": "شَناعَة", "src": "msa"}
+{"w": "شَناعَة", "en": "atrocity, hideousness", "root": "ش-ن-ع", "type": "masdar", "kind": "masdar", "form": "I", "gender": "f", "plural": "شَناعات", "src": "msa"}
+{"w": "شَنَّعَ", "en": "to denounce, to vilify", "root": "ش-ن-ع", "type": "verb", "kind": "verb", "form": "II", "past": "شَنَّعَ", "pres": "يُشَنِّعُ", "masdar": "تَشْنيع", "src": "msa"}
+{"w": "تَشْنيع", "en": "denunciation, vilification", "root": "ش-ن-ع", "type": "masdar", "kind": "masdar", "form": "II", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "أَشْنَع", "en": "more atrocious", "root": "ش-ن-ع", "type": "adjective", "kind": "comparative", "noplural": true, "src": "msa"}
+{"w": "رَدْهَة", "en": "hall, lobby", "root": "ر-د-ه", "type": "noun", "kind": "noun", "gender": "f", "plural": "رَدَهات", "src": "msa"}
+{"w": "اِحْتَسَى", "en": "to sip, to drink", "root": "ح-س-ي", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِحْتَسَى", "pres": "يَحْتَسِي", "masdar": "اِحْتِساء", "src": "msa"}
+{"w": "اِحْتِساء", "en": "sipping, drinking", "root": "ح-س-ي", "type": "masdar", "kind": "masdar", "form": "VIII", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "بَوْن", "en": "wide gap, difference", "root": "ب-و-ن", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"skip": "بِوان", "why": "not sure of the word"}
+{"skip": "بان", "why": "homograph of the verb بانَ (root ب-ي-ن), tree sense not sure"}
+{"w": "رَشَّ", "en": "to sprinkle, to spray", "root": "ر-ش-ش", "type": "verb", "kind": "verb", "form": "I", "past": "رَشَّ", "pres": "يَرُشُّ", "masdar": "رَشّ", "src": "msa"}
+{"w": "رَشّ", "en": "sprinkling, spraying", "root": "ر-ش-ش", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مَرْشوش", "en": "sprinkled", "root": "ر-ش-ش", "type": "participle", "kind": "passive participle", "form": "I", "gender": "m", "plural": "مَرْشوشون", "src": "msa"}
+{"w": "رَشّاش", "en": "machine gun, sprayer", "root": "ر-ش-ش", "type": "noun", "kind": "noun", "gender": "m", "plural": "رَشّاشات", "src": "msa"}
+{"w": "مِرَشَّة", "en": "sprayer, watering can", "root": "ر-ش-ش", "type": "noun", "kind": "noun of instrument", "gender": "f", "plural": "مَرَشّات", "src": "msa"}
+{"w": "قَزَّزَ", "en": "to disgust", "root": "ق-ز-ز", "type": "verb", "kind": "verb", "form": "II", "past": "قَزَّزَ", "pres": "يُقَزِّزُ", "masdar": "تَقْزيز", "src": "msa"}
+{"w": "مُقَزِّز", "en": "disgusting", "root": "ق-ز-ز", "type": "participle", "kind": "active participle", "form": "II", "gender": "m", "plural": "مُقَزِّزون", "src": "msa"}
+{"w": "تَقَزَّزَ", "en": "to be disgusted", "root": "ق-ز-ز", "type": "verb", "kind": "verb", "form": "V", "past": "تَقَزَّزَ", "pres": "يَتَقَزَّزُ", "masdar": "تَقَزُّز", "src": "msa"}
+{"w": "تَقَزُّز", "en": "disgust, revulsion", "root": "ق-ز-ز", "type": "masdar", "kind": "masdar", "form": "V", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "كَيِّس", "en": "shrewd, clever", "root": "ك-ي-س", "type": "adjective", "kind": "adjective", "plural": "أَكْياس", "src": "msa"}
+{"w": "أَكْيَس", "en": "shrewder", "root": "ك-ي-س", "type": "adjective", "kind": "comparative", "noplural": true, "src": "msa"}
+{"w": "كِياسَة", "en": "shrewdness, tact", "root": "ك-ي-س", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "كِيس", "en": "bag, sack", "root": "ك-ي-س", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَكْياس", "src": "msa"}
+{"skip": "كاسَ", "why": "rare classical verb"}
+{"skip": "كَيَّسَ", "why": "rare, not sure of the use"}
+{"w": "سَنَحَ", "en": "to arise, to present itself", "root": "س-ن-ح", "type": "verb", "kind": "verb", "form": "I", "past": "سَنَحَ", "pres": "يَسْنَحُ", "masdar": "سُنوح", "src": "msa", "note": "Typically of an opportunity, as in سَنَحَتِ الفُرْصَة."}
+{"w": "قُماش", "en": "cloth, fabric", "root": "ق-م-ش", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَقْمِشَة", "src": "msa"}
+{"w": "اِسْتَوْعَبَ", "en": "to comprehend, to take in", "root": "و-ع-ب", "type": "verb", "kind": "verb", "form": "X", "past": "اِسْتَوْعَبَ", "pres": "يَسْتَوْعِبُ", "masdar": "اِسْتيعاب", "src": "msa"}
+{"w": "اِسْتيعاب", "en": "comprehension, capacity", "root": "و-ع-ب", "type": "masdar", "kind": "masdar", "form": "X", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مُسْتَوْعِب", "en": "comprehending", "root": "و-ع-ب", "type": "participle", "kind": "active participle", "form": "X", "gender": "m", "plural": "مُسْتَوْعِبون", "src": "msa"}
+{"w": "نَتِن", "en": "stinking, foul-smelling", "root": "ن-ت-ن", "type": "adjective", "kind": "adjective", "plural": "نَتْنى", "src": "msa"}
+{"w": "نَتانَة", "en": "stench", "root": "ن-ت-ن", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"skip": "نَتْن", "why": "variant of نَتانَة"}
+{"skip": "نَتَنَ", "why": "unsure which present vowel is standard"}
+{"skip": "نَتَّنَ", "why": "not sure of the use"}
+{"w": "صِنْف", "en": "kind, category", "root": "ص-ن-ف", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَصْناف", "src": "msa"}
+{"w": "صَنَّفَ", "en": "to classify", "root": "ص-ن-ف", "type": "verb", "kind": "verb", "form": "II", "past": "صَنَّفَ", "pres": "يُصَنِّفُ", "masdar": "تَصْنيف", "src": "msa"}
+{"w": "تَصْنيف", "en": "classification", "root": "ص-ن-ف", "type": "masdar", "kind": "masdar", "form": "II", "gender": "m", "plural": "تَصْنيفات", "src": "msa"}
+{"w": "مُصَنِّف", "en": "classifier, author", "root": "ص-ن-ف", "type": "participle", "kind": "active participle", "form": "II", "gender": "m", "plural": "مُصَنِّفون", "src": "msa"}
+{"w": "مُصَنَّف", "en": "classified; literary work", "root": "ص-ن-ف", "type": "participle", "kind": "passive participle", "form": "II", "gender": "m", "plural": "مُصَنَّفات", "src": "msa"}
+{"w": "مَشيمَة", "en": "placenta", "root": "ش-ي-م", "type": "noun", "kind": "noun", "gender": "f", "plural": "مَشايِم", "src": "msa"}
+{"w": "شِيمَة", "en": "trait, innate quality", "root": "ش-ي-م", "type": "noun", "kind": "noun", "gender": "f", "plural": "شِيَم", "src": "msa"}
+{"w": "شامَة", "en": "mole, beauty mark", "root": "ش-ي-م", "type": "noun", "kind": "noun", "gender": "f", "plural": "شامات", "src": "msa"}
+{"skip": "شَامَ", "why": "rare classical verb"}
+{"skip": "شِيم", "why": "fish name, not sure"}
+{"skip": "شَيَّمَ", "why": "rare, not sure"}
+{"skip": "قَمَّاش", "why": "cloth merchant, folds with قُماش in the bank"}
+{"skip": "رَشَاش", "why": "spray droplets, folds with رَشّاش"}

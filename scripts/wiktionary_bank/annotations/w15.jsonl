@@ -1,0 +1,76 @@
+{"w":"نَكْهَة","en":"flavour, aroma","root":"ن-ك-ه","type":"noun","kind":"noun","gender":"f","plural":"نَكَهات","src":"msa"}
+{"w":"نَكَّهَ","en":"to flavour","root":"ن-ك-ه","type":"verb","kind":"verb","form":"II","past":"نَكَّهَ","pres":"يُنَكِّهُ","masdar":"تَنْكيه","src":"msa"}
+{"skip":"مَجْر","why":"probably the name Hungary (المَجَر) in subtitles; Wiktionary adjective is obscure"}
+{"w":"فَخِذ","en":"thigh","root":"ف-خ-ذ","type":"noun","kind":"noun","gender":"f","plural":"أَفْخاذ","src":"msa"}
+{"skip":"فَخَّذَ","why":"rare, not sure of the sense"}
+{"w":"داكِن","en":"dark (colour)","root":"د-ك-ن","type":"adjective","kind":"adjective","src":"msa","plural":"دَواكِن"}
+{"w":"أَدْكَن","en":"dusky, dark-coloured","root":"د-ك-ن","type":"adjective","kind":"adjective","plural":"دُكْن","src":"msa"}
+{"w":"فَأْس","en":"axe","root":"ف-أ-س","type":"noun","kind":"noun","gender":"f","plural":"فُؤوس","src":"msa"}
+{"w":"أَصْلَع","en":"bald","root":"ص-ل-ع","type":"adjective","kind":"adjective","plural":"صُلْع","src":"msa"}
+{"w":"صَلِعَ","en":"to go bald","root":"ص-ل-ع","type":"verb","kind":"verb","form":"I","past":"صَلِعَ","pres":"يَصْلَعُ","masdar":"صَلَع","src":"msa"}
+{"w":"صَلَع","en":"baldness","root":"ص-ل-ع","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"أَنْعَشَ","en":"to revive, to refresh","root":"ن-ع-ش","type":"verb","kind":"verb","form":"IV","past":"أَنْعَشَ","pres":"يُنْعِشُ","masdar":"إِنْعاش","src":"msa"}
+{"w":"إِنْعاش","en":"revival, resuscitation","root":"ن-ع-ش","type":"masdar","kind":"masdar","form":"IV","gender":"m","src":"msa"}
+{"w":"مُنْعِش","en":"refreshing, reviving","root":"ن-ع-ش","type":"participle","kind":"active participle","form":"IV","gender":"m","src":"msa"}
+{"w":"نَعْش","en":"bier, coffin stand","root":"ن-ع-ش","type":"noun","kind":"noun","gender":"m","plural":"نُعوش","src":"msa"}
+{"w":"اِنْتَعَشَ","en":"to revive, to be refreshed","root":"ن-ع-ش","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَعَشَ","pres":"يَنْتَعِشُ","masdar":"اِنْتِعاش","src":"msa"}
+{"w":"اِنْتِعاش","en":"recovery, revival","root":"ن-ع-ش","type":"masdar","kind":"masdar","form":"VIII","gender":"m","src":"msa"}
+{"w":"مُنْتَعِش","en":"refreshed, revived","root":"ن-ع-ش","type":"participle","kind":"active participle","form":"VIII","gender":"m","src":"msa"}
+{"skip":"نَعَّشَ","why":"form II sense unclear to me"}
+{"w":"دَرْدَشَ","en":"to chat","root":"د-ر-د-ش","type":"verb","kind":"verb","form":"I","past":"دَرْدَشَ","pres":"يُدَرْدِشُ","masdar":"دَرْدَشَة","src":"msa","note":"Quadriliteral verb."}
+{"w":"دَرْدَشَة","en":"chat, chatting","root":"د-ر-د-ش","type":"masdar","kind":"masdar","form":"I","gender":"f","src":"msa","note":"Verbal noun of a quadriliteral verb."}
+{"w":"شَتَمَ","en":"to insult, to curse","root":"ش-ت-م","type":"verb","kind":"verb","form":"I","past":"شَتَمَ","pres":"يَشْتِمُ","masdar":"شَتْم","src":"msa"}
+{"w":"شَتْم","en":"insulting, abuse","root":"ش-ت-م","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"شَتيمة","en":"insult","root":"ش-ت-م","type":"noun","kind":"noun","gender":"f","plural":"شَتائِم","src":"msa"}
+{"w":"شاتِم","en":"one who insults","root":"ش-ت-م","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"شاتِمون","src":"msa"}
+{"w":"شاتَمَ","en":"to trade insults with","root":"ش-ت-م","type":"verb","kind":"verb","form":"III","past":"شاتَمَ","pres":"يُشاتِمُ","masdar":"مُشاتَمة","src":"msa"}
+{"w":"تَشاتَمَ","en":"to insult each other","root":"ش-ت-م","type":"verb","kind":"verb","form":"VI","past":"تَشاتَمَ","pres":"يَتَشاتَمُ","masdar":"تَشاتُم","src":"msa"}
+{"w":"وَميض","en":"flash, gleam","root":"و-م-ض","type":"noun","kind":"noun","gender":"m","plural":"وَمائِض","src":"msa","noplural":true}
+{"w":"وَمَضَ","en":"to flash, to gleam","root":"و-م-ض","type":"verb","kind":"verb","form":"I","past":"وَمَضَ","pres":"يَمِضُ","masdar":"وَميض","src":"msa"}
+{"skip":"قَلَا","why":"root uncertain: hate is قَلَى يَقْلي (ق-ل-ي), frying is also ي-final"}
+{"w":"أَغْمَى","en":"to make faint","root":"غ-م-ي","type":"verb","kind":"verb","form":"IV","past":"أَغْمَى","pres":"يُغْمي","masdar":"إِغْماء","src":"msa","note":"Usually passive: أُغْمِيَ عَلَيْهِ, he fainted."}
+{"w":"إِغْماء","en":"fainting, loss of consciousness","root":"غ-م-ي","type":"masdar","kind":"masdar","form":"IV","gender":"m","src":"msa"}
+{"w":"مُغْمًى","en":"unconscious, fainted","root":"غ-م-ي","type":"participle","kind":"passive participle","form":"IV","gender":"m","src":"msa","note":"Used as مُغْمًى عَلَيْهِ."}
+{"skip":"غَمَى","why":"not sure of this verb"}
+{"skip":"غَمَّى","why":"not sure of this verb"}
+{"skip":"غُمِيَ","why":"passive form covered by أَغْمَى / إِغْماء"}
+{"w":"حَذَفَ","en":"to delete, to omit","root":"ح-ذ-ف","type":"verb","kind":"verb","form":"I","past":"حَذَفَ","pres":"يَحْذِفُ","masdar":"حَذْف","src":"msa"}
+{"w":"حَذْف","en":"deletion, omission","root":"ح-ذ-ف","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"مَحْذوف","en":"deleted, omitted","root":"ح-ذ-ف","type":"participle","kind":"passive participle","form":"I","gender":"m","src":"msa"}
+{"skip":"حَذَّفَ","why":"rare, not sure"}
+{"skip":"حَذَف","why":"not sure of the bird name"}
+{"w":"سُعال","en":"cough","root":"س-ع-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"سَعَلَ","en":"to cough","root":"س-ع-ل","type":"verb","kind":"verb","form":"I","past":"سَعَلَ","pres":"يَسْعُلُ","masdar":"سُعال","src":"msa"}
+{"w":"بَصَقَ","en":"to spit","root":"ب-ص-ق","type":"verb","kind":"verb","form":"I","past":"بَصَقَ","pres":"يَبْصُقُ","masdar":"بَصْق","src":"msa"}
+{"w":"بَصْق","en":"spitting","root":"ب-ص-ق","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"بَصْقَة","en":"a spit","root":"ب-ص-ق","type":"noun","kind":"noun of instance","gender":"f","plural":"بَصَقات","src":"msa"}
+{"w":"دَمَجَ","en":"to merge, to integrate","root":"د-م-ج","type":"verb","kind":"verb","form":"I","past":"دَمَجَ","pres":"يَدْمُجُ","masdar":"دَمْج","src":"msa"}
+{"w":"دَمْج","en":"merging, integration","root":"د-م-ج","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"اِنْدَمَجَ","en":"to merge, to integrate","root":"د-م-ج","type":"verb","kind":"verb","form":"VII","past":"اِنْدَمَجَ","pres":"يَنْدَمِجُ","masdar":"اِنْدِماج","src":"msa"}
+{"w":"اِنْدِماج","en":"merger, integration","root":"د-م-ج","type":"masdar","kind":"masdar","form":"VII","gender":"m","src":"msa"}
+{"w":"مُنْدَمِج","en":"merged, integrated","root":"د-م-ج","type":"participle","kind":"active participle","form":"VII","gender":"m","src":"msa"}
+{"w":"قُزَحِيَّة","en":"iris (of the eye)","root":"ق-ز-ح","type":"noun","kind":"noun","gender":"f","plural":"قُزَحِيّات","src":"msa"}
+{"skip":"قِزْح","why":"not sure of word"}
+{"skip":"قَزَّحَ","why":"not sure of word"}
+{"skip":"قَزَحَ","why":"not sure of word"}
+{"skip":"قَزْح","why":"not sure of word"}
+{"w":"نَحيف","en":"thin, slim","root":"ن-ح-ف","type":"adjective","kind":"adjective","plural":"نِحاف","src":"msa"}
+{"w":"نَحِفَ","en":"to become thin","root":"ن-ح-ف","type":"verb","kind":"verb","form":"I","past":"نَحِفَ","pres":"يَنْحَفُ","masdar":"نَحافة","src":"msa"}
+{"w":"نَحافة","en":"thinness, slimness","root":"ن-ح-ف","type":"masdar","kind":"masdar","form":"I","gender":"f","src":"msa"}
+{"w":"لُكْنَة","en":"accent, speech impediment","root":"ل-ك-ن","type":"noun","kind":"noun","gender":"f","plural":"لُكَن","src":"msa","note":"A foreign-sounding accent or slight difficulty in speaking Arabic."}
+{"w":"أَلْكَن","en":"speaking with an accent","root":"ل-ك-ن","type":"adjective","kind":"adjective","plural":"لُكْن","src":"msa"}
+{"w":"تَرَعْرَعَ","en":"to grow up","root":"ر-ع-ر-ع","type":"verb","kind":"verb","form":"I","past":"تَرَعْرَعَ","pres":"يَتَرَعْرَعُ","masdar":"تَرَعْرُع","src":"msa","note":"Quadriliteral verb (reflexive pattern)."}
+{"w":"تَرَعْرُع","en":"growing up, growth","root":"ر-ع-ر-ع","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa","note":"Verbal noun of a quadriliteral verb."}
+{"skip":"رَعْرَعَ","why":"rare"}
+{"w":"فاحَ","en":"to spread (a scent)","root":"ف-و-ح","type":"verb","kind":"verb","form":"I","past":"فاحَ","pres":"يَفوحُ","masdar":"فَوْح","src":"msa"}
+{"w":"شاحِب","en":"pale","root":"ش-ح-ب","type":"adjective","kind":"adjective","plural":"شُحَّب","src":"msa"}
+{"w":"شَحَبَ","en":"to turn pale","root":"ش-ح-ب","type":"verb","kind":"verb","form":"I","past":"شَحَبَ","pres":"يَشْحُبُ","masdar":"شُحوب","src":"msa"}
+{"w":"شُحوب","en":"paleness","root":"ش-ح-ب","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"هُدْنَة","en":"truce","root":"ه-د-ن","type":"noun","kind":"noun","gender":"f","plural":"هُدَن","src":"msa"}
+{"w":"هادَنَ","en":"to make a truce with","root":"ه-د-ن","type":"verb","kind":"verb","form":"III","past":"هادَنَ","pres":"يُهادِنُ","masdar":"مُهادَنة","src":"msa"}
+{"w":"مُهادَنة","en":"truce-making, appeasement","root":"ه-د-ن","type":"masdar","kind":"masdar","form":"III","gender":"f","src":"msa"}
+{"w":"ثَأْر","en":"revenge, vendetta","root":"ث-أ-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"ثَأَرَ","en":"to take revenge","root":"ث-أ-ر","type":"verb","kind":"verb","form":"I","past":"ثَأَرَ","pres":"يَثْأَرُ","masdar":"ثَأْر","src":"msa"}
+{"w":"جازَفَ","en":"to risk, to gamble","root":"ج-ز-ف","type":"verb","kind":"verb","form":"III","past":"جازَفَ","pres":"يُجازِفُ","masdar":"مُجازَفة","src":"msa"}
+{"w":"مُجازَفة","en":"risk, venture","root":"ج-ز-ف","type":"masdar","kind":"masdar","form":"III","gender":"f","plural":"مُجازَفات","src":"msa"}
+{"w":"مُجازِف","en":"risk-taker, reckless","root":"ج-ز-ف","type":"participle","kind":"active participle","form":"III","gender":"m","plural":"مُجازِفون","src":"msa"}

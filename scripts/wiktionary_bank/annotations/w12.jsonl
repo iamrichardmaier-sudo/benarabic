@@ -1,0 +1,106 @@
+{"skip":"صَخِب","why":"adjective variant of صاخِب; keep the more common صاخِب"}
+{"w":"صَخِبَ","en":"to be noisy, to clamor","root":"ص-خ-ب","type":"verb","kind":"verb","form":"I","past":"صَخِبَ","pres":"يَصْخَبُ","masdar":"صَخَب","src":"msa"}
+{"w":"صَخَب","en":"din, uproar","root":"ص-خ-ب","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"صاخِب","en":"noisy, loud","root":"ص-خ-ب","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"صاخِبون","src":"msa"}
+{"w":"ذَيْل","en":"tail, hem","root":"ذ-ي-ل","type":"noun","kind":"noun","gender":"m","plural":"أَذْيال","src":"msa"}
+{"w":"ذَيَّلَ","en":"to append, to add a footnote to","root":"ذ-ي-ل","type":"verb","kind":"verb","form":"II","past":"ذَيَّلَ","pres":"يُذَيِّلُ","masdar":"تَذْييل","src":"msa"}
+{"skip":"أَذَالَ","why":"rare; not sure of common usage"}
+{"w":"شَوَّهَ","en":"to disfigure","root":"ش-و-ه","type":"verb","kind":"verb","form":"II","past":"شَوَّهَ","pres":"يُشَوِّهُ","masdar":"تَشْويه","src":"msa"}
+{"w":"تَشْويه","en":"disfigurement, defamation","root":"ش-و-ه","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُشَوِّه","en":"disfiguring","root":"ش-و-ه","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُشَوِّهون","src":"msa"}
+{"w":"مُشَوَّه","en":"disfigured, deformed","root":"ش-و-ه","type":"participle","kind":"passive participle","form":"II","gender":"m","plural":"مُشَوَّهون","src":"msa"}
+{"w":"تَشَوَّهَ","en":"to become deformed","root":"ش-و-ه","type":"verb","kind":"verb","form":"V","past":"تَشَوَّهَ","pres":"يَتَشَوَّهُ","masdar":"تَشَوُّه","src":"msa"}
+{"w":"تَشَوُّه","en":"deformity, distortion","root":"ش-و-ه","type":"masdar","kind":"masdar","form":"V","gender":"m","plural":"تَشَوُّهات","src":"msa"}
+{"skip":"شَاه","why":"Persian loanword (king), not of this root"}
+{"skip":"شَاهَ","why":"rare; not sure of the vowels and usage"}
+{"skip":"شَوِهَ","why":"rare; not sure"}
+{"w":"أَبَهَ","en":"to pay attention to, to heed","root":"أ-ب-ه","type":"verb","kind":"verb","form":"I","past":"أَبَهَ","pres":"يَأْبَهُ","masdar":"أَبَه","src":"msa","note":"Used almost only in the negative, as in لا يَأْبَهُ بِ (to not care about)."}
+{"w":"بَتَّة","en":"at all, absolutely","root":"ب-ت-ت","type":"other","kind":"adverb","src":"msa","note":"Used in negation, as in لا ... بَتَّةً (not at all)."}
+{"w":"باتّ","en":"categorical, final","root":"ب-ت-ت","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"باتّون","src":"msa"}
+{"w":"بَتَّ","en":"to decide, to settle","root":"ب-ت-ت","type":"verb","kind":"verb","form":"I","past":"بَتَّ","pres":"يَبُتُّ","masdar":"بَتّ","src":"msa","note":"Commonly بَتَّ في الأَمْر (to rule on a matter)."}
+{"w":"صانَ","en":"to protect, to safeguard","root":"ص-و-ن","type":"verb","kind":"verb","form":"I","past":"صانَ","pres":"يَصونُ","masdar":"صَوْن","src":"msa"}
+{"w":"صَوْن","en":"safeguarding","root":"ص-و-ن","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"صِيانَة","en":"maintenance, upkeep","root":"ص-و-ن","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"مَصون","en":"protected, safeguarded","root":"ص-و-ن","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"حازَ","en":"to obtain, to possess","root":"ح-و-ز","type":"verb","kind":"verb","form":"I","past":"حازَ","pres":"يَحوزُ","masdar":"حِيازَة","src":"msa"}
+{"w":"حِيازَة","en":"possession, holding","root":"ح-و-ز","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"حائِز","en":"holder, possessor","root":"ح-و-ز","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"حائِزون","src":"msa"}
+{"w":"اِنْحازَ","en":"to side with, to be biased","root":"ح-و-ز","type":"verb","kind":"verb","form":"VII","past":"اِنْحازَ","pres":"يَنْحازُ","masdar":"اِنْحِياز","src":"msa"}
+{"w":"اِنْحِياز","en":"bias, partisanship","root":"ح-و-ز","type":"masdar","kind":"masdar","form":"VII","gender":"m","noplural":true,"src":"msa"}
+{"w":"حَيِّز","en":"space, scope","root":"ح-و-ز","type":"noun","kind":"noun","gender":"m","plural":"أَحْياز","src":"msa"}
+{"w":"طَفَحَ","en":"to overflow","root":"ط-ف-ح","type":"verb","kind":"verb","form":"I","past":"طَفَحَ","pres":"يَطْفَحُ","masdar":"طُفوح","src":"msa"}
+{"w":"طافِح","en":"overflowing","root":"ط-ف-ح","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"طافِحون","src":"msa"}
+{"w":"طَفْح","en":"skin rash","root":"ط-ف-ح","type":"noun","kind":"noun","gender":"m","plural":"طُفوح","src":"msa"}
+{"skip":"طَفَّحَ","why":"not sure of usage"}
+{"w":"مَعْتوه","en":"imbecile, feeble-minded","root":"ع-ت-ه","type":"adjective","kind":"adjective","plural":"مَعاتيه","src":"msa"}
+{"w":"عَتِهَ","en":"to be feeble-minded","root":"ع-ت-ه","type":"verb","kind":"verb","form":"I","past":"عَتِهَ","pres":"يَعْتَهُ","masdar":"عَتَه","src":"msa"}
+{"w":"صاغَ","en":"to shape, to formulate","root":"ص-و-غ","type":"verb","kind":"verb","form":"I","past":"صاغَ","pres":"يَصوغُ","masdar":"صِياغَة","src":"msa"}
+{"w":"صِياغَة","en":"formulation, goldsmithing","root":"ص-و-غ","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"صيغَة","en":"form, formula","root":"ص-و-غ","type":"noun","kind":"noun","gender":"f","plural":"صِيَغ","src":"msa"}
+{"w":"صائِغ","en":"goldsmith, jeweler","root":"ص-و-غ","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"صاغَة","src":"msa"}
+{"w":"مَصوغ","en":"fashioned, wrought","root":"ص-و-غ","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"رَجَّحَ","en":"to favor, to consider more likely","root":"ر-ج-ح","type":"verb","kind":"verb","form":"II","past":"رَجَّحَ","pres":"يُرَجِّحُ","masdar":"تَرْجيح","src":"msa"}
+{"w":"تَرْجيح","en":"preference, weighing up","root":"ر-ج-ح","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُرَجَّح","en":"likely, preferred","root":"ر-ج-ح","type":"participle","kind":"passive participle","form":"II","gender":"m","plural":"مُرَجَّحون","src":"msa"}
+{"w":"رَجَحَ","en":"to outweigh, to be likely","root":"ر-ج-ح","type":"verb","kind":"verb","form":"I","past":"رَجَحَ","pres":"يَرْجُحُ","masdar":"رُجْحان","src":"msa"}
+{"w":"راجِح","en":"preponderant, probable","root":"ر-ج-ح","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"راجِحون","src":"msa"}
+{"w":"أُرْجوحَة","en":"swing","root":"ر-ج-ح","type":"noun","kind":"noun","gender":"f","plural":"أَراجيح","src":"msa"}
+{"w":"غَريزَة","en":"instinct","root":"غ-ر-ز","type":"noun","kind":"noun","gender":"f","plural":"غَرائِز","src":"msa"}
+{"w":"غَريزِيّ","en":"instinctive","root":"غ-ر-ز","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"غُرْزَة","en":"stitch","root":"غ-ر-ز","type":"noun","kind":"noun of instance","gender":"f","plural":"غُرَز","src":"msa"}
+{"w":"غَرَزَ","en":"to stick in, to plant","root":"غ-ر-ز","type":"verb","kind":"verb","form":"I","past":"غَرَزَ","pres":"يَغْرِزُ","masdar":"غَرْز","src":"msa"}
+{"w":"رَنَّ","en":"to ring, to resound","root":"ر-ن-ن","type":"verb","kind":"verb","form":"I","past":"رَنَّ","pres":"يَرِنُّ","masdar":"رَنين","src":"msa"}
+{"w":"رَنين","en":"ringing, resonance","root":"ر-ن-ن","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"skip":"كَوَّسَ","why":"obscure classical word; not sure"}
+{"skip":"كَاسَ","why":"obscure classical word; not sure"}
+{"skip":"كَوْس","why":"obscure classical word; not sure"}
+{"w":"رَفَّهَ","en":"to entertain, to give comfort to","root":"ر-ف-ه","type":"verb","kind":"verb","form":"II","past":"رَفَّهَ","pres":"يُرَفِّهُ","masdar":"تَرْفيه","src":"msa"}
+{"w":"تَرْفيه","en":"entertainment, recreation","root":"ر-ف-ه","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَرْفيهيّ","en":"recreational","root":"ر-ف-ه","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"رَفاهِيَة","en":"luxury, comfort","root":"ر-ف-ه","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"رَفاه","en":"well-being, prosperity","root":"ر-ف-ه","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"رَفُهَ","en":"to live in comfort","root":"ر-ف-ه","type":"verb","kind":"verb","form":"I","past":"رَفُهَ","pres":"يَرْفُهُ","masdar":"رَفاهَة","src":"msa"}
+{"w":"مُرَفَّه","en":"pampered, well-off","root":"ر-ف-ه","type":"participle","kind":"passive participle","form":"II","gender":"m","plural":"مُرَفَّهون","src":"msa"}
+{"skip":"مَهْبِل","why":"not sure the root assignment is right; omitted"}
+{"w":"هابَ","en":"to fear, to revere","root":"ه-ي-ب","type":"verb","kind":"verb","form":"I","past":"هابَ","pres":"يَهابُ","masdar":"مَهابَة","src":"msa"}
+{"w":"هَيْبَة","en":"awe, prestige","root":"ه-ي-ب","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"مَهابَة","en":"awe, reverence","root":"ه-ي-ب","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"مَهيب","en":"awe-inspiring, imposing","root":"ه-ي-ب","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"غَبِيَ","en":"to be stupid","root":"غ-ب-و","type":"verb","kind":"verb","form":"I","past":"غَبِيَ","pres":"يَغْبى","masdar":"غَباء","src":"msa"}
+{"w":"غَباء","en":"stupidity","root":"غ-ب-و","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"غَبِيّ","en":"stupid, dull","root":"غ-ب-و","type":"adjective","kind":"adjective","plural":"أَغْبِياء","src":"msa"}
+{"w":"أَغْبى","en":"stupider","root":"غ-ب-و","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"وَلِعَ","en":"to be fond of","root":"و-ل-ع","type":"verb","kind":"verb","form":"I","past":"وَلِعَ","pres":"يَوْلَعُ","masdar":"وَلَع","src":"msa","note":"Used with بِ."}
+{"w":"وَلَع","en":"passion, fondness","root":"و-ل-ع","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَوْلَعَ","en":"to make fond of","root":"و-ل-ع","type":"verb","kind":"verb","form":"IV","past":"أَوْلَعَ","pres":"يُولِعُ","masdar":"إيلاع","src":"msa"}
+{"w":"مُولَع","en":"fond of, passionate about","root":"و-ل-ع","type":"participle","kind":"passive participle","form":"IV","gender":"m","plural":"مُولَعون","src":"msa","note":"Used with بِ."}
+{"w":"وَلَّعَ","en":"to ignite, to set alight","root":"و-ل-ع","type":"verb","kind":"verb","form":"II","past":"وَلَّعَ","pres":"يُوَلِّعُ","masdar":"تَوْليع","src":"msa"}
+{"w":"وَلّاعَة","en":"lighter","root":"و-ل-ع","type":"noun","kind":"noun of instrument","gender":"f","plural":"وَلّاعات","src":"msa"}
+{"skip":"وَلَعَ","why":"not sure of the verb meaning and vowels"}
+{"skip":"وَلِع","why":"adjective form of وَلِعَ; covered by مُولَع"}
+{"skip":"وَلْع","why":"variant verbal noun of the verb"}
+{"w":"وَباء","en":"epidemic","root":"و-ب-أ","type":"noun","kind":"noun","gender":"m","plural":"أَوْبِئَة","src":"msa"}
+{"w":"مَوْبوء","en":"plague-ridden, infested","root":"و-ب-أ","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"اِنْتَهَكَ","en":"to violate","root":"ن-ه-ك","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَهَكَ","pres":"يَنْتَهِكُ","masdar":"اِنْتِهاك","src":"msa"}
+{"w":"اِنْتِهاك","en":"violation","root":"ن-ه-ك","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِنْتِهاكات","src":"msa"}
+{"w":"مُنْتَهِك","en":"violator","root":"ن-ه-ك","type":"participle","kind":"active participle","form":"VIII","gender":"m","plural":"مُنْتَهِكون","src":"msa"}
+{"w":"أَنْهَكَ","en":"to exhaust","root":"ن-ه-ك","type":"verb","kind":"verb","form":"IV","past":"أَنْهَكَ","pres":"يُنْهِكُ","masdar":"إنْهاك","src":"msa"}
+{"w":"مُنْهِك","en":"exhausting","root":"ن-ه-ك","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُنْهِكون","src":"msa"}
+{"w":"فَلْسَفَة","en":"philosophy","root":"ف-ل-س-ف","type":"noun","kind":"noun","gender":"f","plural":"فَلْسَفات","src":"msa"}
+{"w":"فَيْلَسوف","en":"philosopher","root":"ف-ل-س-ف","type":"noun","kind":"noun","gender":"m","plural":"فَلاسِفَة","src":"msa"}
+{"w":"فَلْسَفِيّ","en":"philosophical","root":"ف-ل-س-ف","type":"adjective","kind":"relative adjective","src":"msa"}
+{"skip":"فَلْسَفَ","why":"quadriliteral verb form; not in the form set, omitted"}
+{"w":"تَلَوُّث","en":"pollution, contamination","root":"ل-و-ث","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"لَوَّثَ","en":"to pollute, to contaminate","root":"ل-و-ث","type":"verb","kind":"verb","form":"II","past":"لَوَّثَ","pres":"يُلَوِّثُ","masdar":"تَلْويث","src":"msa"}
+{"w":"تَلْويث","en":"polluting, contaminating","root":"ل-و-ث","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُلَوِّث","en":"polluting","root":"ل-و-ث","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُلَوِّثات","src":"msa","note":"Often used as a noun for a pollutant."}
+{"w":"مُلَوَّث","en":"polluted, contaminated","root":"ل-و-ث","type":"participle","kind":"passive participle","form":"II","gender":"m","plural":"مُلَوَّثون","src":"msa"}
+{"w":"تَلَوَّثَ","en":"to become polluted","root":"ل-و-ث","type":"verb","kind":"verb","form":"V","past":"تَلَوَّثَ","pres":"يَتَلَوَّثُ","masdar":"تَلَوُّث","src":"msa"}
+{"skip":"لاثَ","why":"rare; not sure of usage"}
+{"skip":"لَوِثَ","why":"rare; not sure"}
+{"w":"طَمَحَ","en":"to aspire","root":"ط-م-ح","type":"verb","kind":"verb","form":"I","past":"طَمَحَ","pres":"يَطْمَحُ","masdar":"طُموح","src":"msa","note":"Used with إِلى."}
+{"w":"طُموح","en":"ambition, aspiration","root":"ط-م-ح","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"طَموح","en":"ambitious","root":"ط-م-ح","type":"adjective","kind":"intensive adjective","src":"msa"}
+{"w":"طامِح","en":"aspiring","root":"ط-م-ح","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"طامِحون","src":"msa"}
+{"w":"حَنى","en":"to bend, to curve","root":"ح-ن-ي","type":"verb","kind":"verb","form":"I","past":"حَنى","pres":"يَحْني","masdar":"حَنْي","src":"msa"}
+{"w":"مَحْنِيّ","en":"bent, curved","root":"ح-ن-ي","type":"participle","kind":"passive participle","form":"I","src":"msa"}

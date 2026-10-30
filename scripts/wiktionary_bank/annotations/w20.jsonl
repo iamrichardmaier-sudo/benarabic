@@ -1,0 +1,86 @@
+{"w":"فَرَزَ","en":"to sort, to separate","root":"ف-ر-ز","type":"verb","kind":"verb","form":"I","past":"فَرَزَ","pres":"يَفْرِزُ","masdar":"فَرْز","src":"msa"}
+{"w":"فَرْز","en":"sorting","root":"ف-ر-ز","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَفْروز","en":"sorted, separated","root":"ف-ر-ز","type":"participle","kind":"passive participle","form":"I","gender":"m","src":"msa"}
+{"w":"أَفْرَزَ","en":"to secrete","root":"ف-ر-ز","type":"verb","kind":"verb","form":"IV","past":"أَفْرَزَ","pres":"يُفْرِزُ","masdar":"إِفْراز","src":"msa"}
+{"w":"إِفْراز","en":"secretion","root":"ف-ر-ز","type":"masdar","kind":"masdar","form":"IV","gender":"m","plural":"إِفْرازات","src":"msa"}
+{"skip":"جَعْفَر","why":"mostly a personal name; not sure of the common-noun use"}
+{"w":"اِسْتَنْشَقَ","en":"to inhale","root":"ن-ش-ق","type":"verb","kind":"verb","form":"X","past":"اِسْتَنْشَقَ","pres":"يَسْتَنْشِقُ","masdar":"اِسْتِنْشاق","src":"msa"}
+{"w":"اِسْتِنْشاق","en":"inhalation","root":"ن-ش-ق","type":"masdar","kind":"masdar","form":"X","gender":"m","noplural":true,"src":"msa"}
+{"w":"خُصوبَة","en":"fertility","root":"خ-ص-ب","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"خَصيب","en":"fertile","root":"خ-ص-ب","type":"adjective","kind":"adjective","plural":"خِصاب","src":"msa"}
+{"w":"خَصِب","en":"fertile, fruitful","root":"خ-ص-ب","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"خَصِبَ","en":"to be fertile","root":"خ-ص-ب","type":"verb","kind":"verb","form":"I","past":"خَصِبَ","pres":"يَخْصَبُ","masdar":"خِصْب","src":"msa"}
+{"w":"خِصْب","en":"fertility, richness","root":"خ-ص-ب","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"خَصَّبَ","en":"to fertilize","root":"خ-ص-ب","type":"verb","kind":"verb","form":"II","past":"خَصَّبَ","pres":"يُخَصِّبُ","masdar":"تَخْصيب","src":"msa"}
+{"w":"تَخْصيب","en":"fertilization, enrichment","root":"خ-ص-ب","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَخْصَبَ","en":"to become fertile","root":"خ-ص-ب","type":"verb","kind":"verb","form":"IV","past":"أَخْصَبَ","pres":"يُخْصِبُ","masdar":"إِخْصاب","src":"msa"}
+{"w":"إِخْصاب","en":"fertilization, impregnation","root":"خ-ص-ب","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"عَجَّ","en":"to teem, to be noisy","root":"ع-ج-ج","type":"verb","kind":"verb","form":"I","past":"عَجَّ","pres":"يَعِجُّ","masdar":"عَجيج","src":"msa","note":"Often used of places that teem with people or noise."}
+{"w":"عَجيج","en":"clamor, din","root":"ع-ج-ج","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"عَجاج","en":"dust, haze","root":"ع-ج-ج","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"بَشَّ","why":"not sure of the present-tense vowel"}
+{"skip":"بَشّ","why":"not sure"}
+{"skip":"أَبَشّ","why":"not sure"}
+{"w":"بَشاشَة","en":"cheerfulness","root":"ب-ش-ش","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"بَشوش","en":"cheerful, beaming","root":"ب-ش-ش","type":"adjective","kind":"intensive adjective","src":"msa"}
+{"skip":"وَخِمَ","why":"not sure of the present vowel and sense"}
+{"w":"وَخُمَ","en":"to be grave, to be dire","root":"و-خ-م","type":"verb","kind":"verb","form":"I","past":"وَخُمَ","pres":"يَوْخُمُ","masdar":"وَخامَة","src":"msa","note":"Used mostly of consequences and situations."}
+{"w":"وَخيم","en":"grave, dire","root":"و-خ-م","type":"adjective","kind":"adjective","src":"msa","note":"Typically in وَخيمَة العَواقِب, with dire consequences."}
+{"w":"وَخامَة","en":"gravity, severity","root":"و-خ-م","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"تُخْمَة","en":"indigestion","root":"و-خ-م","type":"noun","kind":"noun","gender":"f","plural":"تُخَم","src":"msa"}
+{"w":"طَيْف","en":"spectrum, phantom","root":"ط-ي-ف","type":"noun","kind":"noun","gender":"m","plural":"أَطْياف","src":"msa"}
+{"w":"طَيْفِيّ","en":"spectral","root":"ط-ي-ف","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"فَدَحَ","en":"to weigh heavily on","root":"ف-د-ح","type":"verb","kind":"verb","form":"I","past":"فَدَحَ","pres":"يَفْدَحُ","masdar":"فَدْح","src":"msa"}
+{"w":"فادِح","en":"grievous, heavy","root":"ف-د-ح","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa","note":"Common in فادِح الخَسائِر, heavy losses."}
+{"w":"فَداحَة","en":"gravity, heaviness","root":"ف-د-ح","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"تَأَرْجَحَ","en":"to swing, to fluctuate","root":"أ-ر-ج-ح","type":"verb","kind":"verb","form":"I","past":"تَأَرْجَحَ","pres":"يَتَأَرْجَحُ","masdar":"تَأَرْجُح","src":"msa","note":"Quadriliteral verb (form IIq, reflexive of the quadriliteral)."}
+{"w":"تَأَرْجُح","en":"swinging, fluctuation","root":"أ-ر-ج-ح","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُتَأَرْجِح","en":"swinging, fluctuating","root":"أ-ر-ج-ح","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"أُرْجوحَة","en":"swing, seesaw","root":"أ-ر-ج-ح","type":"noun","kind":"noun","gender":"f","plural":"أَراجيح","src":"msa"}
+{"skip":"رَزِيَّة","why":"does not contain the radicals ز-ز; belongs to root ر-ز-أ"}
+{"w":"حِكَّة","en":"itch","root":"ح-ك-ك","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"حَكَّ","en":"to scratch, to rub","root":"ح-ك-ك","type":"verb","kind":"verb","form":"I","past":"حَكَّ","pres":"يَحُكُّ","masdar":"حَكّ","src":"msa"}
+{"w":"حَكّ","en":"scratching, rubbing","root":"ح-ك-ك","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِحْتَكَّ","en":"to rub against, to come into contact","root":"ح-ك-ك","type":"verb","kind":"verb","form":"VIII","past":"اِحْتَكَّ","pres":"يَحْتَكُّ","masdar":"اِحْتِكاك","src":"msa"}
+{"w":"اِحْتِكاك","en":"friction, contact","root":"ح-ك-ك","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِحْتِكاكات","src":"msa"}
+{"w":"لَدْغَة","en":"sting, bite","root":"ل-د-غ","type":"noun","kind":"noun of instance","gender":"f","plural":"لَدَغات","src":"msa"}
+{"w":"لَدَغَ","en":"to sting, to bite","root":"ل-د-غ","type":"verb","kind":"verb","form":"I","past":"لَدَغَ","pres":"يَلْدَغُ","masdar":"لَدْغ","src":"msa"}
+{"w":"لَدْغ","en":"stinging","root":"ل-د-غ","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَلْدوغ","en":"stung","root":"ل-د-غ","type":"participle","kind":"passive participle","form":"I","gender":"m","src":"msa"}
+{"w":"رَشيق","en":"graceful, slender","root":"ر-ش-ق","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"رَشاقَة","en":"grace, slimness","root":"ر-ش-ق","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"رَشَقَ","en":"to pelt, to hurl at","root":"ر-ش-ق","type":"verb","kind":"verb","form":"I","past":"رَشَقَ","pres":"يَرْشُقُ","masdar":"رَشْق","src":"msa"}
+{"w":"تَراشَقَ","en":"to pelt each other","root":"ر-ش-ق","type":"verb","kind":"verb","form":"VI","past":"تَراشَقَ","pres":"يَتَراشَقُ","masdar":"تَراشُق","src":"msa"}
+{"w":"لُؤْلُؤ","en":"pearls","root":"ل-أ-ل-أ","type":"noun","kind":"collective noun","gender":"m","plural":"لَآلِئ","src":"msa"}
+{"w":"لَأْلَأَ","en":"to sparkle, to glitter","root":"ل-أ-ل-أ","type":"verb","kind":"verb","form":"I","past":"لَأْلَأَ","pres":"يُلَأْلِئُ","masdar":"لَأْلَأَة","src":"msa","note":"Quadriliteral verb."}
+{"w":"لُؤْلُؤِيّ","en":"pearly","root":"ل-أ-ل-أ","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"وَعْر","en":"rugged, rough","root":"و-ع-ر","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"وُعورَة","en":"ruggedness, difficulty","root":"و-ع-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"شاسِع","en":"vast, far-off","root":"ش-س-ع","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"هَذَى","en":"to rave, to talk deliriously","root":"ه-ذ-ي","type":"verb","kind":"verb","form":"I","past":"هَذَى","pres":"يَهْذِي","masdar":"هَذَيان","src":"msa"}
+{"w":"هَذَيان","en":"delirium, raving","root":"ه-ذ-ي","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"هامِش","en":"margin, footnote","root":"ه-م-ش","type":"noun","kind":"noun","gender":"m","plural":"هَوامِش","src":"msa"}
+{"skip":"هَمَشَ","why":"not sure of the sense and usage"}
+{"w":"هَمَّشَ","en":"to marginalize","root":"ه-م-ش","type":"verb","kind":"verb","form":"II","past":"هَمَّشَ","pres":"يُهَمِّشُ","masdar":"تَهْميش","src":"msa"}
+{"w":"تَهْميش","en":"marginalization","root":"ه-م-ش","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُهَمَّش","en":"marginalized","root":"ه-م-ش","type":"participle","kind":"passive participle","form":"II","gender":"m","src":"msa"}
+{"w":"لَفَّقَ","en":"to fabricate, to concoct","root":"ل-ف-ق","type":"verb","kind":"verb","form":"II","past":"لَفَّقَ","pres":"يُلَفِّقُ","masdar":"تَلْفيق","src":"msa"}
+{"w":"تَلْفيق","en":"fabrication","root":"ل-ف-ق","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُلَفَّق","en":"fabricated, made-up","root":"ل-ف-ق","type":"participle","kind":"passive participle","form":"II","gender":"m","src":"msa"}
+{"skip":"دَمّ","why":"the gloss (ointment, paint) is doubtful; the common frequent word is دَم, blood, root د-م-ي"}
+{"w":"دَميم","en":"ugly","root":"د-م-م","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"دَمامَة","en":"ugliness","root":"د-م-م","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"أَزاحَ","en":"to remove, to displace","root":"ز-ي-ح","type":"verb","kind":"verb","form":"IV","past":"أَزاحَ","pres":"يُزيحُ","masdar":"إِزاحَة","src":"msa"}
+{"w":"إِزاحَة","en":"removal, displacement","root":"ز-ي-ح","type":"masdar","kind":"masdar","form":"IV","gender":"f","noplural":true,"src":"msa"}
+{"w":"شِلْو","en":"remains, torn piece","root":"ش-ل-و","type":"noun","kind":"noun","gender":"m","plural":"أَشْلاء","src":"msa","note":"Usually seen in the plural أَشْلاء, body parts or remains."}
+{"w":"أَشْلَى","en":"to set on, to incite an animal","root":"ش-ل-و","type":"verb","kind":"verb","form":"IV","past":"أَشْلَى","pres":"يُشْلِي","masdar":"إِشْلاء","src":"msa"}
+{"w":"صَدَأ","en":"rust","root":"ص-د-أ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"صَدِئَ","en":"to rust","root":"ص-د-أ","type":"verb","kind":"verb","form":"I","past":"صَدِئَ","pres":"يَصْدَأُ","masdar":"صَدَأ","src":"msa"}
+{"w":"صَدِئ","en":"rusty","root":"ص-د-أ","type":"adjective","kind":"adjective","src":"msa"}
+{"skip":"صَدَأَ","why":"homograph of the other verb, rare sense (to polish from rust); not sure"}
+{"skip":"صَدَّأَ","why":"not sure of the usage"}
+{"w":"رَسَبَ","en":"to fail, to sink","root":"ر-س-ب","type":"verb","kind":"verb","form":"I","past":"رَسَبَ","pres":"يَرْسُبُ","masdar":"رُسوب","src":"msa","note":"Used of failing an exam and of sediment settling."}
+{"w":"رُسوب","en":"failure, sedimentation","root":"ر-س-ب","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"راسِب","en":"sediment, failing","root":"ر-س-ب","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"رَواسِب","src":"msa"}
+{"w":"رَسَّبَ","en":"to fail someone, to deposit","root":"ر-س-ب","type":"verb","kind":"verb","form":"II","past":"رَسَّبَ","pres":"يُرَسِّبُ","masdar":"تَرْسيب","src":"msa"}
+{"w":"تَرَسَّبَ","en":"to settle as sediment","root":"ر-س-ب","type":"verb","kind":"verb","form":"V","past":"تَرَسَّبَ","pres":"يَتَرَسَّبُ","masdar":"تَرَسُّب","src":"msa"}

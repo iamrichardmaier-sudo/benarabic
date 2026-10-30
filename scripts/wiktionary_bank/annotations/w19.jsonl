@@ -1,0 +1,72 @@
+{"w":"تُرَّهَة","en":"nonsense, trifle","root":"ت-ر-ه","type":"noun","kind":"noun","gender":"f","plural":"تُرَّهات","src":"msa"}
+{"w":"غُدَّة","en":"gland","root":"غ-د-د","type":"noun","kind":"noun","gender":"f","plural":"غُدَد","src":"msa"}
+{"w":"قاتِم","en":"dark, gloomy","root":"ق-ت-م","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"ضَريح","en":"tomb, shrine","root":"ض-ر-ح","type":"noun","kind":"noun","gender":"m","plural":"أَضْرِحة","src":"msa"}
+{"w":"فَتَكَ","en":"to attack and kill treacherously","root":"ف-ت-ك","type":"verb","kind":"verb","form":"I","past":"فَتَكَ","pres":"يَفْتِكُ","masdar":"فَتْك","src":"msa","note":"Usually followed by بِ: to wreak havoc on."}
+{"w":"فَتْك","en":"deadly assault, ravaging","root":"ف-ت-ك","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"فاتِك","en":"ruthless, deadly","root":"ف-ت-ك","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"فُتّاك","src":"msa"}
+{"w":"نَصْل","en":"blade","root":"ن-ص-ل","type":"noun","kind":"noun","gender":"m","plural":"نِصال","src":"msa"}
+{"w":"تَنَصَّلَ","en":"to disown, to evade responsibility","root":"ن-ص-ل","type":"verb","kind":"verb","form":"V","past":"تَنَصَّلَ","pres":"يَتَنَصَّلُ","masdar":"تَنَصُّل","src":"msa","note":"Usually followed by مِن."}
+{"w":"تَنَصُّل","en":"disavowal, evasion","root":"ن-ص-ل","type":"masdar","kind":"masdar","form":"V","gender":"m","src":"msa"}
+{"w":"زِرّ","en":"button","root":"ز-ر-ر","type":"noun","kind":"noun","gender":"m","plural":"أَزْرار","src":"msa"}
+{"w":"زَرَّ","en":"to button up","root":"ز-ر-ر","type":"verb","kind":"verb","form":"I","past":"زَرَّ","pres":"يَزُرُّ","masdar":"زَرّ","src":"msa"}
+{"w":"تَشَنَّجَ","en":"to cramp, to convulse","root":"ش-ن-ج","type":"verb","kind":"verb","form":"V","past":"تَشَنَّجَ","pres":"يَتَشَنَّجُ","masdar":"تَشَنُّج","src":"msa"}
+{"w":"تَشَنُّج","en":"spasm, convulsion","root":"ش-ن-ج","type":"masdar","kind":"masdar","form":"V","gender":"m","plural":"تَشَنُّجات","src":"msa"}
+{"w":"مُتَشَنِّج","en":"tense, convulsed","root":"ش-ن-ج","type":"participle","kind":"active participle","form":"V","gender":"m","src":"msa"}
+{"w":"مَزِيَّة","en":"advantage, merit","root":"م-ز-ي","type":"noun","kind":"noun","gender":"f","plural":"مَزايا","src":"msa"}
+{"w":"أَفْعَمَ","en":"to fill","root":"ف-ع-م","type":"verb","kind":"verb","form":"IV","past":"أَفْعَمَ","pres":"يُفْعِمُ","masdar":"إِفْعام","src":"msa"}
+{"w":"مُفْعَم","en":"filled, brimming","root":"ف-ع-م","type":"participle","kind":"passive participle","form":"IV","src":"msa","note":"Usually followed by بِ: full of."}
+{"w":"غَشَّ","en":"to cheat, to adulterate","root":"غ-ش-ش","type":"verb","kind":"verb","form":"I","past":"غَشَّ","pres":"يَغُشُّ","masdar":"غِشّ","src":"msa"}
+{"w":"غِشّ","en":"cheating, fraud","root":"غ-ش-ش","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"غَشّاش","en":"cheater, swindler","root":"غ-ش-ش","type":"noun","kind":"noun","gender":"m","plural":"غَشّاشون","src":"msa"}
+{"w":"مَغْشوش","en":"adulterated, fake","root":"غ-ش-ش","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"اِرْتَعَشَ","en":"to tremble, to shiver","root":"ر-ع-ش","type":"verb","kind":"verb","form":"VIII","past":"اِرْتَعَشَ","pres":"يَرْتَعِشُ","masdar":"اِرْتِعاش","src":"msa"}
+{"w":"اِرْتِعاش","en":"trembling, shivering","root":"ر-ع-ش","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُرْتَعِش","en":"trembling","root":"ر-ع-ش","type":"participle","kind":"active participle","form":"VIII","gender":"m","src":"msa"}
+{"w":"رَعْشَة","en":"tremor, shiver","root":"ر-ع-ش","type":"noun","kind":"noun of instance","gender":"f","plural":"رَعَشات","src":"msa"}
+{"w":"نَزْوَة","en":"whim, impulse","root":"ن-ز-و","type":"noun","kind":"noun","gender":"f","plural":"نَزَوات","src":"msa"}
+{"w":"نَزا","en":"to leap, to spring","root":"ن-ز-و","type":"verb","kind":"verb","form":"I","past":"نَزا","pres":"يَنْزو","masdar":"نَزْو","src":"msa"}
+{"w":"نَزَوان","en":"leaping, bounding","root":"ن-ز-و","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"زَيْف","en":"falsehood, counterfeit","root":"ز-ي-ف","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"زائِف","en":"fake, false","root":"ز-ي-ف","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"زَيَّفَ","en":"to counterfeit, to falsify","root":"ز-ي-ف","type":"verb","kind":"verb","form":"II","past":"زَيَّفَ","pres":"يُزَيِّفُ","masdar":"تَزْييف","src":"msa"}
+{"w":"مُزَيَّف","en":"forged, counterfeit","root":"ز-ي-ف","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"مَشَّطَ","en":"to comb","root":"م-ش-ط","type":"verb","kind":"verb","form":"II","past":"مَشَّطَ","pres":"يُمَشِّطُ","masdar":"تَمْشيط","src":"msa","note":"Also used for combing an area, as in a search."}
+{"w":"تَمْشيط","en":"combing","root":"م-ش-ط","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مِشْط","en":"comb","root":"م-ش-ط","type":"noun","kind":"noun of instrument","gender":"m","plural":"أَمْشاط","src":"msa"}
+{"w":"دَفَّة","en":"rudder, door leaf","root":"د-ف-ف","type":"noun","kind":"noun","gender":"f","plural":"دَفَّات","src":"msa"}
+{"w":"دُفّ","en":"tambourine","root":"د-ف-ف","type":"noun","kind":"noun","gender":"m","plural":"دُفوف","src":"msa"}
+{"w":"قَلَّصَ","en":"to reduce, to cut back","root":"ق-ل-ص","type":"verb","kind":"verb","form":"II","past":"قَلَّصَ","pres":"يُقَلِّصُ","masdar":"تَقْليص","src":"msa"}
+{"w":"تَقْليص","en":"reduction, cutback","root":"ق-ل-ص","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُقَلَّص","en":"reduced, shrunken","root":"ق-ل-ص","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"تَقَلَّصَ","en":"to shrink, to contract","root":"ق-ل-ص","type":"verb","kind":"verb","form":"V","past":"تَقَلَّصَ","pres":"يَتَقَلَّصُ","masdar":"تَقَلُّص","src":"msa"}
+{"w":"أَحْشاء","en":"entrails, innards","root":"ح-ش-و","type":"noun","kind":"plural","gender":"m","src":"msa"}
+{"w":"حَشا","en":"to stuff, to fill","root":"ح-ش-و","type":"verb","kind":"verb","form":"I","past":"حَشا","pres":"يَحْشو","masdar":"حَشْو","src":"msa"}
+{"w":"حَشْو","en":"stuffing, filling","root":"ح-ش-و","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَحاشى","en":"to avoid, to shun","root":"ح-ش-و","type":"verb","kind":"verb","form":"VI","past":"تَحاشى","pres":"يَتَحاشى","masdar":"تَحاشٍ","src":"msa"}
+{"w":"هَمَجِيّ","en":"barbaric, savage","root":"ه-م-ج","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"هَمَجِيَّة","en":"barbarism, savagery","root":"ه-م-ج","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"تَعَجْرَفَ","en":"to be arrogant","root":"ع-ج-ر-ف","type":"verb","kind":"verb","form":"I","past":"تَعَجْرَفَ","pres":"يَتَعَجْرَفُ","masdar":"تَعَجْرُف","src":"msa","note":"Quadriliteral verb."}
+{"w":"مُتَعَجْرِف","en":"arrogant, haughty","root":"ع-ج-ر-ف","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"عَجْرَفَة","en":"arrogance, haughtiness","root":"ع-ج-ر-ف","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"سَخِيّ","en":"generous","root":"س-خ-و","type":"adjective","kind":"adjective","plural":"أَسْخِياء","src":"msa"}
+{"w":"سَخا","en":"to be generous","root":"س-خ-و","type":"verb","kind":"verb","form":"I","past":"سَخا","pres":"يَسْخو","masdar":"سَخاء","src":"msa"}
+{"w":"سَخاء","en":"generosity","root":"س-خ-و","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَرْهَم","en":"ointment, salve","root":"ر-ه-م","type":"noun","kind":"noun","gender":"m","plural":"مَراهِم","src":"msa"}
+{"w":"رَثى","en":"to mourn in verse, to eulogize","root":"ر-ث-ي","type":"verb","kind":"verb","form":"I","past":"رَثى","pres":"يَرْثي","masdar":"رِثاء","src":"msa"}
+{"w":"رِثاء","en":"elegy, lament","root":"ر-ث-ي","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَرْثِيَة","en":"elegy","root":"ر-ث-ي","type":"noun","kind":"noun","gender":"f","plural":"مَراثٍ","src":"msa"}
+{"w":"هَجين","en":"hybrid, crossbred","root":"ه-ج-ن","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"هَجَّنَ","en":"to crossbreed, to hybridize","root":"ه-ج-ن","type":"verb","kind":"verb","form":"II","past":"هَجَّنَ","pres":"يُهَجِّنُ","masdar":"تَهْجين","src":"msa"}
+{"w":"تَهْجين","en":"hybridization","root":"ه-ج-ن","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِسْتَهْجَنَ","en":"to disapprove of, to condemn","root":"ه-ج-ن","type":"verb","kind":"verb","form":"X","past":"اِسْتَهْجَنَ","pres":"يَسْتَهْجِنُ","masdar":"اِسْتِهْجان","src":"msa"}
+{"w":"اِسْتِهْجان","en":"disapproval, condemnation","root":"ه-ج-ن","type":"masdar","kind":"masdar","form":"X","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُسْتَهْجَن","en":"objectionable, condemned","root":"ه-ج-ن","type":"participle","kind":"passive participle","form":"X","src":"msa"}
+{"skip":"خَابَ","why":"Wiktionary files under خ-و-ب, but the common verb (to fail) is from خ-ي-ب; not sure of the خ-و-ب sense"}
+{"skip":"زَافَ","why":"rare verb; the common words of the root are listed instead (زَيْف, زائِف, زَيَّفَ)"}
+{"skip":"زَيْف","why":"already an entry"}
+{"skip":"زِيف","why":"rare architectural sense, not sure"}
+{"skip":"مَشَطَ","why":"classical variant of مَشَّطَ, not listed"}
+{"skip":"مَشْط","why":"verbal noun of the less common مَشَطَ"}
+{"skip":"دَفَّ","why":"rare verb for wing-flapping; not sure enough to list"}
+{"skip":"هَمَج","why":"collective noun for rabble, not sure of usage; the adjective and abstract noun are listed"}

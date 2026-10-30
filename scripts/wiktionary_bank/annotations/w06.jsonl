@@ -1,0 +1,126 @@
+{"w":"بَذَلَ","en":"to give, to exert","root":"ب-ذ-ل","type":"verb","kind":"verb","form":"I","past":"بَذَلَ","pres":"يَبْذُلُ","masdar":"بَذْل","src":"msa"}
+{"w":"بَذْل","en":"giving, exertion","root":"ب-ذ-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"باذِل","en":"giving, one who exerts","root":"ب-ذ-ل","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"مَبْذول","en":"exerted, offered","root":"ب-ذ-ل","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"بَذْلة","en":"suit (clothes)","root":"ب-ذ-ل","type":"noun","kind":"noun","gender":"f","plural":"بَذَلات","src":"msa"}
+{"w":"اِبْتَذَلَ","en":"to cheapen, to make commonplace","root":"ب-ذ-ل","type":"verb","kind":"verb","form":"VIII","past":"اِبْتَذَلَ","pres":"يَبْتَذِلُ","masdar":"اِبْتِذال","src":"msa"}
+{"w":"اِبْتِذال","en":"vulgarity, triteness","root":"ب-ذ-ل","type":"masdar","kind":"masdar","form":"VIII","gender":"m","src":"msa"}
+{"w":"مُبْتَذَل","en":"vulgar, banal","root":"ب-ذ-ل","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"لاقَ","en":"to befit, to suit","root":"ل-ي-ق","type":"verb","kind":"verb","form":"I","past":"لاقَ","pres":"يَلِيقُ","masdar":"لِياقة","src":"msa"}
+{"w":"لائِق","en":"suitable, fitting","root":"ل-ي-ق","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"لِياقة","en":"fitness, decorum","root":"ل-ي-ق","type":"masdar","kind":"masdar","form":"I","gender":"f","src":"msa"}
+{"w":"أَلْيَق","en":"more suitable","root":"ل-ي-ق","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"تافِه","en":"trivial, worthless","root":"ت-ف-ه","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"تَفاهة","en":"triviality, banality","root":"ت-ف-ه","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"أَتْفَه","en":"more trivial","root":"ت-ف-ه","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"تَفُهَ","en":"to be trivial","root":"ت-ف-ه","type":"verb","kind":"verb","form":"I","past":"تَفُهَ","pres":"يَتْفُهُ","masdar":"تَفاهة","src":"msa"}
+{"skip":"اِسْتَتْفَهَ","why":"unsure of attestation"}
+{"w":"نَصّ","en":"text","root":"ن-ص-ص","type":"noun","kind":"noun","gender":"m","plural":"نُصوص","src":"msa"}
+{"w":"مِنَصّة","en":"platform, podium","root":"ن-ص-ص","type":"noun","kind":"noun","gender":"f","plural":"مِنَصّات","src":"msa"}
+{"w":"نَصَّ","en":"to stipulate, to state","root":"ن-ص-ص","type":"verb","kind":"verb","form":"I","past":"نَصَّ","pres":"يَنُصُّ","masdar":"نَصّ","src":"msa"}
+{"w":"مَنْصوص","en":"stipulated, stated","root":"ن-ص-ص","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"تَناصّ","en":"intertextuality","root":"ن-ص-ص","type":"masdar","kind":"masdar","form":"VI","gender":"m","src":"msa"}
+{"w":"مُنْتَزَه","en":"park, promenade","root":"ن-ز-ه","type":"noun","kind":"noun of place","gender":"m","plural":"مُنْتَزَهات","src":"msa"}
+{"w":"نُزْهة","en":"outing, stroll","root":"ن-ز-ه","type":"noun","kind":"noun","gender":"f","plural":"نُزَه","src":"msa"}
+{"w":"مُتَنَزَّه","en":"park, recreation spot","root":"ن-ز-ه","type":"noun","kind":"noun of place","gender":"m","plural":"مُتَنَزَّهات","src":"msa"}
+{"w":"مُتَنَزِّه","en":"stroller, walker","root":"ن-ز-ه","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَنَزِّهون","src":"msa"}
+{"w":"نَزاهة","en":"integrity, honesty","root":"ن-ز-ه","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"نَزُهَ","en":"to be upright, to be pure","root":"ن-ز-ه","type":"verb","kind":"verb","form":"I","past":"نَزُهَ","pres":"يَنْزُهُ","masdar":"نَزاهة","src":"msa"}
+{"w":"نَزيه","en":"honest, upright","root":"ن-ز-ه","type":"adjective","kind":"adjective","plural":"نُزَهاء","src":"msa"}
+{"w":"تَنَزَّهَ","en":"to go for a stroll","root":"ن-ز-ه","type":"verb","kind":"verb","form":"V","past":"تَنَزَّهَ","pres":"يَتَنَزَّهُ","masdar":"تَنَزُّه","src":"msa"}
+{"w":"نَزَّهَ","en":"to declare free of fault","root":"ن-ز-ه","type":"verb","kind":"verb","form":"II","past":"نَزَّهَ","pres":"يُنَزِّهُ","masdar":"تَنْزيه","src":"msa"}
+{"w":"تَنْزيه","en":"exalting above all fault","root":"ن-ز-ه","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"مُنَزَّه","en":"exempt, free from","root":"ن-ز-ه","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"skip":"نَزِه","why":"rare variant of نَزيه"}
+{"skip":"نَزِهَ","why":"rare, not sure of the verb"}
+{"skip":"عِرَاق","why":"Iraq (a name); the other senses are rare"}
+{"w":"عَرَق","en":"sweat","root":"ع-ر-ق","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَعَرَّقَ","en":"to sweat","root":"ع-ر-ق","type":"verb","kind":"verb","form":"V","past":"تَعَرَّقَ","pres":"يَتَعَرَّقُ","masdar":"تَعَرُّق","src":"msa"}
+{"w":"عِرْقِيّ","en":"racial, ethnic","root":"ع-ر-ق","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"عَرِقَ","en":"to sweat","root":"ع-ر-ق","type":"verb","kind":"verb","form":"I","past":"عَرِقَ","pres":"يَعْرَقُ","masdar":"عَرَق","src":"msa"}
+{"w":"عَريق","en":"deep-rooted, long-established","root":"ع-ر-ق","type":"adjective","kind":"adjective","src":"msa"}
+{"skip":"عُرَاق","why":"rare"}
+{"skip":"عَرَّقَ","why":"rare"}
+{"skip":"عَرَقَ","why":"rare"}
+{"skip":"عُرِقَ","why":"rare passive verb"}
+{"w":"حَليب","en":"milk","root":"ح-ل-ب","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"حَلَبَ","en":"to milk","root":"ح-ل-ب","type":"verb","kind":"verb","form":"I","past":"حَلَبَ","pres":"يَحْلُبُ","masdar":"حَلْب","src":"msa"}
+{"w":"حَلْب","en":"milking","root":"ح-ل-ب","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"مَحْلوب","en":"milked","root":"ح-ل-ب","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"مُسْتَحْلَب","en":"emulsion","root":"ح-ل-ب","type":"noun","kind":"noun","gender":"m","plural":"مُسْتَحْلَبات","src":"msa"}
+{"w":"مَهْووس","en":"obsessed, manic","root":"ه-و-س","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"هَوَس","en":"mania, obsession","root":"ه-و-س","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"هَوَّسَ","en":"to drive to obsession","root":"ه-و-س","type":"verb","kind":"verb","form":"II","past":"هَوَّسَ","pres":"يُهَوِّسُ","masdar":"تَهْويس","src":"msa"}
+{"w":"هَوِسَ","en":"to be obsessed","root":"ه-و-س","type":"verb","kind":"verb","form":"I","past":"هَوِسَ","pres":"يَهْوَسُ","masdar":"هَوَس","src":"msa"}
+{"skip":"هاسَ","why":"unsure of sense and attestation"}
+{"skip":"هَوِس","why":"adjective of هَوِسَ, rare"}
+{"skip":"هَوْس","why":"rare variant of هَوَس"}
+{"w":"أَتاحَ","en":"to make available, to allow","root":"ت-ي-ح","type":"verb","kind":"verb","form":"IV","past":"أَتاحَ","pres":"يُتِيحُ","masdar":"إِتاحة","src":"msa"}
+{"w":"إِتاحة","en":"making available","root":"ت-ي-ح","type":"masdar","kind":"masdar","form":"IV","gender":"f","src":"msa"}
+{"w":"مُتاح","en":"available","root":"ت-ي-ح","type":"participle","kind":"passive participle","form":"IV","src":"msa"}
+{"w":"عِوَض","en":"substitute, compensation","root":"ع-و-ض","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَعْويض","en":"compensation","root":"ع-و-ض","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"عَوَّضَ","en":"to compensate","root":"ع-و-ض","type":"verb","kind":"verb","form":"II","past":"عَوَّضَ","pres":"يُعَوِّضُ","masdar":"تَعْويض","src":"msa"}
+{"w":"مُعَوَّض","en":"compensated","root":"ع-و-ض","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"عاضَ","en":"to compensate, to replace","root":"ع-و-ض","type":"verb","kind":"verb","form":"I","past":"عاضَ","pres":"يَعُوضُ","masdar":"عَوْض","src":"msa"}
+{"w":"اِسْتَعاضَ","en":"to substitute, to replace","root":"ع-و-ض","type":"verb","kind":"verb","form":"X","past":"اِسْتَعاضَ","pres":"يَسْتَعيضُ","masdar":"اِسْتِعاضة","src":"msa"}
+{"w":"تَعَوَّضَ","en":"to be compensated","root":"ع-و-ض","type":"verb","kind":"verb","form":"V","past":"تَعَوَّضَ","pres":"يَتَعَوَّضُ","masdar":"تَعَوُّض","src":"msa"}
+{"skip":"أَعَاضَ","why":"rare"}
+{"skip":"عَوْض","why":"masdar of عاضَ, listed under the verb"}
+{"skip":"عِرْق","why":"same bare spelling as عَرَق, validator rejects duplicate; left out"}
+{"w":"أَبْلَه","en":"foolish, simple-minded","root":"ب-ل-ه","type":"adjective","kind":"adjective","plural":"بُلْه","src":"msa"}
+{"w":"بَلاهة","en":"foolishness, simplicity","root":"ب-ل-ه","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"نَبيل","en":"noble","root":"ن-ب-ل","type":"adjective","kind":"adjective","plural":"نُبَلاء","src":"msa"}
+{"w":"نَبُلَ","en":"to be noble","root":"ن-ب-ل","type":"verb","kind":"verb","form":"I","past":"نَبُلَ","pres":"يَنْبُلُ","masdar":"نُبْل","src":"msa"}
+{"w":"نُبْل","en":"nobility","root":"ن-ب-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"نَبالة","en":"nobility, nobleness","root":"ن-ب-ل","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"نَبْل","en":"arrows","root":"ن-ب-ل","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"نَبَّلَ","why":"rare"}
+{"skip":"نبل","why":"duplicate bare spelling, covered by entries above"}
+{"w":"لَكَمَ","en":"to punch","root":"ل-ك-م","type":"verb","kind":"verb","form":"I","past":"لَكَمَ","pres":"يَلْكُمُ","masdar":"لَكْم","src":"msa"}
+{"w":"لَكْمة","en":"a punch","root":"ل-ك-م","type":"noun","kind":"noun of instance","gender":"f","plural":"لَكَمات","src":"msa"}
+{"w":"لاكَمَ","en":"to box","root":"ل-ك-م","type":"verb","kind":"verb","form":"III","past":"لاكَمَ","pres":"يُلاكِمُ","masdar":"مُلاكَمة","src":"msa"}
+{"w":"مُلاكَمة","en":"boxing","root":"ل-ك-م","type":"masdar","kind":"masdar","form":"III","gender":"f","src":"msa"}
+{"w":"مُلاكِم","en":"boxer","root":"ل-ك-م","type":"participle","kind":"active participle","form":"III","gender":"m","plural":"مُلاكِمون","src":"msa"}
+{"w":"حَقْل","en":"field","root":"ح-ق-ل","type":"noun","kind":"noun","gender":"m","plural":"حُقول","src":"msa"}
+{"w":"جُمْهور","en":"public, majority","root":"ج-م-ه-ر","type":"noun","kind":"noun","gender":"m","plural":"جَماهير","src":"msa"}
+{"w":"جُمْهورِيّة","en":"republic","root":"ج-م-ه-ر","type":"noun","kind":"noun","gender":"f","plural":"جُمْهورِيّات","src":"msa"}
+{"w":"وَقِح","en":"shameless, impudent","root":"و-ق-ح","type":"adjective","kind":"adjective","plural":"وُقَحاء","src":"msa"}
+{"w":"وَقاحة","en":"impudence, rudeness","root":"و-ق-ح","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"أَسْعَفَ","en":"to give first aid, to rescue","root":"س-ع-ف","type":"verb","kind":"verb","form":"IV","past":"أَسْعَفَ","pres":"يُسْعِفُ","masdar":"إِسْعاف","src":"msa"}
+{"w":"إِسْعاف","en":"first aid, relief","root":"س-ع-ف","type":"masdar","kind":"masdar","form":"IV","gender":"m","src":"msa"}
+{"w":"مُسْعِف","en":"paramedic","root":"س-ع-ف","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُسْعِفون","src":"msa"}
+{"skip":"أَسْعَف","why":"rare adjective, not sure"}
+{"skip":"جِعَة","why":"beer; not sure it belongs to this root"}
+{"w":"وَجَع","en":"pain, ache","root":"و-ج-ع","type":"noun","kind":"noun","gender":"m","plural":"أَوْجاع","src":"msa"}
+{"w":"وَجِعَ","en":"to ache, to be in pain","root":"و-ج-ع","type":"verb","kind":"verb","form":"I","past":"وَجِعَ","pres":"يَوْجَعُ","masdar":"وَجَع","src":"msa"}
+{"w":"أَوْجَعَ","en":"to hurt, to pain","root":"و-ج-ع","type":"verb","kind":"verb","form":"IV","past":"أَوْجَعَ","pres":"يُوجِعُ","masdar":"إِيجاع","src":"msa"}
+{"w":"مُوجِع","en":"painful","root":"و-ج-ع","type":"participle","kind":"active participle","form":"IV","gender":"m","src":"msa"}
+{"w":"وَشْم","en":"tattoo","root":"و-ش-م","type":"noun","kind":"noun","gender":"m","plural":"وُشوم","src":"msa"}
+{"w":"وَشَمَ","en":"to tattoo","root":"و-ش-م","type":"verb","kind":"verb","form":"I","past":"وَشَمَ","pres":"يَشِمُ","masdar":"وَشْم","src":"msa"}
+{"w":"وَشَّمَ","en":"to tattoo","root":"و-ش-م","type":"verb","kind":"verb","form":"II","past":"وَشَّمَ","pres":"يُوَشِّمُ","masdar":"تَوْشيم","src":"msa"}
+{"w":"تَوْشيم","en":"tattooing","root":"و-ش-م","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"مَوْشوم","en":"tattooed","root":"و-ش-م","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"نادِر","en":"rare","root":"ن-د-ر","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"نادِرة","en":"rarity, anecdote","root":"ن-د-ر","type":"noun","kind":"noun","gender":"f","plural":"نَوادِر","src":"msa"}
+{"w":"نُدْرة","en":"rarity, scarcity","root":"ن-د-ر","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"أَنْدَر","en":"rarer","root":"ن-د-ر","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"نَدَرَ","en":"to be rare","root":"ن-د-ر","type":"verb","kind":"verb","form":"I","past":"نَدَرَ","pres":"يَنْدُرُ","masdar":"نُدْرة","src":"msa"}
+{"skip":"أَنْدَرَ","why":"unsure"}
+{"w":"كابُوس","en":"nightmare","root":"ك-ب-س","type":"noun","kind":"noun","gender":"m","plural":"كَوابيس","src":"msa"}
+{"w":"كَبَسَ","en":"to press, to squeeze","root":"ك-ب-س","type":"verb","kind":"verb","form":"I","past":"كَبَسَ","pres":"يَكْبِسُ","masdar":"كَبْس","src":"msa"}
+{"w":"كَبْس","en":"pressing, squeezing","root":"ك-ب-س","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"مَكْبوس","en":"pressed, pickled","root":"ك-ب-س","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"عُشْب","en":"grass, herb","root":"ع-ش-ب","type":"noun","kind":"noun","gender":"m","plural":"أَعْشاب","src":"msa"}
+{"w":"عاشِب","en":"herbivorous","root":"ع-ش-ب","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"مُعْشَوْشِب","en":"grassy","root":"ع-ش-ب","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"ثَرْوة","en":"wealth","root":"ث-ر-و","type":"noun","kind":"noun","gender":"f","plural":"ثَرَوات","src":"msa"}
+{"w":"ثَراء","en":"wealth, affluence","root":"ث-ر-و","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"ثَرِيّ","en":"rich, wealthy","root":"ث-ر-و","type":"adjective","kind":"adjective","plural":"أَثْرِياء","src":"msa"}
+{"w":"أَثْرى","en":"to enrich","root":"ث-ر-و","type":"verb","kind":"verb","form":"IV","past":"أَثْرى","pres":"يُثْرِي","masdar":"إِثْراء","src":"msa"}
+{"w":"أَجْدَى","en":"to be useful, to avail","root":"ج-د-و","type":"verb","kind":"verb","form":"IV","past":"أَجْدَى","pres":"يُجْدِي","masdar":"إِجْداء","src":"msa"}
+{"w":"جَدْوى","en":"benefit, usefulness","root":"ج-د-و","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"مُجْدِي","en":"useful, effective","root":"ج-د-و","type":"participle","kind":"active participle","form":"IV","gender":"m","src":"msa"}
+{"w":"اِسْتَجْدَى","en":"to beg, to solicit","root":"ج-د-و","type":"verb","kind":"verb","form":"X","past":"اِسْتَجْدَى","pres":"يَسْتَجْدِي","masdar":"اِسْتِجْداء","src":"msa"}
+{"skip":"حَبِنَ","why":"rare medical term, not sure"}
+{"skip":"حُبِنَ","why":"rare medical term, not sure"}

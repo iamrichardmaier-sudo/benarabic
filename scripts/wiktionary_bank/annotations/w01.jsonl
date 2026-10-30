@@ -1,0 +1,212 @@
+{"w":"نَاس","en":"people","root":"ن-و-س","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"ناسَ","en":"to dangle, to sway","root":"ن-و-س","type":"verb","kind":"verb","form":"I","past":"ناسَ","pres":"يَنوسُ","masdar":"نَوْس","src":"msa"}
+{"w":"نَوَسان","en":"swaying, oscillation","root":"ن-و-س","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"أَكَّدَ","en":"to confirm, to affirm","root":"أ-ك-د","type":"verb","kind":"verb","form":"II","past":"أَكَّدَ","pres":"يُؤَكِّدُ","masdar":"تَأْكيد","src":"msa"}
+{"w":"تَأَكَّدَ","en":"to make sure, to be confirmed","root":"أ-ك-د","type":"verb","kind":"verb","form":"V","past":"تَأَكَّدَ","pres":"يَتَأَكَّدُ","masdar":"تَأَكُّد","src":"msa"}
+{"w":"تَأْكيد","en":"confirmation, emphasis","root":"أ-ك-د","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"تَأَكُّد","en":"being sure, verification","root":"أ-ك-د","type":"masdar","kind":"masdar","form":"V","gender":"m","src":"msa"}
+{"w":"مُتَأَكِّد","en":"sure, certain","root":"أ-ك-د","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَأَكِّدون","src":"msa"}
+{"w":"مُؤَكِّد","en":"confirming, emphatic","root":"أ-ك-د","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُؤَكِّدون","src":"msa"}
+{"w":"مُؤَكَّد","en":"confirmed, certain","root":"أ-ك-د","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"أَكيد","en":"certain, sure","root":"أ-ك-د","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"نَوْع","en":"type, kind","root":"ن-و-ع","type":"noun","kind":"noun","gender":"m","plural":"أَنْواع","src":"msa"}
+{"w":"نَوْعِيّ","en":"qualitative, specific","root":"ن-و-ع","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"نَوْعِيَّة","en":"quality, nature","root":"ن-و-ع","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"نَوَّعَ","en":"to diversify, to vary","root":"ن-و-ع","type":"verb","kind":"verb","form":"II","past":"نَوَّعَ","pres":"يُنَوِّعُ","masdar":"تَنْويع","src":"msa"}
+{"w":"تَنَوَّعَ","en":"to be varied, to be diverse","root":"ن-و-ع","type":"verb","kind":"verb","form":"V","past":"تَنَوَّعَ","pres":"يَتَنَوَّعُ","masdar":"تَنَوُّع","src":"msa"}
+{"w":"تَنْويع","en":"diversification","root":"ن-و-ع","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"تَنَوُّع","en":"diversity, variety","root":"ن-و-ع","type":"masdar","kind":"masdar","form":"V","gender":"m","src":"msa"}
+{"w":"مُتَنَوِّع","en":"diverse, varied","root":"ن-و-ع","type":"participle","kind":"active participle","form":"V","src":"msa"}
+{"w":"مُنَوَّع","en":"assorted, varied","root":"ن-و-ع","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"عَلا","en":"to rise, to be high","root":"ع-ل-ي","type":"verb","kind":"verb","form":"I","past":"عَلا","pres":"يَعْلو","masdar":"عُلُوّ","src":"msa"}
+{"w":"عُلُوّ","en":"height, loftiness","root":"ع-ل-ي","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"عالِي","en":"high, lofty","root":"ع-ل-ي","type":"participle","kind":"active participle","form":"I","src":"msa"}
+{"w":"أَعْلى","en":"higher, highest","root":"ع-ل-ي","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"عُلْوِيّ","en":"upper, upward","root":"ع-ل-ي","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"عَلِيّ","en":"lofty, exalted","root":"ع-ل-ي","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"تَعالى","en":"to be exalted, to come over","root":"ع-ل-ي","type":"verb","kind":"verb","form":"VI","past":"تَعالى","pres":"يَتَعالى","masdar":"تَعالٍ","src":"msa"}
+{"w":"أَعْلى","en":"to raise, to exalt","root":"ع-ل-ي","type":"verb","kind":"verb","form":"IV","past":"أَعْلى","pres":"يُعْلي","masdar":"إِعْلاء","src":"msa"}
+{"w":"إِعْلاء","en":"raising, exalting","root":"ع-ل-ي","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"عَلّى","en":"to raise higher","root":"ع-ل-ي","type":"verb","kind":"verb","form":"II","past":"عَلّى","pres":"يُعَلّي","masdar":"تَعْلِيَة","src":"msa"}
+{"w":"اِعْتَلى","en":"to mount, to ascend","root":"ع-ل-ي","type":"verb","kind":"verb","form":"VIII","past":"اِعْتَلى","pres":"يَعْتَلي","masdar":"اِعْتِلاء","src":"msa"}
+{"w":"اِسْتَعْلى","en":"to act superior, to lord it over","root":"ع-ل-ي","type":"verb","kind":"verb","form":"X","past":"اِسْتَعْلى","pres":"يَسْتَعْلي","masdar":"اِسْتِعْلاء","src":"msa"}
+{"w":"اِسْتِعْلاء","en":"arrogance, superiority","root":"ع-ل-ي","type":"masdar","kind":"masdar","form":"X","gender":"m","noplural":true,"src":"msa"}
+{"skip":"عِلِّيَّة","why":"vowels and exact sense unsure"}
+{"skip":"عَلَوِيّ","why":"mostly sectarian/name use, unsure of the general sense"}
+{"skip":"عَلِيَ","why":"rare, not sure of vowels and masdar"}
+{"skip":"عَلَى","why":"preposition, and the rare verb forms listed are unsure"}
+{"skip":"عَلَاء","why":"mostly a personal name"}
+{"skip":"عَالٍ","why":"same word as عالِي"}
+{"skip":"عَالِي","why":"same word as عالِي"}
+{"skip":"عَلْي","why":"rare masdar, unsure"}
+{"skip":"عَلًا","why":"rare, unsure"}
+{"skip":"عَلَيَان","why":"rare, unsure"}
+{"skip":"عَلْيَاء","why":"rare, unsure"}
+{"skip":"تَعْلِيَة","why":"masdar of عَلّى, listed in that entry"}
+{"skip":"اِعْتِلَاء","why":"masdar of اِعْتَلى, listed in that entry"}
+{"skip":"مُعْتَلٍ","why":"inflected participle of اِعْتَلى"}
+{"skip":"اِعْلَوْلَى","why":"rare form XII, unsure"}
+{"w":"دَقيق","en":"precise, fine","root":"د-ق-ق","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"دَقيق","en":"flour","root":"د-ق-ق","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"دَقَّ","en":"to knock, to pound","root":"د-ق-ق","type":"verb","kind":"verb","form":"I","past":"دَقَّ","pres":"يَدُقُّ","masdar":"دَقّ","src":"msa"}
+{"w":"دَقّ","en":"knocking, pounding","root":"د-ق-ق","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"دَقَّة","en":"a knock, a beat","root":"د-ق-ق","type":"noun","kind":"noun of instance","gender":"f","plural":"دَقّات","src":"msa"}
+{"w":"دِقَّة","en":"precision, accuracy","root":"د-ق-ق","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"دَقيقة","en":"minute","root":"د-ق-ق","type":"noun","kind":"noun","gender":"f","plural":"دَقائِق","src":"msa"}
+{"w":"دَقَّقَ","en":"to examine closely, to check","root":"د-ق-ق","type":"verb","kind":"verb","form":"II","past":"دَقَّقَ","pres":"يُدَقِّقُ","masdar":"تَدْقيق","src":"msa"}
+{"w":"تَدْقيق","en":"scrutiny, auditing","root":"د-ق-ق","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُدَقِّق","en":"auditor, checker","root":"د-ق-ق","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُدَقِّقون","src":"msa"}
+{"w":"أَدَقّ","en":"more precise","root":"د-ق-ق","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"مِدَقّ","en":"pestle","root":"د-ق-ق","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَدَقّات","src":"msa"}
+{"skip":"دُقَّة","why":"variant of دِقَّة, unsure"}
+{"skip":"دَقَّاق","why":"unsure of the sense"}
+{"w":"مَكْنَنَ","en":"to mechanize","root":"م-ك-ن-ن","type":"verb","kind":"verb","form":"I","past":"مَكْنَنَ","pres":"يُمَكْنِنُ","masdar":"مَكْنَنَة","src":"msa"}
+{"w":"مَكْنَنَة","en":"mechanization","root":"م-ك-ن-ن","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"قَلِقَ","en":"to be worried","root":"ق-ل-ق","type":"verb","kind":"verb","form":"I","past":"قَلِقَ","pres":"يَقْلَقُ","masdar":"قَلَق","src":"msa"}
+{"w":"قَلَق","en":"worry, anxiety","root":"ق-ل-ق","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"قَلِق","en":"worried, anxious","root":"ق-ل-ق","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"أَقْلَقَ","en":"to worry, to disturb","root":"ق-ل-ق","type":"verb","kind":"verb","form":"IV","past":"أَقْلَقَ","pres":"يُقْلِقُ","masdar":"إِقْلاق","src":"msa"}
+{"w":"مُقْلِق","en":"worrying, disturbing","root":"ق-ل-ق","type":"participle","kind":"active participle","form":"IV","src":"msa"}
+{"w":"حَفْلَة","en":"party, celebration","root":"ح-ف-ل","type":"noun","kind":"noun","gender":"f","plural":"حَفَلات","src":"msa"}
+{"w":"حَفْل","en":"ceremony, festivity","root":"ح-ف-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"حافِل","en":"full of, replete","root":"ح-ف-ل","type":"participle","kind":"active participle","form":"I","src":"msa"}
+{"w":"حافِلَة","en":"bus","root":"ح-ف-ل","type":"noun","kind":"noun","gender":"f","plural":"حافِلات","src":"msa"}
+{"w":"اِحْتَفَلَ","en":"to celebrate","root":"ح-ف-ل","type":"verb","kind":"verb","form":"VIII","past":"اِحْتَفَلَ","pres":"يَحْتَفِلُ","masdar":"اِحْتِفال","src":"msa"}
+{"w":"اِحْتِفال","en":"celebration","root":"ح-ف-ل","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِحْتِفالات","src":"msa"}
+{"w":"مَحْفِل","en":"gathering, assembly","root":"ح-ف-ل","type":"noun","kind":"noun of place","gender":"m","plural":"مَحافِل","src":"msa"}
+{"skip":"حَفَلَ","why":"sense (to care about / be full of) used mainly in negated fixed phrases; unsure of the vowels"}
+{"skip":"حَفَّلَ","why":"unsure of the sense"}
+{"skip":"حُفُول","why":"unsure"}
+{"skip":"تَحَفَّلَ","why":"unsure"}
+{"w":"قادَ","en":"to lead, to drive","root":"ق-و-د","type":"verb","kind":"verb","form":"I","past":"قادَ","pres":"يَقودُ","masdar":"قِيادَة","src":"msa"}
+{"w":"قِيادَة","en":"leadership, driving","root":"ق-و-د","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"قائِد","en":"leader, commander","root":"ق-و-د","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"قادَة","src":"msa"}
+{"w":"مِقْوَد","en":"steering wheel, rein","root":"ق-و-د","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَقاوِد","src":"msa"}
+{"w":"اِنْقادَ","en":"to submit, to be led","root":"ق-و-د","type":"verb","kind":"verb","form":"VII","past":"اِنْقادَ","pres":"يَنْقادُ","masdar":"اِنْقِياد","src":"msa"}
+{"w":"اِنْقِياد","en":"submission, compliance","root":"ق-و-د","type":"masdar","kind":"masdar","form":"VII","gender":"m","noplural":true,"src":"msa"}
+{"w":"اِقْتادَ","en":"to lead away","root":"ق-و-د","type":"verb","kind":"verb","form":"VIII","past":"اِقْتادَ","pres":"يَقْتادُ","masdar":"اِقْتِياد","src":"msa"}
+{"w":"اِقْتِياد","en":"leading away","root":"ق-و-د","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"skip":"أَقَادَ","why":"rare, unsure of the masdar"}
+{"w":"واضِح","en":"clear, obvious","root":"و-ض-ح","type":"participle","kind":"active participle","form":"I","src":"msa"}
+{"w":"وَضَحَ","en":"to be clear","root":"و-ض-ح","type":"verb","kind":"verb","form":"I","past":"وَضَحَ","pres":"يَضِحُ","masdar":"وُضوح","src":"msa"}
+{"w":"وُضوح","en":"clarity","root":"و-ض-ح","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَوْضَحَ","en":"to clarify, to make clear","root":"و-ض-ح","type":"verb","kind":"verb","form":"IV","past":"أَوْضَحَ","pres":"يُوضِحُ","masdar":"إِيضاح","src":"msa"}
+{"w":"إِيضاح","en":"clarification","root":"و-ض-ح","type":"masdar","kind":"masdar","form":"IV","gender":"m","plural":"إيضاحات","src":"msa"}
+{"w":"وَضَّحَ","en":"to explain, to illustrate","root":"و-ض-ح","type":"verb","kind":"verb","form":"II","past":"وَضَّحَ","pres":"يُوَضِّحُ","masdar":"تَوْضيح","src":"msa"}
+{"w":"تَوْضيح","en":"explanation, illustration","root":"و-ض-ح","type":"masdar","kind":"masdar","form":"II","gender":"m","plural":"تَوْضيحات","src":"msa"}
+{"w":"اِتَّضَحَ","en":"to become clear","root":"و-ض-ح","type":"verb","kind":"verb","form":"VIII","past":"اِتَّضَحَ","pres":"يَتَّضِحُ","masdar":"اِتِّضاح","src":"msa"}
+{"w":"اِسْتَوْضَحَ","en":"to ask for clarification","root":"و-ض-ح","type":"verb","kind":"verb","form":"X","past":"اِسْتَوْضَحَ","pres":"يَسْتَوْضِحُ","masdar":"اِسْتيضاح","src":"msa"}
+{"w":"تَوَضَّحَ","en":"to become clear","root":"و-ض-ح","type":"verb","kind":"verb","form":"V","past":"تَوَضَّحَ","pres":"يَتَوَضَّحُ","masdar":"تَوَضُّح","src":"msa"}
+{"w":"أَوْضَح","en":"clearer, clearest","root":"و-ض-ح","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"مُوَضِّح","en":"clarifying, explanatory","root":"و-ض-ح","type":"participle","kind":"active participle","form":"II","src":"msa"}
+{"skip":"وَضَح","why":"rare noun, unsure of its sense"}
+{"w":"جَلا","en":"to reveal, to clear up","root":"ج-ل-ي","type":"verb","kind":"verb","form":"I","past":"جَلا","pres":"يَجْلو","masdar":"جَلاء","src":"msa"}
+{"w":"جَلِيّ","en":"clear, evident","root":"ج-ل-ي","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"اِنْجَلى","en":"to become clear, to clear up","root":"ج-ل-ي","type":"verb","kind":"verb","form":"VII","past":"اِنْجَلى","pres":"يَنْجَلي","masdar":"اِنْجِلاء","src":"msa"}
+{"w":"تَجَلّى","en":"to appear, to be manifested","root":"ج-ل-ي","type":"verb","kind":"verb","form":"V","past":"تَجَلّى","pres":"يَتَجَلّى","masdar":"تَجَلٍّ","src":"msa"}
+{"w":"خَطَر","en":"danger, risk","root":"خ-ط-ر","type":"noun","kind":"noun","gender":"m","plural":"أَخْطار","src":"msa"}
+{"w":"خَطير","en":"dangerous, serious","root":"خ-ط-ر","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"خَطِر","en":"dangerous","root":"خ-ط-ر","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"أَخْطَر","en":"more dangerous","root":"خ-ط-ر","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"خَطَرَ","en":"to occur to the mind","root":"خ-ط-ر","type":"verb","kind":"verb","form":"I","past":"خَطَرَ","pres":"يَخْطُرُ","masdar":"خُطور","src":"msa"}
+{"w":"خاطِرَة","en":"thought, idea","root":"خ-ط-ر","type":"noun","kind":"noun","gender":"f","plural":"خَواطِر","src":"msa"}
+{"w":"خاطَرَ","en":"to risk, to gamble","root":"خ-ط-ر","type":"verb","kind":"verb","form":"III","past":"خاطَرَ","pres":"يُخاطِرُ","masdar":"مُخاطَرة","src":"msa"}
+{"w":"مُخاطَرَة","en":"risk, venture","root":"خ-ط-ر","type":"masdar","kind":"masdar","form":"III","gender":"f","plural":"مُخاطَرات","src":"msa"}
+{"w":"مُخاطِر","en":"risk-taker","root":"خ-ط-ر","type":"participle","kind":"active participle","form":"III","gender":"m","plural":"مُخاطِرون","src":"msa"}
+{"w":"أَخْطَرَ","en":"to notify, to inform","root":"خ-ط-ر","type":"verb","kind":"verb","form":"IV","past":"أَخْطَرَ","pres":"يُخْطِرُ","masdar":"إِخْطار","src":"msa"}
+{"w":"إِخْطار","en":"notification, notice","root":"خ-ط-ر","type":"masdar","kind":"masdar","form":"IV","gender":"m","plural":"إِخْطارات","src":"msa"}
+{"skip":"خِطْر","why":"unsure of the sense"}
+{"skip":"مَخَاطِر","why":"plural of خَطَر"}
+{"skip":"تَخَطَّرَ","why":"unsure"}
+{"w":"هاتِف","en":"telephone","root":"ه-ت-ف","type":"noun","kind":"noun","gender":"m","plural":"هَواتِف","src":"msa"}
+{"w":"هاتِفِيّ","en":"telephone, by phone","root":"ه-ت-ف","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"هَتَفَ","en":"to shout, to chant","root":"ه-ت-ف","type":"verb","kind":"verb","form":"I","past":"هَتَفَ","pres":"يَهْتِفُ","masdar":"هُتاف","src":"msa"}
+{"w":"هُتاف","en":"shout, chant","root":"ه-ت-ف","type":"masdar","kind":"masdar","form":"I","gender":"m","plural":"هُتافات","src":"msa"}
+{"w":"هاتَفَ","en":"to phone","root":"ه-ت-ف","type":"verb","kind":"verb","form":"III","past":"هاتَفَ","pres":"يُهاتِفُ","masdar":"مُهاتَفة","src":"msa"}
+{"w":"مُهاتَفَة","en":"telephone conversation","root":"ه-ت-ف","type":"masdar","kind":"masdar","form":"III","gender":"f","noplural":true,"src":"msa"}
+{"skip":"هاتِفًا","why":"inflected form"}
+{"skip":"هَاتِفِيًّا","why":"adverbial case form of هاتِفِيّ"}
+{"w":"حَدا","en":"to drive on, to urge on","root":"ح-د-و","type":"verb","kind":"verb","form":"I","past":"حَدا","pres":"يَحْدو","masdar":"حُداء","src":"msa"}
+{"w":"حادِي","en":"camel-driver, one who urges on","root":"ح-د-و","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"حُداة","src":"msa"}
+{"w":"تَحَدّى","en":"to challenge, to defy","root":"ح-د-و","type":"verb","kind":"verb","form":"V","past":"تَحَدّى","pres":"يَتَحَدّى","masdar":"تَحَدٍّ","src":"msa"}
+{"w":"تَحَدِّي","en":"challenge","root":"ح-د-و","type":"masdar","kind":"masdar","form":"V","gender":"m","plural":"تَحَدِّيات","src":"msa"}
+{"w":"أَحْمَق","en":"foolish, fool","root":"ح-م-ق","type":"adjective","kind":"adjective","plural":"حَمْقى","src":"msa"}
+{"w":"حَمِقَ","en":"to be foolish","root":"ح-م-ق","type":"verb","kind":"verb","form":"I","past":"حَمِقَ","pres":"يَحْمَقُ","masdar":"حُمْق","src":"msa"}
+{"w":"حُمْق","en":"foolishness","root":"ح-م-ق","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"حَماقَة","en":"stupidity, folly","root":"ح-م-ق","type":"noun","kind":"noun","gender":"f","plural":"حَماقات","src":"msa"}
+{"w":"قانُون","en":"law","root":"ق-ن-ن","type":"noun","kind":"noun","gender":"m","plural":"قَوانين","src":"msa"}
+{"w":"قانونِيّ","en":"legal, lawful","root":"ق-ن-ن","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"قانونِيَّة","en":"legality","root":"ق-ن-ن","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"قَنَّنَ","en":"to codify, to legislate","root":"ق-ن-ن","type":"verb","kind":"verb","form":"II","past":"قَنَّنَ","pres":"يُقَنِّنُ","masdar":"تَقْنين","src":"msa"}
+{"w":"تَقْنين","en":"codification","root":"ق-ن-ن","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"نِظام","en":"system, order","root":"ن-ظ-م","type":"noun","kind":"noun","gender":"m","plural":"أَنْظِمة","src":"msa"}
+{"w":"نَظَّمَ","en":"to organize, to regulate","root":"ن-ظ-م","type":"verb","kind":"verb","form":"II","past":"نَظَّمَ","pres":"يُنَظِّمُ","masdar":"تَنْظيم","src":"msa"}
+{"w":"تَنْظيم","en":"organization, arrangement","root":"ن-ظ-م","type":"masdar","kind":"masdar","form":"II","gender":"m","plural":"تَنْظيمات","src":"msa"}
+{"w":"مُنَظِّم","en":"organizer","root":"ن-ظ-م","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُنَظِّمون","src":"msa"}
+{"w":"مُنَظَّم","en":"organized, orderly","root":"ن-ظ-م","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"مُنَظَّمَة","en":"organization","root":"ن-ظ-م","type":"noun","kind":"noun","gender":"f","plural":"مُنَظَّمات","src":"msa"}
+{"w":"اِنْتَظَمَ","en":"to be orderly, to join","root":"ن-ظ-م","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَظَمَ","pres":"يَنْتَظِمُ","masdar":"اِنْتِظام","src":"msa"}
+{"w":"اِنْتِظام","en":"regularity, order","root":"ن-ظ-م","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُنْتَظِم","en":"regular, orderly","root":"ن-ظ-م","type":"participle","kind":"active participle","form":"VIII","src":"msa"}
+{"w":"نَظَمَ","en":"to arrange, to compose verse","root":"ن-ظ-م","type":"verb","kind":"verb","form":"I","past":"نَظَمَ","pres":"يَنْظِمُ","masdar":"نَظْم","src":"msa"}
+{"w":"نَظْم","en":"composing verse, arranging","root":"ن-ظ-م","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"نِظامِيّ","en":"regular, official","root":"ن-ظ-م","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"مَنْظومَة","en":"system, set","root":"ن-ظ-م","type":"noun","kind":"noun","gender":"f","plural":"مَنْظومات","src":"msa"}
+{"w":"مَنْظوم","en":"arranged, in verse","root":"ن-ظ-م","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"skip":"نِظَام تَشْغِيل","why":"multiword phrase (operating system)"}
+{"skip":"نِظَام مِتْرِيّ","why":"multiword phrase (metric system)"}
+{"skip":"نَظَّامِيّ","why":"unsure"}
+{"skip":"نَاظِم","why":"unsure of the adjective sense"}
+{"w":"بُدّ","en":"alternative, way out","root":"ب-د-د","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"Used almost only in لا بُدَّ, meaning there is no avoiding it."}
+{"w":"اِسْتَبَدَّ","en":"to rule tyrannically","root":"ب-د-د","type":"verb","kind":"verb","form":"X","past":"اِسْتَبَدَّ","pres":"يَسْتَبِدُّ","masdar":"اِسْتِبْداد","src":"msa"}
+{"w":"اِسْتِبْداد","en":"tyranny, despotism","root":"ب-د-د","type":"masdar","kind":"masdar","form":"X","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُسْتَبِدّ","en":"despotic, tyrant","root":"ب-د-د","type":"participle","kind":"active participle","form":"X","gender":"m","plural":"مُسْتَبِدّون","src":"msa"}
+{"w":"بَدَّدَ","en":"to scatter, to squander","root":"ب-د-د","type":"verb","kind":"verb","form":"II","past":"بَدَّدَ","pres":"يُبَدِّدُ","masdar":"تَبْديد","src":"msa"}
+{"w":"تَبْديد","en":"scattering, squandering","root":"ب-د-د","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَبَدَّدَ","en":"to be scattered, to dissipate","root":"ب-د-د","type":"verb","kind":"verb","form":"V","past":"تَبَدَّدَ","pres":"يَتَبَدَّدُ","masdar":"تَبَدُّد","src":"msa"}
+{"skip":"بَدَّ","why":"rare literary verb (to surpass), unsure of masdar"}
+{"w":"غَبِيّ","en":"stupid, dull","root":"غ-ب-ي","type":"adjective","kind":"adjective","plural":"أَغْبِياء","src":"msa"}
+{"w":"غَباء","en":"stupidity","root":"غ-ب-ي","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"غَباوَة","en":"dullness, stupidity","root":"غ-ب-ي","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"تَغابى","en":"to feign stupidity","root":"غ-ب-ي","type":"verb","kind":"verb","form":"VI","past":"تَغابى","pres":"يَتَغابى","masdar":"تَغابٍ","src":"msa"}
+{"w":"اِسْتَغْبى","en":"to consider stupid","root":"غ-ب-ي","type":"verb","kind":"verb","form":"X","past":"اِسْتَغْبى","pres":"يَسْتَغْبي","masdar":"اِسْتِغْباء","src":"msa"}
+{"w":"رامَ","en":"to seek, to aim at","root":"ر-و-م","type":"verb","kind":"verb","form":"I","past":"رامَ","pres":"يَرومُ","masdar":"رَوْم","src":"msa"}
+{"w":"مَرام","en":"aim, goal","root":"ر-و-م","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَناوَلَ","en":"to take, to deal with","root":"ن-و-ل","type":"verb","kind":"verb","form":"VI","past":"تَناوَلَ","pres":"يَتَناوَلُ","masdar":"تَناوُل","src":"msa"}
+{"w":"تَناوُل","en":"taking, consuming","root":"ن-و-ل","type":"masdar","kind":"masdar","form":"VI","gender":"m","noplural":true,"src":"msa"}
+{"w":"ناوَلَ","en":"to hand, to pass","root":"ن-و-ل","type":"verb","kind":"verb","form":"III","past":"ناوَلَ","pres":"يُناوِلُ","masdar":"مُناوَلة","src":"msa"}
+{"w":"مُناوَلَة","en":"handing over, passing","root":"ن-و-ل","type":"masdar","kind":"masdar","form":"III","gender":"f","noplural":true,"src":"msa"}
+{"w":"مَنال","en":"reach, attainment","root":"ن-و-ل","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"نَوْل","en":"loom","root":"ن-و-ل","type":"noun","kind":"noun","gender":"m","plural":"أَنْوال","src":"msa"}
+{"w":"مِنْوال","en":"loom, pattern","root":"ن-و-ل","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَناويل","src":"msa"}
+{"skip":"نَالَ","why":"belongs to root ن-ي-ل, not ن-و-ل"}
+{"w":"مُخَدِّر","en":"narcotic, anesthetic","root":"خ-د-ر","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُخَدِّرات","src":"msa"}
+{"w":"خَدَّرَ","en":"to anesthetize, to numb","root":"خ-د-ر","type":"verb","kind":"verb","form":"II","past":"خَدَّرَ","pres":"يُخَدِّرُ","masdar":"تَخْدير","src":"msa"}
+{"w":"تَخْدير","en":"anesthesia","root":"خ-د-ر","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"خَدِرَ","en":"to go numb","root":"خ-د-ر","type":"verb","kind":"verb","form":"I","past":"خَدِرَ","pres":"يَخْدَرُ","masdar":"خَدَر","src":"msa"}
+{"w":"خَدَر","en":"numbness","root":"خ-د-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَخَدَّرَ","en":"to be anesthetized, to go numb","root":"خ-د-ر","type":"verb","kind":"verb","form":"V","past":"تَخَدَّرَ","pres":"يَتَخَدَّرُ","masdar":"تَخَدُّر","src":"msa"}
+{"w":"مَزَحَ","en":"to joke","root":"م-ز-ح","type":"verb","kind":"verb","form":"I","past":"مَزَحَ","pres":"يَمْزَحُ","masdar":"مَزْح","src":"msa"}
+{"w":"مَزْح","en":"joking, a joke","root":"م-ز-ح","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"مِزاح","en":"jesting, banter","root":"م-ز-ح","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَزّاح","en":"joker, jester","root":"م-ز-ح","type":"adjective","kind":"intensive adjective","src":"msa"}
+{"w":"مازِح","en":"joking, joker","root":"م-ز-ح","type":"participle","kind":"active participle","form":"I","src":"msa"}
+{"w":"مازَحَ","en":"to joke with, to tease","root":"م-ز-ح","type":"verb","kind":"verb","form":"III","past":"مازَحَ","pres":"يُمازِحُ","masdar":"مُمازَحة","src":"msa"}
+{"w":"مُمازَحَة","en":"joking with someone, teasing","root":"م-ز-ح","type":"masdar","kind":"masdar","form":"III","gender":"f","noplural":true,"src":"msa"}
+{"skip":"مُزَاح","why":"variant of مِزاح, unsure"}
+{"w":"وَشُكَ","en":"to be imminent","root":"و-ش-ك","type":"verb","kind":"verb","form":"I","past":"وَشُكَ","pres":"يَوْشُكُ","masdar":"وَشاكَة","src":"msa"}
+{"w":"وَشْك","en":"imminence, brink","root":"و-ش-ك","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa","note":"Mostly in عَلى وَشْك, meaning on the verge of."}
+{"w":"أَوْشَكَ","en":"to be about to","root":"و-ش-ك","type":"verb","kind":"verb","form":"IV","past":"أَوْشَكَ","pres":"يُوشِكُ","masdar":"إيشاك","src":"msa"}
+{"w":"وَشيك","en":"imminent","root":"و-ش-ك","type":"adjective","kind":"adjective","src":"msa"}
+{"skip":"وَشَّكَ","why":"unsure of the sense"}
+{"w":"نَتيجَة","en":"result, outcome","root":"ن-ت-ج","type":"noun","kind":"noun","gender":"f","plural":"نَتائِج","src":"msa"}
+{"w":"أَنْتَجَ","en":"to produce","root":"ن-ت-ج","type":"verb","kind":"verb","form":"IV","past":"أَنْتَجَ","pres":"يُنْتِجُ","masdar":"إِنْتاج","src":"msa"}
+{"w":"إِنْتاج","en":"production","root":"ن-ت-ج","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُنْتِج","en":"producer, productive","root":"ن-ت-ج","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُنْتِجون","src":"msa"}
+{"w":"مُنْتَج","en":"product","root":"ن-ت-ج","type":"participle","kind":"passive participle","form":"IV","gender":"m","plural":"مُنْتَجات","src":"msa"}
+{"w":"ناتِج","en":"resulting, product","root":"ن-ت-ج","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"نَواتِج","src":"msa"}
+{"w":"اِسْتَنْتَجَ","en":"to conclude, to deduce","root":"ن-ت-ج","type":"verb","kind":"verb","form":"X","past":"اِسْتَنْتَجَ","pres":"يَسْتَنْتِجُ","masdar":"اِسْتِنْتاج","src":"msa"}
+{"w":"اِسْتِنْتاج","en":"conclusion, deduction","root":"ن-ت-ج","type":"masdar","kind":"masdar","form":"X","gender":"m","plural":"اِسْتِنْتاجات","src":"msa"}
+{"w":"نِتاج","en":"output, offspring","root":"ن-ت-ج","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"نَتَجَ","why":"unsure of the present vowel and masdar of the 'to result' sense"}
+{"skip":"حَادٍ","why":"same word as حادِي (indefinite form)"}

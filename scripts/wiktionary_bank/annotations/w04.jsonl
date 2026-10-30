@@ -1,0 +1,165 @@
+{"w":"ظَرْف","en":"envelope, container","root":"ظ-ر-ف","type":"noun","kind":"noun","gender":"m","plural":"ظُروف","src":"msa","note":"Also means circumstance, and in grammar an adverb of time or place."}
+{"w":"ظَريف","en":"charming, witty","root":"ظ-ر-ف","type":"adjective","kind":"adjective","plural":"ظُرَفاء","src":"msa"}
+{"w":"أَظْرَف","en":"more charming","root":"ظ-ر-ف","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"ظَرُفَ","en":"to be charming","root":"ظ-ر-ف","type":"verb","kind":"verb","form":"I","past":"ظَرُفَ","pres":"يَظْرُفُ","masdar":"ظَرافة","src":"msa"}
+{"w":"ظَرافة","en":"charm, wit","root":"ظ-ر-ف","type":"masdar","kind":"masdar","form":"I","gender":"f","src":"msa"}
+{"skip":"ظَرْفِيَّة","why":"abstract grammatical term, not sure enough to list"}
+{"skip":"مُسْتَظْرَف","why":"rare participle"}
+{"skip":"اِسْتَظْرَفَ","why":"rare form X"}
+{"w":"لاكَ","en":"to chew","root":"ل-و-ك","type":"verb","kind":"verb","form":"I","past":"لاكَ","pres":"يَلُوكُ","masdar":"لَوْك","src":"msa"}
+{"w":"لَوْك","en":"chewing","root":"ل-و-ك","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"زَمان","en":"time, era","root":"ز-م-ن","type":"noun","kind":"noun","gender":"m","plural":"أَزْمِنَة","src":"msa"}
+{"w":"زَمَن","en":"time, period","root":"ز-م-ن","type":"noun","kind":"noun","gender":"m","plural":"أَزْمان","src":"msa"}
+{"w":"أَزْمَنَ","en":"to become chronic","root":"ز-م-ن","type":"verb","kind":"verb","form":"IV","past":"أَزْمَنَ","pres":"يُزْمِنُ","masdar":"إِزْمان","src":"msa"}
+{"w":"مُزْمِن","en":"chronic","root":"ز-م-ن","type":"participle","kind":"active participle","form":"IV","gender":"m","src":"msa"}
+{"w":"تَزامَنَ","en":"to coincide","root":"ز-م-ن","type":"verb","kind":"verb","form":"VI","past":"تَزامَنَ","pres":"يَتَزامَنُ","masdar":"تَزامُن","src":"msa"}
+{"w":"تَزامُن","en":"simultaneity","root":"ز-م-ن","type":"masdar","kind":"masdar","form":"VI","gender":"m","src":"msa"}
+{"w":"مُتَزامِن","en":"simultaneous","root":"ز-م-ن","type":"participle","kind":"active participle","form":"VI","gender":"m","src":"msa"}
+{"w":"زَمَنِيّ","en":"temporal","root":"ز-م-ن","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"زَمَنِيَّة","en":"temporality","root":"ز-م-ن","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"skip":"زَمَنَئِذٍ","why":"adverbial compound, freq 0"}
+{"skip":"زَمَنَذَاكَ","why":"adverbial compound"}
+{"skip":"زَمَانَئِذٍ","why":"adverbial compound"}
+{"skip":"زَمَانَذَاكَ","why":"adverbial compound"}
+{"skip":"زَمِين","why":"rare"}
+{"w":"عالَجَ","en":"to treat, to handle","root":"ع-ل-ج","type":"verb","kind":"verb","form":"III","past":"عالَجَ","pres":"يُعالِجُ","masdar":"مُعالَجة","src":"msa"}
+{"w":"مُعالَجة","en":"treatment, processing","root":"ع-ل-ج","type":"masdar","kind":"masdar","form":"III","gender":"f","src":"msa"}
+{"w":"عِلاج","en":"treatment, cure","root":"ع-ل-ج","type":"noun","kind":"noun","gender":"m","plural":"عِلاجات","src":"msa"}
+{"w":"عِلاجِيّ","en":"therapeutic","root":"ع-ل-ج","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"مُعالِج","en":"therapist","root":"ع-ل-ج","type":"participle","kind":"active participle","form":"III","gender":"m","plural":"مُعالِجون","src":"msa"}
+{"w":"تَعالَجَ","en":"to receive treatment","root":"ع-ل-ج","type":"verb","kind":"verb","form":"VI","past":"تَعالَجَ","pres":"يَتَعالَجُ","masdar":"تَعالُج","src":"msa"}
+{"skip":"عُلْجُوم","why":"rare, freq 0"}
+{"skip":"عِلْج","why":"rare, freq 0"}
+{"w":"دَعَمَ","en":"to support","root":"د-ع-م","type":"verb","kind":"verb","form":"I","past":"دَعَمَ","pres":"يَدْعَمُ","masdar":"دَعْم","src":"msa"}
+{"w":"دَعْم","en":"support","root":"د-ع-م","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"دِعامة","en":"pillar, prop","root":"د-ع-م","type":"noun","kind":"noun","gender":"f","plural":"دَعائِم","src":"msa"}
+{"w":"داعِم","en":"supporter","root":"د-ع-م","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"داعِمون","src":"msa"}
+{"w":"مَدْعوم","en":"supported, subsidized","root":"د-ع-م","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"skip":"اِدَّعَمَ","why":"not sure of this form"}
+{"w":"خَصَى","en":"to castrate","root":"خ-ص-ي","type":"verb","kind":"verb","form":"I","past":"خَصَى","pres":"يَخْصِي","masdar":"خِصاء","src":"msa"}
+{"w":"خِصاء","en":"castration","root":"خ-ص-ي","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"خُصْيَة","en":"testicle","root":"خ-ص-ي","type":"noun","kind":"noun","gender":"f","plural":"خُصًى","src":"msa"}
+{"w":"خَصِيّ","en":"eunuch","root":"خ-ص-ي","type":"noun","kind":"noun","gender":"m","plural":"خِصْيان","src":"msa"}
+{"w":"أَخْصَى","en":"to castrate","root":"خ-ص-ي","type":"verb","kind":"verb","form":"IV","past":"أَخْصَى","pres":"يُخْصِي","masdar":"إِخْصاء","src":"msa"}
+{"w":"إِخْصاء","en":"castration, neutering","root":"خ-ص-ي","type":"masdar","kind":"masdar","form":"IV","gender":"m","src":"msa"}
+{"skip":"خَصْي","why":"alternative masdar of خَصَى, already listed as خِصاء"}
+{"w":"نَهَضَ","en":"to rise, to get up","root":"ن-ه-ض","type":"verb","kind":"verb","form":"I","past":"نَهَضَ","pres":"يَنْهَضُ","masdar":"نُهوض","src":"msa"}
+{"w":"نُهوض","en":"rising, revival","root":"ن-ه-ض","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"ناهِض","en":"rising","root":"ن-ه-ض","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"أَنْهَضَ","en":"to raise up","root":"ن-ه-ض","type":"verb","kind":"verb","form":"IV","past":"أَنْهَضَ","pres":"يُنْهِضُ","masdar":"إِنْهاض","src":"msa"}
+{"w":"نَهْضة","en":"renaissance, revival","root":"ن-ه-ض","type":"noun","kind":"noun of instance","gender":"f","plural":"نَهَضات","src":"msa"}
+{"w":"ناهَضَ","en":"to oppose","root":"ن-ه-ض","type":"verb","kind":"verb","form":"III","past":"ناهَضَ","pres":"يُناهِضُ","masdar":"مُناهَضة","src":"msa"}
+{"w":"مُناهَضة","en":"opposition","root":"ن-ه-ض","type":"masdar","kind":"masdar","form":"III","gender":"f","src":"msa"}
+{"w":"مُناهِض","en":"opponent, opposing","root":"ن-ه-ض","type":"participle","kind":"active participle","form":"III","gender":"m","plural":"مُناهِضون","src":"msa"}
+{"w":"اِسْتَنْهَضَ","en":"to rouse, to urge on","root":"ن-ه-ض","type":"verb","kind":"verb","form":"X","past":"اِسْتَنْهَضَ","pres":"يَسْتَنْهِضُ","masdar":"اِسْتِنْهاض","src":"msa"}
+{"w":"اِسْتِنْهاض","en":"rousing, urging on","root":"ن-ه-ض","type":"masdar","kind":"masdar","form":"X","gender":"m","src":"msa"}
+{"skip":"نَهْض","why":"variant masdar of نَهَضَ, already listed as نُهوض"}
+{"w":"ضَمِنَ","en":"to guarantee","root":"ض-م-ن","type":"verb","kind":"verb","form":"I","past":"ضَمِنَ","pres":"يَضْمَنُ","masdar":"ضَمان","src":"msa"}
+{"w":"ضَمان","en":"guarantee","root":"ض-م-ن","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"ضامِن","en":"guarantor","root":"ض-م-ن","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"ضامِنون","src":"msa"}
+{"w":"مَضْمون","en":"guaranteed","root":"ض-م-ن","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"w":"مَضْمون","en":"content","root":"ض-م-ن","type":"noun","kind":"noun","gender":"m","plural":"مَضامين","src":"msa"}
+{"w":"تَضَمَّنَ","en":"to include, to contain","root":"ض-م-ن","type":"verb","kind":"verb","form":"V","past":"تَضَمَّنَ","pres":"يَتَضَمَّنُ","masdar":"تَضَمُّن","src":"msa"}
+{"w":"تَضَمُّن","en":"inclusion","root":"ض-م-ن","type":"masdar","kind":"masdar","form":"V","gender":"m","src":"msa"}
+{"w":"مُتَضَمِّن","en":"including, containing","root":"ض-م-ن","type":"participle","kind":"active participle","form":"V","gender":"m","src":"msa"}
+{"w":"ضَمَّنَ","en":"to include, to insure","root":"ض-م-ن","type":"verb","kind":"verb","form":"II","past":"ضَمَّنَ","pres":"يُضَمِّنُ","masdar":"تَضْمين","src":"msa"}
+{"w":"تَضْمين","en":"inclusion, embedding","root":"ض-م-ن","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"تَضامَنَ","en":"to show solidarity","root":"ض-م-ن","type":"verb","kind":"verb","form":"VI","past":"تَضامَنَ","pres":"يَتَضامَنُ","masdar":"تَضامُن","src":"msa"}
+{"w":"تَضامُن","en":"solidarity","root":"ض-م-ن","type":"masdar","kind":"masdar","form":"VI","gender":"m","src":"msa"}
+{"w":"ضِمْنِيّ","en":"implicit","root":"ض-م-ن","type":"adjective","kind":"relative adjective","src":"msa"}
+{"skip":"ضِمْن","why":"preposition/noun use, listed via related words; not a separate learner entry"}
+{"skip":"ضِمْنَ","why":"accusative of ضِمْن"}
+{"skip":"تَضامُنِيّ","why":"rare derived adjective"}
+{"w":"قَفَزَ","en":"to jump, to leap","root":"ق-ف-ز","type":"verb","kind":"verb","form":"I","past":"قَفَزَ","pres":"يَقْفِزُ","masdar":"قَفْز","src":"msa"}
+{"w":"قَفْز","en":"jumping","root":"ق-ف-ز","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"قَفْزة","en":"a jump","root":"ق-ف-ز","type":"noun","kind":"noun of instance","gender":"f","plural":"قَفَزات","src":"msa"}
+{"w":"قافِز","en":"jumping, jumper","root":"ق-ف-ز","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"قافِزون","src":"msa"}
+{"skip":"قَوْفَز","why":"rare zoological term"}
+{"skip":"باسَ","why":"mostly colloquial in this sense, not sure of classical use"}
+{"skip":"بَوْسَة","why":"colloquial"}
+{"w":"خَمَّنَ","en":"to guess","root":"خ-م-ن","type":"verb","kind":"verb","form":"II","past":"خَمَّنَ","pres":"يُخَمِّنُ","masdar":"تَخْمين","src":"msa"}
+{"w":"تَخْمين","en":"guess, estimate","root":"خ-م-ن","type":"masdar","kind":"masdar","form":"II","gender":"m","plural":"تَخْمينات","src":"msa"}
+{"w":"تَخْمينِيّ","en":"estimated, speculative","root":"خ-م-ن","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"مُخَمِّن","en":"estimator","root":"خ-م-ن","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُخَمِّنون","src":"msa"}
+{"w":"مُخَمَّن","en":"estimated","root":"خ-م-ن","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"skip":"تَخْمِينًا","why":"adverbial accusative of تَخْمين"}
+{"w":"حَزَمَ","en":"to tie up, to bundle","root":"ح-ز-م","type":"verb","kind":"verb","form":"I","past":"حَزَمَ","pres":"يَحْزِمُ","masdar":"حَزْم","src":"msa"}
+{"w":"حَزْم","en":"firmness, resolve","root":"ح-ز-م","type":"masdar","kind":"masdar","form":"I","gender":"m","src":"msa"}
+{"w":"حِزام","en":"belt","root":"ح-ز-م","type":"noun","kind":"noun","gender":"m","plural":"أَحْزِمَة","src":"msa"}
+{"w":"حُزْمة","en":"bundle, package","root":"ح-ز-م","type":"noun","kind":"noun","gender":"f","plural":"حُزَم","src":"msa"}
+{"w":"حازِم","en":"firm, resolute","root":"ح-ز-م","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"حازِمون","src":"msa"}
+{"w":"مَحْزوم","en":"tied up","root":"ح-ز-م","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"skip":"حَزُمَ","why":"rare stative variant of حَزَمَ"}
+{"skip":"حَزَّمَ","why":"rare, not sure"}
+{"w":"عَنيف","en":"violent","root":"ع-ن-ف","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"عُنْف","en":"violence","root":"ع-ن-ف","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَعْنَف","en":"more violent","root":"ع-ن-ف","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"عَنَّفَ","en":"to scold harshly","root":"ع-ن-ف","type":"verb","kind":"verb","form":"II","past":"عَنَّفَ","pres":"يُعَنِّفُ","masdar":"تَعْنيف","src":"msa"}
+{"w":"تَعْنيف","en":"harsh rebuke","root":"ع-ن-ف","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"عُنْفُوان","en":"prime, vigor of youth","root":"ع-ن-ف","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"ساخِن","en":"hot","root":"س-خ-ن","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"سَخُنَ","en":"to be hot","root":"س-خ-ن","type":"verb","kind":"verb","form":"I","past":"سَخُنَ","pres":"يَسْخُنُ","masdar":"سُخونة","src":"msa"}
+{"w":"سُخونة","en":"heat, fever","root":"س-خ-ن","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"سَخَّنَ","en":"to heat","root":"س-خ-ن","type":"verb","kind":"verb","form":"II","past":"سَخَّنَ","pres":"يُسَخِّنُ","masdar":"تَسْخين","src":"msa"}
+{"w":"تَسْخين","en":"heating","root":"س-خ-ن","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"سَخّان","en":"water heater","root":"س-خ-ن","type":"noun","kind":"noun of instrument","gender":"m","plural":"سَخّانات","src":"msa"}
+{"w":"مُسَخَّن","en":"heated","root":"س-خ-ن","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"أَسْخَن","en":"hotter","root":"س-خ-ن","type":"adjective","kind":"comparative","src":"msa"}
+{"skip":"سُخْن","why":"variant of ساخِن"}
+{"skip":"سَخانَة","why":"variant masdar"}
+{"w":"كارِثة","en":"disaster","root":"ك-ر-ث","type":"noun","kind":"noun","gender":"f","plural":"كَوارِث","src":"msa"}
+{"w":"اِكْتَرَثَ","en":"to care, to mind","root":"ك-ر-ث","type":"verb","kind":"verb","form":"VIII","past":"اِكْتَرَثَ","pres":"يَكْتَرِثُ","masdar":"اِكْتِراث","src":"msa"}
+{"w":"اِكْتِراث","en":"concern, heed","root":"ك-ر-ث","type":"masdar","kind":"masdar","form":"VIII","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُكْتَرِث","en":"concerned, caring","root":"ك-ر-ث","type":"participle","kind":"active participle","form":"VIII","gender":"m","src":"msa"}
+{"w":"عَسْكَر","en":"army","root":"ع-س-ك-ر","type":"noun","kind":"noun","gender":"m","plural":"عَساكِر","src":"msa"}
+{"w":"عَسْكَرِيّ","en":"military","root":"ع-س-ك-ر","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"عَسْكَرِيّ","en":"soldier","root":"ع-س-ك-ر","type":"noun","kind":"noun","gender":"m","plural":"عَساكِر","src":"msa"}
+{"w":"عَسْكَرَ","en":"to militarize","root":"ع-س-ك-ر","type":"verb","kind":"verb","form":"I","past":"عَسْكَرَ","pres":"يُعَسْكِرُ","masdar":"عَسْكَرة","src":"msa"}
+{"w":"عَسْكَرة","en":"militarization","root":"ع-س-ك-ر","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"مُعَسْكَر","en":"camp","root":"ع-س-ك-ر","type":"noun","kind":"noun of place","gender":"m","plural":"مُعَسْكَرات","src":"msa"}
+{"w":"دَجاج","en":"chickens, poultry","root":"د-ج-ج","type":"noun","kind":"collective noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"دَجاجة","en":"chicken, hen","root":"د-ج-ج","type":"noun","kind":"noun","gender":"f","plural":"دَجاجات","src":"msa"}
+{"w":"دَجَّجَ","en":"to arm heavily","root":"د-ج-ج","type":"verb","kind":"verb","form":"II","past":"دَجَّجَ","pres":"يُدَجِّجُ","masdar":"تَدْجيج","src":"msa"}
+{"w":"مُدَجَّج","en":"heavily armed","root":"د-ج-ج","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"سَيْف","en":"sword","root":"س-ي-ف","type":"noun","kind":"noun","gender":"m","plural":"سُيوف","src":"msa"}
+{"w":"سَيّاف","en":"swordsman, executioner","root":"س-ي-ف","type":"noun","kind":"noun","gender":"m","plural":"سَيّافون","src":"msa"}
+{"w":"كَنَى","en":"to allude, to nickname","root":"ك-ن-ي","type":"verb","kind":"verb","form":"I","past":"كَنَى","pres":"يَكْنِي","masdar":"كِناية","src":"msa"}
+{"w":"كِناية","en":"metonymy, allusion","root":"ك-ن-ي","type":"masdar","kind":"masdar","form":"I","gender":"f","src":"msa"}
+{"w":"كُنْيَة","en":"kunya, nickname","root":"ك-ن-ي","type":"noun","kind":"noun","gender":"f","plural":"كُنًى","src":"msa"}
+{"w":"كَنّى","en":"to give a kunya","root":"ك-ن-ي","type":"verb","kind":"verb","form":"II","past":"كَنّى","pres":"يُكَنّي","masdar":"تَكْنِيَة","src":"msa"}
+{"w":"عَطَن","en":"camels' resting place","root":"ع-ط-ن","type":"noun","kind":"noun","gender":"m","plural":"أَعْطان","src":"msa"}
+{"skip":"عَطَنَ","why":"rare classical verb with several senses, not sure"}
+{"skip":"عَطِنَ","why":"rare classical verb, not sure"}
+{"skip":"عَطَّنَ","why":"rare"}
+{"w":"تَوَرَّطَ","en":"to get entangled","root":"و-ر-ط","type":"verb","kind":"verb","form":"V","past":"تَوَرَّطَ","pres":"يَتَوَرَّطُ","masdar":"تَوَرُّط","src":"msa"}
+{"w":"تَوَرُّط","en":"involvement, entanglement","root":"و-ر-ط","type":"masdar","kind":"masdar","form":"V","gender":"m","src":"msa"}
+{"w":"مُتَوَرِّط","en":"implicated, involved","root":"و-ر-ط","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَوَرِّطون","src":"msa"}
+{"w":"وَرْطة","en":"predicament","root":"و-ر-ط","type":"noun","kind":"noun","gender":"f","plural":"وَرَطات","src":"msa"}
+{"w":"وَرَّطَ","en":"to implicate, to entangle","root":"و-ر-ط","type":"verb","kind":"verb","form":"II","past":"وَرَّطَ","pres":"يُوَرِّطُ","masdar":"تَوْريط","src":"msa"}
+{"w":"تَوْريط","en":"implicating","root":"و-ر-ط","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"skip":"آمَ","why":"obscure classical verb, frequency is noise from another word"}
+{"w":"ثَمِلَ","en":"to be drunk","root":"ث-م-ل","type":"verb","kind":"verb","form":"I","past":"ثَمِلَ","pres":"يَثْمَلُ","masdar":"ثَمَل","src":"msa"}
+{"w":"ثَمَل","en":"drunkenness","root":"ث-م-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"ثَمِل","en":"drunk","root":"ث-م-ل","type":"adjective","kind":"adjective","plural":"ثَمِلون","src":"msa"}
+{"w":"ثُمالة","en":"dregs, residue","root":"ث-م-ل","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"skip":"ثَمَلَ","why":"rare classical verb with several senses, not sure"}
+{"skip":"ثَمَّلَ","why":"rare classical verb"}
+{"skip":"ثَمْل","why":"rare classical noun"}
+{"w":"جَرُؤَ","en":"to dare","root":"ج-ر-أ","type":"verb","kind":"verb","form":"I","past":"جَرُؤَ","pres":"يَجْرُؤُ","masdar":"جُرْأة","src":"msa"}
+{"w":"جُرْأة","en":"boldness","root":"ج-ر-أ","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"جَريء","en":"bold, daring","root":"ج-ر-أ","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"أَجْرَأ","en":"bolder","root":"ج-ر-أ","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"تَجَرَّأَ","en":"to dare","root":"ج-ر-أ","type":"verb","kind":"verb","form":"V","past":"تَجَرَّأَ","pres":"يَتَجَرَّأُ","masdar":"تَجَرُّؤ","src":"msa"}
+{"w":"اِجْتَرَأَ","en":"to dare, to presume","root":"ج-ر-أ","type":"verb","kind":"verb","form":"VIII","past":"اِجْتَرَأَ","pres":"يَجْتَرِئُ","masdar":"اِجْتِراء","src":"msa"}
+{"w":"حَجْم","en":"size, volume","root":"ح-ج-م","type":"noun","kind":"noun","gender":"m","plural":"أَحْجام","src":"msa"}
+{"w":"حَجَمَ","en":"to cup (medically)","root":"ح-ج-م","type":"verb","kind":"verb","form":"I","past":"حَجَمَ","pres":"يَحْجُمُ","masdar":"حِجامة","src":"msa"}
+{"w":"حِجامة","en":"cupping","root":"ح-ج-م","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"حَجّام","en":"cupper, barber","root":"ح-ج-م","type":"noun","kind":"noun","gender":"m","plural":"حَجّامون","src":"msa"}
+{"w":"مِحْجَم","en":"cupping glass","root":"ح-ج-م","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَحاجِم","src":"msa"}
+{"w":"أَحْجَمَ","en":"to refrain, to hold back","root":"ح-ج-م","type":"verb","kind":"verb","form":"IV","past":"أَحْجَمَ","pres":"يُحْجِمُ","masdar":"إِحْجام","src":"msa"}
+{"w":"إِحْجام","en":"reluctance, holding back","root":"ح-ج-م","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"حَجَّمَ","en":"to limit, to curb","root":"ح-ج-م","type":"verb","kind":"verb","form":"II","past":"حَجَّمَ","pres":"يُحَجِّمُ","masdar":"تَحْجيم","src":"msa"}
+{"w":"تَحْجيم","en":"curbing, limiting","root":"ح-ج-م","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"skip":"اِحْتَجَمَ","why":"rare form VIII"}
+{"skip":"حِجَام","why":"rare, not sure"}
+{"skip":"مِحْجَمَة","why":"variant of مِحْجَم"}

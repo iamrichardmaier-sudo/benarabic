@@ -1,0 +1,73 @@
+{"w":"اِنْدَلَعَ","en":"to break out, to flare up","root":"د-ل-ع","type":"verb","kind":"verb","form":"VII","past":"اِنْدَلَعَ","pres":"يَنْدَلِعُ","masdar":"اِنْدِلاع","src":"msa"}
+{"w":"اِنْدِلاع","en":"outbreak, eruption","root":"د-ل-ع","type":"masdar","kind":"masdar","form":"VII","gender":"m","noplural":true,"src":"msa"}
+{"w":"لابَة","en":"lava, basalt rock","root":"ل-و-ب","type":"noun","kind":"noun","gender":"f","plural":"لابات","src":"msa"}
+{"w":"لَطَخَ","en":"to smear, to stain","root":"ل-ط-خ","type":"verb","kind":"verb","form":"I","past":"لَطَخَ","pres":"يَلْطَخُ","masdar":"لَطْخ","src":"msa"}
+{"w":"لَطَّخَ","en":"to smear, to soil","root":"ل-ط-خ","type":"verb","kind":"verb","form":"II","past":"لَطَّخَ","pres":"يُلَطِّخُ","masdar":"تَلْطيخ","src":"msa"}
+{"w":"لَطْخَة","en":"smear, stain","root":"ل-ط-خ","type":"noun","kind":"noun of instance","gender":"f","plural":"لَطَخات","src":"msa"}
+{"w":"مُلَطَّخ","en":"smeared, stained","root":"ل-ط-خ","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"skip":"لَطِخ","why":"rare, not sure of the word"}
+{"skip":"لُطَخة","why":"rare, not sure of the word"}
+{"w":"ضَحْل","en":"shallow","root":"ض-ح-ل","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"ضَحالَة","en":"shallowness","root":"ض-ح-ل","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"هَطَلَ","en":"to pour down (rain)","root":"ه-ط-ل","type":"verb","kind":"verb","form":"I","past":"هَطَلَ","pres":"يَهْطِلُ","masdar":"هُطول","src":"msa"}
+{"w":"هُطول","en":"precipitation, downpour","root":"ه-ط-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"هاطِل","en":"pouring (rain)","root":"ه-ط-ل","type":"participle","kind":"active participle","form":"I","src":"msa"}
+{"w":"نَشيد","en":"anthem, hymn","root":"ن-ش-د","type":"noun","kind":"noun","gender":"m","plural":"أَناشيد","src":"msa"}
+{"w":"أُنْشودَة","en":"song, chant","root":"ن-ش-د","type":"noun","kind":"noun","gender":"f","plural":"أَناشيد","src":"msa"}
+{"w":"أَنْشَدَ","en":"to recite, to chant","root":"ن-ش-د","type":"verb","kind":"verb","form":"IV","past":"أَنْشَدَ","pres":"يُنْشِدُ","masdar":"إِنْشاد","src":"msa"}
+{"w":"مُنْشِد","en":"chanter, reciter","root":"ن-ش-د","type":"participle","kind":"active participle","form":"IV","gender":"m","plural":"مُنْشِدون","src":"msa"}
+{"w":"ناشَدَ","en":"to appeal to, to implore","root":"ن-ش-د","type":"verb","kind":"verb","form":"III","past":"ناشَدَ","pres":"يُناشِدُ","masdar":"مُناشَدة","src":"msa"}
+{"w":"مُناشَدة","en":"appeal, plea","root":"ن-ش-د","type":"masdar","kind":"masdar","form":"III","gender":"f","plural":"مُناشَدات","src":"msa"}
+{"w":"قِرْمِز","en":"crimson dye, kermes","root":"ق-ر-م-ز","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"قِرْمِزِيّ","en":"crimson","root":"ق-ر-م-ز","type":"adjective","kind":"relative adjective","src":"msa"}
+{"skip":"فَاخَ","why":"not sure of the word in current use (فاح is the common verb)"}
+{"w":"خَبَّ","en":"to trot, to gallop lightly","root":"خ-ب-ب","type":"verb","kind":"verb","form":"I","past":"خَبَّ","pres":"يَخُبُّ","masdar":"خَبَب","src":"msa"}
+{"w":"خَبَب","en":"trot, easy gallop","root":"خ-ب-ب","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَرَق","en":"broth","root":"م-ر-ق","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"مَرَقَ","en":"to pass through, to stray","root":"م-ر-ق","type":"verb","kind":"verb","form":"I","past":"مَرَقَ","pres":"يَمْرُقُ","masdar":"مُروق","src":"msa"}
+{"w":"مارِق","en":"renegade, apostate","root":"م-ر-ق","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"مُرّاق","src":"msa"}
+{"skip":"مَرْق","why":"obscure"}
+{"skip":"مِرْقَة","why":"obscure"}
+{"skip":"مِرْق","why":"obscure"}
+{"w":"فَلَّ","en":"to rout, to notch","root":"ف-ل-ل","type":"verb","kind":"verb","form":"I","past":"فَلَّ","pres":"يَفُلُّ","masdar":"فَلّ","src":"msa"}
+{"w":"فُلول","en":"remnants of a defeated force","root":"ف-ل-ل","type":"noun","kind":"plural","gender":"m","src":"msa"}
+{"w":"مَفْلول","en":"blunted, routed","root":"ف-ل-ل","type":"participle","kind":"passive participle","form":"I","src":"msa"}
+{"skip":"فَلّ","why":"nouns and masdar of the same spelling; not sure of the senses"}
+{"skip":"فِلّ","why":"rare, not sure"}
+{"w":"بَدِيهِيّ","en":"obvious, self-evident","root":"ب-د-ه","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"بَدِيهِيّة","en":"axiom","root":"ب-د-ه","type":"noun","kind":"noun","gender":"f","plural":"بَدِيهِيّات","src":"msa"}
+{"w":"بَداهَة","en":"obviousness, spontaneity","root":"ب-د-ه","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"skip":"بَدَهِيّ","why":"spelling variant of بَدِيهِيّ"}
+{"w":"أَشْمَط","en":"grey-haired","root":"ش-م-ط","type":"adjective","kind":"adjective","plural":"شُمْط","src":"msa"}
+{"w":"دَجّال","en":"impostor, charlatan","root":"د-ج-ل","type":"noun","kind":"noun","gender":"m","plural":"دَجّالون","src":"msa","note":"With the article, الدَّجّال is the Antichrist."}
+{"w":"دَجَلَ","en":"to deceive, to swindle","root":"د-ج-ل","type":"verb","kind":"verb","form":"I","past":"دَجَلَ","pres":"يَدْجُلُ","masdar":"دَجَل","src":"msa"}
+{"w":"دَجَل","en":"charlatanry, fraud","root":"د-ج-ل","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"دَغْدَغَ","en":"to tickle","root":"د-غ-د-غ","type":"verb","kind":"verb","form":"I","past":"دَغْدَغَ","pres":"يُدَغْدِغُ","masdar":"دَغْدَغة","src":"msa","note":"Quadriliteral verb."}
+{"w":"دَغْدَغة","en":"tickling","root":"د-غ-د-غ","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa","note":"Masdar of a quadriliteral verb."}
+{"w":"حالِك","en":"pitch-black","root":"ح-ل-ك","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"أَحْلَك","en":"darker, blacker","root":"ح-ل-ك","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"حُلْكَة","en":"intense darkness","root":"ح-ل-ك","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"جَزيل","en":"abundant, generous","root":"ج-ز-ل","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"جَزالَة","en":"soundness, eloquent strength","root":"ج-ز-ل","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"skip":"جَزُلَ","why":"not sure of senses in use; related words listed instead"}
+{"w":"بَجَّلَ","en":"to revere, to honour","root":"ب-ج-ل","type":"verb","kind":"verb","form":"II","past":"بَجَّلَ","pres":"يُبَجِّلُ","masdar":"تَبْجيل","src":"msa"}
+{"w":"تَبْجيل","en":"veneration, reverence","root":"ب-ج-ل","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُبَجَّل","en":"revered, venerable","root":"ب-ج-ل","type":"participle","kind":"passive participle","form":"II","src":"msa"}
+{"w":"تَنَمَّرَ","en":"to bully, to turn aggressive","root":"ن-م-ر","type":"verb","kind":"verb","form":"V","past":"تَنَمَّرَ","pres":"يَتَنَمَّرُ","masdar":"تَنَمُّر","src":"msa"}
+{"w":"تَنَمُّر","en":"bullying","root":"ن-م-ر","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُتَنَمِّر","en":"bully","root":"ن-م-ر","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَنَمِّرون","src":"msa"}
+{"w":"نَمِر","en":"tiger","root":"ن-م-ر","type":"noun","kind":"noun","gender":"m","plural":"نُمور","src":"msa"}
+{"skip":"أَنْمَر","why":"rare, not sure"}
+{"w":"لاذِع","en":"stinging, caustic","root":"ل-ذ-ع","type":"participle","kind":"active participle","form":"I","src":"msa"}
+{"w":"لَذَعَ","en":"to sting, to burn","root":"ل-ذ-ع","type":"verb","kind":"verb","form":"I","past":"لَذَعَ","pres":"يَلْذَعُ","masdar":"لَذْع","src":"msa"}
+{"w":"قارِس","en":"biting, bitter (cold)","root":"ق-ر-س","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"تَناغَمَ","en":"to harmonize","root":"ن-غ-م","type":"verb","kind":"verb","form":"VI","past":"تَناغَمَ","pres":"يَتَناغَمُ","masdar":"تَناغُم","src":"msa"}
+{"w":"تَناغُم","en":"harmony","root":"ن-غ-م","type":"masdar","kind":"masdar","form":"VI","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُتَناغِم","en":"harmonious","root":"ن-غ-م","type":"participle","kind":"active participle","form":"VI","src":"msa"}
+{"w":"نَغَم","en":"melody, tune","root":"ن-غ-م","type":"noun","kind":"noun","gender":"m","plural":"أَنْغام","src":"msa"}
+{"w":"نَغْمَة","en":"note, tone","root":"ن-غ-م","type":"noun","kind":"noun","gender":"f","plural":"نَغَمات","src":"msa"}
+{"w":"دَجا","en":"to be dark","root":"د-ج-و","type":"verb","kind":"verb","form":"I","past":"دَجا","pres":"يَدْجو","masdar":"دُجُوّ","src":"msa"}
+{"w":"جُحْر","en":"burrow, hole","root":"ج-ح-ر","type":"noun","kind":"noun","gender":"m","plural":"أَجْحار","src":"msa"}
+{"w":"أَنَّبَ","en":"to reprimand","root":"أ-ن-ب","type":"verb","kind":"verb","form":"II","past":"أَنَّبَ","pres":"يُؤَنِّبُ","masdar":"تَأْنيب","src":"msa"}
+{"w":"تَأْنيب","en":"reprimand","root":"أ-ن-ب","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُؤَنِّب","en":"reprimanding","root":"أ-ن-ب","type":"participle","kind":"active participle","form":"II","src":"msa"}

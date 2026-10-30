@@ -1,0 +1,132 @@
+{"w":"تَاج","en":"crown","root":"ت-و-ج","type":"noun","kind":"noun","gender":"m","plural":"تيجان","src":"msa","override":"alif stands for the middle waw of ت-و-ج"}
+{"w":"تَوَّجَ","en":"to crown","root":"ت-و-ج","type":"verb","kind":"verb","form":"II","past":"تَوَّجَ","pres":"يُتَوِّجُ","masdar":"تَتْويج","src":"msa"}
+{"w":"تَتْويج","en":"coronation","root":"ت-و-ج","type":"masdar","kind":"masdar","form":"II","gender":"m","src":"msa"}
+{"w":"مُتَوَّج","en":"crowned","root":"ت-و-ج","type":"participle","kind":"passive participle","form":"II","gender":"m","src":"msa"}
+{"w":"تاجِيّ","en":"coronary, of the crown","root":"ت-و-ج","type":"adjective","kind":"relative adjective","src":"msa","override":"alif stands for the middle waw of ت-و-ج"}
+{"skip":"تُوج","why":"not sure of its root or sense"}
+{"skip":"تُوَيْج","why":"not sure"}
+{"skip":"مُتَوَّج","why":"covered by passive participle entry"}
+{"w":"نَحّى","en":"to remove, to put aside","root":"ن-ح-ي","type":"verb","kind":"verb","form":"II","past":"نَحّى","pres":"يُنَحّي","masdar":"تَنْحِيَة","src":"msa"}
+{"w":"تَنْحِيَة","en":"removal, setting aside","root":"ن-ح-ي","type":"masdar","kind":"masdar","form":"II","gender":"f","src":"msa"}
+{"w":"تَنَحّى","en":"to step aside, to step down","root":"ن-ح-ي","type":"verb","kind":"verb","form":"V","past":"تَنَحّى","pres":"يَتَنَحّى","masdar":"تَنَحٍّ","src":"msa"}
+{"skip":"تَنَحِّ","why":"imperative or masdar form of تَنَحّى"}
+{"skip":"مُتَنَحٍّ","why":"participle, not sure of use"}
+{"w":"أَهْدَرَ","en":"to waste, to squander","root":"ه-د-ر","type":"verb","kind":"verb","form":"IV","past":"أَهْدَرَ","pres":"يُهْدِرُ","masdar":"إِهْدار","src":"msa"}
+{"w":"إِهْدار","en":"wasting, squandering","root":"ه-د-ر","type":"masdar","kind":"masdar","form":"IV","gender":"m","noplural":true,"src":"msa"}
+{"w":"هَدَرَ","en":"to roar, to rumble","root":"ه-د-ر","type":"verb","kind":"verb","form":"I","past":"هَدَرَ","pres":"يَهْدِرُ","masdar":"هَدير","src":"msa"}
+{"w":"هَدير","en":"roar, rumble","root":"ه-د-ر","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"هادِر","en":"roaring, thundering","root":"ه-د-ر","type":"participle","kind":"active participle","form":"I","gender":"m","src":"msa"}
+{"w":"مَهْدور","en":"wasted, lost","root":"ه-د-ر","type":"participle","kind":"passive participle","form":"I","gender":"m","src":"msa"}
+{"w":"هَدْر","en":"waste, loss","root":"ه-د-ر","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"هُدْر","why":"not sure"}
+{"skip":"هِدْر","why":"not sure"}
+{"skip":"هَدَّرَ","why":"not sure it is in current use"}
+{"skip":"هَدَّارَة","why":"not sure"}
+{"skip":"هَدَّار","why":"not sure"}
+{"skip":"هَدَارَة","why":"not sure"}
+{"w":"رِيف","en":"countryside, rural area","root":"ر-ي-ف","type":"noun","kind":"noun","gender":"m","plural":"أَرْياف","src":"msa"}
+{"w":"رِيفِيّ","en":"rural, rustic","root":"ر-ي-ف","type":"adjective","kind":"relative adjective","src":"msa"}
+{"skip":"رَيَّفَ","why":"not sure of the verb"}
+{"skip":"آرَ","why":"vulgar, not suitable for the bank"}
+{"w":"عِيد","en":"feast, holiday","root":"ع-ي-د","type":"noun","kind":"noun","gender":"m","plural":"أَعْياد","src":"msa"}
+{"w":"عِيدِيَّة","en":"holiday gift of money","root":"ع-ي-د","type":"noun","kind":"noun","gender":"f","plural":"عِيدِيّات","src":"msa"}
+{"w":"عايَدَ","en":"to greet on a feast","root":"ع-ي-د","type":"verb","kind":"verb","form":"III","past":"عايَدَ","pres":"يُعايِدُ","masdar":"مُعايَدة","src":"msa"}
+{"w":"حُثالَة","en":"dregs, scum","root":"ح-ث-ل","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"قَطَنَ","en":"to reside in, to inhabit","root":"ق-ط-ن","type":"verb","kind":"verb","form":"I","past":"قَطَنَ","pres":"يَقْطُنُ","masdar":"قُطون","src":"msa"}
+{"w":"قاطِن","en":"resident, inhabitant","root":"ق-ط-ن","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"قُطّان","src":"msa"}
+{"w":"قُطْن","en":"cotton","root":"ق-ط-ن","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"قُطْنِيّ","en":"cotton, made of cotton","root":"ق-ط-ن","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"يَقْطين","en":"gourd, squash","root":"ق-ط-ن","type":"noun","kind":"noun","gender":"m","plural":"يَقاطين","src":"msa"}
+{"skip":"قاطِن","why":"adjective use of the participle entry"}
+{"skip":"قَيْطُون","why":"not sure"}
+{"skip":"قُطَان","why":"not sure"}
+{"w":"طِلاء","en":"paint, coating","root":"ط-ل-ي","type":"noun","kind":"noun","gender":"m","plural":"أَطْلِيَة","src":"msa"}
+{"w":"طَلى","en":"to paint, to coat","root":"ط-ل-ي","type":"verb","kind":"verb","form":"I","past":"طَلى","pres":"يَطْلي","masdar":"طَلْي","src":"msa"}
+{"w":"مَطْلِيّ","en":"painted, coated","root":"ط-ل-ي","type":"participle","kind":"passive participle","form":"I","gender":"m","src":"msa"}
+{"w":"طَلاوَة","en":"charm, sweetness","root":"ط-ل-ي","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"skip":"طَلَّاء","why":"not sure of vowels and sense"}
+{"w":"نِفْط","en":"oil, petroleum","root":"ن-ف-ط","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"نِفْطِيّ","en":"oil, petroleum","root":"ن-ف-ط","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"تَنَفَّطَ","en":"to blister","root":"ن-ف-ط","type":"verb","kind":"verb","form":"V","past":"تَنَفَّطَ","pres":"يَتَنَفَّطُ","masdar":"تَنَفُّط","src":"msa"}
+{"skip":"قَطَن","why":"same bare spelling as قُطْن; lumbar sense left out"}
+{"skip":"قَطَنِيّ","why":"same bare spelling as قُطْنِيّ; lumbar sense left out"}
+{"w":"تَزَلَّجَ","en":"to ski, to skate","root":"ز-ل-ج","type":"verb","kind":"verb","form":"V","past":"تَزَلَّجَ","pres":"يَتَزَلَّجُ","masdar":"تَزَلُّج","src":"msa"}
+{"w":"تَزَلُّج","en":"skiing, skating","root":"ز-ل-ج","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُتَزَلِّج","en":"skier, skater","root":"ز-ل-ج","type":"participle","kind":"active participle","form":"V","gender":"m","plural":"مُتَزَلِّجون","src":"msa"}
+{"w":"مِزْلاج","en":"door bolt","root":"ز-ل-ج","type":"noun","kind":"noun of instrument","gender":"m","plural":"مَزاليج","src":"msa"}
+{"w":"ذَات","en":"self, essence","root":"ذ-و-ت","type":"noun","kind":"noun","gender":"f","plural":"ذَوات","src":"msa","override":"alif replaces the waw of ذ-و-ت"}
+{"w":"ذَاتِيّ","en":"personal, self-, subjective","root":"ذ-و-ت","type":"adjective","kind":"relative adjective","src":"msa","override":"alif replaces the waw of ذ-و-ت"}
+{"skip":"ذاتيا","why":"adverbial accusative of ذَاتِيّ"}
+{"skip":"لَأَى","why":"rare and not sure of the vowels"}
+{"skip":"لَأًى","why":"rare, not sure"}
+{"skip":"لُؤَيّ","why":"a personal name"}
+{"skip":"لَأْي","why":"rare, not sure"}
+{"w":"ضَئيل","en":"tiny, meager","root":"ض-أ-ل","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"ضَآلَة","en":"smallness, scantiness","root":"ض-أ-ل","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"ضَؤُلَ","en":"to be tiny, to be meager","root":"ض-أ-ل","type":"verb","kind":"verb","form":"I","past":"ضَؤُلَ","pres":"يَضْؤُلُ","masdar":"ضَآلَة","src":"msa"}
+{"w":"تَضاءَلَ","en":"to dwindle, to shrink","root":"ض-أ-ل","type":"verb","kind":"verb","form":"VI","past":"تَضاءَلَ","pres":"يَتَضاءَلُ","masdar":"تَضاؤُل","src":"msa"}
+{"w":"تَضاؤُل","en":"dwindling, decrease","root":"ض-أ-ل","type":"masdar","kind":"masdar","form":"VI","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُتَضائِل","en":"dwindling, shrinking","root":"ض-أ-ل","type":"participle","kind":"active participle","form":"VI","gender":"m","src":"msa"}
+{"w":"كَثيف","en":"dense, thick","root":"ك-ث-ف","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"كَثُفَ","en":"to be dense, to thicken","root":"ك-ث-ف","type":"verb","kind":"verb","form":"I","past":"كَثُفَ","pres":"يَكْثُفُ","masdar":"كَثافَة","src":"msa"}
+{"w":"كَثافَة","en":"density, thickness","root":"ك-ث-ف","type":"masdar","kind":"masdar","form":"I","gender":"f","noplural":true,"src":"msa"}
+{"w":"كَثَّفَ","en":"to intensify, to condense","root":"ك-ث-ف","type":"verb","kind":"verb","form":"II","past":"كَثَّفَ","pres":"يُكَثِّفُ","masdar":"تَكْثيف","src":"msa"}
+{"w":"تَكْثيف","en":"intensification, condensing","root":"ك-ث-ف","type":"masdar","kind":"masdar","form":"II","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُكَثَّف","en":"intensive, concentrated","root":"ك-ث-ف","type":"participle","kind":"passive participle","form":"II","gender":"m","src":"msa"}
+{"w":"مُكَثِّف","en":"condenser, intensifier","root":"ك-ث-ف","type":"participle","kind":"active participle","form":"II","gender":"m","plural":"مُكَثِّفات","src":"msa","note":"The feminine مُكَثِّفة is also used for a capacitor."}
+{"skip":"مُكَثِّفة","why":"feminine of مُكَثِّف"}
+{"w":"عُنَّة","en":"impotence","root":"ع-ن-ن","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"عِنان","en":"rein, bridle strap","root":"ع-ن-ن","type":"noun","kind":"noun","gender":"m","plural":"أَعِنَّة","src":"msa"}
+{"w":"عِنّين","en":"impotent","root":"ع-ن-ن","type":"adjective","kind":"intensive adjective","src":"msa"}
+{"skip":"عَنَّ","why":"not sure of the masdar"}
+{"skip":"عَنَان","why":"same bare spelling as عِنان; clouds sense left out"}
+{"skip":"عَنَانَة","why":"not sure"}
+{"skip":"عَنْ","why":"preposition, not a root word"}
+{"skip":"عَنّ","why":"not sure"}
+{"w":"تَعَفَّنَ","en":"to rot, to become moldy","root":"ع-ف-ن","type":"verb","kind":"verb","form":"V","past":"تَعَفَّنَ","pres":"يَتَعَفَّنُ","masdar":"تَعَفُّن","src":"msa"}
+{"w":"تَعَفُّن","en":"rotting, putrefaction","root":"ع-ف-ن","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"مُتَعَفِّن","en":"rotten, moldy","root":"ع-ف-ن","type":"participle","kind":"active participle","form":"V","gender":"m","src":"msa"}
+{"w":"عَفَن","en":"mold, rot","root":"ع-ف-ن","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"skip":"زَكِيَ","why":"not sure of this verb"}
+{"w":"زَكِيّ","en":"pure, virtuous","root":"ز-ك-ي","type":"adjective","kind":"adjective","src":"msa"}
+{"w":"أَزْكى","en":"purer, more virtuous","root":"ز-ك-ي","type":"adjective","kind":"comparative","src":"msa"}
+{"w":"طَها","en":"to cook","root":"ط-ه-و","type":"verb","kind":"verb","form":"I","past":"طَها","pres":"يَطْهو","masdar":"طَهْو","src":"msa"}
+{"w":"طَهْو","en":"cooking","root":"ط-ه-و","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"طاهِي","en":"cook, chef","root":"ط-ه-و","type":"participle","kind":"active participle","form":"I","gender":"m","plural":"طُهاة","src":"msa"}
+{"w":"مَطْهُوّ","en":"cooked","root":"ط-ه-و","type":"participle","kind":"passive participle","form":"I","gender":"m","src":"msa"}
+{"skip":"طَاهٍ","why":"indefinite form of طاهِي"}
+{"skip":"طُهُوّ","why":"variant masdar of طَهْو"}
+{"w":"اِنْحَدَرَ","en":"to descend, to slope down","root":"ح-د-ر","type":"verb","kind":"verb","form":"VII","past":"اِنْحَدَرَ","pres":"يَنْحَدِرُ","masdar":"اِنْحِدار","src":"msa"}
+{"w":"اِنْحِدار","en":"descent, decline, slope","root":"ح-د-ر","type":"masdar","kind":"masdar","form":"VII","gender":"m","plural":"اِنْحِدارات","src":"msa"}
+{"w":"مُنْحَدَر","en":"slope, incline","root":"ح-د-ر","type":"noun","kind":"noun of place","gender":"m","plural":"مُنْحَدَرات","src":"msa"}
+{"w":"مُنْحَدِر","en":"sloping","root":"ح-د-ر","type":"participle","kind":"active participle","form":"VII","gender":"m","src":"msa"}
+{"w":"تَقَيَّأَ","en":"to vomit","root":"ق-ي-أ","type":"verb","kind":"verb","form":"V","past":"تَقَيَّأَ","pres":"يَتَقَيَّأُ","masdar":"تَقَيُّؤ","src":"msa"}
+{"w":"تَقَيُّؤ","en":"vomiting","root":"ق-ي-أ","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"w":"قاءَ","en":"to vomit","root":"ق-ي-أ","type":"verb","kind":"verb","form":"I","past":"قاءَ","pres":"يَقيءُ","masdar":"قَيْء","src":"msa"}
+{"w":"قَيْء","en":"vomit","root":"ق-ي-أ","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"نَدْبَة","en":"scar","root":"ن-د-ب","type":"noun","kind":"noun","gender":"f","plural":"نَدَبات","src":"msa"}
+{"w":"نَدَبَ","en":"to delegate, to appoint","root":"ن-د-ب","type":"verb","kind":"verb","form":"I","past":"نَدَبَ","pres":"يَنْدُبُ","masdar":"نَدْب","src":"msa"}
+{"w":"مَنْدوب","en":"delegate, representative","root":"ن-د-ب","type":"noun","kind":"noun","gender":"m","plural":"مَنْدوبون","src":"msa"}
+{"w":"اِنْتَدَبَ","en":"to delegate, to mandate","root":"ن-د-ب","type":"verb","kind":"verb","form":"VIII","past":"اِنْتَدَبَ","pres":"يَنْتَدِبُ","masdar":"اِنْتِداب","src":"msa"}
+{"w":"اِنْتِداب","en":"mandate, delegation","root":"ن-د-ب","type":"masdar","kind":"masdar","form":"VIII","gender":"m","plural":"اِنْتِدابات","src":"msa"}
+{"skip":"نَدِبَ","why":"not sure"}
+{"skip":"مَنْدَب","why":"not sure"}
+{"w":"كَدْمَة","en":"bruise","root":"ك-د-م","type":"noun","kind":"noun","gender":"f","plural":"كَدَمات","src":"msa"}
+{"skip":"كِدْمَة","why":"not sure"}
+{"skip":"كَدَمَ","why":"not sure of the present vowel"}
+{"skip":"كَدْم","why":"not sure"}
+{"w":"بَاحَ","en":"to reveal, to disclose","root":"ب-و-ح","type":"verb","kind":"verb","form":"I","past":"بَاحَ","pres":"يَبُوحُ","masdar":"بَوْح","src":"msa"}
+{"w":"بَوْح","en":"disclosure, confiding","root":"ب-و-ح","type":"masdar","kind":"masdar","form":"I","gender":"m","noplural":true,"src":"msa"}
+{"w":"أَباحَ","en":"to permit, to allow","root":"ب-و-ح","type":"verb","kind":"verb","form":"IV","past":"أَباحَ","pres":"يُبيحُ","masdar":"إِباحَة","src":"msa"}
+{"w":"إِباحَة","en":"permission, permissibility","root":"ب-و-ح","type":"masdar","kind":"masdar","form":"IV","gender":"f","noplural":true,"src":"msa"}
+{"w":"مُباح","en":"permitted, permissible","root":"ب-و-ح","type":"participle","kind":"passive participle","form":"IV","gender":"m","src":"msa"}
+{"w":"إِباحِيّ","en":"licentious, pornographic","root":"ب-و-ح","type":"adjective","kind":"relative adjective","src":"msa"}
+{"w":"إِباحِيَّة","en":"licentiousness, pornography","root":"ب-و-ح","type":"noun","kind":"noun","gender":"f","noplural":true,"src":"msa"}
+{"w":"اِسْتَباحَ","en":"to deem lawful, to violate","root":"ب-و-ح","type":"verb","kind":"verb","form":"X","past":"اِسْتَباحَ","pres":"يَسْتَبيحُ","masdar":"اِسْتِباحَة","src":"msa"}
+{"w":"اِسْتِباحَة","en":"violation, deeming lawful","root":"ب-و-ح","type":"masdar","kind":"masdar","form":"X","gender":"f","noplural":true,"src":"msa"}
+{"skip":"بَوَاح","why":"rare"}
+{"w":"رَيْث","en":"delay, slowness","root":"ر-ي-ث","type":"noun","kind":"noun","gender":"m","noplural":true,"src":"msa"}
+{"w":"تَرَيَّثَ","en":"to hold back, to wait","root":"ر-ي-ث","type":"verb","kind":"verb","form":"V","past":"تَرَيَّثَ","pres":"يَتَرَيَّثُ","masdar":"تَرَيُّث","src":"msa"}
+{"w":"تَرَيُّث","en":"holding back, patience","root":"ر-ي-ث","type":"masdar","kind":"masdar","form":"V","gender":"m","noplural":true,"src":"msa"}
+{"skip":"رَاثَ","why":"both homographs are archaic or of another root (dung ر-و-ث); left out"}
+{"skip":"رَيْثَمَا","why":"conjunction, rare"}

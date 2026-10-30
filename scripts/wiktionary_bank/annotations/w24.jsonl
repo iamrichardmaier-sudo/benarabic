@@ -1,0 +1,85 @@
+{"w": "جَعَّدَ", "en": "to wrinkle, to curl", "root": "ج-ع-د", "type": "verb", "kind": "verb", "form": "II", "past": "جَعَّدَ", "pres": "يُجَعِّدُ", "masdar": "تَجْعيد", "src": "msa"}
+{"w": "تَجْعيد", "en": "wrinkling, curling", "root": "ج-ع-د", "type": "masdar", "kind": "masdar", "form": "II", "gender": "m", "src": "msa"}
+{"w": "مُجَعَّد", "en": "wrinkled, curly", "root": "ج-ع-د", "type": "participle", "kind": "passive participle", "form": "II", "src": "msa"}
+{"w": "تَجَعَّدَ", "en": "to become wrinkled", "root": "ج-ع-د", "type": "verb", "kind": "verb", "form": "V", "past": "تَجَعَّدَ", "pres": "يَتَجَعَّدُ", "masdar": "تَجَعُّد", "src": "msa"}
+{"w": "جَعْد", "en": "curly", "root": "ج-ع-د", "type": "adjective", "kind": "adjective", "plural": "جِعاد", "src": "msa"}
+{"w": "جَمْر", "en": "embers, live coal", "root": "ج-م-ر", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "جَمْرَة", "en": "ember, burning coal", "root": "ج-م-ر", "type": "noun", "kind": "noun", "gender": "f", "plural": "جَمَرات", "src": "msa"}
+{"w": "مِجْمَر", "en": "incense burner", "root": "ج-م-ر", "type": "noun", "kind": "noun of instrument", "gender": "m", "plural": "مَجامِر", "src": "msa"}
+{"w": "رَدَعَ", "en": "to deter, to restrain", "root": "ر-د-ع", "type": "verb", "kind": "verb", "form": "I", "past": "رَدَعَ", "pres": "يَرْدَعُ", "masdar": "رَدْع", "src": "msa"}
+{"w": "رَدْع", "en": "deterrence, restraint", "root": "ر-د-ع", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "msa"}
+{"w": "رادِع", "en": "deterrent", "root": "ر-د-ع", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "plural": "روادِع", "src": "msa"}
+{"w": "اِرْتَدَعَ", "en": "to be deterred", "root": "ر-د-ع", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِرْتَدَعَ", "pres": "يَرْتَدِعُ", "masdar": "اِرْتِداع", "src": "msa"}
+{"w": "لِثَة", "en": "gum (of the mouth)", "root": "ل-ث-و", "type": "noun", "kind": "noun", "gender": "f", "plural": "لِثات", "src": "msa"}
+{"w": "لَثَوِيّ", "en": "gingival", "root": "ل-ث-و", "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "شَبِعَ", "en": "to be full, to be sated", "root": "ش-ب-ع", "type": "verb", "kind": "verb", "form": "I", "past": "شَبِعَ", "pres": "يَشْبَعُ", "masdar": "شِبَع", "src": "msa"}
+{"w": "أَشْبَعَ", "en": "to fill, to satisfy", "root": "ش-ب-ع", "type": "verb", "kind": "verb", "form": "IV", "past": "أَشْبَعَ", "pres": "يُشْبِعُ", "masdar": "إِشْباع", "src": "msa"}
+{"w": "شَبْعان", "en": "full, sated", "root": "ش-ب-ع", "type": "adjective", "kind": "adjective", "plural": "شِباع", "src": "msa"}
+{"w": "شِبَع", "en": "fullness, satiety", "root": "ش-ب-ع", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "msa"}
+{"w": "إِشْباع", "en": "satisfying, saturation", "root": "ش-ب-ع", "type": "masdar", "kind": "masdar", "form": "IV", "gender": "m", "src": "msa"}
+{"w": "مُشْبَع", "en": "saturated, filled", "root": "ش-ب-ع", "type": "participle", "kind": "passive participle", "form": "IV", "src": "msa"}
+{"w": "جُذام", "en": "leprosy", "root": "ج-ذ-م", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "أَجْذَم", "en": "leprous", "root": "ج-ذ-م", "type": "adjective", "kind": "adjective", "plural": "جُذْم", "src": "msa"}
+{"w": "مَرْمُوق", "en": "esteemed, distinguished", "root": "ر-م-ق", "type": "participle", "kind": "passive participle", "form": "I", "src": "msa"}
+{"w": "رَمَقَ", "en": "to glance at, to eye", "root": "ر-م-ق", "type": "verb", "kind": "verb", "form": "I", "past": "رَمَقَ", "pres": "يَرْمُقُ", "masdar": "رَمْق", "src": "msa"}
+{"w": "رَمَق", "en": "last breath, bare life", "root": "ر-م-ق", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "هَذَرَ", "en": "to prattle", "root": "ه-ذ-ر", "type": "verb", "kind": "verb", "form": "I", "past": "هَذَرَ", "pres": "يَهْذُرُ", "masdar": "هَذْر", "src": "msa"}
+{"w": "هَذْر", "en": "prattle, idle talk", "root": "ه-ذ-ر", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "msa"}
+{"w": "مِهْذار", "en": "chatterbox, babbler", "root": "ه-ذ-ر", "type": "adjective", "kind": "intensive adjective", "plural": "مَهاذير", "src": "msa"}
+{"skip": "هَذِرَ", "why": "variant of هَذَرَ, same sense"}
+{"w": "تَمَلَّصَ", "en": "to evade, to slip away", "root": "م-ل-ص", "type": "verb", "kind": "verb", "form": "V", "past": "تَمَلَّصَ", "pres": "يَتَمَلَّصُ", "masdar": "تَمَلُّص", "src": "msa"}
+{"w": "تَمَلُّص", "en": "evasion", "root": "م-ل-ص", "type": "masdar", "kind": "masdar", "form": "V", "gender": "m", "src": "msa"}
+{"w": "بَخّاخ", "en": "sprayer, spray bottle", "root": "ب-خ-خ", "type": "noun", "kind": "noun", "gender": "m", "plural": "بَخّاخات", "src": "msa"}
+{"w": "بَخَّ", "en": "to spray", "root": "ب-خ-خ", "type": "verb", "kind": "verb", "form": "I", "past": "بَخَّ", "pres": "يَبُخُّ", "masdar": "بَخّ", "src": "msa"}
+{"w": "هِرّ", "en": "tomcat, cat", "root": "ه-ر-ر", "type": "noun", "kind": "noun", "gender": "m", "plural": "هِرَرَة", "src": "msa"}
+{"w": "هِرَّة", "en": "she-cat", "root": "ه-ر-ر", "type": "noun", "kind": "noun", "gender": "f", "plural": "هِرَر", "src": "msa"}
+{"w": "تَأَلَّقَ", "en": "to shine, to sparkle", "root": "أ-ل-ق", "type": "verb", "kind": "verb", "form": "V", "past": "تَأَلَّقَ", "pres": "يَتَأَلَّقُ", "masdar": "تَأَلُّق", "src": "msa"}
+{"w": "تَأَلُّق", "en": "brilliance, sparkling", "root": "أ-ل-ق", "type": "masdar", "kind": "masdar", "form": "V", "gender": "m", "src": "msa"}
+{"w": "مُتَأَلِّق", "en": "brilliant, dazzling", "root": "أ-ل-ق", "type": "participle", "kind": "active participle", "form": "V", "gender": "m", "plural": "مُتَأَلِّقون", "src": "msa"}
+{"w": "نَفَضَ", "en": "to shake off", "root": "ن-ف-ض", "type": "verb", "kind": "verb", "form": "I", "past": "نَفَضَ", "pres": "يَنْفُضُ", "masdar": "نَفْض", "src": "msa"}
+{"w": "نَفْض", "en": "shaking off", "root": "ن-ف-ض", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "msa"}
+{"w": "اِنْتَفَضَ", "en": "to shudder, to rise up", "root": "ن-ف-ض", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِنْتَفَضَ", "pres": "يَنْتَفِضُ", "masdar": "اِنْتِفاض", "src": "msa"}
+{"w": "اِنْتِفاض", "en": "shudder, shaking", "root": "ن-ف-ض", "type": "masdar", "kind": "masdar", "form": "VIII", "gender": "m", "src": "msa"}
+{"w": "اِنْتِفاضَة", "en": "uprising, intifada", "root": "ن-ف-ض", "type": "noun", "kind": "noun of instance", "gender": "f", "plural": "اِنْتِفاضات", "src": "msa"}
+{"w": "مِنْفَضَة", "en": "ashtray", "root": "ن-ف-ض", "type": "noun", "kind": "noun of instrument", "gender": "f", "plural": "مَنافِض", "src": "msa"}
+{"w": "ثُكْنَة", "en": "barracks", "root": "ث-ك-ن", "type": "noun", "kind": "noun", "gender": "f", "plural": "ثُكَن", "src": "msa"}
+{"w": "سَبّورَة", "en": "blackboard", "root": "س-ب-ر", "type": "noun", "kind": "noun", "gender": "f", "plural": "سَبّورات", "src": "msa"}
+{"w": "سَبَرَ", "en": "to probe, to fathom", "root": "س-ب-ر", "type": "verb", "kind": "verb", "form": "I", "past": "سَبَرَ", "pres": "يَسْبُرُ", "masdar": "سَبْر", "src": "msa"}
+{"w": "سَبْر", "en": "probing, sounding", "root": "س-ب-ر", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "msa"}
+{"w": "فَرَمَ", "en": "to mince, to grind", "root": "ف-ر-م", "type": "verb", "kind": "verb", "form": "I", "past": "فَرَمَ", "pres": "يَفْرُمُ", "masdar": "فَرْم", "src": "msa"}
+{"w": "مَفْرُوم", "en": "minced, ground", "root": "ف-ر-م", "type": "participle", "kind": "passive participle", "form": "I", "src": "msa"}
+{"w": "فَرْم", "en": "mincing", "root": "ف-ر-م", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "msa"}
+{"w": "أَطْلَس", "en": "satin", "root": "ط-ل-س", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَطالِس", "src": "msa"}
+{"w": "أَطْلَس", "en": "dusty grey, threadbare", "root": "ط-ل-س", "type": "adjective", "kind": "adjective", "src": "msa", "note": "Also used of worn-out cloth."}
+{"skip": "طَلِسَ", "why": "not sure of the vowels and sense"}
+{"skip": "طَلَسَ", "why": "not sure of the vowels and sense"}
+{"skip": "طَلَّسَ", "why": "not sure of the vowels and sense"}
+{"w": "لَسَعَ", "en": "to sting", "root": "ل-س-ع", "type": "verb", "kind": "verb", "form": "I", "past": "لَسَعَ", "pres": "يَلْسَعُ", "masdar": "لَسْع", "src": "msa"}
+{"w": "لَسْع", "en": "stinging", "root": "ل-س-ع", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "msa"}
+{"w": "لَسْعَة", "en": "sting", "root": "ل-س-ع", "type": "noun", "kind": "noun of instance", "gender": "f", "plural": "لَسَعات", "src": "msa"}
+{"w": "لاسِع", "en": "stinging, biting", "root": "ل-س-ع", "type": "participle", "kind": "active participle", "form": "I", "src": "msa"}
+{"w": "مَلْسوع", "en": "stung", "root": "ل-س-ع", "type": "participle", "kind": "passive participle", "form": "I", "src": "msa"}
+{"w": "دَنَّسَ", "en": "to defile, to pollute", "root": "د-ن-س", "type": "verb", "kind": "verb", "form": "II", "past": "دَنَّسَ", "pres": "يُدَنِّسُ", "masdar": "تَدْنيس", "src": "msa"}
+{"w": "تَدْنيس", "en": "defilement, desecration", "root": "د-ن-س", "type": "masdar", "kind": "masdar", "form": "II", "gender": "m", "src": "msa"}
+{"w": "مُدَنَّس", "en": "defiled", "root": "د-ن-س", "type": "participle", "kind": "passive participle", "form": "II", "src": "msa"}
+{"w": "دَنَس", "en": "filth, impurity", "root": "د-ن-س", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "دَحْرَجَ", "en": "to roll", "root": "د-ح-ر-ج", "type": "verb", "kind": "verb", "form": "I", "past": "دَحْرَجَ", "pres": "يُدَحْرِجُ", "masdar": "دَحْرَجَة", "src": "msa", "note": "Quadriliteral verb, listed as form I."}
+{"w": "دَحْرَجَة", "en": "rolling", "root": "د-ح-ر-ج", "type": "masdar", "kind": "masdar", "form": "I", "gender": "f", "src": "msa"}
+{"w": "مُدَحْرَج", "en": "rolled", "root": "د-ح-ر-ج", "type": "participle", "kind": "passive participle", "form": "I", "src": "msa"}
+{"w": "قَصَب", "en": "reeds, sugarcane", "root": "ق-ص-ب", "type": "noun", "kind": "collective noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "قَصَبَة", "en": "reed, windpipe", "root": "ق-ص-ب", "type": "noun", "kind": "noun", "gender": "f", "plural": "قَصَبات", "src": "msa"}
+{"w": "قَصّاب", "en": "butcher", "root": "ق-ص-ب", "type": "noun", "kind": "noun", "gender": "m", "plural": "قَصّابون", "src": "msa"}
+{"skip": "قَصَبَ", "why": "rare, not sure"}
+{"skip": "قَصَّبَ", "why": "rare, not sure"}
+{"skip": "قَصْب", "why": "rare, not sure"}
+{"w": "زُبالَة", "en": "garbage, rubbish", "root": "ز-ب-ل", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "زِبْل", "en": "dung, manure", "root": "ز-ب-ل", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "زَبّال", "en": "garbage collector", "root": "ز-ب-ل", "type": "noun", "kind": "noun", "gender": "m", "plural": "زَبّالون", "src": "msa"}
+{"w": "مَزْبَلَة", "en": "dump, rubbish heap", "root": "ز-ب-ل", "type": "noun", "kind": "noun of place", "gender": "f", "plural": "مَزابِل", "src": "msa"}
+{"w": "زَبَّلَ", "en": "to manure", "root": "ز-ب-ل", "type": "verb", "kind": "verb", "form": "II", "past": "زَبَّلَ", "pres": "يُزَبِّلُ", "masdar": "تَزْبيل", "src": "msa"}
+{"w": "آفَة", "en": "blight, pest, scourge", "root": "أ-و-ف", "type": "noun", "kind": "noun", "gender": "f", "plural": "آفات", "src": "msa"}
+{"w": "زُكام", "en": "common cold", "root": "ز-ك-م", "type": "noun", "kind": "noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "مَزْكوم", "en": "having a cold", "root": "ز-ك-م", "type": "participle", "kind": "passive participle", "form": "I", "src": "msa"}
+{"w": "خَزَف", "en": "pottery, ceramics", "root": "خ-ز-ف", "type": "noun", "kind": "collective noun", "gender": "m", "noplural": true, "src": "msa"}
+{"w": "خَزَفِيّ", "en": "ceramic", "root": "خ-ز-ف", "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "خَزّاف", "en": "potter", "root": "خ-ز-ف", "type": "noun", "kind": "noun", "gender": "m", "plural": "خَزّافون", "src": "msa"}

@@ -1,0 +1,160 @@
+{"w": "رامَ", "en": "to leave, to budge", "root": "ر-ي-م", "type": "verb", "kind": "verb", "form": "I", "past": "رامَ", "pres": "يَريمُ", "masdar": "رَيْم", "note": "Used almost only in the negative, as in ما رامَ مكانَه, he did not leave his place.", "src": "msa"}
+{"w": "رِيم", "en": "white gazelle", "root": "ر-ي-م", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَرْآم", "src": "msa"}
+{"skip": "رَيْم", "why": "nouns with no gloss or rare sense; not sure of the vowels"}
+{"w": "كَيْف", "en": "how", "root": "ك-ي-ف", "type": "other", "kind": "adverb", "src": "msa"}
+{"w": "كَيْفِيَّة", "en": "manner, way", "root": "ك-ي-ف", "type": "noun", "kind": "noun", "gender": "f", "plural": "كَيْفِيّات", "src": "msa"}
+{"w": "كَيَّفَ", "en": "to adapt, to air-condition", "root": "ك-ي-ف", "type": "verb", "kind": "verb", "form": "II", "past": "كَيَّفَ", "pres": "يُكَيِّفُ", "masdar": "تَكْيِيف", "src": "msa"}
+{"w": "تَكْيِيف", "en": "adaptation, air conditioning", "root": "ك-ي-ف", "type": "masdar", "kind": "masdar", "form": "II", "gender": "m", "src": "msa"}
+{"w": "تَكَيَّفَ", "en": "to adapt oneself", "root": "ك-ي-ف", "type": "verb", "kind": "verb", "form": "V", "past": "تَكَيَّفَ", "pres": "يَتَكَيَّفُ", "masdar": "تَكَيُّف", "src": "msa"}
+{"w": "تَكَيُّف", "en": "adaptation", "root": "ك-ي-ف", "type": "masdar", "kind": "masdar", "form": "V", "gender": "m", "src": "msa"}
+{"w": "مُتَكَيِّف", "en": "adapted", "root": "ك-ي-ف", "type": "participle", "kind": "active participle", "form": "V", "gender": "m", "src": "msa"}
+{"w": "مُكَيِّف", "en": "air conditioner", "root": "ك-ي-ف", "type": "noun", "kind": "noun", "gender": "m", "plural": "مُكَيِّفات", "src": "msa"}
+{"w": "هالَ", "en": "to frighten, to awe", "root": "ه-و-ل", "type": "verb", "kind": "verb", "form": "I", "past": "هالَ", "pres": "يَهولُ", "masdar": "هَوْل", "src": "msa"}
+{"w": "هَوْل", "en": "terror, dread", "root": "ه-و-ل", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَهْوال", "src": "msa"}
+{"w": "هائِل", "en": "enormous, terrifying", "root": "ه-و-ل", "type": "adjective", "kind": "adjective", "src": "msa"}
+{"w": "مَهُول", "en": "terrifying", "root": "ه-و-ل", "type": "participle", "kind": "passive participle", "form": "I", "gender": "m", "src": "msa"}
+{"w": "هَوَّلَ", "en": "to exaggerate, to intimidate", "root": "ه-و-ل", "type": "verb", "kind": "verb", "form": "II", "past": "هَوَّلَ", "pres": "يُهَوِّلُ", "masdar": "تَهْوِيل", "src": "msa"}
+{"w": "تَهْوِيل", "en": "exaggeration, scaremongering", "root": "ه-و-ل", "type": "masdar", "kind": "masdar", "form": "II", "gender": "m", "src": "msa"}
+{"w": "ضَخْم", "en": "huge, massive", "root": "ض-خ-م", "type": "adjective", "kind": "adjective", "plural": "ضِخام", "src": "msa"}
+{"w": "ضَخُمَ", "en": "to be huge", "root": "ض-خ-م", "type": "verb", "kind": "verb", "form": "I", "past": "ضَخُمَ", "pres": "يَضْخُمُ", "masdar": "ضَخامَة", "src": "msa"}
+{"w": "ضَخامَة", "en": "hugeness", "root": "ض-خ-م", "type": "masdar", "kind": "masdar", "form": "I", "gender": "f", "src": "msa"}
+{"w": "ضَخَّمَ", "en": "to inflate, to enlarge", "root": "ض-خ-م", "type": "verb", "kind": "verb", "form": "II", "past": "ضَخَّمَ", "pres": "يُضَخِّمُ", "masdar": "تَضْخِيم", "src": "msa"}
+{"w": "تَضْخِيم", "en": "inflation, magnification", "root": "ض-خ-م", "type": "masdar", "kind": "masdar", "form": "II", "gender": "m", "src": "msa"}
+{"w": "تَضَخَّمَ", "en": "to swell, to become inflated", "root": "ض-خ-م", "type": "verb", "kind": "verb", "form": "V", "past": "تَضَخَّمَ", "pres": "يَتَضَخَّمُ", "masdar": "تَضَخُّم", "src": "msa"}
+{"w": "تَضَخُّم", "en": "inflation, swelling", "root": "ض-خ-م", "type": "masdar", "kind": "masdar", "form": "V", "gender": "m", "src": "msa"}
+{"w": "أَضْخَم", "en": "bigger, huger", "root": "ض-خ-م", "type": "adjective", "kind": "comparative", "src": "msa"}
+{"w": "مُضَخِّم", "en": "amplifier, magnifier", "root": "ض-خ-م", "type": "participle", "kind": "active participle", "form": "II", "gender": "m", "note": "Often مُضَخِّم الصَّوْت, sound amplifier.", "src": "msa"}
+{"w": "أَزْعَجَ", "en": "to disturb, to annoy", "root": "ز-ع-ج", "type": "verb", "kind": "verb", "form": "IV", "past": "أَزْعَجَ", "pres": "يُزْعِجُ", "masdar": "إِزْعاج", "src": "msa"}
+{"w": "إِزْعاج", "en": "annoyance, disturbance", "root": "ز-ع-ج", "type": "masdar", "kind": "masdar", "form": "IV", "gender": "m", "src": "msa"}
+{"w": "مُزْعِج", "en": "annoying", "root": "ز-ع-ج", "type": "participle", "kind": "active participle", "form": "IV", "gender": "m", "src": "msa"}
+{"w": "اِنْزَعَجَ", "en": "to be annoyed", "root": "ز-ع-ج", "type": "verb", "kind": "verb", "form": "VII", "past": "اِنْزَعَجَ", "pres": "يَنْزَعِجُ", "masdar": "اِنْزِعاج", "src": "msa"}
+{"w": "اِنْزِعاج", "en": "discomfort, annoyance", "root": "ز-ع-ج", "type": "masdar", "kind": "masdar", "form": "VII", "gender": "m", "src": "msa"}
+{"w": "مُنْزَعِج", "en": "annoyed, upset", "root": "ز-ع-ج", "type": "participle", "kind": "active participle", "form": "VII", "gender": "m", "src": "msa"}
+{"w": "غَطّى", "en": "to cover, to cover an event", "root": "غ-ط-ي", "type": "verb", "kind": "verb", "form": "II", "past": "غَطّى", "pres": "يُغَطّي", "masdar": "تَغْطِيَة", "src": "msa"}
+{"w": "تَغْطِيَة", "en": "covering, coverage", "root": "غ-ط-ي", "type": "masdar", "kind": "masdar", "form": "II", "gender": "f", "src": "msa"}
+{"w": "غِطاء", "en": "cover, lid", "root": "غ-ط-ي", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَغْطِيَة", "src": "msa"}
+{"w": "مُغَطّى", "en": "covered", "root": "غ-ط-ي", "type": "participle", "kind": "passive participle", "form": "II", "gender": "m", "src": "msa"}
+{"w": "تَغَطّى", "en": "to cover oneself", "root": "غ-ط-ي", "type": "verb", "kind": "verb", "form": "V", "past": "تَغَطّى", "pres": "يَتَغَطّى", "masdar": "تَغَطٍّ", "src": "msa"}
+{"w": "فَحَصَ", "en": "to examine, to test", "root": "ف-ح-ص", "type": "verb", "kind": "verb", "form": "I", "past": "فَحَصَ", "pres": "يَفْحَصُ", "masdar": "فَحْص", "src": "msa"}
+{"w": "فَحْص", "en": "examination, test", "root": "ف-ح-ص", "type": "noun", "kind": "noun", "gender": "m", "plural": "فُحوص", "src": "msa"}
+{"w": "تَفَحَّصَ", "en": "to scrutinize, to inspect", "root": "ف-ح-ص", "type": "verb", "kind": "verb", "form": "V", "past": "تَفَحَّصَ", "pres": "يَتَفَحَّصُ", "masdar": "تَفَحُّص", "src": "msa"}
+{"w": "تَفَحُّص", "en": "close inspection", "root": "ف-ح-ص", "type": "masdar", "kind": "masdar", "form": "V", "gender": "m", "src": "msa"}
+{"w": "فاحِص", "en": "examiner", "root": "ف-ح-ص", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "plural": "فاحِصون", "src": "msa"}
+{"w": "مَفْحوص", "en": "examined", "root": "ف-ح-ص", "type": "participle", "kind": "passive participle", "form": "I", "gender": "m", "src": "msa"}
+{"w": "فَضاء", "en": "space, open area", "root": "ف-ض-ي", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَفْضِية", "src": "msa"}
+{"w": "فَضائِيّ", "en": "spatial, satellite", "root": "ف-ض-ي", "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "أَفْضى", "en": "to lead to", "root": "ف-ض-ي", "type": "verb", "kind": "verb", "form": "IV", "past": "أَفْضى", "pres": "يُفْضي", "masdar": "إِفْضاء", "src": "msa"}
+{"w": "إِفْضاء", "en": "leading to, disclosure", "root": "ف-ض-ي", "type": "masdar", "kind": "masdar", "form": "IV", "gender": "m", "src": "msa"}
+{"skip": "فَاضٍ", "why": "colloquial in this sense; not sure of the standard form"}
+{"w": "مَعْرَكَة", "en": "battle", "root": "ع-ر-ك", "type": "noun", "kind": "noun", "gender": "f", "plural": "مَعارِك", "src": "msa"}
+{"w": "عِراك", "en": "fight, scuffle", "root": "ع-ر-ك", "type": "masdar", "kind": "masdar", "form": "III", "gender": "m", "src": "msa"}
+{"w": "عارَكَ", "en": "to fight with", "root": "ع-ر-ك", "type": "verb", "kind": "verb", "form": "III", "past": "عارَكَ", "pres": "يُعارِكُ", "masdar": "عِراك", "src": "msa"}
+{"w": "تَعارَكَ", "en": "to brawl, to fight each other", "root": "ع-ر-ك", "type": "verb", "kind": "verb", "form": "VI", "past": "تَعارَكَ", "pres": "يَتَعارَكُ", "masdar": "تَعارُك", "src": "msa"}
+{"w": "تَعارُك", "en": "brawl", "root": "ع-ر-ك", "type": "masdar", "kind": "masdar", "form": "VI", "gender": "m", "src": "msa"}
+{"w": "اِعْتَرَكَ", "en": "to clash, to fight", "root": "ع-ر-ك", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِعْتَرَكَ", "pres": "يَعْتَرِكُ", "masdar": "اِعْتِراك", "src": "msa"}
+{"w": "مُعْتَرَك", "en": "battlefield, arena", "root": "ع-ر-ك", "type": "noun", "kind": "noun of place", "gender": "m", "plural": "مُعْتَرَكات", "src": "msa"}
+{"w": "عَرَكَ", "en": "to knead, to rub", "root": "ع-ر-ك", "type": "verb", "kind": "verb", "form": "I", "past": "عَرَكَ", "pres": "يَعْرُكُ", "masdar": "عَرْك", "src": "msa"}
+{"w": "نَحْو", "en": "grammar, way", "root": "ن-ح-و", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَنْحاء", "note": "The plural أَنْحاء means regions or parts.", "src": "msa"}
+{"w": "نَحْوَ", "en": "towards, about", "root": "ن-ح-و", "type": "other", "kind": "adverb", "src": "msa"}
+{"w": "ناحِيَة", "en": "side, region", "root": "ن-ح-و", "type": "noun", "kind": "noun", "gender": "f", "plural": "نَواحِي", "src": "msa"}
+{"w": "نَحْوِيّ", "en": "grammatical", "root": "ن-ح-و", "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "نَحْوِيّ", "en": "grammarian", "root": "ن-ح-و", "type": "noun", "kind": "noun", "gender": "m", "plural": "نَحْوِيُّون", "src": "msa"}
+{"w": "نَحا", "en": "to head towards", "root": "ن-ح-و", "type": "verb", "kind": "verb", "form": "I", "past": "نَحا", "pres": "يَنْحو", "masdar": "نَحْو", "src": "msa"}
+{"w": "اِنْتَحى", "en": "to withdraw aside", "root": "ن-ح-و", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِنْتَحى", "pres": "يَنْتَحي", "masdar": "اِنْتِحاء", "src": "msa"}
+{"w": "تَنَحّى", "en": "to step aside, to resign", "root": "ن-ح-و", "type": "verb", "kind": "verb", "form": "V", "past": "تَنَحّى", "pres": "يَتَنَحّى", "masdar": "تَنَحٍّ", "src": "msa"}
+{"skip": "نَاحِيَةَ", "why": "accusative form of ناحية used as a preposition"}
+{"w": "قِمَّة", "en": "summit, peak", "root": "ق-م-م", "type": "noun", "kind": "noun", "gender": "f", "plural": "قِمَم", "src": "msa"}
+{"w": "قُمامَة", "en": "rubbish, garbage", "root": "ق-م-م", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "قَمَّ", "en": "to sweep", "root": "ق-م-م", "type": "verb", "kind": "verb", "form": "I", "past": "قَمَّ", "pres": "يَقُمُّ", "masdar": "قَمّ", "note": "Classical; modern Arabic mostly uses كَنَسَ.", "src": "msa"}
+{"skip": "قَمَّام", "why": "garbage collector or scavenger; not sure of the modern meaning and vowels"}
+{"w": "مَكَسَ", "en": "to levy a tax", "root": "م-ك-س", "type": "verb", "kind": "verb", "form": "I", "past": "مَكَسَ", "pres": "يَمْكِسُ", "masdar": "مَكْس", "note": "Classical.", "src": "msa"}
+{"w": "مَكْس", "en": "toll, customs duty", "root": "م-ك-س", "type": "noun", "kind": "noun", "gender": "m", "plural": "مُكوس", "note": "Classical.", "src": "msa"}
+{"skip": "مَكَّسَ", "why": "rare form; not sure"}
+{"w": "زاوِيَة", "en": "angle, corner", "root": "ز-و-ي", "type": "noun", "kind": "noun", "gender": "f", "plural": "زَوايا", "src": "msa"}
+{"w": "زَوى", "en": "to fold, to draw in", "root": "ز-و-ي", "type": "verb", "kind": "verb", "form": "I", "past": "زَوى", "pres": "يَزْوي", "masdar": "زَيّ", "note": "Literary.", "src": "msa"}
+{"w": "اِنْزَوى", "en": "to withdraw, to keep to oneself", "root": "ز-و-ي", "type": "verb", "kind": "verb", "form": "VII", "past": "اِنْزَوى", "pres": "يَنْزَوي", "masdar": "اِنْزِواء", "src": "msa"}
+{"w": "اِنْزِواء", "en": "seclusion, withdrawal", "root": "ز-و-ي", "type": "masdar", "kind": "masdar", "form": "VII", "gender": "m", "src": "msa"}
+{"skip": "زَوَّى", "why": "rare; not sure"}
+{"w": "حَقِير", "en": "despicable, insignificant", "root": "ح-ق-ر", "type": "adjective", "kind": "adjective", "src": "msa"}
+{"w": "حَقُرَ", "en": "to be despicable", "root": "ح-ق-ر", "type": "verb", "kind": "verb", "form": "I", "past": "حَقُرَ", "pres": "يَحْقُرُ", "masdar": "حَقارَة", "src": "msa"}
+{"w": "حَقارَة", "en": "contemptibility, pettiness", "root": "ح-ق-ر", "type": "masdar", "kind": "masdar", "form": "I", "gender": "f", "src": "msa"}
+{"w": "أَحْقَر", "en": "more despicable", "root": "ح-ق-ر", "type": "adjective", "kind": "comparative", "src": "msa"}
+{"w": "حَقَّرَ", "en": "to belittle, to disdain", "root": "ح-ق-ر", "type": "verb", "kind": "verb", "form": "II", "past": "حَقَّرَ", "pres": "يُحَقِّرُ", "masdar": "تَحْقِير", "src": "msa"}
+{"w": "تَحْقِير", "en": "belittling, disdain", "root": "ح-ق-ر", "type": "masdar", "kind": "masdar", "form": "II", "gender": "m", "src": "msa"}
+{"w": "اِحْتَقَرَ", "en": "to despise", "root": "ح-ق-ر", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِحْتَقَرَ", "pres": "يَحْتَقِرُ", "masdar": "اِحْتِقار", "src": "msa"}
+{"w": "اِحْتِقار", "en": "contempt", "root": "ح-ق-ر", "type": "masdar", "kind": "masdar", "form": "VIII", "gender": "m", "src": "msa"}
+{"w": "مُحْتَقَر", "en": "despised", "root": "ح-ق-ر", "type": "participle", "kind": "passive participle", "form": "VIII", "gender": "m", "src": "msa"}
+{"w": "اِسْتَحْقَرَ", "en": "to regard as contemptible", "root": "ح-ق-ر", "type": "verb", "kind": "verb", "form": "X", "past": "اِسْتَحْقَرَ", "pres": "يَسْتَحْقِرُ", "masdar": "اِسْتِحْقار", "src": "msa"}
+{"w": "طَرَأَ", "en": "to occur suddenly", "root": "ط-ر-أ", "type": "verb", "kind": "verb", "form": "I", "past": "طَرَأَ", "pres": "يَطْرَأُ", "masdar": "طُروء", "src": "msa"}
+{"w": "طُروء", "en": "sudden occurrence", "root": "ط-ر-أ", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "msa"}
+{"w": "طارِئ", "en": "sudden, emergency", "root": "ط-ر-أ", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "plural": "طَوارِئ", "src": "msa"}
+{"w": "طارِئَة", "en": "emergency, unforeseen event", "root": "ط-ر-أ", "type": "noun", "kind": "noun", "gender": "f", "plural": "طَوارِئ", "src": "msa"}
+{"skip": "طَوَارِئ", "why": "plural of طارِئة"}
+{"w": "بارِع", "en": "skilful, brilliant", "root": "ب-ر-ع", "type": "adjective", "kind": "adjective", "plural": "بارِعون", "src": "msa"}
+{"w": "بَرَعَ", "en": "to excel", "root": "ب-ر-ع", "type": "verb", "kind": "verb", "form": "I", "past": "بَرَعَ", "pres": "يَبْرُعُ", "masdar": "بَراعَة", "src": "msa"}
+{"w": "بَراعَة", "en": "skill, brilliance", "root": "ب-ر-ع", "type": "masdar", "kind": "masdar", "form": "I", "gender": "f", "src": "msa"}
+{"w": "تَبَرَّعَ", "en": "to donate", "root": "ب-ر-ع", "type": "verb", "kind": "verb", "form": "V", "past": "تَبَرَّعَ", "pres": "يَتَبَرَّعُ", "masdar": "تَبَرُّع", "src": "msa"}
+{"w": "تَبَرُّع", "en": "donation", "root": "ب-ر-ع", "type": "masdar", "kind": "masdar", "form": "V", "gender": "m", "src": "msa"}
+{"w": "مُتَبَرِّع", "en": "donor", "root": "ب-ر-ع", "type": "participle", "kind": "active participle", "form": "V", "gender": "m", "plural": "مُتَبَرِّعون", "src": "msa"}
+{"w": "بُرْعُم", "en": "bud", "root": "ب-ر-ع", "type": "noun", "kind": "noun", "gender": "m", "plural": "بَراعِم", "src": "msa"}
+{"w": "نَقْد", "en": "criticism", "root": "ن-ق-د", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "msa"}
+{"w": "نَقْد", "en": "cash", "root": "ن-ق-د", "type": "noun", "kind": "noun", "gender": "m", "plural": "نُقود", "src": "msa"}
+{"w": "نَقْدِيّ", "en": "cash, monetary", "root": "ن-ق-د", "type": "adjective", "kind": "relative adjective", "src": "msa"}
+{"w": "نَقَدَ", "en": "to pay in cash", "root": "ن-ق-د", "type": "verb", "kind": "verb", "form": "I", "past": "نَقَدَ", "pres": "يَنْقُدُ", "masdar": "نَقْد", "note": "It also means to criticize.", "src": "msa"}
+{"w": "ناقِد", "en": "critic", "root": "ن-ق-د", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "plural": "نُقّاد", "src": "msa"}
+{"w": "نَقّاد", "en": "critic", "root": "ن-ق-د", "type": "noun", "kind": "noun", "gender": "m", "plural": "نَقّادون", "src": "msa"}
+{"w": "اِنْتَقَدَ", "en": "to criticize", "root": "ن-ق-د", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِنْتَقَدَ", "pres": "يَنْتَقِدُ", "masdar": "اِنْتِقاد", "src": "msa"}
+{"w": "اِنْتِقاد", "en": "criticism", "root": "ن-ق-د", "type": "masdar", "kind": "masdar", "form": "VIII", "gender": "m", "src": "msa"}
+{"w": "مَنْقود", "en": "paid in cash", "root": "ن-ق-د", "type": "participle", "kind": "passive participle", "form": "I", "gender": "m", "src": "msa"}
+{"w": "مَساء", "en": "evening", "root": "م-س-ي", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَمْسِيَة", "src": "msa"}
+{"w": "أَمْسى", "en": "to become, to spend the evening", "root": "م-س-ي", "type": "verb", "kind": "verb", "form": "IV", "past": "أَمْسى", "pres": "يُمْسي", "masdar": "إِمْساء", "src": "msa"}
+{"w": "أُمْسِيَة", "en": "evening party, soirée", "root": "م-س-ي", "type": "noun", "kind": "noun", "gender": "f", "plural": "أُمْسِيات", "src": "msa"}
+{"skip": "مَسَى", "why": "doubtful sense and vowels"}
+{"skip": "مَسَاءً", "why": "adverbial accusative of مَساء"}
+{"w": "فَظِيع", "en": "terrible, atrocious", "root": "ف-ظ-ع", "type": "adjective", "kind": "adjective", "src": "msa"}
+{"w": "فَظُعَ", "en": "to be atrocious", "root": "ف-ظ-ع", "type": "verb", "kind": "verb", "form": "I", "past": "فَظُعَ", "pres": "يَفْظُعُ", "masdar": "فَظاعَة", "src": "msa"}
+{"w": "فَظاعَة", "en": "atrocity, horror", "root": "ف-ظ-ع", "type": "masdar", "kind": "masdar", "form": "I", "gender": "f", "src": "msa"}
+{"w": "أَفْظَع", "en": "more atrocious", "root": "ف-ظ-ع", "type": "adjective", "kind": "comparative", "src": "msa"}
+{"skip": "فَظِعَ", "why": "not sure of this verb"}
+{"w": "جَذَبَ", "en": "to pull, to attract", "root": "ج-ذ-ب", "type": "verb", "kind": "verb", "form": "I", "past": "جَذَبَ", "pres": "يَجْذِبُ", "masdar": "جَذْب", "src": "msa"}
+{"w": "جَذْب", "en": "attraction, pulling", "root": "ج-ذ-ب", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "msa"}
+{"w": "جاذِب", "en": "attractive", "root": "ج-ذ-ب", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "src": "msa"}
+{"w": "مَجْذوب", "en": "attracted, entranced", "root": "ج-ذ-ب", "type": "participle", "kind": "passive participle", "form": "I", "gender": "m", "src": "msa"}
+{"w": "جَذّاب", "en": "attractive, charming", "root": "ج-ذ-ب", "type": "adjective", "kind": "intensive adjective", "src": "msa"}
+{"w": "جاذِبِيَّة", "en": "gravity, attractiveness", "root": "ج-ذ-ب", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "اِنْجَذَبَ", "en": "to be attracted", "root": "ج-ذ-ب", "type": "verb", "kind": "verb", "form": "VII", "past": "اِنْجَذَبَ", "pres": "يَنْجَذِبُ", "masdar": "اِنْجِذاب", "src": "msa"}
+{"w": "اِنْجِذاب", "en": "attraction", "root": "ج-ذ-ب", "type": "masdar", "kind": "masdar", "form": "VII", "gender": "m", "src": "msa"}
+{"w": "اِجْتَذَبَ", "en": "to attract, to draw in", "root": "ج-ذ-ب", "type": "verb", "kind": "verb", "form": "VIII", "past": "اِجْتَذَبَ", "pres": "يَجْتَذِبُ", "masdar": "اِجْتِذاب", "src": "msa"}
+{"w": "خَرِسَ", "en": "to become mute", "root": "خ-ر-س", "type": "verb", "kind": "verb", "form": "I", "past": "خَرِسَ", "pres": "يَخْرَسُ", "masdar": "خَرَس", "src": "msa"}
+{"w": "خَرَس", "en": "muteness", "root": "خ-ر-س", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "msa"}
+{"w": "أَخْرَس", "en": "mute", "root": "خ-ر-س", "type": "adjective", "kind": "adjective", "plural": "خُرْس", "src": "msa"}
+{"w": "أَخْرَسَ", "en": "to silence", "root": "خ-ر-س", "type": "verb", "kind": "verb", "form": "IV", "past": "أَخْرَسَ", "pres": "يُخْرِسُ", "masdar": "إِخْراس", "src": "msa"}
+{"skip": "خَرَسَ", "why": "this verb (to guess) belongs to root خ-ر-ص"}
+{"w": "شَذَّ", "en": "to deviate, to be irregular", "root": "ش-ذ-ذ", "type": "verb", "kind": "verb", "form": "I", "past": "شَذَّ", "pres": "يَشُذُّ", "masdar": "شُذوذ", "src": "msa"}
+{"w": "شُذوذ", "en": "abnormality, irregularity", "root": "ش-ذ-ذ", "type": "masdar", "kind": "masdar", "form": "I", "gender": "m", "src": "msa"}
+{"w": "شاذّ", "en": "abnormal, irregular", "root": "ش-ذ-ذ", "type": "participle", "kind": "active participle", "form": "I", "gender": "m", "plural": "شَواذّ", "src": "msa"}
+{"skip": "شَاذّ", "why": "the noun sense (homosexual) is the same word as the participle"}
+{"w": "دَهِشَ", "en": "to be astonished", "root": "د-ه-ش", "type": "verb", "kind": "verb", "form": "I", "past": "دَهِشَ", "pres": "يَدْهَشُ", "masdar": "دَهَش", "src": "msa"}
+{"w": "دَهَّشَ", "en": "to astonish", "root": "د-ه-ش", "type": "verb", "kind": "verb", "form": "II", "past": "دَهَّشَ", "pres": "يُدَهِّشُ", "masdar": "تَدْهِيش", "src": "msa"}
+{"w": "أَدْهَشَ", "en": "to amaze", "root": "د-ه-ش", "type": "verb", "kind": "verb", "form": "IV", "past": "أَدْهَشَ", "pres": "يُدْهِشُ", "masdar": "إِدْهاش", "src": "msa"}
+{"w": "إِدْهاش", "en": "amazing, astonishing", "root": "د-ه-ش", "type": "masdar", "kind": "masdar", "form": "IV", "gender": "m", "src": "msa"}
+{"w": "مُدْهِش", "en": "amazing", "root": "د-ه-ش", "type": "participle", "kind": "active participle", "form": "IV", "gender": "m", "src": "msa"}
+{"w": "اِنْدَهَشَ", "en": "to be amazed", "root": "د-ه-ش", "type": "verb", "kind": "verb", "form": "VII", "past": "اِنْدَهَشَ", "pres": "يَنْدَهِشُ", "masdar": "اِنْدِهاش", "src": "msa"}
+{"w": "اِنْدِهاش", "en": "amazement", "root": "د-ه-ش", "type": "masdar", "kind": "masdar", "form": "VII", "gender": "m", "src": "msa"}
+{"w": "مُنْدَهِش", "en": "amazed", "root": "د-ه-ش", "type": "participle", "kind": "active participle", "form": "VII", "gender": "m", "src": "msa"}
+{"w": "دَهْشَة", "en": "astonishment", "root": "د-ه-ش", "type": "noun", "kind": "noun", "gender": "f", "noplural": true, "src": "msa"}
+{"w": "مَدْهوش", "en": "astonished", "root": "د-ه-ش", "type": "participle", "kind": "passive participle", "form": "I", "gender": "m", "src": "msa"}
+{"w": "شَبَح", "en": "ghost, phantom", "root": "ش-ب-ح", "type": "noun", "kind": "noun", "gender": "m", "plural": "أَشْباح", "src": "msa"}
+{"skip": "شَبْح", "why": "rare senses; not sure"}
+{"skip": "شَبَحَ", "why": "rare verbs; not sure"}
+{"skip": "شَبُحَ", "why": "rare verb; not sure"}
+{"skip": "شُبِحَ", "why": "rare verb; not sure"}
+{"w": "ناقَشَ", "en": "to discuss, to debate", "root": "ن-ق-ش", "type": "verb", "kind": "verb", "form": "III", "past": "ناقَشَ", "pres": "يُناقِشُ", "masdar": "مُناقَشَة", "src": "msa"}
+{"w": "مُناقَشَة", "en": "discussion, debate", "root": "ن-ق-ش", "type": "masdar", "kind": "masdar", "form": "III", "gender": "f", "src": "msa"}
+{"w": "تَناقَشَ", "en": "to discuss with one another", "root": "ن-ق-ش", "type": "verb", "kind": "verb", "form": "VI", "past": "تَناقَشَ", "pres": "يَتَناقَشُ", "masdar": "تَناقُش", "src": "msa"}
+{"w": "تَناقُش", "en": "mutual discussion", "root": "ن-ق-ش", "type": "masdar", "kind": "masdar", "form": "VI", "gender": "m", "src": "msa"}
+{"w": "نَقَشَ", "en": "to engrave, to carve", "root": "ن-ق-ش", "type": "verb", "kind": "verb", "form": "I", "past": "نَقَشَ", "pres": "يَنْقُشُ", "masdar": "نَقْش", "src": "msa"}
+{"w": "نَقْش", "en": "engraving, carving", "root": "ن-ق-ش", "type": "noun", "kind": "noun", "gender": "m", "plural": "نُقوش", "src": "msa"}
+{"w": "نَقّاش", "en": "engraver, decorator", "root": "ن-ق-ش", "type": "noun", "kind": "noun", "gender": "m", "plural": "نَقّاشون", "src": "msa"}
+{"w": "مَنْقوش", "en": "engraved", "root": "ن-ق-ش", "type": "participle", "kind": "passive participle", "form": "I", "gender": "m", "src": "msa"}
+{"w": "مِنْقاش", "en": "tweezers", "root": "ن-ق-ش", "type": "noun", "kind": "noun of instrument", "gender": "m", "plural": "مَناقيش", "src": "msa"}
