@@ -14,6 +14,9 @@ import { DeckContext } from '@/contexts/DeckContext';
 import ConjugationDrill from '@/components/ConjugationDrill';
 import PrepositionDrill from '@/components/PrepositionDrill';
 import NumbersDrill from '@/components/NumbersDrill';
+import TranslationPractice from '@/components/TranslationPractice';
+import { DailyChallengePrompt } from '@/components/DailyChallenge';
+import { takeDailyPrompt, markDailyPromptShown, prefetchToday } from '@/lib/translation-practice';
 import MemorizeTranscript from '@/components/MemorizeTranscript';
 import ListenToCards from '@/components/listen/ListenToCards';
 import WordLookup from '@/components/WordLookup';
@@ -446,8 +449,32 @@ const Index = () => {
       case 'relearn': return setShowRelearnModal(true);
       case 'learnDecks': return setView('learnDecks');
       case 'dictionary': return openDictionary();
+      case 'translationPractice': return openChallenge();
       default: return setView(destination as View);
     }
+  };
+
+  // Today's translation challenge: offered once a day on opening the app, and
+  // kept on Home after that. Back from it returns wherever it was opened from.
+  const [challengePrompt, setChallengePrompt] = useState(false);
+  const [challengeFromHome, setChallengeFromHome] = useState(false);
+  useEffect(() => {
+    if (loading || !user?.id) return;
+    // Opening the app straight onto the challenge counts as having been told.
+    if (view === 'translationPractice') return markDailyPromptShown();
+    if (takeDailyPrompt()) {
+      setChallengePrompt(true);
+      prefetchToday();
+    }
+    // Once per load, when the deck is ready: not again on every screen change.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading, user?.id]);
+
+  const openChallenge = () => {
+    setChallengePrompt(false);
+    setChallengeFromHome(view === 'home');
+    setTab('learn');
+    setView('translationPractice');
   };
 
   /** Home's "continue reading" hands off to the Library, which reads the same
@@ -697,6 +724,7 @@ const Index = () => {
       <AppBackground />
       <NowPlayingBar hidden={!showPlayBar} />
       <SessionSummaryDialog summary={summary} onClose={closeSummary} onUseBackground={(id) => void setBackground(id)} />
+      <DailyChallengePrompt open={challengePrompt && !summary} onStart={openChallenge} onLater={() => setChallengePrompt(false)} />
       {/* Phone and tablet header; on a laptop the sidebar carries all of this. */}
       <header className="border-b border-border/60 bg-card/50 backdrop-blur-sm sticky top-0 z-10 lg:hidden">
         <div className="mx-auto px-4 py-4 flex items-center justify-between w-full max-w-lg">
@@ -760,6 +788,7 @@ const Index = () => {
               onBrowseLibrary={() => selectTab('library')}
               onSelectPractice={openLearnDestination}
               onOpenLevel={() => selectTab('settings')}
+              onOpenChallenge={openChallenge}
             />
           </>
         )}
@@ -972,6 +1001,13 @@ const Index = () => {
 
         {view === 'numbersDrill' && (
           <NumbersDrill cards={studyCards} onBack={() => setView('learnHub')} />
+        )}
+
+        {view === 'translationPractice' && (
+          <TranslationPractice
+            backLabel={challengeFromHome ? 'Home' : 'Learn'}
+            onBack={() => (challengeFromHome ? selectTab('home') : setView('learnHub'))}
+          />
         )}
 
         {view === 'dictionary' && (
