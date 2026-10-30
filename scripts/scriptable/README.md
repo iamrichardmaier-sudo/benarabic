@@ -179,10 +179,10 @@ What you unlock by levelling up shows on the widget too, and can be changed from
 the word drawn in it), what is unlocked, and the level each locked one opens at. A preview
 at the top shows the widget as it will look. It opens from:
 
-- the **Aa** in the top corner of a **medium or large** widget (a small widget has only one
-  tap target, which belongs to the review);
-- the **Aa** at the top of the review session — tap it, and the picker opens when you swipe
-  the session down;
+- **Aa Style** in the bottom row of a **medium or large** widget, beside your level (a small
+  widget has only one tap target, which belongs to the review);
+- the **Aa** at the top of the review session, or **Change font & background** on its Done
+  screen — tap either, and the picker opens when you swipe the session down;
 - **Font & background** on the *All caught up* message.
 
 Both choices are saved to your account (`set_background`, `set_card_font`), the same as

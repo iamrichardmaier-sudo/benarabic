@@ -910,20 +910,6 @@ function buildWidget(state, art) {
     badge.textColor = new Color(theme.accent);
   }
 
-  // Font and background, one tap away. Only on the larger sizes: iOS gives a
-  // small widget a single tap target, which belongs to the review.
-  if (artSize() !== "small") {
-    header.addSpacer(10);
-    const style = header.addStack();
-    style.setPadding(2, 7, 2, 7);
-    style.cornerRadius = 7;
-    style.backgroundColor = new Color(theme.accent, 0.16);
-    style.url = runUrl("style");
-    const aa = style.addText("Aa");
-    aa.font = Font.semiboldSystemFont(11);
-    aa.textColor = new Color(theme.accent);
-  }
-
   w.addSpacer(6);
 
   if (state.error) {
@@ -981,6 +967,21 @@ function buildWidget(state, art) {
     left.font = Font.systemFont(9);
     left.textColor = new Color(ink);
     left.textOpacity = 0.6;
+    // Font and background, one tap away. Down here by the thumb rather than
+    // in the top corner, which is hard to reach on a big phone. Only on the
+    // larger sizes: iOS gives a small widget a single tap target, which
+    // belongs to the review.
+    if (artSize() !== "small") {
+      row.addSpacer(10);
+      const style = row.addStack();
+      style.setPadding(4, 10, 4, 10);
+      style.cornerRadius = 9;
+      style.backgroundColor = new Color(theme.accent, 0.18);
+      style.url = runUrl("style");
+      const aa = style.addText("Aa  Style");
+      aa.font = Font.semiboldSystemFont(11);
+      aa.textColor = new Color(theme.accent);
+    }
     w.addSpacer(3);
     // Sized to the widget: anything wider than the space inside a small
     // widget (about 130 points) stretches the whole widget, which then gets
@@ -1061,7 +1062,10 @@ function reviewHTML(cards, practice, pieces, font) {
     background:${CREAM}; color:${INK};
     font-family:-apple-system,system-ui,sans-serif; user-select:none; }
   #app { height:100%; display:flex; flex-direction:column; }
-  header { display:flex; align-items:center; gap:10px; padding:12px 16px 2px; }
+  /* Below the status bar and the notch: the page is shown full screen and
+     draws under them, which put the Aa button out of reach. */
+  header { display:flex; align-items:center; gap:10px;
+           padding:max(12px, env(safe-area-inset-top)) 16px 2px; }
   #quitline { text-align:center; padding-bottom:4px; }
   #bar { flex:1; height:5px; border-radius:3px; background:rgba(0,0,0,.09); overflow:hidden; }
   #fill { height:100%; width:0%; background:${BRAND}; transition:width .25s ease; }
@@ -1150,9 +1154,11 @@ function reviewHTML(cards, practice, pieces, font) {
   .bad { background:rgba(192,57,43,.1); color:#C0392B; }
   .bad .ar { color:${INK}; margin-top:6px; font-size:30px; text-align:center; }
   .result-next { margin-top:10px; }
-  #style { flex:none; font-size:12px; font-weight:700; color:${BRAND};
-           padding:4px 9px; border-radius:9px; background:rgba(194,98,42,.12); }
-  #style.on { background:${BRAND}; color:#fff; }
+  #style { flex:none; font-size:14px; font-weight:700; color:${BRAND};
+           min-width:44px; min-height:36px; display:flex; align-items:center; justify-content:center;
+           padding:0 12px; border-radius:12px; background:rgba(194,98,42,.12); }
+  [data-nav="style"].on { background:${BRAND}; color:#fff; }
+  #doneStyle { background:rgba(194,98,42,.12); color:${BRAND}; padding:14px 26px; flex:none; }
 </style>${scriptCSS(font)}</head>
 <body>
 <div id="app">
@@ -1187,7 +1193,8 @@ function reviewHTML(cards, practice, pieces, font) {
 <div id="done">
   <h2>Done</h2>
   <p id="doneText"></p>
-  <p style="opacity:.5;font-size:14px">Swipe down to save and close.</p>
+  <div class="btn" id="doneStyle" data-nav="style">Aa &nbsp;Change font &amp; background</div>
+  <p style="opacity:.5;font-size:14px" id="doneHint">Swipe down to save and close.</p>
 </div>
 
 <script>
@@ -1566,7 +1573,10 @@ document.addEventListener('click', (e) => {
   if (e.target.closest('[data-nav="site"]')) { ping('open-site'); return; }
   if (e.target.closest('[data-nav="style"]')) {
     wantStyle = !wantStyle;
-    $('#style').classList.toggle('on', wantStyle);
+    document.querySelectorAll('[data-nav="style"]').forEach((el) => el.classList.toggle('on', wantStyle));
+    $('#doneHint').textContent = wantStyle
+      ? 'Swipe down: your cards are saved, then the font and background picker opens.'
+      : 'Swipe down to save and close.';
     $('#quit').textContent = wantStyle
       ? 'Font & background open when you swipe down'
       : (${practice ? "'Practice \u00b7 nothing is rescheduled'" : "'Swipe down when you\u2019re done'"});
