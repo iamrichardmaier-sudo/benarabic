@@ -49,9 +49,11 @@ file before composing, and add what you learn to it when you finish.
    rigid (`rigid`), enlarged and tilted so the word climbs. Keep the reading
    order traceable right to left.
 5. **Balance the negative space, then float the marks.**
-   - Aim for the shape to look full but legible: about 40–45% ink, which is
-     what a master's roundel measures (see *Master studies*). Measured so
-     far in our own work: ~30% — see *Open problems*.
+   - First decide the family (see *Master studies*): **dense** (texture
+     everywhere, like a Thuluth roundel: aim ~40–45% ink) or **flowing** (one
+     knot with long tendrils, like a free-style canvas: knot ~30–35%,
+     composition ~10–20%, and one clear line of movement). Measured so far in
+     our own work: ~30% — see *Open problems*.
    - Fill with many small marks at one angle and one size, not with bigger
      letters: that reads as texture, where heavier letters read as blobs.
    - Each dot and haraka moves to the nearest open gap, but stays above or
@@ -176,12 +178,53 @@ mark, used generously in every gap; (2) uprights parallel and evenly spaced;
 (3) stack words in tiers and let letters nest; (4) one or two long binders per
 cluster; (5) leave one deliberate channel of space, keep the rest even.
 
+**الْحَمْدُ لِلَّهِ — a free, flowing piece on canvas** (read on 2026-10-30). Black
+ink on a canvas split between white and gold leaf, with a gold arabesque down
+one side. Read for certain: the whole phrase.
+- **Anatomy.** The alif and lam of «الـ» are two nested arcs on one curve,
+  rising from the knot and tapering to hairlines — they *are* the flame crest
+  (the same idea as Al Jazeera's alif-lam). «حمد» folds ح (a broad wedge), م
+  and د into one tight knot. «لله» stands as three evenly spaced uprights
+  beside it. One long S-shaped swash, carried down from the word, makes the
+  left edge and the base.
+- **One line of movement.** The whole word follows a single S from the tip of
+  the crest, through the knot, down the swash to the base. Every long stroke
+  rides that line; nothing fights it.
+- **Knot and tendrils.** All the weight sits in one dense knot, a little above
+  the middle and off-centre; everything else is a few long, thin, tapering
+  strokes reaching out from it. Ink is ~33% in the knot but only ~10–20% of the
+  composition as a whole — and it looks complete, because the long strokes
+  claim the space instead of filling it.
+- **Parallel echoes.** The two crest arcs repeat one curve, offset — the
+  rhythm comes from repetition of a single gesture, not from many marks.
+- **Marks as one cluster.** Only a few harakat (shadda with dagger alif,
+  fatha, damma), gathered in one small group in the gap between the crest and
+  the uprights — a counterweight, not a texture.
+- **Open silhouette.** The shape isn't enclosed: crest and swash define two
+  sides, and the background (the white/gold split and the arabesque) holds the
+  rest.
+
+**Two families, two density targets.** The Fatiha roundel is a *dense*
+composition: texture everywhere, ~40–45% ink. This piece is a *flowing* one: a
+dense knot (~30–35%) with long tendrils and open space, ~10–20% overall. Decide
+which family a word is going into before measuring anything. Our أحمر flame is
+really the flowing kind — its ~30% is fine, and it would gain more from a
+second nested crest stroke and one clear S-line than from extra marks.
+
+**For card art:** the flowing family is likely the better fit. One bold
+gesture and a knot survive at 48–56 px; a dense texture turns to grey.
+
 ## Open problems
 
-- **Density.** Both studies sit near 30% ink. The Fatiha study puts a master's
-  piece at about 40–45%, so that — not 55–65% — is the target. Pushing further
-  with bigger letters turned interiors into blobs; the Fatiha shows the way is
-  many small marks at one angle and size, plus stacking, not heavier letters.
+- **Density, by family.** Both of our studies sit near 30% ink. For a dense
+  composition the target is ~40–45% (the Fatiha roundel), reached with many
+  small marks at one angle and size plus stacking — not heavier letters, which
+  turned interiors into blobs. For a flowing composition (the الحمد لله canvas)
+  ~30% in the knot is already right; work on the line of movement instead.
+- **Flow.** Our compositions place letters well but don't yet move along one
+  line. Next: draw the line of movement first (as a guide in the spec), and
+  bend the long strokes along it; try doubling a crest stroke as a parallel
+  echo.
 - **Small sizes.** At 48–56 px a calligram is a recognisable gold emblem, not
   a readable word. For card lists, consider pairing it with the printed word.
 - **Loop distortion.** A loop placed by a `curve` (the و) is extrapolated off
