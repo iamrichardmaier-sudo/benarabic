@@ -2,7 +2,7 @@
 """
 Print the SQL that loads the merged chunks into public.words.
 
-    python3 scripts/quran/load_words.py COMMIT_SHA N_CHUNKS [FIRST_CHUNK]
+    python3 scripts/quran/load_words.py COMMIT_SHA BATCH N_CHUNKS
 
 The database fetches each chunk (scripts/quran/seed/words-NNN.json) from the public repo at an
 immutable commit, the same way seed_bible_word_queue() fetched the Gospel word list, so the rows
@@ -24,8 +24,8 @@ TYPES['companion_forms'] = 'jsonb'
 REPO = 'https://raw.githubusercontent.com/iamrichardmaier-sudo/benarabic'
 
 
-def chunk_sql(sha, i):
-    url = f'{REPO}/{sha}/scripts/quran/seed/words-{i:03d}.json'
+def chunk_sql(sha, batch, i):
+    url = f'{REPO}/{sha}/scripts/quran/seed/{batch}/words-{i:03d}.json'
     rec = ', '.join(f'{c} {TYPES[c]}' for c in COLS)
     cols = ', '.join(COLS)
     sel = ', '.join(f'r.{c}' for c in COLS)
@@ -42,10 +42,9 @@ select {i} as chunk, (select jsonb_array_length(j) from src) as fetched, (select
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 3:
+    if len(sys.argv) < 4:
         sys.exit(__doc__)
-    sha, n = sys.argv[1], int(sys.argv[2])
-    first = int(sys.argv[3]) if len(sys.argv) > 3 else 0
-    for i in range(first, n):
-        print(chunk_sql(sha, i))
+    sha, batch, n = sys.argv[1], sys.argv[2], int(sys.argv[3])
+    for i in range(n):
+        print(chunk_sql(sha, batch, i))
         print()
