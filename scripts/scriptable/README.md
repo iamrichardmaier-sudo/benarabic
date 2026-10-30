@@ -182,7 +182,9 @@ at the top shows the widget as it will look. It opens from:
 - **Aa Style** in the bottom row of a **medium or large** widget, beside your level (a small
   widget has only one tap target, which belongs to the review);
 - the **Aa** at the top of the review session, or **Change font & background** on its Done
-  screen — tap either, and the picker opens when you swipe the session down;
+  screen. The picker opens right there, over the cards: each tap is shown at once (the
+  session's cards switch to the new script straight away) and saved behind it, and **Done**
+  goes back to the cards. Nothing has to be closed or swiped away first;
 - **Font & background** on the *All caught up* message.
 
 Both choices are saved to your account (`set_background`, `set_card_font`), the same as
