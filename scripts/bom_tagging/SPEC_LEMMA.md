@@ -19,3 +19,12 @@ limit 200 offset <K*200>;
   A particle, name or loanword has `"root": null`.
 * The checker still requires the root's radicals in the lemma (weak letters interchangeable).
 * Omit any row you are not sure of; do not guess.
+
+## Second pass on the skipped rows
+
+Rows the first pass left out are the ambiguous ones (a missing shadda, a person-ambiguous verb, a word that
+could be two lemmas). For these, **look the spelling up in its verse** before deciding: Book of Mormon
+verses are in `/home/user/benarabic/public/bom/*/*.json` (fields `v`, `a` Arabic, `e` English), the Bible in
+`/home/user/benarabic/public/bible/`. Use `grep -l` on the spelling, read the English beside it, and choose
+the reading the verse shows. Only omit a row if the verse still leaves it genuinely unresolved. Offsets for
+this pass use the same query, which now returns only these rows.
