@@ -1,0 +1,4 @@
+-- Override review (applied 2026-10-30): six roots that were typed with extra letters, which split each
+-- word from its family. Connections were rebuilt from the words of the corrected root.
+-- جُمُعَة ج-م-ع-ة -> ج-م-ع | سَراب س-ر-أ-ب -> س-ر-ب | سِجّيل س-ج-ي-ل -> س-ج-ل
+-- زَبور ز-ب-و-ر -> ز-ب-ر | شِعْرى ش-ع-ر-ي -> ش-ع-ر | حَرِيرِيّ ح-ر-ي-ر -> ح-ر-ر
