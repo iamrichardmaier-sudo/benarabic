@@ -65,6 +65,21 @@
               "text": "في محل",
               "rule": "Definiteness must match the English",
               "note": "\"The shop\" is a particular shop, so it needs the article: في المحلّ."
+            },
+            {
+              "text": "كل منشفات",
+              "rule": "The plural of منشفة is مناشف",
+              "note": "منشفة has a broken plural: مناشف. And \"every towel\" is كلّ منشفةٍ (singular) or كلّ المناشفِ."
+            },
+            {
+              "text": "كل المنشفات",
+              "rule": "The plural of منشفة is مناشف",
+              "note": "Use the broken plural: كلّ المناشفِ."
+            },
+            {
+              "text": "جميع المنشفات",
+              "rule": "The plural of منشفة is مناشف",
+              "note": "Use the broken plural: جميعَ المناشفِ."
             }
           ]
         },
@@ -94,6 +109,16 @@
               "text": "ما عدا الرمادي",
               "rule": "Adjectives for non-human plurals are feminine singular",
               "note": "Use الرماديّة for the grey towels."
+            },
+            {
+              "text": "إلا الرمادية المناشف",
+              "rule": "An adjective comes after its noun",
+              "note": "Arabic puts the adjective after the noun: إلا المناشفَ الرماديةَ, or just إلا الرماديةَ."
+            },
+            {
+              "text": "إلا رمادية",
+              "rule": "Definiteness must match: \"the grey ones\"",
+              "note": "\"The grey ones\" are particular towels, so the adjective needs ال: إلا الرماديةَ."
             }
           ]
         },
@@ -128,6 +153,21 @@
               "text": "أكثر غامقة",
               "rule": "أكثر is followed by a verbal noun (تمييز), not an adjective",
               "note": "Either use the elative أغمق directly, or أكثر قتامةً with a verbal noun."
+            },
+            {
+              "text": "لأنها كان",
+              "rule": "كان agrees with its feminine subject",
+              "note": "With ـها (the towels) the verb is feminine: لأنّها كانَتْ."
+            },
+            {
+              "text": "لأن كانت",
+              "rule": "لأنّ must be followed by a noun or pronoun",
+              "note": "لأنّ needs its subject attached: لأنّها كانت."
+            },
+            {
+              "text": "أغمق مما أراد",
+              "rule": "The verb agrees with the sister (feminine)",
+              "note": "She wanted: أرادَتْ."
             }
           ]
         },
@@ -161,6 +201,16 @@
               "text": "غلياء",
               "rule": "An elative with مِن does not change for gender",
               "note": "With مِن the elative stays أغلى whatever it describes."
+            },
+            {
+              "text": "من الزرقة",
+              "rule": "الزُّرقة is the noun \"blueness\"",
+              "note": "For \"the blue ones\" use the adjective: الزرقاء."
+            },
+            {
+              "text": "أكثر غلاء من الأزرق",
+              "rule": "Adjectives for non-human plurals are feminine singular",
+              "note": "The comparison is fine; the blue ones are الزرقاء."
             }
           ]
         }
@@ -215,6 +265,17 @@
               "rule": "Valid, but not the passive",
               "note": "\"They sold the paintings\" is fine Arabic and says the same thing, but the passive بِيعَت اللوحات matches the English directly.",
               "status": "alternative"
+            },
+            {
+              "text": "بيعت اللوحة",
+              "rule": "\"The paintings\" is plural",
+              "note": "The plural of لوحة is لوحات: بيعت اللوحاتُ."
+            },
+            {
+              "text": "بيع اللوحات",
+              "rule": "Valid: the passive verb may be masculine before a non-human plural",
+              "note": "Grammatical, but بِيعَت (feminine) is far more usual.",
+              "status": "alternative"
             }
           ]
         },
@@ -242,6 +303,16 @@
               "text": "التي كانت قد رسموا",
               "rule": "The verb agrees with the non-human plural as feminine singular",
               "note": "Use رُسِمَت: \"that had been drawn\"."
+            },
+            {
+              "text": "التي كان قد رسمت",
+              "rule": "كان agrees with the paintings (feminine singular)",
+              "note": "Use كانت: التي كانت قد رُسِمت."
+            },
+            {
+              "text": "اللاتي",
+              "rule": "اللاتي is for women",
+              "note": "For paintings use التي."
             }
           ]
         },
@@ -274,7 +345,9 @@
             "في غضون ثلاثة أشهر",
             "في ثلاثة أشهر",
             "خلال ثلاثة شهور",
-            "في غضون ثلاثة شهور"
+            "في غضون ثلاثة شهور",
+            "في مدة ثلاثة أشهر",
+            "خلال مدة ثلاثة أشهر"
           ],
           "mistakes": [
             {
@@ -307,7 +380,9 @@
             "بما يزيد على ثمانمئة دولار",
             "بما يزيد على ثمانمائة دولار",
             "بسعر يزيد على ثمانمئة دولار",
-            "بسعر يزيد على ثمانمائة دولار"
+            "بسعر يزيد على ثمانمائة دولار",
+            "بأكثر من ثماني مئة دولار",
+            "بأكثر من ثماني مائة دولار"
           ],
           "mistakes": [
             {
@@ -324,6 +399,21 @@
               "text": "أكثر من ثمانمئة دولار",
               "rule": "The price an item is sold for takes بـ",
               "note": "\"Sold for\" is بِيع بـ: بأكثرَ من ثمانمئة دولار. Make sure the بـ is there."
+            },
+            {
+              "text": "بأكثر من ثمانية مائة",
+              "rule": "Hundreds are one word, with no ة on the unit",
+              "note": "Eight hundred is ثمانمئة (or ثماني مئة)."
+            },
+            {
+              "text": "أكثر من ثمانمائة دولار",
+              "rule": "The price an item is sold for takes بـ",
+              "note": "\"Sold for\" is بِيع بـ: بأكثرَ من ثمانمائة دولار."
+            },
+            {
+              "text": "ثمانمائة دولارات",
+              "rule": "After مئة and ألف the counted noun is singular",
+              "note": "Hundreds take a singular genitive noun: ثمانمائةِ دولارٍ."
             }
           ]
         },
@@ -342,6 +432,16 @@
               "text": "لكل واحد",
               "rule": "Agreement with لوحة (feminine)",
               "note": "Each painting: لكلّ واحدةٍ."
+            },
+            {
+              "text": "لكل واحدة منهم",
+              "rule": "Pronouns for non-human plurals are feminine singular",
+              "note": "The paintings are things: لكلّ واحدةٍ منها."
+            },
+            {
+              "text": "لكل منهم",
+              "rule": "Pronouns for non-human plurals are feminine singular",
+              "note": "Use منها for the paintings: لكلٍّ منها."
             }
           ]
         }
@@ -394,6 +494,16 @@
               "text": "يا ترى لو",
               "rule": "\"Whether\" in a question is هل, not لو",
               "note": "لو is \"if\" in a hypothetical. After يا ترى, ask with هل."
+            },
+            {
+              "text": "أتساءل إذا",
+              "rule": "\"Whether\" in a question is هل, not إذا",
+              "note": "إذا means \"if\" in a condition. Use أتساءل هل…"
+            },
+            {
+              "text": "أتساءل لو",
+              "rule": "\"Whether\" in a question is هل, not لو",
+              "note": "Use أتساءل هل…"
             }
           ]
         },
@@ -509,6 +619,16 @@
               "text": "لم تكن زرقاء",
               "rule": "\"No longer\" is لم يعد / ما عاد",
               "note": "لم تكن زرقاء means \"it was not blue\". \"No longer\" needs لم تعد or ما عادت."
+            },
+            {
+              "text": "إنه لم يعد",
+              "rule": "The sky is feminine",
+              "note": "Refer to السماء with ـها: إنّها لم تعد."
+            },
+            {
+              "text": "إنها لم تعد زرقة",
+              "rule": "زرقة is the noun \"blueness\"",
+              "note": "After لم تعد use the adjective: زرقاءَ."
             }
           ]
         },
@@ -535,6 +655,16 @@
             },
             {
               "text": "في شبابه",
+              "rule": "The pronoun refers to the grandmother",
+              "note": "\"Her youth\" is شبابها."
+            },
+            {
+              "text": "مثل كانت",
+              "rule": "مثل cannot be followed directly by a verb",
+              "note": "Before a verb use مثلما or كما: مثلما كانت."
+            },
+            {
+              "text": "كما كانت في شبابه",
               "rule": "The pronoun refers to the grandmother",
               "note": "\"Her youth\" is شبابها."
             }

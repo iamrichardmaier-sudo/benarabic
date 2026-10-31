@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { Check, Languages, Loader2, Flag, ShieldCheck, ShieldAlert, Lightbulb, RotateCcw } from 'lucide-react';
+import { Check, Languages, Loader2, Flag, ShieldCheck, Lightbulb, RotateCcw } from 'lucide-react';
 import BackButton from '@/components/BackButton';
 import ArabicDictation, { dictationSupported } from '@/components/ArabicDictation';
 import { Button } from '@/components/ui/button';
@@ -20,6 +20,7 @@ const VERDICT_STYLE: Record<Verdict, string> = {
   minor: 'border-warning/40 bg-warning/10 text-warning',
   errors: 'border-destructive/40 bg-destructive/5 text-destructive',
   meaning: 'border-destructive/40 bg-destructive/5 text-destructive',
+  unchecked: 'border-border bg-muted/40 text-foreground',
 };
 
 const STATUS_LABEL: Record<WordNote['status'], string> = {
@@ -28,6 +29,7 @@ const STATUS_LABEL: Record<WordNote['status'], string> = {
   add: 'Missing',
   remove: 'Remove',
   alternative: 'Also correct',
+  unknown: 'Couldn’t check',
 };
 
 const STATUS_STYLE: Record<WordNote['status'], string> = {
@@ -36,14 +38,16 @@ const STATUS_STYLE: Record<WordNote['status'], string> = {
   add: 'text-destructive',
   remove: 'text-destructive',
   alternative: 'text-primary',
+  unknown: 'text-muted-foreground',
 };
 
 /**
  * Three hard English sentences a day, built from the learner's newest words,
- * to translate into Arabic. Any correct wording counts: the feedback finds
- * the correct sentence nearest to what was written and goes through it word
- * by word, and every correction has been checked a second time before it is
- * shown as an error.
+ * to translate into Arabic. Any correct wording counts: the attempt is checked
+ * part by part against an answer key prepared for the sentence, which knows
+ * the accepted wordings and the likely mistakes. A part the key does not
+ * recognise is shown as unchecked, with correct versions to compare, and is
+ * never marked wrong.
  */
 const TranslationPractice = ({ onBack, backLabel = 'Learn' }: TranslationPracticeProps) => {
   const [challenges, setChallenges] = useState<Challenge[]>([]);
@@ -99,8 +103,12 @@ const TranslationPractice = ({ onBack, backLabel = 'Learn' }: TranslationPractic
         {header}
         <div className="rounded-xl border border-border/60 bg-card p-6 text-center">
           <Languages className="mx-auto mb-3 h-8 w-8 text-muted-foreground/60" />
-          <p className="font-medium text-foreground">Today’s sentences could not be loaded</p>
-          <p className="mt-1 text-sm text-muted-foreground">{loadError ?? 'Nothing came back.'}</p>
+          <p className="font-medium text-foreground">
+            {loadError ? 'Today’s sentences could not be loaded' : 'Today’s sentences aren’t ready yet'}
+          </p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            {loadError ?? 'Each day’s sentences are written the evening before. Check back a little later.'}
+          </p>
           <Button className="mt-4" variant="outline" onClick={load}>Try again</Button>
         </div>
       </div>
@@ -171,7 +179,7 @@ const ChallengeCard = ({ challenge, attempts, onGraded, onFlagged, onNext }: Cha
     setGrading(true);
     setError(null);
     try {
-      onGraded(await gradeAttempt(challenge.id, attempt));
+      onGraded(await gradeAttempt(challenge, attempt));
       setRetrying(false);
       setText('');
     } catch (e) {
@@ -278,7 +286,7 @@ const FeedbackView = ({ challenge, attempt, onFlagged }: {
 }) => {
   const f = attempt.feedback;
   const others = useMemo(() => otherWays(challenge, f), [challenge, f]);
-  const corrections = f.words.filter((w) => isCorrection(w.status)).length;
+  const model = challenge.answer_key?.model_answer;
 
   return (
     <div className="space-y-4">
@@ -290,7 +298,7 @@ const FeedbackView = ({ challenge, attempt, onFlagged }: {
       <section className="space-y-2 rounded-2xl border border-border bg-card p-4">
         <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">You wrote</p>
         <p className="font-arabic text-xl leading-loose text-foreground" dir="rtl" lang="ar">{attempt.attempt}</p>
-        {corrections > 0 && f.closest_correct && (
+        {f.closest_correct && (
           <>
             <p className="pt-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Closest correct version</p>
             <p className="font-arabic text-xl leading-loose text-success" dir="rtl" lang="ar">{f.closest_correct}</p>
@@ -299,8 +307,8 @@ const FeedbackView = ({ challenge, attempt, onFlagged }: {
       </section>
 
       {f.words.length > 0 && (
-        <section className="space-y-2" aria-label="Word by word">
-          <h2 className="px-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Word by word</h2>
+        <section className="space-y-2" aria-label="Part by part">
+          <h2 className="px-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Part by part</h2>
           <ol className="divide-y divide-border/60 rounded-2xl border border-border bg-card">
             {f.words.map((w, i) => <WordRow key={i} w={w} />)}
           </ol>
@@ -316,9 +324,12 @@ const FeedbackView = ({ challenge, attempt, onFlagged }: {
         </section>
       )}
 
-      {others.length > 0 && (
+      {(others.length > 0 || model) && (
         <details className="rounded-2xl border border-border bg-card p-4">
-          <summary className="cursor-pointer text-sm font-medium text-foreground">Other correct ways to say it ({others.length + 1})</summary>
+          <summary className="cursor-pointer text-sm font-medium text-foreground">Correct ways to say it</summary>
+          {model && (
+            <p className="mt-3 font-arabic text-xl leading-loose text-foreground" dir="rtl" lang="ar">{model}</p>
+          )}
           <ul className="mt-3 space-y-2">
             {[f.closest_reference, ...others].filter(Boolean).map((r) => (
               <li key={r} className="font-arabic text-lg leading-loose text-foreground" dir="rtl" lang="ar">{r}</li>
@@ -336,9 +347,12 @@ const WordRow = ({ w }: { w: WordNote }) => {
   const changed = isCorrection(w.status);
   return (
     <li className="space-y-1 p-3">
+      {w.part && <p className="text-xs text-muted-foreground">“{w.part}”</p>}
       <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
         <span className="font-arabic text-lg" dir="rtl" lang="ar">
-          {w.status === 'add' ? (
+          {w.status === 'unknown' ? (
+            <span className="text-muted-foreground">…</span>
+          ) : w.status === 'add' ? (
             <span className="text-success">+ {w.correct}</span>
           ) : changed ? (
             <>
@@ -353,6 +367,13 @@ const WordRow = ({ w }: { w: WordNote }) => {
       </div>
       {w.rule && changed && <p className="text-sm font-medium text-foreground">{w.rule}</p>}
       {w.note && <p className="text-sm text-muted-foreground">{w.note}</p>}
+      {w.options && w.options.length > 0 && (
+        <ul className="space-y-1">
+          {w.options.map((o) => (
+            <li key={o} className="font-arabic text-lg text-foreground" dir="rtl" lang="ar">{o}</li>
+          ))}
+        </ul>
+      )}
     </li>
   );
 };
@@ -382,16 +403,13 @@ const Trust = ({ attempt, onFlagged }: { attempt: Attempt; onFlagged: (id: strin
   return (
     <div className="space-y-2 text-sm">
       <p className="flex items-start gap-2 text-muted-foreground">
-        {f.exact_match ? (
-          <><ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-success" /> Matches a stored correct translation exactly.</>
-        ) : f.verified ? (
-          <><ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-success" /> Every correction was checked a second time. AI can still be wrong now and then.</>
-        ) : (
-          <><ShieldAlert className="mt-0.5 h-4 w-4 shrink-0 text-warning" /> The second check could not run, so treat these corrections with care.</>
-        )}
+        <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-success" />
+        {f.exact_match
+          ? 'Matches a correct translation exactly.'
+          : 'Checked against an answer key written for this sentence. Anything it doesn’t recognise is shown as unchecked, never marked wrong.'}
       </p>
       {attempt.flagged ? (
-        <p className="flex items-center gap-2 text-muted-foreground"><Flag className="h-4 w-4" /> You marked this feedback as wrong. It won’t count toward your weak spots.</p>
+        <p className="flex items-center gap-2 text-muted-foreground"><Flag className="h-4 w-4" /> You marked this feedback as wrong. The answer key will be checked and fixed.</p>
       ) : open ? (
         <div className="space-y-2 rounded-xl border border-border/60 bg-card p-3">
           <Textarea
