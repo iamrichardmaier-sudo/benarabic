@@ -21,7 +21,7 @@ export const DailyChallengePrompt = ({ open, onStart, onLater }: DailyChallengeP
         <DialogTitle className="text-xl">Today’s translation challenge</DialogTitle>
         <DialogDescription>
           Three hard sentences built from your newest words. Write them in Arabic by hand, read them aloud, and
-          get feedback word by word.
+          get instant feedback on each part.
         </DialogDescription>
       </DialogHeader>
       <DialogFooter className="flex-col gap-2 sm:flex-col sm:space-x-0">
@@ -54,11 +54,13 @@ export const DailyChallengeCard = ({ onOpen }: { onOpen: () => void }) => {
   const finished = progress !== null && done >= total;
   const detail = progress === null
     ? 'Three sentences from your newest words'
-    : finished
-      ? 'All three translated today. Come back tomorrow for more'
-      : done > 0
-        ? `${done} of ${total} translated`
-        : 'Three sentences from your newest words are waiting';
+    : !progress.ready
+      ? 'Today’s sentences are on their way'
+      : finished
+        ? 'All three translated today. Come back tomorrow for more'
+        : done > 0
+          ? `${done} of ${total} translated`
+          : 'Three sentences from your newest words are waiting';
 
   return (
     <button

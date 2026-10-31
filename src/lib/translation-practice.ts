@@ -1,20 +1,28 @@
 /**
  * Daily translation practice, as the app sees it: today's three sentences,
- * the attempts at them, and the feedback each got. The work happens in the
- * `translation-practice` edge function; this is the thin client over it.
+ * the attempts at them, and the feedback each got.
+ *
+ * Each day's sentences come with an answer key, written and checked ahead of
+ * time (supabase/answer-keys/README.md). Grading runs here, against the key,
+ * with no model call, and the attempt is saved straight to the table.
  */
 import { supabase } from '@/integrations/supabase/client';
 import { today } from '@/lib/day';
+import { gradeWithKey, type AnswerKey } from '@/lib/answer-key';
 
-export type WordStatus = 'ok' | 'fix' | 'add' | 'remove' | 'alternative';
-export type Verdict = 'correct' | 'minor' | 'errors' | 'meaning';
+export type WordStatus = 'ok' | 'fix' | 'add' | 'remove' | 'alternative' | 'unknown';
+export type Verdict = 'correct' | 'minor' | 'errors' | 'meaning' | 'unchecked';
 
 export interface WordNote {
+  /** The English the note is about, when grading went part by part. */
+  part?: string;
   yours: string;
   correct: string;
   status: WordStatus;
   rule: string;
   note: string;
+  /** Correct ways to say a part that could not be checked. */
+  options?: string[];
 }
 
 export interface Feedback {
@@ -37,6 +45,7 @@ export interface Challenge {
   target_words: string[];
   reference_translations: string[];
   pitfalls: string[];
+  answer_key: AnswerKey | null;
 }
 
 export interface Attempt {
@@ -48,26 +57,49 @@ export interface Attempt {
   created_at: string;
 }
 
-/** The function's own error message when it sent one, rather than a bare status. */
-async function call<T>(body: Record<string, unknown>): Promise<T> {
-  const { data, error } = await supabase.functions.invoke('translation-practice', { body });
-  if (error) {
-    const sent = await (error as { context?: Response }).context?.json?.().catch(() => null);
-    throw new Error(sent?.error ?? error.message);
-  }
-  return data as T;
+// The generated Supabase types predate these tables; this is the slice used here.
+type DbError = { message?: string } | null;
+interface Query<T> extends PromiseLike<{ data: T[] | null; error: DbError }> {
+  eq: (col: string, v: string) => Query<T>;
+  in: (col: string, v: string[]) => Query<T>;
+  order: (col: string, opts?: { ascending?: boolean }) => Query<T>;
 }
+type LooseClient = {
+  from: (table: string) => {
+    select: <T>(cols: string) => Query<T>;
+    insert: (values: Record<string, unknown>) => {
+      select: (cols: string) => { single: <T>() => PromiseLike<{ data: T | null; error: DbError }> };
+    };
+    update: (values: Record<string, unknown>) => {
+      eq: (col: string, v: string) => PromiseLike<{ error: DbError }>;
+    };
+  };
+};
+const db = supabase as unknown as LooseClient;
+
+const CHALLENGE_COLUMNS = 'id, day, position, english, grammar_focus, target_words, reference_translations, pitfalls, answer_key';
+const ATTEMPT_COLUMNS = 'id, challenge_id, attempt, feedback, flagged, created_at';
 
 type TodaySet = { challenges: Challenge[]; attempts: Attempt[] };
 
-// Writing a day's sentences takes the model several seconds, so the daily
-// prompt starts it as soon as it appears; opening the challenge then picks up
-// the same request instead of starting a second one.
+async function readDay(day: string): Promise<TodaySet> {
+  const { data: challenges, error } = await db
+    .from('translation_challenges').select<Challenge>(CHALLENGE_COLUMNS).eq('day', day).order('position');
+  if (error) throw new Error(error.message ?? 'Could not read today’s sentences');
+  const ids = (challenges ?? []).map((c) => c.id);
+  if (ids.length === 0) return { challenges: [], attempts: [] };
+  const { data: attempts, error: attemptsError } = await db
+    .from('translation_attempts').select<Attempt>(ATTEMPT_COLUMNS).in('challenge_id', ids).order('created_at');
+  if (attemptsError) throw new Error(attemptsError.message ?? 'Could not read your attempts');
+  return { challenges: challenges ?? [], attempts: attempts ?? [] };
+}
+
+// The daily prompt starts the read as it appears, so the screen opens on it.
 let prefetched: { day: string; promise: Promise<TodaySet> } | null = null;
 
 export function prefetchToday(day: string = today()): void {
   if (prefetched?.day === day) return;
-  const promise = call<TodaySet>({ action: 'today', day });
+  const promise = readDay(day);
   prefetched = { day, promise };
   // A failed prefetch is forgotten, so opening the screen tries again.
   promise.catch(() => { if (prefetched?.promise === promise) prefetched = null; });
@@ -76,22 +108,12 @@ export function prefetchToday(day: string = today()): void {
 export function loadToday(day: string = today()): Promise<TodaySet> {
   if (prefetched?.day === day) {
     const { promise } = prefetched;
-    // Used once: attempts made after it was fetched must come from a fresh read.
+    // Used once: attempts made after it was read must come from a fresh read.
     prefetched = null;
     return promise;
   }
-  return call({ action: 'today', day });
+  return readDay(day);
 }
-
-// The generated Supabase types predate these tables; this is the slice read here.
-type ProgressClient = {
-  from: (table: string) => {
-    select: (cols: string) => {
-      eq: (col: string, v: string) => Promise<{ data: { id: string }[] | null; error: { message?: string } | null }>;
-      in: (col: string, v: string[]) => Promise<{ data: { challenge_id: string }[] | null; error: { message?: string } | null }>;
-    };
-  };
-};
 
 export interface DayProgress {
   /** Whether today's sentences have been written yet. */
@@ -101,18 +123,14 @@ export interface DayProgress {
   total: number;
 }
 
-/**
- * How far today's challenge has got, read straight from the tables so Home
- * can show it without asking the model to write anything.
- */
+/** How far today's challenge has got, for the card on Home. */
 export async function todayProgress(day: string = today()): Promise<DayProgress> {
-  const db = supabase as unknown as ProgressClient;
-  const { data: challenges, error } = await db.from('translation_challenges').select('id').eq('day', day);
+  const { data: challenges, error } = await db.from('translation_challenges').select<{ id: string }>('id').eq('day', day);
   if (error) throw new Error(error.message ?? 'Could not read today’s challenge');
   const ids = (challenges ?? []).map((c) => c.id);
   if (ids.length === 0) return { ready: false, done: 0, total: 3 };
   const { data: attempts, error: attemptsError } = await db
-    .from('translation_attempts').select('challenge_id').in('challenge_id', ids);
+    .from('translation_attempts').select<{ challenge_id: string }>('challenge_id').in('challenge_id', ids);
   if (attemptsError) throw new Error(attemptsError.message ?? 'Could not read today’s attempts');
   return { ready: true, done: new Set((attempts ?? []).map((a) => a.challenge_id)).size, total: ids.length };
 }
@@ -136,22 +154,25 @@ export function markDailyPromptShown(day: string = today()): void {
   try { localStorage.setItem(PROMPTED_KEY, day); } catch { /* the card on Home still shows */ }
 }
 
-export function gradeAttempt(challengeId: string, attempt: string): Promise<Attempt> {
-  return call({ action: 'grade', challengeId, attempt });
+/** Grades an attempt against the sentence's answer key and saves it. */
+export async function gradeAttempt(challenge: Challenge, attempt: string): Promise<Attempt> {
+  if (!challenge.answer_key) throw new Error('This sentence has no answer key, so it can’t be checked.');
+  const feedback = gradeWithKey(challenge.answer_key, challenge.reference_translations, attempt);
+  const { data: session } = await supabase.auth.getSession();
+  const userId = session.session?.user.id;
+  if (!userId) throw new Error('Sign in again to save your attempt.');
+  const { data, error } = await db
+    .from('translation_attempts')
+    .insert({ user_id: userId, challenge_id: challenge.id, attempt, feedback })
+    .select(ATTEMPT_COLUMNS)
+    .single<Attempt>();
+  if (error || !data) throw new Error(error?.message ?? 'Could not save your attempt');
+  return data;
 }
 
-// The generated Supabase types predate this table; this is the slice used here.
-type LooseClient = {
-  from: (table: string) => {
-    update: (values: Record<string, unknown>) => {
-      eq: (col: string, v: string) => Promise<{ error: { message?: string } | null }>;
-    };
-  };
-};
-
-/** Marks feedback the learner believes is wrong, so it is kept out of their weak spots. */
+/** Marks feedback the learner believes is wrong, so the answer key is reviewed. */
 export async function flagAttempt(id: string, note: string): Promise<void> {
-  const { error } = await (supabase as unknown as LooseClient)
+  const { error } = await db
     .from('translation_attempts')
     .update({ flagged: true, flag_note: note || null })
     .eq('id', id);
@@ -160,9 +181,10 @@ export async function flagAttempt(id: string, note: string): Promise<void> {
 
 export const VERDICT_LABEL: Record<Verdict, string> = {
   correct: 'Correct',
-  minor: 'Almost — small slips',
+  minor: 'Almost: one thing to fix',
   errors: 'Some grammar to fix',
   meaning: 'The meaning drifted',
+  unchecked: 'Partly checked',
 };
 
 export function isCorrection(status: WordStatus): boolean {
