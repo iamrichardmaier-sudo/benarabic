@@ -58,8 +58,23 @@ the newest existing file.
 - `pitfalls`: 3–5 one-line reminders shown with the sentence.
 
 Matching is on whole words, ignoring vowels, alef/hamza seats, ة/ه and ى/ي.
-The first word of a form may carry a joined و or ف. Keep each form short
-(2–5 words): long forms only match if the learner wrote exactly those words.
+A joined و or ف on a form's first word is optional, and one typed as a
+separate word is joined back. Keep forms short:
+
+- Accepted forms: 2–5 words. A long form only matches if the learner wrote
+  exactly those words.
+- Mistakes: as short as still unambiguous, often a single word (اشتريت for
+  "she bought", لأنهم for towels, ثلاث before شهر). A one-word mistake is
+  caught however the rest of the clause is phrased; a five-word one almost
+  never is. A one-word mistake must never appear in any correct translation
+  of the sentence (the checker enforces this).
+- Predict the learner's real slips, not just textbook ones: wrong person on
+  the verb (اشتريتُ for اشترَتْ), human pronouns and plurals for things,
+  مِن for مِمّا, dropped كان, dialect forms (بدّو، رح), present for past.
+
+The learner often dictates their answer (Read it aloud), so some words
+arrive misheard (منتسفة for منشفة). Those clauses come back unchecked, which
+is right: don't try to predict recognition errors.
 
 ## Check and load
 

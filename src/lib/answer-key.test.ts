@@ -21,6 +21,11 @@ describe('findForm', () => {
     expect(findForm('وأغلى من الزرقاء', 'أغلى من الزرقاء')).toBe('وأغلى من الزرقاء');
   });
 
+  it('joins a و or ف typed as a separate word, and lets either side drop it', () => {
+    expect(findForm('و اغلى من الزرق', 'وأغلى من الزرق')).toBe('واغلى من الزرق');
+    expect(findForm('أغلى من الزرقاء', 'وأغلى من الزرقاء')).toBe('أغلى من الزرقاء');
+  });
+
   it('keeps hamza seats apart only when asked', () => {
     expect(findForm('تقول إنها', 'تقول أنها')).not.toBeNull();
     expect(findForm('تقول إنها', 'تقول أنها', true)).toBeNull();
@@ -57,6 +62,20 @@ describe('gradeWithKey', () => {
     const f = grade(paintings, 'باعوا اللوحات التي رسمت في وسط المدينة خلال ثلاثة أشهر بأكثر من ثمانمئة دولار لكل واحدة');
     expect(f.verdict).toBe('correct');
     expect(f.words.find((w) => w.status === 'alternative')?.part).toBe('The paintings … were sold');
+  });
+
+  it('catches short mistakes in a real, imperfect attempt', () => {
+    // A dictated attempt: منتسفة and الهادي are misheard, and are left unchecked.
+    const f = grade(towels, 'اختي اشتريت كل منتسفة في المحل الا الهادي لانهم اغمق من تريده و اغلى من الزرق');
+    expect(f.words.filter((w) => w.status === 'fix').map((w) => w.yours)).toEqual(['اشتريت', 'لانهم', 'من تريده']);
+    expect(f.words.filter((w) => w.status === 'unknown')).toHaveLength(2);
+    expect(f.words.find((w) => w.part === 'and more expensive than the blue ones')?.status).toBe('ok');
+  });
+
+  it('says so when most of an attempt could not be checked', () => {
+    const f = grade(towels, 'هذه جملة لا علاقة لها بالموضوع');
+    expect(f.verdict).toBe('unchecked');
+    expect(f.summary).toContain('doesn’t mean it’s right');
   });
 
   it('never marks an unrecognised part wrong', () => {

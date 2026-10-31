@@ -39,6 +39,16 @@
               "text": "أختي اشترى",
               "rule": "A verb agrees in gender with a feminine subject",
               "note": "After a feminine subject the verb must be feminine: أختي اشترَتْ."
+            },
+            {
+              "text": "اشتريت",
+              "rule": "The verb agrees with its subject: she bought, not I bought",
+              "note": "اشتريتُ means \"I bought\". With أختي (she) the verb is اشترَتْ."
+            },
+            {
+              "text": "اشترا",
+              "rule": "Final ى in the past tense of اشترى",
+              "note": "He bought is spelt اشترى; she bought is اشترَتْ."
             }
           ]
         },
@@ -80,6 +90,11 @@
               "text": "جميع المنشفات",
               "rule": "The plural of منشفة is مناشف",
               "note": "Use the broken plural: جميعَ المناشفِ."
+            },
+            {
+              "text": "كل منشفه المحل",
+              "rule": "\"In the shop\" needs في",
+              "note": "Every towel in the shop: كلّ منشفةٍ في المحلّ."
             }
           ]
         },
@@ -131,7 +146,9 @@
             "فقد كانت أغمق مما أرادت",
             "لأنها كانت أغمق مما أرادته",
             "لأنها كانت أكثر قتامة مما أرادت",
-            "لأنها أغمق مما أرادت"
+            "لأنها أغمق مما أرادت",
+            "لأنها أغمق مما كانت تريد",
+            "لأنها كانت أغمق مما تريد"
           ],
           "mistakes": [
             {
@@ -168,6 +185,38 @@
               "text": "أغمق مما أراد",
               "rule": "The verb agrees with the sister (feminine)",
               "note": "She wanted: أرادَتْ."
+            },
+            {
+              "text": "لأنهم",
+              "rule": "Pronouns for non-human plurals are feminine singular",
+              "note": "Towels are things, so \"they\" is ـها: لأنّها."
+            },
+            {
+              "text": "من تريد",
+              "rule": "مِن before a verb needs ما: مِمّا",
+              "note": "\"Than she wanted\" is مِمّا أرادت. مِن تريد means \"than whom she wants\"."
+            },
+            {
+              "text": "من تريده",
+              "rule": "مِن before a verb needs ما: مِمّا",
+              "note": "\"Than she wanted\" is مِمّا أرادت."
+            },
+            {
+              "text": "مما تريد",
+              "rule": "Valid, but keep the past tense",
+              "note": "مِمّا تريد (\"than she wants\") works, though مِمّا أرادت or مِمّا كانت تريد matches \"wanted\".",
+              "status": "alternative"
+            },
+            {
+              "text": "مما تريده",
+              "rule": "Valid, but keep the past tense",
+              "note": "مِمّا تريده works, though مِمّا أرادته matches \"wanted\".",
+              "status": "alternative"
+            },
+            {
+              "text": "لأنها كانوا",
+              "rule": "كان agrees with its feminine subject",
+              "note": "With ـها (the towels) the verb is كانت."
             }
           ]
         },
@@ -211,6 +260,11 @@
               "text": "أكثر غلاء من الأزرق",
               "rule": "Adjectives for non-human plurals are feminine singular",
               "note": "The comparison is fine; the blue ones are الزرقاء."
+            },
+            {
+              "text": "أغلى من الأزرقين",
+              "rule": "Adjectives for non-human plurals are feminine singular",
+              "note": "The blue towels are الزرقاء."
             }
           ]
         }
@@ -276,6 +330,17 @@
               "rule": "Valid: the passive verb may be masculine before a non-human plural",
               "note": "Grammatical, but بِيعَت (feminine) is far more usual.",
               "status": "alternative"
+            },
+            {
+              "text": "باعوا",
+              "rule": "Valid, but not the passive",
+              "note": "\"They sold\" is fine Arabic, but \"were sold\" is the passive بِيعَت.",
+              "status": "alternative"
+            },
+            {
+              "text": "باعت",
+              "rule": "The passive of a hollow verb is فِيلَ: بِيعَ / بِيعَت",
+              "note": "باعت is \"she sold\". \"Were sold\" is بِيعَت."
             }
           ]
         },
@@ -313,6 +378,16 @@
               "text": "اللاتي",
               "rule": "اللاتي is for women",
               "note": "For paintings use التي."
+            },
+            {
+              "text": "الذين",
+              "rule": "الذين is for people",
+              "note": "Paintings take التي."
+            },
+            {
+              "text": "رسموا",
+              "rule": "The verb agrees with the non-human plural as feminine singular",
+              "note": "\"Had been drawn\": رُسِمَت."
             }
           ]
         },
@@ -369,6 +444,11 @@
               "text": "ثلاثة الأشهر",
               "rule": "The counted noun after 3–10 is indefinite",
               "note": "Say ثلاثة أشهر, without ال on أشهر."
+            },
+            {
+              "text": "ثلاث",
+              "rule": "Numbers 3–10 take the opposite gender of the noun's singular",
+              "note": "شهر is masculine, so it's ثلاثة."
             }
           ]
         },
@@ -414,6 +494,11 @@
               "text": "ثمانمائة دولارات",
               "rule": "After مئة and ألف the counted noun is singular",
               "note": "Hundreds take a singular genitive noun: ثمانمائةِ دولارٍ."
+            },
+            {
+              "text": "دولارات",
+              "rule": "After مئة and ألف the counted noun is singular",
+              "note": "Eight hundred dollars: ثمانمئة دولار."
             }
           ]
         },
@@ -535,6 +620,11 @@
               "rule": "Valid: a verb may be masculine before a figuratively feminine noun",
               "note": "Grammatical, because السماء is only figuratively feminine and comes after the verb, but تغيّرت is far more usual.",
               "status": "alternative"
+            },
+            {
+              "text": "غيرت",
+              "rule": "Form V تغيّر is intransitive; Form II غيّر needs an object",
+              "note": "غيّرت means changed something. The sky changing on its own is تغيّرت."
             }
           ]
         },
@@ -568,6 +658,11 @@
               "text": "كان جدتي",
               "rule": "كان agrees with its feminine subject",
               "note": "Use كانت جدتي."
+            },
+            {
+              "text": "قالت جدتي",
+              "rule": "A past habit is كان + the present tense",
+              "note": "\"Used to say\" is كانت تقول; قالت is one single time."
             }
           ]
         },
@@ -627,6 +722,16 @@
             },
             {
               "text": "إنها لم تعد زرقة",
+              "rule": "زرقة is the noun \"blueness\"",
+              "note": "After لم تعد use the adjective: زرقاءَ."
+            },
+            {
+              "text": "ليست زرقاء",
+              "rule": "\"No longer\" is لم يعد / ما عاد",
+              "note": "ليست زرقاء is \"it isn't blue\". \"No longer\" needs لم تعد."
+            },
+            {
+              "text": "لم تعد زرقة",
               "rule": "زرقة is the noun \"blueness\"",
               "note": "After لم تعد use the adjective: زرقاءَ."
             }
