@@ -1,0 +1,929 @@
+{
+  "day": "2026-11-01",
+  "format": "See supabase/answer-keys/README.md.",
+  "sentences": [
+    {
+      "position": 1,
+      "english": "My brother and I will have to finish arranging the furniture before midnight if my parents arrive early, because nothing in the house is ready yet.",
+      "grammar_focus": "A real condition with إذا + past tense, a verb before its subject staying singular (وصل والداي), \"my brother and I\" as \"we\" (عليّ وعلى أخي أن نُنهي), and لا شيءَ … جاهزٌ",
+      "target_words": [
+        "وَصَلَ",
+        "تَرتيب",
+        "مَفروشات",
+        "مُنتَصَف"
+      ],
+      "model_answer": "سَيَكونُ عَلَيَّ وَعَلى أَخي أَن نُنهِيَ تَرتيبَ المَفروشاتِ قَبلَ مُنتَصَفِ اللَّيلِ إِذا وَصَلَ والِدايَ مُبَكِّرًا، لِأَنَّهُ لا شَيءَ في البَيتِ جاهِزٌ بَعدُ.",
+      "reference_translations": [
+        "سيكون علي وعلى أخي أن ننهي ترتيب المفروشات قبل منتصف الليل إذا وصل والداي مبكرا لأنه لا شيء في البيت جاهز بعد",
+        "علينا أنا وأخي أن نكمل ترتيب الأثاث قبل منتصف الليل إن وصل والداي مبكرا لأنه لا شيء في المنزل جاهز بعد",
+        "سيجب علي وعلى أخي أن ننتهي من ترتيب المفروشات قبل منتصف الليل إذا وصل أبواي مبكرا فلا شيء في البيت جاهز بعد",
+        "سنضطر أنا وأخي إلى إنهاء ترتيب المفروشات قبل منتصف الليل إذا وصل والداي باكرا لأن البيت ليس جاهزا بعد",
+        "يجب علينا أنا وأخي أن ننهي ترتيب المفروشات قبل منتصف الليل إذا وصل والداي في وقت مبكر لأنه لم يجهز شيء في البيت بعد",
+        "سيتعين علي وعلى أخي أن نرتب المفروشات قبل منتصف الليل إذا وصل والداي مبكرا لأنه لا شيء جاهز في البيت بعد"
+      ],
+      "chunks": [
+        {
+          "en": "My brother and I will have to",
+          "accept": [
+            "علي وعلى أخي",
+            "علينا أنا وأخي",
+            "يجب علينا",
+            "سيكون علينا",
+            "سيتعين علينا",
+            "يتعين علينا",
+            "سيتوجب علينا",
+            "سنضطر أنا وأخي",
+            "أنا وأخي يجب",
+            "أنا وأخي علينا",
+            "أنا وأخي سيكون علينا",
+            "أنا وأخي سيجب علينا"
+          ],
+          "mistakes": [
+            {
+              "text": "علي وأخي",
+              "rule": "Repeat the preposition before a noun joined to a pronoun",
+              "note": "With a pronoun attached to على, repeat على before the noun: عليّ وعلى أخي."
+            },
+            {
+              "text": "يجب أنا وأخي",
+              "rule": "يجب takes على for the person who must",
+              "note": "Say who must with على: يجب عليّ وعلى أخي, or يجب علينا أنا وأخي."
+            },
+            {
+              "text": "على أنا",
+              "rule": "على takes an attached pronoun, not أنا",
+              "note": "\"On me\" is the single word عليّ, not على أنا."
+            },
+            {
+              "text": "سأضطر أنا وأخي",
+              "rule": "The verb agrees with \"my brother and I\": we (سنضطرّ)",
+              "note": "\"My brother and I\" together are \"we\": سنضطرّ أنا وأخي, not سأضطرّ (I)."
+            },
+            {
+              "text": "سيضطر أنا وأخي",
+              "rule": "The verb agrees with \"my brother and I\": we (سنضطرّ)",
+              "note": "\"My brother and I\" are \"we\": سنضطرّ, not سيضطرّ (he)."
+            },
+            {
+              "text": "أخي وأنا",
+              "rule": "Valid, but Arabic puts the speaker first",
+              "note": "Grammatical. Arabic usually says أنا وأخي, speaker first, the opposite of English politeness.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "to finish arranging the furniture",
+          "accept": [
+            "أن ننهي ترتيب المفروشات",
+            "أن نكمل ترتيب المفروشات",
+            "أن ننتهي من ترتيب المفروشات",
+            "إنهاء ترتيب المفروشات",
+            "إكمال ترتيب المفروشات",
+            "الانتهاء من ترتيب المفروشات",
+            "أن نرتب المفروشات",
+            "أن ننهي ترتيب الأثاث",
+            "أن نكمل ترتيب الأثاث",
+            "أن ننتهي من ترتيب الأثاث",
+            "إنهاء ترتيب الأثاث",
+            "أن نرتب الأثاث"
+          ],
+          "mistakes": [
+            {
+              "text": "أن ينهي",
+              "rule": "The verb agrees with \"my brother and I\": we: نُنهي",
+              "note": "ينهي is \"he finishes\". My brother and I are \"we\": أن نُنهيَ."
+            },
+            {
+              "text": "أن أنهي",
+              "rule": "The verb agrees with \"my brother and I\": we: نُنهي",
+              "note": "أنهي is \"I finish\", but it's both of you: أن نُنهيَ."
+            },
+            {
+              "text": "أن تنهي",
+              "rule": "The verb agrees with \"my brother and I\": we: نُنهي",
+              "note": "تنهي is \"you\" or \"she finishes\". For \"we\": أن نُنهيَ."
+            },
+            {
+              "text": "أن ينهوا",
+              "rule": "The verb agrees with \"my brother and I\": we: نُنهي",
+              "note": "ينهوا is \"they\". For \"my brother and I\": أن نُنهيَ."
+            },
+            {
+              "text": "أن ينهيا",
+              "rule": "The verb agrees with \"my brother and I\": we: نُنهي",
+              "note": "ينهيا is \"the two of them\". You are one of the two, so it's \"we\": أن نُنهيَ."
+            },
+            {
+              "text": "أن أكمل",
+              "rule": "The verb agrees with \"my brother and I\": we: نُكمل",
+              "note": "أكمل is \"I complete\". For both of you: أن نُكملَ."
+            },
+            {
+              "text": "أن يكمل",
+              "rule": "The verb agrees with \"my brother and I\": we: نُكمل",
+              "note": "يكمل is \"he completes\". For \"we\": أن نُكملَ."
+            },
+            {
+              "text": "أن أرتب",
+              "rule": "The verb agrees with \"my brother and I\": we: نُرتّب",
+              "note": "أرتّب is \"I arrange\". For both of you: أن نُرتّبَ."
+            },
+            {
+              "text": "ننهي من",
+              "rule": "أنهى takes a direct object; انتهى takes مِن",
+              "note": "Either ننهيَ ترتيبَ… (no مِن) or ننتهيَ مِن ترتيبِ…"
+            },
+            {
+              "text": "ننتهي ترتيب",
+              "rule": "انتهى needs مِن",
+              "note": "\"Finish with\": ننتهيَ مِن ترتيبِ المفروشات."
+            },
+            {
+              "text": "الترتيب المفروشات",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "\"Arranging the furniture\" is an idafa: ترتيبَ المفروشاتِ, with ال only on the second noun."
+            }
+          ]
+        },
+        {
+          "en": "before midnight",
+          "accept": [
+            "قبل منتصف الليل",
+            "قبل نصف الليل",
+            "قبل منتصف الليلة"
+          ],
+          "mistakes": [
+            {
+              "text": "قبل المنتصف الليل",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "\"The middle of the night\" is an idafa: منتصفِ الليل."
+            },
+            {
+              "text": "بعد منتصف الليل",
+              "rule": "\"Before\" is قبل",
+              "note": "بعد is \"after\". Before midnight: قبلَ منتصفِ الليل."
+            }
+          ]
+        },
+        {
+          "en": "if my parents arrive",
+          "accept": [
+            "إذا وصل والداي",
+            "إن وصل والداي",
+            "إذا وصل أبواي",
+            "إن وصل أبواي",
+            "إذا وصل أهلي",
+            "إن وصل أهلي",
+            "إذا ما وصل والداي",
+            "إذا جاء والداي",
+            "إذا أتى والداي"
+          ],
+          "mistakes": [
+            {
+              "text": "وصلا والداي",
+              "rule": "A verb before its subject stays singular",
+              "note": "When the verb comes first it stays singular, even for two people: وصلَ والدايَ. (After the subject it agrees: والدايَ وصلا.)"
+            },
+            {
+              "text": "إذا وصلوا",
+              "rule": "A verb before its subject stays singular",
+              "note": "Put the verb first and keep it singular: إذا وصلَ والدايَ."
+            },
+            {
+              "text": "إذا يصل",
+              "rule": "After إذا the verb is usually past",
+              "note": "إذا + past speaks of the future: إذا وصلَ والدايَ = \"if my parents arrive\"."
+            },
+            {
+              "text": "إذا يصلان",
+              "rule": "After إذا the verb is usually past",
+              "note": "Use the past after إذا: إذا وصلَ والدايَ."
+            },
+            {
+              "text": "إذا سيصل",
+              "rule": "No future marker after إذا",
+              "note": "Don't add سـ or سوف after إذا: إذا وصلَ والدايَ."
+            },
+            {
+              "text": "لو وصل",
+              "rule": "لو is for unreal conditions",
+              "note": "لو is \"if (but it isn't so)\". Your parents really might arrive, so use إذا or إن."
+            },
+            {
+              "text": "وصل والدي",
+              "rule": "والدي is \"my father\"",
+              "note": "My parents (two people) is والدايَ or أبوايَ. والدي is one person, my father."
+            },
+            {
+              "text": "إذا وصلت والداي",
+              "rule": "والدان is masculine",
+              "note": "Parents takes a masculine verb: إذا وصلَ والدايَ."
+            },
+            {
+              "text": "إذا والداي وصلا",
+              "rule": "Valid: after the subject the verb agrees",
+              "note": "Fine Arabic: with the subject first, the verb is dual (وصلا). إذا وصلَ والدايَ is the more usual order after إذا.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "early",
+          "accept": [
+            "مبكرا",
+            "باكرا",
+            "في وقت مبكر",
+            "في وقت باكر",
+            "مبكرين",
+            "مبكرا جدا"
+          ],
+          "mistakes": [
+            {
+              "text": "مبكر",
+              "rule": "An indefinite accusative ends in ـًا: مبكرًا",
+              "note": "\"Early\" here is accusative: مبكّرًا, written with a final alif."
+            },
+            {
+              "text": "مبكرون",
+              "rule": "A حال is accusative: مبكّرَين or مبكّرًا",
+              "note": "Describing how they arrive, it's accusative: مبكّرَين (the two of them), or simply مبكّرًا."
+            }
+          ]
+        },
+        {
+          "en": "nothing in the house is ready yet",
+          "accept": [
+            "لا شيء في البيت جاهز بعد",
+            "لا شيء في المنزل جاهز بعد",
+            "لا شيء جاهز في البيت بعد",
+            "لا شيء جاهز في المنزل بعد",
+            "لا شيء جاهز بعد",
+            "لم يجهز شيء في البيت بعد",
+            "لم يجهز شيء في المنزل بعد",
+            "البيت ليس جاهزا بعد",
+            "المنزل ليس جاهزا بعد",
+            "لا شيء في البيت جاهز حتى الآن",
+            "لا شيء جاهز حتى الآن"
+          ],
+          "mistakes": [
+            {
+              "text": "مستعد",
+              "rule": "مُستعِدّ is for people getting ready; things are جاهز",
+              "note": "Your card مُستعِدّ means a person is prepared. For things being ready, use جاهز."
+            },
+            {
+              "text": "لا شيء جاهزا",
+              "rule": "After لا (none at all) the predicate is nominative",
+              "note": "لا شيءَ… جاهزٌ: the predicate of this لا is nominative, so no final alif."
+            },
+            {
+              "text": "في البيت جاهزا",
+              "rule": "After لا (none at all) the predicate is nominative",
+              "note": "لا شيءَ في البيت جاهزٌ: no final alif on جاهز."
+            },
+            {
+              "text": "لا شيء ليس",
+              "rule": "One negative is enough",
+              "note": "لا شيءَ already says \"nothing\". Don't add ليس: لا شيءَ جاهزٌ."
+            },
+            {
+              "text": "البيت ليس جاهز",
+              "rule": "The predicate of ليس is accusative",
+              "note": "After ليس: البيتُ ليس جاهزًا, with a final alif."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "\"My brother and I\" is \"we\": عليّ وعلى أخي أن نُنهي (not ينهي or أنهي)",
+        "A verb before its subject stays singular: إذا وصلَ والدايَ",
+        "After إذا use the past tense, with no سـ",
+        "مستعدّ is for people; things are جاهز",
+        "لا شيءَ … جاهزٌ: the predicate after لا is nominative"
+      ]
+    },
+    {
+      "position": 2,
+      "english": "The silver rings that my grandmother bought forty years ago still shine like gold, even though no one has worn them since then.",
+      "grammar_focus": "A relative clause with its pronoun (التي اشترتها), non-human plurals as feminine singular (ما زالت تلمع، يلبسها), the number 40 (أربعين عامًا), and مع أنّ + accusative",
+      "target_words": [
+        "فِضِّيّ",
+        "ذَهَب (اسم)",
+        "اِشتَرى"
+      ],
+      "model_answer": "الخَواتِمُ الفِضِّيَّةُ الَّتي اشتَرَتها جَدَّتي قَبلَ أَربَعينَ عامًا ما زالَت تَلمَعُ كَالذَّهَبِ، مَعَ أَنَّ أَحَدًا لَم يَلبَسها مُنذُ ذٰلِكَ الحينِ.",
+      "reference_translations": [
+        "الخواتم الفضية التي اشترتها جدتي قبل أربعين عاما ما زالت تلمع كالذهب مع أن أحدا لم يلبسها منذ ذلك الحين",
+        "خواتم الفضة التي اشترتها جدتي منذ أربعين سنة لا تزال تلمع مثل الذهب رغم أنه لم يلبسها أحد منذ ذلك الوقت",
+        "الخواتم الفضية التي كانت جدتي قد اشترتها قبل أربعين سنة ما تزال تلمع كالذهب على الرغم من أن أحدا لم يلبسها منذ ذلك الحين",
+        "الخواتم الفضية التي جدتي اشترتها قبل أربعين عاما لا تزال تبرق كالذهب مع أنه لم يرتدها أحد منذ ذلك الحين",
+        "الخواتم المصنوعة من الفضة التي اشترتها جدتي قبل أربعين عاما ما زالت تلمع كأنها ذهب مع أنه لا أحد لبسها منذ ذلك الحين",
+        "الخواتم الفضية التي اشترتها جدتي قبل أربعين سنة ما زالت تلمع مثل الذهب بالرغم من أن أحدا لم يلبسها منذ ذلك الوقت"
+      ],
+      "chunks": [
+        {
+          "en": "The silver rings",
+          "accept": [
+            "الخواتم الفضية",
+            "خواتم الفضة",
+            "الخواتم المصنوعة من الفضة",
+            "الخواتيم الفضية",
+            "الخواتم من الفضة"
+          ],
+          "mistakes": [
+            {
+              "text": "الخواتم الفضي",
+              "rule": "Adjectives for non-human plurals are feminine singular",
+              "note": "Rings are things, so the adjective is feminine singular: الخواتمُ الفضيّةُ."
+            },
+            {
+              "text": "الخواتم الفضيين",
+              "rule": "The -ين plural is for people",
+              "note": "Rings take the feminine singular: الخواتمُ الفضيّةُ."
+            },
+            {
+              "text": "الخواتم الفضيون",
+              "rule": "The -ون plural is for people",
+              "note": "Rings take the feminine singular: الخواتمُ الفضيّةُ."
+            },
+            {
+              "text": "الفضية الخواتم",
+              "rule": "An adjective comes after its noun",
+              "note": "Noun first, adjective second: الخواتمُ الفضيّةُ."
+            },
+            {
+              "text": "خواتم الفضية",
+              "rule": "Noun and adjective must match in definiteness",
+              "note": "Either الخواتمُ الفضيّةُ (both with ال) or خواتمُ الفضّةِ (\"rings of silver\")."
+            },
+            {
+              "text": "الخاتمات",
+              "rule": "The plural of خاتم is خواتم",
+              "note": "خاتم has a broken plural: خواتم."
+            }
+          ]
+        },
+        {
+          "en": "that my grandmother bought",
+          "accept": [
+            "التي اشترتها جدتي",
+            "التي كانت جدتي قد اشترتها",
+            "التي جدتي اشترتها"
+          ],
+          "mistakes": [
+            {
+              "text": "الذي",
+              "rule": "The relative pronoun for a non-human plural is التي",
+              "note": "Rings take التي."
+            },
+            {
+              "text": "الذين",
+              "rule": "الذين is for people",
+              "note": "Rings take التي."
+            },
+            {
+              "text": "اشتراها",
+              "rule": "The verb agrees with the grandmother (feminine)",
+              "note": "جدتي is \"she\": اشترَتها."
+            },
+            {
+              "text": "اشتريتها",
+              "rule": "The verb agrees with its subject: she bought, not I bought",
+              "note": "اشتريتُها is \"I bought them\". Your grandmother bought them: اشترَتها جدّتي."
+            },
+            {
+              "text": "اشترتهم",
+              "rule": "Pronouns for non-human plurals are feminine singular",
+              "note": "Rings are things, so \"them\" is ـها: اشترَتها."
+            },
+            {
+              "text": "التي اشترت جدتي",
+              "rule": "Valid: the pronoun can be dropped",
+              "note": "Arabic allows dropping the \"them\" here, but التي اشترَتها جدّتي, with ـها, is the usual form.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "forty years ago",
+          "accept": [
+            "قبل أربعين عاما",
+            "قبل أربعين سنة",
+            "منذ أربعين عاما",
+            "منذ أربعين سنة"
+          ],
+          "mistakes": [
+            {
+              "text": "أربعين أعوام",
+              "rule": "Numbers 11–99 take a singular noun",
+              "note": "After 11–99 the noun is singular and accusative: أربعين عامًا."
+            },
+            {
+              "text": "أربعين سنوات",
+              "rule": "Numbers 11–99 take a singular noun",
+              "note": "After 11–99 the noun is singular: أربعين سنةً."
+            },
+            {
+              "text": "أربعين سنين",
+              "rule": "Numbers 11–99 take a singular noun",
+              "note": "After 11–99 the noun is singular: أربعين سنةً."
+            },
+            {
+              "text": "أربعين عام",
+              "rule": "The counted noun after 11–99 is accusative: عامًا",
+              "note": "Write it with the final alif: أربعين عامًا."
+            },
+            {
+              "text": "قبل أربعون",
+              "rule": "After قبل the number is genitive: أربعين",
+              "note": "قبلَ أربعين عامًا: -ين, not -ون, after قبل."
+            }
+          ]
+        },
+        {
+          "en": "still shine",
+          "accept": [
+            "ما زالت تلمع",
+            "لا تزال تلمع",
+            "ما تزال تلمع",
+            "مازالت تلمع",
+            "ما زالت تبرق",
+            "لا تزال تبرق",
+            "ما تزال تبرق"
+          ],
+          "mistakes": [
+            {
+              "text": "ما زالوا",
+              "rule": "Non-human plurals take feminine singular verbs",
+              "note": "Rings are things: ما زالت تلمعُ, not ما زالوا."
+            },
+            {
+              "text": "يلمعون",
+              "rule": "Non-human plurals take feminine singular verbs",
+              "note": "Rings are things: تلمعُ, not يلمعون."
+            },
+            {
+              "text": "ما زال تلمع",
+              "rule": "The verb agrees with the rings (feminine singular)",
+              "note": "With the rings first, both verbs are feminine: ما زالت تلمعُ."
+            },
+            {
+              "text": "ما زالت يلمع",
+              "rule": "The verb agrees with the rings (feminine singular)",
+              "note": "Both verbs are feminine: ما زالت تلمعُ."
+            },
+            {
+              "text": "ما زالت لامعة",
+              "rule": "Valid: ما زال can take an adjective",
+              "note": "Fine: ما زالت لامعةً كالذهب. ما زالت تلمعُ follows the English verb more closely.",
+              "status": "alternative"
+            },
+            {
+              "text": "لا زالت",
+              "rule": "Widely used, but careful Arabic says ما زال or لا يزال",
+              "note": "Strictly, لا زال is a wish (\"may it continue\"). For \"still\" use ما زالت or لا تزال.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "like gold",
+          "accept": [
+            "كالذهب",
+            "مثل الذهب",
+            "كأنها ذهب",
+            "كأنها من ذهب",
+            "كما يلمع الذهب",
+            "مثلما يلمع الذهب"
+          ],
+          "mistakes": [
+            {
+              "text": "مثل ذهب",
+              "rule": "Arabic uses ال for a material in general",
+              "note": "Gold as a material takes ال: مثلَ الذهبِ or كالذهبِ."
+            },
+            {
+              "text": "مثل كالذهب",
+              "rule": "مثل and كـ both mean \"like\"",
+              "note": "Use one: مثلَ الذهبِ or كالذهبِ."
+            },
+            {
+              "text": "مثل الذهبي",
+              "rule": "Compare with the noun ذهب, not the adjective",
+              "note": "\"Like gold\": مثلَ الذهبِ. الذهبيّ is the adjective \"golden\"."
+            }
+          ]
+        },
+        {
+          "en": "even though",
+          "accept": [
+            "مع أن",
+            "مع أنه",
+            "رغم أن",
+            "رغم أنه",
+            "على الرغم من أن",
+            "على الرغم من أنه",
+            "بالرغم من أن",
+            "بالرغم من أنه"
+          ],
+          "mistakes": [
+            {
+              "text": "على الرغم أن",
+              "rule": "على الرغم takes مِن",
+              "note": "\"Even though\": على الرغمِ مِن أنّ."
+            },
+            {
+              "text": "رغم من",
+              "rule": "رغم alone has no مِن",
+              "note": "Either رغمَ أنّ or على الرغمِ مِن أنّ."
+            }
+          ]
+        },
+        {
+          "en": "no one has worn them",
+          "accept": [
+            "أحدا لم يلبسها",
+            "لم يلبسها أحد",
+            "لم يرتدها أحد",
+            "أحدا لم يرتدها",
+            "لا أحد لبسها",
+            "لا أحد يلبسها",
+            "لا أحد ارتداها",
+            "لم تلبس"
+          ],
+          "mistakes": [
+            {
+              "text": "أن أحد لم",
+              "rule": "The noun after أنّ is accusative: أحدًا",
+              "note": "After أنّ the noun is accusative: مع أنّ أحدًا لم يلبسْها."
+            },
+            {
+              "text": "لم يلبسهم",
+              "rule": "Pronouns for non-human plurals are feminine singular",
+              "note": "The rings are things, so \"them\" is ـها: لم يلبسْها."
+            },
+            {
+              "text": "لم يلبسه",
+              "rule": "\"Them\" refers to the rings: ـها",
+              "note": "The rings are a non-human plural, so \"them\" is ـها: لم يلبسْها."
+            },
+            {
+              "text": "يلبسوها",
+              "rule": "أحد is singular",
+              "note": "\"No one\" takes a singular verb: لم يلبسْها أحدٌ."
+            },
+            {
+              "text": "يلبسونها",
+              "rule": "أحد is singular",
+              "note": "\"No one\" takes a singular verb: لم يلبسْها أحدٌ."
+            },
+            {
+              "text": "لا أحد لم",
+              "rule": "One negative is enough",
+              "note": "لا أحد already says \"no one\": لا أحدَ لبِسها, or لم يلبسْها أحدٌ."
+            },
+            {
+              "text": "لم يلبسها لا أحد",
+              "rule": "One negative is enough",
+              "note": "لم already negates: لم يلبسْها أحدٌ."
+            },
+            {
+              "text": "لم يلبسهن",
+              "rule": "Valid: classical Arabic uses ـهنّ for small non-human plurals",
+              "note": "Grammatical, but ـها is far more usual in modern Arabic: لم يلبسْها.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "since then",
+          "accept": [
+            "منذ ذلك الحين",
+            "منذ ذلك الوقت",
+            "منذئذ",
+            "منذ ذاك الحين",
+            "منذ حينها",
+            "منذ ذلك اليوم"
+          ],
+          "mistakes": [
+            {
+              "text": "من ذلك الوقت",
+              "rule": "\"Since\" a point in time is منذ",
+              "note": "مِن is \"from\". \"Since then\" is منذُ ذلك الحين."
+            },
+            {
+              "text": "من ذلك الحين",
+              "rule": "\"Since\" a point in time is منذ",
+              "note": "Use منذُ: منذُ ذلك الحين."
+            },
+            {
+              "text": "منذ تلك الحين",
+              "rule": "الحين is masculine: ذلك",
+              "note": "منذُ ذلك الحين: الحين takes the masculine ذلك."
+            },
+            {
+              "text": "منذ تلك الوقت",
+              "rule": "الوقت is masculine: ذلك",
+              "note": "منذُ ذلك الوقت."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "Rings are things: التي اشترَتها، ما زالت تلمع، لم يلبسْها (feminine singular, ـها)",
+        "Your grandmother bought them: اشترَتها, not اشتريتُها",
+        "40 years: أربعين عامًا (singular, accusative)",
+        "مع أنّ أحدًا: the noun after أنّ is accusative",
+        "\"Since then\" is منذ ذلك الحين, not من"
+      ]
+    },
+    {
+      "position": 3,
+      "english": "The workers almost finished the repairs in the left section of the building, but they will not be able to paint the walls light green before Friday.",
+      "grammar_focus": "كاد + present (and how its verbs agree), لن + subjunctive (لن يتمكنوا), تمكّن مِن, and the adjectives الأيسر and الأخضر الفاتح",
+      "target_words": [
+        "تَصليحات",
+        "قِسْم",
+        "يَسار",
+        "أَخضَر",
+        "فاتِح"
+      ],
+      "model_answer": "كادَ العُمّالُ يُنهونَ التَّصليحاتِ في القِسمِ الأَيسَرِ مِنَ المَبنى، لٰكِنَّهُم لَن يَتَمَكَّنوا مِن طِلاءِ الجُدرانِ بِاللَّونِ الأَخضَرِ الفاتِحِ قَبلَ يَومِ الجُمُعةِ.",
+      "reference_translations": [
+        "كاد العمال ينهون التصليحات في القسم الأيسر من المبنى لكنهم لن يتمكنوا من طلاء الجدران باللون الأخضر الفاتح قبل يوم الجمعة",
+        "العمال كادوا ينتهون من الإصلاحات في الجزء الأيسر من المبنى لكنهم لن يستطيعوا أن يطلوا الجدران بالأخضر الفاتح قبل الجمعة",
+        "أوشك العمال على إنهاء التصليحات في القسم الأيسر من المبنى إلا أنهم لن يتمكنوا من دهن الجدران باللون الأخضر الفاتح قبل يوم الجمعة",
+        "كاد العمال أن ينهوا التصليحات في الجانب الأيسر من المبنى لكنهم لن يتمكنوا من طلاء الحيطان بلون أخضر فاتح قبل يوم الجمعة",
+        "كاد العمال يكملون التصليحات في القسم الأيسر من البناية ولكنهم لن يستطيعوا أن يدهنوا الجدران باللون الأخضر الفاتح قبل يوم الجمعة",
+        "كاد العمال ينهون الإصلاحات في الجهة اليسرى من المبنى لكنهم لن يتمكنوا من طلاء الجدران بالأخضر الفاتح قبل الجمعة"
+      ],
+      "chunks": [
+        {
+          "en": "The workers almost finished",
+          "accept": [
+            "كاد العمال ينهون",
+            "كاد العمال ينتهون من",
+            "كاد العمال يكملون",
+            "العمال كادوا ينهون",
+            "العمال كادوا ينتهون من",
+            "العمال كادوا يكملون",
+            "كاد العمال أن ينهوا",
+            "كاد العمال أن ينتهوا من",
+            "كاد العمال أن يكملوا",
+            "العمال كادوا أن ينهوا",
+            "أوشك العمال على إنهاء",
+            "أوشك العمال أن ينهوا"
+          ],
+          "mistakes": [
+            {
+              "text": "كادوا العمال",
+              "rule": "A verb before its subject stays singular",
+              "note": "With the verb first it stays singular: كادَ العمّالُ. (After the subject: العمّالُ كادوا.)"
+            },
+            {
+              "text": "العمال كاد",
+              "rule": "A verb after its subject agrees with it",
+              "note": "With the workers first, كاد agrees: العمّالُ كادوا ينهون."
+            },
+            {
+              "text": "كاد العمال أنهوا",
+              "rule": "كاد is followed by the present tense",
+              "note": "\"Almost finished\": كادَ العمّالُ يُنهون, present after كاد."
+            },
+            {
+              "text": "كاد العمال ينهوا",
+              "rule": "Without أن, the present after كاد keeps its ن",
+              "note": "كادَ العمّالُ يُنهونَ. ينهوا (no ن) is only right after أن: كادَ العمّالُ أن يُنهوا."
+            },
+            {
+              "text": "كاد العمال ينهي",
+              "rule": "The verb after كاد agrees with the workers",
+              "note": "The workers are plural: كادَ العمّالُ يُنهونَ."
+            },
+            {
+              "text": "أنهى العمال تقريبا",
+              "rule": "Valid, but not كاد",
+              "note": "\"The workers nearly finished\" with تقريبًا is fine Arabic. كادَ العمّالُ يُنهون is the construction this sentence practises.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "the repairs",
+          "accept": [
+            "التصليحات",
+            "الإصلاحات",
+            "أعمال الصيانة",
+            "الترميمات",
+            "التصليح",
+            "الإصلاح"
+          ],
+          "mistakes": [
+            {
+              "text": "ينهون تصليحات",
+              "rule": "\"The repairs\" are particular repairs: ال",
+              "note": "These are known repairs: يُنهون التصليحاتِ."
+            }
+          ]
+        },
+        {
+          "en": "in the left section of the building",
+          "accept": [
+            "في القسم الأيسر من المبنى",
+            "في الجزء الأيسر من المبنى",
+            "في الجانب الأيسر من المبنى",
+            "في القسم الأيسر من البناية",
+            "في القسم الأيسر من العمارة",
+            "في الجهة اليسرى من المبنى",
+            "في القسم الأيسر للمبنى",
+            "في قسم المبنى الأيسر",
+            "في يسار المبنى"
+          ],
+          "mistakes": [
+            {
+              "text": "القسم اليسار",
+              "rule": "يسار is a noun; the adjective is الأيسر",
+              "note": "\"The left section\": القسمُ الأيسرُ. يسار means \"the left\" (side)."
+            },
+            {
+              "text": "في الأيسر القسم",
+              "rule": "An adjective comes after its noun",
+              "note": "Noun first: في القسمِ الأيسرِ."
+            },
+            {
+              "text": "في قسم الأيسر",
+              "rule": "Noun and adjective must match in definiteness",
+              "note": "Both take ال: في القسمِ الأيسرِ."
+            },
+            {
+              "text": "القسم الأيسر المبنى",
+              "rule": "\"Of the building\" needs من or an idafa",
+              "note": "في القسمِ الأيسرِ مِن المبنى."
+            },
+            {
+              "text": "الجهة الأيسر",
+              "rule": "The adjective agrees with الجهة (feminine): اليسرى",
+              "note": "The feminine of أيسر is يُسرى: الجهةُ اليُسرى."
+            },
+            {
+              "text": "القسم اليساري",
+              "rule": "Understandable, but يساري usually means \"leftist\"",
+              "note": "For position, الأيسر is the natural word: القسمُ الأيسرُ.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "but they will not be able to",
+          "accept": [
+            "لكنهم لن يتمكنوا من",
+            "لكنهم لن يستطيعوا",
+            "لكن لن يتمكنوا من",
+            "لكن لن يستطيعوا",
+            "إلا أنهم لن يتمكنوا من",
+            "إلا أنهم لن يستطيعوا",
+            "لكنهم لن يقدروا على"
+          ],
+          "mistakes": [
+            {
+              "text": "لن يتمكنون",
+              "rule": "After لن the verb drops its final ن",
+              "note": "لن takes the subjunctive: لن يتمكّنوا."
+            },
+            {
+              "text": "لن يستطيعون",
+              "rule": "After لن the verb drops its final ن",
+              "note": "لن takes the subjunctive: لن يستطيعوا."
+            },
+            {
+              "text": "لم يتمكنوا",
+              "rule": "\"Will not\" is لن; لم is \"did not\"",
+              "note": "For the future: لن يتمكّنوا. لم يتمكّنوا means \"they weren't able to\"."
+            },
+            {
+              "text": "يتمكنوا أن",
+              "rule": "تمكّن takes مِن",
+              "note": "\"Be able to\" is تمكّن مِن + verbal noun: لن يتمكّنوا مِن طلاءِ…"
+            },
+            {
+              "text": "لكن هم",
+              "rule": "لكنّ takes an attached pronoun",
+              "note": "\"But they\": لكنّهم, one word."
+            },
+            {
+              "text": "لا يستطيعون",
+              "rule": "Valid, but \"will not\" is لن",
+              "note": "لا يستطيعون (\"they can't\") is close, but لن يستطيعوا matches \"will not be able\".",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "paint the walls",
+          "accept": [
+            "من طلاء الجدران",
+            "من طلي الجدران",
+            "من دهن الجدران",
+            "من دهان الجدران",
+            "من طلاء الحيطان",
+            "أن يطلوا الجدران",
+            "أن يدهنوا الجدران",
+            "أن يطلوا الحيطان",
+            "أن يصبغوا الجدران",
+            "على طلاء الجدران",
+            "طلاء الجدران",
+            "دهن الجدران",
+            "طلاء الحيطان",
+            "دهن الحيطان"
+          ],
+          "mistakes": [
+            {
+              "text": "أن يطلون",
+              "rule": "After أن the verb drops its final ن",
+              "note": "أن يطلوا الجدران: no final ن after أن."
+            },
+            {
+              "text": "أن يدهنون",
+              "rule": "After أن the verb drops its final ن",
+              "note": "أن يدهنوا الجدران: no final ن after أن."
+            },
+            {
+              "text": "أن يطلي الجدران",
+              "rule": "The verb agrees with \"they\" (the workers)",
+              "note": "They paint: أن يطلوا الجدرانَ."
+            },
+            {
+              "text": "الطلاء الجدران",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "\"Painting the walls\" is an idafa: طلاءِ الجدرانِ."
+            }
+          ]
+        },
+        {
+          "en": "light green",
+          "accept": [
+            "باللون الأخضر الفاتح",
+            "بالأخضر الفاتح",
+            "بلون أخضر فاتح",
+            "باللون الأخضر الفاتح جدا"
+          ],
+          "mistakes": [
+            {
+              "text": "بالأخضر فاتح",
+              "rule": "Noun and adjective must match in definiteness",
+              "note": "Both take ال: بالأخضرِ الفاتحِ."
+            },
+            {
+              "text": "باللون أخضر",
+              "rule": "Noun and adjective must match in definiteness",
+              "note": "باللونِ الأخضرِ: both with ال."
+            },
+            {
+              "text": "اللون الخضراء",
+              "rule": "لون is masculine: الأخضر",
+              "note": "The colour is masculine: اللونُ الأخضرُ (خضراء is the feminine)."
+            },
+            {
+              "text": "فاتح الأخضر",
+              "rule": "The colour comes first, then فاتح",
+              "note": "Light green: الأخضرُ الفاتحُ."
+            },
+            {
+              "text": "الخفيف",
+              "rule": "A light colour is فاتح",
+              "note": "خفيف means light in weight. For colours: فاتح."
+            }
+          ]
+        },
+        {
+          "en": "before Friday",
+          "accept": [
+            "قبل يوم الجمعة",
+            "قبل الجمعة",
+            "قبل نهار الجمعة"
+          ],
+          "mistakes": [
+            {
+              "text": "قبل اليوم الجمعة",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "يومِ الجمعةِ is an idafa: قبلَ يومِ الجمعة."
+            },
+            {
+              "text": "قبل جمعة",
+              "rule": "Days of the week take ال",
+              "note": "Friday is الجمعة: قبلَ الجمعةِ."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "كاد + present: كادَ العمّالُ يُنهونَ (verb first stays singular; after the subject: العمّالُ كادوا)",
+        "لن drops the final ن: لن يتمكّنوا",
+        "تمكّن takes مِن: يتمكّنوا مِن طلاءِ الجدران",
+        "The left section: القسمُ الأيسرُ (يسار is the noun)",
+        "Light green: باللونِ الأخضرِ الفاتحِ"
+      ]
+    }
+  ]
+}
