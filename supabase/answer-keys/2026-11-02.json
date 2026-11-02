@@ -1,0 +1,790 @@
+{
+  "day": "2026-11-02",
+  "format": "See supabase/answer-keys/README.md.",
+  "sentences": [
+    {
+      "position": 1,
+      "english": "My two sisters got ready for the wedding together, but they did not speak to each other, because each of them wanted to wear the white silk dress.",
+      "grammar_focus": "The feminine dual (أختاي استعدّتا، لم تتكلّما), a verb before its subject staying singular (استعدّت أختاي), بعضهما البعض, كلًّا منهما after لأنّ, and a masculine noun with a colour (الفستان الأبيض)",
+      "target_words": [
+        "اِستَعَدَّ",
+        "بَعضُهُم البَعض",
+        "أَبيَض",
+        "حَرير"
+      ],
+      "model_answer": "اِستَعَدَّت أُختايَ لِلعُرسِ مَعًا، لٰكِنَّهُما لَم تَتَكَلَّما مَعَ بَعضِهِما البَعضِ، لِأَنَّ كُلًّا مِنهُما أَرادَت أَن تَرتَدِيَ الفُستانَ الحَريرِيَّ الأَبيَضَ.",
+      "reference_translations": [
+        "استعدت أختاي للعرس معا لكنهما لم تتكلما مع بعضهما البعض لأن كلا منهما أرادت أن ترتدي الفستان الحريري الأبيض",
+        "أختاي استعدتا للزفاف معا لكنهما لم تتحدثا مع بعضهما لأن كل واحدة منهما كانت تريد أن تلبس فستان الحرير الأبيض",
+        "تجهزت أختاي لحفل الزفاف معا إلا أنهما لم تتكلما مع بعضهما البعض لأن كلا منهما أرادت أن ترتدي الفستان الأبيض الحريري",
+        "استعدت أختاي للعرس سويا لكن إحداهما لم تكلم الأخرى لأن كلا منهما أرادت أن تلبس الفستان الحريري الأبيض",
+        "استعدت أختاي للعرس معا لكنهما لم تتكلما إحداهما مع الأخرى لأن كلتيهما أرادت أن ترتدي الفستان الحريري الأبيض",
+        "أختاي تجهزتا للعرس معا لكنهما لم تتحدثا مع بعضهما البعض لأن كل واحدة منهما أرادت أن ترتدي فستان الحرير الأبيض"
+      ],
+      "chunks": [
+        {
+          "en": "My two sisters got ready",
+          "accept": [
+            "استعدت أختاي",
+            "أختاي استعدتا",
+            "تجهزت أختاي",
+            "أختاي تجهزتا",
+            "تحضرت أختاي",
+            "أختاي تحضرتا"
+          ],
+          "mistakes": [
+            {
+              "text": "استعدتا أختاي",
+              "rule": "A verb before its subject stays singular",
+              "note": "With the verb first it stays singular: استعدّت أختايَ. (After the subject: أختايَ استعدّتا.)"
+            },
+            {
+              "text": "أختاي استعدت",
+              "rule": "A verb after its subject agrees with it in number",
+              "note": "Two sisters take the feminine dual after the subject: أختايَ استعدّتا."
+            },
+            {
+              "text": "استعد أختاي",
+              "rule": "The verb is feminine for sisters",
+              "note": "Sisters take a feminine verb: استعدّت أختايَ."
+            },
+            {
+              "text": "استعدوا",
+              "rule": "The -وا ending is for a masculine plural",
+              "note": "Two sisters take the feminine dual: استعدّت أختايَ, or أختايَ استعدّتا."
+            },
+            {
+              "text": "أخواتي",
+              "rule": "أخواتي is three or more sisters",
+              "note": "\"My two sisters\" is the dual: أختايَ."
+            },
+            {
+              "text": "أختي استعدت",
+              "rule": "أختي is one sister",
+              "note": "\"My two sisters\" is the dual: استعدّت أختايَ."
+            }
+          ]
+        },
+        {
+          "en": "for the wedding",
+          "accept": [
+            "للعرس",
+            "للزفاف",
+            "لحفل الزفاف",
+            "لحفل العرس",
+            "لحفلة العرس",
+            "لحفلة الزفاف"
+          ],
+          "mistakes": [
+            {
+              "text": "إلى العرس",
+              "rule": "استعدّ takes لـ",
+              "note": "\"Get ready for\" is استعدّ لـ: استعدّتا للعرس."
+            },
+            {
+              "text": "على العرس",
+              "rule": "استعدّ takes لـ",
+              "note": "\"Get ready for\" is استعدّ لـ: للعرس."
+            },
+            {
+              "text": "لعرس",
+              "rule": "\"The wedding\" is a particular wedding: ال",
+              "note": "Use the article: للعرسِ (لـ + العرس)."
+            }
+          ]
+        },
+        {
+          "en": "together",
+          "accept": [
+            "معا",
+            "سويا",
+            "سوية",
+            "جميعا"
+          ],
+          "mistakes": [
+            {
+              "text": "مع بعض",
+              "rule": "Colloquial for \"together\"",
+              "note": "مع بعض is everyday speech. In written Arabic: معًا.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "but they did not speak",
+          "accept": [
+            "لكنهما لم تتكلما",
+            "لكنهما لم تتحدثا",
+            "لكن لم تتكلما",
+            "لكن لم تتحدثا",
+            "إلا أنهما لم تتكلما",
+            "إلا أنهما لم تتحدثا",
+            "لكن إحداهما لم تكلم",
+            "لكن إحداهما لم تحدث",
+            "لكنهما لم تتبادلا الحديث"
+          ],
+          "mistakes": [
+            {
+              "text": "لم تتكلمان",
+              "rule": "After لم the verb drops its final ن",
+              "note": "لم takes the jussive: لم تتكلّما."
+            },
+            {
+              "text": "لم تتحدثان",
+              "rule": "After لم the verb drops its final ن",
+              "note": "لم takes the jussive: لم تتحدّثا."
+            },
+            {
+              "text": "لم يتكلما",
+              "rule": "Two sisters take the feminine dual: تتكلّما",
+              "note": "يتكلّما is for two men. For two women: لم تتكلّما."
+            },
+            {
+              "text": "لم يتحدثا",
+              "rule": "Two sisters take the feminine dual: تتحدّثا",
+              "note": "For two women: لم تتحدّثا."
+            },
+            {
+              "text": "لكنهم",
+              "rule": "Two people take the dual: لكنّهما",
+              "note": "هم is three or more. For two: لكنّهما."
+            },
+            {
+              "text": "لكنهن",
+              "rule": "Two people take the dual: لكنّهما",
+              "note": "هنّ is three or more women. For two: لكنّهما."
+            },
+            {
+              "text": "لم تتكلموا",
+              "rule": "Two sisters take the feminine dual: تتكلّما",
+              "note": "The -وا ending is a masculine plural. For two women: لم تتكلّما."
+            }
+          ]
+        },
+        {
+          "en": "to each other",
+          "accept": [
+            "مع بعضهما البعض",
+            "مع بعضهما",
+            "مع بعضهما بعضا",
+            "بعضهما بعضا",
+            "بعضهما مع بعض",
+            "إحداهما مع الأخرى",
+            "إحداهما الأخرى",
+            "الأخرى"
+          ],
+          "mistakes": [
+            {
+              "text": "بعضهم البعض",
+              "rule": "Two people take the dual pronoun: بعضهما",
+              "note": "بعضهم is for three or more. For two: مع بعضِهما البعض."
+            },
+            {
+              "text": "بعضهن البعض",
+              "rule": "Two people take the dual pronoun: بعضهما",
+              "note": "For two sisters: مع بعضِهما البعض."
+            },
+            {
+              "text": "بعضها البعض",
+              "rule": "People take هما, not ها",
+              "note": "ـها is for things. For two sisters: بعضِهما."
+            },
+            {
+              "text": "مع بعض",
+              "rule": "Colloquial for \"each other\"",
+              "note": "In written Arabic: مع بعضِهما البعض, or إحداهما مع الأخرى.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "because each of them wanted",
+          "accept": [
+            "لأن كلا منهما أرادت",
+            "لأن كلا منهما أراد",
+            "لأن كل واحدة منهما أرادت",
+            "لأن كل واحدة منهما كانت تريد",
+            "لأن كلا منهما كانت تريد",
+            "لأن كلتيهما أرادت",
+            "لأن كلتيهما كانت تريد",
+            "لأن كلتيهما أرادتا"
+          ],
+          "mistakes": [
+            {
+              "text": "لأن كل منهما",
+              "rule": "After لأنّ the noun is accusative: كلًّا",
+              "note": "Without a following noun, كلّ takes tanwin: لأنّ كلًّا منهما."
+            },
+            {
+              "text": "لأن كلتاهما",
+              "rule": "After لأنّ the noun is accusative: كلتيهما",
+              "note": "لأنّ makes its noun accusative: لأنّ كلتيهما."
+            },
+            {
+              "text": "منهما أرادتا",
+              "rule": "كلّ takes a singular verb",
+              "note": "\"Each\" is singular: كلًّا منهما أرادت."
+            },
+            {
+              "text": "منهما أرادوا",
+              "rule": "كلّ takes a singular verb",
+              "note": "\"Each\" is singular: كلًّا منهما أرادت."
+            },
+            {
+              "text": "كل واحد منهما",
+              "rule": "The sisters are feminine: واحدة",
+              "note": "Each of the two sisters: كلُّ واحدةٍ منهما."
+            }
+          ]
+        },
+        {
+          "en": "to wear",
+          "accept": [
+            "أن ترتدي",
+            "أن تلبس",
+            "ارتداء",
+            "لبس",
+            "أن ترتديا",
+            "أن تلبسا"
+          ],
+          "mistakes": [
+            {
+              "text": "أن يرتدي",
+              "rule": "The verb agrees with each sister (she)",
+              "note": "She wears: أن ترتديَ."
+            },
+            {
+              "text": "أن يلبس",
+              "rule": "The verb agrees with each sister (she)",
+              "note": "She wears: أن تلبسَ."
+            },
+            {
+              "text": "أن ترتدين",
+              "rule": "After أن the verb drops its final ن",
+              "note": "أن ترتديَ."
+            },
+            {
+              "text": "أن تلبسين",
+              "rule": "After أن the verb drops its final ن",
+              "note": "أن تلبسَ."
+            }
+          ]
+        },
+        {
+          "en": "the white silk dress",
+          "accept": [
+            "الفستان الحريري الأبيض",
+            "الفستان الأبيض الحريري",
+            "فستان الحرير الأبيض",
+            "الفستان الأبيض المصنوع من الحرير",
+            "الفستان الحريري الأبيض اللون",
+            "الثوب الحريري الأبيض",
+            "الثوب الأبيض الحريري"
+          ],
+          "mistakes": [
+            {
+              "text": "الفستان البيضاء",
+              "rule": "فستان is masculine: الأبيض",
+              "note": "بيضاء is the feminine. The dress is masculine: الفستانُ الأبيضُ."
+            },
+            {
+              "text": "الأبيضة",
+              "rule": "The feminine of أبيض is بيضاء",
+              "note": "أبيضة is not a word. Masculine أبيض, feminine بيضاء; for the dress, الأبيض."
+            },
+            {
+              "text": "الأبيض الفستان",
+              "rule": "An adjective comes after its noun",
+              "note": "Noun first: الفستانَ الأبيضَ."
+            },
+            {
+              "text": "فستان الأبيض",
+              "rule": "Noun and adjective must match in definiteness",
+              "note": "Both take ال: الفستانَ الأبيضَ."
+            },
+            {
+              "text": "الفستان الحرير",
+              "rule": "Use the adjective الحريري, or an idafa",
+              "note": "\"Silk dress\": الفستانَ الحريريَّ, or فستانَ الحريرِ."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "Two sisters: أختايَ استعدّتا, or with the verb first, استعدّت أختايَ",
+        "After لم, no final ن: لم تتكلّما",
+        "Two people: بعضِهما, لكنّهما (not بعضهم, لكنّهم)",
+        "After لأنّ: كلًّا منهما, and كلّ takes a singular verb (أرادت)",
+        "فستان is masculine: الفستانُ الأبيضُ, not البيضاء"
+      ]
+    },
+    {
+      "position": 2,
+      "english": "The company lowered the prices of its cheap sheets sharply, but it did so at the expense of quality, so customers stopped buying them.",
+      "grammar_focus": "A company as feminine (خفّضت، لكنّها), an idafa chain with an adjective (أسعارَ شراشفِها الرخيصةِ), the absolute object (تخفيضًا كبيرًا), على حساب, and توقّف عن + verbal noun",
+      "target_words": [
+        "سِعر",
+        "شَرشَف",
+        "رَخيص",
+        "حِساب"
+      ],
+      "model_answer": "خَفَّضَتِ الشَّرِكَةُ أَسعارَ شَراشِفِها الرَّخيصَةِ تَخفيضًا كَبيرًا، لٰكِنَّها فَعَلَت ذٰلِكَ عَلى حِسابِ الجَودَةِ، فَتَوَقَّفَ الزَّبائِنُ عَن شِرائِها.",
+      "reference_translations": [
+        "خفضت الشركة أسعار شراشفها الرخيصة تخفيضا كبيرا لكنها فعلت ذلك على حساب الجودة فتوقف الزبائن عن شرائها",
+        "الشركة خفضت أسعار شراشفها الرخيصة بشكل كبير لكنها فعلت ذلك على حساب الجودة فتوقف العملاء عن شرائها",
+        "قامت الشركة بتخفيض أسعار شراشفها الرخيصة تخفيضا حادا إلا أنها فعلت ذلك على حساب الجودة فتوقف الزبائن عن شرائها",
+        "خفضت الشركة أسعار الشراشف الرخيصة كثيرا غير أنها فعلت ذلك على حساب النوعية فلم يعد الزبائن يشترونها",
+        "خفضت الشركة أسعار شراشفها الرخيصة إلى حد كبير لكنها قامت بذلك على حساب الجودة فتوقف الزبائن عن شراء الشراشف",
+        "أنزلت الشركة أسعار شراشفها الرخيصة بشكل حاد لكنها فعلت ذلك على حساب جودتها فالزبائن توقفوا عن شرائها"
+      ],
+      "chunks": [
+        {
+          "en": "The company lowered",
+          "accept": [
+            "خفضت الشركة",
+            "الشركة خفضت",
+            "قامت الشركة بتخفيض",
+            "أنزلت الشركة",
+            "الشركة أنزلت",
+            "قللت الشركة",
+            "الشركة قللت"
+          ],
+          "mistakes": [
+            {
+              "text": "خفض الشركة",
+              "rule": "A company is feminine: خفّضت",
+              "note": "شركة is feminine, so the verb is too: خفّضت الشركةُ."
+            },
+            {
+              "text": "الشركة خفض",
+              "rule": "A company is feminine: خفّضت",
+              "note": "After a feminine subject: الشركةُ خفّضت."
+            },
+            {
+              "text": "خفضوا",
+              "rule": "A company is one, and feminine: خفّضت",
+              "note": "The company is singular: خفّضت, not خفّضوا."
+            },
+            {
+              "text": "انخفضت الشركة",
+              "rule": "انخفض means \"went down\"; to lower something is خفّض",
+              "note": "انخفض is intransitive (the prices went down). The company lowered them: خفّضت."
+            }
+          ]
+        },
+        {
+          "en": "the prices of its cheap sheets",
+          "accept": [
+            "أسعار شراشفها الرخيصة",
+            "أسعار الشراشف الرخيصة",
+            "سعر شراشفها الرخيصة",
+            "أسعار شراشف الشركة الرخيصة"
+          ],
+          "mistakes": [
+            {
+              "text": "الأسعار شراشفها",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "\"The prices of its sheets\" is an idafa: أسعارَ شراشفِها."
+            },
+            {
+              "text": "الشراشفها",
+              "rule": "A noun can't have both ال and a pronoun",
+              "note": "Its sheets: شراشفُها, without ال."
+            },
+            {
+              "text": "شراشفها الرخيص",
+              "rule": "Adjectives for non-human plurals are feminine singular",
+              "note": "Sheets are things: شراشفِها الرخيصةِ."
+            },
+            {
+              "text": "الرخيصين",
+              "rule": "The -ين plural is for people",
+              "note": "Sheets take the feminine singular: الرخيصة."
+            },
+            {
+              "text": "الرخيصون",
+              "rule": "The -ون plural is for people",
+              "note": "Sheets take the feminine singular: الرخيصة."
+            },
+            {
+              "text": "شراشفه",
+              "rule": "A company is feminine: its = ـها",
+              "note": "Its sheets (the company's): شراشفُها."
+            },
+            {
+              "text": "شرشفات",
+              "rule": "The plural of شرشف is شراشف",
+              "note": "شرشف has a broken plural: شراشف."
+            }
+          ]
+        },
+        {
+          "en": "sharply",
+          "accept": [
+            "تخفيضا كبيرا",
+            "تخفيضا حادا",
+            "تخفيضا شديدا",
+            "بشكل كبير",
+            "بشكل حاد",
+            "كثيرا",
+            "إلى حد كبير",
+            "بنسبة كبيرة"
+          ],
+          "mistakes": [
+            {
+              "text": "تخفيض كبير",
+              "rule": "The absolute object is accusative: تخفيضًا كبيرًا",
+              "note": "After the verb, its verbal noun is accusative: خفّضت… تخفيضًا كبيرًا."
+            },
+            {
+              "text": "بشكل كبيرا",
+              "rule": "After بـ the noun and adjective are genitive",
+              "note": "بشكلٍ كبيرٍ: no final alif after بـ."
+            }
+          ]
+        },
+        {
+          "en": "but it did so",
+          "accept": [
+            "لكنها فعلت ذلك",
+            "لكنها قامت بذلك",
+            "لكنها فعلت هذا",
+            "غير أنها فعلت ذلك",
+            "إلا أنها فعلت ذلك",
+            "لكن ذلك كان"
+          ],
+          "mistakes": [
+            {
+              "text": "لكنه فعل",
+              "rule": "A company is feminine: لكنّها فعلت",
+              "note": "The company is \"she\": لكنّها فعلت ذلك."
+            },
+            {
+              "text": "لكنهم فعلوا",
+              "rule": "A company is one, and feminine: لكنّها فعلت",
+              "note": "The company is singular: لكنّها فعلت ذلك."
+            }
+          ]
+        },
+        {
+          "en": "at the expense of quality",
+          "accept": [
+            "على حساب الجودة",
+            "على حساب النوعية",
+            "على حساب جودتها",
+            "على حساب جودة الشراشف",
+            "على حساب الجودة نفسها"
+          ],
+          "mistakes": [
+            {
+              "text": "في حساب الجودة",
+              "rule": "The idiom is على حساب",
+              "note": "\"At the expense of\" is على حسابِ: على حسابِ الجودة."
+            },
+            {
+              "text": "بحساب الجودة",
+              "rule": "The idiom is على حساب",
+              "note": "\"At the expense of\" is على حسابِ."
+            },
+            {
+              "text": "على الحساب الجودة",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "على حسابِ الجودةِ: no ال on حساب."
+            }
+          ]
+        },
+        {
+          "en": "so customers stopped buying them",
+          "accept": [
+            "فتوقف الزبائن عن شرائها",
+            "فتوقف العملاء عن شرائها",
+            "فتوقف المشترون عن شرائها",
+            "فالزبائن توقفوا عن شرائها",
+            "فتوقف الزبائن عن شراء الشراشف",
+            "فلم يعد الزبائن يشترونها",
+            "فكف الزبائن عن شرائها",
+            "فتوقف الناس عن شرائها"
+          ],
+          "mistakes": [
+            {
+              "text": "توقفوا الزبائن",
+              "rule": "A verb before its subject stays singular",
+              "note": "With the verb first: توقّفَ الزبائنُ. (After the subject: الزبائنُ توقّفوا.)"
+            },
+            {
+              "text": "الزبائن توقف",
+              "rule": "A verb after its subject agrees with it",
+              "note": "With the customers first: الزبائنُ توقّفوا."
+            },
+            {
+              "text": "عن شرائهم",
+              "rule": "Pronouns for non-human plurals are feminine singular",
+              "note": "The sheets are things, so \"them\" is ـها: عن شرائِها."
+            },
+            {
+              "text": "عن شرائه",
+              "rule": "\"Them\" refers to the sheets: ـها",
+              "note": "Sheets are a non-human plural: عن شرائِها."
+            },
+            {
+              "text": "يشترونهم",
+              "rule": "Pronouns for non-human plurals are feminine singular",
+              "note": "They buy them (the sheets): يشترونها."
+            },
+            {
+              "text": "توقف الزبائن شراء",
+              "rule": "توقّف takes عن",
+              "note": "\"Stop doing\" is توقّف عن + verbal noun: توقّفَ الزبائنُ عن شرائِها."
+            },
+            {
+              "text": "توقف الزبائن من",
+              "rule": "توقّف takes عن, not من",
+              "note": "توقّفَ الزبائنُ عن شرائِها."
+            },
+            {
+              "text": "توقف الزبائن أن",
+              "rule": "توقّف takes عن + a verbal noun",
+              "note": "Use the verbal noun: عن شرائِها."
+            },
+            {
+              "text": "توقف شراء",
+              "rule": "توقّف takes عن",
+              "note": "\"Stop doing\" is توقّف عن + verbal noun: توقّفوا عن شرائِها."
+            },
+            {
+              "text": "توقفوا شراء",
+              "rule": "توقّف takes عن",
+              "note": "\"Stop doing\" is توقّف عن + verbal noun: توقّفوا عن شرائِها."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "A company is feminine: خفّضت الشركة، لكنّها، شراشفُها",
+        "Its cheap sheets: شراشفِها الرخيصةِ (no ال with a pronoun; feminine singular adjective)",
+        "The absolute object: تخفيضًا كبيرًا",
+        "على حساب الجودة",
+        "توقّف عن + verbal noun: توقّف الزبائن عن شرائها"
+      ]
+    },
+    {
+      "position": 3,
+      "english": "Were it not for the map on the right of the page, we would have gone home without a gift, that is, with nothing for her birthday.",
+      "grammar_focus": "لولا + a noun, with لَـ on the answer (لَعُدنا), على يمين الصفحة, أي (\"that is\"), and عيد ميلادها as an idafa",
+      "target_words": [
+        "يَمين",
+        "أَيْ (يَعني)"
+      ],
+      "model_answer": "لَولا الخَريطَةُ عَلى يَمينِ الصَّفحَةِ لَعُدنا إِلى البَيتِ بِلا هَدِيَّةٍ، أَي بِلا شَيءٍ لِعيدِ ميلادِها.",
+      "reference_translations": [
+        "لولا الخريطة على يمين الصفحة لعدنا إلى البيت بلا هدية أي بلا شيء لعيد ميلادها",
+        "لولا الخريطة في الجهة اليمنى من الصفحة لكنا عدنا إلى المنزل بدون هدية أي بدون أي شيء لعيد ميلادها",
+        "لو لم تكن الخريطة على يمين الصفحة لرجعنا إلى البيت من غير هدية يعني من غير شيء لعيد ميلادها",
+        "لولا وجود الخريطة على الجانب الأيمن من الصفحة لعدنا إلى البيت دون هدية أي دون شيء لعيد ميلادها",
+        "لولا الخريطة في يمين الصفحة لكنا رجعنا إلى البيت بلا هدية أي بلا أي شيء لعيد ميلادها",
+        "لولا الخريطة على يمين الصفحة لعدنا إلى المنزل بدون أي هدية أعني بدون شيء لعيد ميلادها"
+      ],
+      "chunks": [
+        {
+          "en": "Were it not for the map",
+          "accept": [
+            "لولا الخريطة",
+            "لولا وجود الخريطة",
+            "لو لم تكن الخريطة",
+            "لو لم تكن هناك خريطة",
+            "لولا الخارطة",
+            "لو لم توجد الخريطة"
+          ],
+          "mistakes": [
+            {
+              "text": "لو الخريطة",
+              "rule": "لولا is one word; لو needs a verb",
+              "note": "\"Were it not for\" is لولا + noun: لولا الخريطةُ. (Or لو لم تكن الخريطة.)"
+            },
+            {
+              "text": "إذا لم تكن الخريطة",
+              "rule": "An unreal condition takes لو, not إذا",
+              "note": "The map was there, so this is hypothetical: لولا الخريطةُ, or لو لم تكن الخريطة."
+            },
+            {
+              "text": "لولا الخريطة موجودة",
+              "rule": "After لولا, \"existing\" is left unsaid",
+              "note": "لولا الخريطةُ already means \"were the map not there\". Drop موجودة."
+            },
+            {
+              "text": "لولا كانت",
+              "rule": "لولا is followed by a noun, not a verb",
+              "note": "لولا الخريطةُ…, or لو لم تكن الخريطة…"
+            }
+          ]
+        },
+        {
+          "en": "on the right of the page",
+          "accept": [
+            "على يمين الصفحة",
+            "في يمين الصفحة",
+            "يمين الصفحة",
+            "في الجهة اليمنى من الصفحة",
+            "على الجهة اليمنى من الصفحة",
+            "على الجانب الأيمن من الصفحة",
+            "في الجانب الأيمن من الصفحة"
+          ],
+          "mistakes": [
+            {
+              "text": "على اليمين الصفحة",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "\"The right of the page\" is an idafa: على يمينِ الصفحةِ."
+            },
+            {
+              "text": "الجهة الأيمن",
+              "rule": "The adjective agrees with الجهة (feminine): اليمنى",
+              "note": "The feminine of أيمن is يُمنى: الجهةُ اليُمنى."
+            },
+            {
+              "text": "الجانب اليمين",
+              "rule": "يمين is a noun; the adjective is الأيمن",
+              "note": "\"The right side\": الجانبُ الأيمنُ, or simply يمينُ الصفحة."
+            }
+          ]
+        },
+        {
+          "en": "we would have gone home",
+          "accept": [
+            "لعدنا إلى البيت",
+            "لعدنا إلى المنزل",
+            "لعدنا للبيت",
+            "لكنا عدنا إلى البيت",
+            "لكنا عدنا إلى المنزل",
+            "لرجعنا إلى البيت",
+            "لرجعنا إلى المنزل",
+            "لرجعنا للبيت",
+            "لكنا رجعنا إلى البيت",
+            "لكنا رجعنا إلى المنزل"
+          ],
+          "mistakes": [
+            {
+              "text": "عدنا إلى",
+              "rule": "The answer of لولا takes لَـ",
+              "note": "After لولا, the result clause starts with لَـ: لَعُدنا إلى البيت."
+            },
+            {
+              "text": "رجعنا إلى",
+              "rule": "The answer of لولا takes لَـ",
+              "note": "After لولا, the result clause starts with لَـ: لَرجعنا إلى البيت."
+            },
+            {
+              "text": "سنعود",
+              "rule": "An unreal past result is لَـ + past",
+              "note": "\"We would have gone\": لَعُدنا (or لَكُنّا عُدنا), not the future."
+            },
+            {
+              "text": "لنعود",
+              "rule": "An unreal past result is لَـ + past",
+              "note": "\"We would have gone\": لَعُدنا."
+            },
+            {
+              "text": "لعادوا",
+              "rule": "The verb agrees with \"we\": عُدنا",
+              "note": "عادوا is \"they went back\". We: لَعُدنا."
+            },
+            {
+              "text": "لعدت",
+              "rule": "The verb agrees with \"we\": عُدنا",
+              "note": "عُدتُ is \"I went back\". We: لَعُدنا."
+            }
+          ]
+        },
+        {
+          "en": "without a gift",
+          "accept": [
+            "بلا هدية",
+            "بدون هدية",
+            "من غير هدية",
+            "دون هدية",
+            "بغير هدية",
+            "بدون أي هدية",
+            "بلا أي هدية",
+            "من دون هدية"
+          ],
+          "mistakes": [
+            {
+              "text": "بدون الهدية",
+              "rule": "\"A gift\" is indefinite: هدية",
+              "note": "بدون الهديّة is \"without the gift\". For \"a gift\": بدون هديّةٍ."
+            },
+            {
+              "text": "بلا الهدية",
+              "rule": "\"A gift\" is indefinite: هدية",
+              "note": "For \"a gift\": بلا هديّةٍ."
+            }
+          ]
+        },
+        {
+          "en": "that is",
+          "accept": [
+            "أي",
+            "يعني",
+            "أعني",
+            "بمعنى آخر",
+            "بعبارة أخرى"
+          ],
+          "mistakes": []
+        },
+        {
+          "en": "with nothing for her birthday",
+          "accept": [
+            "بلا شيء لعيد ميلادها",
+            "بدون شيء لعيد ميلادها",
+            "دون شيء لعيد ميلادها",
+            "من غير شيء لعيد ميلادها",
+            "بلا أي شيء لعيد ميلادها",
+            "بدون أي شيء لعيد ميلادها",
+            "بلا شيء لعيدها",
+            "بدون شيء لعيدها",
+            "من دون شيء لعيد ميلادها"
+          ],
+          "mistakes": [
+            {
+              "text": "لعيد الميلادها",
+              "rule": "A noun can't have both ال and a pronoun",
+              "note": "Her birthday: عيدِ ميلادِها, without ال."
+            },
+            {
+              "text": "للعيد ميلادها",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "عيد ميلادها is an idafa: لِعيدِ ميلادِها."
+            },
+            {
+              "text": "لعيد ميلاده",
+              "rule": "\"Her\" is ـها",
+              "note": "Her birthday: عيدِ ميلادِها."
+            },
+            {
+              "text": "بدون لا شيء",
+              "rule": "One negative is enough",
+              "note": "بدون already says \"without\": بدون شيءٍ."
+            },
+            {
+              "text": "بلا لا شيء",
+              "rule": "One negative is enough",
+              "note": "بلا already says \"without\": بلا شيءٍ."
+            },
+            {
+              "text": "لعيد الميلاد",
+              "rule": "Valid, but \"her\" is missing",
+              "note": "لعيد الميلاد is \"for the birthday\". For \"her birthday\": لعيدِ ميلادِها.",
+              "status": "alternative"
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "لولا + noun, and the result starts with لَـ: لولا الخريطةُ لَعُدنا",
+        "Unreal conditions take لو/لولا, never إذا",
+        "على يمينِ الصفحةِ: no ال on يمين",
+        "Her birthday: عيدِ ميلادِها (no ال with the pronoun)",
+        "We went back: عُدنا, not عادوا or عُدتُ"
+      ]
+    }
+  ]
+}
