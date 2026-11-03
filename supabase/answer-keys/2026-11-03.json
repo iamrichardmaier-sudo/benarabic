@@ -1,0 +1,824 @@
+{
+  "day": "2026-11-03",
+  "format": "See supabase/answer-keys/README.md.",
+  "sentences": [
+    {
+      "position": 1,
+      "english": "In Ramadan my mother and my aunt used to get up before dawn to prepare suhur for the whole family, until they got used to sleeping only a few hours.",
+      "grammar_focus": "The feminine dual in a past habit (كانت أمّي وخالتي تقومان), لِـ + subjunctive (لِتُحضِّرا), حتّى + past for a result, اعتاد على + verbal noun, and بِضعَ ساعاتٍ",
+      "target_words": [
+        "قامَ",
+        "السُّحور",
+        "اِعتادَ على",
+        "حَتّى"
+      ],
+      "model_answer": "في رَمَضانَ كانَت أُمّي وَخالَتي تَقومانِ قَبلَ الفَجرِ لِتُحَضِّرا السُّحورَ لِلعائِلَةِ كُلِّها، حَتّى اعتادَتا عَلى النَّومِ بِضعَ ساعاتٍ فَقَط.",
+      "reference_translations": [
+        "في رمضان كانت أمي وخالتي تقومان قبل الفجر لتحضرا السحور للعائلة كلها حتى اعتادتا على النوم بضع ساعات فقط",
+        "في شهر رمضان كانت أمي وعمتي تستيقظان قبل الفجر لتحضير السحور لكل العائلة حتى اعتادتا النوم ساعات قليلة فقط",
+        "خلال رمضان أمي وخالتي كانتا تقومان قبل الفجر لإعداد السحور للعائلة كلها إلى أن اعتادتا على النوم لساعات قليلة فقط",
+        "في رمضان كانت والدتي وخالتي تنهضان قبل الفجر كي تحضرا السحور لجميع أفراد العائلة حتى تعودتا على النوم بضع ساعات فقط",
+        "في رمضان كانت أمي وخالتي تصحوان قبل الفجر لتجهيز السحور للأسرة كلها حتى اعتادتا أن تناما بضع ساعات فقط",
+        "في رمضان أمي وعمتي كانتا تستيقظان قبل الفجر لتعدا السحور للعائلة كلها حتى اعتادتا على النوم لبضع ساعات فقط"
+      ],
+      "chunks": [
+        {
+          "en": "In Ramadan",
+          "accept": [
+            "في رمضان",
+            "في شهر رمضان",
+            "خلال رمضان",
+            "خلال شهر رمضان"
+          ],
+          "mistakes": [
+            {
+              "text": "في الرمضان",
+              "rule": "رمضان is a name: no ال",
+              "note": "Month names like رمضان don't take the article: في رمضانَ."
+            },
+            {
+              "text": "شهر الرمضان",
+              "rule": "رمضان is a name: no ال",
+              "note": "في شهرِ رمضانَ, without ال on رمضان."
+            }
+          ]
+        },
+        {
+          "en": "my mother and my aunt",
+          "accept": [
+            "أمي وخالتي",
+            "أمي وعمتي",
+            "والدتي وخالتي",
+            "والدتي وعمتي"
+          ],
+          "mistakes": []
+        },
+        {
+          "en": "used to get up",
+          "accept": [
+            "تقومان",
+            "تستيقظان",
+            "تنهضان",
+            "تصحوان"
+          ],
+          "mistakes": [
+            {
+              "text": "يقومان",
+              "rule": "Two women take the feminine dual: تقومان",
+              "note": "يقومان is for two men. Your mother and aunt: تقومانِ."
+            },
+            {
+              "text": "يستيقظان",
+              "rule": "Two women take the feminine dual: تستيقظان",
+              "note": "For two women: تستيقظانِ."
+            },
+            {
+              "text": "تقوما",
+              "rule": "The plain present dual keeps its ن",
+              "note": "Without لن/لم/أن before it, the dual ends in ـانِ: تقومانِ."
+            },
+            {
+              "text": "تستيقظا",
+              "rule": "The plain present dual keeps its ن",
+              "note": "Without لن/لم/أن before it: تستيقظانِ."
+            },
+            {
+              "text": "يقومون",
+              "rule": "Two women take the feminine dual, not the plural",
+              "note": "For two women: تقومانِ."
+            },
+            {
+              "text": "تقمن",
+              "rule": "ـنَ is three or more women",
+              "note": "For two women: تقومانِ."
+            },
+            {
+              "text": "كانوا",
+              "rule": "Two women take a feminine verb",
+              "note": "كانوا is masculine plural. Use كانت before them, or كانتا after them."
+            },
+            {
+              "text": "كانا",
+              "rule": "Two women take the feminine dual: كانتا",
+              "note": "كانا is for two men. After the women: أمّي وخالتي كانتا."
+            },
+            {
+              "text": "كانتان",
+              "rule": "The past dual is كانتا, with no ن",
+              "note": "كانتا: the past tense dual never ends in ن."
+            },
+            {
+              "text": "قامتا",
+              "rule": "\"Used to\" is a habit: كان + present",
+              "note": "قامتا is a single time. Habit: كانتا تقومانِ."
+            },
+            {
+              "text": "قامت أمي",
+              "rule": "\"Used to\" is a habit: كان + present",
+              "note": "قامت is a single time. Habit: كانت أمّي وخالتي تقومانِ."
+            }
+          ]
+        },
+        {
+          "en": "before dawn",
+          "accept": [
+            "قبل الفجر",
+            "قبل طلوع الفجر",
+            "قبل بزوغ الفجر"
+          ],
+          "mistakes": [
+            {
+              "text": "قبل فجر",
+              "rule": "\"Dawn\" here takes ال",
+              "note": "Before dawn: قبلَ الفجرِ."
+            },
+            {
+              "text": "بعد الفجر",
+              "rule": "\"Before\" is قبل",
+              "note": "بعد is \"after\": قبلَ الفجرِ."
+            }
+          ]
+        },
+        {
+          "en": "to prepare suhur",
+          "accept": [
+            "لتحضرا السحور",
+            "لتحضير السحور",
+            "كي تحضرا السحور",
+            "لكي تحضرا السحور",
+            "حتى تحضرا السحور",
+            "لتعدا السحور",
+            "لإعداد السحور",
+            "لتجهزا السحور",
+            "لتجهيز السحور"
+          ],
+          "mistakes": [
+            {
+              "text": "لتحضران",
+              "rule": "After لِـ (in order to) the dual drops its ن",
+              "note": "لِـ makes the verb subjunctive: لِتُحضِّرا, no ن."
+            },
+            {
+              "text": "كي تحضران",
+              "rule": "After كي the dual drops its ن",
+              "note": "كي تُحضِّرا, no ن."
+            },
+            {
+              "text": "ليحضرا",
+              "rule": "Two women take the feminine dual",
+              "note": "For two women: لِتُحضِّرا."
+            },
+            {
+              "text": "لتحضروا",
+              "rule": "Two women take the feminine dual",
+              "note": "For two women: لِتُحضِّرا."
+            },
+            {
+              "text": "لتحضرن",
+              "rule": "ـنَ is three or more women",
+              "note": "For two women: لِتُحضِّرا."
+            }
+          ]
+        },
+        {
+          "en": "for the whole family",
+          "accept": [
+            "للعائلة كلها",
+            "لكل العائلة",
+            "لجميع أفراد العائلة",
+            "للأسرة كلها",
+            "لكل الأسرة",
+            "لجميع العائلة"
+          ],
+          "mistakes": [
+            {
+              "text": "للعائلة كله",
+              "rule": "كلّ takes a pronoun that agrees with the noun",
+              "note": "عائلة is feminine: للعائلةِ كلِّها."
+            },
+            {
+              "text": "لكل عائلة",
+              "rule": "كلّ + indefinite noun means \"every\"",
+              "note": "لكلّ عائلةٍ is \"for every family\". For the whole family: للعائلةِ كلِّها or لكلِّ العائلةِ."
+            },
+            {
+              "text": "للكل العائلة",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "لِكلِّ العائلةِ, with no ال on كلّ."
+            }
+          ]
+        },
+        {
+          "en": "until they got used to",
+          "accept": [
+            "حتى اعتادتا على",
+            "حتى اعتادتا",
+            "إلى أن اعتادتا على",
+            "إلى أن اعتادتا",
+            "حتى تعودتا على",
+            "حتى تعودتا"
+          ],
+          "mistakes": [
+            {
+              "text": "اعتادوا",
+              "rule": "Two women take the feminine dual: اعتادتا",
+              "note": "اعتادوا is masculine plural. For two women: اعتادتا."
+            },
+            {
+              "text": "اعتادا",
+              "rule": "Two women take the feminine dual: اعتادتا",
+              "note": "اعتادا is for two men. For two women: اعتادتا."
+            },
+            {
+              "text": "حتى تعتادا",
+              "rule": "A result in the past takes حتّى + past",
+              "note": "حتّى تعتادا means \"so that they would get used to\". For what happened: حتّى اعتادتا."
+            }
+          ]
+        },
+        {
+          "en": "sleeping only a few hours",
+          "accept": [
+            "النوم بضع ساعات فقط",
+            "النوم ساعات قليلة فقط",
+            "النوم لساعات قليلة فقط",
+            "النوم لبضع ساعات فقط",
+            "النوم بضع ساعات",
+            "النوم ساعات قليلة",
+            "النوم لبضع ساعات",
+            "أن تناما بضع ساعات فقط",
+            "أن تناما ساعات قليلة فقط",
+            "أن تناما لساعات قليلة فقط"
+          ],
+          "mistakes": [
+            {
+              "text": "بضعة ساعات",
+              "rule": "بضع behaves like the numbers 3–10",
+              "note": "ساعة is feminine, so بضع has no ة: بضعَ ساعاتٍ."
+            },
+            {
+              "text": "ساعات قليل",
+              "rule": "Adjectives for non-human plurals are feminine singular",
+              "note": "Hours are things: ساعاتٍ قليلةً."
+            },
+            {
+              "text": "أن تنامان",
+              "rule": "After أن the dual drops its ن",
+              "note": "أن تناما, no ن."
+            },
+            {
+              "text": "أن يناما",
+              "rule": "Two women take the feminine dual",
+              "note": "For two women: أن تناما."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "Two women: كانت أمّي وخالتي تقومانِ, or أمّي وخالتي كانتا تقومانِ",
+        "The plain present dual keeps ن (تقومانِ); after لِـ / كي / أن it drops it (لِتُحضِّرا)",
+        "رمضان takes no ال",
+        "حتّى + past for what happened: حتّى اعتادتا",
+        "بضعَ ساعاتٍ: no ة on بضع before a feminine noun"
+      ]
+    },
+    {
+      "position": 2,
+      "english": "It seems that the cook has disagreed with the restaurant owner about the menu, because he is busy with the café that he opened in his neighborhood.",
+      "grammar_focus": "يبدو أنّ + accusative, verbs with fixed prepositions (اختلف مع \"disagree with\" against اختلف عن \"differ from\", منشغل بـ), and a relative clause on a definite noun (المقهى الذي افتتحه)",
+      "target_words": [
+        "يَبدو أَنَّ",
+        "طَبّاخ",
+        "اِختَلَفَ مع",
+        "اِنشَغَلَ بِـ",
+        "مَقْهًى"
+      ],
+      "model_answer": "يَبدو أَنَّ الطَّبّاخَ اختَلَفَ مَعَ صاحِبِ المَطعَمِ عَلى قائِمَةِ الطَّعامِ، لِأَنَّهُ مُنشَغِلٌ بِالمَقهى الَّذي افتَتَحَهُ في حَيِّهِ.",
+      "reference_translations": [
+        "يبدو أن الطباخ اختلف مع صاحب المطعم على قائمة الطعام لأنه منشغل بالمقهى الذي افتتحه في حيه",
+        "يبدو أن الطباخ قد اختلف مع مالك المطعم حول قائمة الطعام لأنه مشغول بالمقهى الذي فتحه في حيه",
+        "يبدو أن الطاهي اختلف مع صاحب المطعم بشأن القائمة فهو منشغل بالمقهى الذي افتتحه في حيه",
+        "يبدو أن الطباخ اختلف مع صاحب المطعم على قائمة الطعام لأنه مشغول بالمقهى الجديد الذي افتتحه في حيه",
+        "يبدو أن الطباخ اختلف مع صاحب المطعم حول قائمة الأكل إذ إنه منشغل بالمقهى الذي أنشأه في حيه",
+        "يبدو أن الطباخ اختلف مع صاحب المطعم على قائمة الطعام لأنه انشغل بالمقهى الذي افتتحه في الحي الذي يسكن فيه"
+      ],
+      "chunks": [
+        {
+          "en": "It seems that the cook",
+          "accept": [
+            "يبدو أن الطباخ",
+            "يبدو أن الطاهي",
+            "يبدو أن الشيف"
+          ],
+          "mistakes": [
+            {
+              "text": "يبدو إن",
+              "rule": "After يبدو, \"that\" is أنّ (hamza above)",
+              "note": "يبدو أنّ: only speech verbs (قال) take إنّ.",
+              "strict": true
+            },
+            {
+              "text": "يبدو الطباخ اختلف",
+              "rule": "يبدو + a clause needs أنّ",
+              "note": "\"It seems that\": يبدو أنّ الطبّاخَ اختلف…"
+            },
+            {
+              "text": "يبدو أن طباخ",
+              "rule": "\"The cook\" is a particular cook: ال",
+              "note": "يبدو أنّ الطبّاخَ."
+            },
+            {
+              "text": "يبدو أن الطباخة",
+              "rule": "\"The cook\" here is a man (he opened the café)",
+              "note": "The sentence says \"he\": الطبّاخَ."
+            }
+          ]
+        },
+        {
+          "en": "has disagreed with the restaurant owner",
+          "accept": [
+            "اختلف مع صاحب المطعم",
+            "قد اختلف مع صاحب المطعم",
+            "اختلف مع مالك المطعم",
+            "قد اختلف مع مالك المطعم"
+          ],
+          "mistakes": [
+            {
+              "text": "اختلف عن صاحب",
+              "rule": "اختلف عن means \"differ from\"; \"disagree with\" is اختلف مع",
+              "note": "اختلف عن صاحب المطعم says the cook is different from the owner. To disagree with him: اختلف مع."
+            },
+            {
+              "text": "اختلف على صاحب",
+              "rule": "\"Disagree with\" someone is اختلف مع",
+              "note": "Use مع for the person: اختلف مع صاحبِ المطعم. على goes with the topic."
+            },
+            {
+              "text": "اختلفوا مع",
+              "rule": "One cook takes a singular verb",
+              "note": "The cook is one man: اختلفَ."
+            },
+            {
+              "text": "اختلفت مع",
+              "rule": "The cook is masculine here: اختلفَ",
+              "note": "\"He\" opened the café, so: اختلفَ, not اختلفتْ (she) or اختلفتُ (I)."
+            },
+            {
+              "text": "مع الصاحب المطعم",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "The owner of the restaurant: صاحبِ المطعمِ."
+            },
+            {
+              "text": "مع صاحب مطعم",
+              "rule": "\"The restaurant\" is a particular one: ال",
+              "note": "مع صاحبِ المطعمِ."
+            }
+          ]
+        },
+        {
+          "en": "about the menu",
+          "accept": [
+            "على قائمة الطعام",
+            "حول قائمة الطعام",
+            "بشأن قائمة الطعام",
+            "بخصوص قائمة الطعام",
+            "على القائمة",
+            "حول القائمة",
+            "بشأن القائمة",
+            "على قائمة الأكل",
+            "حول قائمة الأكل",
+            "على المنيو",
+            "حول المنيو"
+          ],
+          "mistakes": [
+            {
+              "text": "عن قائمة الطعام",
+              "rule": "\"About\" a disagreement is على or حول",
+              "note": "With اختلف, عن means \"differ from\". The topic of a disagreement takes على or حول."
+            },
+            {
+              "text": "على القائمة الطعام",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "قائمةِ الطعامِ, with ال only on الطعام."
+            },
+            {
+              "text": "على قائمة طعام",
+              "rule": "\"The menu\" is definite",
+              "note": "على قائمةِ الطعامِ."
+            }
+          ]
+        },
+        {
+          "en": "because he is busy",
+          "accept": [
+            "لأنه منشغل",
+            "لأنه مشغول",
+            "لأنه انشغل",
+            "فهو منشغل",
+            "فهو مشغول",
+            "لكونه منشغلا",
+            "لكونه مشغولا",
+            "إذ إنه منشغل",
+            "إذ إنه مشغول",
+            "لأنه منشغل الآن",
+            "لأنه مشغول الآن"
+          ],
+          "mistakes": [
+            {
+              "text": "لأنهم",
+              "rule": "One cook: لأنّه",
+              "note": "He is one person: لأنّه."
+            },
+            {
+              "text": "لأنها منشغلة",
+              "rule": "The cook is masculine here",
+              "note": "\"He\": لأنّه منشغلٌ."
+            },
+            {
+              "text": "لأن منشغل",
+              "rule": "لأنّ needs a noun or pronoun after it",
+              "note": "لأنّه منشغلٌ: attach ـه to لأنّ."
+            },
+            {
+              "text": "لأنه منشغلا",
+              "rule": "With no كان, the predicate is nominative",
+              "note": "لأنّه منشغلٌ, with no final alif."
+            },
+            {
+              "text": "لأنه مشغولا",
+              "rule": "With no كان, the predicate is nominative",
+              "note": "لأنّه مشغولٌ, with no final alif."
+            }
+          ]
+        },
+        {
+          "en": "with the café that he opened",
+          "accept": [
+            "بالمقهى الذي افتتحه",
+            "بالمقهى الذي فتحه",
+            "بالمقهى الذي أنشأه",
+            "بالمقهى الجديد الذي افتتحه",
+            "بالمقهى الذي قام بافتتاحه"
+          ],
+          "mistakes": [
+            {
+              "text": "بالمقهى التي",
+              "rule": "مقهى is masculine: الذي",
+              "note": "مقهًى is masculine, so the relative pronoun is الذي."
+            },
+            {
+              "text": "بمقهى الذي",
+              "rule": "الذي follows a definite noun",
+              "note": "With الذي the noun needs ال: بالمقهى الذي…"
+            },
+            {
+              "text": "مقهى الذي",
+              "rule": "الذي follows a definite noun",
+              "note": "With الذي the noun needs ال: المقهى الذي…"
+            },
+            {
+              "text": "الذي افتتحها",
+              "rule": "مقهى is masculine: افتتحه",
+              "note": "\"It\" (the café) is masculine: افتتحَه."
+            },
+            {
+              "text": "الذي افتتحوه",
+              "rule": "One cook opened it: افتتحه",
+              "note": "He opened it: افتتحَه."
+            },
+            {
+              "text": "بالمقهى الذي افتتح",
+              "rule": "Valid: the pronoun can be dropped",
+              "note": "Arabic allows dropping \"it\" here, but افتتحَه, with ـه, is the usual form.",
+              "status": "alternative"
+            },
+            {
+              "text": "في المقهى الذي",
+              "rule": "Understandable, but انشغل takes بـ",
+              "note": "\"Busy at the café\" is clear, but \"busy with\" is منشغل بـ: بالمقهى.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "in his neighborhood",
+          "accept": [
+            "في حيه",
+            "في حارته",
+            "في الحي الذي يسكن فيه",
+            "في الحي الذي يعيش فيه",
+            "في حيه السكني"
+          ],
+          "mistakes": [
+            {
+              "text": "في الحيه",
+              "rule": "A noun can't have both ال and a pronoun",
+              "note": "His neighborhood: حيِّه, without ال."
+            },
+            {
+              "text": "في حيها",
+              "rule": "\"His\" is ـه",
+              "note": "The cook is a man: في حيِّه."
+            },
+            {
+              "text": "في حيهم",
+              "rule": "\"His\" is ـه",
+              "note": "One man: في حيِّه."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "يبدو أنّ (hamza above) + accusative: يبدو أنّ الطبّاخَ",
+        "اختلف مع = disagree with; اختلف عن = differ from",
+        "The topic of a disagreement takes على or حول, not عن",
+        "منشغل / مشغول بـ: بالمقهى",
+        "الذي needs a definite noun: المقهى الذي افتتحه"
+      ]
+    },
+    {
+      "position": 3,
+      "english": "The invitation cards we printed for the wedding were not enough, so my father invited the rest of the guests by phone.",
+      "grammar_focus": "Non-human plurals as feminine singular (لم تكن بطاقاتُ الدعوةِ كافيةً، التي طبعناها), لم + jussive (لم تكن، لم تكفِ), لِـ + ال (للعرس), and دعا with a tall alif and a direct object",
+      "target_words": [
+        "بِطاقة دَعوة",
+        "كافٍ (صفة)",
+        "دَعا",
+        "بَقِيَّة",
+        "عُرْس"
+      ],
+      "model_answer": "لَم تَكُن بِطاقاتُ الدَّعوَةِ الَّتي طَبَعناها لِلعُرسِ كافِيَةً، فَدَعا أَبي بَقِيَّةَ الضُّيوفِ بِالهاتِفِ.",
+      "reference_translations": [
+        "لم تكن بطاقات الدعوة التي طبعناها للعرس كافية فدعا أبي بقية الضيوف بالهاتف",
+        "كانت بطاقات الدعوة التي طبعناها للعرس غير كافية لذلك دعا أبي باقي الضيوف عبر الهاتف",
+        "لم تكن بطاقات الدعوة التي قمنا بطباعتها للزفاف كافية فدعا والدي بقية الضيوف هاتفيا",
+        "بطاقات الدعوة التي طبعناها للعرس لم تكن كافية فدعا أبي بقية الضيوف بالهاتف",
+        "لم تكف بطاقات الدعوة التي طبعناها للعرس فقام أبي بدعوة بقية الضيوف عبر الهاتف",
+        "كانت بطاقات الدعوة المطبوعة للعرس غير كافية فدعا أبي بقية المدعوين بالهاتف"
+      ],
+      "chunks": [
+        {
+          "en": "The invitation cards",
+          "accept": [
+            "بطاقات الدعوة",
+            "بطاقات الدعوات",
+            "كروت الدعوة"
+          ],
+          "mistakes": [
+            {
+              "text": "البطاقات الدعوة",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "Invitation cards: بطاقاتُ الدعوةِ, with ال only on الدعوة."
+            },
+            {
+              "text": "بطاقات دعوة",
+              "rule": "\"The\" cards: the idafa needs ال on its last noun",
+              "note": "بطاقاتُ الدعوةِ (the invitation cards)."
+            },
+            {
+              "text": "بطاقة الدعوة",
+              "rule": "\"Cards\" is plural: بطاقات",
+              "note": "The plural of بطاقة is بطاقات."
+            }
+          ]
+        },
+        {
+          "en": "we printed",
+          "accept": [
+            "التي طبعناها",
+            "التي طبعنا",
+            "التي قمنا بطباعتها",
+            "المطبوعة",
+            "التي كنا قد طبعناها"
+          ],
+          "mistakes": [
+            {
+              "text": "الذي طبعناه",
+              "rule": "Non-human plurals take التي and ـها",
+              "note": "Cards are things: التي طبعناها."
+            },
+            {
+              "text": "التي طبعناهم",
+              "rule": "Pronouns for non-human plurals are feminine singular",
+              "note": "Cards are things: طبعناها."
+            },
+            {
+              "text": "التي طبعتها",
+              "rule": "The verb agrees with \"we\": طبعنا",
+              "note": "طبعتُها is \"I printed them\". We: طبعناها."
+            },
+            {
+              "text": "التي طبعوها",
+              "rule": "The verb agrees with \"we\": طبعنا",
+              "note": "طبعوها is \"they printed them\". We: طبعناها."
+            },
+            {
+              "text": "اللواتي",
+              "rule": "اللواتي is for women",
+              "note": "Cards take التي."
+            }
+          ]
+        },
+        {
+          "en": "for the wedding",
+          "accept": [
+            "للعرس",
+            "للزفاف",
+            "لحفل الزفاف",
+            "لحفلة العرس",
+            "لحفل العرس"
+          ],
+          "mistakes": [
+            {
+              "text": "لالعرس",
+              "rule": "لِـ + ال is written لِلـ",
+              "note": "The alif of ال drops after لِـ: للعرسِ."
+            },
+            {
+              "text": "لالزفاف",
+              "rule": "لِـ + ال is written لِلـ",
+              "note": "The alif of ال drops after لِـ: للزفافِ."
+            },
+            {
+              "text": "لعرس",
+              "rule": "\"The wedding\" takes ال",
+              "note": "لِلعرسِ (لِـ + العرس)."
+            }
+          ]
+        },
+        {
+          "en": "were not",
+          "accept": [
+            "لم تكن",
+            "غير كافية",
+            "ما كانت",
+            "لم تكف"
+          ],
+          "mistakes": [
+            {
+              "text": "لم يكن",
+              "rule": "Non-human plurals take a feminine singular verb",
+              "note": "The cards are things: لم تكنْ."
+            },
+            {
+              "text": "لم يكونوا",
+              "rule": "Non-human plurals take a feminine singular verb",
+              "note": "The cards are things: لم تكنْ."
+            },
+            {
+              "text": "لم تكون",
+              "rule": "After لم the verb is jussive: تكن",
+              "note": "لم تكنْ, not لم تكون."
+            },
+            {
+              "text": "لم تكفي",
+              "rule": "After لم the final ي drops: تكفِ",
+              "note": "لم تكفِ: the jussive of يكفي drops its ي."
+            },
+            {
+              "text": "ليست",
+              "rule": "\"Were\" is past: لم تكن",
+              "note": "ليست is \"are not\". For the past: لم تكنْ."
+            },
+            {
+              "text": "كانوا",
+              "rule": "Non-human plurals take a feminine singular verb",
+              "note": "The cards are things: كانت (or لم تكنْ)."
+            }
+          ]
+        },
+        {
+          "en": "enough",
+          "accept": [
+            "كافية",
+            "لم تكف"
+          ],
+          "mistakes": [
+            {
+              "text": "كافيا",
+              "rule": "Adjectives for non-human plurals are feminine singular",
+              "note": "Cards are things: كافيةً."
+            },
+            {
+              "text": "كاف",
+              "rule": "Adjectives for non-human plurals are feminine singular",
+              "note": "Cards are things: كافيةً."
+            },
+            {
+              "text": "كافين",
+              "rule": "The -ين plural is for people",
+              "note": "Cards are things: كافيةً."
+            },
+            {
+              "text": "كافيات",
+              "rule": "Valid, but feminine singular is far more usual",
+              "note": "كافياتٍ is grammatical; كافيةً is what you'll usually see for things.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "so my father invited",
+          "accept": [
+            "فدعا أبي",
+            "لذلك دعا أبي",
+            "لذا دعا أبي",
+            "فدعا والدي",
+            "لذلك دعا والدي",
+            "فقام أبي بدعوة",
+            "فأبي دعا"
+          ],
+          "mistakes": [
+            {
+              "text": "فدعى",
+              "rule": "دعا is spelt with a tall alif",
+              "note": "Verbs from roots ending in و, like دعا (يدعو), end in ا: دعا, not دعى."
+            },
+            {
+              "text": "دعى أبي",
+              "rule": "دعا is spelt with a tall alif",
+              "note": "Verbs from roots ending in و end in ا: دعا أبي."
+            },
+            {
+              "text": "فدعت أبي",
+              "rule": "\"My father\" takes a masculine verb",
+              "note": "Father: فدعا أبي."
+            },
+            {
+              "text": "فدعوا أبي",
+              "rule": "Watch who invites whom",
+              "note": "دعوا أبي means \"they invited my father\". My father invited: فدعا أبي."
+            },
+            {
+              "text": "دعيت",
+              "rule": "The verb agrees with the father: دعا",
+              "note": "دعيتُ is passive (\"I was invited\"). My father invited: دعا أبي."
+            }
+          ]
+        },
+        {
+          "en": "the rest of the guests",
+          "accept": [
+            "بقية الضيوف",
+            "باقي الضيوف",
+            "بقية المدعوين",
+            "باقي المدعوين"
+          ],
+          "mistakes": [
+            {
+              "text": "البقية الضيوف",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "The rest of the guests: بقيّةَ الضيوفِ."
+            },
+            {
+              "text": "بقية ضيوف",
+              "rule": "\"The guests\" are particular guests: ال",
+              "note": "بقيّةَ الضيوفِ."
+            },
+            {
+              "text": "إلى بقية الضيوف",
+              "rule": "دعا takes the person as a direct object",
+              "note": "Invite someone: دعا + object, no preposition: دعا بقيّةَ الضيوفِ. (إلى goes with the event: دعاهم إلى العرس.)"
+            },
+            {
+              "text": "إلى باقي الضيوف",
+              "rule": "دعا takes the person as a direct object",
+              "note": "Invite someone: دعا + object, no preposition: دعا باقيَ الضيوفِ. (إلى goes with the event: دعاهم إلى العرس.)"
+            }
+          ]
+        },
+        {
+          "en": "by phone",
+          "accept": [
+            "بالهاتف",
+            "عبر الهاتف",
+            "هاتفيا",
+            "بالتلفون",
+            "بالتليفون",
+            "عن طريق الهاتف",
+            "على الهاتف"
+          ],
+          "mistakes": [
+            {
+              "text": "في الهاتف",
+              "rule": "\"By phone\" is بالهاتف or عبر الهاتف",
+              "note": "في الهاتف is \"inside the phone\". By phone: بالهاتفِ."
+            },
+            {
+              "text": "بهاتف",
+              "rule": "\"By phone\" takes ال",
+              "note": "بالهاتفِ."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "Cards are things: لم تكنْ بطاقاتُ الدعوةِ كافيةً، التي طبعناها",
+        "After لم: تكنْ, تكفِ (the jussive)",
+        "لِـ + ال = لِلـ: للعرسِ",
+        "دعا is spelt with a tall alif (root د-ع-و)",
+        "Invite someone: دعا + direct object (no إلى before the person)"
+      ]
+    }
+  ]
+}
