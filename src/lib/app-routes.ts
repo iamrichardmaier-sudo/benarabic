@@ -13,7 +13,7 @@ import type { Tab } from '@/components/BottomNav';
 export type View =
   | 'home' | 'learnHub' | 'library' | 'settings'
   | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
-  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'translationPractice' | 'memorize' | 'listenCards' | 'rootExplorer' | 'formExplorer' | 'verbForms' | 'anki'
+  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'translationPractice' | 'memorize' | 'listenCards' | 'rootExplorer' | 'formExplorer' | 'verbForms' | 'anki' | 'deckExport'
   | 'pdfToAudio' | 'dictionary'
   | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast' | 'feedback';
 
@@ -50,6 +50,7 @@ const PATHS: Record<Exclude<View, 'library' | 'podcast' | 'dictionary'>, string>
   add: '/settings/add-words',
   importWords: '/settings/import',
   anki: '/settings/anki',
+  deckExport: '/settings/export',
   pdfToAudio: '/settings/pdf-to-audio',
   adminDecks: '/settings/admin-decks',
   feedback: '/settings/feedback',

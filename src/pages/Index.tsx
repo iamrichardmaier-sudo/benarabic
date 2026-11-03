@@ -25,6 +25,7 @@ import Library from '@/components/library/Library';
 import HomeDashboard from '@/components/HomeDashboard';
 import LearnHub, { type LearnDestination } from '@/components/LearnHub';
 import AnkiTransfer from '@/components/AnkiTransfer';
+import DeckExport from '@/components/DeckExport';
 import RootExplorer from '@/components/roots/RootExplorer';
 import FormsTab from '@/components/forms/FormsTab';
 import FormExplorer from '@/components/forms/FormExplorer';
@@ -845,6 +846,8 @@ const Index = () => {
 
         {view === 'adminDecks' && <AdminDecks onBack={() => setView('settings')} />}
 
+        {view === 'deckExport' && <DeckExport cards={cards} onBack={() => setView('settings')} />}
+
         {view === 'anki' && <AnkiTransfer cards={cards} onBack={() => setView('settings')} onImported={refetch} />}
 
         {view === 'importWords' && <ImportWords onBack={() => setView('settings')} />}
@@ -857,6 +860,7 @@ const Index = () => {
             onOpenAddWords={() => setView('add')}
             onOpenImportWords={() => setView('importWords')}
             onOpenAnki={() => setView('anki')}
+            onOpenExport={() => setView('deckExport')}
             onOpenAdminDecks={isDeckAdmin ? () => setView('adminDecks') : undefined}
             onOpenFeedback={() => setView('feedback')}
             email={user?.email}
