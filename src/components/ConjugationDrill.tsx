@@ -7,6 +7,7 @@ import { VERB_FORM_GLOSSES, loadRootMeanings } from '@/lib/morphology';
 import GlossPopover from '@/components/GlossPopover';
 import VerbChartDrill from '@/components/VerbChartDrill';
 import { chartable } from '@/lib/verb-chart';
+import { baselineFor } from '@/lib/verb-baselines';
 import { useDrillKeyboard } from '@/hooks/useDrillKeyboard';
 
 interface ConjugationDrillProps {
@@ -475,7 +476,11 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
           const typedItExactly =
             normalizeArabicKeepVowels(inputs[field.key]) === normalizeArabicKeepVowels(expected);
           const wrong = results?.[field.key] === 'incorrect';
-          const showAnswer = !!results && (wrong || !typedItExactly);
+          // What a perfectly regular root would have in this form, so the
+          // verb's own answer can be read against the pattern it departs from.
+          const baseline = baselineFor(current.verbForm)?.[field.key] ?? null;
+          const sameAsBaseline =
+            !!baseline && normalizeArabicKeepVowels(baseline.text) === normalizeArabicKeepVowels(expected);
 
           return (
             <div key={field.key} className="space-y-1">
@@ -495,19 +500,33 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
                     : 'border-border'
                 }`}
               />
-              {showAnswer && (
-                <p
-                  className={`text-sm font-arabic flex items-center gap-1.5 ${wrong ? 'text-success' : 'text-muted-foreground'}`}
-                  dir="rtl"
-                >
-                  <Check className="w-3.5 h-3.5 flex-shrink-0" />
-                  <span>{expected}</span>
-                  {!wrong && (
-                    <span className="font-sans text-xs" dir="ltr">
-                      full vowelling
-                    </span>
-                  )}
-                </p>
+              {results && (
+                <div className="rounded-xl bg-muted/40 px-3 py-2 space-y-1.5" dir="rtl">
+                  <p
+                    className={`flex items-center gap-1.5 font-arabic text-xl ${wrong ? 'text-success' : 'text-foreground'}`}
+                  >
+                    <Check className="w-3.5 h-3.5 flex-shrink-0" />
+                    <span>{expected}</span>
+                    {!wrong && !typedItExactly && (
+                      <span className="font-sans text-xs text-muted-foreground" dir="ltr">
+                        full vowelling
+                      </span>
+                    )}
+                  </p>
+                  {baseline &&
+                    (sameAsBaseline ? (
+                      <p className="font-sans text-xs text-muted-foreground" dir="ltr">
+                        Same as the Form {current.verbForm} baseline.
+                      </p>
+                    ) : (
+                      <p className="flex flex-wrap items-baseline gap-x-2 font-arabic text-lg text-muted-foreground">
+                        <span>{baseline.text}</span>
+                        <span className="font-sans text-xs" dir="ltr">
+                          Form {current.verbForm} baseline{baseline.note ? ` · ${baseline.note}` : ''}
+                        </span>
+                      </p>
+                    ))}
+                </div>
               )}
             </div>
           );
