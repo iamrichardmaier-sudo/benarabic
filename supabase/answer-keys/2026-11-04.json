@@ -1,0 +1,777 @@
+{
+  "day": "2026-11-04",
+  "format": "See supabase/answer-keys/README.md.",
+  "sentences": [
+    {
+      "position": 1,
+      "english": "I believe that the local newspapers which the institute published in the capital were distributed on Friday, and this caused great anxiety among the students.",
+      "grammar_focus": "أعتقد أنّ + accusative, a relative clause on a plural of things (الصحف المحلية التي نشرها المعهد), the passive with a feminine singular verb for things (وُزِّعت), and سبّب + accusative object (قلقًا كبيرًا)",
+      "target_words": [
+        "أَعتَقِد أَنَّ",
+        "مَحَلِّيّ",
+        "مَعْهَد",
+        "قَلَق (اسم)"
+      ],
+      "model_answer": "أَعتَقِدُ أَنَّ الصُّحُفَ المَحَلِّيَّةَ الَّتي نَشَرَها المَعهَدُ في العاصِمَةِ وُزِّعَت يَومَ الجُمُعَةِ، وَقَد سَبَّبَ ذلِكَ قَلَقًا كَبيرًا بَينَ الطُّلّابِ.",
+      "reference_translations": [
+        "أعتقد أن الصحف المحلية التي نشرها المعهد في العاصمة وزعت يوم الجمعة وقد سبب ذلك قلقا كبيرا بين الطلاب",
+        "أظن أن الصحف المحلية التي أصدرها المعهد بالعاصمة تم توزيعها يوم الجمعة وهذا سبب قلقا كبيرا لدى الطلاب",
+        "أعتقد أن الصحائف المحلية التي نشر المعهد في العاصمة وزعت في يوم الجمعة مما سبب قلقا كبيرا عند الطلبة",
+        "أرى أن الجرائد المحلية التي طبعها المعهد في العاصمة وزعت يوم الجمعة وتسبب ذلك في قلق كبير بين الطلبة",
+        "أعتقد أن الصحف المحلية التي أصدر المعهد في العاصمة قد وزعت يوم الجمعة وسبب هذا قلقا كثيرا لدى الطلاب",
+        "أظن أن الصحف المحلية التي نشرها المعهد بالعاصمة تم توزيعها في يوم الجمعة وقد أدى ذلك إلى قلق كبير في أوساط الطلاب"
+      ],
+      "chunks": [
+        {
+          "en": "I believe that",
+          "accept": [
+            "أعتقد أن",
+            "أظن أن",
+            "أرى أن"
+          ],
+          "mistakes": [
+            {
+              "text": "أعتقد إن",
+              "rule": "After اعتقد, \"that\" is أنّ (hamza above)",
+              "note": "إنّ follows قال and its forms. After أعتقد, أظنّ and أرى, \"that\" is أنّ.",
+              "strict": true
+            },
+            {
+              "text": "أعتقد الصحف",
+              "rule": "اعتقد + أنّ needs the \"that\"",
+              "note": "\"I believe that the newspapers…\": أعتقد أنّ الصحفَ…"
+            },
+            {
+              "text": "بعتقد",
+              "rule": "Dialect: MSA is أعتقد",
+              "note": "بعتقد is Shaami. In Modern Standard Arabic: أعتقدُ أنّ."
+            },
+            {
+              "text": "أعتقد بأن",
+              "rule": "Valid: بأنّ also follows اعتقد",
+              "note": "أعتقد بأنّ is used and fine; أعتقد أنّ is the shorter, standard form.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "the local newspapers",
+          "accept": [
+            "الصحف المحلية",
+            "الصحائف المحلية",
+            "الجرائد المحلية"
+          ],
+          "mistakes": [
+            {
+              "text": "الصحف المحلي",
+              "rule": "Adjectives for non-human plurals are feminine singular",
+              "note": "Newspapers are things: الصحفُ المحليّةُ, not المحلّي."
+            },
+            {
+              "text": "المحليين",
+              "rule": "The -ين plural is for people",
+              "note": "Newspapers are things: الصحفُ المحليّةُ."
+            },
+            {
+              "text": "الصحف محلية",
+              "rule": "The adjective must be definite too",
+              "note": "\"The local newspapers\": الصحفُ المحليّةُ, with ال on both words."
+            },
+            {
+              "text": "صحف محلية",
+              "rule": "The noun before التي must be definite",
+              "note": "\"The newspapers which…\": الصحفُ المحليّةُ التي…"
+            },
+            {
+              "text": "الصحيفات",
+              "rule": "The plural of صحيفة is صحف",
+              "note": "Use the broken plural: الصحفُ (or الصحائف)."
+            },
+            {
+              "text": "الصحفات",
+              "rule": "The plural of صحيفة is صحف",
+              "note": "Use the broken plural: الصحفُ (or الصحائف)."
+            }
+          ]
+        },
+        {
+          "en": "which the institute published",
+          "accept": [
+            "التي نشرها المعهد",
+            "التي نشر المعهد",
+            "التي أصدرها المعهد",
+            "التي أصدر المعهد",
+            "التي طبعها المعهد"
+          ],
+          "mistakes": [
+            {
+              "text": "الذي",
+              "rule": "Non-human plurals take التي",
+              "note": "Newspapers are things: الصحف … التي."
+            },
+            {
+              "text": "الذين",
+              "rule": "الذين is for people",
+              "note": "Newspapers are things: الصحف … التي."
+            },
+            {
+              "text": "نشروها",
+              "rule": "A verb before its subject stays singular",
+              "note": "The institute is one thing: نشرها المعهدُ, not نشروها."
+            },
+            {
+              "text": "نشرتها",
+              "rule": "The institute is masculine: نشر",
+              "note": "المعهد is masculine, so نشرَها (not نشرتْها)."
+            },
+            {
+              "text": "نشرته",
+              "rule": "Newspapers take ها, and المعهد is masculine: نشرها",
+              "note": "نشرتْه is \"she published it\". The institute (masculine) published them (things): نشرَها."
+            },
+            {
+              "text": "نشره",
+              "rule": "Pronouns for non-human plurals are feminine singular",
+              "note": "Newspapers are things: نشرَها (ها), not نشره."
+            },
+            {
+              "text": "نشرهم",
+              "rule": "Pronouns for non-human plurals are feminine singular",
+              "note": "Newspapers are things: نشرَها (ها), not نشرهم."
+            }
+          ]
+        },
+        {
+          "en": "in the capital",
+          "accept": [
+            "في العاصمة",
+            "بالعاصمة"
+          ],
+          "mistakes": [
+            {
+              "text": "في عاصمة",
+              "rule": "\"The capital\" takes ال",
+              "note": "في العاصمةِ: the capital of the country is definite."
+            },
+            {
+              "text": "في عواصم",
+              "rule": "One capital: العاصمة",
+              "note": "There is one capital: في العاصمةِ."
+            }
+          ]
+        },
+        {
+          "en": "were distributed on Friday",
+          "accept": [
+            "وزعت يوم الجمعة",
+            "وزعت في يوم الجمعة",
+            "تم توزيعها يوم الجمعة",
+            "تم توزيعها في يوم الجمعة"
+          ],
+          "mistakes": [
+            {
+              "text": "وزعوا",
+              "rule": "The passive for things is a feminine singular verb",
+              "note": "\"Were distributed\": وُزِّعَت (passive, feminine singular for the newspapers), not وزّعوا."
+            },
+            {
+              "text": "وزع يوم",
+              "rule": "Non-human plurals take a feminine singular verb",
+              "note": "The newspapers are things: وُزِّعَت يومَ الجمعة."
+            },
+            {
+              "text": "توزيعهم",
+              "rule": "Pronouns for non-human plurals are feminine singular",
+              "note": "Newspapers are things: تمّ توزيعُها (ها)."
+            },
+            {
+              "text": "توزيعه",
+              "rule": "Pronouns for non-human plurals are feminine singular",
+              "note": "Newspapers are things: تمّ توزيعُها (ها)."
+            },
+            {
+              "text": "في الجمعة",
+              "rule": "Understandable, but \"on Friday\" is يوم الجمعة",
+              "note": "في الجمعة is understood, but the usual form is يومَ الجمعة (or في يوم الجمعة).",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "and this caused great anxiety",
+          "accept": [
+            "سبب ذلك قلقا كبيرا",
+            "سبب هذا قلقا كبيرا",
+            "هذا سبب قلقا كبيرا",
+            "سبب ذلك قلقا كثيرا",
+            "سبب هذا قلقا كثيرا",
+            "سبب ذلك قلقا شديدا",
+            "سبب هذا قلقا شديدا",
+            "مما سبب قلقا كبيرا",
+            "مما سبب قلقا شديدا",
+            "تسبب ذلك في قلق كبير",
+            "تسبب هذا في قلق كبير",
+            "تسبب ذلك في قلق شديد",
+            "أدى ذلك إلى قلق كبير",
+            "أدى هذا إلى قلق كبير"
+          ],
+          "mistakes": [
+            {
+              "text": "قلقا كبير",
+              "rule": "An adjective agrees with its noun in case",
+              "note": "سبّبَ قلقًا كبيرًا: the object is accusative, and so is the adjective (كبيرًا)."
+            },
+            {
+              "text": "قلقا كبيرة",
+              "rule": "قلق is masculine: كبير",
+              "note": "قلقٌ is masculine, so قلقًا كبيرًا."
+            },
+            {
+              "text": "تسبب ذلك قلقا",
+              "rule": "تسبّب takes في",
+              "note": "تسبّبَ ذلك في قلقٍ كبيرٍ (with في), or سبّبَ ذلك قلقًا كبيرًا (no في)."
+            },
+            {
+              "text": "تسبب قلقا",
+              "rule": "تسبّب takes في",
+              "note": "تسبّبَ في قلقٍ كبيرٍ (with في), or سبّبَ قلقًا كبيرًا (no في)."
+            },
+            {
+              "text": "هاد",
+              "rule": "Dialect: MSA is هذا / ذلك",
+              "note": "هاد is Shaami. In Modern Standard Arabic: هذا or ذلك."
+            }
+          ]
+        },
+        {
+          "en": "among the students",
+          "accept": [
+            "بين الطلاب",
+            "بين الطلبة",
+            "لدى الطلاب",
+            "لدى الطلبة",
+            "عند الطلاب",
+            "عند الطلبة",
+            "في أوساط الطلاب",
+            "في نفوس الطلاب"
+          ],
+          "mistakes": [
+            {
+              "text": "بين طلاب",
+              "rule": "\"The students\" are particular students: ال",
+              "note": "بينَ الطلّابِ."
+            },
+            {
+              "text": "من الطلاب",
+              "rule": "\"Among\" is بين or لدى, not من",
+              "note": "من الطلاب means \"from / of the students\". Among them: بينَ الطلّابِ."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "أعتقد أنّ (hamza above); إنّ is for after قال",
+        "Newspapers are things: الصحف المحلية (feminine singular), وُزِّعَت, نشرَها",
+        "التي needs a definite noun before it: الصحف المحلية التي …",
+        "The passive for things: وُزِّعَت (not وزّعوا)",
+        "سبّبَ ذلك قلقًا كبيرًا: the object and its adjective are accusative"
+      ]
+    },
+    {
+      "position": 2,
+      "english": "The director supervised the party personally, so it was more beautiful than we had expected, even though he had never met most of the guests before.",
+      "grammar_focus": "مِمّا for \"than we had expected\" (مِن + ما, written together), a feminine thing taking كانت (فكانت أجمل), the pluperfect negative لم يكن قد + past, أشرف على, and مع أنّه (the pronoun attaches to أنّ)",
+      "target_words": [
+        "أَشْرَفَ على",
+        "حَفْلَة",
+        "اِجتَمَعَ بِـ / مع"
+      ],
+      "model_answer": "أَشرَفَ المُديرُ عَلى الحَفلَةِ بِنَفسِهِ، فَكانَت أَجمَلَ مِمّا تَوَقَّعنا، مَعَ أَنَّهُ لَم يَكُن قَد اجتَمَعَ بِمُعظَمِ الضُّيوفِ مِن قَبلُ.",
+      "reference_translations": [
+        "أشرف المدير على الحفلة بنفسه فكانت أجمل مما توقعنا مع أنه لم يكن قد اجتمع بمعظم الضيوف من قبل",
+        "المدير أشرف على الحفل شخصيا لذلك كانت أجمل مما كنا نتوقع رغم أنه لم يلتق بأغلب الضيوف سابقا",
+        "أشرف المدير على الحفلة شخصيا فجاءت أروع مما توقعناه على الرغم من أنه لم يسبق له أن اجتمع بمعظم الضيوف في السابق",
+        "أشرف المدير على الحفلة بنفسه وكانت أكثر جمالا مما تخيلنا بالرغم من أنه لم يقابل أغلب المدعوين قبل ذلك",
+        "لقد أشرف المدير على الحفلة بنفسه فكانت جميلة أكثر مما توقعنا مع أنه لم يكن قد التقى بمعظم الضيوف من قبل",
+        "المدير أشرف على الحفلة بنفسه فكانت أحلى مما توقعنا بالرغم من أنه لم يجتمع بأغلب الضيوف سابقا"
+      ],
+      "chunks": [
+        {
+          "en": "The director supervised the party",
+          "accept": [
+            "أشرف المدير على الحفلة",
+            "أشرف المدير على الحفل",
+            "المدير أشرف على الحفلة",
+            "المدير أشرف على الحفل"
+          ],
+          "mistakes": [
+            {
+              "text": "أشرفت المدير",
+              "rule": "The director is a man here: أشرف",
+              "note": "\"He\" supervised: أشرفَ المديرُ, not أشرفتْ."
+            },
+            {
+              "text": "أشرفوا",
+              "rule": "One director: a singular verb",
+              "note": "The director is one person: أشرفَ المديرُ."
+            },
+            {
+              "text": "أشرف المدير في",
+              "rule": "أشرف takes على",
+              "note": "\"Supervise\" is أشرفَ على: أشرفَ المديرُ على الحفلةِ."
+            },
+            {
+              "text": "أشرف المدير عن",
+              "rule": "أشرف takes على",
+              "note": "\"Supervise\" is أشرفَ على: أشرفَ المديرُ على الحفلةِ."
+            },
+            {
+              "text": "أشرف مدير",
+              "rule": "\"The director\" is a particular person: ال",
+              "note": "أشرفَ المديرُ."
+            },
+            {
+              "text": "على حفلة",
+              "rule": "\"The party\" is a particular party: ال",
+              "note": "على الحفلةِ."
+            }
+          ]
+        },
+        {
+          "en": "personally",
+          "accept": [
+            "بنفسه",
+            "شخصيا",
+            "بشكل شخصي",
+            "بذاته"
+          ],
+          "mistakes": [
+            {
+              "text": "بنفسها",
+              "rule": "\"His own\" is ـه (the director is a man)",
+              "note": "بنفسِهِ: the director is a man."
+            },
+            {
+              "text": "بنفسهم",
+              "rule": "One director: بنفسه",
+              "note": "The director is one man: بنفسِهِ."
+            },
+            {
+              "text": "بنفسي",
+              "rule": "\"Himself\" is بنفسه, not \"myself\"",
+              "note": "The director did it, so بنفسِهِ (ـه), not بنفسي."
+            }
+          ]
+        },
+        {
+          "en": "so it was more beautiful",
+          "accept": [
+            "فكانت أجمل",
+            "لذلك كانت أجمل",
+            "لذا كانت أجمل",
+            "فجاءت أروع",
+            "فكانت أروع",
+            "فكانت أحلى",
+            "فكانت أكثر جمالا",
+            "فكانت جميلة أكثر"
+          ],
+          "mistakes": [
+            {
+              "text": "كان أجمل",
+              "rule": "The party is feminine: كانت",
+              "note": "الحفلة is feminine, so كانت أجملَ."
+            },
+            {
+              "text": "كانوا أجمل",
+              "rule": "One party takes a singular verb: كانت",
+              "note": "الحفلة is one thing: كانت أجملَ."
+            },
+            {
+              "text": "أكثر أجمل",
+              "rule": "أجمل already means \"more beautiful\"",
+              "note": "Say أجملَ, or أكثرَ جمالًا. Not both: أكثر أجمل doubles the comparative."
+            }
+          ]
+        },
+        {
+          "en": "than we had expected",
+          "accept": [
+            "مما توقعنا",
+            "مما كنا نتوقع",
+            "مما توقعناه",
+            "مما كنا نتوقعه",
+            "مما تخيلنا"
+          ],
+          "mistakes": [
+            {
+              "text": "من ما",
+              "rule": "مِن + ما is written together: مما",
+              "note": "\"Than what we expected\": مِمّا توقّعنا, written as one word."
+            },
+            {
+              "text": "من توقعنا",
+              "rule": "\"Than we expected\" needs ما: مما",
+              "note": "After a comparative, \"than we expected\" is مِمّا توقّعنا (مِن + ما)."
+            },
+            {
+              "text": "توقعت",
+              "rule": "\"We\" expected: توقعنا",
+              "note": "توقّعتُ is \"I expected\". We: توقّعنا."
+            },
+            {
+              "text": "توقعوا",
+              "rule": "\"We\" expected: توقعنا",
+              "note": "توقّعوا is \"they expected\". We: توقّعنا."
+            }
+          ]
+        },
+        {
+          "en": "even though he",
+          "accept": [
+            "مع أنه",
+            "رغم أنه",
+            "على الرغم من أنه",
+            "بالرغم من أنه"
+          ],
+          "mistakes": [
+            {
+              "text": "مع إنه",
+              "rule": "After مع and رغم, \"that\" is أنّ (hamza above)",
+              "note": "مع أنّه / رغم أنّه: أنّ with the hamza above.",
+              "strict": true
+            },
+            {
+              "text": "رغم إنه",
+              "rule": "After مع and رغم, \"that\" is أنّ (hamza above)",
+              "note": "مع أنّه / رغم أنّه: أنّ with the hamza above.",
+              "strict": true
+            },
+            {
+              "text": "مع أن هو",
+              "rule": "After أنّ the pronoun attaches: أنّه",
+              "note": "Not أنّ هو: the pronoun joins the word, أنّه."
+            },
+            {
+              "text": "رغم أن هو",
+              "rule": "After أنّ the pronoun attaches: أنّه",
+              "note": "Not أنّ هو: the pronoun joins the word, أنّه."
+            },
+            {
+              "text": "الرغم أنه",
+              "rule": "على الرغم needs من",
+              "note": "على الرغم من أنّه: don't drop مِن."
+            }
+          ]
+        },
+        {
+          "en": "had never met",
+          "accept": [
+            "لم يكن قد اجتمع",
+            "لم يكن قد التقى",
+            "لم يكن قد قابل",
+            "لم يجتمع",
+            "لم يلتق",
+            "لم يقابل",
+            "لم يسبق له أن اجتمع",
+            "لم يسبق له أن التقى"
+          ],
+          "mistakes": [
+            {
+              "text": "لم يكن اجتمع",
+              "rule": "\"Had never\": لم يكن قد + past",
+              "note": "The pluperfect negative needs قد: لم يكن قد اجتمعَ."
+            },
+            {
+              "text": "لم أجتمع",
+              "rule": "\"He\" had never met: لم يجتمع",
+              "note": "لم أجتمع is \"I did not meet\". He: لم يجتمع."
+            },
+            {
+              "text": "اجتمعوا",
+              "rule": "One director: a singular verb",
+              "note": "The director is one person: اجتمعَ."
+            },
+            {
+              "text": "اجتمعت",
+              "rule": "The director is a man: اجتمع",
+              "note": "اجتمعَ, not اجتمعتْ (she)."
+            },
+            {
+              "text": "يكونوا",
+              "rule": "One director: يكن",
+              "note": "The director is one person: لم يكنْ."
+            },
+            {
+              "text": "لن يجتمع",
+              "rule": "Past negation is لم + jussive, not لن",
+              "note": "لن is for the future. \"Had never met\": لم يكن قد اجتمعَ."
+            }
+          ]
+        },
+        {
+          "en": "most of the guests",
+          "accept": [
+            "بمعظم الضيوف",
+            "بأغلب الضيوف",
+            "معظم الضيوف",
+            "أغلب الضيوف",
+            "بمعظم المدعوين",
+            "بأغلب المدعوين",
+            "معظم المدعوين",
+            "أغلب المدعوين"
+          ],
+          "mistakes": [
+            {
+              "text": "بمعظم ضيوف",
+              "rule": "\"The guests\" are particular guests: ال",
+              "note": "بمعظمِ الضيوفِ."
+            },
+            {
+              "text": "بالمعظم الضيوف",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "Most of the guests: بمعظمِ الضيوفِ. معظم takes no ال and no بال: the بـ attaches directly."
+            },
+            {
+              "text": "المعظم الضيوف",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "Most of the guests: معظمِ الضيوفِ, with ال only on الضيوف."
+            }
+          ]
+        },
+        {
+          "en": "before",
+          "accept": [
+            "من قبل",
+            "قبل ذلك",
+            "سابقا",
+            "في السابق"
+          ],
+          "mistakes": [
+            {
+              "text": "قبله",
+              "rule": "\"Before\" on its own is من قبل",
+              "note": "من قبلِه means \"before him\". Just \"before\": من قبلُ."
+            },
+            {
+              "text": "قبلهم",
+              "rule": "\"Before\" on its own is من قبل",
+              "note": "من قبلِهم means \"before them\". Just \"before\": من قبلُ."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "أجمل مما توقعنا: مِن + ما is written together as مما",
+        "A party is feminine: فكانت أجمل (not كان)",
+        "\"Had never met\": لم يكن قد اجتمع (with قد)",
+        "أشرف على (not في)",
+        "مع أنّه: the pronoun attaches to أنّ"
+      ]
+    },
+    {
+      "position": 3,
+      "english": "If you put the maps on the table, you will see that the trip is not as long as you think, and we will not feel bored.",
+      "grammar_focus": "A real condition with إن + a jussive verb (إن تضع), the فسـ answer (فسترى), أنّ after ترى, ليست … كما تظنّ with a feminine subject, and لن + subjunctive (لن نشعر بالملل)",
+      "target_words": [
+        "وَضَعَ (فعل)",
+        "رِحْلَة",
+        "المَلَل"
+      ],
+      "model_answer": "إِن تَضَعِ الخَرائِطَ عَلى الطّاوِلَةِ فَسَتَرى أَنَّ الرِّحلَةَ لَيسَت طَويلَةً كَما تَظُنُّ، وَلَن نَشعُرَ بِالمَلَلِ.",
+      "reference_translations": [
+        "إن تضع الخرائط على الطاولة فسترى أن الرحلة ليست طويلة كما تظن ولن نشعر بالملل",
+        "إذا وضعت الخرائط فوق الطاولة فستجد أن الرحلة أقصر مما تظن ولن نمل",
+        "إن وضعت الخرائط على المنضدة فسوف ترى أن الرحلة ليست بطويلة كما تظن ولن نشعر بالضجر",
+        "إذا وضعت الخرائط على الطاولة فسوف تجد أن الرحلة غير طويلة كما تتوقع ولن نشعر بالملل",
+        "إن تضع الخرائط فوق المنضدة فستجد أن الرحلة ليست طويلة مثلما تظن ولن نصاب بالملل",
+        "إن تضع الخرائط على الطاولة فسترى أن الرحلة ليست بالطول الذي تظنه ولن نشعر بالضجر"
+      ],
+      "chunks": [
+        {
+          "en": "If you put",
+          "accept": [
+            "إن تضع",
+            "إن وضعت",
+            "إذا وضعت"
+          ],
+          "mistakes": [
+            {
+              "text": "لو وضعت",
+              "rule": "لو is for the impossible (\"if you had put\")",
+              "note": "A real, possible condition uses إن or إذا. لو would mean \"if you had put\"."
+            },
+            {
+              "text": "لو تضع",
+              "rule": "لو is for the impossible (\"if you had put\")",
+              "note": "A real, possible condition uses إن or إذا. لو would mean \"if you had put\"."
+            },
+            {
+              "text": "حطيت",
+              "rule": "Dialect: MSA is وضعت",
+              "note": "حطيت is Shaami. In Modern Standard Arabic: وضعتَ (or إن تضعْ)."
+            },
+            {
+              "text": "تحط",
+              "rule": "Dialect: MSA is تضع",
+              "note": "تحطّ is Shaami. In Modern Standard Arabic: تضعُ (إن تضعْ)."
+            }
+          ]
+        },
+        {
+          "en": "the maps on the table",
+          "accept": [
+            "الخرائط على الطاولة",
+            "الخرائط فوق الطاولة",
+            "الخرائط على المنضدة",
+            "الخرائط فوق المنضدة"
+          ],
+          "mistakes": [
+            {
+              "text": "الخريطات",
+              "rule": "The plural of خريطة is خرائط",
+              "note": "Use the broken plural: الخرائطَ."
+            },
+            {
+              "text": "في الطاولة",
+              "rule": "\"On the table\" is على or فوق, not في",
+              "note": "في الطاولة is \"inside the table\". On it: على الطاولةِ."
+            },
+            {
+              "text": "في المنضدة",
+              "rule": "\"On the table\" is على or فوق, not في",
+              "note": "في المنضدة is \"inside the table\". On it: على المنضدةِ."
+            }
+          ]
+        },
+        {
+          "en": "you will see that",
+          "accept": [
+            "فسترى أن",
+            "فستجد أن",
+            "فسوف ترى أن",
+            "فسوف تجد أن",
+            "سترى أن",
+            "ستجد أن"
+          ],
+          "mistakes": [
+            {
+              "text": "سترى إن",
+              "rule": "After ترى, \"that\" is أنّ (hamza above)",
+              "note": "إنّ follows قال and its forms. After رأى / وجد, \"that\" is أنّ.",
+              "strict": true
+            },
+            {
+              "text": "ستجد إن",
+              "rule": "After تجد, \"that\" is أنّ (hamza above)",
+              "note": "إنّ follows قال and its forms. After رأى / وجد, \"that\" is أنّ.",
+              "strict": true
+            },
+            {
+              "text": "سترى الرحلة",
+              "rule": "\"That\" needs أنّ before the clause",
+              "note": "\"You will see that the trip…\": سترى أنّ الرحلةَ…"
+            },
+            {
+              "text": "ستشوف",
+              "rule": "Dialect: MSA is سترى",
+              "note": "ستشوف is Shaami. In Modern Standard Arabic: سترى (or ستجد)."
+            }
+          ]
+        },
+        {
+          "en": "the trip is not as long as you think",
+          "accept": [
+            "الرحلة ليست طويلة كما تظن",
+            "الرحلة ليست طويلة كما تعتقد",
+            "الرحلة ليست طويلة كما تتوقع",
+            "الرحلة ليست طويلة مثلما تظن",
+            "الرحلة ليست بطويلة كما تظن",
+            "الرحلة غير طويلة كما تظن",
+            "الرحلة غير طويلة كما تتوقع",
+            "الرحلة غير طويلة مثلما تظن",
+            "الرحلة أقصر مما تظن",
+            "الرحلة أقصر مما تتوقع",
+            "الرحلة ليست بالطول الذي تظنه"
+          ],
+          "mistakes": [
+            {
+              "text": "الرحلة ليس",
+              "rule": "ليس agrees with a feminine subject: ليست",
+              "note": "الرحلة is feminine: الرحلةُ ليستْ."
+            },
+            {
+              "text": "ليس طويل",
+              "rule": "ليس and the adjective agree with الرحلة: ليست طويلة",
+              "note": "الرحلة is feminine: ليستْ طويلةً."
+            },
+            {
+              "text": "ليست طويل",
+              "rule": "The adjective agrees with الرحلة: طويلة",
+              "note": "الرحلة is feminine: ليستْ طويلةً."
+            },
+            {
+              "text": "لا طويلة",
+              "rule": "A nominal sentence is negated with ليس",
+              "note": "\"Is not long\": ليستْ طويلةً. لا doesn't negate a noun sentence."
+            },
+            {
+              "text": "مش",
+              "rule": "Dialect: MSA is ليست",
+              "note": "مش is colloquial. In Modern Standard Arabic: ليستْ."
+            }
+          ]
+        },
+        {
+          "en": "and we will not feel bored",
+          "accept": [
+            "ولن نشعر بالملل",
+            "لن نشعر بالملل",
+            "ولن نشعر بالضجر",
+            "لن نشعر بالضجر",
+            "ولن نصاب بالملل",
+            "لن نمل"
+          ],
+          "mistakes": [
+            {
+              "text": "نشعر الملل",
+              "rule": "شعر takes بـ",
+              "note": "\"Feel boredom\": نشعرَ بالملل, with بـ."
+            },
+            {
+              "text": "لا نشعر",
+              "rule": "The future negative is لن + subjunctive",
+              "note": "لا نشعر is \"we do not feel\" (present). \"We will not feel\": لن نشعرَ."
+            },
+            {
+              "text": "لن تشعر",
+              "rule": "\"We\" will not feel: لن نشعر",
+              "note": "لن تشعر is \"you will not feel\". We: لن نشعرَ."
+            },
+            {
+              "text": "لن أشعر",
+              "rule": "\"We\" will not feel: لن نشعر",
+              "note": "لن أشعر is \"I will not feel\". We: لن نشعرَ."
+            },
+            {
+              "text": "رح",
+              "rule": "Dialect: the future negative is لن",
+              "note": "رح is Shaami. In Modern Standard Arabic: لن نشعرَ."
+            },
+            {
+              "text": "راح",
+              "rule": "Dialect: the future negative is لن",
+              "note": "راح is Shaami. In Modern Standard Arabic: لن نشعرَ."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "إن + a jussive verb: إن تضعْ (a real condition)",
+        "After the condition, a future answer takes فـ: فسترى",
+        "After ترى, \"that\" is أنّ (hamza above)",
+        "الرحلة is feminine: ليست طويلة",
+        "لن + subjunctive: لن نشعرَ بالملل"
+      ]
+    }
+  ]
+}
