@@ -8,6 +8,7 @@ import GlossPopover from '@/components/GlossPopover';
 import VerbChartDrill from '@/components/VerbChartDrill';
 import { chartable } from '@/lib/verb-chart';
 import { baselineFor } from '@/lib/verb-baselines';
+import { followsBaseline } from '@/lib/baseline-chart';
 import { useDrillKeyboard } from '@/hooks/useDrillKeyboard';
 
 interface ConjugationDrillProps {
@@ -524,6 +525,15 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
                         <span className="font-sans text-xs" dir="ltr">
                           Form {current.verbForm} baseline{baseline.note ? ` · ${baseline.note}` : ''}
                         </span>
+                        {followsBaseline(expected, current.root, baseline.text, { ignoreVowels: field.key === 'masdar' }) ? (
+                          <span className="font-sans text-xs text-muted-foreground" dir="ltr">
+                            ✓ follows the pattern
+                          </span>
+                        ) : (
+                          <span className="font-sans text-xs font-semibold text-amber-600 dark:text-amber-400" dir="ltr">
+                            ≠ departs from the pattern
+                          </span>
+                        )}
                       </p>
                     ))}
                 </div>
