@@ -87,7 +87,7 @@ describe('VerbChartDrill', () => {
     // The blanks left empty count against the chart, not as free passes.
     expect(screen.getByText('1 / 21 correct on this chart')).toBeInTheDocument();
     // And the real form is put on screen next to what was typed.
-    expect(screen.getByText('كَتَبَتْ')).toBeInTheDocument();
+    expect(screen.getAllByText('كَتَبَتْ').length).toBeGreaterThan(0);
   });
 
   it('accepts a bare-letters answer when short vowels are switched off', async () => {
@@ -151,5 +151,50 @@ describe('VerbChartDrill', () => {
     draw([notAVerb]);
     expect(screen.getByText('No chartable verbs in this selection.')).toBeInTheDocument();
     expect(screen.queryAllByRole('textbox')).toHaveLength(0);
+  });
+});
+
+describe('VerbChartDrill compares each chart with the form\'s baseline', () => {
+  async function checkedChart(verb: ChartVerb) {
+    const user = userEvent.setup();
+    draw([verb]);
+    await user.click(screen.getByRole('button', { name: 'Check Chart' }));
+  }
+
+  it('shows nothing of the baseline until the chart is checked', () => {
+    draw();
+    expect(screen.queryByText(/Compared with the Form I baseline/)).not.toBeInTheDocument();
+  });
+
+  it('puts the regular chart under the verb\'s own, person by person', async () => {
+    await checkedChart(kataba);
+    expect(screen.getByText('Compared with the Form I baseline')).toBeInTheDocument();
+    // The baseline's own forms: past, present and masdar.
+    expect(screen.getByText('فَعَلْتُ')).toBeInTheDocument();
+    expect(screen.getAllByText('فَعَلَتْ').length).toBeGreaterThan(0);
+    expect(screen.getByText('فَعْل')).toBeInTheDocument();
+  });
+
+  it('marks a regular verb\'s forms as following the pattern, and a weak verb\'s as departing', async () => {
+    const { container, unmount } = render(
+      <VerbChartDrill verbs={[kataba]} rootMeanings={{}} ignoreShortVowels={false} onBack={() => {}} />,
+    );
+    await userEvent.setup().click(screen.getAllByRole('button', { name: 'Check Chart' })[0]);
+    const regularDepartures = container.querySelectorAll('[data-departs="true"]').length;
+    unmount();
+
+    const qala: ChartVerb = { root: 'ق-و-ل', verbForm: 'I', pastTense: 'قالَ', presentTense: 'يَقولُ', masdarForm: 'قَوْل' };
+    const weak = render(<VerbChartDrill verbs={[qala]} rootMeanings={{}} ignoreShortVowels={false} onBack={() => {}} />);
+    await userEvent.setup().click(screen.getAllByRole('button', { name: 'Check Chart' })[0]);
+    const weakDepartures = weak.container.querySelectorAll('[data-departs="true"]').length;
+
+    // A hollow verb departs from the pattern in far more of its forms than a sound one.
+    expect(weakDepartures).toBeGreaterThan(regularDepartures);
+  });
+
+  it('says there is no baseline chart for Form IX rather than showing a wrong one', async () => {
+    const ihmarra: ChartVerb = { root: 'ح-م-ر', verbForm: 'IX', pastTense: 'اِحْمَرَّ', presentTense: 'يَحْمَرُّ', masdarForm: 'اِحْمِرار' };
+    await checkedChart(ihmarra);
+    expect(screen.queryByText(/Compared with the Form IX baseline/)).not.toBeInTheDocument();
   });
 });

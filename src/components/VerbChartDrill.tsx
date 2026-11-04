@@ -5,6 +5,8 @@ import { VERB_FORM_GLOSSES } from '@/lib/morphology';
 import GlossPopover from '@/components/GlossPopover';
 import { type PersonId } from '@/lib/conjugation';
 import { chartable, CHART_PEOPLE, type ChartVerb } from '@/lib/verb-chart';
+import { baselineChart, followsBaseline } from '@/lib/baseline-chart';
+import { baselineFor } from '@/lib/verb-baselines';
 
 interface VerbChartDrillProps {
   verbs: ChartVerb[];
@@ -70,6 +72,10 @@ const VerbChartDrill = ({ verbs, rootMeanings, ignoreShortVowels, onBack }: Verb
     }
     return map;
   }, [entry]);
+
+  // The regular chart for this verb's form, for the comparison shown after checking.
+  const baseline = useMemo(() => baselineChart(entry?.verb.verbForm), [entry]);
+  const formBaseline = baselineFor(entry?.verb.verbForm);
 
   const normalize = ignoreShortVowels ? normalizeArabicIgnoreShortVowels : normalizeArabicKeepVowels;
 
@@ -315,6 +321,65 @@ const VerbChartDrill = ({ verbs, rootMeanings, ignoreShortVowels, onBack }: Verb
         </table>
       </div>
 
+      {checked && formBaseline && !baseline && (
+        <p className="rounded-2xl border border-border bg-card px-4 py-3 text-xs text-muted-foreground">
+          There is no baseline chart for Form {verb.verbForm}: its pattern ({formBaseline.past.text}) doubles
+          a letter, so a regular root cannot stand in for it.
+        </p>
+      )}
+
+      {checked && baseline && formBaseline && (
+        <div className="rounded-2xl border border-border bg-card overflow-hidden">
+          <div className="space-y-0.5 bg-muted/50 px-3 py-2">
+            <p className="text-sm font-semibold text-foreground">
+              Compared with the Form {verb.verbForm} baseline
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Under each of this verb's forms is the regular pattern, on ف-ع-ل. A form in{' '}
+              <span className="font-semibold text-amber-600 dark:text-amber-400">amber</span> departs from it.
+            </p>
+          </div>
+          <table className="w-full border-collapse">
+            <thead>
+              <tr className="text-xs uppercase tracking-wide text-muted-foreground">
+                <th scope="col" className="text-start px-2 py-1.5 font-medium w-[26%]">Person</th>
+                <th scope="col" className="text-start px-1 py-1.5 font-medium">Past</th>
+                <th scope="col" className="text-start px-1 py-1.5 font-medium">Present</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="align-top border-t border-border">
+                <th scope="row" className="px-2 py-1.5 font-normal text-start text-xs text-muted-foreground">Masdar</th>
+                <td colSpan={2} className="px-1 py-1.5">
+                  <ComparePair
+                    word={verb.masdarForm}
+                    baseline={formBaseline.masdar.text}
+                    regular={followsBaseline(verb.masdarForm, verb.root, formBaseline.masdar.text, { ignoreVowels: true })}
+                  />
+                </td>
+              </tr>
+              {CHART_PEOPLE.map((person) => (
+                <tr key={person.id} className="align-top border-t border-border/60">
+                  <th scope="row" className="px-2 py-1.5 font-normal text-start">
+                    <span className="block font-arabic text-base text-foreground">{person.pronoun}</span>
+                    <span className="block text-[11px] leading-tight text-muted-foreground">{person.english}</span>
+                  </th>
+                  {(['past', 'present'] as const).map((tense) => {
+                    const word = expected[cellKey(tense, person.id)];
+                    const base = baseline[tense][person.id];
+                    return (
+                      <td key={tense} className="px-1 py-1.5">
+                        <ComparePair word={word} baseline={base} regular={followsBaseline(word, verb.root, base)} />
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
+
       {!checked ? (
         <button
           onClick={check}
@@ -338,6 +403,19 @@ const VerbChartDrill = ({ verbs, rootMeanings, ignoreShortVowels, onBack }: Verb
     </div>
   );
 };
+
+/** A verb's form over the regular one, the verb's in amber when it departs from the pattern. */
+const ComparePair = ({ word, baseline, regular }: { word: string; baseline: string; regular: boolean }) => (
+  <div dir="rtl" className="leading-snug">
+    <div
+      className={`font-arabic text-lg ${regular ? 'text-foreground' : 'font-semibold text-amber-600 dark:text-amber-400'}`}
+      data-departs={regular ? undefined : 'true'}
+    >
+      {word}
+    </div>
+    <div className="font-arabic text-sm text-muted-foreground">{baseline}</div>
+  </div>
+);
 
 const BackLink = ({ label, onClick }: { label: string; onClick: () => void }) => (
   <button
