@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { advanceIntensive, REPS_PER_DAY, GAP_HOURS, EXIT_INTERVAL_DAYS } from './intensive';
+import { advanceIntensive, LADDER_HOURS, EXIT_INTERVAL_DAYS } from './intensive';
 
 /**
  * The Scriptable widget carries its own copy of the scheduler, because it runs
@@ -33,16 +33,14 @@ function constantFromWidget(name: string): unknown {
 /** The widget's advanceIntensive, lifted out and made callable. */
 const widgetAdvance = new Function(
   'isoDay',
-  'REPS_PER_DAY',
-  'GAP_HOURS',
+  'LADDER_HOURS',
   'EXIT_INTERVAL_DAYS',
   extract('advanceIntensive'),
 )(
   (d: Date) => d.toISOString().slice(0, 10),
-  REPS_PER_DAY,
-  GAP_HOURS,
+  LADDER_HOURS,
   EXIT_INTERVAL_DAYS,
-) as (card: { intensive_day: number | null; intensive_reps_done: number }) => {
+) as (card: { intensive_day: number | null }) => {
   intensive_day: number | null;
   intensive_reps_done: number;
   interval_days: number;
@@ -51,37 +49,39 @@ const widgetAdvance = new Function(
 
 describe('the widget keeps the same schedule as the app', () => {
   it('agrees on the constants', () => {
-    expect(constantFromWidget('REPS_PER_DAY')).toEqual([...REPS_PER_DAY]);
-    expect(constantFromWidget('GAP_HOURS')).toBe(GAP_HOURS);
+    expect(constantFromWidget('LADDER_HOURS')).toEqual([...LADDER_HOURS]);
     expect(constantFromWidget('EXIT_INTERVAL_DAYS')).toBe(EXIT_INTERVAL_DAYS);
   });
 
-  it('walks a card through all sixteen reps identically', () => {
-    let mine: { intensiveDay: number | null; intensiveRepsDone: number } = {
-      intensiveDay: 1,
-      intensiveRepsDone: 0,
-    };
-    let theirs = { intensive_day: 1 as number | null, intensive_reps_done: 0 };
+  it('walks a card up the whole ladder identically', () => {
+    let mine: { intensiveDay: number | null } = { intensiveDay: 1 };
+    let theirs = { intensive_day: 1 as number | null };
 
-    for (let rep = 1; rep <= 16; rep++) {
-      const a = advanceIntensive(mine);
-      const b = widgetAdvance(theirs as { intensive_day: number; intensive_reps_done: number });
+    for (let rep = 1; rep <= LADDER_HOURS.length; rep++) {
+      const now = new Date();
+      const a = advanceIntensive(mine, now);
+      const b = widgetAdvance(theirs as { intensive_day: number });
 
-      expect({ rep, day: a.intensiveDay }).toEqual({ rep, day: b.intensive_day });
+      expect({ rep, step: a.intensiveDay }).toEqual({ rep, step: b.intensive_day });
       expect({ rep, reps: a.intensiveRepsDone }).toEqual({ rep, reps: b.intensive_reps_done });
       expect({ rep, interval: a.intervalDays }).toEqual({ rep, interval: b.interval_days });
-      // Whether a time is set is what decides if the rep is later today or
-      // tomorrow, so the two have to agree on it at every step.
+      // Whether a time is set decides whether the rep is held back to a later
+      // moment, and how long that is has to match too (the widget reads the
+      // clock itself, so allow a minute for the two calls).
       expect({ rep, timed: a.nextReviewAt !== null }).toEqual({
         rep,
         timed: b.next_review_at !== null,
       });
+      if (a.nextReviewAt && b.next_review_at) {
+        const drift = Math.abs(new Date(a.nextReviewAt).getTime() - new Date(b.next_review_at).getTime());
+        expect(drift).toBeLessThan(60 * 1000);
+      }
 
-      mine = { intensiveDay: a.intensiveDay, intensiveRepsDone: a.intensiveRepsDone };
-      theirs = { intensive_day: b.intensive_day, intensive_reps_done: b.intensive_reps_done };
+      mine = { intensiveDay: a.intensiveDay };
+      theirs = { intensive_day: b.intensive_day };
     }
 
-    // And both have left the phase after exactly sixteen.
+    // And both have left the ladder after exactly seven.
     expect(mine.intensiveDay).toBeNull();
     expect(theirs.intensive_day).toBeNull();
   });

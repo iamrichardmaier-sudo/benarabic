@@ -68,12 +68,13 @@ const MIN_EASE = 1.3;
 const MAX_EASE = 2.5;
 const MIN_INTERVAL = 1;
 
-// The front-loaded phase a newly-graduated card runs: four reps a day for
-// three days, two a day for two more, spaced GAP_HOURS apart, then plain
-// SM-2. Mirrors src/lib/intensive.ts in the web app — keep the two in step.
-const REPS_PER_DAY = [4, 4, 4, 2, 2];
-const GAP_HOURS = 3;
-const EXIT_INTERVAL_DAYS = 3;
+// The ladder a newly-graduated card climbs: seven reps, each a fixed number of
+// hours after the last one (LADDER_HOURS[n] is the wait before rep n + 1),
+// then plain SM-2 from EXIT_INTERVAL_DAYS. intensive_day holds the rep the
+// card is due for. Mirrors src/lib/intensive.ts in the web app — keep the two
+// in step.
+const LADDER_HOURS = [12, 12, 24, 24, 24, 48, 72];
+const EXIT_INTERVAL_DAYS = 7;
 
 // ----------------------------------------------------------------- levels
 
@@ -553,7 +554,7 @@ function schedule(card, rating) {
 
   ease = Math.max(MIN_EASE, Math.min(MAX_EASE, ease));
 
-  // Inside the phase the rating moves the ease the card will carry out of it,
+  // On the ladder the rating moves the ease the card will carry out of it,
   // but the number of looks it gets is fixed, so the interval is ignored.
   if (card.intensive_day != null) {
     return { ...advanceIntensive(card), ease_factor: ease };
@@ -571,32 +572,28 @@ function schedule(card, rating) {
 
 /** Mirrors advanceIntensive() in src/lib/intensive.ts. */
 function advanceIntensive(card) {
-  const day = card.intensive_day;
-  const reps = (card.intensive_reps_done || 0) + 1;
-  const target = REPS_PER_DAY[day - 1] || 0;
+  const step = card.intensive_day;
 
-  if (reps < target) {
-    const at = new Date(Date.now() + GAP_HOURS * 60 * 60 * 1000);
+  if (step >= LADDER_HOURS.length) {
+    // The last rep is done, so the date alone decides again.
+    const next = new Date();
+    next.setDate(next.getDate() + EXIT_INTERVAL_DAYS);
     return {
-      intensive_day: day,
-      intensive_reps_done: reps,
-      next_review_at: at.toISOString(),
-      next_review_date: isoDay(at),
-      interval_days: 1,
+      intensive_day: null,
+      intensive_reps_done: 0,
+      next_review_at: null,
+      next_review_date: isoDay(next),
+      interval_days: EXIT_INTERVAL_DAYS,
     };
   }
 
-  // The day is done, so the date alone decides again.
-  const nextDay = day + 1;
-  const done = nextDay > REPS_PER_DAY.length;
-  const next = new Date();
-  next.setDate(next.getDate() + (done ? EXIT_INTERVAL_DAYS : 1));
+  const at = new Date(Date.now() + LADDER_HOURS[step] * 60 * 60 * 1000);
   return {
-    intensive_day: done ? null : nextDay,
+    intensive_day: step + 1,
     intensive_reps_done: 0,
-    next_review_at: null,
-    next_review_date: isoDay(next),
-    interval_days: done ? EXIT_INTERVAL_DAYS : 1,
+    next_review_at: at.toISOString(),
+    next_review_date: isoDay(at),
+    interval_days: 1,
   };
 }
 
@@ -696,9 +693,9 @@ const MAX_RELATED = 6;
 const MAX_CORPUS = 5;
 
 async function fetchDueCards(token) {
-  // A card in the front-loaded phase carries next_review_at as well as a
-  // date, so that its several reps a day land spaced out rather than the
-  // widget offering the same card again the moment it has been graded.
+  // A card on the first-week ladder carries next_review_at as well as a
+  // date, so that its reps land spaced out rather than the widget offering
+  // the same card again the moment it has been graded.
   const url =
     `${SUPABASE_URL}/rest/v1/flashcards` +
     `?select=${CARD_COLUMNS}` +

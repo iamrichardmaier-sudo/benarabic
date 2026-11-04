@@ -1,46 +1,45 @@
 import { isoDay, daysFromNow } from './day';
 
 /**
- * The front-loaded schedule a freshly-graduated card runs before it joins the
- * long-term rotation.
+ * The ladder a freshly-graduated card climbs before it joins the long-term
+ * rotation: a rep after 12 hours, another after 12 more, then daily, then
+ * every other day and a bit — seven looks, the first three inside a day and a
+ * half, so a word from this week keeps coming back often.
  *
- * A card that has just been learned is at its most fragile, and the old
- * schedule gave it one look a day from the start. These five days give it
- * sixteen, spaced through each day rather than massed into one sitting —
- * after which the card hands over to SM-2 and behaves exactly as it always
- * has. Cards already in the long-term rotation never enter this phase.
- */
-export const REPS_PER_DAY = [4, 4, 4, 2, 2] as const;
-
-/** How long the phase lasts, in days. */
-export const INTENSIVE_DAYS = REPS_PER_DAY.length;
-
-/**
- * The wait between one rep and the next within a day.
+ * It is measured in time, not in reps-per-day. The earlier version asked for
+ * sixteen reps over five days, gave a card one rep per session, and only moved
+ * to the next day once that day's reps were done — so it took five days only
+ * for someone who opened the app four times a day, sixteen for someone who
+ * opened it once, and a card could sit in it for weeks, due every day. Here
+ * each rep is scheduled a fixed time after the last one was done, so the
+ * ladder is a fixed length however often the app is opened.
  *
- * Three looks in one sitting is worth little more than one look; the gap is
- * what makes the repetition count. Four reps three hours apart spans a normal
- * waking day.
+ * (The columns are the same as before: `intensive_day` now holds which rep the
+ * card is due for, 1 to 7, and `intensive_reps_done` is no longer used.)
  */
-export const GAP_HOURS = 3;
+export const LADDER_HOURS = [12, 12, 24, 24, 24, 48, 72] as const;
+
+/** How many reps the ladder has. */
+export const LADDER_STEPS = LADDER_HOURS.length;
 
 /**
- * Where SM-2 picks up once the phase is over.
+ * Where SM-2 picks up once the ladder is climbed.
  *
- * Sixteen exposures across five days is a well-known card, so it starts
- * further out than the one day a graduating card used to get.
+ * Seven well-spaced looks is a known card, so it starts a week out.
  */
-export const EXIT_INTERVAL_DAYS = 3;
+export const EXIT_INTERVAL_DAYS = 7;
+
+const HOUR_MS = 60 * 60 * 1000;
 
 /** The part of a card this module owns. */
 export interface IntensiveState {
-  /** 1-based day of the phase, or null for a card in the long-term rotation. */
+  /** The rep the card is due for (1-based), or null for a card in the long-term rotation. */
   intensiveDay: number | null;
-  /** Reps already done on the current day of the phase. */
+  /** No longer used; always 0. Kept so older clients reading the column are not surprised. */
   intensiveRepsDone: number;
   /**
-   * The moment the card is next wanted, for a card whose next rep is later
-   * today. Null means the date alone decides, as it always did.
+   * The moment the next rep is wanted. Null means the date alone decides, as
+   * it always did.
    */
   nextReviewAt: string | null;
 }
@@ -55,52 +54,43 @@ export function isIntensive(card: { intensiveDay?: number | null }): boolean {
   return card.intensiveDay != null;
 }
 
-/** How many reps the given day of the phase asks for. */
-export function repsForDay(day: number): number {
-  return REPS_PER_DAY[day - 1] ?? 0;
-}
-
-/** The state a card enters the phase in: day one, due immediately. */
-export function startIntensive(now: Date = new Date()): IntensiveSchedule {
+/** The state after a rep is done: due again `hours` from now. */
+function dueIn(step: number, hours: number, now: Date): IntensiveSchedule {
+  const at = new Date(now.getTime() + hours * HOUR_MS);
   return {
-    intensiveDay: 1,
+    intensiveDay: step,
     intensiveRepsDone: 0,
-    nextReviewAt: now.toISOString(),
-    nextReviewDate: isoDay(now),
+    nextReviewAt: at.toISOString(),
+    // Usually today or tomorrow; the day the gap lands in.
+    nextReviewDate: isoDay(at),
     intervalDays: 1,
   };
 }
 
 /**
- * The schedule after one rep of the phase.
+ * The state a card enters the ladder in when it is learned. Learning it was
+ * the first look, so the first rep is a gap away, not at once.
+ */
+export function startIntensive(now: Date = new Date()): IntensiveSchedule {
+  return dueIn(1, LADDER_HOURS[0], now);
+}
+
+/**
+ * The schedule after one rep of the ladder.
  *
- * Every grade counts as a rep whatever the rating — the phase is a fixed
+ * Every grade counts as a rep whatever the rating — the ladder is a fixed
  * number of exposures, and the rating shapes the ease the card carries out of
  * it rather than the number of looks it gets inside it.
  */
 export function advanceIntensive(
-  card: { intensiveDay?: number | null; intensiveRepsDone?: number },
+  card: { intensiveDay?: number | null },
   now: Date = new Date(),
 ): IntensiveSchedule {
-  const day = card.intensiveDay ?? 1;
-  const reps = (card.intensiveRepsDone ?? 0) + 1;
+  const step = card.intensiveDay ?? 1;
 
-  if (reps < repsForDay(day)) {
-    const at = new Date(now.getTime() + GAP_HOURS * 60 * 60 * 1000);
-    return {
-      intensiveDay: day,
-      intensiveRepsDone: reps,
-      nextReviewAt: at.toISOString(),
-      // Usually today; the day the gap lands in, when it crosses midnight.
-      nextReviewDate: isoDay(at),
-      intervalDays: 1,
-    };
-  }
-
-  // The day is done. Null the time so the date alone decides, which is what
-  // every client that predates this phase already understands.
-  const nextDay = day + 1;
-  if (nextDay > INTENSIVE_DAYS) {
+  if (step >= LADDER_STEPS) {
+    // The last rep is done. Null the time so the date alone decides, which is
+    // what every client that predates the ladder already understands.
     return {
       intensiveDay: null,
       intensiveRepsDone: 0,
@@ -109,13 +99,7 @@ export function advanceIntensive(
       intervalDays: EXIT_INTERVAL_DAYS,
     };
   }
-  return {
-    intensiveDay: nextDay,
-    intensiveRepsDone: 0,
-    nextReviewAt: null,
-    nextReviewDate: daysFromNow(1, now),
-    intervalDays: 1,
-  };
+  return dueIn(step + 1, LADDER_HOURS[step], now);
 }
 
 /**
@@ -131,16 +115,10 @@ export function timeHasCome(nextReviewAt: string | null | undefined, now: Date =
   return Number.isNaN(at) || at <= now.getTime();
 }
 
-/** How far through the phase a card is, for the progress line in the UI. */
+/** How far up the ladder a card is, for a progress line in the UI. */
 export function intensiveProgress(card: {
   intensiveDay?: number | null;
-  intensiveRepsDone?: number;
-}): { day: number; totalDays: number; repsDone: number; repsToday: number } | null {
+}): { rep: number; totalReps: number } | null {
   if (card.intensiveDay == null) return null;
-  return {
-    day: card.intensiveDay,
-    totalDays: INTENSIVE_DAYS,
-    repsDone: card.intensiveRepsDone ?? 0,
-    repsToday: repsForDay(card.intensiveDay),
-  };
+  return { rep: card.intensiveDay, totalReps: LADDER_STEPS };
 }
