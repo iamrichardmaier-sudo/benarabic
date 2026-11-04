@@ -5,7 +5,7 @@ describe('app routes', () => {
   it('round-trips every screen', () => {
     const views: View[] = ['home', 'learnHub', 'learnCards', 'lookup', 'rootExplorer', 'verbForms',
       'conjugationDrill', 'prepositionDrill', 'numbersDrill', 'translationPractice', 'memorize', 'listenCards', 'review', 'deck',
-      'learnDecks', 'deckBuilder', 'settings', 'add', 'importWords', 'anki', 'deckExport', 'pdfToAudio', 'adminDecks', 'feedback'];
+      'learnDecks', 'deckBuilder', 'settings', 'add', 'importWords', 'anki', 'deckExport', 'relearn', 'deckReview', 'pdfToAudio', 'adminDecks', 'feedback'];
     for (const view of views) {
       const path = pathFor({ tab: 'home', view });
       expect(parsePath(path)?.view).toBe(view);
