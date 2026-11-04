@@ -101,38 +101,38 @@ function longTerm(over: Partial<FlashCard> = {}): FlashCard {
 const MORNING = new Date(2026, 8, 15, 9, 0, 0);
 
 describe('graduateCard', () => {
-  it('drops a newly-learned card straight into the front-loaded phase', () => {
+  it('puts a newly-learned card on the first-week ladder, its first rep twelve hours away', () => {
     const g = graduateCard(createCard('دَرَسَ'), MORNING);
     expect(g.learningStage).toBe('graduated');
     expect(g.intensiveDay).toBe(1);
     expect(g.intensiveRepsDone).toBe(0);
-    // Due the same day, not tomorrow — the first of the day's four reps.
-    expect(g.nextReviewDate).toBe(isoDay(MORNING));
-    expect(g.nextReviewAt).not.toBeNull();
+    // Learning it was the first look, so it is not due again at once.
+    expect(new Date(g.nextReviewAt!).getTime() - MORNING.getTime()).toBe(12 * 60 * 60 * 1000);
+    expect(getDueCards([g], MORNING)).toHaveLength(0);
   });
 });
 
-describe('reviewCard inside the phase', () => {
-  it('schedules by the phase, not by the interval', () => {
+describe('reviewCard on the ladder', () => {
+  it('schedules by the ladder, not by the interval', () => {
     const card = longTerm({ intensiveDay: 1, intensiveRepsDone: 0, intervalDays: 1 });
     const r = reviewCard(card, 'easy', MORNING);
-    expect(r.intensiveDay).toBe(1);
-    expect(r.intensiveRepsDone).toBe(1);
+    expect(r.intensiveDay).toBe(2);
     expect(r.intervalDays).toBe(1);
-    // "Easy" would have thrown a long-term card weeks out; here it does not.
-    expect(r.nextReviewDate).toBe(isoDay(MORNING));
+    // "Easy" would have thrown a long-term card weeks out; here the next rep
+    // is the ladder's next gap away.
+    expect(new Date(r.nextReviewAt!).getTime() - MORNING.getTime()).toBe(12 * 60 * 60 * 1000);
   });
 
-  it('still lets the rating move the ease the card carries out of the phase', () => {
+  it('still lets the rating move the ease the card carries out of the ladder', () => {
     const card = longTerm({ intensiveDay: 2, intensiveRepsDone: 0, easeFactor: 2.0 });
     expect(reviewCard(card, 'again', MORNING).easeFactor).toBeCloseTo(1.8);
     expect(reviewCard(card, 'easy', MORNING).easeFactor).toBeCloseTo(2.1);
   });
 
-  it('counts every rating as one rep, so the phase is a fixed number of looks', () => {
-    const card = longTerm({ intensiveDay: 1, intensiveRepsDone: 1 });
+  it('counts every rating as one rep, so the ladder is a fixed number of looks', () => {
+    const card = longTerm({ intensiveDay: 3, intensiveRepsDone: 0 });
     for (const rating of ['again', 'hard', 'good', 'easy'] as const) {
-      expect(reviewCard(card, rating, MORNING).intensiveRepsDone).toBe(2);
+      expect(reviewCard(card, rating, MORNING).intensiveDay).toBe(4);
     }
   });
 });
@@ -156,8 +156,8 @@ describe('getDueCards', () => {
   it('holds back a card whose gap has not run out yet', () => {
     const inAnHour = new Date(MORNING.getTime() + 60 * 60 * 1000).toISOString();
     const card = longTerm({
-      intensiveDay: 1,
-      intensiveRepsDone: 1,
+      intensiveDay: 2,
+      intensiveRepsDone: 0,
       nextReviewDate: isoDay(MORNING),
       nextReviewAt: inAnHour,
     });
@@ -173,23 +173,23 @@ describe('getDueCards', () => {
 
 describe('scheduleFields', () => {
   it('carries every field the schedule owns, so a review persists whole', () => {
-    const card = longTerm({ intensiveDay: 3, intensiveRepsDone: 2, nextReviewAt: 'x' });
+    const card = longTerm({ intensiveDay: 3, intensiveRepsDone: 0, nextReviewAt: 'x' });
     expect(scheduleFields(card)).toEqual({
       learningStage: 'graduated',
       nextReviewDate: card.nextReviewDate,
       intervalDays: card.intervalDays,
       easeFactor: card.easeFactor,
       intensiveDay: 3,
-      intensiveRepsDone: 2,
+      intensiveRepsDone: 0,
       nextReviewAt: 'x',
     });
   });
 
-  it('writes an explicit null when a card leaves the phase, not undefined', () => {
+  it('writes an explicit null when a card leaves the ladder, not undefined', () => {
     // undefined would be dropped by the update builder, leaving the card
-    // stuck in the phase forever.
+    // stuck on the ladder forever.
     const left = reviewCard(
-      longTerm({ intensiveDay: 5, intensiveRepsDone: 1 }),
+      longTerm({ intensiveDay: 7, intensiveRepsDone: 0 }),
       'good',
       MORNING,
     );
@@ -206,8 +206,8 @@ describe('nextWave', () => {
 
   function held(at: Date): FlashCard {
     return longTerm({
-      intensiveDay: 1,
-      intensiveRepsDone: 1,
+      intensiveDay: 2,
+      intensiveRepsDone: 0,
       nextReviewDate: isoDay(MORNING),
       nextReviewAt: at.toISOString(),
     });
