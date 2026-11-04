@@ -13,7 +13,7 @@ import type { Tab } from '@/components/BottomNav';
 export type View =
   | 'home' | 'learnHub' | 'library' | 'settings'
   | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
-  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'translationPractice' | 'memorize' | 'listenCards' | 'rootExplorer' | 'formExplorer' | 'verbForms' | 'anki' | 'deckExport'
+  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'translationPractice' | 'memorize' | 'listenCards' | 'rootExplorer' | 'formExplorer' | 'verbForms' | 'anki' | 'deckExport' | 'relearn' | 'deckReview'
   | 'pdfToAudio' | 'dictionary'
   | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast' | 'feedback';
 
@@ -32,6 +32,8 @@ const PATHS: Record<Exclude<View, 'library' | 'podcast' | 'dictionary'>, string>
   home: '/',
   learnHub: '/learn',
   learnCards: '/learn/new-words',
+  relearn: '/learn/relearn',
+  deckReview: '/learn/deck-review',
   lookup: '/learn/lookup',
   rootExplorer: '/learn/roots',
   formExplorer: '/learn/forms',

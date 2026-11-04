@@ -23,6 +23,11 @@ interface LearningModeProps {
   onEarn?: (xp: number) => void;
   /** Shown under Back, e.g. the vocab/sentences choice. */
   header?: ReactNode;
+  /**
+   * A relearn run: the same questions, but nothing is going into the review
+   * schedule, so the finish screen must not say it is.
+   */
+  practice?: boolean;
 }
 
 type MCDirection = 'en-to-ar' | 'ar-to-en';
@@ -78,7 +83,7 @@ const AnswerDetail = ({ card, deck }: { card: FlashCard; deck: FlashCard[] }) =>
     </div>
   ) : null;
 
-const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn, header }: LearningModeProps) => {
+const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn, header, practice = false }: LearningModeProps) => {
   const stage1Cards = useMemo(() => cards.filter((c) => c.learningStage === 'new' || c.learningStage === 'stage1'), [cards]);
   const stage2Cards = useMemo(() => cards.filter((c) => c.learningStage === 'stage2'), [cards]);
 
@@ -349,15 +354,16 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn, header }:
           <Illustration name="learn-done" eager className="mx-auto h-40 w-40 rounded-2xl object-cover" />
           <h2 className="text-2xl font-bold text-foreground">Excellent!</h2>
           <p className="text-muted-foreground">
-            These {totalLearnable} words go into today's reviews, and come back
-            through the day.
+            {practice
+              ? `You went through ${totalLearnable} card${totalLearnable === 1 ? '' : 's'} again. Your review schedule has not changed.`
+              : `These ${totalLearnable} words go into today's reviews, and come back through the day.`}
           </p>
         </div>
         <button
           onClick={onBack}
           className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-semibold transition-all active:scale-95"
         >
-          Back to Home
+          {practice ? 'Done' : 'Back to Home'}
         </button>
       </div>
     );

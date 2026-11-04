@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import {
-  GraduationCap, BookOpen, RefreshCw, List, BookA,
+  GraduationCap, BookOpen, RefreshCw, CalendarClock, List, BookA,
   Sparkles, Link2, Brain, Headphones, Hash, LibraryBig, Network, Shapes, Boxes, Languages, type LucideIcon,
 } from 'lucide-react';
 import PodcastShelf from '@/components/podcasts/PodcastShelf';
@@ -10,7 +10,7 @@ import { countKind, type CardMix } from '@/lib/learn-filter';
 import type { Podcast } from '@/lib/podcasts';
 
 export type LearnDestination =
-  | 'learn' | 'review' | 'relearn' | 'deck' | 'lookup' | 'learnDecks'
+  | 'learn' | 'review' | 'relearn' | 'deckReview' | 'deck' | 'lookup' | 'learnDecks'
   | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'translationPractice'
   | 'memorize' | 'listenCards' | 'rootExplorer' | 'formExplorer' | 'verbForms' | 'dictionary';
 
@@ -83,7 +83,8 @@ const LearnHub = ({
     { id: 'deck', label: 'My deck', icon: List, hint: `${deckSize} word${deckSize === 1 ? '' : 's'}` },
     { id: 'learnDecks', label: 'Decks', icon: LibraryBig, hint: 'Chapter decks' },
     { id: 'dictionary', label: 'Dictionary', icon: BookA, hint: '27,000 words' },
-    { id: 'relearn', label: 'Relearn', icon: RefreshCw, hint: 'Reset cards', disabled: empty, disabledHint: 'No cards yet' },
+    { id: 'relearn', label: 'Relearn', icon: RefreshCw, hint: 'Go through a deck again', disabled: empty, disabledHint: 'No cards yet' },
+    { id: 'deckReview', label: 'Deck review', icon: CalendarClock, hint: 'Shorten your reviews by deck', disabled: empty, disabledHint: 'No cards yet' },
   ];
 
   const practice: { title: string; tools: Tool[] }[] = [
@@ -167,7 +168,7 @@ const LearnHub = ({
 
       <section className="space-y-3" aria-label="Your words">
         {heading('Your words')}
-        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-5">
           {yourWords.map((t) => (
             <HubTile key={t.id} variant="compact" {...t} onClick={() => onSelect(t.id)} />
           ))}

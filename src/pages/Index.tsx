@@ -9,6 +9,10 @@ import ReviewComplete from '@/components/ReviewComplete';
 import DeckList from '@/components/DeckList';
 import LearningMode from '@/components/LearningMode';
 import RelearnModal from '@/components/RelearnModal';
+import RelearnSession from '@/components/RelearnSession';
+import DeckReview from '@/components/DeckReview';
+import { useRelearnDecks } from '@/hooks/useRelearnDecks';
+import { practiceCopy } from '@/lib/relearn';
 import { today } from '@/lib/day';
 import { DeckContext } from '@/contexts/DeckContext';
 import ConjugationDrill from '@/components/ConjugationDrill';
@@ -146,6 +150,10 @@ const Index = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [showRelearnModal, setShowRelearnModal] = useState(false);
+  /** The cards of the relearn run on screen, as in-memory copies (see lib/relearn). */
+  const [relearnCards, setRelearnCards] = useState<FlashCard[]>([]);
+  /** Bumped per run, so starting another begins from the first question. */
+  const [relearnRun, setRelearnRun] = useState(0);
   // Bumped to tell the Library to return to its root, or to open the stored
   // reading position — both are actions only the Library can carry out.
   const [libraryReset, setLibraryReset] = useState(0);
@@ -214,8 +222,9 @@ const Index = () => {
     const prev = prevView.current;
     prevView.current = view;
     if (prev === view) return;
-    if (prev === 'review' || prev === 'learnCards') endSession();
+    if (prev === 'review' || prev === 'learnCards' || prev === 'relearn') endSession();
     if (view === 'learnCards') startSession('Learn');
+    if (view === 'relearn') startSession('Relearn');
     // startSession/endSession only touch refs and setSummary.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view]);
@@ -242,6 +251,7 @@ const Index = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [progress.loaded, user?.id]);
   const { admin: isDeckAdmin } = useDeckLibrary();
+  const relearnDecks = useRelearnDecks(showRelearnModal);
   const backfillRan = useRef(false);
   const podcastLinkRan = useRef(false);
   const [podcastRegister, setPodcastRegister] = useState<Register | null>(null);
@@ -613,22 +623,19 @@ const Index = () => {
     await updateCard(id, updates);
   };
 
-  const handleStartRelearn = async (cardIds: string[]) => {
-    const startDate = today();
-    for (const id of cardIds) {
-      await updateCard(id, {
-        easeFactor: 2.5,
-        intervalDays: 0,
-        learningStage: 'new',
-        stage1Attempts: 0,
-        stage2Attempts: 0,
-        nextReviewDate: startDate,
-      });
-    }
+  /**
+   * Relearning goes through the chosen cards again as a practice run, and
+   * writes nothing: the stored cards keep their due dates, intervals and ease,
+   * so it never disturbs the timed review (the same stance as Practice in
+   * Review). It used to reset the cards themselves.
+   */
+  const handleStartRelearn = (cardIds: string[]) => {
+    const chosen = new Set(cardIds);
+    setRelearnCards(cards.filter((c) => chosen.has(c.id)).map(practiceCopy));
+    setRelearnRun((n) => n + 1);
     setShowRelearnModal(false);
-    toast({ title: `Reset ${cardIds.length} card${cardIds.length !== 1 ? 's' : ''} for relearning` });
     setTab('learn');
-    setView('learnCards');
+    setView('relearn');
   };
 
   // Due count is global, matching the global review queue — a badge that
@@ -970,6 +977,36 @@ const Index = () => {
           </div>
         )}
 
+        {view === 'deckReview' && (
+          <DeckReview cards={cards} onUpdateCard={handleUpdateCard} onBack={() => setView('learnHub')} />
+        )}
+
+        {view === 'relearn' && relearnCards.length > 0 && (
+          <RelearnSession
+            key={relearnRun}
+            cards={relearnCards}
+            allCards={cards}
+            onBack={() => setView('learnHub')}
+            onEarn={earn}
+          />
+        )}
+
+        {/* Opened by address with nothing chosen, e.g. after a reload. */}
+        {view === 'relearn' && relearnCards.length === 0 && (
+          <div className="space-y-4">
+            <BackButton onClick={() => setView('learnHub')} label="Learn" />
+            <div className="rounded-2xl border border-border bg-card px-4 py-8 text-center space-y-3">
+              <p className="text-sm text-muted-foreground">Choose a deck or some cards to relearn.</p>
+              <button
+                onClick={() => setShowRelearnModal(true)}
+                className="rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground"
+              >
+                Choose cards
+              </button>
+            </div>
+          </div>
+        )}
+
         {view === 'learnCards' && (learnCards.length > 0 || learnable.length === 0) && (
           <LearningMode
             // A new mix is a new session: the queues are built on arrival.
@@ -1061,6 +1098,8 @@ const Index = () => {
           cards={cards}
           onClose={() => setShowRelearnModal(false)}
           onStartRelearn={handleStartRelearn}
+          decks={relearnDecks.decks}
+          decksLoading={relearnDecks.loading}
         />
       )}
 
