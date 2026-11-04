@@ -30,6 +30,9 @@ const RelearnModal = ({ cards, onClose, onStartRelearn, decks = null, decksLoadi
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
   const [sentencesOnly, setSentencesOnly] = useState(false);
   const [open, setOpen] = useState<Set<string>>(new Set());
+  // Opens on the decks: one tap on a deck relearns it. Choosing cards one by
+  // one is still there, a step further in.
+  const [mode, setMode] = useState<'decks' | 'cards'>('decks');
 
   const sentenceCount = useMemo(() => cards.filter(isSentence).length, [cards]);
   // What the list shows. With "sentences" on, only those are listed, so
@@ -94,6 +97,11 @@ const RelearnModal = ({ cards, onClose, onStartRelearn, decks = null, decksLoadi
   };
 
   const byDeck = decks !== null && decks.length > 0;
+  const deckSections = useMemo(() => (byDeck ? sectionsByDeck(cards, decks) : []), [byDeck, cards, decks]);
+  /** The deck list is what is on screen: decks are known, and the learner has not asked for the card picker. */
+  const deckList = mode === 'decks' && byDeck;
+  /** Still finding out which words are in which deck. */
+  const waitingForDecks = mode === 'decks' && decks === null && decksLoading;
 
   const sections = useMemo<Section[]>(() => {
     if (byDeck) {
@@ -129,7 +137,9 @@ const RelearnModal = ({ cards, onClose, onStartRelearn, decks = null, decksLoadi
         <div className="min-w-0">
           <h2 className="text-lg font-bold text-foreground">Relearn</h2>
           <p className="text-xs text-muted-foreground">
-            Pick a deck, or cards from it, to go through again. Your review schedule is not changed.
+            {deckList || waitingForDecks
+              ? 'Tap a deck to go through it again. Your review schedule is not changed.'
+              : 'Pick the cards to go through again. Your review schedule is not changed.'}
           </p>
         </div>
         <button
@@ -141,6 +151,53 @@ const RelearnModal = ({ cards, onClose, onStartRelearn, decks = null, decksLoadi
         </button>
       </div>
 
+      {deckList || waitingForDecks ? (
+        <>
+          <div className="flex-1 overflow-y-auto px-4 py-3">
+            {waitingForDecks ? (
+              <p className="px-1 py-8 text-center text-sm text-muted-foreground">Loading your decks…</p>
+            ) : (
+              <div className="space-y-2">
+                {deckSections.map((section) => (
+                  <button
+                    key={section.id}
+                    onClick={() => onStartRelearn(section.cards.map((c) => c.id))}
+                    aria-label={`Relearn ${section.name}, ${section.cards.length} card${section.cards.length === 1 ? '' : 's'}`}
+                    className="flex w-full items-center gap-3 rounded-2xl border border-border bg-card px-4 py-3.5 text-start transition-colors hover:bg-muted/40 active:scale-[0.99]"
+                  >
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate font-semibold text-foreground">{section.name}</span>
+                      <span className="block text-xs text-muted-foreground">
+                        {section.cards.length} card{section.cards.length === 1 ? '' : 's'}
+                      </span>
+                    </span>
+                    <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+          <div className="border-t border-border px-4 py-4">
+            <button
+              onClick={() => setMode('cards')}
+              className="w-full py-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+            >
+              Choose individual cards instead
+            </button>
+          </div>
+        </>
+      ) : (
+        <>
+          {byDeck && (
+            <div className="border-b border-border/50 px-4 py-2">
+              <button
+                onClick={() => setMode('decks')}
+                className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+              >
+                ← Back to decks
+              </button>
+            </div>
+          )}
       {/* Select All toggle */}
       <div className="flex items-center justify-between gap-3 px-4 py-3 border-b border-border/50">
         <button
@@ -260,6 +317,8 @@ const RelearnModal = ({ cards, onClose, onStartRelearn, decks = null, decksLoadi
           Start Relearning ({selectedIds.size} card{selectedIds.size !== 1 ? 's' : ''})
         </button>
       </div>
+        </>
+      )}
     </div>
   );
 };
