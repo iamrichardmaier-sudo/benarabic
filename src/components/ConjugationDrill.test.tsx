@@ -442,3 +442,68 @@ describe('full verb chart', () => {
     expect(screen.getByText('Pick the verb forms you want to practise.')).toBeInTheDocument();
   });
 });
+
+describe('ConjugationDrill shows the baseline for the verb\'s form beside its answers', () => {
+  async function checked(cards: FlashCard[], typed: string[]) {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={cards} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    const boxes = screen.getAllByRole('textbox');
+    for (let i = 0; i < typed.length; i++) await user.type(boxes[i], typed[i]);
+    await user.click(screen.getByRole('button', { name: 'Check Answer' }));
+  }
+
+  it('puts the Form I pattern under the past, present and masdar, right answers included', async () => {
+    const kataba = verb('ك-ت-ب', 'I', { pastTense: 'كَتَبَ', presentTense: 'يَكتُبُ', masdarForm: 'كِتابة' });
+    await checked([kataba], ['كَتَبَ', 'يَكتُبُ', 'كِتابة']);
+
+    // The verb's own answers...
+    expect(screen.getByText('كَتَبَ')).toBeInTheDocument();
+    expect(screen.getByText('يَكتُبُ')).toBeInTheDocument();
+    expect(screen.getByText('كِتابة')).toBeInTheDocument();
+    // ...and what a regular root would have, for each of the three.
+    expect(screen.getByText('فَعَلَ')).toBeInTheDocument();
+    expect(screen.getByText('يَفْعُلُ')).toBeInTheDocument();
+    expect(screen.getByText('فَعْل')).toBeInTheDocument();
+    expect(screen.getAllByText(/Form I baseline/)).toHaveLength(3);
+  });
+
+  it('uses the baseline of the verb\'s own form', async () => {
+    const allama = verb('ع-ل-م', 'II', { pastTense: 'عَلَّمَ', presentTense: 'يُعَلِّمُ', masdarForm: 'تَعليم' });
+    await checked([allama], ['عَلَّمَ', 'يُعَلِّمُ', 'تَعليم']);
+
+    expect(screen.getByText('فَعَّلَ')).toBeInTheDocument();
+    expect(screen.getByText('يُفَعِّلُ')).toBeInTheDocument();
+    expect(screen.getByText('تَفْعيل')).toBeInTheDocument();
+    expect(screen.getAllByText(/Form II baseline/)).toHaveLength(3);
+  });
+
+  it('says so, rather than repeating itself, when the verb is exactly the baseline', async () => {
+    const model = verb('ف-ع-ل', 'I', { pastTense: 'فَعَلَ', presentTense: 'يَفْعُلُ', masdarForm: 'فَعْل' });
+    await checked([model], ['فَعَلَ', 'يَفْعُلُ', 'فَعْل']);
+
+    expect(screen.getAllByText(/Same as the Form I baseline/)).toHaveLength(3);
+    expect(screen.queryByText(/Form I baseline ·/)).not.toBeInTheDocument();
+  });
+
+  it('shows the baseline for a wrong answer too, beside the correct one', async () => {
+    const kataba = verb('ك-ت-ب', 'I', { pastTense: 'كَتَبَ', presentTense: 'يَكتُبُ', masdarForm: 'كِتابة' });
+    await checked([kataba], ['خطأ', 'خطأ', 'خطأ']);
+
+    expect(screen.getByText('كَتَبَ')).toBeInTheDocument();
+    expect(screen.getByText('فَعَلَ')).toBeInTheDocument();
+  });
+
+  it('only drills the masdar baseline in masdar-only mode', async () => {
+    const user = userEvent.setup();
+    const allama = verb('ع-ل-م', 'II', { pastTense: 'عَلَّمَ', presentTense: 'يُعَلِّمُ', masdarForm: 'تَعليم' });
+    render(<ConjugationDrill cards={[allama]} onBack={() => {}} />);
+    await user.click(screen.getByRole('checkbox', { name: /Verb → Masdar only/ }));
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    await user.type(screen.getByRole('textbox'), 'تَعليم');
+    await user.click(screen.getByRole('button', { name: 'Check Answer' }));
+
+    expect(screen.getByText('تَفْعيل')).toBeInTheDocument();
+    expect(screen.queryByText('فَعَّلَ')).not.toBeInTheDocument();
+  });
+});
