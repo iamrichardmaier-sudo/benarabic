@@ -1,0 +1,607 @@
+{
+  "day": "2026-11-05",
+  "format": "See supabase/answer-keys/README.md.",
+  "sentences": [
+    {
+      "position": 1,
+      "english": "Whenever we watched the stars in the clear sky, we forgot our worries, and the nights seemed much shorter to us.",
+      "grammar_focus": "كُلَّما + past + past with no فاء (كلّما شاهدنا … نسينا), non-human plurals as feminine singular (بدت الليالي), a feminine noun with its definite adjective (السماء الصافية), and the comparative with بكثير (أقصر بكثير)",
+      "target_words": [
+        "شاهَدَ (فعل)",
+        "نَجْم",
+        "السَّماء"
+      ],
+      "model_answer": "كُلَّما شاهَدْنا النُّجومَ في السَّماءِ الصّافِيَةِ نَسينا هُمومَنا، وَبَدَتْ لَنا اللَّيالي أَقصَرَ بِكَثيرٍ.",
+      "reference_translations": [
+        "كلما شاهدنا النجوم في السماء الصافية نسينا همومنا وبدت لنا الليالي أقصر بكثير",
+        "كلما رأينا النجوم في السماء النقية نسينا مشاكلنا وبدت الليالي أقصر كثيرا",
+        "كلما نظرنا إلى النجوم في السماء الصافية نسينا أحزاننا وبدا لنا أن الليالي أقصر بكثير",
+        "كلما تأملنا النجوم في السماء الصافية نسينا همنا وأصبحت الليالي أقصر بكثير",
+        "كلما شاهدنا النجوم في السماء الصافية نسينا مخاوفنا وبدت لنا الليالي أكثر قصرا",
+        "كلما رأينا النجوم في السماء الواضحة نسينا همومنا وبدت الليالي أقصر بكثير"
+      ],
+      "chunks": [
+        {
+          "en": "Whenever we watched the stars",
+          "accept": [
+            "كلما شاهدنا النجوم",
+            "كلما رأينا النجوم",
+            "كلما نظرنا إلى النجوم",
+            "كلما تأملنا النجوم"
+          ],
+          "mistakes": [
+            {
+              "text": "كل ما شاهدنا",
+              "rule": "كلّما (\"whenever\") is one word",
+              "note": "كلّ ما means \"everything that\". \"Whenever\" is كُلَّما, written as one word."
+            },
+            {
+              "text": "شاهدت",
+              "rule": "\"We\" watched: شاهدنا",
+              "note": "شاهدتُ is \"I watched\". We: شاهَدنا."
+            },
+            {
+              "text": "شاهدوا",
+              "rule": "\"We\" watched: شاهدنا",
+              "note": "شاهدوا is \"they watched\". We: شاهَدنا."
+            },
+            {
+              "text": "عندما شاهدنا",
+              "rule": "Understandable, but \"whenever\" is كلّما",
+              "note": "عندما is \"when\", once. \"Each time\" is كُلَّما.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "in the clear sky",
+          "accept": [
+            "في السماء الصافية",
+            "في السماء النقية",
+            "في السماء الواضحة"
+          ],
+          "mistakes": [
+            {
+              "text": "الصافي",
+              "rule": "السماء is feminine: الصافية",
+              "note": "السماء is feminine, so its adjective is too: السماءِ الصافيةِ."
+            },
+            {
+              "text": "السماء صافية",
+              "rule": "A definite noun takes a definite adjective",
+              "note": "\"The clear sky\": السماءِ الصافيةِ, with ال on both words. السماء صافية is a sentence (\"the sky is clear\")."
+            },
+            {
+              "text": "السماء الصافيين",
+              "rule": "The adjective agrees with the noun",
+              "note": "السماء is a single feminine noun: الصافيةِ."
+            }
+          ]
+        },
+        {
+          "en": "we forgot our worries",
+          "accept": [
+            "نسينا همومنا",
+            "نسينا مشاكلنا",
+            "نسينا أحزاننا",
+            "نسينا مخاوفنا",
+            "نسينا همنا"
+          ],
+          "mistakes": [
+            {
+              "text": "نسيت",
+              "rule": "\"We\" forgot: نسينا",
+              "note": "نسيتُ is \"I forgot\". We: نَسينا."
+            },
+            {
+              "text": "نسوا",
+              "rule": "\"We\" forgot: نسينا",
+              "note": "نَسوا is \"they forgot\". We: نَسينا."
+            },
+            {
+              "text": "همومي",
+              "rule": "\"Our\" is ـنا",
+              "note": "همومي is \"my worries\". Ours: همومَنا."
+            },
+            {
+              "text": "همومهم",
+              "rule": "\"Our\" is ـنا",
+              "note": "همومهم is \"their worries\". Ours: همومَنا."
+            },
+            {
+              "text": "نسينا الهموم",
+              "rule": "\"Our worries\" takes ـنا, not ال",
+              "note": "Possessive, not definite: همومَنا (\"our worries\"), not الهموم."
+            }
+          ]
+        },
+        {
+          "en": "and the nights seemed much shorter to us",
+          "accept": [
+            "بدت لنا الليالي أقصر",
+            "بدت الليالي أقصر",
+            "بدا لنا أن الليالي أقصر",
+            "أصبحت الليالي أقصر",
+            "بدت لنا الليالي أكثر قصرا",
+            "بدت الليالي أكثر قصرا"
+          ],
+          "mistakes": [
+            {
+              "text": "بدا الليالي",
+              "rule": "Non-human plurals take a feminine singular verb",
+              "note": "The nights are things: بَدَتِ الليالي, not بدا."
+            },
+            {
+              "text": "بدوا",
+              "rule": "Non-human plurals take a feminine singular verb",
+              "note": "The nights are things: بَدَتِ الليالي. بدوا is for people."
+            },
+            {
+              "text": "بدت لي",
+              "rule": "\"To us\" is لنا",
+              "note": "بدت لي is \"seemed to me\". To us: بَدَت لَنا."
+            },
+            {
+              "text": "الليالي قصيرة",
+              "rule": "\"Shorter\" is the comparative أقصر",
+              "note": "قصيرة is \"short\". Shorter: أقصَر (or أكثرَ قصرًا)."
+            },
+            {
+              "text": "أكثر أقصر",
+              "rule": "أقصر already means \"shorter\"",
+              "note": "Say أقصَر, or أكثرَ قصرًا. Not both: أكثر أقصر doubles the comparative."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "كُلَّما is one word (\"whenever\"): كلّما شاهدنا … نسينا, with no فاء",
+        "The nights are things: بَدَتِ الليالي (feminine singular verb)",
+        "السماء is feminine: السماءِ الصافيةِ",
+        "\"Our worries\": همومَنا (ـنا, not ال)",
+        "The comparative: أقصَرَ بكثيرٍ"
+      ]
+    },
+    {
+      "position": 2,
+      "english": "Instead of bringing the meal from the restaurant, my mother cooked it herself, and it had a taste that none of the guests could forget.",
+      "grammar_focus": "بدلًا من أن + subjunctive, or بدلًا من + a verbal noun (الإتيان بالوجبة); جاء بـ \"bring\"; a feminine thing with its pronoun (طبختها، لها); and a relative clause on an indefinite noun, with its pronoun and no الذي (طعمٌ لا يستطيع أحدٌ … أن ينساه)",
+      "target_words": [
+        "جاءَ بِـ",
+        "وَجْبة",
+        "طَعْم (اسم)"
+      ],
+      "model_answer": "بَدَلًا مِن أَن تَأتِيَ أُمّي بِالوَجبَةِ مِنَ المَطعَمِ طَبَخَتها بِنَفسِها، وَكانَ لَها طَعمٌ لا يَستَطيعُ أَحَدٌ مِنَ الضُّيوفِ أَن يَنساهُ.",
+      "reference_translations": [
+        "بدلا من أن تأتي أمي بالوجبة من المطعم طبختها بنفسها وكان لها طعم لا يستطيع أحد من الضيوف أن ينساه",
+        "بدلا من الإتيان بالوجبة من المطعم طبخت أمي الوجبة بنفسها وكان لها مذاق لا يمكن لأحد من الضيوف أن ينساه",
+        "بدل أن تجلب أمي الوجبة من المطعم طهتها وحدها وكان لها طعم لم يستطع أحد من الضيوف أن ينساه",
+        "بدلا من أن تأتي أمي بالوجبة من المطعم طهتها بمفردها وكان لها نكهة لا ينساها أحد من الضيوف",
+        "بدلا من جلب الوجبة من المطعم طبخت أمي الوجبة بنفسها فكان لها طعم لا ينساه أحد من الضيوف",
+        "بدل أن تأتي أمي بالوجبة من المطعم طهتها أمي بنفسها وكان لها طعم ما استطاع أحد من الضيوف أن ينساه"
+      ],
+      "chunks": [
+        {
+          "en": "Instead of",
+          "accept": [
+            "بدلا من أن",
+            "بدل أن",
+            "بدلا من",
+            "عوضا عن أن",
+            "عوضا عن",
+            "بدل"
+          ],
+          "mistakes": [
+            {
+              "text": "بدلا أن",
+              "rule": "\"Instead of\" is بدلًا مِن (or بدل أن)",
+              "note": "مِن is needed after بدلًا: بَدَلًا مِن أن … Without the tanwin, بدلَ أن stands on its own."
+            },
+            {
+              "text": "بدلا عن",
+              "rule": "Also used: بدلًا عن; the classic is بدلًا من",
+              "note": "بدلًا عن is common and understood; بدلًا مِن is the form to prefer.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "bringing the meal",
+          "accept": [
+            "تأتي أمي بالوجبة",
+            "تأتي أمي بالأكل",
+            "تأتي أمي بالطعام",
+            "تجلب أمي الوجبة",
+            "تجلب أمي الأكل",
+            "تجلب أمي الطعام",
+            "الإتيان بالوجبة",
+            "الإتيان بالطعام",
+            "جلب الوجبة",
+            "جلب الطعام",
+            "تأتي بالوجبة",
+            "تجلب الوجبة"
+          ],
+          "mistakes": [
+            {
+              "text": "تأتي الوجبة",
+              "rule": "جاء takes بـ for \"bring\"",
+              "note": "\"Bring\" is جاءَ بـ: تَأتيَ بالوجبةِ. تأتي الوجبة means \"the meal comes\"."
+            },
+            {
+              "text": "تأتي أمي الوجبة",
+              "rule": "جاء takes بـ for \"bring\"",
+              "note": "\"Bring\" is جاءَ بـ: تَأتيَ أمّي بالوجبةِ, with بـ before the thing brought."
+            },
+            {
+              "text": "تجلب بالوجبة",
+              "rule": "جلب takes a direct object",
+              "note": "جَلَبَ is \"bring\" without بـ: تَجلِبَ الوجبةَ. (جاءَ بـ is the one with بـ.)"
+            },
+            {
+              "text": "جلب بالوجبة",
+              "rule": "جلب takes a direct object",
+              "note": "جَلْب is \"bringing\" without بـ: جَلْبِ الوجبةِ. (الإتيان بـ is the one with بـ.)"
+            }
+          ]
+        },
+        {
+          "en": "from the restaurant",
+          "accept": [
+            "من المطعم"
+          ],
+          "mistakes": [
+            {
+              "text": "من مطعم",
+              "rule": "\"The restaurant\" is a particular one: ال",
+              "note": "مِنَ المطعمِ."
+            },
+            {
+              "text": "في المطعم",
+              "rule": "\"From\" is من",
+              "note": "في المطعم is \"in the restaurant\". From it: مِنَ المطعمِ."
+            },
+            {
+              "text": "عن المطعم",
+              "rule": "\"From\" is من",
+              "note": "عن المطعم is \"about the restaurant\". From it: مِنَ المطعمِ."
+            }
+          ]
+        },
+        {
+          "en": "my mother cooked it herself",
+          "accept": [
+            "طبختها أمي بنفسها",
+            "طبخت أمي الوجبة بنفسها",
+            "أمي طبختها بنفسها",
+            "طبختها بنفسها",
+            "طهتها أمي بنفسها",
+            "طهت أمي الوجبة بنفسها",
+            "طهتها بنفسها",
+            "طبختها وحدها",
+            "طهتها وحدها",
+            "طبختها بمفردها",
+            "طهتها بمفردها"
+          ],
+          "mistakes": [
+            {
+              "text": "طبخها أمي",
+              "rule": "The mother is feminine: طبخت",
+              "note": "\"My mother cooked\": طَبَخَتْ أمّي, not طبخ."
+            },
+            {
+              "text": "طبخته",
+              "rule": "The meal is feminine: ـها",
+              "note": "الوجبة is feminine, so \"it\" is ـها: طَبَخَتْها, not طبخته."
+            },
+            {
+              "text": "طبخوها",
+              "rule": "One mother: طبخت",
+              "note": "طبخوها is \"they cooked it\". My mother (one person): طَبَخَتْها."
+            },
+            {
+              "text": "بنفسه",
+              "rule": "\"Herself\" is بنفسها",
+              "note": "My mother is a she: بنفسِها, not بنفسه."
+            },
+            {
+              "text": "بنفسي",
+              "rule": "\"Herself\" is بنفسها",
+              "note": "بنفسي is \"myself\". Herself: بنفسِها."
+            },
+            {
+              "text": "بنفسهم",
+              "rule": "One mother: بنفسها",
+              "note": "بنفسهم is \"themselves\". Herself: بنفسِها."
+            }
+          ]
+        },
+        {
+          "en": "and it had a taste",
+          "accept": [
+            "وكان لها طعم",
+            "وكان لها مذاق",
+            "وكان لها نكهة",
+            "وكانت لها نكهة",
+            "وكان طعمها"
+          ],
+          "mistakes": [
+            {
+              "text": "كانت لها طعم",
+              "rule": "كان agrees with what is had, طعم (masculine)",
+              "note": "\"It had a taste\": كانَ لَها طَعمٌ. The verb agrees with طعم (masculine), not with the meal."
+            },
+            {
+              "text": "كانت لها مذاق",
+              "rule": "كان agrees with what is had, مذاق (masculine)",
+              "note": "\"It had a flavour\": كانَ لَها مَذاقٌ. The verb agrees with مذاق (masculine), not with the meal."
+            },
+            {
+              "text": "لها طعما",
+              "rule": "What is had is the subject of كان: nominative",
+              "note": "كانَ لَها طَعمٌ, with no final alif: the thing had is the subject, so it is nominative."
+            },
+            {
+              "text": "لها طعمه",
+              "rule": "A noun cannot take both a pronoun and be indefinite",
+              "note": "\"A taste\": طَعمٌ, with no pronoun: لَها طَعمٌ."
+            }
+          ]
+        },
+        {
+          "en": "that none of the guests could forget",
+          "accept": [
+            "لا يستطيع أحد من الضيوف",
+            "لم يستطع أحد من الضيوف",
+            "ما استطاع أحد من الضيوف",
+            "لا يمكن لأحد من الضيوف",
+            "لا ينساه أحد من الضيوف",
+            "لا ينساها أحد من الضيوف",
+            "لن ينساه أحد من الضيوف",
+            "لن ينساها أحد من الضيوف",
+            "لا يستطيع أي من الضيوف",
+            "لم يستطع أي من الضيوف",
+            "لا أحد من الضيوف"
+          ],
+          "mistakes": [
+            {
+              "text": "أحد الضيوف",
+              "rule": "\"None of the guests\" is أحدٌ مِن الضيوف",
+              "note": "أحدُ الضيوفِ is \"one of the guests\". With a negative, \"none of the guests\": لا أحدَ مِنَ الضيوفِ / لا يستطيعُ أحدٌ مِنَ الضيوفِ."
+            },
+            {
+              "text": "لا يستطيعون",
+              "rule": "أحد (\"anyone\") takes a singular verb",
+              "note": "أحدٌ is one: لا يستطيعُ أحدٌ, not لا يستطيعون."
+            },
+            {
+              "text": "يستطيعوا",
+              "rule": "أحد (\"anyone\") takes a singular verb",
+              "note": "أحدٌ is one: لا يستطيعُ أحدٌ, not يستطيعوا."
+            },
+            {
+              "text": "ينساهم",
+              "rule": "The pronoun is the taste (masculine): ينساه",
+              "note": "What cannot be forgotten is the taste, a thing: يَنساهُ (ـه), not ينساهم (them)."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "بدلًا مِن أن + subjunctive, or بدلًا مِن + verbal noun: بدلًا من الإتيان بالوجبة",
+        "\"Bring\" is جاءَ بـ: تأتيَ بالوجبةِ",
+        "الوجبة is feminine: طبختْها, لها",
+        "A relative clause on an indefinite noun has no الذي, but keeps its pronoun: طعمٌ لا يستطيعُ أحدٌ أن ينساهُ",
+        "\"None of the guests\": أحدٌ مِنَ الضيوفِ, with a singular verb"
+      ]
+    },
+    {
+      "position": 3,
+      "english": "It is said that the people of the eastern city believed in a sacred stone, and that the king who took charge of the country asked them to visit it.",
+      "grammar_focus": "يُقال إنّ + accusative, آمن بـ + a genitive indefinite noun with its adjective (بحجرٍ مقدّسٍ), a relative clause with الذي agreeing with a masculine noun (الملك الذي تولّى), تولّى + a direct object, and طلب منهم أن + subjunctive",
+      "target_words": [
+        "آمَنَ بِـ",
+        "مُقَدَّس",
+        "تَوَلّى",
+        "شَرْقِيّ"
+      ],
+      "model_answer": "يُقالُ إِنَّ أَهلَ المَدينَةِ الشَّرقِيَّةِ آمَنوا بِحَجَرٍ مُقَدَّسٍ، وَإِنَّ المَلِكَ الَّذي تَوَلّى أَمرَ البِلادِ طَلَبَ مِنهُم أَن يَزورُوهُ.",
+      "reference_translations": [
+        "يقال إن أهل المدينة الشرقية آمنوا بحجر مقدس وإن الملك الذي تولى أمر البلاد طلب منهم أن يزوروه",
+        "يقال إن سكان المدينة الشرقية آمنوا بحجر مقدس وإن الحاكم الذي تولى حكم البلاد طلب إليهم أن يزوروه",
+        "يقولون إن أهالي المدينة الشرقية آمنوا بصخرة مقدسة وإن السلطان الذي تولى الحكم طلب منهم زيارتها",
+        "يقال إن أهل المدينة الشرقية آمنوا بحجر مقدس وإن الملك الذي تولى أمور البلاد أمرهم بزيارته",
+        "يقال إن أهالي المدينة الشرقية آمنوا بحجر مقدس وإن الأمير الذي تولى شؤون البلاد طلب منهم أن يزوروه",
+        "قيل إن سكان المدينة الشرقية آمنوا بصخرة مقدسة وإن الملك الذي تولى أمر الدولة طلب منهم أن يزوروها"
+      ],
+      "chunks": [
+        {
+          "en": "It is said that",
+          "accept": [
+            "يقال إن",
+            "قيل إن",
+            "يقولون إن"
+          ],
+          "mistakes": [
+            {
+              "text": "قال إن",
+              "rule": "\"It is said\" is the passive: يُقال / قيل",
+              "note": "قالَ is \"he said\". \"It is said that\": يُقالُ إنّ or قيلَ إنّ."
+            },
+            {
+              "text": "يقول إن",
+              "rule": "\"It is said\" is the passive: يُقال / قيل",
+              "note": "يقولُ is \"he says\". \"It is said that\": يُقالُ إنّ, or \"they say that\": يقولونَ إنّ."
+            }
+          ]
+        },
+        {
+          "en": "the people of the eastern city",
+          "accept": [
+            "أهل المدينة الشرقية",
+            "سكان المدينة الشرقية",
+            "أهالي المدينة الشرقية",
+            "شعب المدينة الشرقية"
+          ],
+          "mistakes": [
+            {
+              "text": "الشرقي",
+              "rule": "المدينة is feminine: الشرقية",
+              "note": "المدينة is feminine, so its adjective is too: المدينةِ الشرقيّةِ."
+            },
+            {
+              "text": "المدينة شرقية",
+              "rule": "A definite noun takes a definite adjective",
+              "note": "\"The eastern city\": المدينةِ الشرقيّةِ, with ال on both words."
+            },
+            {
+              "text": "الأهل المدينة",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "The people of the city: أهلُ المدينةِ, with ال only on المدينة."
+            }
+          ]
+        },
+        {
+          "en": "believed in a sacred stone",
+          "accept": [
+            "آمنوا بحجر مقدس",
+            "آمنوا بصخرة مقدسة"
+          ],
+          "mistakes": [
+            {
+              "text": "آمنوا في",
+              "rule": "آمن takes بـ",
+              "note": "\"Believe in\" is آمَنَ بـ: آمَنوا بحجرٍ, not في."
+            },
+            {
+              "text": "آمنوا حجر",
+              "rule": "آمن takes بـ",
+              "note": "\"Believe in\" is آمَنَ بـ: آمَنوا بحجرٍ. It cannot take the thing directly."
+            },
+            {
+              "text": "آمن بحجر",
+              "rule": "A verb after its subject agrees with it",
+              "note": "أهلُ المدينةِ come first, so the verb is plural: آمَنوا, not آمَنَ."
+            },
+            {
+              "text": "حجر مقدسة",
+              "rule": "حجر is masculine: مقدس",
+              "note": "حَجَر is masculine, so مُقَدَّسٍ, not مقدسة."
+            },
+            {
+              "text": "حجر المقدس",
+              "rule": "An indefinite noun takes an indefinite adjective",
+              "note": "\"A sacred stone\": حجرٍ مقدّسٍ, with no ال on the adjective."
+            },
+            {
+              "text": "بحجرا",
+              "rule": "After بـ the noun is genitive",
+              "note": "بِحَجَرٍ, with no alif: the tanwin after بـ is a kasra (genitive), not -an."
+            }
+          ]
+        },
+        {
+          "en": "and that the king who took charge",
+          "accept": [
+            "وإن الملك الذي تولى",
+            "وإن الحاكم الذي تولى",
+            "وإن السلطان الذي تولى",
+            "وإن الأمير الذي تولى"
+          ],
+          "mistakes": [
+            {
+              "text": "الملك التي",
+              "rule": "الملك is masculine: الذي",
+              "note": "المَلِك is masculine: الملكَ الذي, not التي."
+            },
+            {
+              "text": "الملك الذين",
+              "rule": "One king: الذي",
+              "note": "الذين is the plural for people. One king: الملكَ الذي."
+            },
+            {
+              "text": "الذي تولوا",
+              "rule": "One king: a singular verb",
+              "note": "The king is one person: الذي تولّى, not تولّوا."
+            },
+            {
+              "text": "تولى على",
+              "rule": "تولّى takes a direct object",
+              "note": "تولّى is \"take charge of\" with no preposition: تولّى أمرَ البلادِ, not تولّى على."
+            }
+          ]
+        },
+        {
+          "en": "of the country",
+          "accept": [
+            "أمر البلاد",
+            "أمور البلاد",
+            "شؤون البلاد",
+            "حكم البلاد",
+            "الحكم",
+            "أمر الدولة",
+            "حكم الدولة"
+          ],
+          "mistakes": [
+            {
+              "text": "الأمر البلاد",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "The affairs of the country: أمرَ البلادِ, with ال only on البلاد."
+            },
+            {
+              "text": "الحكم البلاد",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "The rule of the country: حُكمَ البلادِ, with ال only on البلاد."
+            }
+          ]
+        },
+        {
+          "en": "asked them to visit it",
+          "accept": [
+            "طلب منهم أن يزوروه",
+            "طلب منهم أن يزوروها",
+            "طلب إليهم أن يزوروه",
+            "طلب إليهم أن يزوروها",
+            "طلب منهم زيارته",
+            "طلب منهم زيارتها",
+            "أمرهم بزيارته",
+            "أمرهم بزيارتها"
+          ],
+          "mistakes": [
+            {
+              "text": "طلب لهم",
+              "rule": "\"Ask someone\" is طلب مِن",
+              "note": "\"Asked them\": طَلَبَ مِنهم (or طلب إليهم). لهم is \"for them\"."
+            },
+            {
+              "text": "طلب منه",
+              "rule": "\"Them\" is منهم",
+              "note": "منه is \"from him\". Them: مِنهم."
+            },
+            {
+              "text": "طلبوا",
+              "rule": "One king: طلب",
+              "note": "The king is one person: طَلَبَ, not طلبوا."
+            },
+            {
+              "text": "أن يزورون",
+              "rule": "After أن the verb drops its final ن",
+              "note": "After أن: أن يَزوروا (with the object attached: يزوروه), not يزورون."
+            },
+            {
+              "text": "أن يزور",
+              "rule": "\"They\" visit: يزوروا",
+              "note": "He is asking them, so the verb is plural: أن يَزوروهُ."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "يُقال إنّ (\"it is said that\") with a passive verb",
+        "آمنَ بـ: آمنوا بحجرٍ مقدّسٍ (genitive after بـ, an indefinite adjective)",
+        "الملك الذي (masculine) agrees with its verb: تولّى",
+        "تولّى takes its object directly: تولّى أمرَ البلاد",
+        "طلب منهم أن + subjunctive: أن يزوروه (no final ن)"
+      ]
+    }
+  ]
+}
