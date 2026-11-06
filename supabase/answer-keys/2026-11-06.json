@@ -1,0 +1,576 @@
+{
+  "day": "2026-11-06",
+  "format": "See supabase/answer-keys/README.md.",
+  "sentences": [
+    {
+      "position": 1,
+      "english": "How beautiful that happy occasion was! The two families got to know each other there, and since that day they have not stopped visiting each other.",
+      "grammar_focus": "The exclamation ما أفعلَ (ما أجملَ ذلك الفرحَ), a verb before a feminine dual subject staying singular (تعارفت العائلتان), Form VI تفاعل for \"each other\", and منذ … لم + the feminine dual jussive with توقّف عن + verbal noun (لم تتوقّفا عن تبادل الزيارات)",
+      "target_words": [
+        "تَعَارَفَ",
+        "فَرَح (اسم)"
+      ],
+      "model_answer": "ما أَجمَلَ ذلِكَ الفَرَحَ! تَعارَفَتِ العائِلَتانِ هُناكَ، وَمُنذُ ذلِكَ اليَومِ لَم تَتَوَقَّفا عَن تَبادُلِ الزِّياراتِ.",
+      "reference_translations": [
+        "ما أجمل ذلك الفرح تعارفت العائلتان هناك ومنذ ذلك اليوم لم تتوقفا عن تبادل الزيارات",
+        "ما كان أجمل ذلك الفرح تعارفت الأسرتان فيه ومنذ ذلك الحين لم تتوقفا عن زيارة بعضهما",
+        "ما أروع ذلك الفرح العائلتان تعارفتا هناك ومن ذلك اليوم لم تنقطع الزيارات بينهما",
+        "ما أجمل تلك المناسبة تعارفت العائلتان هناك ومنذ يومها لم تكفا عن تبادل الزيارات",
+        "ما أجمل ذلك العرس تعرفت العائلتان على بعضهما هناك ومنذ ذلك الوقت لم تتوقف الزيارات بينهما",
+        "ما أجمل هذا الفرح تعارفت الأسرتان هناك ومنذ ذلك اليوم لم تتوقفا عن زيارة بعضهما"
+      ],
+      "chunks": [
+        {
+          "en": "How beautiful that happy occasion was!",
+          "accept": [
+            "ما أجمل ذلك الفرح",
+            "ما كان أجمل ذلك الفرح",
+            "ما أروع ذلك الفرح",
+            "ما أجمل هذا الفرح",
+            "ما أجمل تلك المناسبة",
+            "ما أجمل ذلك العرس",
+            "ما أجمل الفرح"
+          ],
+          "mistakes": [
+            {
+              "text": "ما جميل",
+              "rule": "The exclamation is ما + أفعل: ما أجمل",
+              "note": "\"How beautiful!\" is ما أجملَ…, with the أفعل form, not ما جميل."
+            },
+            {
+              "text": "تلك الفرح",
+              "rule": "فرح is masculine: ذلك",
+              "note": "فَرَح is masculine, so \"that\" is ذلك: ذلك الفرحَ."
+            },
+            {
+              "text": "كم كان",
+              "rule": "Modern and understood; the classic exclamation is ما أجمل",
+              "note": "كم كان جميلًا is common today. The classic form is ما أجملَ ذلك الفرحَ!",
+              "status": "alternative"
+            },
+            {
+              "text": "كم جميل",
+              "rule": "Understood, but the exclamation is ما أجمل",
+              "note": "كم جميل is close to speech. In MSA: ما أجملَ ذلك الفرحَ!",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "The two families got to know each other there",
+          "accept": [
+            "تعارفت العائلتان هناك",
+            "تعارفت الأسرتان هناك",
+            "العائلتان تعارفتا هناك",
+            "الأسرتان تعارفتا هناك",
+            "تعارفت العائلتان",
+            "تعارفت الأسرتان",
+            "تعرفت العائلتان على بعضهما"
+          ],
+          "mistakes": [
+            {
+              "text": "تعارف العائلتان",
+              "rule": "Two families take a feminine verb: تعارفت",
+              "note": "العائلتان is feminine: تعارَفَتِ العائلتانِ, not تعارف."
+            },
+            {
+              "text": "تعارف العائلتين",
+              "rule": "Two families take a feminine verb, and the subject is nominative",
+              "note": "تعارَفَتِ العائلتانِ: a feminine verb, and -ان on the subject."
+            },
+            {
+              "text": "تعارفتا العائلتان",
+              "rule": "A verb before its subject stays singular",
+              "note": "Verb first: تعارَفَتِ العائلتانِ. The dual ending goes on the verb only after the subject: العائلتان تعارَفَتا."
+            },
+            {
+              "text": "تعارفوا",
+              "rule": "Two families: تعارفتا / تعارفت العائلتان",
+              "note": "تعارفوا is for a group of men. Two families: تعارَفَتِ العائلتانِ."
+            },
+            {
+              "text": "العائلتين",
+              "rule": "The subject is nominative: العائلتان",
+              "note": "As the subject, the dual ends in -ان: العائلتانِ, not العائلتين."
+            },
+            {
+              "text": "العائلات",
+              "rule": "Two families is the dual: العائلتان",
+              "note": "العائلات is \"the families\" (three or more). Two: العائلتانِ."
+            }
+          ]
+        },
+        {
+          "en": "and since that day",
+          "accept": [
+            "ومنذ ذلك اليوم",
+            "ومن ذلك اليوم",
+            "ومنذ ذلك الحين",
+            "ومنذ ذلك الوقت",
+            "ومن ذلك الوقت",
+            "ومنذ يومها",
+            "ومن يومها",
+            "ومنذ ذاك اليوم"
+          ],
+          "mistakes": [
+            {
+              "text": "تلك اليوم",
+              "rule": "يوم is masculine: ذلك",
+              "note": "يوم is masculine, so \"that day\" is ذلك اليوم, not تلك."
+            },
+            {
+              "text": "منذ اليوم ذلك",
+              "rule": "The demonstrative comes first: ذلك اليوم",
+              "note": "\"That day\": ذلك اليومِ, with ذلك before the noun."
+            }
+          ]
+        },
+        {
+          "en": "they have not stopped visiting each other",
+          "accept": [
+            "لم تتوقفا عن تبادل الزيارات",
+            "لم تتوقفا عن زيارة بعضهما",
+            "لم تكفا عن تبادل الزيارات",
+            "لم تنقطع الزيارات بينهما",
+            "لم تتوقف الزيارات بينهما",
+            "تتبادلان الزيارات"
+          ],
+          "mistakes": [
+            {
+              "text": "تتوقفان",
+              "rule": "After لم the dual drops its ن: تتوقفا",
+              "note": "لم + jussive: لم تتوقّفا, not لم تتوقّفان."
+            },
+            {
+              "text": "لم يتوقفوا",
+              "rule": "Two families: the feminine dual تتوقفا",
+              "note": "The two families are a feminine dual: لم تتوقّفا, not يتوقّفوا."
+            },
+            {
+              "text": "لم يتوقفا",
+              "rule": "Two families: the feminine dual تتوقفا",
+              "note": "العائلتان is feminine: لم تتوقّفا (with تـ), not يتوقّفا."
+            },
+            {
+              "text": "بعضهم",
+              "rule": "For two, \"each other\" is بعضهما",
+              "note": "Two families: بعضَهما (dual), not بعضهم."
+            },
+            {
+              "text": "تتوقفا من",
+              "rule": "توقّف takes عن",
+              "note": "\"Stop doing\": توقّف عن + verbal noun: تتوقّفا عن تبادلِ الزيارات."
+            },
+            {
+              "text": "تتوقفا تبادل",
+              "rule": "توقّف takes عن",
+              "note": "\"Stop doing\": توقّف عن + verbal noun: تتوقّفا عن تبادلِ الزيارات."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "The exclamation: ما أجملَ ذلك الفرحَ! (ما + أفعلَ + accusative)",
+        "فرح and يوم are masculine: ذلك",
+        "A verb before its subject stays singular: تعارفتِ العائلتانِ",
+        "After لم the dual drops its ن: لم تتوقّفا",
+        "توقّف عن + verbal noun: عن تبادلِ الزيارات"
+      ]
+    },
+    {
+      "position": 2,
+      "english": "Anyone who fasts in summer must drink plenty of water before dawn, because the long day differs a lot from the short days of winter.",
+      "grammar_focus": "مَن + past for \"anyone who\", with فـ on the answer (مَن صام … فعليه أن), عليه أن + subjunctive for \"must\", اختلف عن (\"differ from\", not مع), and an adjective for a plural of things (الأيامِ القصيرةِ)",
+      "target_words": [
+        "صامَ",
+        "اِختَلَفَ عن"
+      ],
+      "model_answer": "مَن صامَ في الصَّيفِ فَعَلَيهِ أَن يَشرَبَ ماءً كَثيرًا قَبلَ الفَجرِ، لِأَنَّ النَّهارَ الطَّويلَ يَختَلِفُ كَثيرًا عَنِ الأَيّامِ القَصيرَةِ في الشِّتاءِ.",
+      "reference_translations": [
+        "من صام في الصيف فعليه أن يشرب ماء كثيرا قبل الفجر لأن النهار الطويل يختلف كثيرا عن الأيام القصيرة في الشتاء",
+        "كل من يصوم في الصيف يجب أن يشرب ماء كثيرا قبل الفجر لأن النهار الطويل يختلف جدا عن أيام الشتاء القصيرة",
+        "من يصوم في الصيف عليه أن يشرب الكثير من الماء قبل طلوع الفجر لأن اليوم الطويل يختلف اختلافا كبيرا عن أيام الشتاء القصيرة",
+        "الذي يصوم في الصيف عليه أن يكثر من شرب الماء قبل الفجر فالنهار الطويل يختلف كثيرا عن الأيام القصيرة في الشتاء",
+        "من صام في الصيف فعليه أن يشرب ماء كثيرا قبل الفجر لأن نهار الصيف الطويل يختلف تماما عن أيام الشتاء القصيرة",
+        "من يصم في الصيف فعليه أن يشرب ماء كثيرا قبل الفجر لأن النهار الطويل يختلف كثيرا عن نهار الشتاء القصير"
+      ],
+      "chunks": [
+        {
+          "en": "Anyone who fasts in summer",
+          "accept": [
+            "من صام في الصيف",
+            "من يصوم في الصيف",
+            "من يصم في الصيف",
+            "كل من يصوم في الصيف",
+            "كل من صام في الصيف",
+            "الذي يصوم في الصيف"
+          ],
+          "mistakes": [
+            {
+              "text": "من صاموا",
+              "rule": "مَن takes a singular verb",
+              "note": "\"Anyone who\" is مَن with a singular verb: مَن صامَ, not صاموا."
+            },
+            {
+              "text": "من يصومون",
+              "rule": "مَن takes a singular verb",
+              "note": "\"Anyone who\" is مَن with a singular verb: مَن يصومُ, not يصومون."
+            },
+            {
+              "text": "في صيف",
+              "rule": "\"In summer\" takes ال",
+              "note": "The season in general: في الصيفِ."
+            },
+            {
+              "text": "اللي",
+              "rule": "Dialect: MSA is مَن or الذي",
+              "note": "اللي is colloquial. In MSA: مَن صامَ / الذي يصومُ."
+            }
+          ]
+        },
+        {
+          "en": "must drink plenty of water",
+          "accept": [
+            "عليه أن يشرب ماء كثيرا",
+            "أن يشرب الكثير من الماء",
+            "يجب أن يشرب ماء كثيرا",
+            "عليه أن يكثر من شرب الماء",
+            "يشرب كمية كبيرة من الماء"
+          ],
+          "mistakes": [
+            {
+              "text": "عليه يشرب",
+              "rule": "عليه needs أن before the verb",
+              "note": "\"Must drink\": عليه أن يشربَ, with أن."
+            },
+            {
+              "text": "يجب يشرب",
+              "rule": "يجب needs أن before the verb",
+              "note": "\"Must drink\": يجب أن يشربَ, with أن."
+            },
+            {
+              "text": "يشربوا",
+              "rule": "One person: يشرب",
+              "note": "مَن is singular, so the verb is too: أن يشربَ, not يشربوا."
+            },
+            {
+              "text": "لازم",
+              "rule": "Dialect: MSA is عليه أن / يجب أن",
+              "note": "لازم is colloquial here. In MSA: عليه أن يشربَ (or يجب أن يشربَ)."
+            }
+          ]
+        },
+        {
+          "en": "before dawn",
+          "accept": [
+            "قبل الفجر",
+            "قبل طلوع الفجر"
+          ],
+          "mistakes": [
+            {
+              "text": "قبل فجر",
+              "rule": "\"Dawn\" here takes ال",
+              "note": "قبلَ الفجرِ."
+            },
+            {
+              "text": "قبل من",
+              "rule": "قبل takes the noun directly",
+              "note": "\"Before dawn\": قبلَ الفجرِ, with no من."
+            },
+            {
+              "text": "قبل أن الفجر",
+              "rule": "قبل أن is for a verb; before a noun, just قبل",
+              "note": "Before a noun: قبلَ الفجرِ. قبل أن is followed by a verb (قبل أن يطلعَ الفجرُ)."
+            }
+          ]
+        },
+        {
+          "en": "because the long day",
+          "accept": [
+            "لأن النهار الطويل",
+            "لأن اليوم الطويل",
+            "فالنهار الطويل",
+            "لأن نهار الصيف الطويل"
+          ],
+          "mistakes": [
+            {
+              "text": "النهار الطويلة",
+              "rule": "النهار is masculine: الطويل",
+              "note": "النهار is masculine: النهارَ الطويلَ, not الطويلة."
+            },
+            {
+              "text": "لأنه النهار",
+              "rule": "لأنّ takes the noun directly",
+              "note": "With a noun after it: لأنّ النهارَ, not لأنّه النهار."
+            }
+          ]
+        },
+        {
+          "en": "differs a lot from",
+          "accept": [
+            "يختلف كثيرا عن",
+            "يختلف جدا عن",
+            "يختلف اختلافا كبيرا عن",
+            "يختلف تماما عن"
+          ],
+          "mistakes": [
+            {
+              "text": "يختلف مع",
+              "rule": "\"Differ from\" is اختلف عن; اختلف مع is \"disagree with\"",
+              "note": "اختلف مع means \"disagree with\" someone. \"Differ from\": يختلفُ عن."
+            },
+            {
+              "text": "يختلف من",
+              "rule": "\"Differ from\" is اختلف عن",
+              "note": "\"Differ from\": يختلفُ عن, not من."
+            },
+            {
+              "text": "كثيرا من الأيام",
+              "rule": "\"Differ from\" is اختلف عن",
+              "note": "\"Differs a lot from the days\": يختلفُ كثيرًا عن الأيام."
+            },
+            {
+              "text": "الطويل تختلف",
+              "rule": "The verb agrees with النهار (masculine)",
+              "note": "النهار is masculine: يختلفُ, not تختلف."
+            }
+          ]
+        },
+        {
+          "en": "the short days of winter",
+          "accept": [
+            "الأيام القصيرة في الشتاء",
+            "أيام الشتاء القصيرة",
+            "الأيام القصيرة في فصل الشتاء",
+            "نهار الشتاء القصير",
+            "أيام الشتاء"
+          ],
+          "mistakes": [
+            {
+              "text": "الأيام القصير",
+              "rule": "Adjectives for non-human plurals are feminine singular",
+              "note": "Days are things: الأيامِ القصيرةِ, not القصير."
+            },
+            {
+              "text": "أيام الشتاء القصير",
+              "rule": "القصيرة is for the days; القصير would be the winter",
+              "note": "\"The short days of winter\": أيامِ الشتاءِ القصيرةِ. With القصير, it is the winter that is short."
+            },
+            {
+              "text": "الأيام الشتاء",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "The days of winter: أيامِ الشتاءِ, with ال only on الشتاء."
+            },
+            {
+              "text": "الأيام القصيرين",
+              "rule": "The -ين plural is for people",
+              "note": "Days are things: الأيامِ القصيرةِ."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "مَن + a singular verb, and فـ on the answer: مَن صامَ … فعليه أن",
+        "\"Must\": عليه أن / يجب أن + subjunctive",
+        "\"Differ from\" is اختلف عن (اختلف مع is \"disagree with\")",
+        "Days are things: الأيامِ القصيرةِ (feminine singular adjective)",
+        "قبلَ الفجرِ: قبل takes the noun directly"
+      ]
+    },
+    {
+      "position": 3,
+      "english": "My father has not read today's newspaper yet, not because he is busy, but because he finds its news unclear and incomplete.",
+      "grammar_focus": "لم + jussive with بعدُ (\"not yet\"), لا لأنّ … بل لأنّ (\"not because … but because\"), وجد with two objects, غير + an adjective agreeing with a plural of things (أخبارَها غيرَ واضحةٍ), and the feminine pronoun for the newspaper (ـها)",
+      "target_words": [
+        "أَب (والد)",
+        "صَحيفَة",
+        "غَيْر (+صفة)"
+      ],
+      "model_answer": "لَم يَقرَأْ أَبي صَحيفَةَ اليَومِ بَعدُ، لا لِأَنَّهُ مَشغولٌ، بَل لِأَنَّهُ يَجِدُ أَخبارَها غَيرَ واضِحَةٍ وَغَيرَ كامِلَةٍ.",
+      "reference_translations": [
+        "لم يقرأ أبي صحيفة اليوم بعد لا لأنه مشغول بل لأنه يجد أخبارها غير واضحة وغير كاملة",
+        "لم يقرأ والدي جريدة اليوم حتى الآن ليس لأنه منشغل بل لأنه يرى أخبارها غامضة وناقصة",
+        "أبي لم يقرأ صحيفة اليوم بعد ليس لأنه مشغول ولكن لأنه يجد أخبارها غير واضحة وناقصة",
+        "لم يقرأ أبي جريدة اليوم بعد لا بسبب انشغاله بل لأنه يعتبر أخبارها غير واضحة وغير مكتملة",
+        "والدي لم يقرأ صحيفة اليوم حتى الآن لا لأنه منشغل بل لأنه يجد أخبارها غامضة وغير كاملة",
+        "لم يطالع أبي صحيفة اليوم بعد ليس بسبب انشغاله ولكن لأنه يرى أخبارها غير واضحة وغير كاملة"
+      ],
+      "chunks": [
+        {
+          "en": "My father has not read",
+          "accept": [
+            "لم يقرأ أبي",
+            "لم يقرأ والدي",
+            "أبي لم يقرأ",
+            "والدي لم يقرأ",
+            "لم يطالع أبي"
+          ],
+          "mistakes": [
+            {
+              "text": "لم قرأ",
+              "rule": "لم is followed by the present, in the jussive",
+              "note": "لم + present: لم يقرأْ, not لم قرأ."
+            },
+            {
+              "text": "لن يقرأ",
+              "rule": "لن is for the future",
+              "note": "\"Has not read\": لم يقرأْ. لن يقرأ is \"will not read\"."
+            },
+            {
+              "text": "لم تقرأ",
+              "rule": "\"My father\" is he: يقرأ",
+              "note": "لم تقرأ is \"you / she did not read\". He: لم يقرأْ أبي."
+            }
+          ]
+        },
+        {
+          "en": "today's newspaper yet",
+          "accept": [
+            "صحيفة اليوم بعد",
+            "جريدة اليوم بعد",
+            "صحيفة اليوم حتى الآن",
+            "جريدة اليوم حتى الآن",
+            "صحيفة هذا اليوم بعد"
+          ],
+          "mistakes": [
+            {
+              "text": "الصحيفة اليوم",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "Today's newspaper: صحيفةَ اليومِ, with ال only on اليوم."
+            },
+            {
+              "text": "صحيفة يوم",
+              "rule": "\"Today\" is اليوم",
+              "note": "صحيفةُ يومٍ is \"a day's newspaper\". Today's: صحيفةَ اليومِ."
+            },
+            {
+              "text": "بعدين",
+              "rule": "MSA \"yet\" is بعدُ",
+              "note": "بعدين is colloquial for \"later\". \"Not … yet\": لم يقرأْ … بعدُ."
+            }
+          ]
+        },
+        {
+          "en": "not because he is busy",
+          "accept": [
+            "لا لأنه مشغول",
+            "ليس لأنه مشغول",
+            "لا لأنه منشغل",
+            "ليس لأنه منشغل",
+            "ليس بسبب انشغاله",
+            "لا بسبب انشغاله"
+          ],
+          "mistakes": [
+            {
+              "text": "لأن مشغول",
+              "rule": "لأنّ needs a noun or pronoun after it",
+              "note": "\"Because he is busy\": لأنّه مشغولٌ, with ـه on لأنّ."
+            },
+            {
+              "text": "لأنها مشغولة",
+              "rule": "My father is he: لأنه مشغول",
+              "note": "\"He is busy\": لأنّه مشغولٌ, not لأنها مشغولة."
+            },
+            {
+              "text": "مشغولا",
+              "rule": "With no كان, the predicate is nominative",
+              "note": "لأنّه مشغولٌ, with no final alif."
+            },
+            {
+              "text": "مش",
+              "rule": "Dialect: MSA is لا / ليس",
+              "note": "مش is colloquial. In MSA: لا لأنّه … or ليس لأنّه …"
+            }
+          ]
+        },
+        {
+          "en": "but because he finds",
+          "accept": [
+            "بل لأنه يجد",
+            "ولكن لأنه يجد",
+            "بل لأنه يرى",
+            "ولكن لأنه يرى",
+            "بل لأنه يعتبر",
+            "بل لأنه يعد"
+          ],
+          "mistakes": [
+            {
+              "text": "لأن يجد",
+              "rule": "لأنّ needs a noun or pronoun after it",
+              "note": "\"Because he finds\": لأنّه يجدُ, with ـه on لأنّ."
+            },
+            {
+              "text": "لأنه تجد",
+              "rule": "\"He\" finds: يجد",
+              "note": "تجد is \"you / she find(s)\". He: يجدُ."
+            },
+            {
+              "text": "بل أنه",
+              "rule": "\"Because\" is لأنّ (لـ + أنّ)",
+              "note": "\"But because he\": بل لأنّه, not بل أنّه."
+            },
+            {
+              "text": "بس",
+              "rule": "Dialect: MSA is بل / لكن",
+              "note": "بس is colloquial. In MSA: بل لأنّه … (or ولكن لأنّه …)."
+            }
+          ]
+        },
+        {
+          "en": "its news unclear and incomplete",
+          "accept": [
+            "أخبارها غير واضحة وغير كاملة",
+            "أخبارها غير واضحة وناقصة",
+            "أخبارها غامضة وناقصة",
+            "أخبارها غير واضحة وغير مكتملة",
+            "أخبارها غامضة وغير كاملة"
+          ],
+          "mistakes": [
+            {
+              "text": "أخباره",
+              "rule": "The newspaper is feminine: أخبارها",
+              "note": "صحيفة is feminine, so \"its news\" is أخبارُها, not أخباره."
+            },
+            {
+              "text": "أخبارهم",
+              "rule": "The newspaper is feminine: أخبارها",
+              "note": "\"Its news\" (the newspaper's): أخبارَها, not أخبارهم."
+            },
+            {
+              "text": "غير واضح",
+              "rule": "News (أخبار) is a plural of things: feminine singular",
+              "note": "أخبار is a plural of things, so the adjective is feminine singular: غيرَ واضحةٍ."
+            },
+            {
+              "text": "غير كامل",
+              "rule": "News (أخبار) is a plural of things: feminine singular",
+              "note": "أخبار is a plural of things, so the adjective is feminine singular: غيرَ كاملةٍ."
+            },
+            {
+              "text": "غير واضحين",
+              "rule": "The -ين plural is for people",
+              "note": "News is a plural of things: غيرَ واضحةٍ."
+            },
+            {
+              "text": "لا واضحة",
+              "rule": "\"Un-\" before an adjective is غير",
+              "note": "\"Unclear\": غيرُ واضحةٍ, not لا واضحة."
+            },
+            {
+              "text": "غير الواضحة",
+              "rule": "Here غير goes with the bare adjective",
+              "note": "\"He finds its news unclear\": أخبارَها غيرَ واضحةٍ. غير الواضحة would make it \"its unclear news\"."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "\"Not yet\": لم + jussive … بعدُ (لم يقرأْ … بعدُ)",
+        "\"Not because … but because\": لا لأنّه … بل لأنّه",
+        "The newspaper is feminine: أخبارُها",
+        "غير + adjective, feminine singular for things: غيرَ واضحةٍ وغيرَ كاملةٍ",
+        "وجد takes two objects: يجد أخبارَها غيرَ واضحةٍ"
+      ]
+    }
+  ]
+}
