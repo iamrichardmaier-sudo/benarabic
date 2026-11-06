@@ -251,7 +251,9 @@ const Index = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [progress.loaded, user?.id]);
   const { admin: isDeckAdmin } = useDeckLibrary();
-  const relearnDecks = useRelearnDecks(showRelearnModal);
+  // The learner's decks and their words: for the Relearn picker and for
+  // narrowing the conjugation drill to particular decks.
+  const relearnDecks = useRelearnDecks(showRelearnModal || view === 'conjugationDrill');
   const backfillRan = useRef(false);
   const podcastLinkRan = useRef(false);
   const [podcastRegister, setPodcastRegister] = useState<Register | null>(null);
@@ -1033,7 +1035,7 @@ const Index = () => {
         )}
 
         {view === 'conjugationDrill' && (
-          <ConjugationDrill cards={studyCards} onBack={() => setView('learnHub')} />
+          <ConjugationDrill cards={studyCards} decks={relearnDecks.decks} onBack={() => setView('learnHub')} />
         )}
 
         {view === 'prepositionDrill' && (

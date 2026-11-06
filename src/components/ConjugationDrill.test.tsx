@@ -507,3 +507,66 @@ describe('ConjugationDrill shows the baseline for the verb\'s form beside its an
     expect(screen.queryByText('فَعَّلَ')).not.toBeInTheDocument();
   });
 });
+
+describe('ConjugationDrill can drill the verbs of particular decks', () => {
+  const kataba = verb('ك-ت-ب', 'I', { wordId: 'w-ktb' });
+  const darasa = verb('د-ر-س', 'I', { wordId: 'w-drs' });
+  const taallama = verb('ع-ل-م', 'V', { wordId: 'w-3lm' });
+  const typed = verb('ج-م-ع', 'VI'); // typed in by hand: in no deck
+  const cards = [kataba, darasa, taallama, typed];
+  const decks = [
+    { id: 'd-school', title: 'At school', wordIds: new Set(['w-drs', 'w-3lm']) },
+    { id: 'd-writing', title: 'Writing', wordIds: new Set(['w-ktb']) },
+    { id: 'd-empty', title: 'No verbs here', wordIds: new Set(['w-noun']) },
+  ];
+
+  it('offers all decks, and each deck that has verbs, at the bottom of the picker', () => {
+    render(<ConjugationDrill cards={cards} decks={decks} onBack={() => {}} />);
+    expect(screen.getByRole('checkbox', { name: 'All decks' })).toBeChecked();
+    expect(screen.getByRole('checkbox', { name: 'Deck At school' })).not.toBeChecked();
+    expect(screen.getByRole('checkbox', { name: 'Deck Writing' })).toBeInTheDocument();
+    expect(screen.queryByRole('checkbox', { name: 'Deck No verbs here' })).not.toBeInTheDocument();
+    expect(screen.getByText('4 verbs selected')).toBeInTheDocument();
+  });
+
+  it('narrows the forms, the counts and the drill to the decks ticked', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={cards} decks={decks} onBack={() => {}} />);
+    await user.click(screen.getByRole('checkbox', { name: 'Deck At school' }));
+
+    expect(screen.getByRole('checkbox', { name: 'All decks' })).not.toBeChecked();
+    expect(screen.getByText('2 verbs selected')).toBeInTheDocument();
+    expect(within(row('Form I')).getByText('1 verb')).toBeInTheDocument();
+    expect(screen.queryByRole('checkbox', { name: 'Form VI' })).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    expect(screen.getByText('1 / 2')).toBeInTheDocument();
+  });
+
+  it('adds decks together, and goes back to everything from All decks', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={cards} decks={decks} onBack={() => {}} />);
+    await user.click(screen.getByRole('checkbox', { name: 'Deck At school' }));
+    await user.click(screen.getByRole('checkbox', { name: 'Deck Writing' }));
+    expect(screen.getByText('3 verbs selected')).toBeInTheDocument();
+
+    await user.click(screen.getByRole('checkbox', { name: 'All decks' }));
+    expect(screen.getByText('4 verbs selected')).toBeInTheDocument();
+  });
+
+  it('remembers the decks picked for next time', async () => {
+    const user = userEvent.setup();
+    const { unmount } = render(<ConjugationDrill cards={cards} decks={decks} onBack={() => {}} />);
+    await user.click(screen.getByRole('checkbox', { name: 'Deck Writing' }));
+    unmount();
+    render(<ConjugationDrill cards={cards} decks={decks} onBack={() => {}} />);
+    expect(screen.getByRole('checkbox', { name: 'Deck Writing' })).toBeChecked();
+    expect(screen.getByText('1 verb selected')).toBeInTheDocument();
+  });
+
+  it('shows no deck choice when the decks are not known', () => {
+    render(<ConjugationDrill cards={cards} onBack={() => {}} />);
+    expect(screen.queryByRole('checkbox', { name: 'All decks' })).not.toBeInTheDocument();
+    expect(screen.getByText('4 verbs selected')).toBeInTheDocument();
+  });
+});

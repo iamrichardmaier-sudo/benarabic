@@ -9,11 +9,19 @@ import VerbChartDrill from '@/components/VerbChartDrill';
 import { chartable } from '@/lib/verb-chart';
 import { baselineFor } from '@/lib/verb-baselines';
 import { followsBaseline } from '@/lib/baseline-chart';
+import { sortChapterLabels } from '@/lib/chapter-sort';
+import type { DeckMembership } from '@/lib/relearn';
 import { useDrillKeyboard } from '@/hooks/useDrillKeyboard';
 
 interface ConjugationDrillProps {
   cards: FlashCard[];
   onBack: () => void;
+  /**
+   * The decks the learner holds and the words in each, so the drill can be
+   * narrowed to the verbs of particular decks. Without them (still loading,
+   * or no decks) every verb is drilled, as before.
+   */
+  decks?: DeckMembership[] | null;
 }
 
 interface DrillItem {
@@ -22,6 +30,8 @@ interface DrillItem {
   pastTense: string;
   presentTense: string;
   masdarForm: string;
+  /** The bank words behind this verb, which is what ties it to decks. */
+  wordIds: string[];
 }
 
 type FieldResult = 'correct' | 'incorrect';
@@ -33,6 +43,18 @@ const FORM_ORDER = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
 /** Remembered across sessions so the choice doesn't have to be re-made. */
 const IGNORE_VOWELS_KEY = 'arabic-flashcards-drill-ignore-short-vowels';
 const MASDAR_ONLY_KEY = 'arabic-flashcards-drill-masdar-only';
+const DECKS_KEY = 'arabic-flashcards-drill-decks';
+
+/** The decks last picked, or null for all of them. */
+function readDeckPref(): Set<string> | null {
+  try {
+    const raw = localStorage.getItem(DECKS_KEY);
+    const ids = raw ? (JSON.parse(raw) as unknown) : null;
+    return Array.isArray(ids) && ids.length > 0 ? new Set(ids.filter((x): x is string => typeof x === 'string')) : null;
+  } catch {
+    return null;
+  }
+}
 
 function readVowelPref(): boolean {
   try {
@@ -49,6 +71,9 @@ function readMasdarOnlyPref(): boolean {
     return false;
   }
 }
+
+/** Whether a deck holds any of the words behind a verb. */
+const inDeck = (item: DrillItem, deck: DeckMembership) => item.wordIds.some((w) => deck.wordIds.has(w));
 
 function compareForms(a: string, b: string): number {
   const ia = FORM_ORDER.indexOf(a);
@@ -74,32 +99,74 @@ const FIELDS: { key: 'past' | 'present' | 'masdar'; label: string; get: (item: D
   { key: 'masdar', label: 'Masdar', get: (i) => i.masdarForm },
 ];
 
-const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
+const ConjugationDrill = ({ cards, onBack, decks = null }: ConjugationDrillProps) => {
   // Every verb eligible for drilling, one entry per root + form pair.
   const allItems = useMemo<DrillItem[]>(() => {
-    const seen = new Set<string>();
-    const out: DrillItem[] = [];
+    const byKey = new Map<string, DrillItem>();
     for (const card of cards) {
       if (!card.root || !card.verbForm || !card.pastTense || !card.presentTense || !card.masdarForm) continue;
       const key = `${card.root}|${card.verbForm}`;
-      if (seen.has(key)) continue;
-      seen.add(key);
-      out.push({
+      const seen = byKey.get(key);
+      if (seen) {
+        // A second card for the same verb: it may come from another deck.
+        if (card.wordId && !seen.wordIds.includes(card.wordId)) seen.wordIds.push(card.wordId);
+        continue;
+      }
+      byKey.set(key, {
         root: card.root,
         verbForm: card.verbForm,
         pastTense: card.pastTense,
         presentTense: card.presentTense,
         masdarForm: card.masdarForm,
+        wordIds: card.wordId ? [card.wordId] : [],
       });
     }
-    return out;
+    return [...byKey.values()];
   }, [cards]);
+
+  // Which decks the verbs come from. Only decks holding at least one drillable
+  // verb are offered, in chapter order.
+  const [deckPick, setDeckPick] = useState<Set<string> | null>(readDeckPref);
+  const verbDecks = useMemo(() => {
+    const withVerbs = (decks ?? [])
+      .map((deck) => ({ deck, count: allItems.filter((i) => inDeck(i, deck)).length }))
+      .filter((d) => d.count > 0);
+    const order = sortChapterLabels([...new Set(withVerbs.map((d) => d.deck.title))]);
+    return withVerbs.sort((a, b) => order.indexOf(a.deck.title) - order.indexOf(b.deck.title));
+  }, [decks, allItems]);
+  /** The decks in force: the remembered pick, less any deck no longer offered. Null means all. */
+  const activeDecks = useMemo(() => {
+    if (!deckPick) return null;
+    const live = verbDecks.filter((d) => deckPick.has(d.deck.id)).map((d) => d.deck);
+    return live.length > 0 ? live : null;
+  }, [deckPick, verbDecks]);
+  const scopedItems = useMemo(
+    () => (activeDecks ? allItems.filter((i) => activeDecks.some((d) => inDeck(i, d))) : allItems),
+    [allItems, activeDecks],
+  );
+
+  const chooseDecks = (next: Set<string> | null) => {
+    const value = next && next.size > 0 ? next : null;
+    setDeckPick(value);
+    try {
+      if (value) localStorage.setItem(DECKS_KEY, JSON.stringify([...value]));
+      else localStorage.removeItem(DECKS_KEY);
+    } catch {
+      /* preference just won't persist */
+    }
+  };
+  const toggleDeck = (id: string) => {
+    const next = new Set<string>(activeDecks ? activeDecks.map((d) => d.id) : []);
+    if (next.has(id)) next.delete(id);
+    else next.add(id);
+    chooseDecks(next);
+  };
 
   const countsByForm = useMemo(() => {
     const counts = new Map<string, number>();
-    for (const item of allItems) counts.set(item.verbForm, (counts.get(item.verbForm) ?? 0) + 1);
+    for (const item of scopedItems) counts.set(item.verbForm, (counts.get(item.verbForm) ?? 0) + 1);
     return counts;
-  }, [allItems]);
+  }, [scopedItems]);
 
   const availableForms = useMemo(
     () => [...countsByForm.keys()].sort(compareForms),
@@ -142,7 +209,7 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
     };
   }, []);
 
-  const selectedItems = allItems.filter((i) => selectedForms.has(i.verbForm));
+  const selectedItems = scopedItems.filter((i) => selectedForms.has(i.verbForm));
   const selectedCount = selectedItems.length;
   // Charts are derived from the principal parts, and a handful of entries
   // (quadriliterals, passives, phrases) have no paradigm to derive — they are
@@ -229,7 +296,7 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
   };
 
   const startDrill = () => {
-    setItems(shuffle(allItems.filter((i) => selectedForms.has(i.verbForm))));
+    setItems(shuffle(scopedItems.filter((i) => selectedForms.has(i.verbForm))));
     setIndex(0);
     setScore({ correct: 0, total: 0 });
     setInputs({ past: '', present: '', masdar: '' });
@@ -368,6 +435,48 @@ const ConjugationDrill = ({ cards, onBack }: ConjugationDrillProps) => {
               ` ${selectedCount - chartableCount} of the selected verbs can't be charted from their principal parts.`}
           </p>
         </div>
+
+        {verbDecks.length > 0 && (
+          <section className="space-y-2" aria-label="Verbs from">
+            <h3 className="px-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Verbs from</h3>
+            <div className="rounded-2xl border border-border bg-card overflow-hidden divide-y divide-border/60">
+              <label className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-muted/40 transition-colors">
+                <input
+                  type="checkbox"
+                  aria-label="All decks"
+                  checked={!activeDecks}
+                  onChange={() => chooseDecks(null)}
+                  className="w-4 h-4 accent-primary cursor-pointer"
+                />
+                <span className="flex-1 font-medium text-foreground">All decks</span>
+                <span className="text-sm text-muted-foreground">
+                  {allItems.length} verb{allItems.length === 1 ? '' : 's'}
+                </span>
+              </label>
+              {verbDecks.map(({ deck, count }) => (
+                <label
+                  key={deck.id}
+                  className="flex items-center gap-3 px-4 py-3 cursor-pointer hover:bg-muted/40 transition-colors"
+                >
+                  <input
+                    type="checkbox"
+                    aria-label={`Deck ${deck.title}`}
+                    checked={!!activeDecks?.some((d) => d.id === deck.id)}
+                    onChange={() => toggleDeck(deck.id)}
+                    className="w-4 h-4 accent-primary cursor-pointer"
+                  />
+                  <span className="min-w-0 flex-1 truncate font-medium text-foreground">{deck.title}</span>
+                  <span className="text-sm text-muted-foreground">
+                    {count} verb{count === 1 ? '' : 's'}
+                  </span>
+                </label>
+              ))}
+            </div>
+            <p className="px-1 text-xs text-muted-foreground">
+              Tick one or more decks to drill only their verbs; the forms and counts above follow.
+            </p>
+          </section>
+        )}
       </div>
     );
   }
