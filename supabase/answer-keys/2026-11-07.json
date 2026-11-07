@@ -1,0 +1,478 @@
+{
+  "day": "2026-11-07",
+  "format": "See supabase/answer-keys/README.md.",
+  "sentences": [
+    {
+      "position": 1,
+      "english": "In Ramadan we either break our fast at home or at the neighbourhood mosque, where the evening meeting begins right after the meal.",
+      "grammar_focus": "إمّا أن … وإمّا / أو (\"either … or\") with the subjunctive (نُفطرَ), a name with no ال (رمضان), an idafa on a definite noun (مسجدِ الحيّ), حيث (\"where\") rather than the question word أين, and an adjective agreeing with a masculine noun (الاجتماعُ المسائيُّ)",
+      "target_words": [
+        "أَفْطَرَ",
+        "اِجْتِماع",
+        "حَيّ"
+      ],
+      "model_answer": "في رَمَضانَ إِمّا أَنْ نُفطِرَ في البَيتِ وَإِمّا في مَسجِدِ الحَيِّ، حَيثُ يَبدَأُ الاجتِماعُ المَسائِيُّ بَعدَ الوَجبَةِ مُباشَرَةً.",
+      "reference_translations": [
+        "في رمضان إما أن نفطر في البيت وإما في مسجد الحي حيث يبدأ الاجتماع المسائي بعد الوجبة مباشرة",
+        "في شهر رمضان إما أن نفطر في المنزل أو في مسجد الحي حيث يبدأ اجتماع المساء مباشرة بعد الوجبة",
+        "في رمضان إما نفطر في البيت وإما في جامع الحي حيث يبدأ اللقاء المسائي بعد الإفطار مباشرة",
+        "خلال رمضان إما أن نفطر في البيت أو في مسجد الحارة حيث يبدأ الاجتماع المسائي مباشرة بعد الإفطار",
+        "في رمضان إما أن نفطر في البيت وإما أن نفطر في مسجد الحي حيث يبدأ الاجتماع بعد الطعام مباشرة",
+        "في شهر رمضان إما نفطر في المنزل أو في مسجد الحي حيث يبدأ لقاء المساء بعد الأكل مباشرة"
+      ],
+      "chunks": [
+        {
+          "en": "In Ramadan",
+          "accept": [
+            "في رمضان",
+            "في شهر رمضان",
+            "خلال رمضان",
+            "خلال شهر رمضان",
+            "في رمضان المبارك"
+          ],
+          "mistakes": [
+            {
+              "text": "الرمضان",
+              "rule": "A name takes no ال: رمضان",
+              "note": "رمضان is the name of a month, so no ال: في رمضانَ (or في شهرِ رمضانَ)."
+            }
+          ]
+        },
+        {
+          "en": "we either break our fast at home",
+          "accept": [
+            "إما أن نفطر في البيت",
+            "إما أن نفطر في المنزل",
+            "إما نفطر في البيت",
+            "إما نفطر في المنزل",
+            "إما أن نفطر في بيتنا",
+            "إما نفطر في بيتنا",
+            "إما أن نفطر في منزلنا",
+            "نفطر إما في البيت",
+            "نفطر إما في المنزل"
+          ],
+          "mistakes": [
+            {
+              "text": "أن أفطر",
+              "rule": "\"We\" break the fast: نفطر",
+              "note": "أُفطرَ is \"I break the fast\". We: نُفطرَ."
+            },
+            {
+              "text": "أن يفطر",
+              "rule": "\"We\" break the fast: نفطر",
+              "note": "يُفطرَ is \"he breaks the fast\". We: نُفطرَ."
+            },
+            {
+              "text": "أن فطرنا",
+              "rule": "After أن, the present: نفطر",
+              "note": "After أن the verb is present (subjunctive): أن نُفطرَ, not the past."
+            },
+            {
+              "text": "في بيت",
+              "rule": "\"At home\" is في البيت",
+              "note": "At home: في البيتِ (or في المنزلِ), with ال."
+            },
+            {
+              "text": "أو إما",
+              "rule": "\"Either … or\" is إمّا … وإمّا (or إمّا … أو)",
+              "note": "إمّا comes first: إمّا أن نفطرَ في البيت وإمّا في مسجد الحيّ."
+            }
+          ]
+        },
+        {
+          "en": "or at the neighbourhood mosque",
+          "accept": [
+            "في مسجد الحي",
+            "في جامع الحي",
+            "في مسجد الحارة",
+            "في جامع الحارة",
+            "في مسجد حينا"
+          ],
+          "mistakes": [
+            {
+              "text": "المسجد الحي",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "The neighbourhood mosque: مسجدِ الحيِّ, with ال only on الحيّ. المسجد الحيّ would be \"the living mosque\"."
+            },
+            {
+              "text": "مسجد حي",
+              "rule": "\"The neighbourhood\" takes ال",
+              "note": "مسجدِ الحيِّ: the neighbourhood is a particular one."
+            },
+            {
+              "text": "الحي المسجد",
+              "rule": "The idafa is mosque + neighbourhood",
+              "note": "Mosque first: مسجدُ الحيِّ (\"the mosque of the neighbourhood\")."
+            }
+          ]
+        },
+        {
+          "en": "where the evening meeting begins",
+          "accept": [
+            "حيث يبدأ الاجتماع المسائي",
+            "حيث يبدأ اجتماع المساء",
+            "حيث يبدأ اللقاء المسائي",
+            "حيث يبدأ لقاء المساء",
+            "حيث يبدأ الاجتماع"
+          ],
+          "mistakes": [
+            {
+              "text": "أين يبدأ",
+              "rule": "\"Where\" in a statement is حيث",
+              "note": "أين asks a question (\"where?\"). In a statement, \"where\" is حيثُ: حيثُ يبدأُ الاجتماعُ."
+            },
+            {
+              "text": "أين تبدأ",
+              "rule": "\"Where\" in a statement is حيث",
+              "note": "أين asks a question (\"where?\"). In a statement: حيثُ يبدأُ الاجتماعُ."
+            },
+            {
+              "text": "الاجتماع المسائية",
+              "rule": "الاجتماع is masculine: المسائي",
+              "note": "الاجتماعُ المسائيُّ: the adjective is masculine, like the noun."
+            },
+            {
+              "text": "تبدأ الاجتماع",
+              "rule": "الاجتماع is masculine: يبدأ",
+              "note": "الاجتماع is masculine: يبدأُ, not تبدأ."
+            },
+            {
+              "text": "حيث يبدأ الاجتماع المسائية",
+              "rule": "الاجتماع is masculine: المسائي",
+              "note": "الاجتماعُ المسائيُّ: the adjective is masculine, like the noun."
+            },
+            {
+              "text": "اجتماع المسائي",
+              "rule": "An adjective on a definite noun needs ال on both",
+              "note": "Either الاجتماعُ المسائيُّ (noun + adjective) or اجتماعُ المساءِ (idafa)."
+            }
+          ]
+        },
+        {
+          "en": "right after the meal",
+          "accept": [
+            "بعد الوجبة مباشرة",
+            "مباشرة بعد الوجبة",
+            "بعد الإفطار مباشرة",
+            "مباشرة بعد الإفطار",
+            "بعد الطعام مباشرة",
+            "بعد الأكل مباشرة",
+            "مباشرة بعد الأكل"
+          ],
+          "mistakes": [
+            {
+              "text": "بعد وجبة",
+              "rule": "\"The meal\" takes ال",
+              "note": "بعدَ الوجبةِ: the meal they have just eaten."
+            },
+            {
+              "text": "مباشر",
+              "rule": "\"Right after\" uses the adverb مباشرةً",
+              "note": "مباشرةً (with ة) is the adverb \"directly\": بعدَ الوجبةِ مباشرةً."
+            },
+            {
+              "text": "بعد أن الوجبة",
+              "rule": "بعد أن is for a verb; before a noun, just بعد",
+              "note": "Before a noun: بعدَ الوجبةِ. بعد أن is followed by a verb (بعد أن نأكلَ)."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "\"Either … or\": إمّا أن نُفطرَ … وإمّا (or أو) …",
+        "رمضان is a name: no ال",
+        "The neighbourhood mosque is an idafa: مسجدُ الحيِّ",
+        "\"Where\" in a statement is حيث (أين asks a question)",
+        "الاجتماع is masculine: يبدأُ الاجتماعُ المسائيُّ"
+      ]
+    },
+    {
+      "position": 2,
+      "english": "Perhaps the capital has changed a lot since I left it, but whatever the government does will not please everyone.",
+      "grammar_focus": "لعلّ + accusative (لعلّ العاصمةَ تغيّرت), تغيّر (V, \"change\" by itself) against غيّر (II, change something), منذ أن + past with the feminine pronoun for the capital (غادرتُها), ما as \"whatever\" with its pronoun (ما تفعله الحكومة), and لن + subjunctive",
+      "target_words": [
+        "عاصِمَة",
+        "فَعَلَ"
+      ],
+      "model_answer": "لَعَلَّ العاصِمَةَ تَغَيَّرَتْ كَثيرًا مُنذُ أَنْ غادَرْتُها، لكِنَّ ما تَفعَلُهُ الحُكومَةُ لَن يُرضِيَ الجَميعَ.",
+      "reference_translations": [
+        "لعل العاصمة تغيرت كثيرا منذ أن غادرتها لكن ما تفعله الحكومة لن يرضي الجميع",
+        "ربما تغيرت العاصمة كثيرا منذ غادرتها ولكن ما تفعله الحكومة لن يرضي الكل",
+        "لعل العاصمة قد تغيرت كثيرا منذ أن تركتها لكن مهما فعلت الحكومة فلن ترضي الجميع",
+        "ربما العاصمة تغيرت كثيرا منذ رحيلي عنها لكن كل ما تفعله الحكومة لن يرضي كل الناس",
+        "قد تكون العاصمة تغيرت كثيرا منذ تركتها لكن الذي تفعله الحكومة لن يرضي جميع الناس",
+        "لعل العاصمة تغيرت كثيرا منذ أن رحلت عنها لكن مهما تفعل الحكومة فلن ترضي الجميع"
+      ],
+      "chunks": [
+        {
+          "en": "Perhaps the capital has changed a lot",
+          "accept": [
+            "لعل العاصمة تغيرت كثيرا",
+            "ربما تغيرت العاصمة كثيرا",
+            "ربما العاصمة تغيرت كثيرا",
+            "لعل العاصمة قد تغيرت كثيرا",
+            "قد تكون العاصمة تغيرت كثيرا",
+            "ربما قد تغيرت العاصمة كثيرا"
+          ],
+          "mistakes": [
+            {
+              "text": "العاصمة غيرت",
+              "rule": "\"Change\" by itself is تغيّر (V); غيّر (II) needs an object",
+              "note": "The capital changed (itself): تغيّرتِ العاصمةُ. غيّرت would mean it changed something."
+            },
+            {
+              "text": "ربما تغير العاصمة",
+              "rule": "The capital is feminine: تغيّرت",
+              "note": "العاصمة is feminine: ربّما تغيّرتِ العاصمةُ, not تغيّر."
+            },
+            {
+              "text": "لعل أن",
+              "rule": "لعلّ takes its noun directly",
+              "note": "\"Perhaps the capital…\": لعلّ العاصمةَ…, with no أن."
+            },
+            {
+              "text": "العاصمة تغيروا",
+              "rule": "The capital is one (feminine): تغيّرت",
+              "note": "العاصمة is singular and feminine: تغيّرتْ."
+            }
+          ]
+        },
+        {
+          "en": "since I left it",
+          "accept": [
+            "منذ أن غادرتها",
+            "منذ غادرتها",
+            "منذ أن تركتها",
+            "منذ تركتها",
+            "منذ رحيلي عنها",
+            "منذ أن رحلت عنها",
+            "منذ أن غادرت العاصمة"
+          ],
+          "mistakes": [
+            {
+              "text": "غادرته",
+              "rule": "The capital is feminine: ـها",
+              "note": "\"It\" is the capital, which is feminine: غادرتُها, not غادرته."
+            },
+            {
+              "text": "تركته",
+              "rule": "The capital is feminine: ـها",
+              "note": "\"It\" is the capital, which is feminine: تركتُها, not تركته."
+            },
+            {
+              "text": "غادرت منها",
+              "rule": "غادر takes a direct object",
+              "note": "\"Leave a place\": غادرَ + object: غادرتُها, not غادرتُ منها."
+            },
+            {
+              "text": "أن أغادرها",
+              "rule": "\"Since I left\" is past: غادرتها",
+              "note": "منذ أن + past: منذ أن غادرتُها."
+            }
+          ]
+        },
+        {
+          "en": "but whatever the government does",
+          "accept": [
+            "لكن ما تفعله الحكومة",
+            "ولكن ما تفعله الحكومة",
+            "لكن كل ما تفعله الحكومة",
+            "لكن الذي تفعله الحكومة",
+            "لكن مهما فعلت الحكومة",
+            "لكن مهما تفعل الحكومة",
+            "ولكن مهما فعلت الحكومة"
+          ],
+          "mistakes": [
+            {
+              "text": "يفعله الحكومة",
+              "rule": "The government is feminine: تفعله",
+              "note": "الحكومة is feminine: ما تفعلُه الحكومةُ, not يفعله."
+            },
+            {
+              "text": "تفعلها الحكومة",
+              "rule": "The pronoun refers to ما (masculine): تفعله",
+              "note": "\"Whatever (ما) the government does\": ما تفعلُه, with ـه for ما, not ـها."
+            },
+            {
+              "text": "مهما فعل الحكومة",
+              "rule": "The government is feminine: فعلت",
+              "note": "الحكومة is feminine: مهما فعلتِ الحكومةُ."
+            }
+          ]
+        },
+        {
+          "en": "will not please everyone",
+          "accept": [
+            "لن يرضي الجميع",
+            "لن يرضي الكل",
+            "لن يرضي كل الناس",
+            "لن يرضي جميع الناس",
+            "فلن ترضي الجميع",
+            "لن ترضي الجميع",
+            "لن يعجب الجميع",
+            "لن ترضي كل الناس"
+          ],
+          "mistakes": [
+            {
+              "text": "لا يرضي الجميع",
+              "rule": "\"Will not\" is لن + subjunctive",
+              "note": "لا يرضي is \"does not please\". Will not: لن يُرضيَ."
+            },
+            {
+              "text": "لم يرضي",
+              "rule": "\"Will not\" is لن, not لم",
+              "note": "لم is for the past. \"Will not please\": لن يُرضيَ."
+            },
+            {
+              "text": "يرضوا",
+              "rule": "One subject (ما): a singular verb",
+              "note": "What does the pleasing is ما (whatever), singular: لن يُرضيَ."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "لعلّ + accusative noun: لعلّ العاصمةَ تغيّرت",
+        "تغيّر (V) is \"change\" by itself; غيّر (II) changes something",
+        "The capital is feminine: غادرتُها",
+        "\"Whatever the government does\": ما تفعلُه الحكومةُ (ـه for ما)",
+        "لن + subjunctive: لن يُرضيَ الجميعَ"
+      ]
+    },
+    {
+      "position": 3,
+      "english": "I go to the café every morning so that I do not drink coffee alone, because silence makes me feel anxious.",
+      "grammar_focus": "كي لا / لكي لا + subjunctive (\"so that … not\"), كلّ + an indefinite singular for \"every\" (كلَّ صباحٍ, not كلّ الصباح \"the whole morning\"), an abstract noun as subject taking ال (الصمتَ), and أشعر بـ / يُشعرني بـ",
+      "target_words": [
+        "مَقْهًى",
+        "قَلَق (اسم)"
+      ],
+      "model_answer": "أَذهَبُ إِلى المَقهى كُلَّ صَباحٍ كَي لا أَشرَبَ القَهوَةَ وَحدي، لِأَنَّ الصَّمتَ يُشعِرُني بِالقَلَقِ.",
+      "reference_translations": [
+        "أذهب إلى المقهى كل صباح كي لا أشرب القهوة وحدي لأن الصمت يشعرني بالقلق",
+        "كل صباح أذهب إلى المقهى لكي لا أشرب القهوة وحدي لأن الصمت يجعلني أشعر بالقلق",
+        "أذهب إلى المقهى كل صباح حتى لا أشرب القهوة بمفردي فالصمت يقلقني",
+        "أذهب كل صباح إلى المقهى لكيلا أشرب القهوة وحدي لأن السكوت يشعرني بالقلق",
+        "أذهب إلى المقهى كل صباح لئلا أشرب القهوة وحدي لأن الصمت يسبب لي القلق",
+        "أذهب إلى المقهى كل صباح كي لا أشرب قهوة وحدي لأن الهدوء يشعرني بالقلق"
+      ],
+      "chunks": [
+        {
+          "en": "I go to the café every morning",
+          "accept": [
+            "أذهب إلى المقهى كل صباح",
+            "أذهب للمقهى كل صباح",
+            "كل صباح أذهب إلى المقهى",
+            "أذهب كل صباح إلى المقهى",
+            "أذهب إلى المقهى في كل صباح",
+            "أذهب إلى المقهى صباح كل يوم",
+            "أذهب إلى المقهى كل يوم صباحا"
+          ],
+          "mistakes": [
+            {
+              "text": "كل الصباح",
+              "rule": "\"Every morning\" is كلّ صباح (no ال)",
+              "note": "كلَّ صباحٍ is \"every morning\". كلّ الصباح means \"the whole morning\"."
+            },
+            {
+              "text": "أذهب في المقهى",
+              "rule": "\"Go to\" is ذهب إلى",
+              "note": "\"To the café\": أذهبُ إلى المقهى (or للمقهى), not في."
+            },
+            {
+              "text": "ذهبت",
+              "rule": "A habit: the present أذهب",
+              "note": "\"I go (every morning)\" is a habit: أذهبُ, not the past ذهبتُ."
+            },
+            {
+              "text": "يذهب",
+              "rule": "\"I\" go: أذهب",
+              "note": "يذهبُ is \"he goes\". I: أذهبُ."
+            }
+          ]
+        },
+        {
+          "en": "so that I do not drink coffee alone",
+          "accept": [
+            "كي لا أشرب القهوة وحدي",
+            "لكي لا أشرب القهوة وحدي",
+            "لكيلا أشرب القهوة وحدي",
+            "حتى لا أشرب القهوة وحدي",
+            "لئلا أشرب القهوة وحدي",
+            "كي لا أشرب قهوة وحدي",
+            "حتى لا أشرب القهوة بمفردي",
+            "كي لا أشرب القهوة بمفردي",
+            "لكي لا أشرب القهوة بمفردي",
+            "كي لا أشرب القهوة وحيدا",
+            "حتى لا أشرب القهوة وحيدا"
+          ],
+          "mistakes": [
+            {
+              "text": "لا شربت",
+              "rule": "كي لا + the present (subjunctive)",
+              "note": "\"So that I don't drink\": كي لا أشربَ, with the present, not the past."
+            },
+            {
+              "text": "كي لن",
+              "rule": "After كي, the negative is لا",
+              "note": "\"So that … not\": كي لا (or لكيلا), not كي لن."
+            },
+            {
+              "text": "وحده",
+              "rule": "\"Alone\" for I: وحدي",
+              "note": "وحدَه is \"(he) alone\". I alone: وحدي."
+            },
+            {
+              "text": "لوحدي",
+              "rule": "Colloquial; MSA is وحدي",
+              "note": "لوحدي is common in speech. In MSA: وحدي (or بمفردي).",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "because silence makes me feel anxious",
+          "accept": [
+            "الصمت يشعرني بالقلق",
+            "الصمت يجعلني أشعر بالقلق",
+            "الصمت يجعلني قلقا",
+            "الصمت يقلقني",
+            "الصمت يسبب لي القلق",
+            "السكوت يشعرني بالقلق",
+            "الهدوء يشعرني بالقلق",
+            "السكوت يقلقني"
+          ],
+          "mistakes": [
+            {
+              "text": "لأن صمت",
+              "rule": "Silence in general takes ال: الصمت",
+              "note": "An idea in general takes ال in Arabic: لأنّ الصمتَ…, not لأنّ صمت."
+            },
+            {
+              "text": "الصمت تشعرني",
+              "rule": "الصمت is masculine: يشعرني",
+              "note": "الصمت is masculine: يُشعرُني, not تشعرني."
+            },
+            {
+              "text": "يشعرني القلق",
+              "rule": "أشعر takes بـ: بالقلق",
+              "note": "\"Makes me feel anxiety\": يُشعرُني بالقلقِ, with بـ."
+            },
+            {
+              "text": "لأنه الصمت",
+              "rule": "لأنّ takes the noun directly",
+              "note": "With a noun after it: لأنّ الصمتَ, not لأنّه الصمت."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "\"So that … not\": كي لا / لكي لا / حتى لا + subjunctive",
+        "\"Every morning\": كلَّ صباحٍ (كلّ + indefinite); كلّ الصباح is \"the whole morning\"",
+        "Silence in general: الصمتُ, with ال",
+        "\"Go to\": ذهب إلى",
+        "يُشعرني بالقلقِ: أشعر بـ"
+      ]
+    }
+  ]
+}
