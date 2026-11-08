@@ -1,0 +1,526 @@
+{
+  "day": "2026-11-08",
+  "format": "See supabase/answer-keys/README.md.",
+  "sentences": [
+    {
+      "position": 1,
+      "english": "I wish my parents had not been afraid of emigration, because life in the new country is more stable than they imagined.",
+      "grammar_focus": "لَيتَ + accusative (ليتَ والديَّ, not والداي), the dual after لم with كان and an accusative dual predicate (لم يكونا خائفَين), a general noun taking ال (الهجرة، الحياة), and أكثر + masdar for \"more stable\" (أكثرُ استقرارًا مِمّا تخيّلا)",
+      "target_words": [
+        "خائف",
+        "هجرة",
+        "بلد",
+        "مستقر"
+      ],
+      "model_answer": "لَيتَ والِدَيَّ لَم يَكونا خائِفَينِ مِنَ الهِجرَةِ، لِأَنَّ الحَياةَ في البَلَدِ الجَديدِ أَكثَرُ استِقرارًا مِمّا تَخَيَّلا.",
+      "reference_translations": [
+        "ليت والدي لم يكونا خائفين من الهجرة لأن الحياة في البلد الجديد أكثر استقرارا مما تخيلا",
+        "ليت أبي وأمي لم يخافا من الهجرة لأن الحياة في البلد الجديد أكثر استقرارا مما توقعا",
+        "ليت أهلي لم يكونوا خائفين من الهجرة فالحياة في البلد الجديد أكثر استقرارا مما تخيلوا",
+        "يا ليت والدي لم يخشيا الهجرة لأن الحياة في البلاد الجديدة أكثر استقرارا مما ظنا",
+        "أتمنى لو أن والدي لم يكونا خائفين من الهجرة لأن العيش في البلد الجديد أكثر استقرارا مما يتخيلان",
+        "ليت أمي وأبي لم يخافا من الهجرة لأن الحياة في البلد الجديد أكثر استقرارا مما كانا يتخيلان"
+      ],
+      "chunks": [
+        {
+          "en": "I wish my parents",
+          "accept": [
+            "ليت والدي",
+            "ليت أبي وأمي",
+            "ليت أمي وأبي",
+            "ليت أهلي",
+            "يا ليت والدي",
+            "أتمنى لو أن والدي",
+            "أتمنى لو أن أبي وأمي"
+          ],
+          "mistakes": [
+            {
+              "text": "ليت والداي",
+              "rule": "After ليت the noun is accusative: والديَّ",
+              "note": "ليتَ makes its noun accusative, so the dual ends in -ين: ليتَ والديَّ, not والداي."
+            },
+            {
+              "text": "ريت",
+              "rule": "Dialect: MSA is ليت",
+              "note": "يا ريت is colloquial. In MSA: ليتَ (or أتمنّى لو أنّ)."
+            }
+          ]
+        },
+        {
+          "en": "had not been afraid of emigration",
+          "accept": [
+            "لم يكونا خائفين من الهجرة",
+            "لم يخافا من الهجرة",
+            "لم يخشيا الهجرة",
+            "لم يكونوا خائفين من الهجرة",
+            "لم يخافوا من الهجرة",
+            "ما كانا خائفين من الهجرة"
+          ],
+          "mistakes": [
+            {
+              "text": "خائفان",
+              "rule": "The predicate of كان is accusative: خائفَين",
+              "note": "After كان the adjective is accusative; the dual ends in -ين: لم يكونا خائفَينِ."
+            },
+            {
+              "text": "يكونا خائفا",
+              "rule": "Two people: the dual خائفين",
+              "note": "My parents are two: لم يكونا خائفَينِ, not خائفًا."
+            },
+            {
+              "text": "لم يكون",
+              "rule": "After لم the verb is jussive: يكونا / يكن",
+              "note": "لم + jussive: لم يكونا (two of them), not لم يكون."
+            },
+            {
+              "text": "يخافون",
+              "rule": "After لم the verb drops its ن",
+              "note": "لم + jussive: لم يخافوا (or, for two, لم يخافا), not يخافون."
+            },
+            {
+              "text": "خائفين عن",
+              "rule": "خائف takes من",
+              "note": "\"Afraid of\" is خائف مِن: خائفَينِ مِنَ الهجرةِ."
+            },
+            {
+              "text": "من هجرة",
+              "rule": "Emigration in general takes ال",
+              "note": "An idea in general takes ال: مِنَ الهجرةِ, not من هجرة."
+            }
+          ]
+        },
+        {
+          "en": "because life in the new country",
+          "accept": [
+            "لأن الحياة في البلد الجديد",
+            "لأن الحياة في البلاد الجديدة",
+            "لأن العيش في البلد الجديد",
+            "فالحياة في البلد الجديد",
+            "لأن الحياة في الدولة الجديدة"
+          ],
+          "mistakes": [
+            {
+              "text": "لأن حياة",
+              "rule": "Life in general takes ال: الحياة",
+              "note": "An idea in general takes ال: لأنّ الحياةَ…, not لأنّ حياة."
+            },
+            {
+              "text": "البلد الجديدة",
+              "rule": "بلد is masculine: الجديد",
+              "note": "بَلَد is masculine: البلدِ الجديدِ. (البلاد, the plural, takes الجديدة.)"
+            },
+            {
+              "text": "البلاد الجديد",
+              "rule": "البلاد takes a feminine adjective: الجديدة",
+              "note": "البلاد (a plural used for \"country\") takes الجديدةِ; البلد takes الجديدِ."
+            },
+            {
+              "text": "لأنه الحياة",
+              "rule": "لأنّ takes the noun directly",
+              "note": "With a noun after it: لأنّ الحياةَ, not لأنّه الحياة."
+            }
+          ]
+        },
+        {
+          "en": "is more stable than they imagined",
+          "accept": [
+            "أكثر استقرارا مما تخيلا",
+            "أكثر استقرارا مما تخيلوا",
+            "أكثر استقرارا مما توقعا",
+            "أكثر استقرارا مما ظنا",
+            "أكثر استقرارا مما كانا يتخيلان",
+            "أكثر استقرارا مما يتخيلان"
+          ],
+          "mistakes": [
+            {
+              "text": "أكثر مستقر",
+              "rule": "\"More stable\" is أكثر + the masdar: أكثر استقرارا",
+              "note": "مستقرّ has no أفعل form of its own, so: أكثرُ استقرارًا (\"more in stability\")."
+            },
+            {
+              "text": "أكثر مستقرة",
+              "rule": "\"More stable\" is أكثر + the masdar: أكثر استقرارا",
+              "note": "مستقرّ has no أفعل form of its own, so: أكثرُ استقرارًا."
+            },
+            {
+              "text": "من ما",
+              "rule": "مِن + ما is written together: مما",
+              "note": "\"Than they imagined\": مِمّا تخيّلا, written as one word."
+            },
+            {
+              "text": "من تخيلا",
+              "rule": "\"Than they imagined\" needs ما: مما",
+              "note": "After a comparative, \"than they imagined\" is مِمّا تخيّلا (مِن + ما)."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "ليتَ + accusative: ليتَ والديَّ (not والداي)",
+        "لم يكونا خائفَينِ: the jussive, and an accusative dual after كان",
+        "A general noun takes ال: الهجرة, الحياة",
+        "\"More stable\": أكثرُ استقرارًا (أكثر + masdar)",
+        "مِمّا: مِن + ما, written together"
+      ]
+    },
+    {
+      "position": 2,
+      "english": "My brother liked his new career path, because he is passionate about music and finds it the most suitable for him.",
+      "grammar_focus": "أعجبَ, where the thing liked is the subject and the person the object (أعجبَ أخي مسارُه, or أُعجِبَ بـ), an idafa with an adjective agreeing with a masculine noun (مسارُه المهنيُّ الجديدُ), شغوف بـ with a general noun (بالموسيقى), and وجد + two objects with the superlative (يجده الأنسبَ له)",
+      "target_words": [
+        "أعجب",
+        "مسار مهني",
+        "شغوف",
+        "أنسب"
+      ],
+      "model_answer": "أَعجَبَ أَخي مَسارُهُ المِهَنِيُّ الجَديدُ، لِأَنَّهُ شَغوفٌ بِالموسيقى وَيَجِدُهُ الأَنسَبَ لَهُ.",
+      "reference_translations": [
+        "أعجب أخي مساره المهني الجديد لأنه شغوف بالموسيقى ويجده الأنسب له",
+        "أعجب أخي بمساره المهني الجديد لأنه شغوف بالموسيقى ويراه الأنسب له",
+        "أحب أخي مساره المهني الجديد لأنه مولع بالموسيقى ويعتبره الأنسب له",
+        "أخي أعجبه مساره المهني الجديد لأنه يعشق الموسيقى ويجده أنسب عمل له",
+        "أعجب أخي المسار المهني الجديد فهو شغوف بالموسيقى ويرى أنه الأنسب له",
+        "أعجب أخي مساره المهني الجديد لأنه محب للموسيقى ويجده الأكثر مناسبة له"
+      ],
+      "chunks": [
+        {
+          "en": "My brother liked his new career path",
+          "accept": [
+            "أعجب أخي مساره المهني الجديد",
+            "أعجب أخي بمساره المهني الجديد",
+            "أعجب مساره المهني الجديد أخي",
+            "أحب أخي مساره المهني الجديد",
+            "أخي أعجبه مساره المهني الجديد",
+            "أعجب أخي المسار المهني الجديد"
+          ],
+          "mistakes": [
+            {
+              "text": "أعجبت",
+              "rule": "What is liked (المسار, masculine) is the subject: أعجب",
+              "note": "With أعجبَ, the thing liked is the subject: أعجبَ أخي مسارُه. مسار is masculine, so أعجبَ, not أعجبت."
+            },
+            {
+              "text": "مساره المهنية",
+              "rule": "مسار is masculine: المهني",
+              "note": "مسار is masculine, so its adjectives are too: مسارُه المهنيُّ."
+            },
+            {
+              "text": "المهني الجديدة",
+              "rule": "مسار is masculine: الجديد",
+              "note": "مسار is masculine: المهنيُّ الجديدُ, not الجديدة."
+            },
+            {
+              "text": "المهنية الجديدة",
+              "rule": "مسار is masculine: المهني الجديد",
+              "note": "مسار is masculine, so both adjectives are too: المهنيُّ الجديدُ."
+            },
+            {
+              "text": "مسارها",
+              "rule": "\"His\" is ـه",
+              "note": "مسارُها is \"her path\". His: مسارُه."
+            },
+            {
+              "text": "مسار المهني",
+              "rule": "A definite noun takes a definite adjective",
+              "note": "Either مسارُه المهنيُّ (with the pronoun) or المسارُ المهنيُّ (with ال)."
+            },
+            {
+              "text": "أعجب أخي في",
+              "rule": "أُعجِب takes بـ",
+              "note": "\"Was taken with\": أُعجِبَ بـ: أُعجِبَ أخي بمسارِه."
+            }
+          ]
+        },
+        {
+          "en": "because he is passionate about music",
+          "accept": [
+            "لأنه شغوف بالموسيقى",
+            "لأنه مولع بالموسيقى",
+            "لأنه يعشق الموسيقى",
+            "فهو شغوف بالموسيقى",
+            "لأنه محب للموسيقى",
+            "لأنه يحب الموسيقى كثيرا"
+          ],
+          "mistakes": [
+            {
+              "text": "شغوف في",
+              "rule": "شغوف takes بـ",
+              "note": "\"Passionate about\" is شغوفٌ بـ: شغوفٌ بالموسيقى."
+            },
+            {
+              "text": "شغوف موسيقى",
+              "rule": "شغوف takes بـ",
+              "note": "\"Passionate about music\": شغوفٌ بالموسيقى, with بـ."
+            },
+            {
+              "text": "بموسيقى",
+              "rule": "Music in general takes ال",
+              "note": "An art in general takes ال: بالموسيقى, not بموسيقى."
+            },
+            {
+              "text": "شغوفة",
+              "rule": "My brother is masculine: شغوف",
+              "note": "\"He is passionate\": شغوفٌ (masculine), not شغوفة."
+            },
+            {
+              "text": "لأن شغوف",
+              "rule": "لأنّ needs a noun or pronoun after it",
+              "note": "\"Because he is passionate\": لأنّه شغوفٌ, with ـه on لأنّ."
+            }
+          ]
+        },
+        {
+          "en": "and finds it the most suitable for him",
+          "accept": [
+            "ويجده الأنسب له",
+            "ويراه الأنسب له",
+            "ويعتبره الأنسب له",
+            "ويجده الأكثر مناسبة له",
+            "ويراه أنسب شيء له",
+            "ويجده أنسب عمل له",
+            "ويرى أنه الأنسب له"
+          ],
+          "mistakes": [
+            {
+              "text": "يجدها",
+              "rule": "\"It\" is the path (masculine): يجده",
+              "note": "\"Finds it\": the path is masculine, so يجدُه, not يجدها."
+            },
+            {
+              "text": "الأنسب لها",
+              "rule": "\"For him\" is له",
+              "note": "لها is \"for her\". For him: له."
+            },
+            {
+              "text": "يجده أنسب له",
+              "rule": "\"The most suitable\" needs ال (or a noun after أنسب)",
+              "note": "أنسب on its own is \"more suitable\". The most suitable: الأنسبَ له, or أنسبَ عملٍ له."
+            },
+            {
+              "text": "الأكثر أنسب",
+              "rule": "أنسب already means \"more / most suitable\"",
+              "note": "Say الأنسب, or الأكثر مناسبةً. Not both."
+            },
+            {
+              "text": "يجده المناسب له",
+              "rule": "\"The most suitable\" is الأنسب",
+              "note": "المناسب is \"the suitable one\". The most suitable: الأنسبَ له."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "أعجبَ: the thing liked is the subject, the person the object (أعجبَ أخي مسارُه)",
+        "مسار is masculine: مسارُه المهنيُّ الجديدُ",
+        "\"Passionate about\": شغوفٌ بـ, and music in general takes ال",
+        "\"The most suitable\": الأنسب (ال + أفعل)",
+        "وجد takes two objects: يجده الأنسبَ له"
+      ]
+    },
+    {
+      "position": 3,
+      "english": "My grandmother raised eleven children on her own, and she always said that the road to success opens only for hardworking people.",
+      "grammar_focus": "The number eleven with its noun (أحدَ عشرَ طفلًا: both parts masculine for boys or mixed children, and a singular accusative noun), a feminine verb for the grandmother (ربّت), كان + present for a past habit with إنّ after قال, and \"only\" with لا … إلا (لا يُفتح إلا للمجتهدين)",
+      "target_words": [
+        "ربى",
+        "دائما",
+        "طريق",
+        "مجتهد"
+      ],
+      "model_answer": "رَبَّتْ جَدَّتي أَحَدَ عَشَرَ طِفلًا وَحدَها، وَكانَت تَقولُ دائِمًا إِنَّ طَريقَ النَّجاحِ لا يُفتَحُ إِلّا لِلمُجتَهِدينَ.",
+      "reference_translations": [
+        "ربت جدتي أحد عشر طفلا وحدها وكانت تقول دائما إن طريق النجاح لا يفتح إلا للمجتهدين",
+        "جدتي ربت أحد عشر ولدا بمفردها وكانت دائما تقول إن الطريق إلى النجاح لا يفتح إلا أمام المجتهدين",
+        "ربت جدتي أحد عشر ابنا وحدها وكانت تقول إن طريق النجاح مفتوح للمجتهدين فقط",
+        "ربت جدتي أحد عشر طفلا بمفردها وكانت تقول دائما إن طريق النجاح لا ينفتح إلا للمجتهدين",
+        "جدتي ربت أحد عشر طفلا وحدها وكانت تكرر دائما أن طريق النجاح لا يفتح إلا للناس المجتهدين",
+        "ربت جدتي أحد عشر ولدا وحدها وكانت تقول دائما إن طريق النجاح يفتح للمجتهدين فقط"
+      ],
+      "chunks": [
+        {
+          "en": "My grandmother raised",
+          "accept": [
+            "ربت جدتي",
+            "جدتي ربت"
+          ],
+          "mistakes": [
+            {
+              "text": "ربى جدتي",
+              "rule": "The grandmother is feminine: ربّت",
+              "note": "\"My grandmother raised\": رَبَّتْ جدّتي, not ربّى."
+            },
+            {
+              "text": "ربيت",
+              "rule": "\"She\" raised: ربّت",
+              "note": "ربّيتُ is \"I raised\". She: ربَّتْ."
+            },
+            {
+              "text": "جدتي ربى",
+              "rule": "The grandmother is feminine: ربّت",
+              "note": "\"My grandmother raised\": جدّتي ربَّتْ, not ربّى."
+            }
+          ]
+        },
+        {
+          "en": "eleven children",
+          "accept": [
+            "أحد عشر طفلا",
+            "أحد عشر ولدا",
+            "أحد عشر ابنا",
+            "أحد عشر من الأطفال",
+            "11 طفلا"
+          ],
+          "mistakes": [
+            {
+              "text": "إحدى عشرة",
+              "rule": "Children (masculine or mixed): أحدَ عشرَ",
+              "note": "إحدى عشرةَ is for a feminine noun. Children, boys or mixed: أحدَ عشرَ طفلًا."
+            },
+            {
+              "text": "إحدى عشر",
+              "rule": "Both parts agree: أحدَ عشرَ",
+              "note": "For children: أحدَ عشرَ, both parts masculine."
+            },
+            {
+              "text": "أحد عشرة",
+              "rule": "Both parts agree: أحدَ عشرَ",
+              "note": "For children: أحدَ عشرَ, both parts masculine, not أحد عشرة."
+            },
+            {
+              "text": "عشرة أطفال",
+              "rule": "After 11 to 99 the noun is singular: طفلا",
+              "note": "From eleven up, the counted noun is singular and accusative: أحدَ عشرَ طفلًا."
+            },
+            {
+              "text": "عشر أطفال",
+              "rule": "After 11 to 99 the noun is singular: طفلا",
+              "note": "From eleven up, the counted noun is singular and accusative: أحدَ عشرَ طفلًا, not أطفال."
+            }
+          ]
+        },
+        {
+          "en": "on her own",
+          "accept": [
+            "وحدها",
+            "بمفردها"
+          ],
+          "mistakes": [
+            {
+              "text": "وحده",
+              "rule": "\"On her own\": وحدها",
+              "note": "وحدَه is \"(he) alone\". The grandmother: وحدَها."
+            },
+            {
+              "text": "وحدي",
+              "rule": "\"On her own\": وحدها",
+              "note": "وحدي is \"I alone\". She: وحدَها."
+            },
+            {
+              "text": "لوحدها",
+              "rule": "Colloquial; MSA is وحدها",
+              "note": "لوحدها is common in speech. In MSA: وحدَها (or بمفردها).",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "and she always said that",
+          "accept": [
+            "وكانت تقول دائما إن",
+            "وكانت دائما تقول إن",
+            "وكانت تقول إن",
+            "وكانت تكرر دائما أن",
+            "وكانت تردد دائما أن",
+            "وقالت دائما إن"
+          ],
+          "mistakes": [
+            {
+              "text": "وكانت تقول دائما أن",
+              "rule": "After قال and its forms, \"that\" is إنّ (hamza below)",
+              "note": "After تقول, \"that\" is إنّ: كانت تقول إنّ… (أنّ follows other verbs, such as تكرّر أنّ).",
+              "strict": true
+            },
+            {
+              "text": "وكانت دائما تقول أن",
+              "rule": "After قال and its forms, \"that\" is إنّ (hamza below)",
+              "note": "After تقول, \"that\" is إنّ: كانت تقول إنّ…",
+              "strict": true
+            },
+            {
+              "text": "وكانت تقول أن",
+              "rule": "After قال and its forms, \"that\" is إنّ (hamza below)",
+              "note": "After تقول, \"that\" is إنّ: كانت تقول إنّ…",
+              "strict": true
+            },
+            {
+              "text": "كانت يقول",
+              "rule": "She said: تقول",
+              "note": "\"She used to say\": كانت تقولُ, with تـ."
+            },
+            {
+              "text": "كان تقول",
+              "rule": "The grandmother is feminine: كانت",
+              "note": "\"She used to say\": كانت تقولُ."
+            }
+          ]
+        },
+        {
+          "en": "the road to success",
+          "accept": [
+            "طريق النجاح",
+            "الطريق إلى النجاح",
+            "الطريق نحو النجاح"
+          ],
+          "mistakes": [
+            {
+              "text": "الطريق النجاح",
+              "rule": "The first noun of an idafa never takes ال",
+              "note": "The road to success: طريقَ النجاحِ, with ال only on النجاح (or الطريقَ إلى النجاح)."
+            },
+            {
+              "text": "طريق نجاح",
+              "rule": "Success in general takes ال",
+              "note": "An idea in general takes ال: طريقَ النجاحِ."
+            }
+          ]
+        },
+        {
+          "en": "opens only for hardworking people",
+          "accept": [
+            "لا يفتح إلا للمجتهدين",
+            "لا يفتح إلا أمام المجتهدين",
+            "مفتوح للمجتهدين فقط",
+            "لا يفتح إلا للناس المجتهدين",
+            "يفتح للمجتهدين فقط",
+            "لا ينفتح إلا للمجتهدين",
+            "مفتوح فقط للمجتهدين"
+          ],
+          "mistakes": [
+            {
+              "text": "للمجتهدون",
+              "rule": "After لـ the noun is genitive: للمجتهدين",
+              "note": "After لـ: للمجتهدينَ (-ين), not -ون."
+            },
+            {
+              "text": "إلا المجتهدين",
+              "rule": "\"For\" them: للمجتهدين (with لـ)",
+              "note": "\"Opens only for the hardworking\": لا يُفتحُ إلا للمجتهدينَ, with لـ."
+            },
+            {
+              "text": "لا يفتح فقط",
+              "rule": "\"Only\" is لا … إلا (or فقط alone), not both",
+              "note": "لا يُفتح فقط للمجتهدين means it does not open only for them. Say لا يُفتحُ إلا للمجتهدين, or يُفتحُ للمجتهدين فقط."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "Eleven children: أحدَ عشرَ طفلًا (both parts masculine, a singular accusative noun)",
+        "The grandmother is feminine: ربَّتْ، كانت تقول",
+        "After قال and its forms, \"that\" is إنّ",
+        "\"Only\": لا … إلا (لا يُفتحُ إلا للمجتهدين)",
+        "On her own: وحدَها"
+      ]
+    }
+  ]
+}
