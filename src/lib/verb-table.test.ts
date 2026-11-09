@@ -138,6 +138,14 @@ describe('a stored entry', () => {
     expect(t?.presentChart).toBeNull();
   });
 
+  it('carries a hand-written Shaami table alongside the Fusha one', () => {
+    const shaami = { past: { ana: 'شِفْت', hinne: 'شافو' }, present: { ana: 'بْشوف', hinne: 'بِيْشوفو' } };
+    const t = entryTable({ ...entry, charts: { shaami } });
+    expect(t?.shaami).toEqual(shaami);
+    expect(t?.pastChart.ana).toBe('كَتَبْتُ');
+    expect(entryTable(entry)?.shaami).toBeNull();
+  });
+
   it('finds which form the card itself is', () => {
     const t = entryTable(entry);
     if (!t) throw new Error('no table');

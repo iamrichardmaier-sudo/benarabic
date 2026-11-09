@@ -173,7 +173,30 @@
   "active_exists": true,
   "passive_en": "started, begun (Shaami مْبَلَّش)",
   "passive_exists": true,
-  "charts": null
+  "charts": {
+   "shaami": {
+    "past": {
+     "ana": "بَلَّشْت",
+     "enta": "بَلَّشْت",
+     "enti": "بَلَّشْتي",
+     "huwe": "بَلَّش",
+     "hiye": "بَلّْشِت",
+     "nahna": "بَلَّشْنا",
+     "ento": "بَلَّشْتو",
+     "hinne": "بَلّْشو"
+    },
+    "present": {
+     "ana": "بْبَلِّش",
+     "enta": "بِتْبَلِّش",
+     "enti": "بِتْبَلّْشي",
+     "huwe": "بِيْبَلِّش",
+     "hiye": "بِتْبَلِّش",
+     "nahna": "مِنْبَلِّش",
+     "ento": "بِتْبَلّْشو",
+     "hinne": "بِيْبَلّْشو"
+    }
+   }
+  }
  },
  {
   "key": "بيع-I",
@@ -1069,7 +1092,30 @@
   "active_exists": true,
   "passive_en": "settled, levelled",
   "passive_exists": true,
-  "charts": null
+  "charts": {
+   "shaami": {
+    "past": {
+     "ana": "سَوَّيْت",
+     "enta": "سَوَّيْت",
+     "enti": "سَوَّيْتي",
+     "huwe": "سَوّى",
+     "hiye": "سَوِّت",
+     "nahna": "سَوَّيْنا",
+     "ento": "سَوَّيْتو",
+     "hinne": "سَوّو"
+    },
+    "present": {
+     "ana": "بْسَوّي",
+     "enta": "بِتْسَوّي",
+     "enti": "بِتْسَوّي",
+     "huwe": "بِيْسَوّي",
+     "hiye": "بِتْسَوّي",
+     "nahna": "مِنْسَوّي",
+     "ento": "بِتْسَوّو",
+     "hinne": "بِيْسَوّو"
+    }
+   }
+  }
  },
  {
   "key": "شجع-II",
@@ -1245,7 +1291,30 @@
   "active_exists": true,
   "passive_en": "seen (Shaami مَشوف)",
   "passive_exists": true,
-  "charts": null
+  "charts": {
+   "shaami": {
+    "past": {
+     "ana": "شِفْت",
+     "enta": "شِفْت",
+     "enti": "شِفْتي",
+     "huwe": "شاف",
+     "hiye": "شافِت",
+     "nahna": "شِفْنا",
+     "ento": "شِفْتو",
+     "hinne": "شافو"
+    },
+    "present": {
+     "ana": "بْشوف",
+     "enta": "بِتْشوف",
+     "enti": "بِتْشوفي",
+     "huwe": "بِيْشوف",
+     "hiye": "بِتْشوف",
+     "nahna": "مِنْشوف",
+     "ento": "بِتْشوفو",
+     "hinne": "بِيْشوفو"
+    }
+   }
+  }
  },
  {
   "key": "صبح-IV",
@@ -2013,7 +2082,30 @@
   "active_exists": true,
   "passive_en": "woken up (Shaami مْفَيَّق)",
   "passive_exists": true,
-  "charts": null
+  "charts": {
+   "shaami": {
+    "past": {
+     "ana": "فَيَّقْت",
+     "enta": "فَيَّقْت",
+     "enti": "فَيَّقْتي",
+     "huwe": "فَيَّق",
+     "hiye": "فَيّْقِت",
+     "nahna": "فَيَّقْنا",
+     "ento": "فَيَّقْتو",
+     "hinne": "فَيّْقو"
+    },
+    "present": {
+     "ana": "بْفَيِّق",
+     "enta": "بِتْفَيِّق",
+     "enti": "بِتْفَيّْقي",
+     "huwe": "بِيْفَيِّق",
+     "hiye": "بِتْفَيِّق",
+     "nahna": "مِنْفَيِّق",
+     "ento": "بِتْفَيّْقو",
+     "hinne": "بِيْفَيّْقو"
+    }
+   }
+  }
  },
  {
   "key": "قبل-I",
@@ -2413,7 +2505,30 @@
   "active_exists": true,
   "passive_en": "met",
   "passive_exists": false,
-  "charts": null
+  "charts": {
+   "shaami": {
+    "past": {
+     "ana": "لَقيت",
+     "enta": "لَقيت",
+     "enti": "لَقيتي",
+     "huwe": "لَقى",
+     "hiye": "لَقِت",
+     "nahna": "لَقينا",
+     "ento": "لَقيتو",
+     "hinne": "لَقيو"
+    },
+    "present": {
+     "ana": "بْلاقي",
+     "enta": "بِتْلاقي",
+     "enti": "بِتْلاقي",
+     "huwe": "بِيْلاقي",
+     "hiye": "بِتْلاقي",
+     "nahna": "مِنْلاقي",
+     "ento": "بِتْلاقو",
+     "hinne": "بِيْلاقو"
+    }
+   }
+  }
  },
  {
   "key": "متع-X",
@@ -4286,6 +4401,45 @@
     "huma_f": "لَيْسَتا"
    },
    "present": null
+  }
+ },
+ {
+  "key": "رجع-شامي",
+  "root": "ر-ج-ع",
+  "form": "I",
+  "past": "رَجَعَ",
+  "present": "يَرْجِعُ",
+  "masdar": "رُجوع",
+  "english": "to return (Shaami رِجِع)",
+  "prefix": null,
+  "active_present": null,
+  "active_en": "returning",
+  "active_exists": true,
+  "passive_en": "returned to",
+  "passive_exists": false,
+  "charts": {
+   "shaami": {
+    "past": {
+     "ana": "رْجِعْت",
+     "enta": "رْجِعْت",
+     "enti": "رْجِعْتي",
+     "huwe": "رِجِع",
+     "hiye": "رِجْعِت",
+     "nahna": "رْجِعْنا",
+     "ento": "رْجِعْتو",
+     "hinne": "رِجْعو"
+    },
+    "present": {
+     "ana": "بِرْجَع",
+     "enta": "بْتِرْجَع",
+     "enti": "بْتِرْجَعي",
+     "huwe": "بْيِرْجَع",
+     "hiye": "بْتِرْجَع",
+     "nahna": "مْنِرْجَع",
+     "ento": "بْتِرْجَعو",
+     "hinne": "بْيِرْجَعو"
+    }
+   }
   }
  }
 ]

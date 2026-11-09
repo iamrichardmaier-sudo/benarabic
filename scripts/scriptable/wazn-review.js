@@ -1049,6 +1049,14 @@ const TABLE_ORDER = [
     'antuma', 'huma_m', 'huma_f',
 ];
 const PRONOUN = Object.fromEntries(PEOPLE.map((p) => [p.id, p.pronoun]));
+/**
+ * The persons of a Shaami table. The dialect has no dual and no feminine
+ * plural, so it is eight rows, not thirteen.
+ */
+const SHAAMI_ORDER = ['ana', 'enta', 'enti', 'huwe', 'hiye', 'nahna', 'ento', 'hinne'];
+const SHAAMI_PRONOUN = {
+    ana: 'أنا', enta: 'إنتَ', enti: 'إنتِ', huwe: 'هوّي', hiye: 'هيّي', nahna: 'نحنا', ento: 'إنتو', hinne: 'هنّي',
+};
 const DUAL = new Set(['antuma', 'huma_m', 'huma_f']);
 // -- Letters and marks ---------------------------------------------------------
 const FATHA = 'َ';
@@ -1440,6 +1448,7 @@ function buildVerbTable(input) {
 }
 /** A stored verb, as a table with its participles' English. */
 function entryTable(entry) {
+    var _a, _b;
     const t = buildVerbTable({
         root: entry.root,
         form: entry.form,
@@ -1454,6 +1463,7 @@ function entryTable(entry) {
     if (!t)
         return null;
     t.active = { ...t.active, en: entry.activeEn, exists: entry.activeExists };
+    t.shaami = (_b = (_a = entry.charts) === null || _a === void 0 ? void 0 : _a.shaami) !== null && _b !== void 0 ? _b : null;
     t.passive = { ...t.passive, en: entry.passiveEn, exists: entry.passiveExists };
     return t;
 }
@@ -1476,7 +1486,7 @@ function whichForm(word, table) {
         return 'masdar';
     return null;
 }
-return { entryTable, buildVerbTable, whichForm, TABLE_ORDER, PRONOUN, DUAL };
+return { entryTable, buildVerbTable, whichForm, TABLE_ORDER, PRONOUN, DUAL, SHAAMI_ORDER, SHAAMI_PRONOUN };
 })();
 // ---- end of conjugation engine ----
 
@@ -1540,6 +1550,8 @@ async function attachConjugations(token, cards) {
     c.conj = {
       order: WaznConjugation.TABLE_ORDER,
       pronoun: WaznConjugation.PRONOUN,
+      shaamiOrder: WaznConjugation.SHAAMI_ORDER,
+      shaamiPronoun: WaznConjugation.SHAAMI_PRONOUN,
       tables: tables.map((t) => ({
         ...t,
         highlight: c.word_type === "verb" ? null : WaznConjugation.whichForm(word, t),
@@ -2397,11 +2409,20 @@ function conjTables(c) {
       '<table><tr><th>Past</th><th></th><th>Present</th></tr>' +
       order.filter((id) => duals.indexOf(id) < 0).map(row).join('') +
       '<tr class="dual-h"><td colspan="3">Dual</td></tr>' +
-      duals.map(row).join('') + '</table>' +
+      duals.map(row).join('') + '</table>' + shaamiTable(c, t) +
       part('Active participle', t.active, t.highlight === 'active') +
       part('Passive participle', t.passive, t.highlight === 'passive') +
       '</div>';
   }).join('');
+}
+
+/** The Shaami forms, under the Fusha table, for a Shaami verb. */
+function shaamiTable(c, t) {
+  if (!t.shaami || !c.conj.shaamiOrder) return '';
+  return '<div class="cj-lbl" style="margin-top:10px">Shaami</div><table>' +
+    c.conj.shaamiOrder.map((id) => '<tr><td>' + esc(t.shaami.past[id] || '\u2014') + '</td><td class="pr">' +
+      esc(c.conj.shaamiPronoun[id]) + '</td><td>' + esc(t.shaami.present[id] || '\u2014') + '</td></tr>').join('') +
+    '</table>';
 }
 
 function toggleConj(btn) {

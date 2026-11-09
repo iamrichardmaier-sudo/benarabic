@@ -54,7 +54,7 @@ const block = [
   'const WaznConjugation = (() => {',
   'const { conjugate, PEOPLE } = WaznConjugationCore;',
   strip('verb-table.ts'),
-  'return { entryTable, buildVerbTable, whichForm, TABLE_ORDER, PRONOUN, DUAL };',
+  'return { entryTable, buildVerbTable, whichForm, TABLE_ORDER, PRONOUN, DUAL, SHAAMI_ORDER, SHAAMI_PRONOUN };',
   '})();',
   END,
 ].join('\n');
