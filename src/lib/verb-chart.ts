@@ -21,7 +21,7 @@ export interface ChartVerb {
 /**
  * The verbs whose full chart can actually be derived, paired with that chart.
  *
- * Quadriliterals, passives and phrases ("ما زالَ") have no paradigm here to
+ * Weak quadriliterals, passives and phrases ("ما زالَ") have no paradigm here to
  * derive, so they are dropped rather than charted wrongly.
  */
 export function chartable(verbs: ChartVerb[]): { verb: ChartVerb; chart: Conjugation }[] {

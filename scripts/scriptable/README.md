@@ -5,7 +5,7 @@
 | Where | What it does |
 |---|---|
 | **Home-screen widget** | Shows how many cards are due and the next word in Arabic. Tapping it launches the review session. |
-| **Run in Scriptable** | A full-screen review session: tap the middle to flip, then the **left** third for *Again* and the **right** third for *Easy*. Words are read aloud, and the answer side shows the same word detail as the web app, ending with a **Quranic reference** (verse, translation, citation) when the word has one. |
+| **Run in Scriptable** | A full-screen review session: tap the middle to flip, then the **left** third for *Again* and the **right** third for *Easy*. Words are read aloud, and the answer side shows the same word detail as the web app (with a **Conjugate** button for verbs and their participles), ending with a **Quranic reference** (verse, translation, citation) when the word has one. |
 
 ## Why the reviewing isn't inside the widget
 
@@ -86,6 +86,30 @@ All of this is fetched **before** the session opens, in two extra requests: your
 deck, and the Bible words for the roots that came up. The review page cannot make network
 calls of its own, so everything it will ever show has to be in hand first. If either
 request fails the review still runs — it just loses the cross-references.
+
+### The Conjugate button
+
+A verb card — and a participle or masdar card, for the verb it comes from — has a
+**Conjugate** button at the top of its answer side. The table stays hidden until it is
+pressed, and pressing it again hides it. It shows the same table as the web app:
+
+- the masdar with ال at the top;
+- the past on the left and the present on the right, fully voweled, in every person,
+  with the duals at the bottom;
+- the active and passive participles with their English in brackets. A participle the
+  language does not use is still shown, as what it would be, marked *does not exist*.
+
+The verbs and the participles' English are stored once in the `verb_entries` table (the
+data is in `supabase/verb-entries.json`), and each card lists its verbs in
+`flashcards.verb_keys`. The table itself is worked out on the phone by a copy of the web
+app's engine, kept between the *conjugation engine* markers in `wazn-review.js`. After
+changing `src/lib/conjugation.ts` or `src/lib/verb-table.ts`, refresh the copy with:
+
+```
+node scripts/scriptable/sync-conjugation.mjs
+```
+
+Tapping inside an open table does nothing, so reading it never grades the card.
 
 *Hard* and *Good* aren't offered here by design — a two-choice pass is what makes a
 phone-sized session fast. Use the web app when you want the full four-way rating.

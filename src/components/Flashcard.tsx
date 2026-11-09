@@ -6,6 +6,7 @@ import WordInfoPopover from '@/components/WordInfoPopover';
 import WordForms from '@/components/WordForms';
 import SwipeToGrade from '@/components/SwipeToGrade';
 import WordDetail from '@/components/WordDetail';
+import ConjugationPanel from '@/components/ConjugationPanel';
 import DialectToggle from '@/components/DialectToggle';
 import CardScene from '@/components/CardScene';
 import { dialectView } from '@/lib/dialect';
@@ -118,6 +119,7 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
     if (direction === 'en-to-ar') {
       return (
         <div className="space-y-4 text-center w-full">
+          <ConjugationPanel card={card} />
           {card.english && (
             <p className="text-lg text-muted-foreground">{card.english}</p>
           )}
@@ -129,6 +131,7 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
     }
     return (
       <div className="space-y-4 text-center w-full">
+        <ConjugationPanel card={card} />
         <p className="font-card text-2xl text-muted-foreground" dir="rtl">
           {view.headline}
         </p>
