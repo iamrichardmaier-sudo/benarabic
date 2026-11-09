@@ -1,0 +1,638 @@
+{
+  "day": "2026-11-09",
+  "format": "See supabase/answer-keys/README.md.",
+  "sentences": [
+    {
+      "position": 1,
+      "english": "Although the newcomers arrived in the state two years ago, they are still enthusiastic about their new life.",
+      "grammar_focus": "على الرغم من أنّ + an accusative subject (أنّ الوافدينَ), وصل إلى, قبل + a genitive dual (قبل سنتين), and ما زال with an accusative plural predicate (ما زالوا متحمّسين لحياتهم الجديدة), with a feminine adjective for حياة",
+      "target_words": [
+        "وافد",
+        "ولاية",
+        "متحمس"
+      ],
+      "model_answer": "عَلى الرَّغمِ مِن أَنَّ الوافِدينَ وَصَلوا إِلى الوِلايَةِ قَبلَ سَنَتَينِ، ما زالوا مُتَحَمِّسينَ لِحَياتِهِمُ الجَديدَةِ.",
+      "reference_translations": [
+        "على الرغم من أن الوافدين وصلوا إلى الولاية قبل سنتين ما زالوا متحمسين لحياتهم الجديدة",
+        "بالرغم من أن الوافدين وصلوا إلى الولاية منذ عامين لا يزالون متحمسين لحياتهم الجديدة",
+        "رغم أن الوافدين وصلوا إلى الولاية قبل عامين فإنهم ما زالوا متحمسين لحياتهم الجديدة",
+        "مع أن الوافدين وصلوا إلى الولاية قبل سنتين ما زالوا متحمسين لحياتهم الجديدة",
+        "على الرغم من وصول الوافدين إلى الولاية قبل سنتين ما زالوا متحمسين لحياتهم الجديدة"
+      ],
+      "chunks": [
+        {
+          "en": "Although the newcomers arrived",
+          "accept": [
+            "على الرغم من أن الوافدين وصلوا",
+            "بالرغم من أن الوافدين وصلوا",
+            "رغم أن الوافدين وصلوا",
+            "مع أن الوافدين وصلوا",
+            "على الرغم من وصول الوافدين",
+            "بالرغم من وصول الوافدين",
+            "رغم وصول الوافدين",
+            "على الرغم من أن القادمين الجدد وصلوا",
+            "رغم أن القادمين الجدد وصلوا"
+          ],
+          "mistakes": [
+            {
+              "text": "أن الوافدون",
+              "rule": "After أنّ the noun is accusative: الوافدين",
+              "note": "أنّ makes its noun accusative, and a sound masculine plural then ends in -ين: أنّ الوافدينَ, not الوافدون."
+            },
+            {
+              "text": "الوافدين وصل",
+              "rule": "The verb comes after its plural subject: وصلوا",
+              "note": "When the subject comes first, the verb agrees in full: الوافدين وصلوا, not وصل."
+            },
+            {
+              "text": "الوافدين وصلن",
+              "rule": "The newcomers (masculine or mixed): وصلوا",
+              "note": "وصلنَ is for a group of women only. Newcomers in general: وصلوا."
+            },
+            {
+              "text": "بالرغم أن",
+              "rule": "\"Although\" is بالرغم من أنّ (with من)",
+              "note": "The full form is بالرغم من أنّ (or رغم أنّ)."
+            },
+            {
+              "text": "على الرغم أن",
+              "rule": "\"Although\" is على الرغم من أنّ (with من)",
+              "note": "The full form is على الرغم من أنّ (or رغم أنّ)."
+            }
+          ]
+        },
+        {
+          "en": "in the state",
+          "accept": [
+            "إلى الولاية",
+            "الولاية",
+            "إلى هذه الولاية",
+            "إلى ولاية يوتا",
+            "إلى يوتا"
+          ],
+          "mistakes": [
+            {
+              "text": "في الولاية",
+              "rule": "وصل takes إلى",
+              "note": "\"Arrive in\" is وصل إلى: وصلوا إلى الولاية, not في."
+            },
+            {
+              "text": "الولاية الجديد",
+              "rule": "ولاية is feminine",
+              "note": "ولاية is feminine: الولاية الجديدة."
+            }
+          ]
+        },
+        {
+          "en": "two years ago",
+          "accept": [
+            "قبل سنتين",
+            "قبل عامين",
+            "منذ سنتين",
+            "منذ عامين",
+            "قبل سنتين تقريبا",
+            "منذ سنتين تقريبا"
+          ],
+          "mistakes": [
+            {
+              "text": "قبل سنتان",
+              "rule": "After قبل the noun is genitive: سنتين",
+              "note": "قبلَ is followed by a genitive, so the dual ends in -ين: قبلَ سنتينِ."
+            },
+            {
+              "text": "قبل عامان",
+              "rule": "After قبل the noun is genitive: عامين",
+              "note": "قبلَ is followed by a genitive, so the dual ends in -ين: قبلَ عامينِ."
+            },
+            {
+              "text": "اثنين سنوات",
+              "rule": "\"Two years\" is the dual alone: سنتين",
+              "note": "Two of something is the dual on its own: سنتين (or عامين), not اثنين + plural."
+            },
+            {
+              "text": "اثنتين سنوات",
+              "rule": "\"Two years\" is the dual alone: سنتين",
+              "note": "Two of something is the dual on its own: سنتين (or عامين)."
+            },
+            {
+              "text": "سنتين ماضية",
+              "rule": "\"Ago\" is قبل / منذ",
+              "note": "\"Two years ago\": قبلَ سنتينِ (or منذ سنتين)."
+            }
+          ]
+        },
+        {
+          "en": "they are still",
+          "accept": [
+            "ما زالوا",
+            "مازالوا",
+            "لا يزالون",
+            "ما يزالون",
+            "فإنهم ما زالوا",
+            "فهم ما زالوا",
+            "إلا أنهم ما زالوا",
+            "فإنهم لا يزالون"
+          ],
+          "mistakes": [
+            {
+              "text": "لا يزالوا",
+              "rule": "Indicative: لا يزالون",
+              "note": "After لا the verb stays indicative and keeps its ن: لا يزالونَ."
+            },
+            {
+              "text": "ما زال متحمسين",
+              "rule": "They (plural): ما زالوا",
+              "note": "With no noun after it, the verb carries the plural: ما زالوا متحمّسين."
+            },
+            {
+              "text": "ما زلوا",
+              "rule": "Spelling: ما زالوا",
+              "note": "The past of زال keeps its alif: ما زالوا."
+            }
+          ]
+        },
+        {
+          "en": "enthusiastic about their new life",
+          "accept": [
+            "متحمسين لحياتهم الجديدة",
+            "متحمسين بحياتهم الجديدة",
+            "متحمسين للحياة الجديدة",
+            "متحمسين لحياتهم الجديدة هنا",
+            "متحمسين لحياتهم الجديدة في الولاية",
+            "متحمسين لحياتهم الجديدة فيها"
+          ],
+          "mistakes": [
+            {
+              "text": "متحمسون",
+              "rule": "The predicate of ما زال is accusative: متحمسين",
+              "note": "ما زال works like كان: its predicate is accusative, so the plural ends in -ين: متحمّسينَ."
+            },
+            {
+              "text": "متحمسا لحياتهم",
+              "rule": "Several people: the plural متحمسين",
+              "note": "The newcomers are many: متحمّسينَ, not متحمّسًا."
+            },
+            {
+              "text": "حياتهم الجديد",
+              "rule": "حياة is feminine: الجديدة",
+              "note": "حياة is feminine, so: حياتهم الجديدة."
+            },
+            {
+              "text": "لحياتهم جديدة",
+              "rule": "The adjective of a definite noun takes ال: الجديدة",
+              "note": "حياتهم is definite (it has a possessive), so its adjective takes ال: لحياتهم الجديدة."
+            },
+            {
+              "text": "لحياتها الجديدة",
+              "rule": "Their (masculine plural): حياتهم",
+              "note": "\"Their\" for the newcomers is ـهم: لحياتهم, not لحياتها."
+            },
+            {
+              "text": "لحياته الجديدة",
+              "rule": "Their (masculine plural): حياتهم",
+              "note": "\"Their\" for the newcomers is ـهم: لحياتهم, not لحياته."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "على الرغم من أنّ الوافدينَ: أنّ makes its noun accusative",
+        "وصل إلى, not وصل في",
+        "قبلَ سنتينِ: the genitive dual, with no اثنين",
+        "ما زالوا متحمّسينَ: ما زال takes an accusative predicate",
+        "حياة is feminine: حياتهم الجديدة"
+      ]
+    },
+    {
+      "position": 2,
+      "english": "How many times my teacher repeated the comparison between the two dialects! There is no doubt that it helped us.",
+      "grammar_focus": "كم الخبرية (كم مرةٍ, a genitive singular, exclamatory), أعاد with a definite object (أعاد المقارنةَ), بين + a genitive dual (بين اللهجتين), and لا النافية للجنس (لا شكَّ في أنّها), with a feminine pronoun and verb for المقارنة",
+      "target_words": [
+        "أعاد",
+        "مقارنة"
+      ],
+      "model_answer": "كَم مَرَّةٍ أَعادَ أُستاذي المُقارَنَةَ بَينَ اللَّهجَتَينِ! وَلا شَكَّ في أَنَّها ساعَدَتنا.",
+      "reference_translations": [
+        "كم مرة أعاد أستاذي المقارنة بين اللهجتين ولا شك في أنها ساعدتنا",
+        "كم مرة أعادت معلمتي المقارنة بين اللهجتين ولا شك أنها ساعدتنا",
+        "كم من مرة أعاد معلمي المقارنة بين اللهجتين ولا شك أنها أفادتنا",
+        "كم مرة كرر أستاذي المقارنة بين اللهجتين ولا شك في أنها ساعدتنا",
+        "كم مرة أعاد أستاذي هذه المقارنة بين اللهجتين وبلا شك ساعدتنا"
+      ],
+      "chunks": [
+        {
+          "en": "How many times",
+          "accept": [
+            "كم مرة",
+            "كم من مرة",
+            "كم مرات",
+            "كم من المرات"
+          ],
+          "mistakes": [
+            {
+              "text": "كم المرات",
+              "rule": "After كم: كم مرةٍ (no ال)",
+              "note": "The exclamatory كم takes an indefinite noun: كم مرةٍ (or كم من مرةٍ)."
+            },
+            {
+              "text": "كيف مرة",
+              "rule": "\"How many\" is كم",
+              "note": "كيف is \"how\" (in what way). \"How many times\": كم مرةٍ."
+            }
+          ]
+        },
+        {
+          "en": "my teacher repeated",
+          "accept": [
+            "أعاد أستاذي",
+            "أعاد معلمي",
+            "أعاد مدرسي",
+            "أعادت أستاذتي",
+            "أعادت معلمتي",
+            "أعادت مدرستي",
+            "كرر أستاذي",
+            "كرر معلمي",
+            "كررت معلمتي",
+            "كررت أستاذتي"
+          ],
+          "mistakes": [
+            {
+              "text": "أعاد معلمتي",
+              "rule": "A woman teacher: أعادت",
+              "note": "معلّمتي is feminine, so the verb is too: أعادت معلّمتي."
+            },
+            {
+              "text": "أعاد أستاذتي",
+              "rule": "A woman teacher: أعادت",
+              "note": "أستاذتي is feminine, so the verb is too: أعادت أستاذتي."
+            },
+            {
+              "text": "أعادت أستاذي",
+              "rule": "A man teacher: أعاد",
+              "note": "أستاذي is masculine: أعادَ أستاذي."
+            },
+            {
+              "text": "أعادت معلمي",
+              "rule": "A man teacher: أعاد",
+              "note": "معلّمي is masculine: أعادَ معلّمي."
+            },
+            {
+              "text": "عاد أستاذي",
+              "rule": "\"Repeat\" is أعاد (Form IV)",
+              "note": "عادَ is \"to return, come back\". \"To repeat\" is أعادَ: أعاد أستاذي المقارنة."
+            },
+            {
+              "text": "عاد معلمي",
+              "rule": "\"Repeat\" is أعاد (Form IV)",
+              "note": "عادَ is \"to return, come back\". \"To repeat\" is أعادَ."
+            },
+            {
+              "text": "عاد معلمتي",
+              "rule": "\"Repeat\" is أعاد (Form IV), and she: أعادت",
+              "note": "عادَ is \"to return\". \"To repeat\" is أعادَ, and with a woman teacher: أعادت معلّمتي."
+            },
+            {
+              "text": "عاد أستاذتي",
+              "rule": "\"Repeat\" is أعاد (Form IV), and she: أعادت",
+              "note": "عادَ is \"to return\". \"To repeat\" is أعادَ, and with a woman teacher: أعادت أستاذتي."
+            },
+            {
+              "text": "عادت معلمتي",
+              "rule": "\"Repeat\" is أعادت (Form IV)",
+              "note": "عادت is \"she returned\". \"She repeated\" is أعادت: أعادت معلّمتي المقارنة."
+            },
+            {
+              "text": "عادت أستاذتي",
+              "rule": "\"Repeat\" is أعادت (Form IV)",
+              "note": "عادت is \"she returned\". \"She repeated\" is أعادت."
+            }
+          ]
+        },
+        {
+          "en": "the comparison between the two dialects",
+          "accept": [
+            "المقارنة بين اللهجتين",
+            "هذه المقارنة بين اللهجتين",
+            "تلك المقارنة بين اللهجتين",
+            "المقارنة نفسها بين اللهجتين"
+          ],
+          "mistakes": [
+            {
+              "text": "بين اللهجتان",
+              "rule": "After بين the noun is genitive: اللهجتين",
+              "note": "بينَ is followed by a genitive, so the dual ends in -ين: بين اللهجتينِ."
+            },
+            {
+              "text": "بين اللهجات",
+              "rule": "Two dialects: the dual اللهجتين",
+              "note": "Two of them: the dual, اللهجتين, not the plural اللهجات."
+            },
+            {
+              "text": "بين لهجتين",
+              "rule": "\"The two dialects\" are definite: اللهجتين",
+              "note": "These are particular dialects: بين اللهجتينِ, with ال."
+            },
+            {
+              "text": "مقارنة بين اللهجتين",
+              "rule": "\"The comparison\": المقارنة",
+              "note": "A particular comparison he kept repeating: المقارنةَ, with ال.",
+              "status": "alternative"
+            }
+          ]
+        },
+        {
+          "en": "There is no doubt that it helped us",
+          "accept": [
+            "ولا شك في أنها ساعدتنا",
+            "ولا شك أنها ساعدتنا",
+            "لا شك في أنها ساعدتنا",
+            "لا شك أنها ساعدتنا",
+            "ولا شك في أنها أفادتنا",
+            "ولا شك أنها أفادتنا",
+            "لا شك أنها أفادتنا",
+            "لا شك في أنها أفادتنا",
+            "ولا ريب أنها ساعدتنا",
+            "وبلا شك ساعدتنا",
+            "بلا شك ساعدتنا",
+            "ومن دون شك ساعدتنا",
+            "ولا يوجد شك في أنها ساعدتنا",
+            "لا يوجد شك في أنها ساعدتنا"
+          ],
+          "mistakes": [
+            {
+              "text": "لا شكا",
+              "rule": "After لا of \"no … at all\": لا شكَّ, without tanween",
+              "note": "لا النافية للجنس takes its noun with a plain fatha and no tanween: لا شكَّ."
+            },
+            {
+              "text": "ليس شك",
+              "rule": "\"There is no doubt\": لا شكّ",
+              "note": "\"No doubt\" is لا شكَّ (or لا شكَّ في أنّ…), not ليس شك."
+            },
+            {
+              "text": "أنه ساعدنا",
+              "rule": "The comparison is feminine: أنها ساعدتنا",
+              "note": "المقارنة is feminine, so: أنّها ساعدتنا."
+            },
+            {
+              "text": "أنها ساعدنا",
+              "rule": "The comparison is feminine: ساعدتنا",
+              "note": "With a feminine subject the verb takes تـ: أنّها ساعدَتنا."
+            },
+            {
+              "text": "أنه ساعدتنا",
+              "rule": "The comparison is feminine: أنها",
+              "note": "المقارنة is feminine, so the pronoun is too: أنّها ساعدتنا."
+            },
+            {
+              "text": "أن ساعدتنا",
+              "rule": "أنّ needs a noun or pronoun after it: أنها",
+              "note": "أنّ cannot be followed by a verb directly: لا شكّ أنّها ساعدتنا."
+            },
+            {
+              "text": "ولا شك في إنها ساعدتنا",
+              "rule": "After شك في, \"that\" is أنّ (hamza above)",
+              "note": "إنّ follows قال; after لا شكّ (في) it is أنّها.",
+              "strict": true
+            },
+            {
+              "text": "لا شك في إنها ساعدتنا",
+              "rule": "After شك في, \"that\" is أنّ (hamza above)",
+              "note": "إنّ follows قال; after لا شكّ (في) it is أنّها.",
+              "strict": true
+            },
+            {
+              "text": "ولا شك إنها ساعدتنا",
+              "rule": "After لا شك, \"that\" is أنّ (hamza above)",
+              "note": "إنّ follows قال; after لا شكّ it is أنّها.",
+              "strict": true
+            },
+            {
+              "text": "لا شك إنها ساعدتنا",
+              "rule": "After لا شك, \"that\" is أنّ (hamza above)",
+              "note": "إنّ follows قال; after لا شكّ it is أنّها.",
+              "strict": true
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "كم مرةٍ: the exclamatory كم takes an indefinite noun",
+        "أعادَ is \"repeat\"; عادَ is \"return\"",
+        "بين اللهجتينِ: the genitive dual",
+        "لا شكَّ في أنّها: no tanween after لا, and أنّ (not إنّ)",
+        "المقارنة is feminine: أنّها ساعدتنا"
+      ]
+    },
+    {
+      "position": 3,
+      "english": "Before I accepted this job, I asked myself whether it was suitable for me, because I love nothing more than spending time with my family.",
+      "grammar_focus": "قبل أن + the subjunctive (قبل أن أقبلَ, even of a past event), an indirect question with هل / إن كان and an accusative predicate (إن كان مناسبًا لي), a masculine pronoun for عمل, and لا أحبّ شيئًا أكثر من + a masdar (قضاء الوقت)",
+      "target_words": [
+        "عمل",
+        "مناسب",
+        "أحب",
+        "شيء"
+      ],
+      "model_answer": "قَبلَ أَن أَقبَلَ هٰذا العَمَلَ، سَأَلتُ نَفسي هَل هُوَ مُناسِبٌ لي، لِأَنَّني لا أُحِبُّ شَيئًا أَكثَرَ مِن قَضاءِ الوَقتِ مَعَ عائِلَتي.",
+      "reference_translations": [
+        "قبل أن أقبل هذا العمل سألت نفسي هل هو مناسب لي لأنني لا أحب شيئا أكثر من قضاء الوقت مع عائلتي",
+        "قبل أن أقبل هذا العمل سألت نفسي إن كان مناسبا لي لأني لا أحب شيئا أكثر من قضاء الوقت مع أسرتي",
+        "قبل قبولي هذا العمل تساءلت هل هو مناسب لي فأنا لا أحب شيئا أكثر من قضاء وقتي مع عائلتي",
+        "قبل أن أقبل هذه الوظيفة سألت نفسي إذا كانت مناسبة لي لأنني لا أحب أي شيء أكثر من أن أقضي الوقت مع عائلتي",
+        "قبل أن أقبل هذا العمل سألت نفسي هل يناسبني لأنني لا أحب شيئا أكثر من قضاء الوقت مع أهلي"
+      ],
+      "chunks": [
+        {
+          "en": "Before I accepted this job",
+          "accept": [
+            "قبل أن أقبل هذا العمل",
+            "قبل أن أقبل هذه الوظيفة",
+            "قبل أن أقبل بهذا العمل",
+            "قبل أن أقبل بهذه الوظيفة",
+            "قبل قبولي هذا العمل",
+            "قبل قبولي لهذا العمل",
+            "قبل قبول هذا العمل",
+            "قبل قبولي هذه الوظيفة",
+            "قبل أن أقبل هذا الشغل",
+            "قبل أن أوافق على هذا العمل",
+            "قبل أن أوافق على هذه الوظيفة"
+          ],
+          "mistakes": [
+            {
+              "text": "قبل أن قبلت",
+              "rule": "After قبل أن: the present subjunctive (أقبلَ)",
+              "note": "قبل أن is followed by the subjunctive, even for the past: قبل أن أقبلَ, not قبل أن قبلتُ."
+            },
+            {
+              "text": "هذه العمل",
+              "rule": "عمل is masculine: هذا",
+              "note": "عمل is masculine: هذا العمل."
+            },
+            {
+              "text": "هذا الوظيفة",
+              "rule": "وظيفة is feminine: هذه",
+              "note": "وظيفة is feminine: هذه الوظيفة."
+            },
+            {
+              "text": "قبل ما",
+              "rule": "Dialect: MSA is قبل أن",
+              "note": "قبل ما is colloquial. In MSA: قبل أن أقبلَ."
+            }
+          ]
+        },
+        {
+          "en": "I asked myself",
+          "accept": [
+            "سألت نفسي",
+            "تساءلت",
+            "سألت نفسي عن",
+            "تساءلت في نفسي"
+          ],
+          "mistakes": [
+            {
+              "text": "سألت لنفسي",
+              "rule": "سأل takes its object directly: سألت نفسي",
+              "note": "سألَ needs no preposition: سألتُ نفسي."
+            },
+            {
+              "text": "سألت حالي",
+              "rule": "Dialect: MSA is سألت نفسي",
+              "note": "سألت حالي is colloquial. In MSA: سألتُ نفسي."
+            }
+          ]
+        },
+        {
+          "en": "whether it was suitable for me",
+          "accept": [
+            "هل هو مناسب لي",
+            "هل كان مناسبا لي",
+            "إن كان مناسبا لي",
+            "إذا كان مناسبا لي",
+            "هل يناسبني",
+            "إن كان يناسبني",
+            "إذا كان يناسبني",
+            "هل كان يناسبني",
+            "هل هي مناسبة لي",
+            "هل كانت مناسبة لي",
+            "إن كانت مناسبة لي",
+            "إذا كانت مناسبة لي",
+            "هل تناسبني",
+            "إن كانت تناسبني",
+            "إذا كانت تناسبني",
+            "هل هو مناسب لي أم لا",
+            "إن كان مناسبا لي أم لا"
+          ],
+          "mistakes": [
+            {
+              "text": "كان مناسب لي",
+              "rule": "The predicate of كان is accusative: مناسبا",
+              "note": "After كان the adjective is accusative: إن كان مناسبًا لي."
+            },
+            {
+              "text": "هو مناسبا",
+              "rule": "With no كان the predicate stays nominative: هو مناسب",
+              "note": "Without كان: هل هو مناسبٌ لي (no accusative alif)."
+            },
+            {
+              "text": "هل هي مناسب",
+              "rule": "Feminine subject, feminine adjective: هي مناسبة",
+              "note": "If the job is وظيفة, then: هل هي مناسبة لي. If it is العمل: هل هو مناسب لي."
+            },
+            {
+              "text": "هل هو مناسبة",
+              "rule": "العمل is masculine: مناسب",
+              "note": "عمل is masculine: هل هو مناسبٌ لي."
+            },
+            {
+              "text": "كان مناسبة",
+              "rule": "العمل is masculine: مناسبا",
+              "note": "عمل is masculine: إن كان مناسبًا لي (for وظيفة: إن كانت مناسبة)."
+            },
+            {
+              "text": "كانت مناسبا",
+              "rule": "A feminine subject: مناسبة",
+              "note": "With كانت (a وظيفة): إن كانت مناسبةً لي."
+            }
+          ]
+        },
+        {
+          "en": "because I love nothing more than",
+          "accept": [
+            "لأنني لا أحب شيئا أكثر من",
+            "لأني لا أحب شيئا أكثر من",
+            "فأنا لا أحب شيئا أكثر من",
+            "لأنني لا أحب أي شيء أكثر من",
+            "لأني لا أحب أي شيء أكثر من",
+            "فأنا لا أحب أي شيء أكثر من",
+            "لأنه لا شيء أحب إلي من",
+            "إذ لا أحب شيئا أكثر من"
+          ],
+          "mistakes": [
+            {
+              "text": "لا أحب شيء",
+              "rule": "The object is accusative: شيئا",
+              "note": "شيء is the object of أحبّ: لا أحبّ شيئًا (with the accusative alif)."
+            },
+            {
+              "text": "لأن لا أحب",
+              "rule": "لأنّ needs a pronoun before the verb: لأنني",
+              "note": "لأنّ cannot be followed by لا + verb directly: لأنّني لا أحبّ…"
+            },
+            {
+              "text": "لا أحب شيئا أكثر مما قضاء",
+              "rule": "Before a noun: أكثر من (not مما)",
+              "note": "مِمّا (من + ما) comes before a verb; before a masdar it is أكثر مِن قضاء."
+            }
+          ]
+        },
+        {
+          "en": "spending time with my family",
+          "accept": [
+            "قضاء الوقت مع عائلتي",
+            "قضاء الوقت مع أسرتي",
+            "قضاء الوقت مع أهلي",
+            "قضاء وقتي مع عائلتي",
+            "قضاء وقتي مع أسرتي",
+            "قضاء وقتي مع أهلي",
+            "أن أقضي الوقت مع عائلتي",
+            "أن أقضي وقتي مع عائلتي",
+            "أن أقضي الوقت مع أسرتي",
+            "أن أقضي الوقت مع أهلي",
+            "أن أقضي وقتي مع أهلي",
+            "تمضية الوقت مع عائلتي"
+          ],
+          "mistakes": [
+            {
+              "text": "قضاء وقت مع",
+              "rule": "Time in general takes ال: الوقت",
+              "note": "\"Spending time\" in general: قضاء الوقتِ, with ال (or قضاء وقتي)."
+            },
+            {
+              "text": "أن قضيت",
+              "rule": "After أن: the present subjunctive (أقضيَ)",
+              "note": "أن is followed by the subjunctive: أن أقضيَ الوقتَ."
+            },
+            {
+              "text": "من أقضي الوقت",
+              "rule": "Before a verb, add أن: من أن أقضي",
+              "note": "من cannot take a verb directly: أكثر من أن أقضيَ (or أكثر من قضاء)."
+            },
+            {
+              "text": "مع عائلي",
+              "rule": "\"My family\": عائلتي",
+              "note": "عائلة + ي keeps its ت: عائلتي."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "قبل أن + the subjunctive, even of the past: قبل أن أقبلَ",
+        "عمل is masculine (هذا العمل، هو مناسب); وظيفة is feminine",
+        "إن كان مناسبًا: the accusative after كان",
+        "لا أحبّ شيئًا: the object is accusative",
+        "أكثر من قضاء الوقت: من before a masdar, مما before a verb"
+      ]
+    }
+  ]
+}
