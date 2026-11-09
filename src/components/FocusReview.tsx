@@ -5,6 +5,7 @@ import type { ReviewDirection } from '@/components/Flashcard';
 import WaznLogo from '@/components/WaznLogo';
 import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import WordDetail from '@/components/WordDetail';
+import ConjugationPanel from '@/components/ConjugationPanel';
 import { focusAction, focusHint } from '@/lib/focus-keys';
 import { dialectView } from '@/lib/dialect';
 import CardArt from '@/components/CardArt';
@@ -140,6 +141,7 @@ const FocusReview = ({
 
           {flipped && (
             <div className="mt-3 space-y-3 text-start">
+              <ConjugationPanel card={card} />
               {direction === 'ar-to-en' ? (
                 <>
                   {card.english && !card.imageUrl && <CardArt card={card} size="md" />}

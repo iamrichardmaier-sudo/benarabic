@@ -38,8 +38,16 @@ describe('verbClass', () => {
     expect(verbClass('ك-ت-ب')).toBe('sound');
   });
 
+  it('charts a sound quadriliteral like a sound verb', () => {
+    expect(verbClass('د-ح-ر-ج')).toBe('sound');
+    const chart = conjugate({ root: 'ت-ر-ج-م', past: 'تَرْجَمَ', present: 'يُتَرْجِمُ' });
+    expect(chart?.past.ana).toBe('تَرْجَمْتُ');
+    expect(chart?.present.hum).toBe('يُتَرْجِمونَ');
+  });
+
   it('declines a root it cannot chart', () => {
-    expect(verbClass('د-ح-ر-ج')).toBeNull();
+    expect(verbClass('و-س-و-س')).toBeNull();
+    expect(verbClass('ك-ت')).toBeNull();
   });
 });
 
@@ -95,7 +103,7 @@ describe('a defective verb', () => {
   it('loses its final letter before a vowel ending', () => {
     const c = chart(masha);
     expectWord(c.past.hiya, 'مَشَتْ');
-    expectWord(c.past.hum, 'مَشَوا');
+    expectWord(c.past.hum, 'مَشَوْا');
     expectWord(c.past.huma_m, 'مَشَيا');
   });
 

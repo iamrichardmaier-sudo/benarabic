@@ -80,7 +80,10 @@ function radicals(root: string): string[] {
  */
 export function verbClass(root: string): VerbClass | null {
   const r = radicals(root);
-  if (r.length !== 3) return null; // quadriliterals are not charted yet
+  // A quadriliteral (تَرجَمَ، هَندَسَ) with no weak letter suffixes like a sound
+  // verb in every person: تَرجَمْتُ، يُتَرجِمونَ.
+  if (r.length === 4) return r.some((c) => c === WAW || c === YA || c === ALIF_MAQSURA) ? null : 'sound';
+  if (r.length !== 3) return null;
   const [, r2, r3] = r;
   if (r2 === r3) return 'doubled';
   // Defective is decided before hollow, because a root can be both: سَوّى is
@@ -132,9 +135,22 @@ function breakGemination(bare: string): string | null {
   return head + SUKUN + consonant + vowel + consonant + SUKUN;
 }
 
-/** Consonants only — three for a Form I verb, more for every derived form. */
+/**
+ * Consonants only — three for a Form I verb, more for every derived form. A
+ * shadda counts as the second letter it is (صَلّى is four: ص ل ل ى).
+ */
 function letterCount(word: string): number {
-  return word.replace(/[ً-ْٰ]/g, '').length;
+  return word.replace(/[ً-ِْٰ]/g, '').replace(/ّ/g, 'x').length;
+}
+
+/** The vowel on the letter before a present tense's final geminate: يَمَلُّ → fatha. */
+function presentStemVowel(present: string): string {
+  const idx = present.lastIndexOf(SHADDA);
+  if (idx < 0) return '';
+  let k = idx - 1;
+  while (k > 0 && MARKS.test(present[k])) k--;
+  const mark = present[k - 1] ?? '';
+  return MARKS.test(mark) ? mark : '';
 }
 
 /** The vowel a hollow verb shortens to, read off its present tense. */
@@ -162,7 +178,11 @@ function pastStemBeforeConsonant(parts: VerbParts, cls: VerbClass): string | nul
     // opens back out into two, the first carrying a fatḥa: مَرَرْتُ.
     const i = base.lastIndexOf(SHADDA);
     if (i === -1) return base + SUKUN;
-    return base.slice(0, i) + FATHA + base[i - 1] + SUKUN;
+    // A Form I verb of the فَعِلَ type keeps its kasra (مَلِلْتُ، حَرِرْتُ, and the
+    // passive جُنِنْتُ). It shows in the present, whose stem vowel is then a
+    // fatha: يَمَلُّ، يَحَرُّ، يُجَنُّ — against يَظُنُّ → ظَنَنْتُ.
+    const vowel = letterCount(base) === 3 && presentStemVowel(parts.present) === FATHA ? KASRA : FATHA;
+    return base.slice(0, i) + vowel + base[i - 1] + SUKUN;
   }
 
   if (cls === 'hollow') {
@@ -215,9 +235,11 @@ function pastChart(parts: VerbParts, cls: VerbClass): Chart | null {
   const endsLong = base.endsWith(ALIF_MAQSURA) || base.endsWith(ALIF);
 
   // A vowel suffix leaves the stem alone — except on a defective verb, where
-  // the final weak letter is swallowed (مَشى → مَشَتْ) or turns (مَشَوا).
+  // the final weak letter is swallowed (مَشى → مَشَتْ) or turns (مَشَوْا).
   const shortened = defective && endsLong ? base.slice(0, -1) : base;
-  const weak = r[2] === WAW ? WAW : YA;
+  // Only Form I keeps a final wāw (دَعَوا، دَعَوْتُ); every derived form turns
+  // it to yāʾ (أَعْطَيا، أَعْطَيْتُ).
+  const weak = r[2] === WAW && letterCount(base) === 3 ? WAW : YA;
 
   // The فَعِلَ type keeps its yāʾ everywhere but the masculine plural, where
   // it falls away before the wāw: نَسِيَ → نَسُوا.
@@ -236,8 +258,10 @@ function pastChart(parts: VerbParts, cls: VerbClass): Chart | null {
     nahnu: stem + 'نا',
     antum: stem + 'تُم',
     antunna: stem + 'تُنَّ',
+    // The plural's wāw is a diphthong (دَعَوْا، رَمَوْا), the dual's a consonant
+    // (دَعَوا): the sukun is all that tells them apart.
     hum: defective && endsLong
-      ? vowelSuffix(WAW + ALIF)
+      ? vowelSuffix(WAW + SUKUN + ALIF)
       : kasraYa
         ? setVowel(base.slice(0, -1), DAMMA) + WAW + ALIF
         : base + WAW + ALIF,
@@ -324,8 +348,12 @@ export interface Conjugation {
  */
 export function conjugate(parts: VerbParts): Conjugation | null {
   if (!parts.past || !parts.present || !parts.root) return null;
-  const cls = verbClass(parts.root);
+  let cls = verbClass(parts.root);
   if (!cls) return null;
+  // A doubled root only conjugates as doubled when the doubling is at the end
+  // of the verb (مَرَّ، أَحَبَّ، اِستَعَدَّ). Form II and V double the middle
+  // radical instead (حَدَّدَ، قَرَّرَ), and those suffix like any sound verb.
+  if (cls === 'doubled' && !/(َّ?|َّ)$/.test(parts.past)) cls = 'sound';
   const past = pastChart(parts, cls);
   const present = presentChart(parts, cls);
   if (!past || !present) return null;

@@ -37,6 +37,8 @@ interface DbRow {
   paired_word_id: string | null;
   /** The shared-bank word behind the card, when it came from one. */
   word_id?: string | null;
+  /** Absent until the verb-entries migration has run. */
+  verb_keys?: string[] | null;
   placed_as: string | null;
   needs_review: boolean;
   shaami: string | null;
@@ -79,6 +81,7 @@ function rowToCard(row: DbRow): FlashCard {
     verbForm: row.verb_form as FlashCard['verbForm'],
     pairedWordId: row.paired_word_id,
     wordId: row.word_id ?? null,
+    verbKeys: row.verb_keys ?? null,
     placedAs: row.placed_as as FlashCard['placedAs'],
     needsReview: row.needs_review,
     shaami: row.shaami,

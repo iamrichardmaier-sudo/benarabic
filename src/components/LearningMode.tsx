@@ -9,6 +9,8 @@ import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import WordInfoPopover from '@/components/WordInfoPopover';
 import WordForms from '@/components/WordForms';
 import WordDetail from '@/components/WordDetail';
+import ConjugationPanel from '@/components/ConjugationPanel';
+import { hasVerbTable } from '@/lib/verb-entries';
 import { hasWordDetail } from '@/lib/word-relations';
 import { pickDistractors, optionLabel } from '@/lib/distractors';
 import Illustration from '@/components/Illustration';
@@ -77,8 +79,9 @@ function buildStage1Queue(cards: FlashCard[]): QueueItem[] {
  * lookup would be re-issued over and over.
  */
 const AnswerDetail = ({ card, deck }: { card: FlashCard; deck: FlashCard[] }) =>
-  hasWordDetail(card) ? (
-    <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-5">
+  hasWordDetail(card) || hasVerbTable(card) ? (
+    <div className="rounded-2xl bg-card flashcard-shadow border border-border/50 p-5 space-y-4">
+      <ConjugationPanel card={card} />
       <WordDetail card={card} deck={deck} includeCorpus />
     </div>
   ) : null;
