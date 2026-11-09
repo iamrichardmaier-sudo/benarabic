@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ChevronUp, Loader2, Table2 } from 'lucide-react';
 import type { FlashCard } from '@/lib/spaced-repetition';
-import { DUAL, PRONOUN, TABLE_ORDER, type Participle, type VerbTable } from '@/lib/verb-table';
+import {
+  DUAL, PRONOUN, SHAAMI_ORDER, SHAAMI_PRONOUN, TABLE_ORDER, type Participle, type VerbTable,
+} from '@/lib/verb-table';
 import { hasVerbTable, tablesForCard } from '@/lib/verb-entries';
 
 interface ConjugationPanelProps {
@@ -134,6 +136,22 @@ const VerbTableView = ({ table, showHead }: { table: VerbTable; showHead: boolea
           {duals.map(row)}
         </tbody>
       </table>
+      {table.shaami && (
+        <div className="mt-3 border-t border-border/60 pt-2">
+          <p className="text-center text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Shaami</p>
+          <table className="mt-1 w-full table-fixed border-collapse">
+            <tbody>
+              {SHAAMI_ORDER.map((id) => (
+                <tr key={id} className="border-t border-border/60">
+                  <td className="w-[42%] py-1 px-1 text-center font-card text-lg text-foreground" dir="rtl">{table.shaami?.past[id] ?? '—'}</td>
+                  <td className="w-[16%] py-1 px-1 text-center font-card text-sm text-muted-foreground whitespace-nowrap" dir="rtl">{SHAAMI_PRONOUN[id]}</td>
+                  <td className="w-[42%] py-1 px-1 text-center font-card text-lg text-foreground" dir="rtl">{table.shaami?.present[id] ?? '—'}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
       <div className="mt-3 space-y-1.5 border-t border-border/60 pt-2">
         <ParticipleRow label="Active participle" p={table.active} marked={table.highlight === 'active'} />
         <ParticipleRow label="Passive participle" p={table.passive} marked={table.highlight === 'passive'} />

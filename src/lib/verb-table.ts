@@ -36,6 +36,8 @@ export interface VerbTable {
   presentChart: Chart | null;
   active: Participle;
   passive: Participle;
+  /** The Shaami conjugation, shown under the Fusha one for a Shaami verb. */
+  shaami?: ShaamiChart | null;
   /** Which of the forms the card itself is, so the panel can mark it. */
   highlight?: 'active' | 'passive' | 'masdar' | null;
 }
@@ -60,7 +62,7 @@ export interface VerbEntry {
   passiveEn: string | null;
   passiveExists: boolean;
   /** Hand-written forms that replace the worked-out ones, person by person. */
-  charts: { past?: Partial<Chart> | null; present?: Partial<Chart> | null } | null;
+  charts: { past?: Partial<Chart> | null; present?: Partial<Chart> | null; shaami?: ShaamiChart | null } | null;
 }
 
 /**
@@ -76,6 +78,23 @@ export const TABLE_ORDER: PersonId[] = [
 export const PRONOUN: Record<PersonId, string> = Object.fromEntries(
   PEOPLE.map((p) => [p.id, p.pronoun]),
 ) as Record<PersonId, string>;
+
+/**
+ * The persons of a Shaami table. The dialect has no dual and no feminine
+ * plural, so it is eight rows, not thirteen.
+ */
+export const SHAAMI_ORDER = ['ana', 'enta', 'enti', 'huwe', 'hiye', 'nahna', 'ento', 'hinne'] as const;
+export type ShaamiPerson = (typeof SHAAMI_ORDER)[number];
+
+export const SHAAMI_PRONOUN: Record<ShaamiPerson, string> = {
+  ana: 'أنا', enta: 'إنتَ', enti: 'إنتِ', huwe: 'هوّي', hiye: 'هيّي', nahna: 'نحنا', ento: 'إنتو', hinne: 'هنّي',
+};
+
+/** Written by hand: the dialect's forms are not derived here. */
+export interface ShaamiChart {
+  past: Partial<Record<ShaamiPerson, string>>;
+  present: Partial<Record<ShaamiPerson, string>>;
+}
 
 export const DUAL: ReadonlySet<PersonId> = new Set(['antuma', 'huma_m', 'huma_f']);
 
@@ -461,6 +480,7 @@ export function entryTable(entry: VerbEntry): VerbTable | null {
   });
   if (!t) return null;
   t.active = { ...t.active, en: entry.activeEn, exists: entry.activeExists };
+  t.shaami = entry.charts?.shaami ?? null;
   t.passive = { ...t.passive, en: entry.passiveEn, exists: entry.passiveExists };
   return t;
 }
