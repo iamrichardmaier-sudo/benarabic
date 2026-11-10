@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import AddWordButton from '@/components/AddWordButton';
+import { STATUS_LABEL, STATUS_UNDERLINE, type WordStatus } from '@/lib/reader-status';
 
 interface UntaggedWordPopoverProps {
   /** The word as it appears in the text, punctuation and all. */
   text: string;
+  /** What the deck says of this word, when the reader is marking words. */
+  status?: WordStatus;
 }
 
 /**
@@ -17,7 +20,7 @@ interface UntaggedWordPopoverProps {
  * which one it's met in. This gives every reader the same response: a tap
  * always does something, even when there's nothing to show yet.
  */
-const UntaggedWordPopover = ({ text }: UntaggedWordPopoverProps) => {
+const UntaggedWordPopover = ({ text, status }: UntaggedWordPopoverProps) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -33,7 +36,7 @@ const UntaggedWordPopover = ({ text }: UntaggedWordPopoverProps) => {
             e.preventDefault();
             setOpen(true);
           }}
-          className="cursor-help rounded underline decoration-dotted decoration-muted-foreground/15 underline-offset-[6px] transition-colors hover:bg-primary/10 hover:text-primary active:bg-primary/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+          className={`cursor-help rounded underline underline-offset-[6px] transition-colors hover:bg-primary/10 hover:text-primary active:bg-primary/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${status ? STATUS_UNDERLINE[status] : 'decoration-dotted decoration-muted-foreground/15'}`}
         >
           {text}
         </button>
@@ -50,7 +53,9 @@ const UntaggedWordPopover = ({ text }: UntaggedWordPopoverProps) => {
           <p className="font-arabic text-xl font-bold text-foreground" dir="rtl">
             {text}
           </p>
-          <p className="text-xs text-muted-foreground">Nothing recorded for this word yet.</p>
+          <p className="text-xs text-muted-foreground">
+            {status && status !== 'none' ? STATUS_LABEL[status] : 'Nothing recorded for this word yet.'}
+          </p>
         </div>
         <div className="border-t border-border/60 pt-2">
           <AddWordButton

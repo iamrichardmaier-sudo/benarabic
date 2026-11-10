@@ -47,10 +47,10 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
   // register is on screen, so studying Shaami does not read back Fusha.
   useEffect(() => {
     if (flipped && !prevFlipped.current) {
-      speakArabic(view.spoken);
+      speakArabic(view.spoken, view.voice);
     }
     prevFlipped.current = flipped;
-  }, [flipped, view.spoken]);
+  }, [flipped, view.spoken, view.voice]);
 
   const renderImageAndEnglish = () => (
     <div className="space-y-3 w-full">
@@ -86,7 +86,7 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
             {view.headline}
           </p>
         </WordInfoPopover>
-        <SpeakButton word={view.spoken} size={22} autoSpeak />
+        <SpeakButton word={view.spoken} voice={view.voice} size={22} autoSpeak />
       </div>
       {withForms && <WordForms card={card} />}
     </div>

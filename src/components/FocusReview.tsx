@@ -54,8 +54,8 @@ const FocusReview = ({
 
   // The widget reads the word aloud on both sides; so does this.
   useEffect(() => {
-    speakArabic(view.spoken);
-  }, [card.id, flipped, view.spoken]);
+    speakArabic(view.spoken, view.voice);
+  }, [card.id, flipped, view.spoken, view.voice]);
 
   const grade = (rating: Rating) => {
     setFlipped(false);
@@ -134,7 +134,7 @@ const FocusReview = ({
                 {headline}
               </p>
               <div className="mt-3 flex justify-center">
-                <SpeakButton word={view.spoken} size={20} />
+                <SpeakButton word={view.spoken} voice={view.voice} size={20} />
               </div>
             </>
           )}

@@ -147,7 +147,7 @@ const DeckCard = ({
                 {view.headline}
               </span>
             </button>
-            <SpeakButton word={view.spoken} size={14} />
+            <SpeakButton word={view.spoken} voice={view.voice} size={14} />
             <span className="shrink-0 text-[11px] text-muted-foreground">
               {formatDate(card.nextReviewDate)}
             </span>

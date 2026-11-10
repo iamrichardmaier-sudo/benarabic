@@ -14,7 +14,7 @@ export type View =
   | 'home' | 'learnHub' | 'library' | 'settings'
   | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
   | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'translationPractice' | 'memorize' | 'listenCards' | 'rootExplorer' | 'formExplorer' | 'verbForms' | 'anki' | 'deckExport' | 'relearn' | 'deckReview'
-  | 'pdfToAudio' | 'dictionary'
+  | 'pdfToAudio' | 'dictionary' | 'cloze' | 'earTraining' | 'stats'
   | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast' | 'feedback';
 
 export interface AppLocation {
@@ -44,6 +44,9 @@ const PATHS: Record<Exclude<View, 'library' | 'podcast' | 'dictionary'>, string>
   translationPractice: '/learn/translate',
   memorize: '/learn/memorize',
   listenCards: '/learn/listen',
+  cloze: '/learn/fill-in',
+  earTraining: '/learn/ear',
+  stats: '/learn/progress',
   review: '/review',
   deck: '/deck',
   learnDecks: '/decks',

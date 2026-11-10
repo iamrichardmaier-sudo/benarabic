@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useLibraryTexts, type LibraryText } from '@/hooks/useLibraryTexts';
 import { readAsCover } from '@/lib/cover-image';
 import { wordsNeedingTags, tagWords, MAX_WORDS, type TagProgress } from '@/lib/tag-text';
@@ -10,6 +10,13 @@ import BackButton from '@/components/BackButton';
 import { useWordSkeletonIndex } from '@/hooks/useWordSkeletonIndex';
 import { tokenize } from '@/lib/transcript-mask';
 import WildWordPopover from '@/components/WildWordPopover';
+import { useDeck } from '@/contexts/DeckContext';
+import { ReaderStatusContext } from '@/contexts/ReaderStatusContext';
+import type { NewWord } from '@/contexts/DeckActionsContext';
+import { usePreferences } from '@/hooks/usePreferences';
+import { buildDeckIndex, coverage as coverageOf, statusOf, wildReaderWord, type WordStatus } from '@/lib/reader-status';
+import { skeleton } from '@/lib/cloze';
+import ReaderKnowledge from '@/components/ReaderKnowledge';
 
 // Same idea as the Bible reader's EDGE_PUNCTUATION, extended with the extra
 // marks that show up in scraped news text (dashes, brackets, an ellipsis).
@@ -106,6 +113,33 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
       return <WildWordPopover key={i} text={token.text} word={word} senses={senses} />;
     });
 
+  // What the deck says of each word here, as in the scripture reader.
+  const deck = useDeck();
+  const { readerStatus } = usePreferences();
+  const deckIndex = useMemo(() => buildDeckIndex(deck), [deck]);
+  const knowledge = (() => {
+    if (!readerStatus || !article) return null;
+    const statuses: WordStatus[] = [];
+    const rootWords = new Map<string, NewWord>();
+    for (const token of tokenize(article.content)) {
+      if (!token.isWord) continue;
+      const word = lookupKey(token.text);
+      if (!word) continue;
+      const sense = (wordTags[skeletonOf(word)] ?? (lookup(word) ?? []).map(fromWordSense))[0];
+      const status = statusOf(deckIndex, wildReaderWord(word, sense));
+      statuses.push(status);
+      const lemma = sense?.word || sense?.lemma;
+      const meaning = sense?.english || sense?.gloss;
+      if (status === 'root' && lemma && meaning && !rootWords.has(skeleton(lemma))) {
+        rootWords.set(skeleton(lemma), {
+          word: lemma, english: meaning, root: sense.root, wordType: sense.wordType ?? sense.pos, verbForm: sense.verbForm,
+          fushaPlural: sense.fushaPlural, pastTense: sense.pastTense, presentTense: sense.presentTense, masdarForm: sense.masdarForm,
+        });
+      }
+    }
+    return { coverage: coverageOf(statuses), rootWords: [...rootWords.values()] };
+  })();
+
   const toggleEnglish = () => {
     setShowEnglish((prev) => {
       const next = !prev;
@@ -188,6 +222,7 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
 
   if (article) {
     return (
+      <ReaderStatusContext.Provider value={readerStatus ? deckIndex : null}>
       <div className="space-y-4">
         {entry && onBack ? (
           <BackButton onClick={onBack} label="Library" />
@@ -253,6 +288,13 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
           </button>
         )}
 
+        <ReaderKnowledge
+          on={readerStatus}
+          coverage={knowledge?.coverage ?? null}
+          rootWords={knowledge?.rootWords ?? []}
+          noun="text"
+        />
+
         {/* Line by line rather than one block, so each line can be paired with
             its English the way a verse is in the Bible reader. */}
         <div className="space-y-1 rounded-2xl border border-border bg-card p-6">
@@ -278,6 +320,7 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
             : 'Word meanings come from the scripture word database matched by consonant skeleton, since this text has no diacritics \u2014 coverage is partial and a word can show more than one possible reading. Tag this text to fill in the rest.'}
         </p>
       </div>
+      </ReaderStatusContext.Provider>
     );
   }
 

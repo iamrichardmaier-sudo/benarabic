@@ -9,6 +9,8 @@ import {
   senseEnglish,
   type TaggedSense,
 } from '@/lib/reader-word';
+import { useReaderIndex } from '@/contexts/ReaderStatusContext';
+import { STATUS_LABEL, STATUS_UNDERLINE, statusOf, wildReaderWord } from '@/lib/reader-status';
 
 interface WildWordPopoverProps {
   /** The word as it appears in the text, punctuation and all. */
@@ -34,8 +36,10 @@ interface WildWordPopoverProps {
 const WildWordPopover = ({ text, word, senses }: WildWordPopoverProps) => {
   const [open, setOpen] = useState(false);
   const deck = useDeck();
+  const index = useReaderIndex();
   const [primary, ...others] = senses;
   const bare = word ?? text;
+  const status = index ? statusOf(index, wildReaderWord(bare, primary)) : undefined;
   const card = primary ? senseToCard(primary, bare) : null;
 
   return (
@@ -51,8 +55,8 @@ const WildWordPopover = ({ text, word, senses }: WildWordPopoverProps) => {
             e.preventDefault();
             setOpen(true);
           }}
-          className={`cursor-help rounded underline decoration-dotted underline-offset-[6px] transition-colors hover:bg-primary/10 hover:text-primary active:bg-primary/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
-            primary ? 'decoration-primary/20' : 'decoration-muted-foreground/15'
+          className={`cursor-help rounded underline underline-offset-[6px] transition-colors hover:bg-primary/10 hover:text-primary active:bg-primary/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
+            status ? STATUS_UNDERLINE[status] : primary ? 'decoration-dotted decoration-primary/20' : 'decoration-dotted decoration-muted-foreground/15'
           }`}
         >
           {text}
@@ -70,6 +74,9 @@ const WildWordPopover = ({ text, word, senses }: WildWordPopoverProps) => {
           <p className="font-arabic text-xl font-bold text-foreground" dir="rtl">
             {card?.word ?? bare}
           </p>
+          {status && status !== 'none' && (
+            <p className="text-[11px] font-medium text-muted-foreground">{STATUS_LABEL[status]}</p>
+          )}
           {card?.english ? (
             <p className="text-sm leading-snug text-muted-foreground">{card.english}</p>
           ) : (

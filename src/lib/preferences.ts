@@ -34,6 +34,8 @@ export interface Preferences {
   cardFont: string;
   /** XP to earn each day; the ring on Home fills toward it. */
   dailyGoal: number;
+  /** Whether readers mark each word by what the deck says of it (lib/reader-status). */
+  readerStatus: boolean;
 }
 
 /** The daily XP goals to choose from. A card graded "Good" is 10 XP. */
@@ -75,9 +77,10 @@ const KEYS = {
   dialect: 'wazn-dialect',
   cardFont: 'wazn-card-font',
   dailyGoal: 'wazn-daily-goal',
+  readerStatus: 'wazn-reader-status',
 } as const;
 
-const DEFAULTS: Preferences = { textScale: 1, audioRate: 1, theme: 'system', dialect: 'both', cardFont: 'naskh', dailyGoal: 150 };
+const DEFAULTS: Preferences = { textScale: 1, audioRate: 1, theme: 'system', dialect: 'both', cardFont: 'naskh', dailyGoal: 150, readerStatus: true };
 
 function clamp(n: number, lo: number, hi: number): number {
   return Math.min(hi, Math.max(lo, n));
@@ -116,6 +119,12 @@ export function readPreferences(): Preferences {
   } catch {
     /* fall through to default */
   }
+  let readerStatus = DEFAULTS.readerStatus;
+  try {
+    readerStatus = localStorage.getItem(KEYS.readerStatus) !== 'off';
+  } catch {
+    /* fall through to default */
+  }
   const goal = readNumber(KEYS.dailyGoal, DEFAULTS.dailyGoal, 10, 5000);
   return {
     cardFont,
@@ -124,6 +133,7 @@ export function readPreferences(): Preferences {
     audioRate: readNumber(KEYS.audioRate, DEFAULTS.audioRate, AUDIO_RATE_MIN, AUDIO_RATE_MAX),
     theme,
     dialect,
+    readerStatus,
   };
 }
 
@@ -169,6 +179,10 @@ export function setCardFont(id: string): void {
 
 export function setDailyGoal(xp: number): void {
   write(KEYS.dailyGoal, String(xp));
+}
+
+export function setReaderStatus(on: boolean): void {
+  write(KEYS.readerStatus, on ? 'on' : 'off');
 }
 
 export function setTheme(theme: Theme): void {

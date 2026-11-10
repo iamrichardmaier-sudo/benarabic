@@ -17,7 +17,33 @@ const corsHeaders = {
 const VOICE_IDS: Record<string, string> = {
   ar: "KSvfz6YR8FFb1D1QRvhO", // Maroun -- Standard Arabic Narration
   en: "onwK4e9ZLuTAKqWW03F9", // Daniel -- Steady Broadcaster
+  // A Syrian voice for Shaami text: a Fusha narrator reading dialect sounds
+  // like nobody. It is a voice-library voice, so it only answers once it has
+  // been added to the ElevenLabs account ("Add to My Voices"); until then
+  // FALLBACK_VOICE below is what speaks.
+  "ar-shami": "DthGWePxVzJGsApWb2We", // marwan -- Syrian, conversational
 };
+
+// What reads a line when its own voice is refused. The fallback is never
+// cached: once the real voice is available the line should be said by it.
+const FALLBACK_VOICE: Record<string, string> = { "ar-shami": "ar" };
+
+function synthesize(apiKey: string, voiceId: string, text: string): Promise<Response> {
+  // mp3_44100_128 is the best MP3 every paid plan can ask for; named rather
+  // than left to the default so the quality does not depend on one.
+  return fetch(
+    `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}?output_format=mp3_44100_128`,
+    {
+      method: "POST",
+      headers: {
+        "xi-api-key": apiKey,
+        "Content-Type": "application/json",
+        Accept: "audio/mpeg",
+      },
+      body: JSON.stringify({ text, model_id: "eleven_multilingual_v2" }),
+    },
+  );
+}
 
 const BUCKET = "word-audio";
 
@@ -91,21 +117,16 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    const response = await fetch(
-      `https://api.elevenlabs.io/v1/text-to-speech/${voiceId}`,
-      {
-        method: "POST",
-        headers: {
-          "xi-api-key": ELEVENLABS_API_KEY,
-          "Content-Type": "application/json",
-          Accept: "audio/mpeg",
-        },
-        body: JSON.stringify({
-          text: trimmed,
-          model_id: "eleven_multilingual_v2",
-        }),
-      },
-    );
+    let response = await synthesize(ELEVENLABS_API_KEY, voiceId, trimmed);
+    let cacheable = true;
+    const fallback = FALLBACK_VOICE[voice];
+    // 401 and 429 are about the account, not the voice; another voice would
+    // be refused the same way.
+    if (!response.ok && fallback && response.status !== 401 && response.status !== 429) {
+      console.error(`Voice ${voice} was refused (${response.status}), using ${fallback}:`, await response.text());
+      response = await synthesize(ELEVENLABS_API_KEY, VOICE_IDS[fallback], trimmed);
+      cacheable = false;
+    }
 
     if (!response.ok) {
       const t = await response.text();
@@ -134,7 +155,7 @@ Deno.serve(async (req: Request) => {
     // which corrupts binary audio. octet-stream is what the client expects.
     const audio = new Uint8Array(await response.arrayBuffer());
 
-    try {
+    if (cacheable) try {
       const path = `${textKey}.mp3`;
       const { error: uploadError } = await supabase.storage
         .from(BUCKET)

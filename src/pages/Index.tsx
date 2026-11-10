@@ -3,6 +3,11 @@ import { BookOpen, Plus, Layers, List, GraduationCap, LogOut, RefreshCw, CloudOf
 import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import FocusReview from '@/components/FocusReview';
+import ClozePractice from '@/components/ClozePractice';
+import EarTraining from '@/components/EarTraining';
+import ReviewStats from '@/components/ReviewStats';
+import { flushReviewLog, logReview } from '@/lib/review-log';
+import { isIntensive } from '@/lib/intensive';
 import PodcastPlayer from '@/components/podcasts/PodcastPlayer';
 import { fetchPodcastById, type Podcast, type Register } from '@/lib/podcasts';
 import ReviewComplete from '@/components/ReviewComplete';
@@ -215,6 +220,11 @@ const Index = () => {
     setSummary(null);
     markLevelSeen(levelFor(getSnapshot().xp));
   };
+
+  // Answers graded offline, or on a visit that ended before they were sent.
+  useEffect(() => {
+    void flushReviewLog(user?.id);
+  }, [user?.id]);
 
   // Learn opens a session of its own; leaving review or Learn ends one.
   const prevView = useRef<View | null>(null);
@@ -576,10 +586,44 @@ const Index = () => {
     [addCards, toast],
   );
 
+  /** Several words from a reader at once: one write and one message. */
+  const addWordsFromReader = useCallback(
+    async (words: NewWord[]): Promise<number> => {
+      const { added } = await addCards(
+        words.map((word) => ({
+          ...createCard(word.word, word.english ?? null, null, null),
+          root: word.root ?? null,
+          wordType: (word.wordType as FlashCard['wordType']) ?? null,
+          verbForm: (word.verbForm as FlashCard['verbForm']) ?? null,
+          wordVoweled: word.wordVoweled ?? word.word,
+          fushaPlural: word.fushaPlural ?? null,
+          pastTense: word.pastTense ?? null,
+          presentTense: word.presentTense ?? null,
+          masdarForm: word.masdarForm ?? null,
+        })),
+      );
+      toast(
+        added.length === 0
+          ? { title: 'Those words are already in your deck' }
+          : { title: `Added ${added.length} word${added.length === 1 ? '' : 's'}`, description: 'They are waiting in Learn.' },
+      );
+      return added.length;
+    },
+    [addCards, toast],
+  );
+
   const handleRate = async (rating: Rating) => {
     const item = reviewItems[currentIndex];
     if (!practising) {
       const reviewed = reviewCard(item.card, rating);
+      // The history first: it must not be lost if the write below is slow or fails.
+      logReview(user?.id, {
+        cardId: item.card.id,
+        kind: isIntensive(item.card) ? 'ladder' : 'review',
+        rating,
+        intervalBefore: item.card.intervalDays,
+        intervalAfter: reviewed.intervalDays,
+      });
       await updateCard(reviewed.id, scheduleFields(reviewed));
     }
     // Grading a card is a genuine study action, so it counts toward the streak.
@@ -729,7 +773,7 @@ const Index = () => {
 
   return (
     <DeckContext.Provider value={cards}>
-    <DeckActionsContext.Provider value={{ addWord: addWordFromReader, openDictionary }}>
+    <DeckActionsContext.Provider value={{ addWord: addWordFromReader, addWords: addWordsFromReader, openDictionary }}>
     <div className="isolate min-h-screen bg-background flex flex-col lg:ps-60">
       <AppBackground />
       <NowPlayingBar hidden={!showPlayBar} />
@@ -1081,6 +1125,18 @@ const Index = () => {
         {view === 'verbForms' && <FormsTab onBack={() => setView('learnHub')} />}
 
         {view === 'memorize' && <MemorizeTranscript onBack={() => setView('learnHub')} />}
+
+        {view === 'cloze' && (
+          <ClozePractice cards={cards} userId={user?.id} onBack={() => setView('learnHub')} onEarn={earn} />
+        )}
+
+        {view === 'earTraining' && (
+          <EarTraining cards={cards} userId={user?.id} onBack={() => setView('learnHub')} onEarn={earn} />
+        )}
+
+        {view === 'stats' && (
+          <ReviewStats cards={cards} userId={user?.id} onBack={() => setView('learnHub')} onRelearn={handleStartRelearn} />
+        )}
 
         {view === 'listenCards' && (
           <ListenToCards cards={cards} onBack={() => setView('learnHub')} />
