@@ -1,3 +1,4 @@
+import Say from '@/components/Say';
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { ChevronLeft, Check, X } from 'lucide-react';
 import { FlashCard } from '@/lib/spaced-repetition';
@@ -218,9 +219,11 @@ const PrepositionDrill = ({ cards, onBack }: PrepositionDrillProps) => {
               <X className="w-5 h-5 text-destructive flex-shrink-0" />
             )}
             <p className="font-arabic text-lg text-foreground">
+              <Say text={`${current.before} ${current.card.fixedPreposition ?? ''} ${current.after}`.replace(/\s+/g, ' ')} icon>
               {current.before}
               <span className="text-success font-bold">{current.card.fixedPreposition}</span>
               {current.after}
+              </Say>
             </p>
           </div>
           {current.card.prepositionSentenceEn && (

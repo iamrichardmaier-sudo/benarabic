@@ -1,3 +1,4 @@
+import Say from '@/components/Say';
 /**
  * The section and row shapes a word is described in.
  *
@@ -7,12 +8,14 @@
  * which is how the reader ended up with a different-looking panel.
  */
 export function Row({ label, value }: { label: string; value: string }) {
+  // A Shaami row is read by the Shaami voice; everything else by the Fusha one.
+  const voice = /^shaami/i.test(label) ? 'ar-shami' : 'ar';
   return (
     <div className="flex items-baseline justify-between gap-4 py-0.5">
       <span className="text-xs leading-snug text-muted-foreground">{label}</span>
-      <span className="font-arabic text-lg leading-snug text-foreground" dir="rtl">
-        {value}
-      </span>
+      <Say text={value} voice={voice} icon className="font-arabic text-lg leading-snug text-foreground">
+        <span dir="rtl">{value}</span>
+      </Say>
     </div>
   );
 }

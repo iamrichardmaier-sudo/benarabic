@@ -1,3 +1,4 @@
+import Say from '@/components/Say';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Check, Languages, Loader2, Flag, ShieldCheck, Lightbulb, RotateCcw } from 'lucide-react';
 import BackButton from '@/components/BackButton';
@@ -301,7 +302,7 @@ const FeedbackView = ({ challenge, attempt, onFlagged }: {
         {f.closest_correct && (
           <>
             <p className="pt-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Closest correct version</p>
-            <p className="font-arabic text-xl leading-loose text-success" dir="rtl" lang="ar">{f.closest_correct}</p>
+            <p className="font-arabic text-xl leading-loose text-success" dir="rtl" lang="ar"><Say icon>{f.closest_correct}</Say></p>
           </>
         )}
       </section>
@@ -328,11 +329,11 @@ const FeedbackView = ({ challenge, attempt, onFlagged }: {
         <details className="rounded-2xl border border-border bg-card p-4">
           <summary className="cursor-pointer text-sm font-medium text-foreground">Correct ways to say it</summary>
           {model && (
-            <p className="mt-3 font-arabic text-xl leading-loose text-foreground" dir="rtl" lang="ar">{model}</p>
+            <p className="mt-3 font-arabic text-xl leading-loose text-foreground" dir="rtl" lang="ar"><Say icon>{model}</Say></p>
           )}
           <ul className="mt-3 space-y-2">
             {[f.closest_reference, ...others].filter(Boolean).map((r) => (
-              <li key={r} className="font-arabic text-lg leading-loose text-foreground" dir="rtl" lang="ar">{r}</li>
+              <li key={r} className="font-arabic text-lg leading-loose text-foreground" dir="rtl" lang="ar"><Say icon>{r}</Say></li>
             ))}
           </ul>
         </details>
@@ -370,7 +371,7 @@ const WordRow = ({ w }: { w: WordNote }) => {
       {w.options && w.options.length > 0 && (
         <ul className="space-y-1">
           {w.options.map((o) => (
-            <li key={o} className="font-arabic text-lg text-foreground" dir="rtl" lang="ar">{o}</li>
+            <li key={o} className="font-arabic text-lg text-foreground" dir="rtl" lang="ar"><Say icon>{o}</Say></li>
           ))}
         </ul>
       )}

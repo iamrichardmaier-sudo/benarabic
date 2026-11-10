@@ -45,3 +45,14 @@ describe('dictation', () => {
     expect(dictationDiff('ذهب الى البيت', 'ذَهَبَ الوَلَدُ إِلى البَيتِ')).toEqual({ missing: ['الوَلَدُ'], extra: [] });
   });
 });
+
+describe('what is said for a card field', () => {
+  it('is the first form only', async () => {
+    const { speakable } = await import('./speech');
+    expect(speakable('اللَيل / اللَيل')).toBe('اللَيل');
+    expect(speakable('نادي ج. نَوادي')).toBe('نادي');
+    expect(speakable('مَجنون/ة')).toBe('مَجنون');
+    expect(speakable('أطعم / يُطعِم — أطعَمَ')).toBe('أطعم');
+    expect(speakable('الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ')).toBe('الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ');
+  });
+});

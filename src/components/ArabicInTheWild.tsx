@@ -10,6 +10,8 @@ import BackButton from '@/components/BackButton';
 import { useWordSkeletonIndex } from '@/hooks/useWordSkeletonIndex';
 import { tokenize } from '@/lib/transcript-mask';
 import WildWordPopover from '@/components/WildWordPopover';
+import SpeakButton from '@/components/SpeakButton';
+import { MAX_SPEECH_CHARS } from '@/lib/speech';
 import { useDeck } from '@/contexts/DeckContext';
 import { ReaderStatusContext } from '@/contexts/ReaderStatusContext';
 import type { NewWord } from '@/contexts/DeckActionsContext';
@@ -305,6 +307,9 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
               <div key={lineIndex} className="space-y-0.5">
                 <p className="font-arabic text-lg leading-loose text-foreground text-right" dir="rtl">
                   {renderLine(line)}
+                  {line.trim().length <= MAX_SPEECH_CHARS && (
+                    <SpeakButton word={line.trim()} size={14} className="ms-1 align-middle" />
+                  )}
                 </p>
                 {showEnglish && englishLine && (
                   <p className="text-sm leading-snug text-muted-foreground">{englishLine}</p>

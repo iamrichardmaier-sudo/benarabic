@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { fetchWordsByRoot, fetchFormsOfLemma, splitRootSense } from '@/lib/bible-root-index';
 import { Row, Section } from '@/components/WordSections';
-import SpeakButton from '@/components/SpeakButton';
+import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import { useDeck } from '@/contexts/DeckContext';
 import AddWordButton from '@/components/AddWordButton';
 import { wordKey, rootKey } from '@/lib/word-relations';
@@ -100,6 +100,8 @@ const BibleWordPopover = ({ text, tag, status }: BibleWordPopoverProps) => {
           onClick={(e) => {
             e.preventDefault();
             handleOpen();
+            // A tap is asking about the word, and how it sounds is part of the answer.
+            void speakArabic(tag.lemma ?? tag.surface);
           }}
           className={`cursor-help rounded underline underline-offset-[6px] transition-colors hover:bg-primary/10 hover:text-primary active:bg-primary/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${status ? STATUS_UNDERLINE[status] : 'decoration-dotted decoration-primary/20'}`}
         >

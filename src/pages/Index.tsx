@@ -8,6 +8,7 @@ import EarTraining from '@/components/EarTraining';
 import ReviewStats from '@/components/ReviewStats';
 import { flushReviewLog, logReview } from '@/lib/review-log';
 import { isIntensive } from '@/lib/intensive';
+import { onSpeechOutage } from '@/lib/speech';
 import PodcastPlayer from '@/components/podcasts/PodcastPlayer';
 import { fetchPodcastById, type Podcast, type Register } from '@/lib/podcasts';
 import ReviewComplete from '@/components/ReviewComplete';
@@ -220,6 +221,16 @@ const Index = () => {
     setSummary(null);
     markLevelSeen(levelFor(getSnapshot().xp));
   };
+
+  // Say so, once, when the recorded voice cannot be had; otherwise the only sign is a worse voice or none.
+  useEffect(
+    () => onSpeechOutage((reason) => toast({
+      title: 'The recorded voice is unavailable',
+      description: `${reason} Words are being read by your device's own voice for now.`,
+      variant: 'destructive',
+    })),
+    [toast],
+  );
 
   // Answers graded offline, or on a visit that ended before they were sent.
   useEffect(() => {

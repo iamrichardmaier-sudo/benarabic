@@ -1,3 +1,4 @@
+import Say from '@/components/Say';
 import { useState, useMemo, useEffect, useRef } from 'react';
 import { Check, X } from 'lucide-react';
 import BackButton from '@/components/BackButton';
@@ -616,7 +617,7 @@ const ConjugationDrill = ({ cards, onBack, decks = null }: ConjugationDrillProps
                     className={`flex items-center gap-1.5 font-arabic text-xl ${wrong ? 'text-success' : 'text-foreground'}`}
                   >
                     <Check className="w-3.5 h-3.5 flex-shrink-0" />
-                    <span>{expected}</span>
+                    <Say icon>{expected}</Say>
                     {!wrong && !typedItExactly && (
                       <span className="font-sans text-xs text-muted-foreground" dir="ltr">
                         full vowelling

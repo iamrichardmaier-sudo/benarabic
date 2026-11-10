@@ -1,3 +1,4 @@
+import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import { useState } from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import WordDetail from '@/components/WordDetail';
@@ -54,6 +55,7 @@ const WildWordPopover = ({ text, word, senses }: WildWordPopoverProps) => {
           onClick={(e) => {
             e.preventDefault();
             setOpen(true);
+            void speakArabic(card?.word ?? bare);
           }}
           className={`cursor-help rounded underline underline-offset-[6px] transition-colors hover:bg-primary/10 hover:text-primary active:bg-primary/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${
             status ? STATUS_UNDERLINE[status] : primary ? 'decoration-dotted decoration-primary/20' : 'decoration-dotted decoration-muted-foreground/15'
@@ -71,9 +73,12 @@ const WildWordPopover = ({ text, word, senses }: WildWordPopoverProps) => {
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
         <div className="space-y-0.5 text-center">
-          <p className="font-arabic text-xl font-bold text-foreground" dir="rtl">
-            {card?.word ?? bare}
-          </p>
+          <div className="flex items-center justify-center gap-2">
+            <p className="font-arabic text-xl font-bold text-foreground" dir="rtl">
+              {card?.word ?? bare}
+            </p>
+            <SpeakButton word={card?.word ?? bare} size={16} />
+          </div>
           {status && status !== 'none' && (
             <p className="text-[11px] font-medium text-muted-foreground">{STATUS_LABEL[status]}</p>
           )}
