@@ -39,7 +39,7 @@ const WordRow = ({ card, deck, note, className }: WordRowProps) => {
           <span className="font-arabic shrink-0 text-xl text-foreground" dir="rtl">{arabic}</span>
           <ChevronDown className={cn('h-4 w-4 shrink-0 text-muted-foreground transition-transform', open && 'rotate-180')} />
         </button>
-        <SpeakButton word={card.word} size={16} />
+        <SpeakButton word={card.wordVoweled || card.word} size={16} />
       </div>
       {open && (
         <div className="mt-2 rounded-xl border border-border/60 bg-background p-3">

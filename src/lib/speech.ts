@@ -83,6 +83,18 @@ export function recordedVoiceDown(): boolean {
   return outage !== null;
 }
 
+/** True if the outage has already been announced today; marks it as announced otherwise. */
+function toldToday(): boolean {
+  const day = new Date().toDateString();
+  try {
+    if (localStorage.getItem('wazn-speech-outage-told') === day) return true;
+    localStorage.setItem('wazn-speech-outage-told', day);
+  } catch {
+    /* no storage: say it */
+  }
+  return false;
+}
+
 interface ServiceError {
   status: number;
   message: string;
@@ -105,7 +117,38 @@ async function readError(error: unknown): Promise<ServiceError> {
 
 const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
+const STORE = `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/word-audio`;
+
+/** The name a line's clip is stored under: sha256 of voice, a NUL, and the text (as generate-speech names it). */
+async function clipName(text: string, voice: SpeechVoice): Promise<string> {
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(`${voice}\0${text}`));
+  return Array.from(new Uint8Array(digest)).map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+/**
+ * A clip that has already been made, read straight from storage.
+ *
+ * This is what keeps the audio working with no voice service behind it: a
+ * banked line is a public file, and playing it needs no key, no function and
+ * no credit. Null when the line has never been made.
+ */
+async function storedClip(text: string, voice: SpeechVoice): Promise<string | null> {
+  try {
+    if (!crypto?.subtle) return null;
+    const response = await fetch(`${STORE}/${await clipName(text, voice)}.mp3`);
+    if (!response.ok) return null;
+    const blob = await response.blob();
+    return blob.size > 0 ? URL.createObjectURL(new Blob([blob], { type: 'audio/mpeg' })) : null;
+  } catch {
+    return null;
+  }
+}
+
 async function requestClip(text: string, voice: SpeechVoice): Promise<string> {
+  const stored = await storedClip(text, voice);
+  if (stored) return stored;
+  // Not banked. With the voice service known to be off there is nobody to make it.
+  if (recordedVoiceDown()) throw new Error('This line has no recording.');
   for (let attempt = 0; ; attempt++) {
     const { data, error } = await supabase.functions.invoke('generate-speech', { body: { text, voice } });
     if (!error) {
@@ -120,11 +163,11 @@ async function requestClip(text: string, voice: SpeechVoice): Promise<string> {
     }
     // Not set up, key refused, or out of credit: every line would fail the
     // same way, so stop asking for a while instead of failing each one slowly.
-    if (failure.status === 401 || failure.status === 402 || /not configured|quota|credit/i.test(failure.message)) {
+    if (failure.status === 401 || failure.status === 402 || /not configured|quota|credit|rejected/i.test(failure.message)) {
       const reason = failure.message || 'The voice service refused the request.';
       const fresh = !recordedVoiceDown();
-      outage = { reason, until: Date.now() + 5 * 60_000 };
-      if (fresh) outageListeners.forEach((fn) => fn(reason));
+      outage = { reason, until: Date.now() + 6 * 3_600_000 };
+      if (fresh && !toldToday()) outageListeners.forEach((fn) => fn(reason));
     }
     throw new Error(failure.message || `The speech service failed (${failure.status}).`);
   }
@@ -144,7 +187,7 @@ function clipUrl(text: string, voice: SpeechVoice): Promise<string> {
 
 /** Fetch lines ahead of need, so the first play of each has no wait. */
 export function preloadSpeech(texts: string[], voice: SpeechVoice = 'ar'): void {
-  if (!RECORDED || recordedVoiceDown() || (typeof navigator !== 'undefined' && navigator.onLine === false)) return;
+  if (!RECORDED || (typeof navigator !== 'undefined' && navigator.onLine === false)) return;
   for (const text of texts) {
     const line = speakable(text);
     if (line && line.length <= MAX_SPEECH_CHARS) clipUrl(line, voice).catch(() => {});
@@ -241,7 +284,7 @@ export async function playSpeech(text: string, options: SpeechOptions = {}): Pro
   const mine = turn;
 
   const online = typeof navigator === 'undefined' || navigator.onLine !== false;
-  if (RECORDED && online && !recordedVoiceDown() && line.length <= MAX_SPEECH_CHARS) {
+  if (RECORDED && online && line.length <= MAX_SPEECH_CHARS) {
     try {
       const url = await clipUrl(line, voice);
       if (mine !== turn) return;
@@ -272,7 +315,7 @@ export async function playSpeech(text: string, options: SpeechOptions = {}): Pro
       return;
     } catch (err) {
       if (mine !== turn) return;
-      console.error('Recorded speech failed, using the browser voice:', err);
+      if (!recordedVoiceDown()) console.error('Recorded speech failed, using the browser voice:', err);
     }
   }
   await browserSpeak(line, voice, rate);

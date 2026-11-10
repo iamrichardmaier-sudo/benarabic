@@ -324,7 +324,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn, header, p
                   {card.word}
                 </p>
               </WordInfoPopover>
-              <SpeakButton word={card.word} size={22} autoSpeak />
+              <SpeakButton word={card.wordVoweled || card.word} size={22} autoSpeak />
             </div>
             <WordForms card={card} />
           </div>
@@ -485,7 +485,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn, header, p
                 <p className="text-lg text-foreground font-arabic" dir="rtl">
                   {currentCard.word}
                 </p>
-                <SpeakButton word={currentCard.word} size={16} autoSpeak />
+                <SpeakButton word={currentCard.wordVoweled || currentCard.word} size={16} autoSpeak />
               </div>
             </div>
           </div>

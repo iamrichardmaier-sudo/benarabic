@@ -225,9 +225,8 @@ const Index = () => {
   // Say so, once, when the recorded voice cannot be had; otherwise the only sign is a worse voice or none.
   useEffect(
     () => onSpeechOutage((reason) => toast({
-      title: 'The recorded voice is unavailable',
-      description: `${reason} Words are being read by your device's own voice for now.`,
-      variant: 'destructive',
+      title: 'New recordings are unavailable',
+      description: `${reason} Recorded words still play; anything without a recording uses your device's voice.`,
     })),
     [toast],
   );
