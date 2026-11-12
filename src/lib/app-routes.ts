@@ -13,8 +13,8 @@ import type { Tab } from '@/components/BottomNav';
 export type View =
   | 'home' | 'learnHub' | 'library' | 'settings'
   | 'add' | 'review' | 'deck' | 'learnCards' | 'lookup'
-  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'memorize' | 'listenCards' | 'rootExplorer' | 'formExplorer' | 'verbForms' | 'anki'
-  | 'pdfToAudio' | 'dictionary'
+  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'translationPractice' | 'memorize' | 'listenCards' | 'rootExplorer' | 'formExplorer' | 'verbForms' | 'anki' | 'deckExport' | 'relearn' | 'deckReview'
+  | 'pdfToAudio' | 'dictionary' | 'cloze' | 'earTraining' | 'stats'
   | 'learnDecks' | 'deckBuilder' | 'adminDecks' | 'importWords' | 'podcast' | 'feedback';
 
 export interface AppLocation {
@@ -32,6 +32,8 @@ const PATHS: Record<Exclude<View, 'library' | 'podcast' | 'dictionary'>, string>
   home: '/',
   learnHub: '/learn',
   learnCards: '/learn/new-words',
+  relearn: '/learn/relearn',
+  deckReview: '/learn/deck-review',
   lookup: '/learn/lookup',
   rootExplorer: '/learn/roots',
   formExplorer: '/learn/forms',
@@ -39,8 +41,12 @@ const PATHS: Record<Exclude<View, 'library' | 'podcast' | 'dictionary'>, string>
   conjugationDrill: '/learn/conjugation',
   prepositionDrill: '/learn/prepositions',
   numbersDrill: '/learn/numbers',
+  translationPractice: '/learn/translate',
   memorize: '/learn/memorize',
   listenCards: '/learn/listen',
+  cloze: '/learn/fill-in',
+  earTraining: '/learn/ear',
+  stats: '/learn/progress',
   review: '/review',
   deck: '/deck',
   learnDecks: '/decks',
@@ -49,6 +55,7 @@ const PATHS: Record<Exclude<View, 'library' | 'podcast' | 'dictionary'>, string>
   add: '/settings/add-words',
   importWords: '/settings/import',
   anki: '/settings/anki',
+  deckExport: '/settings/export',
   pdfToAudio: '/settings/pdf-to-audio',
   adminDecks: '/settings/admin-decks',
   feedback: '/settings/feedback',

@@ -35,6 +35,10 @@ interface DbRow {
   word_type: string | null;
   verb_form: string | null;
   paired_word_id: string | null;
+  /** The shared-bank word behind the card, when it came from one. */
+  word_id?: string | null;
+  /** Absent until the verb-entries migration has run. */
+  verb_keys?: string[] | null;
   placed_as: string | null;
   needs_review: boolean;
   shaami: string | null;
@@ -76,6 +80,8 @@ function rowToCard(row: DbRow): FlashCard {
     wordType: row.word_type as FlashCard['wordType'],
     verbForm: row.verb_form as FlashCard['verbForm'],
     pairedWordId: row.paired_word_id,
+    wordId: row.word_id ?? null,
+    verbKeys: row.verb_keys ?? null,
     placedAs: row.placed_as as FlashCard['placedAs'],
     needsReview: row.needs_review,
     shaami: row.shaami,
@@ -173,6 +179,7 @@ function toDbUpdates(updates: Partial<FlashCard>): Record<string, unknown> {
   if (updates.intensiveDay !== undefined) db.intensive_day = updates.intensiveDay;
   if (updates.intensiveRepsDone !== undefined) db.intensive_reps_done = updates.intensiveRepsDone;
   if (updates.nextReviewAt !== undefined) db.next_review_at = updates.nextReviewAt;
+  if (updates.placedAs !== undefined) db.placed_as = updates.placedAs;
   if (updates.quranExample !== undefined) db.quran_example = updates.quranExample;
   if (updates.quranExampleEn !== undefined) db.quran_example_en = updates.quranExampleEn;
   if (updates.quranReference !== undefined) db.quran_reference = updates.quranReference;

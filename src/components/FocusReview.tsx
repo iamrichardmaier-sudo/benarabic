@@ -5,6 +5,7 @@ import type { ReviewDirection } from '@/components/Flashcard';
 import WaznLogo from '@/components/WaznLogo';
 import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import WordDetail from '@/components/WordDetail';
+import ConjugationPanel from '@/components/ConjugationPanel';
 import { focusAction, focusHint } from '@/lib/focus-keys';
 import { dialectView } from '@/lib/dialect';
 import CardArt from '@/components/CardArt';
@@ -53,8 +54,8 @@ const FocusReview = ({
 
   // The widget reads the word aloud on both sides; so does this.
   useEffect(() => {
-    speakArabic(view.spoken);
-  }, [card.id, flipped, view.spoken]);
+    speakArabic(view.spoken, view.voice);
+  }, [card.id, flipped, view.spoken, view.voice]);
 
   const grade = (rating: Rating) => {
     setFlipped(false);
@@ -133,13 +134,14 @@ const FocusReview = ({
                 {headline}
               </p>
               <div className="mt-3 flex justify-center">
-                <SpeakButton word={view.spoken} size={20} />
+                <SpeakButton word={view.spoken} voice={view.voice} size={20} />
               </div>
             </>
           )}
 
           {flipped && (
             <div className="mt-3 space-y-3 text-start">
+              <ConjugationPanel card={card} />
               {direction === 'ar-to-en' ? (
                 <>
                   {card.english && !card.imageUrl && <CardArt card={card} size="md" />}

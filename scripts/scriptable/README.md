@@ -5,7 +5,7 @@
 | Where | What it does |
 |---|---|
 | **Home-screen widget** | Shows how many cards are due and the next word in Arabic. Tapping it launches the review session. |
-| **Run in Scriptable** | A full-screen review session: tap the middle to flip, then the **left** third for *Again* and the **right** third for *Easy*. Words are read aloud, and the answer side shows the same word detail as the web app, ending with a **Quranic reference** (verse, translation, citation) when the word has one. |
+| **Run in Scriptable** | A full-screen review session: tap the middle to flip, then the **left** third for *Again* and the **right** third for *Easy*. Words are read aloud, and the answer side shows the same word detail as the web app (with a **Conjugate** button for verbs and their participles), ending with a **Quranic reference** (verse, translation, citation) when the word has one. |
 
 ## Why the reviewing isn't inside the widget
 
@@ -86,6 +86,30 @@ All of this is fetched **before** the session opens, in two extra requests: your
 deck, and the Bible words for the roots that came up. The review page cannot make network
 calls of its own, so everything it will ever show has to be in hand first. If either
 request fails the review still runs — it just loses the cross-references.
+
+### The Conjugate button
+
+A verb card — and a participle or masdar card, for the verb it comes from — has a
+**Conjugate** button at the top of its answer side. The table stays hidden until it is
+pressed, and pressing it again hides it. It shows the same table as the web app:
+
+- the masdar with ال at the top;
+- the past on the left and the present on the right, fully voweled, in every person,
+  with the duals at the bottom;
+- the active and passive participles with their English in brackets. A participle the
+  language does not use is still shown, as what it would be, marked *does not exist*.
+
+The verbs and the participles' English are stored once in the `verb_entries` table (the
+data is in `supabase/verb-entries.json`), and each card lists its verbs in
+`flashcards.verb_keys`. The table itself is worked out on the phone by a copy of the web
+app's engine, kept between the *conjugation engine* markers in `wazn-review.js`. After
+changing `src/lib/conjugation.ts` or `src/lib/verb-table.ts`, refresh the copy with:
+
+```
+node scripts/scriptable/sync-conjugation.mjs
+```
+
+Tapping inside an open table does nothing, so reading it never grades the card.
 
 *Hard* and *Good* aren't offered here by design — a two-choice pass is what makes a
 phone-sized session fast. Use the web app when you want the full four-way rating.
@@ -201,29 +225,32 @@ node scripts/widget-art/render.mjs
 then bump `BG_ART_VERSION` in `wazn-review.js` so phones fetch the new drawings instead of
 keeping the cached ones.
 
-### The front-loaded phase
+### The first-week ladder
 
-A card that has just been learned doesn't go straight onto the SM-2 curve. For its first
-five days it runs a fixed number of exposures — **four a day for three days, then two a day
-for two more**, sixteen in all — spaced about three hours apart, and only then joins the
-long-term rotation at a three-day interval. Cards already in the long-term rotation are not
-affected: their schedules are exactly what they were.
+A card that has just been learned doesn't go straight onto the SM-2 curve. It climbs a
+fixed ladder of **seven reps** — after 12 hours, 12 more, then 24, 24, 24, 48 and 72 hours —
+so a word from this week comes back often: twice in its first day, then daily. Each rep is
+scheduled a fixed time after the last one was done, so the ladder is the same length however
+often you open the app. After the seventh it joins the long-term rotation at a seven-day
+interval. Cards already in the long-term rotation are not affected: their schedules are
+exactly what they were.
 
-Inside the phase the rating still moves the card's ease, so a word you keep failing carries
+On the ladder the rating still moves the card's ease, so a word you keep failing carries
 that difficulty out with it, but it doesn't change how many looks the card gets.
 
 This means the widget needs two things beyond the date it always used:
 
 - it asks for `next_review_at` as well as `next_review_date`, so a card graded five minutes
   ago isn't offered again straight away;
-- it writes `intensive_day` and `intensive_reps_done` back with each grade, so a session on
-  the phone advances the phase the same way a session in the browser does.
+- it writes `intensive_day` (the rep the card is due for) and `intensive_reps_done` back with
+  each grade, so a session on the phone advances the ladder the same way a session in the
+  browser does.
 
 **If you ever change the scheduling logic in the web app, change it here too.** There is no
 shared module between a TypeScript bundle and a Scriptable script, so this is a deliberate
 duplication rather than an accidental one. `src/lib/widget-schedule.test.ts` guards it: it
-lifts `advanceIntensive` straight out of this script, runs a card through all sixteen reps
-with it, and fails if the two copies disagree.
+lifts `advanceIntensive` straight out of this script, runs a card up the whole ladder with
+it, and fails if the two copies disagree.
 
 ## Notes
 

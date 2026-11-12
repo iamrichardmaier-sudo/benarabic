@@ -10,6 +10,7 @@ import HomeDeckShelves from '@/components/decks/HomeDeckShelves';
 import DailyAudios from '@/components/daily-audio/DailyAudios';
 import HomeDesktopColumns from '@/components/HomeDesktopColumns';
 import Illustration from '@/components/Illustration';
+import { DailyChallengeCard } from '@/components/DailyChallenge';
 import type { LearnDestination } from '@/components/LearnHub';
 
 interface HomeDashboardProps {
@@ -33,6 +34,8 @@ interface HomeDashboardProps {
   onBrowseLibrary: () => void;
   /** Desktop only: a drill or memorization tool tapped in the Practice column. */
   onSelectPractice: (destination: LearnDestination) => void;
+  /** Opens today's translation challenge. */
+  onOpenChallenge?: () => void;
 }
 
 interface Step {
@@ -71,7 +74,7 @@ function readStored(key: string): string | null {
 const HomeDashboard = ({
   userId, dueCount, nextWave, learnCount, deckSize,
   recentCount = 0, onPractice,
-  onReview, onLearn, onBrowseDecks, onContinueReading, onBrowseLibrary, onSelectPractice, onOpenLevel,
+  onReview, onLearn, onBrowseDecks, onContinueReading, onBrowseLibrary, onSelectPractice, onOpenLevel, onOpenChallenge,
 }: HomeDashboardProps) => {
   const streak = useStreak(userId);
   const todayXp = useTodayXp();
@@ -192,6 +195,8 @@ const HomeDashboard = ({
           {freezeNote}
         </p>
       )}
+
+      {onOpenChallenge && <DailyChallengeCard onOpen={onOpenChallenge} />}
 
       {deckSize === 0 && (
         <div className="flex items-center gap-4 rounded-2xl border border-border bg-card p-4">

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages, AudioLines, FileJson, LayoutList, Plus, MessageSquareWarning, UserX, Loader2, ArrowLeftRight } from 'lucide-react';
+import { Sun, Moon, Monitor, Type, Volume2, LogOut, Info, ChevronRight, Languages, AudioLines, FileJson, LayoutList, Plus, MessageSquareWarning, UserX, Loader2, ArrowLeftRight, FileDown } from 'lucide-react';
 import { usePreferences } from '@/hooks/usePreferences';
 import DialectToggle from '@/components/DialectToggle';
 import InfoHint from '@/components/InfoHint';
@@ -26,6 +26,8 @@ interface SettingsScreenProps {
   onOpenImportWords: () => void;
   /** Anki export and import — reachable only from here. */
   onOpenAnki: () => void;
+  /** Saving the words as a PDF or Markdown document — reachable only from here. */
+  onOpenExport: () => void;
   /** Deck management, present only for the account that can publish. */
   onOpenAdminDecks?: () => void;
   /** Reporting a problem or asking for something — reachable only from here. */
@@ -48,7 +50,7 @@ const THEMES: { id: Theme; label: string; icon: typeof Sun }[] = [
  */
 const SettingsScreen = ({
   email, deckSize, onSignOut, onOpenDeck, onOpenPdfToAudio,
-  onOpenAddWords, onOpenImportWords, onOpenAnki, onOpenAdminDecks, onOpenFeedback,
+  onOpenAddWords, onOpenImportWords, onOpenAnki, onOpenExport, onOpenAdminDecks, onOpenFeedback,
 }: SettingsScreenProps) => {
   const prefs = usePreferences();
   const { request: requestDeletion } = useAccountDeletion();
@@ -271,6 +273,19 @@ const SettingsScreen = ({
               <span className="block font-semibold text-foreground">Anki export and import</span>
               <span className="block text-xs text-muted-foreground">
                 Take your deck with you, or bring one in
+              </span>
+            </span>
+            <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
+          </button>
+          <button
+            onClick={onOpenExport}
+            className="w-full flex items-center gap-3 px-4 py-3.5 text-start border-t border-border transition-colors hover:bg-muted/40"
+          >
+            <FileDown className="w-5 h-5 text-primary shrink-0" />
+            <span className="min-w-0 flex-1">
+              <span className="block font-semibold text-foreground">Export words</span>
+              <span className="block text-xs text-muted-foreground">
+                A PDF to read or Markdown for an AI, for the last 2 weeks or the whole deck
               </span>
             </span>
             <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />

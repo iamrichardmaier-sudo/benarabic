@@ -13,7 +13,14 @@ import {
   TEXT_SCALE_MIN, TEXT_SCALE_MAX, TEXT_SCALE_STEP,
   AUDIO_RATE_MIN, AUDIO_RATE_MAX, AUDIO_RATE_STEP, formatRate,
 } from '@/lib/preferences';
-import { chapterWords } from '@/lib/bible-words';
+import { chapterWords, lookupKey } from '@/lib/bible-words';
+import { tokenize } from '@/lib/transcript-mask';
+import { useDeck } from '@/contexts/DeckContext';
+import { ReaderStatusContext } from '@/contexts/ReaderStatusContext';
+import type { NewWord } from '@/contexts/DeckActionsContext';
+import { buildDeckIndex, coverage as coverageOf, statusOf, type WordStatus } from '@/lib/reader-status';
+import { skeleton } from '@/lib/cloze';
+import ReaderKnowledge from '@/components/ReaderKnowledge';
 import { recordChapterRead } from '@/lib/reading-log';
 import ArabicWithTags from '@/components/ArabicWithTags';
 import BackButton from '@/components/BackButton';
@@ -68,6 +75,35 @@ const ChapterReader = ({
   const wordTags = useBibleWordTags(wordList);
   const audioUrl = useBibleAudio(book.code, chapter);
 
+  // What the deck says of each word on the page: the marks under the words,
+  // the share of the chapter already readable, and the new words that sit on
+  // roots the learner holds.
+  const deck = useDeck();
+  const deckIndex = useMemo(() => buildDeckIndex(deck), [deck]);
+  const knowledge = useMemo(() => {
+    if (!prefs.readerStatus || !verses) return null;
+    const statuses: WordStatus[] = [];
+    const rootWords = new Map<string, NewWord>();
+    for (const v of verses) {
+      for (const token of tokenize(v.a)) {
+        if (!token.isWord) continue;
+        const tag = wordTags.get(lookupKey(token.text));
+        const status = statusOf(deckIndex, { surface: token.text, lemma: tag?.lemma, root: tag?.root, pos: tag?.pos });
+        statuses.push(status);
+        // Only a word with a dictionary form and a meaning makes a card worth having.
+        if (status === 'root' && tag?.lemma && tag.gloss) {
+          const key = skeleton(tag.lemma);
+          if (!rootWords.has(key)) {
+            rootWords.set(key, {
+              word: tag.lemma, english: tag.gloss, root: tag.root, wordType: tag.pos, verbForm: tag.verbForm,
+            });
+          }
+        }
+      }
+    }
+    return { coverage: coverageOf(statuses), rootWords: [...rootWords.values()] };
+  }, [prefs.readerStatus, verses, wordTags, deckIndex]);
+
   const topRef = useRef<HTMLDivElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -121,6 +157,7 @@ const ChapterReader = ({
   };
 
   return (
+    <ReaderStatusContext.Provider value={prefs.readerStatus ? deckIndex : null}>
     <div className="space-y-3" ref={topRef}>
       {!immersive && (
         <>
@@ -273,6 +310,16 @@ const ChapterReader = ({
         </>
       )}
 
+      {!immersive && (
+        <ReaderKnowledge
+          key={`${book.code}:${chapter}`}
+          on={prefs.readerStatus}
+          coverage={knowledge?.coverage ?? null}
+          rootWords={knowledge?.rootWords ?? []}
+          noun="chapter"
+        />
+      )}
+
       {immersive && (
         <button
           onClick={() => setImmersive(false)}
@@ -364,6 +411,7 @@ const ChapterReader = ({
         {audioUrl && ' Audio: Arabic Bible Outreach Ministry, read by Brother Adel Iskandar.'}
       </p>
     </div>
+    </ReaderStatusContext.Provider>
   );
 };
 

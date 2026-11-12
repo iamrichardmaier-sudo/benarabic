@@ -3,17 +3,30 @@ import { BookOpen, Plus, Layers, List, GraduationCap, LogOut, RefreshCw, CloudOf
 import AddWords from '@/components/AddWords';
 import Flashcard, { ReviewDirection } from '@/components/Flashcard';
 import FocusReview from '@/components/FocusReview';
+import ClozePractice from '@/components/ClozePractice';
+import EarTraining from '@/components/EarTraining';
+import ReviewStats from '@/components/ReviewStats';
+import { flushReviewLog, logReview } from '@/lib/review-log';
+import { isIntensive } from '@/lib/intensive';
+import { onSpeechOutage } from '@/lib/speech';
 import PodcastPlayer from '@/components/podcasts/PodcastPlayer';
 import { fetchPodcastById, type Podcast, type Register } from '@/lib/podcasts';
 import ReviewComplete from '@/components/ReviewComplete';
 import DeckList from '@/components/DeckList';
 import LearningMode from '@/components/LearningMode';
 import RelearnModal from '@/components/RelearnModal';
+import RelearnSession from '@/components/RelearnSession';
+import DeckReview from '@/components/DeckReview';
+import { useRelearnDecks } from '@/hooks/useRelearnDecks';
+import { practiceCopy } from '@/lib/relearn';
 import { today } from '@/lib/day';
 import { DeckContext } from '@/contexts/DeckContext';
 import ConjugationDrill from '@/components/ConjugationDrill';
 import PrepositionDrill from '@/components/PrepositionDrill';
 import NumbersDrill from '@/components/NumbersDrill';
+import TranslationPractice from '@/components/TranslationPractice';
+import { DailyChallengePrompt } from '@/components/DailyChallenge';
+import { takeDailyPrompt, markDailyPromptShown, prefetchToday } from '@/lib/translation-practice';
 import MemorizeTranscript from '@/components/MemorizeTranscript';
 import ListenToCards from '@/components/listen/ListenToCards';
 import WordLookup from '@/components/WordLookup';
@@ -22,6 +35,7 @@ import Library from '@/components/library/Library';
 import HomeDashboard from '@/components/HomeDashboard';
 import LearnHub, { type LearnDestination } from '@/components/LearnHub';
 import AnkiTransfer from '@/components/AnkiTransfer';
+import DeckExport from '@/components/DeckExport';
 import RootExplorer from '@/components/roots/RootExplorer';
 import FormsTab from '@/components/forms/FormsTab';
 import FormExplorer from '@/components/forms/FormExplorer';
@@ -142,6 +156,10 @@ const Index = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
   const [showRelearnModal, setShowRelearnModal] = useState(false);
+  /** The cards of the relearn run on screen, as in-memory copies (see lib/relearn). */
+  const [relearnCards, setRelearnCards] = useState<FlashCard[]>([]);
+  /** Bumped per run, so starting another begins from the first question. */
+  const [relearnRun, setRelearnRun] = useState(0);
   // Bumped to tell the Library to return to its root, or to open the stored
   // reading position — both are actions only the Library can carry out.
   const [libraryReset, setLibraryReset] = useState(0);
@@ -204,14 +222,29 @@ const Index = () => {
     markLevelSeen(levelFor(getSnapshot().xp));
   };
 
+  // Say so, once, when the recorded voice cannot be had; otherwise the only sign is a worse voice or none.
+  useEffect(
+    () => onSpeechOutage((reason) => toast({
+      title: 'New recordings are unavailable',
+      description: `${reason} Recorded words still play; anything without a recording uses your device's voice.`,
+    })),
+    [toast],
+  );
+
+  // Answers graded offline, or on a visit that ended before they were sent.
+  useEffect(() => {
+    void flushReviewLog(user?.id);
+  }, [user?.id]);
+
   // Learn opens a session of its own; leaving review or Learn ends one.
   const prevView = useRef<View | null>(null);
   useEffect(() => {
     const prev = prevView.current;
     prevView.current = view;
     if (prev === view) return;
-    if (prev === 'review' || prev === 'learnCards') endSession();
+    if (prev === 'review' || prev === 'learnCards' || prev === 'relearn') endSession();
     if (view === 'learnCards') startSession('Learn');
+    if (view === 'relearn') startSession('Relearn');
     // startSession/endSession only touch refs and setSummary.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [view]);
@@ -238,6 +271,9 @@ const Index = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [progress.loaded, user?.id]);
   const { admin: isDeckAdmin } = useDeckLibrary();
+  // The learner's decks and their words: for the Relearn picker and for
+  // narrowing the conjugation drill to particular decks.
+  const relearnDecks = useRelearnDecks(showRelearnModal || view === 'conjugationDrill');
   const backfillRan = useRef(false);
   const podcastLinkRan = useRef(false);
   const [podcastRegister, setPodcastRegister] = useState<Register | null>(null);
@@ -446,8 +482,32 @@ const Index = () => {
       case 'relearn': return setShowRelearnModal(true);
       case 'learnDecks': return setView('learnDecks');
       case 'dictionary': return openDictionary();
+      case 'translationPractice': return openChallenge();
       default: return setView(destination as View);
     }
+  };
+
+  // Today's translation challenge: offered once a day on opening the app, and
+  // kept on Home after that. Back from it returns wherever it was opened from.
+  const [challengePrompt, setChallengePrompt] = useState(false);
+  const [challengeFromHome, setChallengeFromHome] = useState(false);
+  useEffect(() => {
+    if (loading || !user?.id) return;
+    // Opening the app straight onto the challenge counts as having been told.
+    if (view === 'translationPractice') return markDailyPromptShown();
+    if (takeDailyPrompt()) {
+      setChallengePrompt(true);
+      prefetchToday();
+    }
+    // Once per load, when the deck is ready: not again on every screen change.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading, user?.id]);
+
+  const openChallenge = () => {
+    setChallengePrompt(false);
+    setChallengeFromHome(view === 'home');
+    setTab('learn');
+    setView('translationPractice');
   };
 
   /** Home's "continue reading" hands off to the Library, which reads the same
@@ -536,10 +596,44 @@ const Index = () => {
     [addCards, toast],
   );
 
+  /** Several words from a reader at once: one write and one message. */
+  const addWordsFromReader = useCallback(
+    async (words: NewWord[]): Promise<number> => {
+      const { added } = await addCards(
+        words.map((word) => ({
+          ...createCard(word.word, word.english ?? null, null, null),
+          root: word.root ?? null,
+          wordType: (word.wordType as FlashCard['wordType']) ?? null,
+          verbForm: (word.verbForm as FlashCard['verbForm']) ?? null,
+          wordVoweled: word.wordVoweled ?? word.word,
+          fushaPlural: word.fushaPlural ?? null,
+          pastTense: word.pastTense ?? null,
+          presentTense: word.presentTense ?? null,
+          masdarForm: word.masdarForm ?? null,
+        })),
+      );
+      toast(
+        added.length === 0
+          ? { title: 'Those words are already in your deck' }
+          : { title: `Added ${added.length} word${added.length === 1 ? '' : 's'}`, description: 'They are waiting in Learn.' },
+      );
+      return added.length;
+    },
+    [addCards, toast],
+  );
+
   const handleRate = async (rating: Rating) => {
     const item = reviewItems[currentIndex];
     if (!practising) {
       const reviewed = reviewCard(item.card, rating);
+      // The history first: it must not be lost if the write below is slow or fails.
+      logReview(user?.id, {
+        cardId: item.card.id,
+        kind: isIntensive(item.card) ? 'ladder' : 'review',
+        rating,
+        intervalBefore: item.card.intervalDays,
+        intervalAfter: reviewed.intervalDays,
+      });
       await updateCard(reviewed.id, scheduleFields(reviewed));
     }
     // Grading a card is a genuine study action, so it counts toward the streak.
@@ -585,22 +679,19 @@ const Index = () => {
     await updateCard(id, updates);
   };
 
-  const handleStartRelearn = async (cardIds: string[]) => {
-    const startDate = today();
-    for (const id of cardIds) {
-      await updateCard(id, {
-        easeFactor: 2.5,
-        intervalDays: 0,
-        learningStage: 'new',
-        stage1Attempts: 0,
-        stage2Attempts: 0,
-        nextReviewDate: startDate,
-      });
-    }
+  /**
+   * Relearning goes through the chosen cards again as a practice run, and
+   * writes nothing: the stored cards keep their due dates, intervals and ease,
+   * so it never disturbs the timed review (the same stance as Practice in
+   * Review). It used to reset the cards themselves.
+   */
+  const handleStartRelearn = (cardIds: string[]) => {
+    const chosen = new Set(cardIds);
+    setRelearnCards(cards.filter((c) => chosen.has(c.id)).map(practiceCopy));
+    setRelearnRun((n) => n + 1);
     setShowRelearnModal(false);
-    toast({ title: `Reset ${cardIds.length} card${cardIds.length !== 1 ? 's' : ''} for relearning` });
     setTab('learn');
-    setView('learnCards');
+    setView('relearn');
   };
 
   // Due count is global, matching the global review queue — a badge that
@@ -692,11 +783,12 @@ const Index = () => {
 
   return (
     <DeckContext.Provider value={cards}>
-    <DeckActionsContext.Provider value={{ addWord: addWordFromReader, openDictionary }}>
+    <DeckActionsContext.Provider value={{ addWord: addWordFromReader, addWords: addWordsFromReader, openDictionary }}>
     <div className="isolate min-h-screen bg-background flex flex-col lg:ps-60">
       <AppBackground />
       <NowPlayingBar hidden={!showPlayBar} />
       <SessionSummaryDialog summary={summary} onClose={closeSummary} onUseBackground={(id) => void setBackground(id)} />
+      <DailyChallengePrompt open={challengePrompt && !summary} onStart={openChallenge} onLater={() => setChallengePrompt(false)} />
       {/* Phone and tablet header; on a laptop the sidebar carries all of this. */}
       <header className="border-b border-border/60 bg-card/50 backdrop-blur-sm sticky top-0 z-10 lg:hidden">
         <div className="mx-auto px-4 py-4 flex items-center justify-between w-full max-w-lg">
@@ -760,6 +852,7 @@ const Index = () => {
               onBrowseLibrary={() => selectTab('library')}
               onSelectPractice={openLearnDestination}
               onOpenLevel={() => selectTab('settings')}
+              onOpenChallenge={openChallenge}
             />
           </>
         )}
@@ -816,6 +909,8 @@ const Index = () => {
 
         {view === 'adminDecks' && <AdminDecks onBack={() => setView('settings')} />}
 
+        {view === 'deckExport' && <DeckExport cards={cards} onBack={() => setView('settings')} />}
+
         {view === 'anki' && <AnkiTransfer cards={cards} onBack={() => setView('settings')} onImported={refetch} />}
 
         {view === 'importWords' && <ImportWords onBack={() => setView('settings')} />}
@@ -828,6 +923,7 @@ const Index = () => {
             onOpenAddWords={() => setView('add')}
             onOpenImportWords={() => setView('importWords')}
             onOpenAnki={() => setView('anki')}
+            onOpenExport={() => setView('deckExport')}
             onOpenAdminDecks={isDeckAdmin ? () => setView('adminDecks') : undefined}
             onOpenFeedback={() => setView('feedback')}
             email={user?.email}
@@ -937,6 +1033,36 @@ const Index = () => {
           </div>
         )}
 
+        {view === 'deckReview' && (
+          <DeckReview cards={cards} onUpdateCard={handleUpdateCard} onBack={() => setView('learnHub')} />
+        )}
+
+        {view === 'relearn' && relearnCards.length > 0 && (
+          <RelearnSession
+            key={relearnRun}
+            cards={relearnCards}
+            allCards={cards}
+            onBack={() => setView('learnHub')}
+            onEarn={earn}
+          />
+        )}
+
+        {/* Opened by address with nothing chosen, e.g. after a reload. */}
+        {view === 'relearn' && relearnCards.length === 0 && (
+          <div className="space-y-4">
+            <BackButton onClick={() => setView('learnHub')} label="Learn" />
+            <div className="rounded-2xl border border-border bg-card px-4 py-8 text-center space-y-3">
+              <p className="text-sm text-muted-foreground">Choose a deck or some cards to relearn.</p>
+              <button
+                onClick={() => setShowRelearnModal(true)}
+                className="rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground"
+              >
+                Choose cards
+              </button>
+            </div>
+          </div>
+        )}
+
         {view === 'learnCards' && (learnCards.length > 0 || learnable.length === 0) && (
           <LearningMode
             // A new mix is a new session: the queues are built on arrival.
@@ -963,7 +1089,7 @@ const Index = () => {
         )}
 
         {view === 'conjugationDrill' && (
-          <ConjugationDrill cards={studyCards} onBack={() => setView('learnHub')} />
+          <ConjugationDrill cards={studyCards} decks={relearnDecks.decks} onBack={() => setView('learnHub')} />
         )}
 
         {view === 'prepositionDrill' && (
@@ -972,6 +1098,13 @@ const Index = () => {
 
         {view === 'numbersDrill' && (
           <NumbersDrill cards={studyCards} onBack={() => setView('learnHub')} />
+        )}
+
+        {view === 'translationPractice' && (
+          <TranslationPractice
+            backLabel={challengeFromHome ? 'Home' : 'Learn'}
+            onBack={() => (challengeFromHome ? selectTab('home') : setView('learnHub'))}
+          />
         )}
 
         {view === 'dictionary' && (
@@ -1003,6 +1136,18 @@ const Index = () => {
 
         {view === 'memorize' && <MemorizeTranscript onBack={() => setView('learnHub')} />}
 
+        {view === 'cloze' && (
+          <ClozePractice cards={cards} userId={user?.id} onBack={() => setView('learnHub')} onEarn={earn} />
+        )}
+
+        {view === 'earTraining' && (
+          <EarTraining cards={cards} userId={user?.id} onBack={() => setView('learnHub')} onEarn={earn} />
+        )}
+
+        {view === 'stats' && (
+          <ReviewStats cards={cards} userId={user?.id} onBack={() => setView('learnHub')} onRelearn={handleStartRelearn} />
+        )}
+
         {view === 'listenCards' && (
           <ListenToCards cards={cards} onBack={() => setView('learnHub')} />
         )}
@@ -1021,6 +1166,8 @@ const Index = () => {
           cards={cards}
           onClose={() => setShowRelearnModal(false)}
           onStartRelearn={handleStartRelearn}
+          decks={relearnDecks.decks}
+          decksLoading={relearnDecks.loading}
         />
       )}
 

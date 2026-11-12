@@ -61,6 +61,16 @@ export interface FlashCard {
   nextReviewAt?: string | null;
   /** When the card was added, which is when its learning started. */
   createdAt?: string | null;
+  /**
+   * The word in the shared bank this card was made from, which is what ties it
+   * to the decks that hold that word. Null for a card typed in by hand.
+   */
+  wordId?: string | null;
+  /**
+   * The verbs behind the card's Conjugate button (keys into verb_entries): the
+   * card's own verb, or the verbs a participle or masdar comes from.
+   */
+  verbKeys?: string[] | null;
   /** English translation of prepositionSentence, with the blank filled in. */
   prepositionSentenceEn?: string | null;
   /**

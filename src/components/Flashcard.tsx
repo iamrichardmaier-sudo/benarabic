@@ -6,6 +6,7 @@ import WordInfoPopover from '@/components/WordInfoPopover';
 import WordForms from '@/components/WordForms';
 import SwipeToGrade from '@/components/SwipeToGrade';
 import WordDetail from '@/components/WordDetail';
+import ConjugationPanel from '@/components/ConjugationPanel';
 import DialectToggle from '@/components/DialectToggle';
 import CardArt from '@/components/CardArt';
 import { dialectView } from '@/lib/dialect';
@@ -46,10 +47,10 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
   // register is on screen, so studying Shaami does not read back Fusha.
   useEffect(() => {
     if (flipped && !prevFlipped.current) {
-      speakArabic(view.spoken);
+      speakArabic(view.spoken, view.voice);
     }
     prevFlipped.current = flipped;
-  }, [flipped, view.spoken]);
+  }, [flipped, view.spoken, view.voice]);
 
   const renderImageAndEnglish = () => (
     <div className="space-y-3 w-full">
@@ -85,7 +86,7 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
             {view.headline}
           </p>
         </WordInfoPopover>
-        <SpeakButton word={view.spoken} size={22} autoSpeak />
+        <SpeakButton word={view.spoken} voice={view.voice} size={22} autoSpeak />
       </div>
       {withForms && <WordForms card={card} />}
     </div>
@@ -118,6 +119,7 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
     if (direction === 'en-to-ar') {
       return (
         <div className="space-y-4 text-center w-full">
+          <ConjugationPanel card={card} />
           {card.english && (
             <p className="text-lg text-muted-foreground">{card.english}</p>
           )}
@@ -129,6 +131,7 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
     }
     return (
       <div className="space-y-4 text-center w-full">
+        <ConjugationPanel card={card} />
         <p className="font-card text-2xl text-muted-foreground" dir="rtl">
           {view.headline}
         </p>

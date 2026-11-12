@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { fetchWordsByRoot, fetchFormsOfLemma, splitRootSense } from '@/lib/bible-root-index';
 import { Row, Section } from '@/components/WordSections';
-import SpeakButton from '@/components/SpeakButton';
+import SpeakButton, { speakArabic } from '@/components/SpeakButton';
 import { useDeck } from '@/contexts/DeckContext';
 import AddWordButton from '@/components/AddWordButton';
 import { wordKey, rootKey } from '@/lib/word-relations';
 import type { BibleWordTag } from '@/hooks/useBibleWordTags';
+import { STATUS_LABEL, STATUS_UNDERLINE, type WordStatus } from '@/lib/reader-status';
 
 const POS_LABELS: Record<string, string> = {
   verb: 'Verb',
@@ -23,6 +24,8 @@ const MAX_DECK = 4;
 interface BibleWordPopoverProps {
   text: string;
   tag: BibleWordTag;
+  /** What the deck says of this word, when the reader is marking words. */
+  status?: WordStatus;
 }
 
 /**
@@ -40,7 +43,7 @@ interface BibleWordPopoverProps {
  * root's and not the word's — the difference between saying nothing and saying
  * something true but general.
  */
-const BibleWordPopover = ({ text, tag }: BibleWordPopoverProps) => {
+const BibleWordPopover = ({ text, tag, status }: BibleWordPopoverProps) => {
   const [open, setOpen] = useState(false);
   const [related, setRelated] = useState<BibleWordTag[] | null>(null);
   const [forms, setForms] = useState<string[]>([]);
@@ -97,8 +100,10 @@ const BibleWordPopover = ({ text, tag }: BibleWordPopoverProps) => {
           onClick={(e) => {
             e.preventDefault();
             handleOpen();
+            // A tap is asking about the word, and how it sounds is part of the answer.
+            void speakArabic(tag.lemma ?? tag.surface);
           }}
-          className="cursor-help rounded underline decoration-dotted decoration-primary/20 underline-offset-[6px] transition-colors hover:bg-primary/10 hover:text-primary active:bg-primary/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+          className={`cursor-help rounded underline underline-offset-[6px] transition-colors hover:bg-primary/10 hover:text-primary active:bg-primary/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary/40 ${status ? STATUS_UNDERLINE[status] : 'decoration-dotted decoration-primary/20'}`}
         >
           {text}
         </button>
@@ -118,6 +123,10 @@ const BibleWordPopover = ({ text, tag }: BibleWordPopoverProps) => {
             </p>
             <SpeakButton word={headline} size={16} />
           </div>
+
+          {status && status !== 'none' && (
+            <p className="text-[11px] font-medium text-muted-foreground">{STATUS_LABEL[status]}</p>
+          )}
 
           {tag.gloss ? (
             <p className="text-sm leading-snug text-foreground">{tag.gloss}</p>

@@ -55,6 +55,10 @@ Set these once under Supabase dashboard → your project → **Edge Functions**
   example-sentence generation will fail until that function is migrated off
   it too (ask if you want that done).
 
+- The daily translation challenge needs no key: each day's sentences carry
+  an answer key written the evening before, and the app grades against it
+  (see `supabase/answer-keys/README.md`).
+
 ## Deploying the frontend
 
 ```sh

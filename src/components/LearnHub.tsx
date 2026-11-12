@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import {
-  GraduationCap, BookOpen, RefreshCw, List, BookA,
-  Sparkles, Link2, Brain, Headphones, Hash, LibraryBig, Network, Shapes, Boxes, type LucideIcon,
+  GraduationCap, BookOpen, RefreshCw, CalendarClock, List, BookA,
+  Sparkles, Link2, Brain, Headphones, Hash, LibraryBig, Network, Shapes, Boxes, Languages, TextCursorInput, Ear, TrendingUp, type LucideIcon,
 } from 'lucide-react';
 import PodcastShelf from '@/components/podcasts/PodcastShelf';
 import CardMixPicker from '@/components/CardMixPicker';
@@ -10,9 +10,10 @@ import { countKind, type CardMix } from '@/lib/learn-filter';
 import type { Podcast } from '@/lib/podcasts';
 
 export type LearnDestination =
-  | 'learn' | 'review' | 'relearn' | 'deck' | 'lookup' | 'learnDecks'
-  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill'
-  | 'memorize' | 'listenCards' | 'rootExplorer' | 'formExplorer' | 'verbForms' | 'dictionary';
+  | 'learn' | 'review' | 'relearn' | 'deckReview' | 'deck' | 'lookup' | 'learnDecks'
+  | 'conjugationDrill' | 'prepositionDrill' | 'numbersDrill' | 'translationPractice'
+  | 'memorize' | 'listenCards' | 'rootExplorer' | 'formExplorer' | 'verbForms' | 'dictionary'
+  | 'cloze' | 'earTraining' | 'stats';
 
 interface LearnHubProps {
   dueCount: number;
@@ -83,7 +84,9 @@ const LearnHub = ({
     { id: 'deck', label: 'My deck', icon: List, hint: `${deckSize} word${deckSize === 1 ? '' : 's'}` },
     { id: 'learnDecks', label: 'Decks', icon: LibraryBig, hint: 'Chapter decks' },
     { id: 'dictionary', label: 'Dictionary', icon: BookA, hint: '27,000 words' },
-    { id: 'relearn', label: 'Relearn', icon: RefreshCw, hint: 'Reset cards', disabled: empty, disabledHint: 'No cards yet' },
+    { id: 'relearn', label: 'Relearn', icon: RefreshCw, hint: 'Go through a deck again', disabled: empty, disabledHint: 'No cards yet' },
+    { id: 'deckReview', label: 'Deck review', icon: CalendarClock, hint: 'Shorten your reviews by deck', disabled: empty, disabledHint: 'No cards yet' },
+    { id: 'stats', label: 'Progress', icon: TrendingUp, hint: 'Retention and hard words', disabled: empty, disabledHint: 'No cards yet' },
   ];
 
   const practice: { title: string; tools: Tool[] }[] = [
@@ -99,12 +102,19 @@ const LearnHub = ({
     {
       // Four to a row on every screen: two rows of two on a phone, one row on
       // a laptop, so no row is left half empty.
-      title: 'Explore & memorize',
+      title: 'In context & by ear',
+      tools: [
+        { id: 'cloze', label: 'Fill in the blank', icon: TextCursorInput, hint: 'Your words inside real sentences', disabled: empty, disabledHint: NEEDS_WORDS },
+        { id: 'earTraining', label: 'Ear training', icon: Ear, hint: 'Hear it first: meaning, dictation, sound pairs' },
+        { id: 'memorize', label: 'A transcript', icon: Brain, hint: 'Hide words and recall the passage' },
+        { id: 'listenCards', label: 'Listen', icon: Headphones, hint: 'Play a set on a loop, hands-free' },
+      ],
+    },
+    {
+      title: 'Explore',
       tools: [
         { id: 'rootExplorer', label: 'By root', icon: Network, hint: 'Every word you hold on a root', disabled: empty, disabledHint: NEEDS_WORDS },
         { id: 'formExplorer', label: 'By form', icon: Boxes, hint: 'Your words from Form I to Form X', disabled: empty, disabledHint: NEEDS_WORDS },
-        { id: 'memorize', label: 'A transcript', icon: Brain, hint: 'Hide words and recall the passage' },
-        { id: 'listenCards', label: 'Listen', icon: Headphones, hint: 'Play a set on a loop, hands-free' },
       ],
     },
   ];
@@ -147,6 +157,13 @@ const LearnHub = ({
             emphasis={dueCount === 0}
           />
         </div>
+        <HubTile
+          variant="compact"
+          icon={Languages}
+          label="Daily translation"
+          hint="Three hard sentences from your newest words"
+          onClick={() => onSelect('translationPractice')}
+        />
         {showMix && onCardMixChange && (
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 rounded-2xl border border-border bg-card px-4 py-3">
             <span className="min-w-0 flex-1">
@@ -160,7 +177,7 @@ const LearnHub = ({
 
       <section className="space-y-3" aria-label="Your words">
         {heading('Your words')}
-        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-3">
           {yourWords.map((t) => (
             <HubTile key={t.id} variant="compact" {...t} onClick={() => onSelect(t.id)} />
           ))}

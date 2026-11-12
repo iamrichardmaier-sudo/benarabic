@@ -1,3 +1,4 @@
+import Say from '@/components/Say';
 import { useEffect, useMemo, useState } from 'react';
 import { Plus } from 'lucide-react';
 import BackButton from '@/components/BackButton';
@@ -38,9 +39,9 @@ const WordNode = ({ word, deck }: { word: TreeWord; deck: FlashCard[] }) => {
           className="flex min-w-0 flex-1 items-baseline justify-between gap-3 rounded-lg px-2 py-1.5 text-start hover:bg-muted/50"
         >
           <span className="truncate text-xs text-muted-foreground">{word.en || '—'}</span>
-          <span className="font-arabic shrink-0 text-lg text-foreground" dir="rtl">
-            {word.ar}
-          </span>
+          <Say text={word.ar} icon className="font-arabic shrink-0 text-lg text-foreground">
+            <span dir="rtl">{word.ar}</span>
+          </Say>
         </button>
         <SpeakButton word={word.ar.split('/')[0].trim()} size={16} />
       </div>
@@ -173,7 +174,7 @@ const RootDetail = ({ root, cards, meaning, onBack }: RootDetailProps) => {
                 {open.inDeck.map((w) => (
                   <p key={w.card.id} className="flex items-baseline justify-between gap-3 py-0.5">
                     <span className="text-xs text-muted-foreground">{w.en}</span>
-                    <span className="font-arabic text-lg" dir="rtl">{w.ar}</span>
+                    <Say text={w.ar} icon className="font-arabic text-lg"><span dir="rtl">{w.ar}</span></Say>
                   </p>
                 ))}
               </div>
@@ -184,7 +185,7 @@ const RootDetail = ({ root, cards, meaning, onBack }: RootDetailProps) => {
                 {open.inScripture.map((w) => (
                   <p key={w.lemma} className="flex items-baseline justify-between gap-3 py-0.5">
                     <span className="text-xs text-muted-foreground">{w.gloss ?? ''}</span>
-                    <span className="font-arabic text-lg" dir="rtl">{w.lemma}</span>
+                    <Say text={w.lemma} icon className="font-arabic text-lg"><span dir="rtl">{w.lemma}</span></Say>
                   </p>
                 ))}
               </div>
@@ -247,7 +248,7 @@ const RootDetail = ({ root, cards, meaning, onBack }: RootDetailProps) => {
                 className={`flex items-center gap-3 px-4 py-2.5 ${i > 0 ? 'border-t border-border' : ''}`}
               >
                 <span className="min-w-0 flex-1 truncate text-xs text-muted-foreground">{w.gloss ?? ''}</span>
-                <span className="font-arabic text-lg text-foreground" dir="rtl">{w.lemma}</span>
+                <Say text={w.lemma} icon className="font-arabic text-lg text-foreground"><span dir="rtl">{w.lemma}</span></Say>
                 {addWord && (
                   <button
                     onClick={() => add(w.lemma)}

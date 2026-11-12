@@ -197,6 +197,32 @@ export async function fetchUserDecks(): Promise<Map<string, string | null>> {
   );
 }
 
+/**
+ * Which words each of the given decks holds, as bank word ids.
+ *
+ * Read a page at a time: the server returns at most a thousand rows per
+ * request, and a few decks of a few hundred words each can pass that.
+ */
+export async function fetchDeckMemberships(deckIds: string[]): Promise<Map<string, Set<string>>> {
+  const members = new Map<string, Set<string>>(deckIds.map((id) => [id, new Set<string>()]));
+  if (deckIds.length === 0) return members;
+  const PAGE = 1000;
+  for (let from = 0; ; from += PAGE) {
+    const { data, error } = await supabase
+      .from('deck_words')
+      .select('deck_id,word_id')
+      .in('deck_id', deckIds)
+      .order('deck_id')
+      .order('word_id')
+      .range(from, from + PAGE - 1);
+    if (error) throw error;
+    const rows = (data ?? []) as { deck_id: string; word_id: string }[];
+    for (const r of rows) members.get(r.deck_id)?.add(r.word_id);
+    if (rows.length < PAGE) break;
+  }
+  return members;
+}
+
 /** The words of one deck, for the preview and the builder. */
 export async function fetchDeckWords(deckId: string): Promise<Word[]> {
   const { data, error } = await supabase
