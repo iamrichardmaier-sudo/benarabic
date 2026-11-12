@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useLibraryTexts, type LibraryText } from '@/hooks/useLibraryTexts';
 import { readAsCover } from '@/lib/cover-image';
 import { wordsNeedingTags, tagWords, MAX_WORDS, type TagProgress } from '@/lib/tag-text';
@@ -10,6 +10,7 @@ import BackButton from '@/components/BackButton';
 import { useWordSkeletonIndex } from '@/hooks/useWordSkeletonIndex';
 import { tokenize } from '@/lib/transcript-mask';
 import WildWordPopover from '@/components/WildWordPopover';
+import TextNarration from '@/components/library/TextNarration';
 
 // Same idea as the Bible reader's EDGE_PUNCTUATION, extended with the extra
 // marks that show up in scraped news text (dashes, brackets, an ellipsis).
@@ -71,6 +72,18 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
   // Senses for this entry's own words, which the shared scripture index does
   // not have — colloquial vocabulary above all.
   const [wordTags, setWordTags] = useState<Record<string, TaggedSense[]>>(entry?.wordTags ?? {});
+  // The word the narration is saying, by its index among the body's words.
+  const [spoken, setSpoken] = useState<number | null>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+
+  // Keep the spoken word on screen, without yanking the page while it already is.
+  useEffect(() => {
+    if (spoken === null) return;
+    const el = textRef.current?.querySelector<HTMLElement>(`[data-word="${spoken}"]`);
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    if (r.top < 80 || r.bottom > window.innerHeight - 120) el.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }, [spoken]);
 
   /**
    * The words of this text that nothing explains yet.
@@ -94,17 +107,37 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
    * however many were there. The entry's own tags come first, since they were
    * made from this text and beat a skeleton match borrowed from scripture.
    */
-  const renderLine = (line: string) =>
-    tokenize(line).map((token, i) => {
+  const renderLine = (line: string, firstWord: number) => {
+    // Words are numbered across the whole body, the way a narration's timings are.
+    let n = firstWord;
+    return tokenize(line).map((token, i) => {
       if (!token.isWord) return <span key={i}>{token.text}</span>;
       const word = lookupKey(token.text);
       if (!word) return <span key={i}>{token.text}</span>;
+      const index = n++;
       const senses: TaggedSense[] =
         wordTags[skeletonOf(word)] ?? (lookup(word) ?? []).map(fromWordSense);
       // Every word is hoverable, tagged or not: a word nothing is known about
       // is the one worth stopping on, and the panel can still offer to learn it.
-      return <WildWordPopover key={i} text={token.text} word={word} senses={senses} />;
+      return (
+        <span
+          key={i}
+          data-word={index}
+          className={
+            index === spoken
+              ? 'rounded-md bg-primary/20 text-primary shadow-[0_0_0_3px_hsl(var(--primary)/0.2)] transition-colors'
+              : 'rounded-md transition-colors'
+          }
+        >
+          <WildWordPopover text={token.text} word={word} senses={senses} />
+        </span>
+      );
     });
+  };
+
+  /** How many words each line holds, so each line knows where its numbering starts. */
+  const wordsInLine = (line: string) =>
+    tokenize(line).filter((t) => t.isWord && lookupKey(t.text)).length;
 
   const toggleEnglish = () => {
     setShowEnglish((prev) => {
@@ -242,6 +275,15 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
         )}
         {saveError && <p className="text-xs text-destructive text-center">{saveError}</p>}
 
+        {entry?.audioPath && entry.audioWords.length > 0 && (
+          <TextNarration
+            path={entry.audioPath}
+            words={entry.audioWords}
+            title={entry.title}
+            onWord={setSpoken}
+          />
+        )}
+
         {english.trim() && (
           <button
             onClick={toggleEnglish}
@@ -255,21 +297,26 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
 
         {/* Line by line rather than one block, so each line can be paired with
             its English the way a verse is in the Bible reader. */}
-        <div className="space-y-1 rounded-2xl border border-border bg-card p-6">
-          {article.content.split('\n').map((line, lineIndex) => {
-            const englishLine = english.split('\n')[lineIndex]?.trim() ?? '';
-            if (!line.trim()) return <div key={lineIndex} className="h-3" />;
-            return (
-              <div key={lineIndex} className="space-y-0.5">
-                <p className="font-arabic text-lg leading-loose text-foreground text-right" dir="rtl">
-                  {renderLine(line)}
-                </p>
-                {showEnglish && englishLine && (
-                  <p className="text-sm leading-snug text-muted-foreground">{englishLine}</p>
-                )}
-              </div>
-            );
-          })}
+        <div ref={textRef} className="space-y-1 rounded-2xl border border-border bg-card p-6">
+          {(() => {
+            let firstWord = 0;
+            return article.content.split('\n').map((line, lineIndex) => {
+              const start = firstWord;
+              firstWord += wordsInLine(line);
+              const englishLine = english.split('\n')[lineIndex]?.trim() ?? '';
+              if (!line.trim()) return <div key={lineIndex} className="h-3" />;
+              return (
+                <div key={lineIndex} className="space-y-0.5">
+                  <p className="font-arabic text-lg leading-loose text-foreground text-right" dir="rtl">
+                    {renderLine(line, start)}
+                  </p>
+                  {showEnglish && englishLine && (
+                    <p className="text-sm leading-snug text-muted-foreground">{englishLine}</p>
+                  )}
+                </div>
+              );
+            });
+          })()}
         </div>
 
         <p className="text-[11px] text-muted-foreground/70 text-center pb-2">

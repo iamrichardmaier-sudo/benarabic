@@ -20,6 +20,9 @@ const invokeMock = vi.fn();
 vi.mock('@/integrations/supabase/client', () => ({
   supabase: {
     functions: { invoke: (...args: unknown[]) => invokeMock(...args) },
+    storage: {
+      from: () => ({ createSignedUrl: async () => ({ data: { signedUrl: 'https://example.test/n.mp3' }, error: null }) }),
+    },
     auth: {
       getSession: async () => ({ data: { session: null } }),
       onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }),
@@ -128,6 +131,8 @@ function entry(over: Partial<LibraryText> = {}): LibraryText {
     updatedAt: '2026-09-15',
     wordTags: {},
     isOwn: true,
+    audioPath: null,
+    audioWords: [],
     ...over,
   };
 }
@@ -266,5 +271,30 @@ describe('English alongside the Arabic', () => {
     // "third" is the third line of each, not the second — a blank line counts.
     expect(screen.getByText('third')).toBeInTheDocument();
     expect(screen.queryByText('first\n\nthird')).toBeNull();
+  });
+});
+
+describe('a narrated entry', () => {
+  it('numbers words across lines the way the narration does, and offers to play it', async () => {
+    lookupMock.mockReturnValue(null);
+    const { container } = render(
+      <ArabicInTheWild
+        onBack={() => {}}
+        entry={entry({
+          body: 'كلمة «ثانية»،\n\nثالثة',
+          audioPath: 'u/t.mp3',
+          audioWords: [{ i: 0, s: 0, e: 0.5 }, { i: 1, s: 0.6, e: 1 }, { i: 2, s: 1.5, e: 2 }],
+        })}
+      />,
+    );
+    const numbered = [...container.querySelectorAll('[data-word]')].map((el) => [el.getAttribute('data-word'), el.textContent]);
+    expect(numbered).toEqual([['0', 'كلمة'], ['1', '«ثانية»،'], ['2', 'ثالثة']]);
+    expect(await screen.findByRole('button', { name: 'Play narration' })).toBeEnabled();
+  });
+
+  it('shows no player for a text without a narration', () => {
+    lookupMock.mockReturnValue(null);
+    render(<ArabicInTheWild onBack={() => {}} entry={entry()} />);
+    expect(screen.queryByRole('button', { name: /narration/ })).not.toBeInTheDocument();
   });
 });
