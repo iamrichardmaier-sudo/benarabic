@@ -5,12 +5,12 @@ import LibraryHome from './LibraryHome';
 import type { LibraryText } from '@/hooks/useLibraryTexts';
 
 const saved: LibraryText[] = [
-  { id: 'a', title: 'نص محفوظ', body: 'كلمات', english: '', coverUrl: 'data:image/jpeg;base64,xxx', updatedAt: '2026-09-15', wordTags: {}, isOwn: true },
-  { id: 'b', title: 'بدون غلاف', body: 'كلمات', english: '', coverUrl: null, updatedAt: '2026-09-14', wordTags: {}, isOwn: true },
+  { id: 'a', title: 'نص محفوظ', body: 'كلمات', english: '', coverUrl: 'data:image/jpeg;base64,xxx', updatedAt: '2026-09-15', wordTags: {}, isOwn: true, audioPath: null, audioWords: [] },
+  { id: 'b', title: 'بدون غلاف', body: 'كلمات', english: '', coverUrl: null, updatedAt: '2026-09-14', wordTags: {}, isOwn: true, audioPath: null, audioWords: [] },
 ];
 
 const shared: LibraryText[] = [
-  { id: 'c', title: 'مقال عام', body: 'كلمات', english: '', coverUrl: null, updatedAt: '2026-09-16', wordTags: {}, isOwn: false },
+  { id: 'c', title: 'مقال عام', body: 'كلمات', english: '', coverUrl: null, updatedAt: '2026-09-16', wordTags: {}, isOwn: false, audioPath: null, audioWords: [] },
 ];
 
 describe('LibraryHome', () => {

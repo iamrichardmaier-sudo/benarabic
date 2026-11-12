@@ -20,6 +20,17 @@ export interface LibraryText {
    * themselves — see LibraryHome's "Yours" vs "Shared" split.
    */
   isOwn: boolean;
+  /** A narration in the text-audio bucket, when the text has one. */
+  audioPath: string | null;
+  /** When each word of the body is spoken, in body word order. */
+  audioWords: NarrationWord[];
+}
+
+/** One word of a narration: its index among the body's words, and when it is said. */
+export interface NarrationWord {
+  i: number;
+  s: number;
+  e: number;
 }
 
 interface Row {
@@ -32,6 +43,8 @@ interface Row {
   created_at: string;
   word_tags: unknown;
   user_id: string;
+  audio_path: string | null;
+  audio_words: unknown;
 }
 
 function rowToText(row: Row, currentUserId: string): LibraryText {
@@ -44,6 +57,8 @@ function rowToText(row: Row, currentUserId: string): LibraryText {
     updatedAt: row.updated_at ?? row.created_at,
     wordTags: (row.word_tags as Record<string, TaggedSense[]>) ?? {},
     isOwn: row.user_id === currentUserId,
+    audioPath: row.audio_path ?? null,
+    audioWords: Array.isArray(row.audio_words) ? (row.audio_words as NarrationWord[]) : [],
   };
 }
 
@@ -74,7 +89,7 @@ export function useLibraryTexts(options: { showsErrorItself?: boolean } = {}) {
     }
     const { data, error } = await supabase
       .from('private_texts')
-      .select('id,title,body,english,cover_url,updated_at,created_at,word_tags,user_id')
+      .select('id,title,body,english,cover_url,updated_at,created_at,word_tags,user_id,audio_path,audio_words')
       .eq('kind', 'text')
       .order('updated_at', { ascending: false });
     if (error) {
