@@ -1,0 +1,52 @@
+{
+  "note": "Entries Wiktionary lacks, merged into dictionary.json.gz by loadDictionary(). Same shape as its entries; ids follow on after Wiktionary's, so theirs never move. Levantine words carry the Levantine label.",
+  "entries": [
+    {
+      "w": "مُتَضَايِق", "page": "متضايق", "et": "s1", "pos": "adj", "rom": "mutaḍāyiq",
+      "senses": [{ "head": "upset, bothered, annoyed (by: مِن)", "labels": [], "ex": [
+        { "ar": "كَانَ مُتَضَايِقًا مِنَ الضَّجِيجِ فَلَمْ يَسْتَطِعِ النَّوْمَ.", "en": "He was bothered by the noise, so he couldn't sleep." }
+      ] }],
+      "fem": ["مُتَضَايِقَة"], "mpl": ["مُتَضَايِقُون"], "fpl": ["مُتَضَايِقَات"],
+      "ety": "Active participle of تَضَايَقَ (taḍāyaqa, “to be annoyed”).",
+      "root": "ض-ي-ق", "freq": 0
+    },
+    {
+      "w": "مُخَدِّرَات", "page": "مخدرات", "et": "s1", "pos": "noun", "rom": "muḵaddirāt",
+      "senses": [{ "head": "drugs, narcotics", "labels": ["plural"], "ex": [
+        { "ar": "تُحَارِبُ الحُكُومَةُ تِجَارَةَ المُخَدِّرَاتِ.", "en": "The government is fighting the drug trade." }
+      ] }],
+      "gender": "f", "sing": ["مُخَدِّر"],
+      "ety": "Plural of مُخَدِّر (muḵaddir, “drug, narcotic”).",
+      "root": "خ-د-ر", "freq": 0
+    },
+    {
+      "w": "طِلِع", "page": "طلع", "et": "s1", "pos": "verb", "rom": "ṭiliʿ",
+      "senses": [
+        { "head": "to turn out (to be) (+ إِنّو: that)", "labels": ["Levantine"], "ex": [
+          { "ar": "طِلِع إِنّو صاحبي بيعرِف أَخوك!", "en": "It turned out my friend knows your brother!" }
+        ] },
+        { "head": "to go out, to leave", "labels": ["Levantine"], "ex": [] }
+      ],
+      "present": ["يِطْلَع"],
+      "ety": "Levantine form of طَلَعَ (ṭalaʿa). In Modern Standard Arabic, “it turned out that” is تَبَيَّنَ أَنَّ.",
+      "root": "ط-ل-ع", "freq": 0
+    },
+    {
+      "w": "شَكَر في", "page": "شكر في", "et": "s1", "pos": "verb", "rom": "šakar fī",
+      "senses": [{ "head": "to praise (a person), to speak highly of", "labels": ["Levantine", "Egyptian"], "ex": [
+        { "ar": "كِلّ النّاس عَم يِشكْروا فيك.", "en": "Everyone is speaking highly of you." }
+      ] }],
+      "present": ["يِشْكُر في"],
+      "ety": "شَكَرَ (šakara, “to thank”) with في. In Modern Standard Arabic, “to praise” is أَثْنَى عَلَى.",
+      "root": "ش-ك-ر", "freq": 0
+    },
+    {
+      "w": "طُول عُمْرُه", "page": "طول عمره", "et": "s1", "pos": "adv", "rom": "ṭūl ʿumru",
+      "senses": [{ "head": "(he) has always …, all his life", "labels": ["Levantine"], "ex": [
+        { "ar": "طول عُمري بْحِبّ البَحر.", "en": "I've always loved the sea." }
+      ] }],
+      "ety": "طُول (“length”) + عُمْر (“lifetime”) with a possessive suffix: طول عُمري, طول عُمرَك … In Modern Standard Arabic, طَوَالَ حَيَاتِه.",
+      "root": "ط-و-ل", "freq": 0
+    }
+  ]
+}

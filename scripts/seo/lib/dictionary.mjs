@@ -6,6 +6,7 @@
  */
 import fs from 'node:fs';
 import zlib from 'node:zlib';
+import path from 'node:path';
 import { vocalKey, formRank, asciiTranslit, rootSlugBase } from './text.mjs';
 
 const CONTENT_POS = new Set(['noun', 'verb', 'adj', 'adv', 'num']);
@@ -18,9 +19,13 @@ export const POS_LABEL = {
   particle: 'Particle', det: 'Determiner',
 };
 
-export function loadDictionary(file) {
+export function loadDictionary(file, supplement = path.join(path.dirname(file), 'supplement.json')) {
   const raw = JSON.parse(zlib.gunzipSync(fs.readFileSync(file)).toString('utf8'));
-  const entries = raw.entries.map((e, id) => ({ ...e, id, et: String(e.et ?? 0), freq: e.freq || 0 }));
+  // Words Wiktionary lacks, written by hand (data/supplement.json). They go
+  // after Wiktionary's entries so every existing id, and so every address,
+  // stays where it was.
+  const extra = supplement && fs.existsSync(supplement) ? JSON.parse(fs.readFileSync(supplement, 'utf8')).entries : [];
+  const entries = [...raw.entries, ...extra].map((e, id) => ({ ...e, id, et: String(e.et ?? 0), freq: e.freq || 0 }));
   const byRoot = new Map();
   for (const e of entries) {
     if (!e.root) continue;
