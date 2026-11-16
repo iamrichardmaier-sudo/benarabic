@@ -1,6 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import { asciiTranslit, vocalKey, shortGloss, rootSlugBase } from './text.mjs';
-import { family, makeSlugger, isPageWorthy, mainGloss, headline } from './dictionary.mjs';
+import { family, makeSlugger, isPageWorthy, mainGloss, headline, loadDictionary } from './dictionary.mjs';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import zlib from 'node:zlib';
 import { validate } from './validate.mjs';
 
 function dictOf(entries) {
@@ -130,5 +134,27 @@ describe('validate', () => {
     expect(errs.some((e) => e.includes('broken internal link /missing/'))).toBe(true);
     expect(errs.some((e) => e.includes('0 <h1>'))).toBe(true);
     expect(errs.some((e) => e.includes('duplicate title'))).toBe(true);
+  });
+});
+
+describe('the hand-written supplement', () => {
+  it('follows the Wiktionary entries, so their ids never move', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'dict-'));
+    const gz = path.join(dir, 'dictionary.json.gz');
+    fs.writeFileSync(gz, zlib.gzipSync(JSON.stringify({ entries: [{ w: 'كِتَاب', pos: 'noun', root: 'ك-ت-ب' }] })));
+    fs.writeFileSync(path.join(dir, 'supplement.json'), JSON.stringify({ entries: [{ w: 'مُتَضَايِق', pos: 'adj', root: 'ض-ي-ق', et: 's1' }] }));
+    const { entries, byRoot } = loadDictionary(gz);
+    expect(entries.map((e) => [e.id, e.w])).toEqual([[0, 'كِتَاب'], [1, 'مُتَضَايِق']]);
+    expect(byRoot.get('ض-ي-ق')).toHaveLength(1);
+    expect(loadDictionary(gz, null).entries).toHaveLength(1);
+  });
+
+  it('holds well-formed entries', () => {
+    const file = path.join(path.dirname(new URL(import.meta.url).pathname), '../data/supplement.json');
+    for (const e of JSON.parse(fs.readFileSync(file, 'utf8')).entries) {
+      expect(e.w && e.page && e.pos && e.root, e.w).toBeTruthy();
+      expect(e.senses.length, e.w).toBeGreaterThan(0);
+      expect(isPageWorthy(e), e.w).toBe(true);
+    }
   });
 });
