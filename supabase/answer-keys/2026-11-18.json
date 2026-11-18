@@ -1,0 +1,466 @@
+{
+  "day": "2026-11-18",
+  "format": "See supabase/answer-keys/README.md.",
+  "sentences": [
+    {
+      "position": 1,
+      "english": "Perhaps my son is smart, but he will not be an outstanding student unless he focuses on his studies.",
+      "grammar_focus": "رُبَّما with كانَ and an accusative predicate (رُبَّما كانَ ابْني ذَكِيًّا, or رُبَّما ابْني ذَكِيٌّ), لَنْ يَكونَ + accusative (طالِبًا مُتَفَوِّقًا), إِلّا إِذا + past for \"unless\" (or ما لَمْ + jussive), and رَكَّزَ عَلى",
+      "target_words": [
+        "ربما",
+        "ذكي",
+        "متفوق",
+        "ركز"
+      ],
+      "model_answer": "رُبَّما كانَ ابْني ذَكِيًّا، لكِنَّهُ لَنْ يَكونَ طالِبًا مُتَفَوِّقًا إِلّا إِذا رَكَّزَ عَلى دِراسَتِهِ.",
+      "reference_translations": [
+        "ربما كان ابني ذكيا لكنه لن يكون طالبا متفوقا إلا إذا ركز على دراسته",
+        "ربما ابني ذكي ولكنه لن يكون طالبا متفوقا ما لم يركز على دراسته",
+        "قد يكون ابني ذكيا غير أنه لن يكون تلميذا متفوقا إلا إذا ركز على دروسه",
+        "لعل ابني ذكي لكنه لن يكون متفوقا إن لم يركز على دراسته"
+      ],
+      "chunks": [
+        {
+          "en": "Perhaps my son is smart",
+          "accept": [
+            "ربما كان ابني ذكيا",
+            "ربما ابني ذكي",
+            "ربما يكون ابني ذكيا",
+            "قد يكون ابني ذكيا",
+            "لعل ابني ذكي"
+          ],
+          "mistakes": [
+            {
+              "text": "كان ابني ذكي",
+              "rule": "The predicate of كان is accusative: ذكيا",
+              "note": "After كان: ذكيًّا."
+            },
+            {
+              "text": "ابني ذكيا",
+              "rule": "Without كان the predicate is nominative: ذكي",
+              "note": "With no كان, the predicate stays nominative: ربما ابني ذكيٌّ."
+            },
+            {
+              "text": "يكون ابني ذكي",
+              "rule": "The predicate of يكون is accusative: ذكيا",
+              "note": "After يكون: ذكيًّا."
+            },
+            {
+              "text": "ذكية",
+              "rule": "My son: ذكي",
+              "note": "Your son: ذكيًّا, masculine."
+            }
+          ]
+        },
+        {
+          "en": "but he will not be an outstanding student",
+          "accept": [
+            "لكنه لن يكون طالبا متفوقا",
+            "لكنه لن يكون تلميذا متفوقا",
+            "لكنه لن يكون متفوقا",
+            "ولكنه لن يكون طالبا متفوقا",
+            "ولكنه لن يكون تلميذا متفوقا",
+            "ولكنه لن يكون متفوقا",
+            "غير أنه لن يكون طالبا متفوقا",
+            "غير أنه لن يكون تلميذا متفوقا",
+            "غير أنه لن يكون متفوقا",
+            "لكن لن يكون طالبا متفوقا",
+            "لكن لن يكون تلميذا متفوقا",
+            "لكن لن يكون متفوقا"
+          ],
+          "mistakes": [
+            {
+              "text": "طالب متفوق",
+              "rule": "The predicate of يكون is accusative: طالبا متفوقا",
+              "note": "After لن يكون both words are accusative: طالبًا متفوّقًا."
+            },
+            {
+              "text": "طالبا متفوق",
+              "rule": "The adjective agrees: متفوقا",
+              "note": "The adjective takes the accusative too: طالبًا متفوّقًا."
+            },
+            {
+              "text": "لن يكن",
+              "rule": "After لن: the subjunctive (يكون)",
+              "note": "لن takes the subjunctive, which keeps the و: لن يكونَ (يكنْ is the jussive, after لم)."
+            },
+            {
+              "text": "لكنه لا يكون",
+              "rule": "\"Will not\": لن يكون",
+              "note": "For the future, use لن: لن يكونَ."
+            },
+            {
+              "text": "متفوقة",
+              "rule": "My son: متفوقا",
+              "note": "Your son: متفوّقًا, masculine."
+            }
+          ]
+        },
+        {
+          "en": "unless he focuses on his studies",
+          "accept": [
+            "إلا إذا ركز على دراسته",
+            "إلا إذا ركز على دروسه",
+            "إلا إذا كان يركز على دراسته",
+            "إلا إذا كان يركز على دروسه",
+            "إلا إذا ركز جيدا على دراسته",
+            "إلا إذا ركز جيدا على دروسه",
+            "إلا إن ركز على دراسته",
+            "إلا إن ركز على دروسه",
+            "إلا إن كان يركز على دراسته",
+            "إلا إن كان يركز على دروسه",
+            "إلا إن ركز جيدا على دراسته",
+            "إلا إن ركز جيدا على دروسه",
+            "ما لم يركز على دراسته",
+            "ما لم يركز على دروسه",
+            "إن لم يركز على دراسته",
+            "إن لم يركز على دروسه",
+            "إذا لم يركز على دراسته",
+            "إذا لم يركز على دروسه"
+          ],
+          "mistakes": [
+            {
+              "text": "ركز في",
+              "rule": "ركّز takes على",
+              "note": "\"Focus on\": ركّز عَلى دراسته."
+            },
+            {
+              "text": "ركز دراسته",
+              "rule": "ركّز takes على",
+              "note": "\"Focus on\": ركّز عَلى دراسته."
+            },
+            {
+              "text": "ما لم ركز",
+              "rule": "After لم: the jussive (يركز)",
+              "note": "ما لم + jussive: ما لم يركّزْ."
+            },
+            {
+              "text": "دراستها",
+              "rule": "His studies: دراسته",
+              "note": "Your son's studies: دراستِه."
+            },
+            {
+              "text": "إلا إذا يركز",
+              "rule": "After إذا, the past is usual: إلا إذا ركز",
+              "note": "إذا is normally followed by the past: إلا إذا ركّزَ.",
+              "status": "alternative"
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "ربما كان ابني ذكيًّا (accusative after كان) — or ربما ابني ذكيٌّ",
+        "لن يكونَ طالبًا متفوّقًا: لن + subjunctive, accusative predicate",
+        "\"Unless\": إلا إذا + past (or ما لم + jussive)",
+        "ركّز عَلى"
+      ]
+    },
+    {
+      "position": 2,
+      "english": "My mother was afraid for me when she saw my face, because my eyes were red and my head felt heavy.",
+      "grammar_focus": "خافَ عَلى (afraid for, not of: خافَتْ أُمّي عَلَيَّ), a feminine verb for أُمّي, the dual after لِأَنَّ and كانَ (لِأَنَّ عَيْنَيَّ كانَتا حَمْراوَيْنِ, or كانَتْ عَيْنايَ حَمْراوَيْنِ) with the dual of the colour adjective حَمْراء, and كانَ رَأْسي ثَقيلًا (رأس is masculine)",
+      "target_words": [
+        "خاف على",
+        "وجه",
+        "رأس",
+        "ثقيل"
+      ],
+      "model_answer": "خافَتْ أُمّي عَلَيَّ عِنْدَما رَأَتْ وَجْهي، لِأَنَّ عَيْنَيَّ كانَتا حَمْراوَيْنِ وَكانَ رَأْسي ثَقيلًا.",
+      "reference_translations": [
+        "خافت أمي علي عندما رأت وجهي لأن عيني كانتا حمراوين وكان رأسي ثقيلا",
+        "أمي خافت علي حين رأت وجهي فقد كانت عيناي حمراوين ورأسي ثقيل",
+        "قلقت أمي علي عندما رأت وجهي لأن عيوني كانت حمراء وكنت أشعر بثقل في رأسي",
+        "خافت أمي علي لما شاهدت وجهي إذ كانت عيناي حمراوين وشعرت بأن رأسي ثقيل"
+      ],
+      "chunks": [
+        {
+          "en": "My mother was afraid for me",
+          "accept": [
+            "خافت أمي علي",
+            "أمي خافت علي",
+            "قلقت أمي علي",
+            "أمي قلقت علي"
+          ],
+          "mistakes": [
+            {
+              "text": "خاف أمي",
+              "rule": "My mother is feminine: خافت",
+              "note": "With أمي as subject the verb takes تْ: خافتْ أمي."
+            },
+            {
+              "text": "أمي مني",
+              "rule": "Afraid \"for\" someone: خاف على",
+              "note": "خاف مِن is \"afraid of\". \"Afraid for me\": خافتْ أمي عليَّ."
+            },
+            {
+              "text": "أمي لي",
+              "rule": "Afraid \"for\" someone: خاف على",
+              "note": "\"Afraid for me\": خافتْ أمي عليَّ."
+            },
+            {
+              "text": "أمي عني",
+              "rule": "Afraid \"for\" someone: خاف على",
+              "note": "\"Afraid for me\": خافتْ أمي عليَّ."
+            }
+          ]
+        },
+        {
+          "en": "when she saw my face",
+          "accept": [
+            "عندما رأت وجهي",
+            "عندما شاهدت وجهي",
+            "حين رأت وجهي",
+            "حين شاهدت وجهي",
+            "حينما رأت وجهي",
+            "حينما شاهدت وجهي",
+            "لما رأت وجهي",
+            "لما شاهدت وجهي"
+          ],
+          "mistakes": [
+            {
+              "text": "رأى وجهي",
+              "rule": "She: رأت",
+              "note": "Your mother saw: رأتْ وجهي."
+            },
+            {
+              "text": "رأيت وجهي",
+              "rule": "She: رأت",
+              "note": "رأيتُ is \"I saw\". She saw: رأتْ."
+            },
+            {
+              "text": "وجهها",
+              "rule": "My face: وجهي",
+              "note": "\"My face\": وجهي."
+            },
+            {
+              "text": "ترى وجهي",
+              "rule": "Past: رأت",
+              "note": "This happened in the past: عندما رأتْ."
+            }
+          ]
+        },
+        {
+          "en": "because my eyes were red and my head felt heavy",
+          "accept": [
+            "لأن عيني كانتا حمراوين وكان رأسي ثقيلا",
+            "لأن عيني كانتا حمراوين ورأسي ثقيل",
+            "لأن عيني كانتا حمراوين وكنت أشعر بثقل في رأسي",
+            "لأن عيني كانتا حمراوين وشعرت بأن رأسي ثقيل",
+            "لأن عيني كانتا حمراوين وكنت أشعر بأن رأسي ثقيل",
+            "لأن عيوني كانت حمراء وكان رأسي ثقيلا",
+            "لأن عيوني كانت حمراء ورأسي ثقيل",
+            "لأن عيوني كانت حمراء وكنت أشعر بثقل في رأسي",
+            "لأن عيوني كانت حمراء وشعرت بأن رأسي ثقيل",
+            "لأن عيوني كانت حمراء وكنت أشعر بأن رأسي ثقيل",
+            "فقد كانت عيناي حمراوين وكان رأسي ثقيلا",
+            "فقد كانت عيناي حمراوين ورأسي ثقيل",
+            "فقد كانت عيناي حمراوين وكنت أشعر بثقل في رأسي",
+            "فقد كانت عيناي حمراوين وشعرت بأن رأسي ثقيل",
+            "فقد كانت عيناي حمراوين وكنت أشعر بأن رأسي ثقيل",
+            "إذ كانت عيناي حمراوين وكان رأسي ثقيلا",
+            "إذ كانت عيناي حمراوين ورأسي ثقيل",
+            "إذ كانت عيناي حمراوين وكنت أشعر بثقل في رأسي",
+            "إذ كانت عيناي حمراوين وشعرت بأن رأسي ثقيل",
+            "إذ كانت عيناي حمراوين وكنت أشعر بأن رأسي ثقيل",
+            "لأنني كانت عيناي حمراوين وكان رأسي ثقيلا",
+            "لأنني كانت عيناي حمراوين ورأسي ثقيل",
+            "لأنني كانت عيناي حمراوين وكنت أشعر بثقل في رأسي",
+            "لأنني كانت عيناي حمراوين وشعرت بأن رأسي ثقيل",
+            "لأنني كانت عيناي حمراوين وكنت أشعر بأن رأسي ثقيل"
+          ],
+          "mistakes": [
+            {
+              "text": "لأن عيناي",
+              "rule": "After لأنّ the dual is accusative: عيني",
+              "note": "لأنّ makes its noun accusative, so the dual with \"my\" is عينَيَّ (not عيناي)."
+            },
+            {
+              "text": "حمراوان",
+              "rule": "The predicate of كان is accusative: حمراوين",
+              "note": "After كانتا the dual predicate is accusative: حمراوَيْنِ."
+            },
+            {
+              "text": "عيناي حمراء",
+              "rule": "Two eyes: the dual حمراوين",
+              "note": "Two eyes take the dual adjective: كانت عيناي حمراوَيْنِ."
+            },
+            {
+              "text": "حمراوتين",
+              "rule": "The dual of حمراء is حمراوان / حمراوين",
+              "note": "حمراء makes its dual with و: حمراوان / حمراوَيْنِ."
+            },
+            {
+              "text": "وكان رأسي ثقيل",
+              "rule": "The predicate of كان is accusative: ثقيلا",
+              "note": "After كان: ثقيلًا."
+            },
+            {
+              "text": "ثقيلة",
+              "rule": "رأس is masculine: ثقيلا",
+              "note": "رأس is masculine: ثقيلًا."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "خاف على (for) vs. خاف من (of): خافتْ أمي عليَّ",
+        "After لأنّ: عينَيَّ (accusative dual); otherwise كانت عيناي",
+        "The dual of حمراء: حمراوان / حمراوَيْنِ",
+        "رأس is masculine: كان رأسي ثقيلًا"
+      ]
+    },
+    {
+      "position": 3,
+      "english": "Our friendship grew stronger over the years, especially since my friend is polite and has good morals.",
+      "grammar_focus": "اِزْدادَ with a feminine subject and an accusative of specification (اِزْدادَتْ صَداقَتُنا قُوَّةً), خُصوصًا أَنَّ + an accusative noun and a nominative predicate (أَنَّ صَديقي مُؤَدَّبٌ), and a feminine singular for the non-human plural أَخْلاق (أَخْلاقُهُ حَسَنَةٌ)",
+      "target_words": [
+        "صداقة",
+        "خصوصا أن",
+        "مؤدب",
+        "أخلاق"
+      ],
+      "model_answer": "اِزْدادَتْ صَداقَتُنا قُوَّةً مَعَ السِّنينَ، خُصوصًا أَنَّ صَديقي مُؤَدَّبٌ وَأَخْلاقُهُ حَسَنَةٌ.",
+      "reference_translations": [
+        "ازدادت صداقتنا قوة مع السنين خصوصا أن صديقي مؤدب وأخلاقه حسنة",
+        "أصبحت صداقتنا أقوى مع مرور السنين خاصة أن صديقي مؤدب وله أخلاق حسنة",
+        "صداقتنا ازدادت قوة على مر السنين لا سيما أن صديقي مؤدب وأخلاقه طيبة",
+        "زادت صداقتنا قوة مع مرور السنوات خصوصا وأن صديقي مؤدب ولديه أخلاق جيدة"
+      ],
+      "chunks": [
+        {
+          "en": "Our friendship grew stronger over the years",
+          "accept": [
+            "ازدادت صداقتنا قوة مع السنين",
+            "ازدادت صداقتنا قوة مع مرور السنين",
+            "ازدادت صداقتنا قوة مع مرور السنوات",
+            "ازدادت صداقتنا قوة مع السنوات",
+            "ازدادت صداقتنا قوة عبر السنين",
+            "ازدادت صداقتنا قوة على مر السنين",
+            "زادت صداقتنا قوة مع السنين",
+            "زادت صداقتنا قوة مع مرور السنين",
+            "زادت صداقتنا قوة مع مرور السنوات",
+            "زادت صداقتنا قوة مع السنوات",
+            "زادت صداقتنا قوة عبر السنين",
+            "زادت صداقتنا قوة على مر السنين",
+            "أصبحت صداقتنا أقوى مع السنين",
+            "أصبحت صداقتنا أقوى مع مرور السنين",
+            "أصبحت صداقتنا أقوى مع مرور السنوات",
+            "أصبحت صداقتنا أقوى مع السنوات",
+            "أصبحت صداقتنا أقوى عبر السنين",
+            "أصبحت صداقتنا أقوى على مر السنين",
+            "صارت صداقتنا أقوى مع السنين",
+            "صارت صداقتنا أقوى مع مرور السنين",
+            "صارت صداقتنا أقوى مع مرور السنوات",
+            "صارت صداقتنا أقوى مع السنوات",
+            "صارت صداقتنا أقوى عبر السنين",
+            "صارت صداقتنا أقوى على مر السنين",
+            "صداقتنا ازدادت قوة مع السنين",
+            "صداقتنا ازدادت قوة مع مرور السنين",
+            "صداقتنا ازدادت قوة مع مرور السنوات",
+            "صداقتنا ازدادت قوة مع السنوات",
+            "صداقتنا ازدادت قوة عبر السنين",
+            "صداقتنا ازدادت قوة على مر السنين"
+          ],
+          "mistakes": [
+            {
+              "text": "ازداد صداقتنا",
+              "rule": "صداقة is feminine: ازدادت",
+              "note": "صداقة is feminine: ازدادتْ صداقتُنا."
+            },
+            {
+              "text": "صداقتنا قوية",
+              "rule": "\"Grew stronger\": ازدادت قوة (a noun, accusative)",
+              "note": "With ازداد, the quality that grows is a masdar in the accusative: ازدادت صداقتُنا قوّةً."
+            },
+            {
+              "text": "ازدادت صداقتنا أقوى",
+              "rule": "\"Grew stronger\": ازدادت قوة (or أصبحت أقوى)",
+              "note": "ازداد takes the masdar: ازدادت قوّةً. أقوى goes with أصبح: أصبحت صداقتُنا أقوى."
+            },
+            {
+              "text": "الصداقتنا",
+              "rule": "A noun with a pronoun takes no ال: صداقتنا",
+              "note": "With ـنا attached, no ال: صداقتُنا."
+            }
+          ]
+        },
+        {
+          "en": "especially since my friend is polite",
+          "accept": [
+            "خصوصا أن صديقي مؤدب",
+            "خاصة أن صديقي مؤدب",
+            "لا سيما أن صديقي مؤدب",
+            "خصوصا وأن صديقي مؤدب",
+            "وخصوصا أن صديقي مؤدب",
+            "خاصة وأن صديقي مؤدب"
+          ],
+          "mistakes": [
+            {
+              "text": "صديقي مؤدبا",
+              "rule": "The predicate of أنّ is nominative: مؤدب",
+              "note": "After أنّ the predicate stays nominative: أنّ صديقي مؤدّبٌ."
+            },
+            {
+              "text": "خصوصا إن صديقي مؤدب",
+              "rule": "\"Especially since\": خصوصا أنّ (hamza above)",
+              "note": "The set phrase is خصوصًا أنّ, with أنّ.",
+              "strict": true
+            },
+            {
+              "text": "خصوص أن",
+              "rule": "The adverb is خصوصا",
+              "note": "\"Especially\": خصوصًا (with the accusative alif)."
+            },
+            {
+              "text": "مؤدبة",
+              "rule": "My friend (a man): مؤدب",
+              "note": "Your friend: مؤدّبٌ."
+            }
+          ]
+        },
+        {
+          "en": "and has good morals",
+          "accept": [
+            "وأخلاقه حسنة",
+            "وله أخلاق حسنة",
+            "وأخلاقه جيدة",
+            "وأخلاقه طيبة",
+            "وذو أخلاق حسنة",
+            "ولديه أخلاق حسنة",
+            "وعنده أخلاق حسنة",
+            "ولديه أخلاق جيدة",
+            "وله أخلاق جيدة",
+            "وأخلاقه عالية"
+          ],
+          "mistakes": [
+            {
+              "text": "وأخلاقه حسن",
+              "rule": "A non-human plural takes a feminine adjective: حسنة",
+              "note": "أخلاق is a plural of things: أخلاقُه حسنةٌ."
+            },
+            {
+              "text": "حسنين",
+              "rule": "Morals, not people: حسنة",
+              "note": "حسنين is for people. Morals: حسنةٌ."
+            },
+            {
+              "text": "أخلاق حسن",
+              "rule": "A non-human plural takes a feminine adjective: حسنة",
+              "note": "أخلاق is a plural of things: أخلاقٌ حسنةٌ."
+            },
+            {
+              "text": "وأخلاقها",
+              "rule": "His morals: أخلاقه",
+              "note": "Your friend's morals: أخلاقُه."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "ازدادتْ صداقتُنا قوّةً: a feminine verb, the masdar in the accusative",
+        "خصوصًا أنّ صديقي مؤدّبٌ: nominative predicate after أنّ",
+        "أخلاق is a plural of things: أخلاقُه حسنةٌ"
+      ]
+    }
+  ]
+}
