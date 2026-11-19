@@ -6,7 +6,7 @@
 const R = 1000;
 const circle = Array.from({ length: 181 }, (_, i) => [R * Math.cos(i * 2 * Math.PI / 180), R * Math.sin(i * 2 * Math.PI / 180)]);
 module.exports = {
-  word: 'مَفْرُوشَات', caption: 'furnishings · a carpet medallion', font: 'amiri-bold', silhouette: circle, viewBox: '-1100 -1100 2200 2200',
+  word: 'مَفْرُوشَات', caption: 'furnishings · a carpet medallion', family: 'dense', font: 'amiri-bold', silhouette: circle, viewBox: '-1100 -1100 2200 2200',
   place: [
     // ── ش, held as written; the alif grows out of its join
     { glyph: 3, subs: [0], type: 'rigid', s: 1.1, from: [1150, 12], to: [-260, -380] },
@@ -27,12 +27,12 @@ module.exports = {
       dst: [[830, 10], [890, -170], [820, -420], [600, -680], [300, -830], [0, -860], [-330, -790], [-600, -630], [-740, -450], [-790, -310], [-770, -210]],
       s0: 1.1, w: 1.6, taper: 0.5, taperPow: 6, headTaper: 0.08 },
     // ── dots and marks, each floated above (or in) its own letter
-    { glyph: 0, subs: [1], type: 'rigid', s: 1.2, to: [-450, -540], rot: -20 }, // ت dots, the empty left of the cradle
-    { glyph: 8, subs: [2], type: 'rigid', s: 1.25, to: [300, 560] },      // ف dot
-    { glyph: 3, subs: [1, 2], type: 'rigid', s: 1.05, to: [540, -250] },  // ش dots, in the open space beside it
-    { glyph: 9, type: 'rigid', s: 1.2, to: [660, 560], rot: 8 },          // fatha on م
-    { glyph: 7, type: 'rigid', s: 1.15, to: [300, 790] },                 // sukun on ف
-    { glyph: 5, type: 'rigid', s: 1.15, to: [-90, 200] },                 // damma on ر, just above its tail
-    { glyph: 2, type: 'rigid', s: 1.2, to: [-100, 640], rot: 16 },        // fatha on ش, top of the column
+    { glyph: 0, subs: [1], role: 'mark', type: 'rigid', s: 1.2, to: [-450, -540], rot: -20 }, // ت dots, the empty left of the cradle
+    { glyph: 8, subs: [2], role: 'mark', type: 'rigid', s: 1.25, to: [300, 560] },      // ف dot
+    { glyph: 3, subs: [1, 2], role: 'mark', type: 'rigid', s: 1.05, to: [540, -250] },  // ش dots, in the open space beside it
+    { glyph: 9, role: 'mark', type: 'rigid', s: 1.2, to: [660, 560], rot: 8 },          // fatha on م
+    { glyph: 7, role: 'mark', type: 'rigid', s: 1.15, to: [300, 790] },                 // sukun on ف
+    { glyph: 5, role: 'mark', type: 'rigid', s: 1.15, to: [-90, 200] },                 // damma on ر, just above its tail
+    { glyph: 2, role: 'mark', type: 'rigid', s: 1.2, to: [-100, 640], rot: 16 },        // fatha on ش, top of the column
   ],
 };
