@@ -14,6 +14,17 @@ const shared: LibraryText[] = [
 ];
 
 describe('LibraryHome', () => {
+  it('has a Vocab readings bar, which says how many readings there are', async () => {
+    const onSelect = vi.fn();
+    const user = userEvent.setup();
+    const { rerender } = render(<LibraryHome onSelect={onSelect} />);
+    expect(screen.getByText('A short reading written around each of your decks')).toBeInTheDocument();
+    rerender(<LibraryHome onSelect={onSelect} vocabCount={3} />);
+    expect(screen.getByText(/3 readings, one per deck/)).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /Vocab readings/ }));
+    expect(onSelect).toHaveBeenCalledWith('vocab');
+  });
+
   it('shows nothing of the reader\'s own when they have saved nothing', () => {
     render(<LibraryHome onSelect={() => {}} />);
     expect(screen.getByText('Scripture')).toBeInTheDocument();

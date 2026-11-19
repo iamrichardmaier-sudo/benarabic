@@ -1,8 +1,8 @@
-import { ChevronRight, Library as LibraryIcon } from 'lucide-react';
+import { ChevronRight, Headphones, Library as LibraryIcon } from 'lucide-react';
 import Illustration from '@/components/Illustration';
 import type { LibraryText } from '@/hooks/useLibraryTexts';
 
-export type LibraryDestination = 'bible' | 'wild';
+export type LibraryDestination = 'bible' | 'wild' | 'vocab';
 
 interface LibraryHomeProps {
   onSelect: (destination: LibraryDestination) => void;
@@ -14,6 +14,8 @@ interface LibraryHomeProps {
   /** Set when the list could not be loaded, so silence is never the answer. */
   textsError?: string | null;
   onOpenText?: (text: LibraryText) => void;
+  /** How many vocab readings there are, shown on their bar. */
+  vocabCount?: number;
 }
 
 const TextGrid = ({
@@ -60,6 +62,7 @@ const LibraryHome = ({
   texts = [],
   textsError,
   onOpenText,
+  vocabCount = 0,
 }: LibraryHomeProps) => {
   const ownTexts = texts.filter((t) => t.isOwn);
   const sharedTexts = texts.filter((t) => !t.isOwn);
@@ -107,6 +110,23 @@ const LibraryHome = ({
           <span className="block font-semibold text-foreground">Articles</span>
           <span className="block text-xs text-muted-foreground truncate">
             Paste a link or your own text, then read it word by word
+          </span>
+        </span>
+        <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />
+      </button>
+      <button
+        onClick={() => onSelect('vocab')}
+        className="w-full flex items-center gap-4 px-3 py-3 text-start border-t border-border transition-colors hover:bg-muted/40"
+      >
+        <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-border/60 bg-background">
+          <Headphones className="h-7 w-7 text-primary" />
+        </span>
+        <span className="min-w-0 flex-1">
+          <span className="block font-semibold text-foreground">Vocab readings</span>
+          <span className="block text-xs text-muted-foreground truncate">
+            {vocabCount > 0
+              ? `${vocabCount} reading${vocabCount === 1 ? '' : 's'}, one per deck · listen and tap any word`
+              : 'A short reading written around each of your decks'}
           </span>
         </span>
         <ChevronRight className="w-4 h-4 text-muted-foreground shrink-0" />

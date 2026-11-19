@@ -6,8 +6,12 @@ import type { NarrationWord } from '@/hooks/useLibraryTexts';
 import { wordAt } from '@/lib/narration';
 
 interface Props {
-  /** The narration's path in the private text-audio bucket. */
+  /**
+   * The narration: a path in the private text-audio bucket, or a full
+   * https address (a recording kept in the public word-audio bucket).
+   */
   path: string;
+  /** When each word is spoken. Empty for a recording with no timings: it plays, but no word lights up. */
   words: NarrationWord[];
   title: string;
   /** The index of the word being spoken, or null between words and when stopped. */
@@ -38,6 +42,11 @@ const TextNarration = ({ path, words, title, onWord }: Props) => {
   onWordRef.current = onWord;
 
   useEffect(() => {
+    // A recording already at a public address needs no signing.
+    if (/^https?:\/\//.test(path)) {
+      setSrc(path);
+      return;
+    }
     let live = true;
     supabase.storage
       .from('text-audio')

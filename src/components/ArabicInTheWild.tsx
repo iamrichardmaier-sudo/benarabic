@@ -312,7 +312,7 @@ const ArabicInTheWild = ({ onBack, entry = null }: ArabicInTheWildProps) => {
         )}
         {saveError && <p className="text-xs text-destructive text-center">{saveError}</p>}
 
-        {entry?.audioPath && entry.audioWords.length > 0 && (
+        {entry?.audioPath && (
           <TextNarration
             path={entry.audioPath}
             words={entry.audioWords}

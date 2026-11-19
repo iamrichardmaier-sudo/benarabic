@@ -292,6 +292,21 @@ describe('a narrated entry', () => {
     expect(await screen.findByRole('button', { name: 'Play narration' })).toBeEnabled();
   });
 
+  it('plays a recording kept at a public address, with no word timings', async () => {
+    lookupMock.mockReturnValue(null);
+    render(
+      <ArabicInTheWild
+        onBack={() => {}}
+        entry={entry({
+          audioPath: 'https://example.com/storage/v1/object/public/word-audio/reading.mp3',
+          audioWords: [],
+        })}
+      />,
+    );
+    // No signing step for a public address, so the button is ready at once.
+    expect(await screen.findByRole('button', { name: 'Play narration' })).toBeEnabled();
+  });
+
   it('shows no player for a text without a narration', () => {
     lookupMock.mockReturnValue(null);
     render(<ArabicInTheWild onBack={() => {}} entry={entry()} />);
