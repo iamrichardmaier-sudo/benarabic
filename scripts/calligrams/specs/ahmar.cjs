@@ -8,7 +8,7 @@ const TIP = [640, 1800];
 const flame = K.spline([[600, -300], [1010, -150], [1215, 260], [1170, 760], [960, 1240], TIP, [430, 1260], [80, 820], [-20, 300], [130, -140], [600, -300]], 30).pts;
 const body = { type: 'rigid', s: 1.3, rot: 16, from: [305, 100], to: [320, 140] };
 module.exports = {
-  word: 'أَحْمَر', caption: 'red · a flame', font: 'amiri-bold', silhouette: flame, viewBox: '-300 -2000 1800 2450',
+  word: 'أَحْمَر', caption: 'red · a flame', family: 'dense', font: 'amiri-bold', silhouette: flame, viewBox: '-300 -2000 1800 2450',
   place: [
     // ── ح and م, held as written and tilted so the word climbs toward the alif
     { glyph: 4, ...body },
@@ -22,9 +22,9 @@ module.exports = {
       dst: [[640, -250], [950, -175], [1145, 80], [1200, 480], [1160, 900], [1010, 1330], TIP],
       s0: 2.2, w: 2.2, taper: 0.72, taperPow: 1.4, headTaper: 0.22, qmin: 0.6 },
     // ── the hamza and the marks, floated into the gaps, each above its own letter
-    { glyph: 6, subs: [1], type: 'rigid', s: 1.65, rot: -10, to: [660, 1060] }, // hamza
-    { glyph: 3, type: 'rigid', s: 1.05, to: [245, 880] },                       // sukun on ح
-    { glyph: 1, type: 'rigid', s: 1.15, rot: 24, to: [275, 600] },              // fatha on م
-    { glyph: 5, type: 'rigid', s: 1.15, rot: 32, to: [660, 1430] },             // fatha on ا
+    { glyph: 6, subs: [1], role: 'mark', type: 'rigid', s: 1.65, rot: -10, to: [660, 1060] }, // hamza
+    { glyph: 3, role: 'mark', type: 'rigid', s: 1.05, to: [245, 880] },                       // sukun on ح
+    { glyph: 1, role: 'mark', type: 'rigid', s: 1.15, rot: 24, to: [275, 600] },              // fatha on م
+    { glyph: 5, role: 'mark', type: 'rigid', s: 1.15, rot: 32, to: [660, 1430] },             // fatha on ا
   ],
 };

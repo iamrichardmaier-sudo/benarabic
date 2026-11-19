@@ -5,9 +5,12 @@ description: Compose an Arabic word as a calligraphic emblem (a calligram), in t
 
 # Arabic calligrams, letter by letter
 
-This is a skill still being learned. Two words are done (see **Word studies**);
-the goal is emblems good enough to put on every flashcard. Read this whole
-file before composing, and add what you learn to it when you finish.
+This is a skill still being learned. Three studies are done (see **Word
+studies**); the goal is emblems good enough to put on every flashcard. Read
+this whole file before composing, and add what you learn to it when you
+finish. The full training handbook — the judge's verdicts, the failure
+catalogue, a graded curriculum, a scoring rubric and the hand-over protocol,
+written for any model to continue from — is `scripts/calligrams/TRAINING.md`.
 
 ## Why it works this way
 
@@ -70,6 +73,8 @@ scripts/calligrams/setup.sh                       # once: shaper + fonts into .c
 node scripts/calligrams/map.cjs 'مَفْرُوشَات'      # glyph map -> out/map.png (+ indices, bboxes)
 node scripts/calligrams/render.cjs specs/x.cjs    # guides + gilded result -> out/x.png; ink of the
                                                   #   silhouette, of the whole extent, and of the knot
+node scripts/calligrams/critique.cjs specs/x.cjs # the automatic critic: density vs the family's
+                                                  #   targets, marks touching letters, frame, card sizes
 node scripts/calligrams/closeup.cjs specs/x.cjs "x y w h"     # one region, full size -> out/closeup.png
 node scripts/calligrams/zoom-glyph.cjs 'أَحْمَر' 4 250 0 1100 500  # one glyph on a grid -> out/zoom.png
 node scripts/calligrams/animate.cjs specs/a.cjs specs/b.cjs   # animated gallery -> out/gallery.html
@@ -80,7 +85,10 @@ harakat exist as glyphs), the font, the silhouette, a viewBox, and one
 placement per piece. Work in font units, y up. Two optional guides: `movement`
 (points of the line of movement, drawn first as a dashed orange line — every
 long stroke should ride it) and `knot` (a box `[x0, y0, x1, y1]` round the
-knot and its marks, whose density `render.cjs` reports).
+knot and its marks, whose density `render.cjs` reports). Give the spec a
+`family` ('dense' | 'flowing') and mark every dot and haraka placement
+`role: 'mark'`, so `critique.cjs` judges it against the right targets and
+checks that each mark floats clear of the letters.
 
 ```js
 { glyph: 3, subs: [0], type: 'rigid', s: 1.1, rot: 16, from: [x, y], to: [x, y] }
@@ -100,8 +108,8 @@ its own sub-shape and must move with its body; dots are separate sub-shapes and
 can float. Stroke width follows a broad nib (`qalam()`): thick across the nib,
 thin along it.
 
-**The loop:** map → write a spec → render → look hard at both panels and the
-coverage number, and at a `closeup.cjs` of the knot (marks touching letters
+**The loop:** map → write a spec → render → `critique.cjs` → look hard at both
+panels, and at a `closeup.cjs` of the knot (marks touching letters
 and wrong-letter readings only show at full size) → change one or two things
 → render again. Each word took six
 or seven passes. Keep the white panel's guides honest: the red lines are the

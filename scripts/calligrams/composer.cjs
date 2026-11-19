@@ -36,17 +36,20 @@ function makeTransform(t, subs) {
   throw new Error('unknown transform ' + t.type);
 }
 
-/** spec.place: [{ glyph, subs?: [indices], ...transform }]; returns the composed path. */
-async function compose(spec) {
+/** Each placement with the polygons it produced, in spec order (for critique.cjs). */
+async function composeParts(spec) {
   const glyphs = await pieces(spec.word, spec.font);
-  const out = [];
-  for (const p of spec.place) {
+  return spec.place.map((p) => {
     const all = glyphs[p.glyph];
     const subs = p.subs ? p.subs.map((i) => all[i]) : all;
     const f = makeTransform(p, subs);
-    for (const sp of subs) out.push(sp.map(f));
-  }
-  return out;
+    return { place: p, polys: subs.map((sp) => sp.map(f)) };
+  });
+}
+
+/** spec.place: [{ glyph, subs?: [indices], ...transform }]; returns the composed path. */
+async function compose(spec) {
+  return (await composeParts(spec)).flatMap((part) => part.polys);
 }
 const toD = (polys) => polys.map((sp) => 'M' + sp.map(([x, y]) => `${x.toFixed(1)} ${(-y).toFixed(1)}`).join('L') + 'Z').join('');
-module.exports = { compose, toD, pieces, K };
+module.exports = { compose, composeParts, toD, pieces, K };

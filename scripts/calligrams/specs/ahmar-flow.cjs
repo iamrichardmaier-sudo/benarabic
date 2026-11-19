@@ -11,7 +11,7 @@ const K = [500, 500];           // where the knot sits: the ح/م join
 const KS = 1.4;                 // the knot's scale
 const at = ([x, y]) => [K[0] + (x - 480) * KS, K[1] + (y - 215) * KS]; // word → composition, for the knot
 module.exports = {
-  word: 'أَحْمَر', caption: 'red · a flame, flowing', font: 'amiri-bold', viewBox: '-110 -2290 1575 3150',
+  word: 'أَحْمَر', caption: 'red · a flame, flowing', family: 'flowing', font: 'amiri-bold', viewBox: '-110 -2290 1575 3150',
   // the line of movement: the crest's tip, down through the knot, down the swash and back along the base
   movement: [[960, 2060], [1230, 1450], [1150, 900], [700, 520], [250, 300], [60, -200], [150, -560], [450, -700], [800, -500]],
   // the knot with its marks, for its density (flowing family: aim ~30–35%)
@@ -34,9 +34,9 @@ module.exports = {
       s0: KS, w: 1.65, swellAt: 0.45, taper: 0.92, taperPow: 2, qmin: 0.5 },
     // ── the marks, each over its own letter: hamza and fatha by the alif's tip,
     //    sukun and fatha just above the knot — small, at one angle
-    { glyph: 6, subs: [1], type: 'rigid', s: 0.9, rot: -8, to: [800, 1920] },  // hamza on ا
-    { glyph: 5, type: 'rigid', s: 0.85, rot: 10, to: [850, 2080] },            // fatha on أ
-    { glyph: 3, type: 'rigid', s: 0.8, to: [770, 860] },                       // sukun on ح
-    { glyph: 1, type: 'rigid', s: 0.85, rot: 10, to: [380, 800] },             // fatha on م
+    { glyph: 6, subs: [1], role: 'mark', type: 'rigid', s: 0.9, rot: -8, to: [800, 1920] },  // hamza on ا
+    { glyph: 5, role: 'mark', type: 'rigid', s: 0.85, rot: 10, to: [850, 2080] },            // fatha on أ
+    { glyph: 3, role: 'mark', type: 'rigid', s: 0.8, to: [770, 860] },                       // sukun on ح
+    { glyph: 1, role: 'mark', type: 'rigid', s: 0.85, rot: 10, to: [380, 800] },             // fatha on م
   ],
 };
