@@ -53,22 +53,40 @@ function normWord(w: string, keepHamza: boolean): string {
 /** The words of a text as written, and as compared. */
 function words(text: string, keepHamza = false): { raw: string[]; norm: string[] } {
   // A stray vowel mark or tatweel on its own is not a word.
-  const raw = text.replace(PUNCTUATION, ' ').split(/\s+/).filter((w) => normWord(w, keepHamza) !== '');
+  const split = text.replace(PUNCTUATION, ' ').split(/\s+/).filter((w) => normWord(w, keepHamza) !== '');
+  // و and ف are written joined to the next word; typed or dictated apart
+  // ("و اغلى"), they are joined back so the words still line up.
+  const raw: string[] = [];
+  for (let i = 0; i < split.length; i++) {
+    const conj = normWord(split[i], keepHamza);
+    if ((conj === 'و' || conj === 'ف') && i + 1 < split.length) {
+      raw.push(`${split[i]}${split[i + 1]}`);
+      i++;
+    } else {
+      raw.push(split[i]);
+    }
+  }
   return { raw, norm: raw.map((w) => normWord(w, keepHamza)) };
 }
 
+/** The word without a joined و or ف in front, when it has one. */
+const bare = (w: string) => ((w[0] === 'و' || w[0] === 'ف') && w.length > 2 ? w.slice(1) : null);
+
+/** Two first words match if they are equal, or equal once a joined و / ف is dropped from either. */
+const firstWordsMatch = (a: string, b: string) =>
+  a === b || bare(a) === b || bare(b) === a || (bare(a) !== null && bare(a) === bare(b));
+
 /**
  * Where `form` appears in `text` as whole words, as the words of `text` it
- * covers, or null. The first word may carry a joined و or ف.
+ * covers, or null. A joined و or ف on the first word is optional on either
+ * side: "وأغلى من" matches "أغلى من" and the other way round.
  */
 export function findForm(text: string, form: string, keepHamza = false): string | null {
   const t = words(text, keepHamza);
   const f = words(form, keepHamza).norm;
   if (f.length === 0) return null;
   for (let i = 0; i + f.length <= t.norm.length; i++) {
-    const first = t.norm[i];
-    const firstOk = first === f[0] || ((first[0] === 'و' || first[0] === 'ف') && first.slice(1) === f[0]);
-    if (firstOk && f.every((w, k) => k === 0 || t.norm[i + k] === w)) {
+    if (firstWordsMatch(t.norm[i], f[0]) && f.every((w, k) => k === 0 || t.norm[i + k] === w)) {
       return t.raw.slice(i, i + f.length).join(' ');
     }
   }
@@ -111,7 +129,11 @@ export function checkChunks(key: AnswerKey, attempt: string): ChunkResult[] {
       .filter((m) => !outranksAccept(chunk, m))
       .map((m) => ({ mistake: m, found: findForm(attempt, m.text) }))
       .filter((x): x is { mistake: KeyMistake; found: string } => x.found !== null);
-    const all = [...strict, ...loose];
+    // One slip can match a short and a long mistake (لأنهم and لأنهم كانوا):
+    // report only the longer, more specific one.
+    const found = [...strict, ...loose];
+    const all = found.filter((x) => !found.some((y) =>
+      y !== x && y.found.length > x.found.length && findForm(y.found, x.found) !== null));
     const errors = all.filter((x) => x.mistake.status !== 'alternative');
     if (errors.length > 0) return { chunk, status: 'mistake', found: errors[0].found, mistakes: errors };
     if (all.length > 0) return { chunk, status: 'alternative', found: all[0].found, mistakes: all };
@@ -185,6 +207,7 @@ export function gradeWithKey(key: AnswerKey, references: string[], attempt: stri
 
   const errors = notes.filter((n) => n.status === 'fix').length;
   const unchecked = notes.filter((n) => n.status === 'unknown').length;
+  const mostlyUnchecked = unchecked * 2 > results.length;
   const verdict = exact ? 'correct'
     : errors >= 2 ? 'errors'
       : errors === 1 ? 'minor'
@@ -196,7 +219,9 @@ export function gradeWithKey(key: AnswerKey, references: string[], attempt: stri
       ? 'Every part matches a correct translation.'
       : errors > 0
         ? `${plural(errors, 'thing', 'things')} to fix below${unchecked > 0 ? `, and ${plural(unchecked, 'part', 'parts')} the key couldn’t check` : ''}.`
-        : `No mistakes found, but ${plural(unchecked, 'part', 'parts')} didn’t match the answer key. Compare ${unchecked === 1 ? 'it' : 'them'} with the correct versions below.`;
+        : mostlyUnchecked
+          ? `Most of this didn’t match the answer key, so it couldn’t be checked. That doesn’t mean it’s right. Compare each part with the correct versions below, and check the text matches what you wrote.`
+          : `Nothing wrong in the parts the key recognised, but ${plural(unchecked, 'part', 'parts')} didn’t match it. Compare ${unchecked === 1 ? 'it' : 'them'} with the correct versions below.`;
 
   return {
     verdict,

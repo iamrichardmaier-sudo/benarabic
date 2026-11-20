@@ -3,6 +3,8 @@ import { lookupKey } from '@/lib/bible-words';
 import BibleWordPopover from '@/components/BibleWordPopover';
 import UntaggedWordPopover from '@/components/UntaggedWordPopover';
 import type { BibleWordTag } from '@/hooks/useBibleWordTags';
+import { useReaderIndex } from '@/contexts/ReaderStatusContext';
+import { statusOf } from '@/lib/reader-status';
 
 interface ArabicWithTagsProps {
   text: string;
@@ -15,15 +17,21 @@ interface ArabicWithTagsProps {
  * — the same response Arabic in the Wild gives a word it has no data for,
  * rather than going silent on a tap the way this reader used to.
  */
-const ArabicWithTags = ({ text, tags }: ArabicWithTagsProps) => (
+const ArabicWithTags = ({ text, tags }: ArabicWithTagsProps) => {
+  const index = useReaderIndex();
+  return (
   <>
     {tokenize(text).map((token, i) => {
       if (!token.isWord) return <span key={i}>{token.text}</span>;
       const tag = tags.get(lookupKey(token.text));
-      if (!tag) return <UntaggedWordPopover key={i} text={token.text} />;
-      return <BibleWordPopover key={i} text={token.text} tag={tag} />;
+      const status = index
+        ? statusOf(index, { surface: token.text, lemma: tag?.lemma, root: tag?.root, pos: tag?.pos })
+        : undefined;
+      if (!tag) return <UntaggedWordPopover key={i} text={token.text} status={status} />;
+      return <BibleWordPopover key={i} text={token.text} tag={tag} status={status} />;
     })}
   </>
-);
+  );
+};
 
 export default ArabicWithTags;

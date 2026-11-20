@@ -7,6 +7,7 @@ describe('library paths', () => {
     { kind: 'chapters', bookCode: 'John' }, { kind: 'reader', bookCode: 'John', chapter: 3 },
     { kind: 'bomBooks' }, { kind: 'bomChapters', bookCode: '1Ne' }, { kind: 'bomReader', bookCode: '1Ne', chapter: 2 },
     { kind: 'articles' }, { kind: 'saved', textId: 'abc-123' },
+    { kind: 'vocab' }, { kind: 'vocabReading', textId: 'def-456' },
   ];
 
   it('round-trips every place', () => {

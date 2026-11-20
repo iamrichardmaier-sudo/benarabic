@@ -20,7 +20,7 @@ export interface FlashCard {
   word: string;
   english: string | null;
   imageUrl: string | null;
-  /** Key of the little animated scene shown with the meaning (see ./card-scenes). */
+  /** Key of the animated scene cards once showed (assign-scenes still fills it); not displayed. */
   scene?: string | null;
   nextReviewDate: string;
   intervalDays: number;

@@ -1,49 +1,30 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import { Volume2 } from 'lucide-react';
+import { playSpeech, type SpeechVoice } from '@/lib/speech';
 
 interface SpeakButtonProps {
   word: string;
   size?: number;
   className?: string;
   autoSpeak?: boolean;
+  /** Which voice reads it: the Fusha narrator unless the text is Shaami. */
+  voice?: SpeechVoice;
 }
 
-let cachedVoice: SpeechSynthesisVoice | null = null;
-
-function getArabicVoice(): SpeechSynthesisVoice | null {
-  if (cachedVoice) return cachedVoice;
-  const voices = window.speechSynthesis.getVoices();
-  const exact = voices.find(v => v.lang === 'ar-SA');
-  const fallback = voices.find(v => v.lang.startsWith('ar'));
-  cachedVoice = exact || fallback || null;
-  return cachedVoice;
+/** Say an Arabic word or line. See lib/speech for where the voice comes from. */
+export function speakArabic(word: string, voice: SpeechVoice = 'ar'): Promise<void> {
+  return playSpeech(word, { voice });
 }
 
-export function speakArabic(word: string) {
-  if (!window.speechSynthesis) return;
-  window.speechSynthesis.cancel();
-  const utterance = new SpeechSynthesisUtterance(word);
-  utterance.lang = 'ar-SA';
-  utterance.rate = 0.8;
-  const voice = getArabicVoice();
-  if (voice) utterance.voice = voice;
-  window.speechSynthesis.speak(utterance);
-  return utterance;
-}
-
-const SpeakButton = ({ word, size = 18, className = '', autoSpeak = false }: SpeakButtonProps) => {
+const SpeakButton = ({ word, size = 18, className = '', autoSpeak = false, voice = 'ar' }: SpeakButtonProps) => {
   const [speaking, setSpeaking] = useState(false);
   const hasAutoSpoken = useRef(false);
 
   const speak = useCallback((e?: React.MouseEvent) => {
     e?.stopPropagation();
-    if (!window.speechSynthesis) return;
-    const utterance = speakArabic(word);
-    if (!utterance) return;
     setSpeaking(true);
-    utterance.onend = () => setSpeaking(false);
-    utterance.onerror = () => setSpeaking(false);
-  }, [word]);
+    speakArabic(word, voice).finally(() => setSpeaking(false));
+  }, [word, voice]);
 
   useEffect(() => {
     if (autoSpeak && !hasAutoSpoken.current) {

@@ -14,7 +14,7 @@ import { hasVerbTable } from '@/lib/verb-entries';
 import { hasWordDetail } from '@/lib/word-relations';
 import { pickDistractors, optionLabel } from '@/lib/distractors';
 import Illustration from '@/components/Illustration';
-import CardScene from '@/components/CardScene';
+import CardArt from '@/components/CardArt';
 
 interface LearningModeProps {
   cards: FlashCard[];
@@ -324,7 +324,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn, header, p
                   {card.word}
                 </p>
               </WordInfoPopover>
-              <SpeakButton word={card.word} size={22} autoSpeak />
+              <SpeakButton word={card.wordVoweled || card.word} size={22} autoSpeak />
             </div>
             <WordForms card={card} />
           </div>
@@ -337,7 +337,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn, header, p
         {card.imageUrl ? (
           <img src={card.imageUrl} alt={card.english || card.word} className="max-w-[400px] w-full rounded-xl object-cover aspect-video" />
         ) : card.english && (
-          <CardScene card={card} size="md" />
+          <CardArt card={card} size="md" />
         )}
         {card.english && (
           <p className={card.imageUrl ? "text-2xl text-foreground" : "text-[48px] font-bold text-foreground"}>
@@ -485,7 +485,7 @@ const LearningMode = ({ cards, allCards, onUpdateCard, onBack, onEarn, header, p
                 <p className="text-lg text-foreground font-arabic" dir="rtl">
                   {currentCard.word}
                 </p>
-                <SpeakButton word={currentCard.word} size={16} autoSpeak />
+                <SpeakButton word={currentCard.wordVoweled || currentCard.word} size={16} autoSpeak />
               </div>
             </div>
           </div>

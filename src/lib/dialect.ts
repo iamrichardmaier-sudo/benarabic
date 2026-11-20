@@ -24,6 +24,8 @@ export interface DialectView {
   extraForms: { label: string; value: string }[];
   /** False when this card has no Shaami of its own and is showing Fusha. */
   isDialectForm: boolean;
+  /** The voice that should read `spoken`: a Syrian one for a Shaami form. */
+  voice: 'ar' | 'ar-shami';
 }
 
 /** True when the card records a Shaami form distinct from its Fusha. */
@@ -50,10 +52,11 @@ export function dialectView(card: FlashCard, dialect: Dialect): DialectView {
       spoken: shaami,
       extraForms: duplicatesPast ? [] : [{ label: 'Fusha', value: fusha }],
       isDialectForm: true,
+      voice: 'ar-shami',
     };
   }
 
-  return { headline: fusha, spoken: fusha, extraForms: [], isDialectForm: false };
+  return { headline: fusha, spoken: fusha, extraForms: [], isDialectForm: false, voice: 'ar' };
 }
 
 /**

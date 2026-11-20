@@ -1,3 +1,4 @@
+import Say from '@/components/Say';
 import { useEffect, useMemo, useState } from 'react';
 import { ExternalLink, Loader2 } from 'lucide-react';
 import SpeakButton from '@/components/SpeakButton';
@@ -98,7 +99,7 @@ const DictionaryEntryView = ({ hit, byId, deckKeys, onAdd, onOpen, onOpenRoot, a
     return h ? (
       <button key={w} type="button" onClick={() => onOpen(h)} className="font-card text-primary underline-offset-4 hover:underline" dir="rtl" lang="ar">{w}</button>
     ) : (
-      <span key={w} className="font-card" dir="rtl" lang="ar">{w}</span>
+      <Say key={w} text={w} className="font-card"><span dir="rtl" lang="ar">{w}</span></Say>
     );
   };
 
@@ -177,7 +178,7 @@ const DictionaryEntryView = ({ hit, byId, deckKeys, onAdd, onOpen, onOpenRoot, a
                     </p>
                     {s.ex.slice(0, 2).map((x, j) => (
                       <figure key={j} className="rounded-xl bg-background px-4 py-3">
-                        {x.ar && <p className="font-card text-xl leading-loose text-foreground" dir="rtl" lang="ar">{x.ar}</p>}
+                        {x.ar && <p className="font-card text-xl leading-loose text-foreground" dir="rtl" lang="ar"><Say icon>{x.ar}</Say></p>}
                         {x.en && <p className="text-sm text-muted-foreground">{x.en}</p>}
                         {x.ref && <figcaption className="mt-1 text-[11px] text-muted-foreground/80">{x.ref.replace(/:$/, '')}</figcaption>}
                       </figure>
@@ -254,7 +255,7 @@ function Conjugation({ conj }: { conj: Record<string, Record<string, string[]>> 
           <div key={k} className="flex items-center gap-3 px-5 py-2.5">
             <span className="w-28 shrink-0 text-xs text-muted-foreground">{en}</span>
             <span className="font-arabic text-sm text-muted-foreground" dir="rtl">{ar}</span>
-            <span className="flex-1 text-end font-card text-xl leading-relaxed text-foreground" dir="rtl" lang="ar">{table[k].join(' / ')}</span>
+            <span className="flex-1 text-end font-card text-xl leading-relaxed text-foreground" dir="rtl" lang="ar">{table[k].map((form, n) => (<span key={form}>{n > 0 && ' / '}<Say>{form}</Say></span>))}</span>
           </div>
         ))}
       </div>

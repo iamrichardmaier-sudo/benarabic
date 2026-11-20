@@ -5,15 +5,26 @@ import LibraryHome from './LibraryHome';
 import type { LibraryText } from '@/hooks/useLibraryTexts';
 
 const saved: LibraryText[] = [
-  { id: 'a', title: 'نص محفوظ', body: 'كلمات', english: '', coverUrl: 'data:image/jpeg;base64,xxx', updatedAt: '2026-09-15', wordTags: {}, isOwn: true },
-  { id: 'b', title: 'بدون غلاف', body: 'كلمات', english: '', coverUrl: null, updatedAt: '2026-09-14', wordTags: {}, isOwn: true },
+  { id: 'a', title: 'نص محفوظ', body: 'كلمات', english: '', coverUrl: 'data:image/jpeg;base64,xxx', updatedAt: '2026-09-15', wordTags: {}, isOwn: true, audioPath: null, audioWords: [] },
+  { id: 'b', title: 'بدون غلاف', body: 'كلمات', english: '', coverUrl: null, updatedAt: '2026-09-14', wordTags: {}, isOwn: true, audioPath: null, audioWords: [] },
 ];
 
 const shared: LibraryText[] = [
-  { id: 'c', title: 'مقال عام', body: 'كلمات', english: '', coverUrl: null, updatedAt: '2026-09-16', wordTags: {}, isOwn: false },
+  { id: 'c', title: 'مقال عام', body: 'كلمات', english: '', coverUrl: null, updatedAt: '2026-09-16', wordTags: {}, isOwn: false, audioPath: null, audioWords: [] },
 ];
 
 describe('LibraryHome', () => {
+  it('has a Vocab readings bar, which says how many readings there are', async () => {
+    const onSelect = vi.fn();
+    const user = userEvent.setup();
+    const { rerender } = render(<LibraryHome onSelect={onSelect} />);
+    expect(screen.getByText('A short reading written around each of your decks')).toBeInTheDocument();
+    rerender(<LibraryHome onSelect={onSelect} vocabCount={3} />);
+    expect(screen.getByText(/3 readings, one per deck/)).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /Vocab readings/ }));
+    expect(onSelect).toHaveBeenCalledWith('vocab');
+  });
+
   it('shows nothing of the reader\'s own when they have saved nothing', () => {
     render(<LibraryHome onSelect={() => {}} />);
     expect(screen.getByText('Scripture')).toBeInTheDocument();

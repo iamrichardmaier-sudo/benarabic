@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useCallback, useRef } from 'react';
-import { ChevronRight, BookOpen } from 'lucide-react';
+import { ChevronRight, BookOpen, Headphones } from 'lucide-react';
 import { useBibleBooks } from '@/hooks/useBibleBooks';
 import LibraryHome, { type LibraryDestination } from '@/components/LibraryHome';
 import BackButton from '@/components/BackButton';
@@ -22,6 +22,9 @@ type Level =
   | { kind: 'home' }
   // One of the reader's own saved texts, opened straight into reading.
   | { kind: 'saved'; text: LibraryText }
+  // Vocab readings: one short reading per deck, written around its words.
+  | { kind: 'vocab' }
+  | { kind: 'vocabReading'; text: LibraryText }
   | { kind: 'sections' }
   | { kind: 'books'; testament: Testament }
   | { kind: 'chapters'; bookCode: string }
@@ -66,7 +69,9 @@ interface LibraryProps {
 }
 
 function placeOf(level: Level): LibraryPlace {
-  return level.kind === 'saved' ? { kind: 'saved', textId: level.text.id } : level;
+  if (level.kind === 'saved') return { kind: 'saved', textId: level.text.id };
+  if (level.kind === 'vocabReading') return { kind: 'vocabReading', textId: level.text.id };
+  return level;
 }
 
 /**
@@ -81,6 +86,7 @@ const Library = ({ resetToken = 0, resumeToken = 0, path, onPathChange }: Librar
   const { books, loading, error } = useBibleBooks();
   const [level, setLevel] = useState<Level>({ kind: 'home' });
   const { texts, loading: textsLoading, error: libraryError } = useLibraryTexts({ showsErrorItself: true });
+  const { texts: vocabTexts, loading: vocabLoading } = useLibraryTexts({ showsErrorItself: true, kind: 'vocab_reading' });
   const currentPath = libraryPathFor(placeOf(level));
   // Until an incoming address has been applied, the front page on screen is
   // a placeholder, not a move to report: reporting it would overwrite a deep
@@ -140,12 +146,18 @@ const Library = ({ resetToken = 0, resumeToken = 0, path, onPathChange }: Librar
         else if (!textsLoading) go({ kind: 'articles' }); // deleted, or not this account's
         return;
       }
+      case 'vocabReading': {
+        const text = vocabTexts.find((t) => t.id === place.textId);
+        if (text) go({ kind: 'vocabReading', text });
+        else if (!vocabLoading) go({ kind: 'vocab' }); // deleted, or not this account's
+        return;
+      }
       default:
         return go(place);
     }
     // currentPath is read, not reacted to: only an outside change should move us.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [path, books, texts, textsLoading]);
+  }, [path, books, texts, textsLoading, vocabTexts, vocabLoading]);
 
   // Tapping the already-active Library tab returns to the root.
   useEffect(() => {
@@ -464,9 +476,62 @@ const Library = ({ resetToken = 0, resumeToken = 0, path, onPathChange }: Librar
     );
   }
 
+  // -------------------------------------------------------- vocab readings
+  if (level.kind === 'vocab') {
+    return (
+      <div className="space-y-5">
+        <BackButton onClick={() => setLevel({ kind: 'home' })} label="Library" />
+        <div className="space-y-1">
+          <h1 className="text-2xl font-bold text-foreground">Vocab readings</h1>
+          <p className="text-sm text-muted-foreground">
+            A reading written around each deck's words. Listen along, and tap any word for its root,
+            form and meaning.
+          </p>
+        </div>
+        {vocabTexts.length === 0 ? (
+          <p className="rounded-2xl border border-border bg-card px-4 py-6 text-center text-sm text-muted-foreground">
+            {vocabLoading ? 'Loading your readings…' : 'No readings yet.'}
+          </p>
+        ) : (
+          <div className="overflow-hidden rounded-2xl border border-border bg-card">
+            {vocabTexts.map((text, i) => (
+              <button
+                key={text.id}
+                onClick={() => setLevel({ kind: 'vocabReading', text })}
+                className={`flex w-full items-center gap-3 px-4 py-4 text-start transition-colors hover:bg-muted/40 ${i > 0 ? 'border-t border-border' : ''}`}
+              >
+                <Headphones className="h-5 w-5 shrink-0 text-primary" />
+                <span className="min-w-0 flex-1">
+                  <span className="block truncate font-semibold text-foreground">{text.title}</span>
+                  <span className="block text-xs text-muted-foreground">
+                    {text.audioPath ? 'Read and listen' : 'Read'}
+                    {' · '}
+                    {Object.keys(text.wordTags).length} words tagged
+                  </span>
+                </span>
+                <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground" />
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // ---------------------------------------------------- one vocab reading
+  if (level.kind === 'vocabReading') {
+    return (
+      <ArabicInTheWild
+        key={level.text.id}
+        entry={level.text}
+        onBack={() => setLevel({ kind: 'vocab' })}
+      />
+    );
+  }
+
   // ----------------------------------------------------------------- home
   const openDestination = (d: LibraryDestination) =>
-    setLevel(d === 'bible' ? { kind: 'sections' } : { kind: 'articles' });
+    setLevel(d === 'bible' ? { kind: 'sections' } : d === 'vocab' ? { kind: 'vocab' } : { kind: 'articles' });
 
   return (
     <LibraryHome
@@ -476,6 +541,7 @@ const Library = ({ resetToken = 0, resumeToken = 0, path, onPathChange }: Librar
       texts={texts}
       textsError={libraryError}
       onOpenText={(text) => setLevel({ kind: 'saved', text })}
+      vocabCount={vocabTexts.length}
     />
   );
 };

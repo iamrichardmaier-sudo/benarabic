@@ -1,3 +1,4 @@
+import Say from '@/components/Say';
 import { useEffect, useState } from 'react';
 import { ChevronUp, Loader2, Table2 } from 'lucide-react';
 import type { FlashCard } from '@/lib/spaced-repetition';
@@ -97,12 +98,12 @@ const VerbTableView = ({ table, showHead }: { table: VerbTable; showHead: boolea
   const duals = TABLE_ORDER.filter((id) => DUAL.has(id));
   const row = (id: (typeof TABLE_ORDER)[number]) => (
     <tr key={id} className="border-t border-border/60">
-      <td className="py-1 px-1 text-center font-card text-lg text-foreground" dir="rtl">{table.pastChart[id]}</td>
+      <td className="py-1 px-1 text-center font-card text-lg text-foreground" dir="rtl"><Say>{table.pastChart[id]}</Say></td>
       <td className="py-1 px-1 text-center font-card text-sm text-muted-foreground whitespace-nowrap" dir="rtl">
         {PRONOUN[id]}{id === 'huma_m' ? ' (m)' : id === 'huma_f' ? ' (f)' : ''}
       </td>
       <td className="py-1 px-1 text-center font-card text-lg text-foreground" dir="rtl">
-        {table.presentChart ? table.presentChart[id] : '—'}
+        {table.presentChart ? <Say>{table.presentChart[id]}</Say> : '—'}
       </td>
     </tr>
   );
@@ -111,14 +112,14 @@ const VerbTableView = ({ table, showHead }: { table: VerbTable; showHead: boolea
     <section className="rounded-xl border border-border/70 bg-background/60 p-3" dir="ltr">
       {showHead && (
         <p className="mb-1 text-center text-xs text-muted-foreground">
-          <span className="font-card text-base text-foreground" dir="rtl">{table.past}</span>
-          {table.present && <> · <span className="font-card text-base text-foreground" dir="rtl">{table.present}</span></>}
+          <Say text={table.past} className="font-card text-base text-foreground"><span dir="rtl">{table.past}</span></Say>
+          {table.present && <> · <Say text={table.present} className="font-card text-base text-foreground"><span dir="rtl">{table.present}</span></Say></>}
           {table.english && <> · {table.english}</>}
         </p>
       )}
       <div className={`border-b border-border/60 pb-2 text-center ${table.highlight === 'masdar' ? 'rounded-lg bg-primary/10' : ''}`}>
         <p className="text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">Masdar</p>
-        <p className="font-card text-2xl text-foreground" dir="rtl">{table.masdar ?? '—'}</p>
+        <p className="font-card text-2xl text-foreground" dir="rtl"><Say text={table.masdar} icon>{table.masdar ?? '—'}</Say></p>
       </div>
       <table className="mt-1 w-full table-fixed border-collapse">
         <thead>
@@ -143,9 +144,9 @@ const VerbTableView = ({ table, showHead }: { table: VerbTable; showHead: boolea
             <tbody>
               {SHAAMI_ORDER.map((id) => (
                 <tr key={id} className="border-t border-border/60">
-                  <td className="w-[42%] py-1 px-1 text-center font-card text-lg text-foreground" dir="rtl">{table.shaami?.past[id] ?? '—'}</td>
+                  <td className="w-[42%] py-1 px-1 text-center font-card text-lg text-foreground" dir="rtl"><Say text={table.shaami?.past[id]} voice="ar-shami">{table.shaami?.past[id] ?? '—'}</Say></td>
                   <td className="w-[16%] py-1 px-1 text-center font-card text-sm text-muted-foreground whitespace-nowrap" dir="rtl">{SHAAMI_PRONOUN[id]}</td>
-                  <td className="w-[42%] py-1 px-1 text-center font-card text-lg text-foreground" dir="rtl">{table.shaami?.present[id] ?? '—'}</td>
+                  <td className="w-[42%] py-1 px-1 text-center font-card text-lg text-foreground" dir="rtl"><Say text={table.shaami?.present[id]} voice="ar-shami">{table.shaami?.present[id] ?? '—'}</Say></td>
                 </tr>
               ))}
             </tbody>
@@ -170,7 +171,7 @@ const ParticipleRow = ({ label, p, marked }: { label: string; p: Participle; mar
   <div className={`flex items-baseline justify-between gap-3 rounded-lg px-1 ${marked ? 'bg-primary/10' : ''}`}>
     <span className="shrink-0 text-xs text-muted-foreground">{label}</span>
     <span className="min-w-0 text-end">
-      {p.ar && <span className="font-card text-xl text-foreground" dir="rtl">{p.ar}</span>}{' '}
+      {p.ar && <Say text={p.ar} className="font-card text-xl text-foreground"><span dir="rtl">{p.ar}</span></Say>}{' '}
       <span className={`text-xs ${p.exists ? 'text-muted-foreground' : 'text-warning'}`}>{participleNote(p)}</span>
     </span>
   </div>

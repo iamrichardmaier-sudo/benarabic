@@ -1,10 +1,11 @@
+import Say from '@/components/Say';
 import type { Explanation } from '@/lib/verb-forms/quiz';
 
 /** The learner's reason to trust the answer: root, form, the clue, the effect. */
 const ExplanationCard = ({ e }: { e: Explanation }) => (
   <div className="space-y-3 rounded-2xl border border-border bg-card p-4 text-sm">
     <div className="flex items-baseline justify-between gap-3">
-      <span className="font-arabic text-2xl" dir="rtl">{e.past}</span>
+      <Say text={e.past} icon className="font-arabic text-2xl"><span dir="rtl">{e.past}</span></Say>
       <span className="text-xs text-muted-foreground">Root {e.root}{e.rootMeaning ? ` · ${e.rootMeaning}` : ''}</span>
     </div>
     {e.shown && e.shown.text !== e.past && (
@@ -14,11 +15,11 @@ const ExplanationCard = ({ e }: { e: Explanation }) => (
     )}
     <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
       <dt className="text-muted-foreground">Present</dt>
-      <dd className="font-arabic text-base" dir="rtl">{e.present}</dd>
+      <dd className="font-arabic text-base" dir="rtl"><Say icon>{e.present}</Say></dd>
       {e.masdar && (
         <>
           <dt className="text-muted-foreground">Verbal noun</dt>
-          <dd className="font-arabic text-base" dir="rtl">{e.masdar}</dd>
+          <dd className="font-arabic text-base" dir="rtl"><Say icon>{e.masdar}</Say></dd>
         </>
       )}
     </dl>

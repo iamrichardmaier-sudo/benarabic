@@ -8,7 +8,7 @@ import SwipeToGrade from '@/components/SwipeToGrade';
 import WordDetail from '@/components/WordDetail';
 import ConjugationPanel from '@/components/ConjugationPanel';
 import DialectToggle from '@/components/DialectToggle';
-import CardScene from '@/components/CardScene';
+import CardArt from '@/components/CardArt';
 import { dialectView } from '@/lib/dialect';
 import { usePreferences } from '@/hooks/usePreferences';
 
@@ -47,10 +47,10 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
   // register is on screen, so studying Shaami does not read back Fusha.
   useEffect(() => {
     if (flipped && !prevFlipped.current) {
-      speakArabic(view.spoken);
+      speakArabic(view.spoken, view.voice);
     }
     prevFlipped.current = flipped;
-  }, [flipped, view.spoken]);
+  }, [flipped, view.spoken, view.voice]);
 
   const renderImageAndEnglish = () => (
     <div className="space-y-3 w-full">
@@ -62,7 +62,7 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
           loading="lazy"
         />
       ) : card.english && (
-        <CardScene card={card} />
+        <CardArt card={card} />
       )}
       {card.english && (
         <p className="text-[36px] text-foreground text-center leading-snug">
@@ -86,7 +86,7 @@ const Flashcard = ({ card, direction = 'ar-to-en', onRate, progress, deck = [] }
             {view.headline}
           </p>
         </WordInfoPopover>
-        <SpeakButton word={view.spoken} size={22} autoSpeak />
+        <SpeakButton word={view.spoken} voice={view.voice} size={22} autoSpeak />
       </div>
       {withForms && <WordForms card={card} />}
     </div>

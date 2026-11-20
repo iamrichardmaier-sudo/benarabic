@@ -4,6 +4,9 @@ import { useAuth } from '@/hooks/useAuth';
 import { useToast } from '@/hooks/use-toast';
 import type { TaggedSense } from '@/lib/reader-word';
 
+/** 'text' is a saved article; 'vocab_reading' is a reading written around a deck's words. */
+export type TextKind = 'text' | 'vocab_reading';
+
 export interface LibraryText {
   id: string;
   title: string;
@@ -20,6 +23,17 @@ export interface LibraryText {
    * themselves — see LibraryHome's "Yours" vs "Shared" split.
    */
   isOwn: boolean;
+  /** A narration in the text-audio bucket, when the text has one. */
+  audioPath: string | null;
+  /** When each word of the body is spoken, in body word order. */
+  audioWords: NarrationWord[];
+}
+
+/** One word of a narration: its index among the body's words, and when it is said. */
+export interface NarrationWord {
+  i: number;
+  s: number;
+  e: number;
 }
 
 interface Row {
@@ -32,6 +46,8 @@ interface Row {
   created_at: string;
   word_tags: unknown;
   user_id: string;
+  audio_path: string | null;
+  audio_words: unknown;
 }
 
 function rowToText(row: Row, currentUserId: string): LibraryText {
@@ -44,6 +60,8 @@ function rowToText(row: Row, currentUserId: string): LibraryText {
     updatedAt: row.updated_at ?? row.created_at,
     wordTags: (row.word_tags as Record<string, TaggedSense[]>) ?? {},
     isOwn: row.user_id === currentUserId,
+    audioPath: row.audio_path ?? null,
+    audioWords: Array.isArray(row.audio_words) ? (row.audio_words as NarrationWord[]) : [],
   };
 }
 
@@ -55,8 +73,8 @@ function rowToText(row: Row, currentUserId: string): LibraryText {
  * app: a saved text is usually someone else's writing, kept for study, and
  * the app's own build is published for anyone to download.
  */
-export function useLibraryTexts(options: { showsErrorItself?: boolean } = {}) {
-  const { showsErrorItself = false } = options;
+export function useLibraryTexts(options: { showsErrorItself?: boolean; kind?: TextKind } = {}) {
+  const { showsErrorItself = false, kind = 'text' } = options;
   const { user } = useAuth();
   // The id, not the object: a new user object arrives on every session event
   // and must not trigger another load of the same person's texts.
@@ -74,8 +92,8 @@ export function useLibraryTexts(options: { showsErrorItself?: boolean } = {}) {
     }
     const { data, error } = await supabase
       .from('private_texts')
-      .select('id,title,body,english,cover_url,updated_at,created_at,word_tags,user_id')
-      .eq('kind', 'text')
+      .select('id,title,body,english,cover_url,updated_at,created_at,word_tags,user_id,audio_path,audio_words')
+      .eq('kind', kind)
       .order('updated_at', { ascending: false });
     if (error) {
       // Whatever was listed stays listed. A failed read means the list could
@@ -98,7 +116,7 @@ export function useLibraryTexts(options: { showsErrorItself?: boolean } = {}) {
       setTexts((data as unknown as Row[]).map((row) => rowToText(row, userId)));
     }
     setLoading(false);
-  }, [userId, toast, showsErrorItself]);
+  }, [userId, toast, showsErrorItself, kind]);
 
   useEffect(() => {
     refresh();
@@ -116,7 +134,6 @@ export function useLibraryTexts(options: { showsErrorItself?: boolean } = {}) {
       if (!user) throw new Error('Sign in to save to your library.');
       const fields = {
         user_id: user.id,
-        kind: 'text',
         // work and book_code are what the chapter-and-verse side keys on; a
         // free-form entry still has to fill them, so it names itself.
         work: 'library',
@@ -133,9 +150,12 @@ export function useLibraryTexts(options: { showsErrorItself?: boolean } = {}) {
         verses: [],
         updated_at: new Date().toISOString(),
       };
+      // The kind is set once, when a text is first saved. Updating a vocab
+      // reading (tagging more of its words, say) must not turn it into an
+      // ordinary saved text and move it out of its own folder.
       const query = entry.id
         ? supabase.from('private_texts').update(fields as never).eq('id', entry.id)
-        : supabase.from('private_texts').insert(fields as never);
+        : supabase.from('private_texts').insert({ ...fields, kind: 'text' } as never);
       const { error } = await query;
       if (error) throw error;
       await refresh();

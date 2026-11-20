@@ -24,6 +24,11 @@ interface DeckActions {
    */
   addWord?: (word: NewWord) => Promise<void>;
   /**
+   * Put several words in at once, with one message at the end and not one per
+   * word. Resolves to how many were new to the deck.
+   */
+  addWords?: (words: NewWord[]) => Promise<number>;
+  /**
    * Open the dictionary: on a search (pass the query),
    * a word (its slug or id), or a root ("root/ك-ت-ب"). Undefined where there
    * is no app around the component, and the link is then not shown.

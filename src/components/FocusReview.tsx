@@ -8,7 +8,7 @@ import WordDetail from '@/components/WordDetail';
 import ConjugationPanel from '@/components/ConjugationPanel';
 import { focusAction, focusHint } from '@/lib/focus-keys';
 import { dialectView } from '@/lib/dialect';
-import CardScene from '@/components/CardScene';
+import CardArt from '@/components/CardArt';
 import { usePreferences } from '@/hooks/usePreferences';
 
 interface FocusReviewProps {
@@ -54,8 +54,8 @@ const FocusReview = ({
 
   // The widget reads the word aloud on both sides; so does this.
   useEffect(() => {
-    speakArabic(view.spoken);
-  }, [card.id, flipped, view.spoken]);
+    speakArabic(view.spoken, view.voice);
+  }, [card.id, flipped, view.spoken, view.voice]);
 
   const grade = (rating: Rating) => {
     setFlipped(false);
@@ -121,7 +121,7 @@ const FocusReview = ({
                   className="mx-auto mb-4 max-h-[26vh] max-w-[78%] rounded-2xl object-cover"
                 />
               ) : card.english && (
-                <CardScene card={card} className="mb-4" />
+                <CardArt card={card} className="mb-4" />
               )}
               <p className="text-[32px] leading-snug text-foreground">{card.english}</p>
             </>
@@ -134,7 +134,7 @@ const FocusReview = ({
                 {headline}
               </p>
               <div className="mt-3 flex justify-center">
-                <SpeakButton word={view.spoken} size={20} />
+                <SpeakButton word={view.spoken} voice={view.voice} size={20} />
               </div>
             </>
           )}
@@ -144,7 +144,7 @@ const FocusReview = ({
               <ConjugationPanel card={card} />
               {direction === 'ar-to-en' ? (
                 <>
-                  {card.english && !card.imageUrl && <CardScene card={card} size="md" />}
+                  {card.english && !card.imageUrl && <CardArt card={card} size="md" />}
                   {card.english && (
                     <p className="text-center text-[24px] leading-snug text-muted-foreground">
                       {card.english}

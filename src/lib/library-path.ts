@@ -9,6 +9,8 @@
  *   bom, bom/1Ne, bom/1Ne/2   the same for the Book of Mormon
  *   articles             saved texts
  *   articles/<id>        one saved text
+ *   vocab                vocab readings, one per deck
+ *   vocab/<id>           one vocab reading
  */
 export type Testament = 'ot' | 'nt';
 
@@ -22,7 +24,9 @@ export type LibraryPlace =
   | { kind: 'bomChapters'; bookCode: string }
   | { kind: 'bomReader'; bookCode: string; chapter: number }
   | { kind: 'articles' }
-  | { kind: 'saved'; textId: string };
+  | { kind: 'saved'; textId: string }
+  | { kind: 'vocab' }
+  | { kind: 'vocabReading'; textId: string };
 
 export function libraryPathFor(place: LibraryPlace): string {
   switch (place.kind) {
@@ -36,6 +40,8 @@ export function libraryPathFor(place: LibraryPlace): string {
     case 'bomReader': return `bom/${place.bookCode}/${place.chapter}`;
     case 'articles': return 'articles';
     case 'saved': return `articles/${place.textId}`;
+    case 'vocab': return 'vocab';
+    case 'vocabReading': return `vocab/${place.textId}`;
   }
 }
 
@@ -62,6 +68,8 @@ export function parseLibraryPath(path: string): LibraryPlace {
         : { kind: 'bomChapters', bookCode: parts[1] };
     case 'articles':
       return parts[1] ? { kind: 'saved', textId: parts[1] } : { kind: 'articles' };
+    case 'vocab':
+      return parts[1] ? { kind: 'vocabReading', textId: parts[1] } : { kind: 'vocab' };
     default:
       return { kind: 'home' };
   }
