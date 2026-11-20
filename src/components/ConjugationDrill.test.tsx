@@ -43,6 +43,8 @@ function row(formLabel: string) {
 
 beforeEach(() => {
   localStorage.clear();
+  // Most tests here grade past/present/masdar; the participle tests turn them back on.
+  localStorage.setItem('arabic-flashcards-drill-participles', 'false');
 });
 
 /** The per-form checkboxes, excluding the short-vowel option. */
@@ -568,5 +570,50 @@ describe('ConjugationDrill can drill the verbs of particular decks', () => {
     render(<ConjugationDrill cards={cards} onBack={() => {}} />);
     expect(screen.queryByRole('checkbox', { name: 'All decks' })).not.toBeInTheDocument();
     expect(screen.getByText('4 verbs selected')).toBeInTheDocument();
+  });
+});
+
+describe('ConjugationDrill participles', () => {
+  beforeEach(() => localStorage.removeItem('arabic-flashcards-drill-participles'));
+
+  const kataba = verb('ك-ت-ب', 'I', { pastTense: 'كَتَبَ', presentTense: 'يَكتُب', masdarForm: 'كِتابة' });
+  const jalasa = verb('ج-ل-س', 'I', { pastTense: 'جَلَسَ', presentTense: 'يَجلِس', masdarForm: 'جُلوس' });
+
+  it('asks for both participles by default, and can be turned off', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={[kataba]} onBack={() => {}} />);
+    expect(screen.getByRole('checkbox', { name: /Include participles/ })).toBeChecked();
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    expect(screen.getAllByRole('textbox')).toHaveLength(5);
+    expect(screen.getByText('Active Participle')).toBeInTheDocument();
+    expect(screen.getByText('Passive Participle')).toBeInTheDocument();
+  });
+
+  it('leaves them out when unticked', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={[kataba]} onBack={() => {}} />);
+    await user.click(screen.getByRole('checkbox', { name: /Include participles/ }));
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    expect(screen.getAllByRole('textbox')).toHaveLength(3);
+  });
+
+  it('shows each participle with its meaning once checked', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={[kataba]} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    for (const box of screen.getAllByRole('textbox')) await user.type(box, 'x');
+    await user.click(screen.getByRole('button', { name: 'Check Answer' }));
+    expect(screen.getByText('كاتِب')).toBeInTheDocument();
+    expect(screen.getByTestId('active-meaning')).toHaveTextContent('(writer)');
+    expect(screen.getByTestId('passive-meaning')).toHaveTextContent('(written; letter)');
+  });
+
+  it('gives what an unused participle would mean, marked as not existing', async () => {
+    const user = userEvent.setup();
+    render(<ConjugationDrill cards={[jalasa]} onBack={() => {}} />);
+    await user.click(screen.getByRole('button', { name: 'Start Drill' }));
+    for (const box of screen.getAllByRole('textbox')) await user.type(box, 'x');
+    await user.click(screen.getByRole('button', { name: 'Check Answer' }));
+    expect(screen.getByTestId('passive-meaning')).toHaveTextContent('would mean “sat on” (doesn\'t exist)');
   });
 });

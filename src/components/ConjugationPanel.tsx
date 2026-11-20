@@ -164,7 +164,7 @@ const VerbTableView = ({ table, showHead }: { table: VerbTable; showHead: boolea
 /** One participle: Arabic, then its English in parentheses, or that it is not used. */
 export function participleNote(p: Participle): string {
   if (p.exists) return p.en ? `(${p.en})` : '';
-  return p.en ? `(would be “${p.en}” · does not exist)` : '(does not exist)';
+  return p.en ? `would mean “${p.en}” (doesn't exist)` : "(doesn't exist)";
 }
 
 const ParticipleRow = ({ label, p, marked }: { label: string; p: Participle; marked: boolean }) => (

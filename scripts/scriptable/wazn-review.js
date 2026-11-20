@@ -39,6 +39,7 @@
 // ---------------------------------------------------------------- config
 
 const SUPABASE_URL = "https://fphpcfecgnfoogfaeihu.supabase.co";
+const VERB_ENTRIES_URL = "https://raw.githubusercontent.com/iamrichardmaier-sudo/benarabic/main/supabase/verb-entries.json";
 // Publishable anon key — the same value the web app ships to browsers. It is
 // not a secret; row-level security is what actually protects the data.
 const SUPABASE_ANON_KEY =
@@ -1514,29 +1515,62 @@ async function attachConjugations(token, cards) {
     /* no verb_keys column yet: verb cards still get a table below */
   }
 
+  const fromRow = (r) => ({
+    key: r.key, root: r.root, form: r.form, past: r.past, present: r.present || "",
+    masdar: r.masdar, english: r.english, prefix: r.prefix, activePresent: r.active_present,
+    activeEn: r.active_en, activeExists: r.active_exists !== false,
+    passiveEn: r.passive_en, passiveExists: r.passive_exists !== false, charts: r.charts,
+  });
   const keys = [...new Set([...keysById.values()].flat())];
   const entries = new Map();
   if (keys.length) {
-    const list = keys.map((k) => `"${encodeURIComponent(k.replace(/"/g, ""))}"`).join(",");
-    const req = new Request(`${SUPABASE_URL}/rest/v1/verb_entries?select=*&key=in.(${list})`);
-    req.headers = restHeaders(token);
-    const rows = await req.loadJSON();
-    if (Array.isArray(rows)) {
-      for (const r of rows) {
-        entries.set(r.key, {
-          key: r.key, root: r.root, form: r.form, past: r.past, present: r.present || "",
-          masdar: r.masdar, english: r.english, prefix: r.prefix, activePresent: r.active_present,
-          activeEn: r.active_en, activeExists: r.active_exists !== false,
-          passiveEn: r.passive_en, passiveExists: r.passive_exists !== false, charts: r.charts,
-        });
-      }
+    try {
+      const list = keys.map((k) => `"${encodeURIComponent(k.replace(/"/g, ""))}"`).join(",");
+      const req = new Request(`${SUPABASE_URL}/rest/v1/verb_entries?select=*&key=in.(${list})`);
+      req.headers = restHeaders(token);
+      const rows = await req.loadJSON();
+      if (Array.isArray(rows)) for (const r of rows) entries.set(r.key, fromRow(r));
+    } catch (e) {
+      /* no verb_entries table yet: the published copy below stands in */
     }
   }
 
+  // Every written verb, as published with the app: it gives the participles
+  // their English whether or not the database has the table yet.
+  let all = [];
+  try {
+    const req = new Request(VERB_ENTRIES_URL);
+    const rows = await req.loadJSON();
+    if (Array.isArray(rows)) all = rows.map(fromRow);
+  } catch (e) {
+    /* offline: tables still come from the cards' own principal parts */
+  }
+  for (const e of all) if (!entries.has(e.key)) entries.set(e.key, e);
+  const byRoot = new Map();
+  const rootKey = (r) => (r || "").replace(/[أإآؤئ]/g, "ء");
+  for (const e of all) byRoot.set(rootKey(e.root), [...(byRoot.get(rootKey(e.root)) || []), e]);
+  const endsInTaa = (w) => /ة[\u064B-\u0652]*$/.test((w || "").trim());
+  const bare = (w) => (w || "").replace(/\(.*?\)/g, "").replace(/^(ما|لَم|لم)\s+/, "").replace(/[\u064B-\u0652\u0670\u0640]/g, "").replace(/[أإآ]/g, "ا").trim().split(/\s/)[0];
+  const writtenFor = (c) => {
+    const same = byRoot.get(rootKey(c.root)) || [];
+    if (c.word_type === "verb") {
+      const forms = same.filter((e) => e.form === (c.verb_form || "I"));
+      return forms.filter((e) => bare(e.past) === bare(c.past_tense)).slice(0, 1).concat(forms).slice(0, 1);
+    }
+    const word = c.word_voweled || c.word || "";
+    const head = word.split(/[\s/،,(]/)[0] || "";
+    return same.filter((e) => {
+      const t = WaznConjugation.entryTable(e);
+      const form = t && WaznConjugation.whichForm(word, t);
+      if (form === "masdar") return endsInTaa(head) === endsInTaa(t.masdar);
+      return !!form;
+    });
+  };
+
   for (const c of cards) {
-    let tables = (keysById.get(c.id) || [])
-      .map((k) => entries.get(k))
-      .filter(Boolean)
+    let picked = (keysById.get(c.id) || []).map((k) => entries.get(k)).filter(Boolean);
+    if (!picked.length && c.root) picked = writtenFor(c);
+    let tables = picked
       .map((e) => WaznConjugation.entryTable(e))
       .filter(Boolean);
     if (!tables.length && c.word_type === "verb" && c.root && c.past_tense && c.present_tense) {
@@ -2388,7 +2422,7 @@ function conjButton(c) {
 
 function participleNote(p) {
   if (p.exists) return p.en ? '(' + esc(p.en) + ')' : '';
-  return '<span class="no">' + (p.en ? '(would be \u201c' + esc(p.en) + '\u201d \u00b7 does not exist)' : '(does not exist)') + '</span>';
+  return '<span class="no">' + (p.en ? 'would mean \u201c' + esc(p.en) + '\u201d (doesn\u2019t exist)' : '(doesn\u2019t exist)') + '</span>';
 }
 
 function conjTables(c) {

@@ -13,6 +13,9 @@ import { followsBaseline } from '@/lib/baseline-chart';
 import { sortChapterLabels } from '@/lib/chapter-sort';
 import type { DeckMembership } from '@/lib/relearn';
 import { useDrillKeyboard } from '@/hooks/useDrillKeyboard';
+import { participlesFor } from '@/lib/verb-entries';
+import { participleNote } from '@/components/ConjugationPanel';
+import type { Participle } from '@/lib/verb-table';
 
 interface ConjugationDrillProps {
   cards: FlashCard[];
@@ -33,6 +36,9 @@ interface DrillItem {
   masdarForm: string;
   /** The bank words behind this verb, which is what ties it to decks. */
   wordIds: string[];
+  /** Its participles with their English; null when the verb fits no paradigm. */
+  active: Participle | null;
+  passive: Participle | null;
 }
 
 type FieldResult = 'correct' | 'incorrect';
@@ -44,6 +50,7 @@ const FORM_ORDER = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X']
 /** Remembered across sessions so the choice doesn't have to be re-made. */
 const IGNORE_VOWELS_KEY = 'arabic-flashcards-drill-ignore-short-vowels';
 const MASDAR_ONLY_KEY = 'arabic-flashcards-drill-masdar-only';
+const PARTICIPLES_KEY = 'arabic-flashcards-drill-participles';
 const DECKS_KEY = 'arabic-flashcards-drill-decks';
 
 /** The decks last picked, or null for all of them. */
@@ -62,6 +69,15 @@ function readVowelPref(): boolean {
     return localStorage.getItem(IGNORE_VOWELS_KEY) === 'true';
   } catch {
     return false;
+  }
+}
+
+/** Participles are drilled unless turned off. */
+function readParticiplesPref(): boolean {
+  try {
+    return localStorage.getItem(PARTICIPLES_KEY) !== 'false';
+  } catch {
+    return true;
   }
 }
 
@@ -94,11 +110,18 @@ function shuffle<T>(arr: T[]): T[] {
   return a;
 }
 
-const FIELDS: { key: 'past' | 'present' | 'masdar'; label: string; get: (item: DrillItem) => string }[] = [
+type FieldKey = 'past' | 'present' | 'masdar' | 'active' | 'passive';
+const EMPTY_INPUTS: Record<FieldKey, string> = { past: '', present: '', masdar: '', active: '', passive: '' };
+
+const FIELDS: { key: FieldKey; label: string; get: (item: DrillItem) => string }[] = [
   { key: 'past', label: 'Past Tense', get: (i) => i.pastTense },
   { key: 'present', label: 'Present Tense', get: (i) => i.presentTense },
   { key: 'masdar', label: 'Masdar', get: (i) => i.masdarForm },
+  { key: 'active', label: 'Active Participle', get: (i) => i.active?.ar ?? '' },
+  { key: 'passive', label: 'Passive Participle', get: (i) => i.passive?.ar ?? '' },
 ];
+
+const isParticiple = (key: FieldKey): key is 'active' | 'passive' => key === 'active' || key === 'passive';
 
 const ConjugationDrill = ({ cards, onBack, decks = null }: ConjugationDrillProps) => {
   // Every verb eligible for drilling, one entry per root + form pair.
@@ -113,6 +136,7 @@ const ConjugationDrill = ({ cards, onBack, decks = null }: ConjugationDrillProps
         if (card.wordId && !seen.wordIds.includes(card.wordId)) seen.wordIds.push(card.wordId);
         continue;
       }
+      const parts = participlesFor({ root: card.root, form: card.verbForm, past: card.pastTense, present: card.presentTense });
       byKey.set(key, {
         root: card.root,
         verbForm: card.verbForm,
@@ -120,6 +144,8 @@ const ConjugationDrill = ({ cards, onBack, decks = null }: ConjugationDrillProps
         presentTense: card.presentTense,
         masdarForm: card.masdarForm,
         wordIds: card.wordId ? [card.wordId] : [],
+        active: parts?.active.ar ? parts.active : null,
+        passive: parts?.passive.ar ? parts.passive : null,
       });
     }
     return [...byKey.values()];
@@ -182,10 +208,11 @@ const ConjugationDrill = ({ cards, onBack, decks = null }: ConjugationDrillProps
 
   const [ignoreShortVowels, setIgnoreShortVowels] = useState(readVowelPref);
   const [masdarOnly, setMasdarOnly] = useState(readMasdarOnlyPref);
+  const [withParticiples, setWithParticiples] = useState(readParticiplesPref);
   const [rootMeanings, setRootMeanings] = useState<Record<string, string>>({});
   const [items, setItems] = useState<DrillItem[]>([]);
   const [index, setIndex] = useState(0);
-  const [inputs, setInputs] = useState({ past: '', present: '', masdar: '' });
+  const [inputs, setInputs] = useState<Record<FieldKey, string>>(EMPTY_INPUTS);
   const [results, setResults] = useState<Record<string, FieldResult> | null>(null);
   const [score, setScore] = useState({ correct: 0, total: 0 });
   const firstInputRef = useRef<HTMLInputElement>(null);
@@ -193,7 +220,7 @@ const ConjugationDrill = ({ cards, onBack, decks = null }: ConjugationDrillProps
   const current = items[index];
 
   useEffect(() => {
-    setInputs({ past: '', present: '', masdar: '' });
+    setInputs(EMPTY_INPUTS);
     setResults(null);
     firstInputRef.current?.focus();
   }, [index]);
@@ -219,7 +246,10 @@ const ConjugationDrill = ({ cards, onBack, decks = null }: ConjugationDrillProps
 
   // Masdar-only mode drills a single field (given the verb, produce its masdar)
   // instead of the full past/present/masdar set.
-  const activeFields = masdarOnly ? FIELDS.filter((f) => f.key === 'masdar') : FIELDS;
+  // Participles are asked only where the verb has them (Form IX has none).
+  const activeFields = masdarOnly
+    ? FIELDS.filter((f) => f.key === 'masdar')
+    : FIELDS.filter((f) => !isParticiple(f.key) || (withParticiples && !!current?.[f.key]));
 
   const allFieldsCorrect = (r: Record<string, FieldResult>) =>
     Object.values(r).every((v) => v === 'correct');
@@ -277,6 +307,18 @@ const ConjugationDrill = ({ cards, onBack, decks = null }: ConjugationDrillProps
     });
   };
 
+  const toggleParticiples = () => {
+    setWithParticiples((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem(PARTICIPLES_KEY, String(next));
+      } catch {
+        /* preference just won't persist */
+      }
+      return next;
+    });
+  };
+
   const toggleMasdarOnly = () => {
     setMasdarOnly((prev) => {
       const next = !prev;
@@ -300,7 +342,7 @@ const ConjugationDrill = ({ cards, onBack, decks = null }: ConjugationDrillProps
     setItems(shuffle(scopedItems.filter((i) => selectedForms.has(i.verbForm))));
     setIndex(0);
     setScore({ correct: 0, total: 0 });
-    setInputs({ past: '', present: '', masdar: '' });
+    setInputs(EMPTY_INPUTS);
     setResults(null);
     setPhase('drill');
   };
@@ -383,6 +425,23 @@ const ConjugationDrill = ({ cards, onBack, decks = null }: ConjugationDrillProps
             <span className="block font-medium text-foreground">Verb → Masdar only</span>
             <span className="block text-xs text-muted-foreground">
               Skip past and present tense — just see the verb and type its masdar.
+            </span>
+          </span>
+        </label>
+
+        <label className="flex items-start gap-3 rounded-2xl border border-border bg-card px-4 py-3 cursor-pointer hover:bg-muted/40 transition-colors">
+          <input
+            type="checkbox"
+            checked={withParticiples}
+            onChange={toggleParticiples}
+            disabled={masdarOnly}
+            className="w-4 h-4 mt-0.5 accent-primary cursor-pointer"
+          />
+          <span className="flex-1">
+            <span className="block font-medium text-foreground">Include participles</span>
+            <span className="block text-xs text-muted-foreground">
+              Also type the active and passive participle. The answer shows what each means — and, for
+              one the language doesn't use, what it would mean.
             </span>
           </span>
         </label>
@@ -589,7 +648,8 @@ const ConjugationDrill = ({ cards, onBack, decks = null }: ConjugationDrillProps
           const wrong = results?.[field.key] === 'incorrect';
           // What a perfectly regular root would have in this form, so the
           // verb's own answer can be read against the pattern it departs from.
-          const baseline = baselineFor(current.verbForm)?.[field.key] ?? null;
+          const baseline = isParticiple(field.key) ? null : baselineFor(current.verbForm)?.[field.key] ?? null;
+          const participle = isParticiple(field.key) ? current[field.key] : null;
           const sameAsBaseline =
             !!baseline && normalizeArabicKeepVowels(baseline.text) === normalizeArabicKeepVowels(expected);
 
@@ -624,6 +684,15 @@ const ConjugationDrill = ({ cards, onBack, decks = null }: ConjugationDrillProps
                       </span>
                     )}
                   </p>
+                  {participle && (
+                    <p
+                      className={`font-sans text-sm ${participle.exists ? 'text-muted-foreground' : 'text-warning'}`}
+                      dir="ltr"
+                      data-testid={`${field.key}-meaning`}
+                    >
+                      {participleNote(participle) || '(no definition written yet)'}
+                    </p>
+                  )}
                   {baseline &&
                     (sameAsBaseline ? (
                       <p className="font-sans text-xs text-muted-foreground" dir="ltr">
