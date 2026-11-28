@@ -1,0 +1,423 @@
+{
+  "day": "2026-11-28",
+  "format": "See supabase/answer-keys/README.md.",
+  "sentences": [
+    {
+      "position": 1,
+      "english": "My grandfather stood up out of respect when the teacher entered, and he invited her to sit in the middle of the room.",
+      "grammar_focus": "an accusative of reason with no preposition (قامَ جَدّي احْتِرامًا), a feminine verb for the teacher (دَخَلَتِ المُعَلِّمَةُ, or عِنْدَ دُخولِ + masdar), the defective verb دَعا with an object pronoun (دَعاها) and إِلى + masdar or أَنْ + subjunctive, and وَسَط for the middle of a place (في وَسَطِ الغُرْفَةِ)",
+      "target_words": [
+        "قام",
+        "دعا",
+        "وسط"
+      ],
+      "model_answer": "قامَ جَدّي احْتِرامًا عِنْدَما دَخَلَتِ المُعَلِّمَةُ، وَدَعاها إِلى الجُلوسِ في وَسَطِ الغُرْفَةِ.",
+      "reference_translations": [
+        "قام جدي احتراما عندما دخلت المعلمة ودعاها إلى الجلوس في وسط الغرفة",
+        "وقف جدي احتراما لها حين دخلت المعلمة ودعاها أن تجلس وسط الغرفة",
+        "جدي قام احتراما عند دخول المعلمة وطلب منها أن تجلس في وسط الغرفة",
+        "قام جدي من باب الاحترام لما دخلت الأستاذة ودعاها للجلوس في وسط الغرفة"
+      ],
+      "chunks": [
+        {
+          "en": "My grandfather stood up out of respect",
+          "accept": [
+            "قام جدي احتراما",
+            "وقف جدي احتراما",
+            "قام جدي احتراما لها",
+            "وقف جدي احتراما لها",
+            "جدي قام احتراما",
+            "جدي وقف احتراما",
+            "قام جدي من باب الاحترام",
+            "وقف جدي من باب الاحترام"
+          ],
+          "mistakes": [
+            {
+              "text": "احترام",
+              "rule": "The reason is accusative: احتراما",
+              "note": "\"Out of respect\" is one accusative word: احترامًا."
+            },
+            {
+              "text": "بالاحترام",
+              "rule": "\"Out of respect\": احتراما",
+              "note": "No preposition: the accusative احترامًا says why."
+            },
+            {
+              "text": "للاحترام",
+              "rule": "\"Out of respect\": احتراما (or من باب الاحترام)",
+              "note": "Say it with the accusative: احترامًا."
+            },
+            {
+              "text": "قامت جدي",
+              "rule": "Grandfather (he): قام",
+              "note": "The verb agrees with جدي: قامَ."
+            }
+          ]
+        },
+        {
+          "en": "when the teacher entered",
+          "accept": [
+            "عندما دخلت المعلمة",
+            "حين دخلت المعلمة",
+            "لما دخلت المعلمة",
+            "عند دخول المعلمة",
+            "عندما دخلت الأستاذة",
+            "حين دخلت الأستاذة",
+            "لما دخلت الأستاذة",
+            "عند دخول الأستاذة"
+          ],
+          "mistakes": [
+            {
+              "text": "دخل المعلمة",
+              "rule": "معلمة is feminine: دخلت",
+              "note": "The verb agrees with المعلمة: دخلتِ المعلمةُ."
+            },
+            {
+              "text": "عندما تدخل",
+              "rule": "It happened: دخلت",
+              "note": "Past: عندما دخلتْ."
+            },
+            {
+              "text": "عند دخلت",
+              "rule": "عند + masdar: عند دخول (or عندما دخلت)",
+              "note": "عند takes a noun: عند دخولِ المعلمة; with a verb, use عندما."
+            }
+          ]
+        },
+        {
+          "en": "and he invited her to sit in the middle of the room",
+          "accept": [
+            "ودعاها إلى الجلوس في وسط الغرفة",
+            "ودعاها إلى الجلوس وسط الغرفة",
+            "ودعاها للجلوس في وسط الغرفة",
+            "ودعاها للجلوس وسط الغرفة",
+            "ودعاها إلى أن تجلس في وسط الغرفة",
+            "ودعاها إلى أن تجلس وسط الغرفة",
+            "ودعاها أن تجلس في وسط الغرفة",
+            "ودعاها أن تجلس وسط الغرفة",
+            "وطلب منها أن تجلس في وسط الغرفة",
+            "وطلب منها أن تجلس وسط الغرفة",
+            "وطلب منها الجلوس في وسط الغرفة",
+            "وطلب منها الجلوس وسط الغرفة"
+          ],
+          "mistakes": [
+            {
+              "text": "ودعته",
+              "rule": "Her: دعاها",
+              "note": "The teacher is \"her\": دعاها."
+            },
+            {
+              "text": "ودعتها",
+              "rule": "He invited: دعاها",
+              "note": "Your grandfather invited her: دعاها."
+            },
+            {
+              "text": "دعاها تجلس",
+              "rule": "Needs أن: دعاها أن تجلس / إلى الجلوس",
+              "note": "Add أنْ, or use the masdar: دعاها إلى الجلوسِ."
+            },
+            {
+              "text": "يجلس",
+              "rule": "She: تجلس",
+              "note": "The teacher: تجلسَ."
+            },
+            {
+              "text": "الوسط الغرفة",
+              "rule": "The first noun of an idafa takes no ال: وسط الغرفة",
+              "note": "\"The middle of the room\": وسطِ الغرفةِ."
+            },
+            {
+              "text": "في منتصف الغرفة",
+              "rule": "For a place: وسط (منتصف is for time)",
+              "note": "Your cards pair وسط with places and منتصف with time: في وسطِ الغرفةِ.",
+              "status": "alternative"
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "قام احترامًا: the reason in the accusative, no preposition",
+        "دخلتِ المعلمةُ: feminine verb",
+        "دعاها إلى الجلوسِ / أنْ تجلسَ",
+        "وسط for places, منتصف for time"
+      ]
+    },
+    {
+      "position": 2,
+      "english": "In the eastern part of the city there is a small green park that people come to at night to look at the stars.",
+      "grammar_focus": "a definite nisba adjective (الجُزْءِ الشَّرْقِيِّ), a fronted place phrase with an indefinite subject (في … حَديقَةٌ, or هُناكَ / تُوجَدُ), the feminine colour خَضْراء, a relative clause on an indefinite noun with no التي and a returning pronoun (يَأْتي إِلَيْها النّاسُ), and لِـ + the plural subjunctive, which drops its ن (لِيَنْظُروا إِلى النُّجومِ)",
+      "target_words": [
+        "شرقي",
+        "أخضر",
+        "نجم"
+      ],
+      "model_answer": "في الجُزْءِ الشَّرْقِيِّ مِنَ المَدينَةِ حَديقَةٌ صَغيرَةٌ خَضْراءُ يَأْتي إِلَيْها النّاسُ لَيْلًا لِيَنْظُروا إِلى النُّجومِ.",
+      "reference_translations": [
+        "في الجزء الشرقي من المدينة حديقة صغيرة خضراء يأتي إليها الناس ليلا لينظروا إلى النجوم",
+        "في القسم الشرقي من المدينة هناك حديقة خضراء صغيرة يذهب إليها الناس في الليل للنظر إلى النجوم",
+        "في شرق المدينة توجد حديقة صغيرة خضراء يأتي الناس إليها ليلا ليتأملوا النجوم",
+        "في الجزء الشرقي من المدينة هناك حديقة صغيرة خضراء يأتيها الناس ليلا لمشاهدة النجوم"
+      ],
+      "chunks": [
+        {
+          "en": "In the eastern part of the city there is a small green park",
+          "accept": [
+            "في الجزء الشرقي من المدينة حديقة صغيرة خضراء",
+            "في الجزء الشرقي من المدينة هناك حديقة صغيرة خضراء",
+            "في الجزء الشرقي من المدينة توجد حديقة صغيرة خضراء",
+            "في الجزء الشرقي من المدينة حديقة خضراء صغيرة",
+            "في الجزء الشرقي من المدينة هناك حديقة خضراء صغيرة",
+            "في الجزء الشرقي من المدينة توجد حديقة خضراء صغيرة",
+            "في القسم الشرقي من المدينة حديقة صغيرة خضراء",
+            "في القسم الشرقي من المدينة هناك حديقة صغيرة خضراء",
+            "في القسم الشرقي من المدينة توجد حديقة صغيرة خضراء",
+            "في القسم الشرقي من المدينة حديقة خضراء صغيرة",
+            "في القسم الشرقي من المدينة هناك حديقة خضراء صغيرة",
+            "في القسم الشرقي من المدينة توجد حديقة خضراء صغيرة",
+            "في شرق المدينة حديقة صغيرة خضراء",
+            "في شرق المدينة هناك حديقة صغيرة خضراء",
+            "في شرق المدينة توجد حديقة صغيرة خضراء",
+            "في شرق المدينة حديقة خضراء صغيرة",
+            "في شرق المدينة هناك حديقة خضراء صغيرة",
+            "في شرق المدينة توجد حديقة خضراء صغيرة"
+          ],
+          "mistakes": [
+            {
+              "text": "أخضر",
+              "rule": "حديقة is feminine: خضراء",
+              "note": "The feminine of أخضر is خضراء: حديقةٌ خضراءُ."
+            },
+            {
+              "text": "خضرة",
+              "rule": "The feminine of أخضر is خضراء",
+              "note": "Colours have their own feminine: أخضر → خضراء."
+            },
+            {
+              "text": "الجزء شرقي",
+              "rule": "A definite adjective: الجزء الشرقي",
+              "note": "The adjective takes ال like its noun: الجزءِ الشرقيِّ."
+            },
+            {
+              "text": "يوجد حديقة",
+              "rule": "حديقة is feminine: توجد",
+              "note": "The verb agrees with حديقة: توجدُ حديقةٌ."
+            },
+            {
+              "text": "الحديقة صغيرة",
+              "rule": "\"A park\": indefinite حديقة صغيرة",
+              "note": "\"There is a small park\": حديقةٌ صغيرةٌ, no ال."
+            }
+          ]
+        },
+        {
+          "en": "that people come to at night",
+          "accept": [
+            "يأتي إليها الناس ليلا",
+            "يأتي إليها الناس في الليل",
+            "يذهب إليها الناس ليلا",
+            "يذهب إليها الناس في الليل",
+            "يأتيها الناس ليلا",
+            "يأتي الناس إليها ليلا",
+            "يذهب الناس إليها ليلا",
+            "يأتي الناس إليها في الليل"
+          ],
+          "mistakes": [
+            {
+              "text": "التي يأتي",
+              "rule": "After an indefinite noun, no التي: حديقة … يأتي إليها",
+              "note": "A relative clause on an indefinite noun has no التي: حديقةٌ … يأتي إليها الناس."
+            },
+            {
+              "text": "يأتون الناس",
+              "rule": "A verb before its subject stays singular: يأتي الناس",
+              "note": "When the verb comes first it is singular: يأتي الناسُ."
+            },
+            {
+              "text": "يأتي الناس ليلا",
+              "rule": "Return the pronoun: يأتي إليها الناس",
+              "note": "The clause needs a pronoun for the park: يأتي إليها الناسُ."
+            },
+            {
+              "text": "إليه",
+              "rule": "The park is feminine: إليها",
+              "note": "حديقة is feminine: إليها."
+            }
+          ]
+        },
+        {
+          "en": "to look at the stars",
+          "accept": [
+            "لينظروا إلى النجوم",
+            "للنظر إلى النجوم",
+            "ليتأملوا النجوم",
+            "لمشاهدة النجوم",
+            "ليشاهدوا النجوم",
+            "لكي ينظروا إلى النجوم",
+            "لتأمل النجوم"
+          ],
+          "mistakes": [
+            {
+              "text": "لينظرون",
+              "rule": "After لـ the verb is subjunctive: لينظروا",
+              "note": "لِـ + subjunctive drops the ن: لينظروا."
+            },
+            {
+              "text": "ينظروا النجوم",
+              "rule": "نظر takes إلى: ينظروا إلى النجوم",
+              "note": "\"Look at\" is نظر إلى: لينظروا إلى النجوم."
+            },
+            {
+              "text": "لينظر",
+              "rule": "People (plural): لينظروا",
+              "note": "الناس are plural: لينظروا."
+            },
+            {
+              "text": "نجوم",
+              "rule": "\"The stars\": النجوم",
+              "note": "Definite: النجومِ."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "الجزءِ الشرقيِّ: definite nisba adjective",
+        "حديقةٌ صغيرةٌ خضراءُ: the feminine of أخضر is خضراء",
+        "يأتي إليها الناسُ: no التي after an indefinite noun",
+        "لينظروا إلى النجوم: subjunctive drops the ن"
+      ]
+    },
+    {
+      "position": 3,
+      "english": "My friend paid for the whole dinner at his own expense, because he was very happy with his new job.",
+      "grammar_focus": "دَفَعَ ثَمَنَ + كُلّ with a masculine pronoun (ثَمَنَ العَشاءِ كُلِّهِ), عَلى حِسابِهِ الخاصِّ for \"at his own expense\" (a pronoun on the noun and ال on the adjective), and لِأَنَّهُ كانَ + an accusative predicate with فَرِح بِـ (فَرِحًا جِدًّا بِعَمَلِهِ الجَديدِ)",
+      "target_words": [
+        "حساب",
+        "فرح"
+      ],
+      "model_answer": "دَفَعَ صَديقي ثَمَنَ العَشاءِ كُلِّهِ عَلى حِسابِهِ الخاصِّ، لِأَنَّهُ كانَ فَرِحًا جِدًّا بِعَمَلِهِ الجَديدِ.",
+      "reference_translations": [
+        "دفع صديقي ثمن العشاء كله على حسابه الخاص لأنه كان فرحا جدا بعمله الجديد",
+        "صديقي دفع حساب العشاء كله على حسابه لأنه كان سعيدا جدا بوظيفته الجديدة",
+        "دفع صديقي ثمن العشاء بأكمله من جيبه الخاص لأنه كان مسرورا جدا بعمله الجديد",
+        "دفع صديقي ثمن كل العشاء من ماله الخاص لأنه كان فرحا جدا بوظيفته الجديدة"
+      ],
+      "chunks": [
+        {
+          "en": "My friend paid for the whole dinner",
+          "accept": [
+            "دفع صديقي ثمن العشاء كله",
+            "دفع صديقي ثمن كل العشاء",
+            "صديقي دفع ثمن العشاء كله",
+            "دفع صديقي حساب العشاء كله",
+            "دفع صديقي العشاء كله",
+            "دفع صديقي ثمن العشاء بأكمله",
+            "دفع صديقي حساب العشاء بأكمله",
+            "صديقي دفع حساب العشاء كله"
+          ],
+          "mistakes": [
+            {
+              "text": "العشاء كلها",
+              "rule": "عشاء is masculine: كله",
+              "note": "The pronoun agrees with العشاء: كلِّه."
+            },
+            {
+              "text": "الثمن العشاء",
+              "rule": "The first noun of an idafa takes no ال: ثمن العشاء",
+              "note": "\"The price of the dinner\": ثمنَ العشاءِ."
+            },
+            {
+              "text": "دفعت صديقي",
+              "rule": "My friend (he): دفع",
+              "note": "The verb agrees with صديقي: دفعَ."
+            },
+            {
+              "text": "كل عشاء",
+              "rule": "\"The whole dinner\": العشاء كله / كل العشاء",
+              "note": "كلّ عشاءٍ is \"every dinner\"; the whole one is العشاءِ كلِّه."
+            }
+          ]
+        },
+        {
+          "en": "at his own expense",
+          "accept": [
+            "على حسابه الخاص",
+            "على حسابه",
+            "من جيبه الخاص",
+            "من ماله الخاص"
+          ],
+          "mistakes": [
+            {
+              "text": "حساب الخاص",
+              "rule": "His own: حسابه الخاص",
+              "note": "Put the pronoun on the noun: على حسابِه الخاصِّ."
+            },
+            {
+              "text": "حسابه خاص",
+              "rule": "A definite adjective: حسابه الخاص",
+              "note": "حسابه is definite, so: حسابِه الخاصِّ."
+            },
+            {
+              "text": "في حسابه",
+              "rule": "\"At his expense\": على حسابه",
+              "note": "The expression is على حسابِه."
+            },
+            {
+              "text": "حسابها",
+              "rule": "His: حسابه",
+              "note": "\"His own\": حسابِه."
+            }
+          ]
+        },
+        {
+          "en": "because he was very happy with his new job",
+          "accept": [
+            "لأنه كان فرحا جدا بعمله الجديد",
+            "لأنه كان فرحا جدا بوظيفته الجديدة",
+            "لأنه كان سعيدا جدا بعمله الجديد",
+            "لأنه كان سعيدا جدا بوظيفته الجديدة",
+            "لأنه كان مسرورا جدا بعمله الجديد",
+            "لأنه كان مسرورا جدا بوظيفته الجديدة"
+          ],
+          "mistakes": [
+            {
+              "text": "كان فرح",
+              "rule": "After كان the predicate is accusative: فرحا",
+              "note": "كان makes its predicate accusative: كان فرِحًا."
+            },
+            {
+              "text": "كان سعيد",
+              "rule": "After كان the predicate is accusative: سعيدا",
+              "note": "كان makes its predicate accusative: كان سعيدًا."
+            },
+            {
+              "text": "بوظيفته الجديد",
+              "rule": "وظيفة is feminine: الجديدة",
+              "note": "وظيفة is feminine: بوظيفتِه الجديدةِ."
+            },
+            {
+              "text": "بعمله جديد",
+              "rule": "A definite adjective: بعمله الجديد",
+              "note": "عمله is definite, so: بعملِه الجديدِ."
+            },
+            {
+              "text": "فرحا من",
+              "rule": "فرح takes بـ: فرحا بعمله",
+              "note": "\"Happy with\" is فرِح بـ: فرِحًا بعملِه."
+            },
+            {
+              "text": "لأن كان",
+              "rule": "لأنّ needs a pronoun: لأنه كان",
+              "note": "لأنّ is followed by a noun or pronoun: لأنّه كان."
+            }
+          ]
+        }
+      ],
+      "pitfalls": [
+        "ثمنَ العشاءِ كلِّه: masculine pronoun",
+        "على حسابِه الخاصِّ: the pronoun on the noun, ال on the adjective",
+        "كان فرِحًا: accusative after كان",
+        "فرِح بـ: \"happy with\""
+      ]
+    }
+  ]
+}
